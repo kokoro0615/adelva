@@ -1,0 +1,66 @@
+{
+  "materialLanguage": {
+    "label": "flat",
+    "confidence": 0,
+    "signals": [],
+    "metrics": {
+      "saturation": 0.255,
+      "shadowProfile": "soft",
+      "avgShadowBlur": 0,
+      "maxShadowBlur": 0,
+      "insetShadows": 0,
+      "avgRadius": 39.3,
+      "maxRadius": 100,
+      "hasPill": false,
+      "hasBackdropBlur": false,
+      "gradientCount": 4
+    },
+    "alternates": []
+  },
+  "imageryStyle": {
+    "label": "gradient-mesh",
+    "confidence": 0.062,
+    "counts": {
+      "total": 27,
+      "svg": 0,
+      "icon": 6,
+      "hero": 0,
+      "screenshot": 0,
+      "photoLike": 0
+    },
+    "dominantAspect": "square-ish",
+    "radiusProfile": "square",
+    "alternates": [],
+    "signals": []
+  },
+  "backgroundPatterns": {
+    "labels": [
+      "line-grid"
+    ],
+    "counts": {
+      "noise": 0,
+      "dotGrid": 0,
+      "lineGrid": 3,
+      "meshCount": 0,
+      "svgPattern": 0
+    },
+    "gradientTotals": {
+      "radial": 0,
+      "linear": 6
+    },
+    "samples": [
+      {
+        "tag": "line-grid",
+        "value": "repeating-linear-gradient(90deg, rgba(44, 55, 75, 0.4) 0px, rgba(44, 55, 75, 0.4) 2px, rgba(0, 0, 0, 0) 2px, rgba(0, 0, 0, 0) 4px)"
+      },
+      {
+        "tag": "line-grid",
+        "value": "repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.4) 0px, rgba(255, 255, 255, 0.4) 2px, rgba(0, 0, 0, 0) 2px, rgba(0, 0, 0, 0) 4px)"
+      },
+      {
+        "tag": "line-grid",
+        "value": "repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.4) 0px, rgba(255, 255, 255, 0.4) 2px, rgba(0, 0, 0, 0) 2px, rgba(0, 0, 0, 0) 4px)"
+      }
+    ]
+  }
+}

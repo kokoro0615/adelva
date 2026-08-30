@@ -1,0 +1,3 @@
+[submodule "tools/design-extract"]
+	path = tools/design-extract
+	url = https://github.com/Manavarya09/design-extract.git

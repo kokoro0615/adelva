@@ -1,0 +1,126 @@
+{
+  "tone": "friendly",
+  "pronoun": "you-only",
+  "headingStyle": "Title Case",
+  "headingLengthClass": "balanced",
+  "ctaVerbs": [
+    {
+      "value": "enquire",
+      "count": 3
+    },
+    {
+      "value": "watch",
+      "count": 3
+    },
+    {
+      "value": "south",
+      "count": 2
+    },
+    {
+      "value": "get",
+      "count": 2
+    },
+    {
+      "value": "how",
+      "count": 2
+    },
+    {
+      "value": "experience",
+      "count": 1
+    },
+    {
+      "value": "operation",
+      "count": 1
+    },
+    {
+      "value": "about",
+      "count": 1
+    },
+    {
+      "value": "rates",
+      "count": 1
+    },
+    {
+      "value": "explore",
+      "count": 1
+    }
+  ],
+  "buttonPatterns": [
+    {
+      "value": "watch film",
+      "count": 3
+    },
+    {
+      "value": "enquire now",
+      "count": 2
+    },
+    {
+      "value": "how it works\nclose",
+      "count": 2
+    },
+    {
+      "value": "experience",
+      "count": 1
+    },
+    {
+      "value": "operation",
+      "count": 1
+    },
+    {
+      "value": "about",
+      "count": 1
+    },
+    {
+      "value": "rates",
+      "count": 1
+    },
+    {
+      "value": "enquire",
+      "count": 1
+    },
+    {
+      "value": "baby penguins & blue tunnels\nus $75,250\nearly season\n\nwitness the emperor chicks as they take their first steps and explore the ethereal blue ice tunnels.",
+      "count": 1
+    },
+    {
+      "value": "south pole & penguins\nus $115,500\n\nour most popular itinerary, which includes a journey to the south pole — visited by fewer than 500 people each year — and a v",
+      "count": 1
+    },
+    {
+      "value": "south pole & blue rivers\nus $115,500\nlate season\n\nour newest itinerary. one that combines our signature journey to the south pole — visited by fewer than 500 pe",
+      "count": 1
+    },
+    {
+      "value": "the long stay\nus $110,500\nlate season\n\nexperience both of our main camps — whichaway and echo — on our longest itinerary, which includes the south pole and the",
+      "count": 1
+    },
+    {
+      "value": "antarctica in a day\nus $16,500\nentire season\n\ncape town to antarctica and back — descend into an ice cave, rappel down a glacier and toast with champagne in our",
+      "count": 1
+    },
+    {
+      "value": "whichaway\n\nour original camp, newly reimagined. rare exposed rock and freshwater lakes — this is a side of antarctica seldom seen.\n\n[ 70º 48’ 00” s, 11º 23’ 00”",
+      "count": 1
+    },
+    {
+      "value": "echo\n\ninspired by astronauts, used by explorers. as close as you can get to leaving earth without stepping off the planet.\n\n[ 71°32'47\" s, 8°50'11\" e ]",
+      "count": 1
+    }
+  ],
+  "sampleHeadings": [
+    "ANTARCTICA",
+    "VAST, MAJESTIC AND UNIMAGINABLY BEAUTIFUL — SETTING FOOT IN ANTARCTICA’S FABLED INTERIOR REMAINS A RARE AND EXTRAORDINARY EXPERIENCE.",
+    "OUR TRIPS",
+    "Baby Penguins & Blue Tunnels",
+    "South Pole & Penguins",
+    "VAST, MAJESTIC AND UNIMAGINABLY BEAUTIFUL — SETTING FOOT IN ANTARCTICA’S FABLED INTERIOR REMAINS A RARE AND EXTRAORDINARY EXPERIENCE.",
+    "OUR TRIPS",
+    "Baby Penguins & Blue Tunnels",
+    "South Pole & Penguins",
+    "South Pole & Blue Rivers"
+  ],
+  "stats": {
+    "buttons": 25,
+    "headings": 18
+  }
+}

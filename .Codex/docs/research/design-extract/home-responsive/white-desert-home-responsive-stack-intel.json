@@ -1,0 +1,14 @@
+{
+  "cms": [
+    "sanity"
+  ],
+  "analytics": [
+    "google-analytics",
+    "vercel-analytics"
+  ],
+  "experimentation": [],
+  "signals": {
+    "scriptCount": 40,
+    "metaCount": 9
+  }
+}

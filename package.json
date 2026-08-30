@@ -1,0 +1,52 @@
+{
+  "name": "polar-expedition-visual-adaptation",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@11.22.0",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint . --max-warnings=0",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:unit": "vitest run",
+    "test:e2e": "playwright test --project=chromium",
+    "test:axe": "playwright test tests/e2e/accessibility.spec.ts --project=chromium",
+    "test:visual": "playwright test tests/e2e/visual.spec.ts --project=chromium",
+    "capture:reference": "node scripts/fidelity/capture-reference.mjs",
+    "capture:actual": "node scripts/fidelity/capture-actual.mjs",
+    "extract:design": "node scripts/extraction/run-design-extract.mjs",
+    "fidelity:reference": "node scripts/fidelity/compare-reference.mjs",
+    "verify": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test:unit && pnpm test:e2e && pnpm build"
+  },
+  "dependencies": {
+    "@gsap/react": "2.1.2",
+    "gsap": "3.15.0",
+    "lenis": "1.3.26",
+    "next": "16.3.3",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@playwright/test": "1.62.1",
+    "@testing-library/jest-dom": "7.0.1",
+    "@testing-library/react": "16.3.3",
+    "@types/node": "26.4.0",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.5",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.3.3",
+    "jsdom": "30.0.1",
+    "prettier": "3.9.6",
+    "sharp": "0.35.4",
+    "typescript": "6.0.3",
+    "vitest": "4.1.11"
+  }
+}

@@ -1,0 +1,253 @@
+{
+  "$description": "Motion tokens extracted by designlang",
+  "duration": {
+    "md": {
+      "$value": "300ms",
+      "$type": "duration",
+      "ms": 300,
+      "$extensions": {
+        "designlang.observed": true
+      }
+    },
+    "lg": {
+      "$value": "600ms",
+      "$type": "duration",
+      "ms": 600,
+      "$extensions": {
+        "designlang.observed": true
+      }
+    },
+    "xl": {
+      "$value": "1s",
+      "$type": "duration",
+      "ms": 1000
+    },
+    "xxl": {
+      "$value": "2s",
+      "$type": "duration",
+      "ms": 2000,
+      "$extensions": {
+        "designlang.observed": true
+      }
+    }
+  },
+  "easing": {
+    "ease-in-965": {
+      "$value": "cubic-bezier(0.5, 1, 0.89, 1)",
+      "$type": "cubicBezier",
+      "family": "ease-in"
+    },
+    "custom-900": {
+      "$value": "cubic-bezier(0.4, 0, 0.2, 1)",
+      "$type": "cubicBezier",
+      "family": "custom"
+    },
+    "ease-in-out": {
+      "$value": "ease",
+      "$type": "cubicBezier",
+      "family": "ease-in-out"
+    },
+    "custom-9": {
+      "$value": "cubic-bezier(0.76, 0, 0.24, 1)",
+      "$type": "cubicBezier",
+      "family": "custom"
+    },
+    "ease-out-953": {
+      "$value": "cubic-bezier(0.16, 1, 0.3, 1)",
+      "$type": "cubicBezier",
+      "family": "ease-out"
+    }
+  },
+  "spring": {},
+  "$meta": {
+    "feel": "mixed",
+    "scrollLinked": true,
+    "runtime": {
+      "triggers": [
+        "load",
+        "hover",
+        "focus",
+        "scroll"
+      ],
+      "observed": 69
+    }
+  },
+  "choreography": {
+    "stagger-1": {
+      "$type": "designlang.choreography",
+      "trigger": "load",
+      "staggerMs": 200,
+      "count": 3,
+      "durationMs": 2000,
+      "easing": "linear",
+      "properties": [
+        "height",
+        "opacity",
+        "width"
+      ],
+      "selectorPattern": "div:nth-of-type(*) > div:nth-of-type(*) > div > i:nth-of-type(*)"
+    },
+    "stagger-2": {
+      "$type": "designlang.choreography",
+      "trigger": "scroll",
+      "staggerMs": 200,
+      "count": 3,
+      "durationMs": 2000,
+      "easing": "linear",
+      "properties": [
+        "height",
+        "opacity",
+        "width"
+      ],
+      "selectorPattern": "div:nth-of-type(*) > div:nth-of-type(*) > div > i:nth-of-type(*)"
+    }
+  },
+  "scroll": {
+    "reveal-1": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "color"
+      ],
+      "durationMs": 300,
+      "easing": "ease",
+      "selector": "html > body > nav"
+    },
+    "reveal-2": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "color"
+      ],
+      "durationMs": 300,
+      "easing": "cubic-bezier(0.5, 1, 0.89, 1)",
+      "selector": "div:nth-of-type(1) > ul > li:nth-of-type(1) > div:nth-of-type(3)"
+    },
+    "reveal-3": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "color"
+      ],
+      "durationMs": 300,
+      "easing": "cubic-bezier(0.5, 1, 0.89, 1)",
+      "selector": "div:nth-of-type(1) > ul > li:nth-of-type(2) > div:nth-of-type(3)"
+    },
+    "reveal-4": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "color"
+      ],
+      "durationMs": 300,
+      "easing": "cubic-bezier(0.5, 1, 0.89, 1)",
+      "selector": "div:nth-of-type(1) > ul > li:nth-of-type(3) > div:nth-of-type(3)"
+    },
+    "reveal-5": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "color"
+      ],
+      "durationMs": 300,
+      "easing": "cubic-bezier(0.5, 1, 0.89, 1)",
+      "selector": "div:nth-of-type(3) > ul > li:nth-of-type(1) > div:nth-of-type(3)"
+    },
+    "reveal-6": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "border-bottom-color"
+      ],
+      "durationMs": 300,
+      "easing": "cubic-bezier(0.5, 1, 0.89, 1)",
+      "selector": "div:nth-of-type(3) > ul > li:nth-of-type(1) > a"
+    },
+    "reveal-7": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "color"
+      ],
+      "durationMs": 300,
+      "easing": "cubic-bezier(0.5, 1, 0.89, 1)",
+      "selector": "div:nth-of-type(3) > ul > li:nth-of-type(2) > div:nth-of-type(3)"
+    },
+    "reveal-8": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "border-bottom-color"
+      ],
+      "durationMs": 300,
+      "easing": "cubic-bezier(0.5, 1, 0.89, 1)",
+      "selector": "div:nth-of-type(3) > ul > li:nth-of-type(2) > a"
+    },
+    "parallax-9": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "parallax",
+      "properties": [
+        "transform"
+      ],
+      "durationMs": 450,
+      "easing": "cubic-bezier(0.76, 0, 0.24, 1)",
+      "selector": "div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div"
+    },
+    "reveal-10": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "opacity"
+      ],
+      "durationMs": 1400,
+      "easing": "linear",
+      "selector": "div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2)"
+    },
+    "parallax-11": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "parallax",
+      "properties": [
+        "transform"
+      ],
+      "durationMs": 1400,
+      "easing": "linear",
+      "selector": "div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2)"
+    },
+    "reveal-12": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "height",
+        "opacity",
+        "width"
+      ],
+      "durationMs": 2000,
+      "easing": "linear",
+      "selector": "div:nth-of-type(1) > div:nth-of-type(3) > div > i:nth-of-type(1)"
+    },
+    "reveal-13": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "height",
+        "opacity",
+        "width"
+      ],
+      "durationMs": 2000,
+      "easing": "linear",
+      "selector": "div:nth-of-type(1) > div:nth-of-type(3) > div > i:nth-of-type(2)"
+    },
+    "reveal-14": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "height",
+        "opacity",
+        "width"
+      ],
+      "durationMs": 2000,
+      "easing": "linear",
+      "selector": "div:nth-of-type(1) > div:nth-of-type(3) > div > i:nth-of-type(3)"
+    }
+  }
+}

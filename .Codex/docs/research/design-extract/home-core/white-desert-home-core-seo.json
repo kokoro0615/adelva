@@ -1,0 +1,42 @@
+{
+  "openGraph": {
+    "title": "Luxury Adventures in Antarctica | White Desert",
+    "description": "White Desert is the world’s leading luxury Antarctic expedition company, offering once-in-a-lifetime journeys to the South Pole and Emperor Penguins",
+    "image": "https://cdn.sanity.io/images/kq9qn5zn/production/61d6822b0a9de3ba0d497135328c37d64f981c0d-2000x1333.jpg"
+  },
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Luxury Adventures in Antarctica | White Desert",
+    "description": "White Desert is the world’s leading luxury Antarctic expedition company, offering once-in-a-lifetime journeys to the South Pole and Emperor Penguins",
+    "image": "https://cdn.sanity.io/images/kq9qn5zn/production/61d6822b0a9de3ba0d497135328c37d64f981c0d-2000x1333.jpg"
+  },
+  "description": "White Desert is the world’s leading luxury Antarctic expedition company, offering once-in-a-lifetime journeys to the South Pole and Emperor Penguins",
+  "canonical": null,
+  "themeColor": null,
+  "viewport": "width=device-width, initial-scale=1",
+  "favicons": [
+    {
+      "rel": "icon",
+      "href": "https://white-desert.com/favicon.ico?favicon.d05ab43b.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ],
+  "manifest": null,
+  "structuredData": [
+    {
+      "type": "Thing",
+      "name": null,
+      "sample": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Organization\",\"@id\":\"https://white-desert.com/#organization\",\"name\":\"White Desert\",\"url\":\"https://white-desert.com/\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://imagedelivery.net/p_-2dRRbgzr8qPFwN5vrAw/01b46bfe-e732-4a19-e567-06e060135700/public\"},\"description\":\"White Desert is the world’s leading luxury Antarctic expedition company, offering o"
+    }
+  ],
+  "score": {
+    "hasOg": true,
+    "hasTwitter": true,
+    "hasDescription": true,
+    "hasCanonical": false,
+    "hasStructuredData": true,
+    "hasFavicon": true,
+    "hasThemeColor": false
+  }
+}

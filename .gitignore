@@ -1,0 +1,15 @@
+node_modules/
+.next/
+out/
+coverage/
+test-results/
+playwright-report/
+blob-report/
+artifacts/
+.playwright-mcp/
+*.tsbuildinfo
+.env*
+!.env.example
+.DS_Store
+pnpm-debug.log*
+npm-debug.log*

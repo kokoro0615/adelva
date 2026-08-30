@@ -1,0 +1,261 @@
+{
+  "pageIntent": {
+    "type": "landing",
+    "confidence": 0.31,
+    "path": "/",
+    "title": "Luxury Adventures in Antarctica | White Desert",
+    "description": "White Desert is the world’s leading luxury Antarctic expedition company, offering once-in-a-lifetime journeys to the South Pole and Emperor Penguins",
+    "signals": [
+      {
+        "kind": "dom",
+        "type": "blog-post",
+        "weight": 0.35,
+        "detail": "byline|min-read"
+      },
+      {
+        "kind": "url",
+        "type": "landing",
+        "weight": 0.45,
+        "detail": "root-path"
+      }
+    ],
+    "alternates": [
+      {
+        "type": "blog-post",
+        "score": 0.35
+      }
+    ],
+    "needsSmart": true
+  },
+  "sectionRoles": {
+    "sections": [
+      {
+        "index": 0,
+        "tag": "nav",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": null,
+        "bounds": {
+          "x": 0,
+          "y": -71.109375,
+          "w": 1280,
+          "h": 71.109375
+        },
+        "buttonCount": 14,
+        "cardCount": 5,
+        "slots": {
+          "ctaCount": 14,
+          "lede": "Experience\nOperation\nAbout\nRates\nEnquire"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 1,
+        "tag": "main",
+        "role": "pricing-table",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": "ANTARCTICA",
+        "bounds": {
+          "x": 0,
+          "y": -3918,
+          "w": 1280,
+          "h": 17636.3125
+        },
+        "buttonCount": 13,
+        "cardCount": 91,
+        "slots": {
+          "heading": "ANTARCTICA",
+          "subheadings": [
+            "VAST, MAJESTIC AND UNIMAGINABLY BEAUTIFUL — SETTING FOOT IN ANTARCTICA’S FABLED INTERIOR REMAINS A RARE AND EXTRAORDINARY EXPERIENCE.",
+            "OUR TRIPS",
+            "Baby Penguins & Blue Tunnels",
+            "South Pole & Penguins"
+          ],
+          "ctaCount": 13,
+          "lede": "Luxury and adventure in the most remote place on Earth"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 2,
+        "tag": "section",
+        "role": "testimonial",
+        "subrole": null,
+        "confidence": 0.8,
+        "heading": "VAST, MAJESTIC AND UNIMAGINABLY BEAUTIFUL — SETTING FOOT IN ANTARCTICA’S FABLED INTERIOR REMAINS A RARE AND EXTRAORDINARY EXPERIENCE.",
+        "bounds": {
+          "x": 0,
+          "y": -2318,
+          "w": 1280,
+          "h": 698.25
+        },
+        "buttonCount": 0,
+        "cardCount": 0,
+        "slots": {
+          "heading": "VAST, MAJESTIC AND UNIMAGINABLY BEAUTIFUL — SETTING FOOT IN ANTARCTICA’S FABLED INTERIOR REMAINS A RARE AND EXTRAORDINARY EXPERIENCE.",
+          "lede": "The Last Continent"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 3,
+        "tag": "section",
+        "role": "content",
+        "subrole": null,
+        "confidence": 0.3,
+        "heading": null,
+        "bounds": {
+          "x": 0,
+          "y": -1619.75,
+          "w": 1280,
+          "h": 1200
+        },
+        "buttonCount": 0,
+        "cardCount": 0,
+        "slots": {
+          "lede": "OUR SEASON"
+        },
+        "needsSmart": true
+      },
+      {
+        "index": 4,
+        "tag": "section",
+        "role": "content",
+        "subrole": null,
+        "confidence": 0.3,
+        "heading": "OUR TRIPS",
+        "bounds": {
+          "x": 0,
+          "y": -419.75,
+          "w": 1280,
+          "h": 479.984375
+        },
+        "buttonCount": 0,
+        "cardCount": 0,
+        "slots": {
+          "heading": "OUR TRIPS"
+        },
+        "needsSmart": true
+      },
+      {
+        "index": 5,
+        "tag": "section",
+        "role": "pricing-table",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": "Baby Penguins & Blue Tunnels",
+        "bounds": {
+          "x": 0,
+          "y": 60.234375,
+          "w": 1280,
+          "h": 680
+        },
+        "buttonCount": 5,
+        "cardCount": 70,
+        "slots": {
+          "heading": "Baby Penguins & Blue Tunnels",
+          "subheadings": [
+            "South Pole & Penguins",
+            "South Pole & Blue Rivers",
+            "The Long Stay",
+            "Antarctica in a Day"
+          ],
+          "ctaCount": 5,
+          "lede": "Baby Penguins & Blue Tunnels\nUS $75,250\nEarly Season"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 6,
+        "tag": "section",
+        "role": "testimonial",
+        "subrole": null,
+        "confidence": 0.8,
+        "heading": null,
+        "bounds": {
+          "x": 0,
+          "y": 740.234375,
+          "w": 1280,
+          "h": 849.1875
+        },
+        "buttonCount": 0,
+        "cardCount": 0,
+        "slots": {
+          "lede": "“"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 7,
+        "tag": "section",
+        "role": "testimonials",
+        "subrole": null,
+        "confidence": 0.4,
+        "heading": "TO THE END OF THE EARTH",
+        "bounds": {
+          "x": 0,
+          "y": 11169.84375,
+          "w": 1280,
+          "h": 2548.46875
+        },
+        "buttonCount": 2,
+        "cardCount": 9,
+        "slots": {
+          "heading": "TO THE END OF THE EARTH",
+          "subheadings": [
+            "05:30 HRS",
+            "4,220 KM / 2,610 MI",
+            "-5°C / 23° F",
+            "START PLANNING YOUR ADVENTURE"
+          ],
+          "ctaCount": 2,
+          "lede": "33º 58' 17\" S 18º 36' 13\" E\nCape Town"
+        },
+        "needsSmart": true
+      },
+      {
+        "index": 8,
+        "tag": "section",
+        "role": "hero",
+        "subrole": null,
+        "confidence": 0.4,
+        "heading": "START PLANNING YOUR ADVENTURE",
+        "bounds": {
+          "x": 0,
+          "y": 12918.3125,
+          "w": 1280,
+          "h": 800
+        },
+        "buttonCount": 1,
+        "cardCount": 0,
+        "slots": {
+          "heading": "START PLANNING YOUR ADVENTURE",
+          "ctaCount": 1,
+          "lede": "START PLANNING YOUR ADVENTURE\nGet in touch"
+        },
+        "needsSmart": true
+      }
+    ],
+    "counts": {
+      "nav": 1,
+      "pricing-table": 2,
+      "testimonial": 2,
+      "content": 2,
+      "testimonials": 1,
+      "hero": 1
+    },
+    "readingOrder": [
+      "pricing-table",
+      "testimonial",
+      "content",
+      "content",
+      "nav",
+      "pricing-table",
+      "testimonial",
+      "testimonials",
+      "hero"
+    ]
+  }
+}
