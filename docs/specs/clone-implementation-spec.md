@@ -206,22 +206,31 @@ Capture and implement the following states where the target proves them. A
 state marked “verify” is not permission to invent target behavior; it is a
 required reconnaissance check.
 
-| State                                | Applies to                                  | Required contract                                                                                                           | Target status                          |
-| ------------------------------------ | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
-| Default, loaded                      | All rendered families                       | Content, links, media, and landmarks are readable after load                                                                | Verify per route                       |
-| Loading/font/media                   | Routes with deferred content/media          | Reserve space; expose no blank critical content; recover from failure                                                       | Verify                                 |
-| Global navigation closed/open        | All page templates except redirect response | Menu button exposes `aria-expanded`/`aria-controls`; Escape closes and returns focus; tab order stays contained while modal | Verify                                 |
-| Link/button hover                    | Interactive elements                        | Provide non-hover equivalent; no layout-shifting hover; keyboard focus has equivalent feedback                              | Verify                                 |
-| Keyboard focus                       | All interactive routes                      | Visible focus, logical order, no focus loss during transition                                                               | Required implementation; target verify |
-| Touch/press                          | Tablet/mobile interactive routes            | Equivalent action without hover; no pointer-only dependency                                                                 | Verify                                 |
-| Scroll/in-view                       | Long-form families                          | Content remains available at scroll start/middle/end; no pinned section traps native scroll                                 | Verify                                 |
-| Carousel default/next/previous       | If a route contains a carousel              | Buttons have names, current item is announced, swipe has button equivalent, focus remains predictable                       | Presence verify                        |
-| Accordion collapsed/open             | If a route contains an accordion            | Button state and panel relationship are exposed; content is keyboard reachable                                              | Presence verify                        |
-| Enquiry pristine/focused/filled      | `/enquire`                                  | Labels, input purpose, and focus styles are exposed                                                                         | Required; exact fields verify          |
-| Enquiry invalid/valid/blocked submit | `/enquire`                                  | Inline errors plus summary/status; no target or external submission; preserve values on correction                          | Required; exact rules verify           |
-| Redirect response                    | `/antarctica`                               | Record status, `Location`, final URL, and chain; no duplicate client redirect                                               | Verify                                 |
-| Reduced motion                       | All routes                                  | Skip/reduce transforms and loops; preserve final layout, content, and native scrolling                                      | Required                               |
-| No-JavaScript fallback               | All routes                                  | Navigation, links, content, and form labels remain usable; enhanced motion is optional                                      | Required                               |
+| State                                | Applies to                                  | Required contract                                                                                                           | Target status                                    |
+| ------------------------------------ | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
+| Default, loaded                      | All rendered families                       | Content, links, media, and landmarks are readable after load                                                                | Verify per route                                 |
+| Loading/font/media                   | Routes with deferred content/media          | Reserve space; expose no blank critical content; recover from failure                                                       | Verify                                           |
+| Global navigation closed/open        | All page templates except redirect response | Menu button exposes `aria-expanded`/`aria-controls`; Escape closes and returns focus; tab order stays contained while modal | Target lacks these safeguards; improve           |
+| Link/button hover                    | Interactive elements                        | Provide non-hover equivalent; no layout-shifting hover; keyboard focus has equivalent feedback                              | Verify                                           |
+| Keyboard focus                       | All interactive routes                      | Visible focus, logical order, no focus loss during transition                                                               | Required implementation; target verify           |
+| Touch/press                          | Tablet/mobile interactive routes            | Equivalent action without hover; no pointer-only dependency                                                                 | Verify                                           |
+| Scroll/in-view                       | Long-form families                          | Content remains available at scroll start/middle/end; no pinned section traps native scroll                                 | Verify                                           |
+| Carousel default/next/previous       | If a route contains a carousel              | Buttons have names, current item is announced, swipe has button equivalent, focus remains predictable                       | Presence verify                                  |
+| Accordion collapsed/open             | If a route contains an accordion            | Button state and panel relationship are exposed; content is keyboard reachable                                              | Presence verify                                  |
+| Enquiry pristine/focused/filled      | `/enquire`                                  | Labels, input purpose, and focus styles are exposed                                                                         | Required; exact fields verify                    |
+| Enquiry invalid/valid/blocked submit | `/enquire`                                  | Inline errors plus summary/status; no target or external submission; preserve values on correction                          | Target empty submit is disabled; improve locally |
+| Redirect response                    | `/antarctica`                               | Record status, `Location`, final URL, and chain; no duplicate client redirect                                               | Verify                                           |
+| Reduced motion                       | All routes                                  | Skip/reduce transforms and loops; preserve final layout, content, and native scrolling                                      | Target keeps Lenis/GSAP/reveals; do not copy     |
+| No-JavaScript fallback               | All routes                                  | Navigation, links, content, and form labels remain usable; enhanced motion is optional                                      | Required                                         |
+
+The interaction audit found target accessibility defects that are explicitly
+outside the fidelity contract: the mobile menu does not close on Escape, does
+not return focus after its Close button, does not contain keyboard focus, and
+does not expose effective scroll locking; the audited reduced-motion contexts
+retain Lenis, GSAP transforms, and a 1.4-second reveal. The adaptation must
+preserve the visible states and timing language while implementing the safer
+behavior required above. See
+`.Codex/docs/research/white-desert-interaction-state-audit.md`.
 
 ## Motion contract
 

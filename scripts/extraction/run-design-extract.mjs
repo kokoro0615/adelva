@@ -123,8 +123,7 @@ export function parseArguments(args) {
     }
 
     if (argument === "--") {
-      positionals.push(...args.slice(index + 1));
-      break;
+      continue;
     }
 
     if (argument === "--slug" || argument === "-s") {

@@ -1,10 +1,16 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
+import process from "node:process";
 
-import { chromium } from "@playwright/test";
 import sharp from "sharp";
 
 import { routeManifest, routeSlug, viewports } from "./route-manifest.mjs";
+
+const defaultMotion = "reduce";
+const allowedOptions = new Set(["route", "viewport", "motion", "out"]);
+const allowedMotions = new Set(["reduce", "no-preference"]);
+const routePaths = new Set(routeManifest.map(({ path: routePath }) => routePath));
+const viewportNames = new Set(viewports.map(({ name }) => name));
 
 const blockedHosts = [
   "bat.bing.com",
@@ -16,13 +22,121 @@ const blockedHosts = [
   "metricool.com",
 ];
 
-function parseArguments(argv) {
-  return Object.fromEntries(
-    argv.map((argument) => {
-      const [key, ...value] = argument.replace(/^--/, "").split("=");
-      return [key, value.join("=") || true];
-    }),
-  );
+export function parseArguments(argv) {
+  const args = {};
+
+  for (let index = 0; index < argv.length; index += 1) {
+    const argument = argv[index];
+    if (argument === "--") continue;
+    if (typeof argument !== "string" || !argument.startsWith("--")) {
+      throw new Error(`Unexpected positional argument: ${argument ?? ""}`);
+    }
+
+    const separator = argument.indexOf("=");
+    const key = argument.slice(2, separator === -1 ? undefined : separator);
+    let value = separator === -1 ? undefined : argument.slice(separator + 1);
+
+    if (!allowedOptions.has(key)) {
+      throw new Error(`Unknown capture option: --${key}`);
+    }
+    if (Object.hasOwn(args, key)) {
+      throw new Error(`Capture option may only be supplied once: --${key}`);
+    }
+
+    if (value === undefined) {
+      value = argv[index + 1];
+      if (typeof value !== "string" || value.startsWith("--")) {
+        throw new Error(`Capture option requires a value: --${key}`);
+      }
+      index += 1;
+    }
+    if (value.length === 0) {
+      throw new Error(`Capture option requires a non-empty value: --${key}`);
+    }
+
+    args[key] = value;
+  }
+
+  return args;
+}
+
+function hasPathTraversal(value) {
+  return value.split(/[\\/]+/u).some((segment) => segment === "..");
+}
+
+export function validateOutputRoot(value) {
+  if (typeof value !== "string" || value.length === 0) {
+    throw new Error("Capture output root must be a non-empty path.");
+  }
+  if (/[\u0000-\u001f\u007f]/u.test(value)) {
+    throw new Error("Capture output root contains unsafe control characters.");
+  }
+  if (hasPathTraversal(value)) {
+    throw new Error(`Capture output root must not contain path traversal: ${value}`);
+  }
+
+  const outputRoot = path.resolve(value);
+  if (
+    outputRoot === path.parse(outputRoot).root ||
+    outputRoot === path.resolve(process.cwd())
+  ) {
+    throw new Error(`Refusing unsafe capture output root: ${value}`);
+  }
+
+  return outputRoot;
+}
+
+function selectRoute(routePath) {
+  if (routePath === undefined) return routeManifest;
+  if (!routePaths.has(routePath)) {
+    throw new Error(`Unknown route: ${routePath}`);
+  }
+  return routeManifest.filter(({ path: manifestPath }) => manifestPath === routePath);
+}
+
+function selectViewport(viewportName) {
+  if (viewportName === undefined) return viewports;
+  if (!viewportNames.has(viewportName)) {
+    throw new Error(`Unknown viewport: ${viewportName}`);
+  }
+  return viewports.filter(({ name }) => name === viewportName);
+}
+
+function selectMotion(motion) {
+  const selectedMotion = motion ?? defaultMotion;
+  if (!allowedMotions.has(selectedMotion)) {
+    throw new Error(`Unknown motion preference: ${selectedMotion}`);
+  }
+  return selectedMotion;
+}
+
+export function parseCaptureOptions(
+  argv = process.argv.slice(2),
+  { defaultOutputRoot = "artifacts/reference/target" } = {},
+) {
+  const args = parseArguments(argv);
+  const selectedMotion = selectMotion(args.motion);
+  const outputRootWasExplicit = args.out !== undefined;
+
+  if (selectedMotion === "no-preference" && !outputRootWasExplicit) {
+    throw new Error(
+      "--motion=no-preference requires an explicit --out path to preserve reduced-motion evidence.",
+    );
+  }
+
+  return {
+    routes: selectRoute(args.route),
+    viewports: selectViewport(args.viewport),
+    motion: selectedMotion,
+    outputRoot: validateOutputRoot(
+      outputRootWasExplicit ? args.out : defaultOutputRoot,
+    ),
+    outputRootWasExplicit,
+    filters: {
+      route: args.route ?? null,
+      viewport: args.viewport ?? null,
+    },
+  };
 }
 
 async function waitForVisualReadiness(page) {
@@ -53,24 +167,30 @@ async function waitForVisualReadiness(page) {
   await page.waitForTimeout(250);
 }
 
-export async function captureSite({ baseUrl, outputRoot, target }) {
-  const args = parseArguments(process.argv.slice(2));
-  const selectedRoutes =
-    typeof args.route === "string"
-      ? routeManifest.filter(({ path: routePath }) => routePath === args.route)
-      : args.family
-        ? routeManifest.filter(({ family }) => family === args.family)
-        : routeManifest;
-  const selectedViewports =
-    typeof args.viewport === "string"
-      ? viewports.filter(({ name }) => name === args.viewport)
-      : viewports;
-
-  if (selectedRoutes.length === 0 || selectedViewports.length === 0) {
-    throw new Error("No routes or viewports matched the supplied filters.");
+export async function captureSite({
+  baseUrl,
+  outputRoot,
+  target,
+  routes: selectedRoutes = routeManifest,
+  viewports: selectedViewports = viewports,
+  motion = defaultMotion,
+  filters = { route: null, viewport: null },
+}) {
+  if (!Array.isArray(selectedRoutes) || selectedRoutes.length === 0) {
+    throw new Error("Capture requires at least one route.");
   }
+  if (!Array.isArray(selectedViewports) || selectedViewports.length === 0) {
+    throw new Error("Capture requires at least one viewport.");
+  }
+  const selectedMotion = selectMotion(motion);
+  const captureOutputRoot = validateOutputRoot(outputRoot);
+  const captureFilters = {
+    route: filters.route ?? null,
+    viewport: filters.viewport ?? null,
+  };
 
-  await mkdir(outputRoot, { recursive: true });
+  const { chromium } = await import("@playwright/test");
+  await mkdir(captureOutputRoot, { recursive: true });
   const browser = await chromium.launch({ headless: true });
   const evidence = [];
 
@@ -80,7 +200,7 @@ export async function captureSite({ baseUrl, outputRoot, target }) {
         viewport: { width: viewport.width, height: viewport.height },
         deviceScaleFactor: 1,
         colorScheme: "light",
-        reducedMotion: "reduce",
+        reducedMotion: selectedMotion,
       });
 
       if (target) {
@@ -120,7 +240,7 @@ export async function captureSite({ baseUrl, outputRoot, target }) {
         await waitForVisualReadiness(page);
 
         const filename = `${routeSlug(route.path)}-${viewport.width}x${viewport.height}-top.png`;
-        const outputPath = path.join(outputRoot, filename);
+        const outputPath = path.join(captureOutputRoot, filename);
         await page.screenshot({ path: outputPath, fullPage: false, scale: "css" });
         const metadata = await sharp(outputPath).metadata();
 
@@ -132,6 +252,8 @@ export async function captureSite({ baseUrl, outputRoot, target }) {
           status: response?.status() ?? null,
           viewport,
           file: outputPath,
+          motion: selectedMotion,
+          filters: captureFilters,
           naturalWidth: metadata.width,
           naturalHeight: metadata.height,
           scaleX: (metadata.width ?? viewport.width) / viewport.width,
@@ -151,7 +273,9 @@ export async function captureSite({ baseUrl, outputRoot, target }) {
   }
 
   await writeFile(
-    path.join(outputRoot, "capture-manifest.json"),
+    path.join(captureOutputRoot, "capture-manifest.json"),
     `${JSON.stringify(evidence, null, 2)}\n`,
   );
+
+  return evidence;
 }

@@ -2,6 +2,7 @@
   "name": "polar-expedition-visual-adaptation",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "packageManager": "pnpm@11.22.0",
   "engines": {
     "node": ">=22.0.0"
@@ -22,7 +23,7 @@
     "capture:reference": "node scripts/fidelity/capture-reference.mjs",
     "capture:actual": "node scripts/fidelity/capture-actual.mjs",
     "extract:design": "node scripts/extraction/run-design-extract.mjs",
-    "fidelity:reference": "node scripts/fidelity/compare-reference.mjs",
+    "fidelity:reference": "node scripts/fidelity/compare-reference.mjs --batch",
     "verify": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test:unit && pnpm test:e2e && pnpm build"
   },
   "dependencies": {
