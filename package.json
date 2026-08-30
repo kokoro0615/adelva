@@ -20,6 +20,7 @@
     "test:e2e": "playwright test --project=chromium",
     "test:axe": "playwright test tests/e2e/accessibility.spec.ts --project=chromium",
     "test:visual": "playwright test tests/e2e/visual.spec.ts --project=chromium",
+    "test:release-coverage": "playwright test tests/e2e/release-coverage.spec.ts --project=chromium --reporter=list",
     "capture:reference": "node scripts/fidelity/capture-reference.mjs",
     "capture:actual": "node scripts/fidelity/capture-actual.mjs",
     "extract:design": "node scripts/extraction/run-design-extract.mjs",
