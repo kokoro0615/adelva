@@ -1,0 +1,422 @@
+[
+  {
+    "prompt": "prompts/gm-hero-size-correction.txt",
+    "references": [
+      "review/gm-hero-second.png"
+    ],
+    "status": "selected after actual390 review",
+    "key": "general-managers/00-hero",
+    "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-de6b6634-f477-4b65-8aeb-9da4121a7906.png",
+    "output": "general-managers/sections/00-hero.png",
+    "attachedImageSourcesAtCall": [
+      "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-a19c79d4-19fc-4fbb-a918-4506344dace2.png"
+    ],
+    "promptSha256": "cfc6dc7ace7474ea559045db221c5820855c4b4793e1c8bc324d6a504f0305d3",
+    "referenceHashes": [
+      {
+        "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-a19c79d4-19fc-4fbb-a918-4506344dace2.png",
+        "sha256": "cf266cb40d51173d5e525320a787e6c6d753d925b6d8b68e241632b8b079f662"
+      }
+    ],
+    "outputMatchesGeneratedSource": true
+  },
+  {
+    "prompt": "prompts/owners-hero-size-correction.txt",
+    "references": [
+      "review/owners-hero-first.png",
+      "review/gm-hero-second.png"
+    ],
+    "status": "selected after actual390 review",
+    "key": "owners/00-hero",
+    "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-c47678e6-1e2c-49b5-8a0a-89c9a5cec2a2.png",
+    "output": "owners/sections/00-hero.png",
+    "attachedImageSourcesAtCall": [
+      "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-4a56b389-14be-4049-9988-25e0d335653f.png",
+      "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-a19c79d4-19fc-4fbb-a918-4506344dace2.png"
+    ],
+    "promptSha256": "662837a287834e54321f509244bd928c797dfcd9ef22f3a857a8139c58b625c0",
+    "referenceHashes": [
+      {
+        "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-4a56b389-14be-4049-9988-25e0d335653f.png",
+        "sha256": "0e98139a21befb45be80b79ee64036c70358d05106639abc9ce07e57fcc48cd4"
+      },
+      {
+        "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-a19c79d4-19fc-4fbb-a918-4506344dace2.png",
+        "sha256": "cf266cb40d51173d5e525320a787e6c6d753d925b6d8b68e241632b8b079f662"
+      }
+    ],
+    "outputMatchesGeneratedSource": true
+  },
+  {
+    "prompt": "prompts/general-managers-01-challenges-revision-1.txt",
+    "references": [
+      "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/review/general-managers-01-challenges-first.png"
+    ],
+    "status": "selected after actual390 review",
+    "key": "general-managers/01-challenges",
+    "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-fdc8f49f-7eea-4b1a-b1ed-91ca5545443d.png",
+    "output": "general-managers/sections/01-challenges.png",
+    "attachedImageSourcesAtCall": [
+      "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-ad94d5ad-c448-4f83-92b3-e010b43ba880.png"
+    ],
+    "promptSha256": "fe2093ba4f9c73e388e68a94a3c7eca3990d5d05e8667fa24b015d0c4475bfae",
+    "referenceHashes": [
+      {
+        "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-ad94d5ad-c448-4f83-92b3-e010b43ba880.png",
+        "sha256": "a7349cc5027e67e30d1e2396502593dd67f3f3f751ddddc53d4c5920113c8dc5"
+      }
+    ],
+    "outputMatchesGeneratedSource": true
+  },
+  {
+    "prompt": "prompts/owners-01-challenges-revision-1.txt",
+    "references": [
+      "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/review/owners-01-challenges-first.png"
+    ],
+    "status": "selected after actual390 review",
+    "key": "owners/01-challenges",
+    "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-cb238651-7637-4fa7-8b17-8ad6361c2cb3.png",
+    "output": "owners/sections/01-challenges.png",
+    "attachedImageSourcesAtCall": [
+      "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-e88e5456-4835-46de-a664-0d6b9771613a.png"
+    ],
+    "promptSha256": "770e4383be82d3e8b6441d7cb837dcf445f06ece81ea37f797338a2c3a320669",
+    "referenceHashes": [
+      {
+        "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-e88e5456-4835-46de-a664-0d6b9771613a.png",
+        "sha256": "11b075e9e55ec7f3b8582589f63c7a4c75a0f7593beab5457decfc6f740638fb"
+      }
+    ],
+    "outputMatchesGeneratedSource": true
+  },
+  {
+    "prompt": "prompts/general-managers-02-decisions-revision-1.txt",
+    "references": [
+      "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/review/general-managers-02-decisions-first.png"
+    ],
+    "status": "selected after actual390 review",
+    "key": "general-managers/02-decisions",
+    "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-db51ab42-d1cf-4968-8050-7e7db98b235c.png",
+    "output": "general-managers/sections/02-decisions.png",
+    "attachedImageSourcesAtCall": [
+      "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-e70074fb-dca9-405d-8a2f-5e8579cdf88c.png"
+    ],
+    "promptSha256": "e3720b4948528cf70b31170d05d6ba56973301b64bd6d2095a71bd0fe3e70b5a",
+    "referenceHashes": [
+      {
+        "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-e70074fb-dca9-405d-8a2f-5e8579cdf88c.png",
+        "sha256": "23d62bf3b6b9fe064e80c23889891cebcc661a339e57fed2ad0696d6561cc6fe"
+      }
+    ],
+    "outputMatchesGeneratedSource": true
+  },
+  {
+    "prompt": "prompts/owners-02-decisions-revision-1.txt",
+    "references": [
+      "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/review/owners-02-decisions-first.png"
+    ],
+    "status": "selected after actual390 review",
+    "key": "owners/02-decisions",
+    "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-b5b54de1-696d-42d7-b9b4-f6759a7950be.png",
+    "output": "owners/sections/02-decisions.png",
+    "attachedImageSourcesAtCall": [
+      "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-edea449b-78e7-4ae5-b5ac-3599db2c9ff3.png"
+    ],
+    "promptSha256": "dab7b96b6c8055d43ee9edce2baa6ae2d64f885dfe37ba2574bdb222673387d9",
+    "referenceHashes": [
+      {
+        "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-edea449b-78e7-4ae5-b5ac-3599db2c9ff3.png",
+        "sha256": "a1251a60bba013ab0a258b867f3d6505fe5792dc1b290e85eec745dbb8622751"
+      }
+    ],
+    "outputMatchesGeneratedSource": true
+  },
+  {
+    "prompt": "prompts/general-managers-03-support-a-consistency.txt",
+    "references": [
+      "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/general-managers/sections/03-support-a.png",
+      "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/general-managers/sections/04-support-b.png",
+      "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/general-managers/sections/00-hero.png"
+    ],
+    "status": "selected after actual390 review",
+    "key": "general-managers/03-support-a",
+    "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-35792483-6d05-41bc-b839-e3528881107e.png",
+    "output": "general-managers/sections/03-support-a.png",
+    "attachedImageSourcesAtCall": [
+      "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-16d63876-316c-47c4-8c8d-fb1c601c025c.png",
+      "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-fa6fa108-0387-43ad-b673-e3ab217e415e.png",
+      "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-de6b6634-f477-4b65-8aeb-9da4121a7906.png"
+    ],
+    "promptSha256": "1f157c3cf37b332f950514f53937bbd59350538cff5a4b79a5d5e2c551f458ed",
+    "referenceHashes": [
+      {
+        "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-16d63876-316c-47c4-8c8d-fb1c601c025c.png",
+        "sha256": "0f4ee2445c074f54741a53985b2eb31889fad17700221ed999471808d9a968e8"
+      },
+      {
+        "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-fa6fa108-0387-43ad-b673-e3ab217e415e.png",
+        "sha256": "b1823720199cef89ce0ecf317eedcbafeaecbaf0ee5c631da96849f7e4ef3f54"
+      },
+      {
+        "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-de6b6634-f477-4b65-8aeb-9da4121a7906.png",
+        "sha256": "850538b0d6b5fdf5bf705463eaf873b7ca7d8c85bd4d2f77064a65be694e25c6"
+      }
+    ],
+    "outputMatchesGeneratedSource": true
+  },
+  {
+    "prompt": "prompts/owners-03-support-a-final.txt",
+    "references": [
+      "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/owners/sections/00-hero.png"
+    ],
+    "status": "selected after actual390 review",
+    "key": "owners/03-support-a",
+    "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-7a146cad-0235-4dc3-9edd-a8b61957ae21.png",
+    "output": "owners/sections/03-support-a.png",
+    "attachedImageSourcesAtCall": [
+      "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-c47678e6-1e2c-49b5-8a0a-89c9a5cec2a2.png"
+    ],
+    "promptSha256": "1eccb70432b2b54904bfc407ef6c9a4ac0cf704c9fb0afd343753460bb9773bc",
+    "referenceHashes": [
+      {
+        "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-c47678e6-1e2c-49b5-8a0a-89c9a5cec2a2.png",
+        "sha256": "02958f7c51bd972b771c09d3a922f47919071c25a0fc442954a0ddb6453f6c36"
+      }
+    ],
+    "outputMatchesGeneratedSource": true
+  },
+  {
+    "prompt": "prompts/general-managers-05-roles-revision-1.txt",
+    "references": [
+      "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/general-managers/sections/05-roles.png",
+      "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/general-managers/sections/00-hero.png"
+    ],
+    "status": "selected after actual390 review",
+    "key": "general-managers/05-roles",
+    "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-d97acd32-cedd-4bf5-a95c-5697e9c1f2f3.png",
+    "output": "general-managers/sections/05-roles.png",
+    "attachedImageSourcesAtCall": [
+      "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-a4d19598-7862-4896-a73d-53c3f65e1439.png",
+      "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-de6b6634-f477-4b65-8aeb-9da4121a7906.png"
+    ],
+    "promptSha256": "4cd12250dab4a39fadf02ce6ad5660f1920548b2009be0215ee1556ae9f839bd",
+    "referenceHashes": [
+      {
+        "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-a4d19598-7862-4896-a73d-53c3f65e1439.png",
+        "sha256": "00c80be52d698cfc68ad39bc1c2b8e0ea37226415e33b40af500d191978dd975"
+      },
+      {
+        "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-de6b6634-f477-4b65-8aeb-9da4121a7906.png",
+        "sha256": "850538b0d6b5fdf5bf705463eaf873b7ca7d8c85bd4d2f77064a65be694e25c6"
+      }
+    ],
+    "outputMatchesGeneratedSource": true
+  },
+  {
+    "prompt": "prompts/owners-05-roles-revision-1.txt",
+    "references": [
+      "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/owners/sections/05-roles.png",
+      "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/owners/sections/00-hero.png"
+    ],
+    "status": "selected after actual390 review",
+    "key": "owners/05-roles",
+    "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-b1b95ae8-877b-41fc-b360-f10af6f7c29c.png",
+    "output": "owners/sections/05-roles.png",
+    "attachedImageSourcesAtCall": [
+      "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-521724cd-013a-4437-975a-9f51e8a71589.png",
+      "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-c47678e6-1e2c-49b5-8a0a-89c9a5cec2a2.png"
+    ],
+    "promptSha256": "cfb685f3600edfbeb2beb96f3e7a0ef74de52bbb948a66cc17829df732be82b5",
+    "referenceHashes": [
+      {
+        "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-521724cd-013a-4437-975a-9f51e8a71589.png",
+        "sha256": "ba12ff5259914f0219ad156f95178267e2070ff814958c731869a392feeb7312"
+      },
+      {
+        "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-c47678e6-1e2c-49b5-8a0a-89c9a5cec2a2.png",
+        "sha256": "02958f7c51bd972b771c09d3a922f47919071c25a0fc442954a0ddb6453f6c36"
+      }
+    ],
+    "outputMatchesGeneratedSource": true
+  },
+  {
+    "prompt": "prompts/owners-04-support-b-final.txt",
+    "references": [
+      "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/owners/sections/00-hero.png",
+      "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/owners/sections/03-support-a.png"
+    ],
+    "status": "selected after actual390 review",
+    "key": "owners/04-support-b",
+    "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-630191c4-bdf6-4cf6-9347-5824c3fae6ad.png",
+    "output": "owners/sections/04-support-b.png",
+    "attachedImageSourcesAtCall": [
+      "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-c47678e6-1e2c-49b5-8a0a-89c9a5cec2a2.png",
+      "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-7a146cad-0235-4dc3-9edd-a8b61957ae21.png"
+    ],
+    "promptSha256": "19c3eb4f118e170f343e06c666b7206ad67199bd95f87a436c85f0910803056c",
+    "referenceHashes": [
+      {
+        "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-c47678e6-1e2c-49b5-8a0a-89c9a5cec2a2.png",
+        "sha256": "02958f7c51bd972b771c09d3a922f47919071c25a0fc442954a0ddb6453f6c36"
+      },
+      {
+        "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-7a146cad-0235-4dc3-9edd-a8b61957ae21.png",
+        "sha256": "ab879be05dabf3e352007627fec577c33bb8db3c5ede74c1806a0723f16e38e8"
+      }
+    ],
+    "outputMatchesGeneratedSource": true
+  },
+  {
+    "prompt": "prompts/general-managers-04-support-b-revision-1.txt",
+    "references": [
+      "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/general-managers/sections/04-support-b.png",
+      "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/general-managers/sections/00-hero.png"
+    ],
+    "status": "selected after actual390 review",
+    "key": "general-managers/04-support-b",
+    "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-fa6fa108-0387-43ad-b673-e3ab217e415e.png",
+    "output": "general-managers/sections/04-support-b.png",
+    "attachedImageSourcesAtCall": [
+      "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-19ef6656-59c9-448c-b5d5-9a295dff6930.png",
+      "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-de6b6634-f477-4b65-8aeb-9da4121a7906.png"
+    ],
+    "promptSha256": "e13a239fa73af4c1c3ff85fde8e945a7451a50252e5993755fb29f1e181be2e6",
+    "referenceHashes": [
+      {
+        "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-19ef6656-59c9-448c-b5d5-9a295dff6930.png",
+        "sha256": "a402ef61f9ee1b849c5696ae4fdf829dbf90e1ad6a52d3d996b22df4a44d6b48"
+      },
+      {
+        "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-de6b6634-f477-4b65-8aeb-9da4121a7906.png",
+        "sha256": "850538b0d6b5fdf5bf705463eaf873b7ca7d8c85bd4d2f77064a65be694e25c6"
+      }
+    ],
+    "outputMatchesGeneratedSource": true
+  },
+  {
+    "prompt": "prompts/general-managers-06-execution-cta-correction.txt",
+    "references": [
+      "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/general-managers/sections/06-execution.png"
+    ],
+    "status": "selected after actual390 review",
+    "key": "general-managers/06-execution",
+    "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-8bbc0232-221c-4351-9637-38c43ad2f0c0.png",
+    "output": "general-managers/sections/06-execution.png",
+    "attachedImageSourcesAtCall": [
+      "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-988b9ccd-84db-4b53-a5a1-8931f38b0fcb.png"
+    ],
+    "promptSha256": "2b4181c2948c90220cd9546a0c8d2b5c4274c4c10774c2a43985f6699a710d74",
+    "referenceHashes": [
+      {
+        "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-988b9ccd-84db-4b53-a5a1-8931f38b0fcb.png",
+        "sha256": "631c5b48bd4820d6bb6b726d4ef3dea1ab5bb1069c3f9668a865a35b8505396b"
+      }
+    ],
+    "outputMatchesGeneratedSource": true
+  },
+  {
+    "prompt": "prompts/owners-06-execution-submitted.txt",
+    "references": [
+      "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/owners/sections/00-hero.png"
+    ],
+    "status": "selected after actual390 review",
+    "key": "owners/06-execution",
+    "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-78a7633b-7139-454f-8415-ac516dd0ff4a.png",
+    "output": "owners/sections/06-execution.png",
+    "attachedImageSourcesAtCall": [
+      "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-c47678e6-1e2c-49b5-8a0a-89c9a5cec2a2.png"
+    ],
+    "promptSha256": "b17a1fce7a2f1832d6e5bb29b1667a02523fddb454c5db449ffb408df50211f7",
+    "referenceHashes": [
+      {
+        "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-c47678e6-1e2c-49b5-8a0a-89c9a5cec2a2.png",
+        "sha256": "02958f7c51bd972b771c09d3a922f47919071c25a0fc442954a0ddb6453f6c36"
+      }
+    ],
+    "outputMatchesGeneratedSource": true
+  },
+  {
+    "prompt": "prompts/owners-07-verification-submitted.txt",
+    "references": [
+      "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/owners/sections/00-hero.png"
+    ],
+    "status": "selected after actual390 review",
+    "key": "owners/07-verification",
+    "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-a4356694-d8b6-4db0-8984-436dcbc52c88.png",
+    "output": "owners/sections/07-verification.png",
+    "attachedImageSourcesAtCall": [
+      "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-c47678e6-1e2c-49b5-8a0a-89c9a5cec2a2.png"
+    ],
+    "promptSha256": "9cebf7e2a8bb72318f698be1842b20bcaf13290cfe1e30ee0b1ddd4407d0a57e",
+    "referenceHashes": [
+      {
+        "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-c47678e6-1e2c-49b5-8a0a-89c9a5cec2a2.png",
+        "sha256": "02958f7c51bd972b771c09d3a922f47919071c25a0fc442954a0ddb6453f6c36"
+      }
+    ],
+    "outputMatchesGeneratedSource": true
+  },
+  {
+    "prompt": "prompts/general-managers-07-verification-final-adjustment.txt",
+    "references": [
+      "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/general-managers/sections/07-verification.png"
+    ],
+    "status": "selected after actual390 review",
+    "key": "general-managers/07-verification",
+    "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-9e088ba4-de42-4e10-b393-c6de88e484a9.png",
+    "output": "general-managers/sections/07-verification.png",
+    "attachedImageSourcesAtCall": [
+      "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-3c3cfa7f-8439-46d3-9fa9-0a7d8c528df6.png"
+    ],
+    "promptSha256": "3dcd84625eec4668d7997ed01127887b798c67d98aa392b5bdcccc52bb61baf2",
+    "referenceHashes": [
+      {
+        "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-3c3cfa7f-8439-46d3-9fa9-0a7d8c528df6.png",
+        "sha256": "6ec87e6bed1749525370e4ce902f1cd1bf3740c30093e164645bc9699250e4bb"
+      }
+    ],
+    "outputMatchesGeneratedSource": true
+  },
+  {
+    "prompt": "prompts/general-managers-08-contact-final-adjustment.txt",
+    "references": [
+      "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/general-managers/sections/08-contact.png"
+    ],
+    "status": "selected after actual390 review",
+    "key": "general-managers/08-contact",
+    "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-5a04f26c-322a-4b85-88fc-e04acd97019e.png",
+    "output": "general-managers/sections/08-contact.png",
+    "attachedImageSourcesAtCall": [
+      "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-b3ffc2d6-f36c-401a-bfe1-4d70711163ae.png"
+    ],
+    "promptSha256": "385ef9730b569ca7a2816c77847a692ea9b6195c4f215744a41686ccc8a80aaa",
+    "referenceHashes": [
+      {
+        "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-b3ffc2d6-f36c-401a-bfe1-4d70711163ae.png",
+        "sha256": "43c3992955b906714c01d91a933792d0b501b91ac929d6fe33269d3ea2355614"
+      }
+    ],
+    "outputMatchesGeneratedSource": true
+  },
+  {
+    "prompt": "prompts/owners-08-contact-height.txt",
+    "references": [
+      "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/owners/sections/08-contact.png"
+    ],
+    "status": "selected after actual390 review",
+    "key": "owners/08-contact",
+    "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-30722264-d556-40ee-8d87-8b2d273fc956.png",
+    "output": "owners/sections/08-contact.png",
+    "attachedImageSourcesAtCall": [
+      "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-748a53d3-a791-42e6-a3d0-ec29a6908384.png"
+    ],
+    "promptSha256": "6b788de1f8bb4ae91577e0bf61ba5f7932d441c6a43eea07ed3d2225a8567bea",
+    "referenceHashes": [
+      {
+        "source": "/home/kokoro/.codex/generated_images/01a0847c-8514-7e82-894e-717115440381/exec-748a53d3-a791-42e6-a3d0-ec29a6908384.png",
+        "sha256": "76b37208a07d7b85aaf019160c8a81c23246935f53990d9f489384f5473a6685"
+      }
+    ],
+    "outputMatchesGeneratedSource": true
+  }
+]

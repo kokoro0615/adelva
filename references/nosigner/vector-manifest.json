@@ -1,0 +1,98 @@
+[
+  {
+    "path": "public/media/nosigner/logo.svg",
+    "source": "https://nosigner.com/ja/",
+    "owner": "NOSIGNER / respective social platform marks",
+    "license": "User-confirmed permission 2026-09-09",
+    "status": "approved",
+    "role": "Brand mark",
+    "viewBox": "0 0 200 30",
+    "bytes": 1740,
+    "loading": "Same-origin CSS mask, browser cached",
+    "alt": "Decorative mask; containing link has accessible name"
+  },
+  {
+    "path": "public/media/nosigner/icon-facebook.svg",
+    "source": "https://nosigner.com/ja/",
+    "owner": "NOSIGNER / respective social platform marks",
+    "license": "User-confirmed permission 2026-09-09",
+    "status": "approved",
+    "role": "Navigation icon",
+    "viewBox": "0 0 20 20",
+    "bytes": 414,
+    "loading": "Same-origin CSS mask, browser cached",
+    "alt": "Decorative mask; containing link has accessible name"
+  },
+  {
+    "path": "public/media/nosigner/icon-instagram.svg",
+    "source": "https://nosigner.com/ja/",
+    "owner": "NOSIGNER / respective social platform marks",
+    "license": "User-confirmed permission 2026-09-09",
+    "status": "approved",
+    "role": "Navigation icon",
+    "viewBox": "0 0 16 16",
+    "bytes": 1666,
+    "loading": "Same-origin CSS mask, browser cached",
+    "alt": "Decorative mask; containing link has accessible name"
+  },
+  {
+    "path": "public/media/nosigner/icon-x.svg",
+    "source": "https://nosigner.com/ja/",
+    "owner": "NOSIGNER / respective social platform marks",
+    "license": "User-confirmed permission 2026-09-09",
+    "status": "approved",
+    "role": "Navigation icon",
+    "viewBox": "0 0 14 14",
+    "bytes": 311,
+    "loading": "Same-origin CSS mask, browser cached",
+    "alt": "Decorative mask; containing link has accessible name"
+  },
+  {
+    "path": "public/media/nosigner/icon-note.svg",
+    "source": "https://nosigner.com/ja/",
+    "owner": "NOSIGNER / respective social platform marks",
+    "license": "User-confirmed permission 2026-09-09",
+    "status": "approved",
+    "role": "Navigation icon",
+    "viewBox": "0 0 12 12",
+    "bytes": 319,
+    "loading": "Same-origin CSS mask, browser cached",
+    "alt": "Decorative mask; containing link has accessible name"
+  },
+  {
+    "path": "public/media/nosigner/icon-behance.svg",
+    "source": "https://nosigner.com/ja/",
+    "owner": "NOSIGNER / respective social platform marks",
+    "license": "User-confirmed permission 2026-09-09",
+    "status": "approved",
+    "role": "Navigation icon",
+    "viewBox": "0 0 20 13",
+    "bytes": 1626,
+    "loading": "Same-origin CSS mask, browser cached",
+    "alt": "Decorative mask; containing link has accessible name"
+  },
+  {
+    "path": "public/media/nosigner/icon-newsletter.svg",
+    "source": "https://nosigner.com/ja/",
+    "owner": "NOSIGNER / respective social platform marks",
+    "license": "User-confirmed permission 2026-09-09",
+    "status": "approved",
+    "role": "Navigation icon",
+    "viewBox": "0 0 17 18",
+    "bytes": 401,
+    "loading": "Same-origin CSS mask, browser cached",
+    "alt": "Decorative mask; containing link has accessible name"
+  },
+  {
+    "path": "public/media/nosigner/icon-download.svg",
+    "source": "https://nosigner.com/ja/",
+    "owner": "NOSIGNER / respective social platform marks",
+    "license": "User-confirmed permission 2026-09-09",
+    "status": "approved",
+    "role": "Navigation icon",
+    "viewBox": "0 0 15 19",
+    "bytes": 232,
+    "loading": "Same-origin CSS mask, browser cached",
+    "alt": "Decorative mask; containing link has accessible name"
+  }
+]

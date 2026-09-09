@@ -1,0 +1,618 @@
+{
+  "schemaVersion": "full-page-section-manifest/v1",
+  "manifestId": "about--sustainability-reference-v1",
+  "role": "reference",
+  "route": "/about/sustainability",
+  "family": "about-sustainability",
+  "scope": {
+    "kind": "route-content",
+    "id": "about--sustainability-content"
+  },
+  "source": {
+    "url": "https://white-desert.com",
+    "requestedRoute": "/about/sustainability",
+    "finalRoutes": ["/about/sustainability"],
+    "observedAt": "2026-08-31T01:13:05.766Z",
+    "contentRoot": ".page-content",
+    "status": "pending-capture",
+    "captureMode": "manifest-only",
+    "evidenceStatus": "pending-capture"
+  },
+  "requiredViewports": ["desktop", "tablet", "mobile"],
+  "tolerances": {
+    "boundsPx": 2,
+    "scrollHeightPx": 2
+  },
+  "domTopology": {
+    "scope": ".page-content",
+    "directChildren": [
+      "about-navigation",
+      "hero",
+      "sustainability-policy-at-white-desert",
+      "shaping-policy-and-leading-change",
+      "moreabout-us",
+      "start-planning-your-adventure"
+    ]
+  },
+  "sections": [
+    {
+      "id": "about-navigation",
+      "semantic": "div | about-nav_wrap",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "keyLinks": ["/about/founders", "/about/foundation", "/about/sustainability"],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 820.02,
+          "width": 1440,
+          "height": 79.98,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 944,
+          "width": 768,
+          "height": 80,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 764,
+          "width": 390,
+          "height": 80,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "hero",
+      "semantic": "div | about-banner-loader | About",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "About",
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fb0c8ec3db88135c8dd24ed9d5641a462361d09ce-2000x1000.jpg&w=3840&q=90"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 900,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 1024,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "sustainability-policy-at-white-desert",
+      "semantic": "section | padding-none bg-white | Sustainability Policy at White Desert",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Sustainability Policy at White Desert",
+      "keyLinks": [
+        "/White-Desert-Initial-Environmental-Evaluation-IEE-Update-Report-2020.pdf",
+        "/White-Desert-Initial-Environmental-Evaluation-IEE-Report-Figures-2020.pdf",
+        "/The-Less-Widely-Known-Environmental-Benefits-of-SAF-Final-27-05-23-1.pdf",
+        "/certificate-white-desert-ltd-2026.pdf",
+        "/GHG%20footprint%20Report%20White%20Desert%202023-2024%20v.2.pdf",
+        "/White%20Desert%20Net%20Zero%20Policy.pdf"
+      ],
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F2f12af4b49f5f9f26bb6b0b75c666f23b3f861b9-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F987b6d6fc771880d0509b6cba81fac29c40a3af9-2000x1333.jpg&w=3840&q=90",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fb5d62488d52562fe748ba9ab228a83222d7c6fa1-1700x2125.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F2db053d51ecf3a60cf931b6c52b10d7cd7c957ad-1500x1875.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "scroll-or-interaction-linked",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 900,
+          "width": 1440,
+          "height": 5225.31,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 1024,
+          "width": 768,
+          "height": 5613.25,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 844,
+          "width": 390,
+          "height": 4157.66,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "shaping-policy-and-leading-change",
+      "semantic": "section | padding-none bg-transparent | Shaping Policy and Leading Change",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Shaping Policy and Leading Change",
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F2814ce50796901431ed1c459629f34daaf6a6bce-2000x1334.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "scroll-or-interaction-linked",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 6125.31,
+          "width": 1440,
+          "height": 1355.05,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 6637.25,
+          "width": 768,
+          "height": 1434.19,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 5001.66,
+          "width": 390,
+          "height": 1332.25,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "moreabout-us",
+      "semantic": "section | padding-top-none-bottom-large bg-white | Moreabout us",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Moreabout us",
+      "keyLinks": [
+        "/about/foundation",
+        "/about/founders",
+        "/antarctica/behind-the-scenes",
+        "/antarctica/wolfs-fang-runway-and-echo"
+      ],
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fbbf3a1a202bd3b5ebbfe0f2524cdb82c449b7b97-1332x2000.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F74a619fdf688c57b789c2ca1c4e6ff71a75dc07b-1500x2250.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F7201ea4ececf92153024ad6dcbb30f1fbf3fba00-1500x2250.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F28d2df713873aadb6b0137862f24b72f3b349de4-1500x2250.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 7480.36,
+          "width": 1440,
+          "height": 1554.95,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 8071.44,
+          "width": 768,
+          "height": 1648,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 6333.91,
+          "width": 390,
+          "height": 2827.61,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "start-planning-your-adventure",
+      "semantic": "section | padding-none bg-white | Start planning your adventure",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Start planning your adventure",
+      "keyLinks": ["/enquire"],
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F9334bdd2988f3125f13bc3c84eac4440fdbb7a3f-2000x1333.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 9035.31,
+          "width": 1440,
+          "height": 900,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 9719.44,
+          "width": 768,
+          "height": 1024,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 9161.52,
+          "width": 390,
+          "height": 844,
+          "pinned": false
+        }
+      }
+    }
+  ],
+  "viewports": {
+    "desktop": {
+      "width": 1440,
+      "height": 900,
+      "scrollHeight": 10876,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/about--sustainability-1440x900-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "tablet": {
+      "width": 768,
+      "height": 1024,
+      "scrollHeight": 11767,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/about--sustainability-768x1024-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "scrollHeight": 12117,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/about--sustainability-390x844-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    }
+  },
+  "motion": {
+    "status": "incomplete",
+    "unknown": [
+      "motion evidence remains pending until four phase captures exist for every layer and viewport"
+    ],
+    "layers": [
+      {
+        "id": "gallery-slider",
+        "property": "visual state",
+        "trigger": "route motion candidate",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "sectionId": "sustainability-policy-at-white-desert",
+        "samples": {
+          "desktop": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 2012.53,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 3063,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 2012.53,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 5225,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 2012.53,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 4775,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 2012.53,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            }
+          },
+          "tablet": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 2467.19,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 3319,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 2467.19,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 5613,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 2467.19,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 5101,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 2467.19,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            }
+          },
+          "mobile": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1686,
+              "width": 390,
+              "height": 759.59,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 2501,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1686,
+              "width": 390,
+              "height": 759.59,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 4158,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1686,
+              "width": 390,
+              "height": 759.59,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 3736,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1686,
+              "width": 390,
+              "height": 759.59,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            }
+          }
+        },
+        "pinRanges": {}
+      },
+      {
+        "id": "sticky-split-slider",
+        "property": "visual state",
+        "trigger": "route motion candidate",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": true,
+        "sectionId": "shaping-policy-and-leading-change",
+        "samples": {
+          "desktop": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          },
+          "tablet": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          },
+          "mobile": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          }
+        },
+        "pinRanges": {
+          "desktop": {
+            "scrollStart": 6125.31,
+            "scrollEnd": 6580.36,
+            "verticalDistance": 455.05,
+            "horizontalDistance": 0
+          },
+          "tablet": {
+            "scrollStart": 6637.25,
+            "scrollEnd": 7047.44,
+            "verticalDistance": 410.19,
+            "horizontalDistance": 0
+          },
+          "mobile": {
+            "scrollStart": 5001.66,
+            "scrollEnd": 5489.91,
+            "verticalDistance": 488.25,
+            "horizontalDistance": 0
+          }
+        }
+      }
+    ]
+  }
+}

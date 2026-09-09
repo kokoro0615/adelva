@@ -1,0 +1,271 @@
+{
+  "schemaVersion": 1,
+  "declared": [
+    {
+      "source": "/",
+      "destination": "/about",
+      "template": "morght-home"
+    }
+  ],
+  "sources": [
+    {
+      "state": "menu-open",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "url": "https://morght.com/",
+      "observedAt": "2026-09-09T12:49:53.474Z",
+      "status": 200,
+      "selector": ".c-site-menu a",
+      "hrefs": [
+        "https://morght.com/",
+        "https://morght.com/mission",
+        "https://morght.com/service",
+        "https://morght.com/career",
+        "https://morght.com/company",
+        "https://morght.com/news",
+        "https://morght.com/contact",
+        "https://morght.com/privacy"
+      ],
+      "complete": true
+    },
+    {
+      "state": "header-default",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "url": "https://morght.com/",
+      "observedAt": "2026-09-09T12:31:32.892Z",
+      "status": 200,
+      "selector": "header",
+      "hrefs": [
+        "https://morght.com/",
+        "https://morght.com/mission",
+        "https://morght.com/service",
+        "https://morght.com/career",
+        "https://morght.com/company",
+        "https://morght.com/news"
+      ],
+      "complete": true
+    },
+    {
+      "state": "footer",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "url": "https://morght.com/",
+      "observedAt": "2026-09-09T12:31:32.892Z",
+      "status": 200,
+      "selector": "footer",
+      "hrefs": [
+        "https://morght.com/",
+        "https://morght.com/mission",
+        "https://morght.com/service",
+        "https://morght.com/career",
+        "https://morght.com/company",
+        "https://morght.com/news",
+        "https://morght.com/contact",
+        "https://morght.com/privacy"
+      ],
+      "complete": true
+    },
+    {
+      "state": "menu-open",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "url": "https://morght.com/",
+      "observedAt": "2026-09-09T12:51:04.905Z",
+      "status": 200,
+      "selector": ".c-site-menu a",
+      "hrefs": [
+        "https://morght.com/",
+        "https://morght.com/mission",
+        "https://morght.com/service",
+        "https://morght.com/career",
+        "https://morght.com/company",
+        "https://morght.com/news",
+        "https://morght.com/contact",
+        "https://morght.com/privacy"
+      ],
+      "complete": true
+    },
+    {
+      "state": "header-default",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "url": "https://morght.com/",
+      "observedAt": "2026-09-09T12:31:58.895Z",
+      "status": 200,
+      "selector": "header",
+      "hrefs": [
+        "https://morght.com/",
+        "https://morght.com/mission",
+        "https://morght.com/service",
+        "https://morght.com/career",
+        "https://morght.com/company",
+        "https://morght.com/news"
+      ],
+      "complete": true
+    },
+    {
+      "state": "footer",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "url": "https://morght.com/",
+      "observedAt": "2026-09-09T12:31:58.895Z",
+      "status": 200,
+      "selector": "footer",
+      "hrefs": [
+        "https://morght.com/",
+        "https://morght.com/mission",
+        "https://morght.com/service",
+        "https://morght.com/career",
+        "https://morght.com/company",
+        "https://morght.com/news",
+        "https://morght.com/contact",
+        "https://morght.com/privacy"
+      ],
+      "complete": true
+    },
+    {
+      "state": "menu-open",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "url": "https://morght.com/",
+      "observedAt": "2026-09-09T12:52:57.975Z",
+      "status": 200,
+      "selector": ".c-site-menu a",
+      "hrefs": [
+        "https://morght.com/",
+        "https://morght.com/mission",
+        "https://morght.com/service",
+        "https://morght.com/career",
+        "https://morght.com/company",
+        "https://morght.com/news",
+        "https://morght.com/contact",
+        "https://morght.com/privacy"
+      ],
+      "complete": true
+    },
+    {
+      "state": "header-default",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "url": "https://morght.com/",
+      "observedAt": "2026-09-09T12:32:22.811Z",
+      "status": 200,
+      "selector": "header",
+      "hrefs": [
+        "https://morght.com/",
+        "https://morght.com/mission",
+        "https://morght.com/service",
+        "https://morght.com/career",
+        "https://morght.com/company",
+        "https://morght.com/news"
+      ],
+      "complete": true
+    },
+    {
+      "state": "footer",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "url": "https://morght.com/",
+      "observedAt": "2026-09-09T12:32:22.811Z",
+      "status": 200,
+      "selector": "footer",
+      "hrefs": [
+        "https://morght.com/",
+        "https://morght.com/mission",
+        "https://morght.com/service",
+        "https://morght.com/career",
+        "https://morght.com/company",
+        "https://morght.com/news",
+        "https://morght.com/contact",
+        "https://morght.com/privacy"
+      ],
+      "complete": true
+    },
+    {
+      "state": "declared-sitemaps",
+      "url": "https://morght.com/robots.txt",
+      "observedAt": "2026-09-09T13:01:51.383Z",
+      "status": 404,
+      "homeStatus": 200,
+      "sitemapUrls": [],
+      "hrefs": [],
+      "complete": true,
+      "evidence": "No sitemap declared by robots.txt or HOME link[rel=sitemap]; no inferred recursive crawl."
+    }
+  ],
+  "discovered": [
+    "/",
+    "/career",
+    "/company",
+    "/contact",
+    "/mission",
+    "/news",
+    "/privacy",
+    "/service"
+  ],
+  "exclusions": [
+    {
+      "path": "/career",
+      "reason": "Outside the explicitly requested single HOME-to-/about reproduction; links retain their original absolute destination.",
+      "evidence": "Current user request names https://morght.com/ and local /about only; one-page scope in docs/clone-workflow-ledger.md.",
+      "approver": "Requesting user (explicit one-page scope; no approval for adjacent-page reproduction)"
+    },
+    {
+      "path": "/company",
+      "reason": "Outside the explicitly requested single HOME-to-/about reproduction; links retain their original absolute destination.",
+      "evidence": "Current user request names https://morght.com/ and local /about only; one-page scope in docs/clone-workflow-ledger.md.",
+      "approver": "Requesting user (explicit one-page scope; no approval for adjacent-page reproduction)"
+    },
+    {
+      "path": "/contact",
+      "reason": "Outside the explicitly requested single HOME-to-/about reproduction; links retain their original absolute destination.",
+      "evidence": "Current user request names https://morght.com/ and local /about only; one-page scope in docs/clone-workflow-ledger.md.",
+      "approver": "Requesting user (explicit one-page scope; no approval for adjacent-page reproduction)"
+    },
+    {
+      "path": "/mission",
+      "reason": "Outside the explicitly requested single HOME-to-/about reproduction; links retain their original absolute destination.",
+      "evidence": "Current user request names https://morght.com/ and local /about only; one-page scope in docs/clone-workflow-ledger.md.",
+      "approver": "Requesting user (explicit one-page scope; no approval for adjacent-page reproduction)"
+    },
+    {
+      "path": "/news",
+      "reason": "Outside the explicitly requested single HOME-to-/about reproduction; links retain their original absolute destination.",
+      "evidence": "Current user request names https://morght.com/ and local /about only; one-page scope in docs/clone-workflow-ledger.md.",
+      "approver": "Requesting user (explicit one-page scope; no approval for adjacent-page reproduction)"
+    },
+    {
+      "path": "/privacy",
+      "reason": "Outside the explicitly requested single HOME-to-/about reproduction; links retain their original absolute destination.",
+      "evidence": "Current user request names https://morght.com/ and local /about only; one-page scope in docs/clone-workflow-ledger.md.",
+      "approver": "Requesting user (explicit one-page scope; no approval for adjacent-page reproduction)"
+    },
+    {
+      "path": "/service",
+      "reason": "Outside the explicitly requested single HOME-to-/about reproduction; links retain their original absolute destination.",
+      "evidence": "Current user request names https://morght.com/ and local /about only; one-page scope in docs/clone-workflow-ledger.md.",
+      "approver": "Requesting user (explicit one-page scope; no approval for adjacent-page reproduction)"
+    }
+  ],
+  "missing": [],
+  "failures": []
+}

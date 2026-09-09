@@ -1,0 +1,153 @@
+{
+  "schemaVersion": "full-page-section-manifest/v1",
+  "manifestId": "legal--medical-disclaimer-reference-v1",
+  "role": "reference",
+  "route": "/legal/medical-disclaimer",
+  "family": "legal",
+  "scope": {
+    "kind": "route-content",
+    "id": "legal--medical-disclaimer-content"
+  },
+  "source": {
+    "url": "https://white-desert.com",
+    "requestedRoute": "/legal/medical-disclaimer",
+    "finalRoutes": ["/legal/medical-disclaimer"],
+    "observedAt": "2026-08-31T01:13:05.782Z",
+    "contentRoot": ".page-content",
+    "status": "pending-capture",
+    "captureMode": "manifest-only",
+    "evidenceStatus": "pending-capture"
+  },
+  "requiredViewports": ["desktop", "tablet", "mobile"],
+  "tolerances": {
+    "boundsPx": 2,
+    "scrollHeightPx": 2
+  },
+  "domTopology": {
+    "scope": ".page-content",
+    "directChildren": ["hero", "section-2"]
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "semantic": "div | fixed-banner-loader | Medical Disclaimer",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Medical Disclaimer",
+      "assets": [
+        "/_next/image?url=%2Fimages%2FWhiteDesertAntarcticaPeaks.jpg&w=3840&q=90"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 585,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 665.59,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 548.59,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "section-2",
+      "semantic": "section | padding-medium bg-lighter-grey above-grid has-inset-effect",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 585,
+          "width": 1440,
+          "height": 1135.97,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 665.59,
+          "width": 768,
+          "height": 1260,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 548.59,
+          "width": 390,
+          "height": 1080,
+          "pinned": false
+        }
+      }
+    }
+  ],
+  "viewports": {
+    "desktop": {
+      "width": 1440,
+      "height": 900,
+      "scrollHeight": 2667,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/legal--medical-disclaimer-1440x900-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "tablet": {
+      "width": 768,
+      "height": 1024,
+      "scrollHeight": 2950,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/legal--medical-disclaimer-768x1024-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "scrollHeight": 3762,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/legal--medical-disclaimer-390x844-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    }
+  },
+  "motion": {
+    "status": "incomplete",
+    "unknown": [
+      "motion evidence remains pending until four phase captures exist for every layer and viewport"
+    ],
+    "layers": []
+  }
+}

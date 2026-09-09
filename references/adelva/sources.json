@@ -1,0 +1,36 @@
+{
+  "captured_on": "2026-09-08",
+  "note": "Local working-tree snapshot, not a deployment or publication verification. Source repository remains authoritative.",
+  "files": [
+    {
+      "source": "../../../adelva/PRODUCT.md",
+      "snapshot": "sources/PRODUCT.md",
+      "sha256": "f5d08fffb52f964df482ad5d7b32dd6cd4ea0cdac4199f1fd04c96652e950ded"
+    },
+    {
+      "source": "../../../adelva/.Codex/docs/research/content-taxonomy-2026-08-12.md",
+      "snapshot": "sources/content-taxonomy.md",
+      "sha256": "52856b92bb25a011070f6232bc443ed019c8ba0fbf55158b1fb1dee98c5ec34c"
+    },
+    {
+      "source": "../../../adelva/.Codex/docs/research/information-architecture-2026-08-12.md",
+      "snapshot": "sources/information-architecture.md",
+      "sha256": "8b0e412576f89bc3034c90a2078abd63d42d9cb194a389462fb3e65e0218d48e"
+    },
+    {
+      "source": "../../../adelva/.Codex/docs/content/home-copy-v1.md",
+      "snapshot": "sources/home-copy.md",
+      "sha256": "0235d993278f03f82b3f3e71bdcbb1f095e1d26b7ff05a2ba9afdb518f6792ee"
+    },
+    {
+      "source": "../../../adelva/src/content/home.ts",
+      "snapshot": "sources/home-content.ts",
+      "sha256": "7cec92fb1ea4660aeeaa2be475a8dec03939b96cdd6e2ba998c39f7f13e05275"
+    },
+    {
+      "source": "../../../adelva/src/app/sitemap.ts",
+      "snapshot": "sources/sitemap.ts",
+      "sha256": "92adf9fd1ef9b5f6a266ed4a08ab24306cd67e73447c70a092c4624877dbfaac"
+    }
+  ]
+}

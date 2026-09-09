@@ -1,0 +1,20 @@
+Already up to date
+Done in 405ms using pnpm v11.22.0
+$ playwright test --config playwright.revision.config.ts
+
+Running 10 tests using 1 worker
+
+(node:1706526) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 tests/revision/site.spec.ts:28:3 › 1440: requested routes, common header/footer and axe (6.7s)
+  ✓   2 tests/revision/site.spec.ts:125:3 › 1440: contact keyboard validation stays local (654ms)
+  ✓   3 tests/revision/site.spec.ts:153:3 › 1440: approach heading/path/summary motion, reverse and reduction (2.9s)
+  ✓   4 tests/revision/site.spec.ts:28:3 › 768: requested routes, common header/footer and axe (7.0s)
+  ✓   5 tests/revision/site.spec.ts:125:3 › 768: contact keyboard validation stays local (717ms)
+  ✓   6 tests/revision/site.spec.ts:153:3 › 768: approach heading/path/summary motion, reverse and reduction (2.9s)
+  ✓   7 tests/revision/site.spec.ts:28:3 › 390: requested routes, common header/footer and axe (6.6s)
+  ✓   8 tests/revision/site.spec.ts:125:3 › 390: contact keyboard validation stays local (718ms)
+  ✓   9 tests/revision/site.spec.ts:153:3 › 390: approach heading/path/summary motion, reverse and reduction (2.8s)
+  ✓  10 tests/revision/site.spec.ts:198:1 › UI-only contact never submits even without JavaScript (416ms)
+
+  10 passed (32.2s)

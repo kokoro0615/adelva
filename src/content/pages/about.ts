@@ -31,7 +31,7 @@ function buildAboutPage(spec: AboutSpec): PageDocument {
       eyebrow: "About the field notes",
       eyebrowStyle: "serif",
       title: spec.title,
-      titleStyle: "serif-italic",
+      titleStyle: "serif",
       align: "center",
       lede: spec.lede,
       ledeStyle: "serif",

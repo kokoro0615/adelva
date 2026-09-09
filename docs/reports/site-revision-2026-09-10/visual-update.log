@@ -1,0 +1,15 @@
+Already up to date
+Done in 444ms using pnpm v11.22.0
+
+Running 3 tests using 1 worker
+
+(node:1680317) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+/home/kokoro/projects/clients/clonetest/tests/e2e/visual.spec.ts-snapshots/home-desktop-chromium-linux.png is re-generated, writing actual.
+  ✓  1 [chromium] › tests/e2e/visual.spec.ts:10:3 › home regression at desktop (2.0s)
+/home/kokoro/projects/clients/clonetest/tests/e2e/visual.spec.ts-snapshots/home-tablet-chromium-linux.png is re-generated, writing actual.
+  ✓  2 [chromium] › tests/e2e/visual.spec.ts:10:3 › home regression at tablet (1.3s)
+/home/kokoro/projects/clients/clonetest/tests/e2e/visual.spec.ts-snapshots/home-mobile-chromium-linux.png is re-generated, writing actual.
+  ✓  3 [chromium] › tests/e2e/visual.spec.ts:10:3 › home regression at mobile (1.0s)
+
+  3 passed (4.7s)

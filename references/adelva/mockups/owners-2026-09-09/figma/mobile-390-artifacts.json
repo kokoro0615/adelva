@@ -1,0 +1,39 @@
+{
+  "checked": [
+    {
+      "file": "../long-page-mock-mobile-390.png",
+      "width": 390,
+      "height": 6974,
+      "bytes": 1276969,
+      "sha256": "f1fe00d41b3bdedc6799723e54484db1f8b2a3a775258cd678ac796f5ddfd15e"
+    },
+    {
+      "file": "mobile-hero-390-asset.png",
+      "width": 853,
+      "height": 1844,
+      "bytes": 2211968,
+      "sha256": "07da41f0ab2c337efdfd027afec7094c3c9c82aaa866cb91b4c5fe26380918a9"
+    },
+    {
+      "file": "desktop-editable-final.png",
+      "width": 1440,
+      "height": 4320,
+      "bytes": 5157093,
+      "sha256": "83881774279bdf091d9204f51040c818d6a52501afd06e800bc3d3f80776871a"
+    }
+  ],
+  "removedIntermediateScreenshots": [
+    "desktop-first.png",
+    "mobile-first.png",
+    "mobile-editable-final.png",
+    "desktop-reference-export.png",
+    "mobile-reference-export.png",
+    "desktop-inspection-0.png",
+    "desktop-inspection-1.png",
+    "desktop-inspection-2.png",
+    "mobile-inspection-0.png",
+    "mobile-inspection-1.png",
+    "mobile-inspection-2.png"
+  ],
+  "removedTemporaryInspectionCount": 12
+}

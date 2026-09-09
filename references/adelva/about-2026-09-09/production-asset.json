@@ -1,0 +1,22 @@
+{
+  "id": "adelva-about-coast",
+  "path": "/media/adelva/about/coast-lossless.webp",
+  "sourcePath": "assets/source/generated/adelva/about/coast-source.png",
+  "generatorOutput": "/home/kokoro/.codex/generated_images/01a08624-024c-7e01-8fea-c7b893cff1bd/exec-3107c68f-f752-4f26-89fb-27804f546ee7.png",
+  "origin": "subscription-backed built-in image_gen; no reference images",
+  "owner": "Generated for this ADELVA user task",
+  "permission": "Explicit user request for generation and local implementation, 2026-09-09",
+  "status": "lossless mitigation implemented; native high-DPR resolution remains insufficient",
+  "role": "Decorative circle-to-fullscreen landscape",
+  "fictional": true,
+  "restrictions": "Not a depiction or evidence of a real Aman/ADELVA hotel, client or result. Publication of the integrated ADELVA site authorized by the user on 2026-09-10.",
+  "width": 1254,
+  "height": 1254,
+  "bytes": 2008108,
+  "format": "webp",
+  "transformation": "PNG to lossless WebP, effort 6; decoded RGB is byte-identical to source; no resizing or sharpening",
+  "loading": "lazy, async decode, intrinsic dimensions reserved",
+  "altIntent": "Decorative: empty alt; nearby circle has accessible brand description",
+  "promptRecord": "references/adelva/about-2026-09-09/production-prompt.md",
+  "modelMetadata": "Not exposed by tool; text interpretation by active Astra, pixel model separate"
+}

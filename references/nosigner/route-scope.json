@@ -1,0 +1,46 @@
+{
+  "schema": "nosigner-home-scope/v1",
+  "source": "https://nosigner.com/ja/",
+  "target": "/challenges",
+  "authorizedBy": "Current user: HOME only; rights explicitly confirmed 2026-09-09",
+  "discovery": {
+    "sitemap": "references/nosigner/sitemap-0.xml",
+    "urlCount": 5808,
+    "homePresent": true,
+    "navigationEvidence": [
+      "references/nosigner/extract-1440.json",
+      "references/nosigner/extract-768.json",
+      "references/nosigner/extract-390.json",
+      "references/nosigner/menu-1440.html",
+      "references/nosigner/menu-768.html",
+      "references/nosigner/menu-390.html"
+    ]
+  },
+  "included": [
+    "https://nosigner.com/ja/"
+  ],
+  "excluded": {
+    "rule": "Every other path and language",
+    "reason": "Explicit HOME-only user scope; external links retained, destination pages not reproduced."
+  },
+  "referenceScrollRoots": {
+    "desktop": "document",
+    "tablet": "document",
+    "mobile": ".pageContainer"
+  },
+  "localScrollRoot": "document",
+  "requiredViewports": [
+    [
+      1440,
+      900
+    ],
+    [
+      768,
+      1024
+    ],
+    [
+      390,
+      844
+    ]
+  ]
+}

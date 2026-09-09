@@ -1,0 +1,278 @@
+{
+  "source": "https://white-desert.com/",
+  "observedAt": "2026-09-09",
+  "dpr": 1,
+  "framing": "section-relative offsets; no-preference; loaded fonts; source copy differs from ADELVA",
+  "viewports": [
+    {
+      "width": 390,
+      "height": 844,
+      "samples": [
+        {
+          "fraction": -0.5,
+          "fontSize": 46,
+          "copyY": 844,
+          "trackX": 0,
+          "inset": 5
+        },
+        {
+          "fraction": 0,
+          "fontSize": 32,
+          "copyY": 482.734,
+          "trackX": 0,
+          "inset": 0
+        },
+        {
+          "fraction": 0.5,
+          "fontSize": 28.1328,
+          "copyY": 30.3594,
+          "trackX": 0,
+          "inset": 0
+        },
+        {
+          "fraction": 1,
+          "fontSize": 24.2672,
+          "copyY": -422,
+          "trackX": 0,
+          "inset": 0
+        },
+        {
+          "fraction": 1.5,
+          "fontSize": 24,
+          "copyY": -422,
+          "trackX": -21.0905,
+          "inset": 0
+        },
+        {
+          "fraction": 2,
+          "fontSize": 24,
+          "copyY": -422,
+          "trackX": -225.054,
+          "inset": 0
+        },
+        {
+          "fraction": 3,
+          "fontSize": 24,
+          "copyY": -422,
+          "trackX": -632.981,
+          "inset": 0
+        },
+        {
+          "fraction": 4,
+          "fontSize": 24,
+          "copyY": -422,
+          "trackX": -1040.91,
+          "inset": 0
+        },
+        {
+          "fraction": 5,
+          "fontSize": 24,
+          "copyY": -422,
+          "trackX": -1448.84,
+          "inset": 0
+        },
+        {
+          "fraction": 6,
+          "fontSize": 24,
+          "copyY": -422,
+          "trackX": -1560,
+          "inset": 0
+        },
+        {
+          "fraction": 1,
+          "fontSize": 24.2672,
+          "copyY": -422,
+          "trackX": 0,
+          "inset": 0
+        },
+        {
+          "fraction": 0.5,
+          "fontSize": 28.1328,
+          "copyY": 30.3594,
+          "trackX": 0,
+          "inset": 0
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "samples": [
+        {
+          "fraction": -0.5,
+          "fontSize": 115,
+          "copyY": 1024,
+          "trackX": 0,
+          "inset": 5
+        },
+        {
+          "fraction": 0,
+          "fontSize": 90,
+          "copyY": 585.594,
+          "trackX": 0,
+          "inset": 0
+        },
+        {
+          "fraction": 0.5,
+          "fontSize": 74.6832,
+          "copyY": 36.7969,
+          "trackX": 0,
+          "inset": 0
+        },
+        {
+          "fraction": 1,
+          "fontSize": 60,
+          "copyY": -512,
+          "trackX": 0,
+          "inset": 0
+        },
+        {
+          "fraction": 1.5,
+          "fontSize": 60,
+          "copyY": -512,
+          "trackX": -67.3837,
+          "inset": 0
+        },
+        {
+          "fraction": 2,
+          "fontSize": 60,
+          "copyY": -512,
+          "trackX": -328.778,
+          "inset": 0
+        },
+        {
+          "fraction": 3,
+          "fontSize": 60,
+          "copyY": -512,
+          "trackX": -851.567,
+          "inset": 0
+        },
+        {
+          "fraction": 4,
+          "fontSize": 60,
+          "copyY": -512,
+          "trackX": -1374.36,
+          "inset": 0
+        },
+        {
+          "fraction": 5,
+          "fontSize": 60,
+          "copyY": -512,
+          "trackX": -1897.15,
+          "inset": 0
+        },
+        {
+          "fraction": 6,
+          "fontSize": 60,
+          "copyY": -512,
+          "trackX": -2419.93,
+          "inset": 0
+        },
+        {
+          "fraction": 1,
+          "fontSize": 60,
+          "copyY": -512,
+          "trackX": 0,
+          "inset": 0
+        },
+        {
+          "fraction": 0.5,
+          "fontSize": 74.6832,
+          "copyY": 36.7969,
+          "trackX": 0,
+          "inset": 0
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "samples": [
+        {
+          "fraction": -0.5,
+          "fontSize": 115,
+          "copyY": 900,
+          "trackX": 0,
+          "inset": 5
+        },
+        {
+          "fraction": 0,
+          "fontSize": 90,
+          "copyY": 514.281,
+          "trackX": 0,
+          "inset": 0
+        },
+        {
+          "fraction": 0.5,
+          "fontSize": 73.0528,
+          "copyY": 32.1406,
+          "trackX": 0,
+          "inset": 0
+        },
+        {
+          "fraction": 1,
+          "fontSize": 60,
+          "copyY": -450,
+          "trackX": 0,
+          "inset": 0
+        },
+        {
+          "fraction": 1.5,
+          "fontSize": 60,
+          "copyY": -450,
+          "trackX": -132.632,
+          "inset": 0
+        },
+        {
+          "fraction": 2,
+          "fontSize": 60,
+          "copyY": -450,
+          "trackX": -386.842,
+          "inset": 0
+        },
+        {
+          "fraction": 3,
+          "fontSize": 60,
+          "copyY": -450,
+          "trackX": -895.263,
+          "inset": 0
+        },
+        {
+          "fraction": 4,
+          "fontSize": 60,
+          "copyY": -450,
+          "trackX": -1403.68,
+          "inset": 0
+        },
+        {
+          "fraction": 5,
+          "fontSize": 60,
+          "copyY": -450,
+          "trackX": -1912.11,
+          "inset": 0
+        },
+        {
+          "fraction": 6,
+          "fontSize": 60,
+          "copyY": -450,
+          "trackX": -2420.53,
+          "inset": 0
+        },
+        {
+          "fraction": 1,
+          "fontSize": 60,
+          "copyY": -450,
+          "trackX": 0,
+          "inset": 0
+        },
+        {
+          "fraction": 0.5,
+          "fontSize": 73.0528,
+          "copyY": 32.1406,
+          "trackX": 0,
+          "inset": 0
+        }
+      ]
+    }
+  ]
+}

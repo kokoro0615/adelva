@@ -1,0 +1,148 @@
+{
+  "date": "2026-09-09",
+  "scope": "GM task-created intermediate, obsolete, and duplicate screenshots only",
+  "removed": [
+    {
+      "file": "buttons.png",
+      "bytes": 7502
+    },
+    {
+      "file": "challenges-first.png",
+      "bytes": 49157
+    },
+    {
+      "file": "copy-challenges.png",
+      "bytes": 83188
+    },
+    {
+      "file": "copy-diagnosis.png",
+      "bytes": 480391
+    },
+    {
+      "file": "copy-footer.png",
+      "bytes": 241783
+    },
+    {
+      "file": "copy-hero.png",
+      "bytes": 1976399
+    },
+    {
+      "file": "copy-implementation.png",
+      "bytes": 1282416
+    },
+    {
+      "file": "copy-roles.png",
+      "bytes": 80097
+    },
+    {
+      "file": "copy-support.png",
+      "bytes": 509768
+    },
+    {
+      "file": "copy-verification.png",
+      "bytes": 43496
+    },
+    {
+      "file": "diagnosis-final.png",
+      "bytes": 459919
+    },
+    {
+      "file": "diagnosis-first.png",
+      "bytes": 43169
+    },
+    {
+      "file": "dining-final.png",
+      "bytes": 597501
+    },
+    {
+      "file": "footer-final.png",
+      "bytes": 189132
+    },
+    {
+      "file": "full.png",
+      "bytes": 4514428
+    },
+    {
+      "file": "hero-final.png",
+      "bytes": 1828056
+    },
+    {
+      "file": "hero-first.png",
+      "bytes": 1826921
+    },
+    {
+      "file": "implementation-final.png",
+      "bytes": 1018101
+    },
+    {
+      "file": "mobile-challenges.png",
+      "bytes": 49344
+    },
+    {
+      "file": "mobile-diagnosis.png",
+      "bytes": 36435
+    },
+    {
+      "file": "mobile-footer.png",
+      "bytes": 59646
+    },
+    {
+      "file": "mobile-full.png",
+      "bytes": 1537116
+    },
+    {
+      "file": "mobile-hero.png",
+      "bytes": 514860
+    },
+    {
+      "file": "mobile-implementation.png",
+      "bytes": 272459
+    },
+    {
+      "file": "mobile-preview.png",
+      "bytes": 514860
+    },
+    {
+      "file": "mobile-roles.png",
+      "bytes": 51537
+    },
+    {
+      "file": "mobile-support.png",
+      "bytes": 161546
+    },
+    {
+      "file": "mobile-verification.png",
+      "bytes": 28560
+    },
+    {
+      "file": "reference-native.png",
+      "bytes": 2346797
+    },
+    {
+      "file": "roles-first.png",
+      "bytes": 40152
+    },
+    {
+      "file": "support-final.png",
+      "bytes": 299689
+    },
+    {
+      "file": "support-first.png",
+      "bytes": 301775
+    },
+    {
+      "file": "verification-final.png",
+      "bytes": 20791
+    }
+  ],
+  "count": 33,
+  "freedBytes": 21466991,
+  "retained": [
+    "../long-page-mobile-mock.png",
+    "copy-revised-full.png",
+    "mobile-menu.png",
+    "original mock variants and generated photo assets",
+    "verification JSON and design records"
+  ],
+  "figmaTemporaryExportRemoved": true
+}

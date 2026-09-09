@@ -1,1 +1,5 @@
-.Codex/docs/research/design-extract/** -whitespace
+# Preserve externally captured research and license documents byte-for-byte.
+references/** -whitespace
+public/fonts/OFL-*.txt -whitespace
+public/fonts/**/OFL-*.txt -whitespace
+public/media/morght/*OFL.txt -whitespace

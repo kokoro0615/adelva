@@ -1,0 +1,194 @@
+[
+  {
+    "id": "management-profit-team",
+    "band": "management-profit",
+    "src": "/media/adelva/photo-tiles/management-profit-team-800.webp",
+    "srcSet": "/media/adelva/photo-tiles/management-profit-team-400.webp 400w, /media/adelva/photo-tiles/management-profit-team-800.webp 800w, /media/adelva/photo-tiles/management-profit-team-1200.webp 1200w",
+    "width": 800,
+    "height": 533
+  },
+  {
+    "id": "management-profit-model",
+    "band": "management-profit",
+    "src": "/media/adelva/photo-tiles/management-profit-model-800.webp",
+    "srcSet": "/media/adelva/photo-tiles/management-profit-model-400.webp 400w, /media/adelva/photo-tiles/management-profit-model-800.webp 800w, /media/adelva/photo-tiles/management-profit-model-1200.webp 1200w",
+    "width": 800,
+    "height": 800
+  },
+  {
+    "id": "management-profit-analysis",
+    "band": "management-profit",
+    "src": "/media/adelva/photo-tiles/management-profit-analysis-800.webp",
+    "srcSet": "/media/adelva/photo-tiles/management-profit-analysis-400.webp 400w, /media/adelva/photo-tiles/management-profit-analysis-800.webp 800w, /media/adelva/photo-tiles/management-profit-analysis-1024.webp 1024w",
+    "width": 800,
+    "height": 1200
+  },
+  {
+    "id": "opening-operations-keys",
+    "band": "opening-operations",
+    "src": "/media/adelva/photo-tiles/opening-operations-keys-800.webp",
+    "srcSet": "/media/adelva/photo-tiles/opening-operations-keys-400.webp 400w, /media/adelva/photo-tiles/opening-operations-keys-800.webp 800w, /media/adelva/photo-tiles/opening-operations-keys-1200.webp 1200w",
+    "width": 800,
+    "height": 800
+  },
+  {
+    "id": "opening-operations-inspection",
+    "band": "opening-operations",
+    "src": "/media/adelva/photo-tiles/opening-operations-inspection-800.webp",
+    "srcSet": "/media/adelva/photo-tiles/opening-operations-inspection-400.webp 400w, /media/adelva/photo-tiles/opening-operations-inspection-800.webp 800w, /media/adelva/photo-tiles/opening-operations-inspection-1024.webp 1024w",
+    "width": 800,
+    "height": 1200
+  },
+  {
+    "id": "opening-operations-preparation",
+    "band": "opening-operations",
+    "src": "/media/adelva/photo-tiles/opening-operations-preparation-800.webp",
+    "srcSet": "/media/adelva/photo-tiles/opening-operations-preparation-400.webp 400w, /media/adelva/photo-tiles/opening-operations-preparation-800.webp 800w, /media/adelva/photo-tiles/opening-operations-preparation-1200.webp 1200w",
+    "width": 800,
+    "height": 533
+  },
+  {
+    "id": "operations-people-training",
+    "band": "operations-people",
+    "src": "/media/adelva/photo-tiles/operations-people-training-800.webp",
+    "srcSet": "/media/adelva/photo-tiles/operations-people-training-400.webp 400w, /media/adelva/photo-tiles/operations-people-training-800.webp 800w, /media/adelva/photo-tiles/operations-people-training-1200.webp 1200w",
+    "width": 800,
+    "height": 533
+  },
+  {
+    "id": "operations-people-linen",
+    "band": "operations-people",
+    "src": "/media/adelva/photo-tiles/operations-people-linen-800.webp",
+    "srcSet": "/media/adelva/photo-tiles/operations-people-linen-400.webp 400w, /media/adelva/photo-tiles/operations-people-linen-800.webp 800w, /media/adelva/photo-tiles/operations-people-linen-1200.webp 1200w",
+    "width": 800,
+    "height": 800
+  },
+  {
+    "id": "operations-people-chef",
+    "band": "operations-people",
+    "src": "/media/adelva/photo-tiles/operations-people-chef-800.webp",
+    "srcSet": "/media/adelva/photo-tiles/operations-people-chef-400.webp 400w, /media/adelva/photo-tiles/operations-people-chef-800.webp 800w, /media/adelva/photo-tiles/operations-people-chef-1024.webp 1024w",
+    "width": 800,
+    "height": 1200
+  },
+  {
+    "id": "revenue-brand-photography",
+    "band": "revenue-brand",
+    "src": "/media/adelva/photo-tiles/revenue-brand-photography-800.webp",
+    "srcSet": "/media/adelva/photo-tiles/revenue-brand-photography-400.webp 400w, /media/adelva/photo-tiles/revenue-brand-photography-800.webp 800w, /media/adelva/photo-tiles/revenue-brand-photography-1024.webp 1024w",
+    "width": 800,
+    "height": 1200
+  },
+  {
+    "id": "revenue-brand-identity",
+    "band": "revenue-brand",
+    "src": "/media/adelva/photo-tiles/revenue-brand-identity-800.webp",
+    "srcSet": "/media/adelva/photo-tiles/revenue-brand-identity-400.webp 400w, /media/adelva/photo-tiles/revenue-brand-identity-800.webp 800w, /media/adelva/photo-tiles/revenue-brand-identity-1200.webp 1200w",
+    "width": 800,
+    "height": 800
+  },
+  {
+    "id": "revenue-brand-experience",
+    "band": "revenue-brand",
+    "src": "/media/adelva/photo-tiles/revenue-brand-experience-800.webp",
+    "srcSet": "/media/adelva/photo-tiles/revenue-brand-experience-400.webp 400w, /media/adelva/photo-tiles/revenue-brand-experience-800.webp 800w, /media/adelva/photo-tiles/revenue-brand-experience-1200.webp 1200w",
+    "width": 800,
+    "height": 533
+  },
+  {
+    "id": "digital-foundation-network",
+    "band": "digital-foundation",
+    "src": "/media/adelva/photo-tiles/digital-foundation-network-800.webp",
+    "srcSet": "/media/adelva/photo-tiles/digital-foundation-network-400.webp 400w, /media/adelva/photo-tiles/digital-foundation-network-800.webp 800w, /media/adelva/photo-tiles/digital-foundation-network-1024.webp 1024w",
+    "width": 800,
+    "height": 1200
+  },
+  {
+    "id": "digital-foundation-tablet",
+    "band": "digital-foundation",
+    "src": "/media/adelva/photo-tiles/digital-foundation-tablet-800.webp",
+    "srcSet": "/media/adelva/photo-tiles/digital-foundation-tablet-400.webp 400w, /media/adelva/photo-tiles/digital-foundation-tablet-800.webp 800w, /media/adelva/photo-tiles/digital-foundation-tablet-1200.webp 1200w",
+    "width": 800,
+    "height": 800
+  },
+  {
+    "id": "digital-foundation-supplies",
+    "band": "digital-foundation",
+    "src": "/media/adelva/photo-tiles/digital-foundation-supplies-800.webp",
+    "srcSet": "/media/adelva/photo-tiles/digital-foundation-supplies-400.webp 400w, /media/adelva/photo-tiles/digital-foundation-supplies-800.webp 800w, /media/adelva/photo-tiles/digital-foundation-supplies-1200.webp 1200w",
+    "width": 800,
+    "height": 533
+  },
+  {
+    "id": "management-operations-leadership",
+    "band": "management-operations",
+    "src": "/media/adelva/photo-tiles/management-operations-leadership-800.webp",
+    "srcSet": "/media/adelva/photo-tiles/management-operations-leadership-400.webp 400w, /media/adelva/photo-tiles/management-operations-leadership-800.webp 800w, /media/adelva/photo-tiles/management-operations-leadership-1200.webp 1200w",
+    "width": 800,
+    "height": 800
+  },
+  {
+    "id": "management-operations-service",
+    "band": "management-operations",
+    "src": "/media/adelva/photo-tiles/management-operations-service-800.webp",
+    "srcSet": "/media/adelva/photo-tiles/management-operations-service-400.webp 400w, /media/adelva/photo-tiles/management-operations-service-800.webp 800w, /media/adelva/photo-tiles/management-operations-service-1200.webp 1200w",
+    "width": 800,
+    "height": 800
+  },
+  {
+    "id": "management-operations-craft",
+    "band": "management-operations",
+    "src": "/media/adelva/photo-tiles/management-operations-craft-800.webp",
+    "srcSet": "/media/adelva/photo-tiles/management-operations-craft-400.webp 400w, /media/adelva/photo-tiles/management-operations-craft-800.webp 800w, /media/adelva/photo-tiles/management-operations-craft-1200.webp 1200w",
+    "width": 800,
+    "height": 800
+  },
+  {
+    "id": "brand-growth-creative",
+    "band": "brand-growth",
+    "src": "/media/adelva/photo-tiles/brand-growth-creative-800.webp",
+    "srcSet": "/media/adelva/photo-tiles/brand-growth-creative-400.webp 400w, /media/adelva/photo-tiles/brand-growth-creative-800.webp 800w, /media/adelva/photo-tiles/brand-growth-creative-1200.webp 1200w",
+    "width": 800,
+    "height": 800
+  },
+  {
+    "id": "brand-growth-guest",
+    "band": "brand-growth",
+    "src": "/media/adelva/photo-tiles/brand-growth-guest-800.webp",
+    "srcSet": "/media/adelva/photo-tiles/brand-growth-guest-400.webp 400w, /media/adelva/photo-tiles/brand-growth-guest-800.webp 800w, /media/adelva/photo-tiles/brand-growth-guest-1200.webp 1200w",
+    "width": 800,
+    "height": 800
+  },
+  {
+    "id": "brand-growth-suite",
+    "band": "brand-growth",
+    "src": "/media/adelva/photo-tiles/brand-growth-suite-800.webp",
+    "srcSet": "/media/adelva/photo-tiles/brand-growth-suite-400.webp 400w, /media/adelva/photo-tiles/brand-growth-suite-800.webp 800w, /media/adelva/photo-tiles/brand-growth-suite-1200.webp 1200w",
+    "width": 800,
+    "height": 800
+  },
+  {
+    "id": "dx-it-procurement-systems",
+    "band": "dx-it-procurement",
+    "src": "/media/adelva/photo-tiles/dx-it-procurement-systems-800.webp",
+    "srcSet": "/media/adelva/photo-tiles/dx-it-procurement-systems-400.webp 400w, /media/adelva/photo-tiles/dx-it-procurement-systems-800.webp 800w, /media/adelva/photo-tiles/dx-it-procurement-systems-1200.webp 1200w",
+    "width": 800,
+    "height": 800
+  },
+  {
+    "id": "dx-it-procurement-amenities",
+    "band": "dx-it-procurement",
+    "src": "/media/adelva/photo-tiles/dx-it-procurement-amenities-800.webp",
+    "srcSet": "/media/adelva/photo-tiles/dx-it-procurement-amenities-400.webp 400w, /media/adelva/photo-tiles/dx-it-procurement-amenities-800.webp 800w, /media/adelva/photo-tiles/dx-it-procurement-amenities-1200.webp 1200w",
+    "width": 800,
+    "height": 800
+  },
+  {
+    "id": "dx-it-procurement-workflow",
+    "band": "dx-it-procurement",
+    "src": "/media/adelva/photo-tiles/dx-it-procurement-workflow-800.webp",
+    "srcSet": "/media/adelva/photo-tiles/dx-it-procurement-workflow-400.webp 400w, /media/adelva/photo-tiles/dx-it-procurement-workflow-800.webp 800w, /media/adelva/photo-tiles/dx-it-procurement-workflow-1200.webp 1200w",
+    "width": 800,
+    "height": 800
+  }
+]

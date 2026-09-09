@@ -1,0 +1,499 @@
+{
+  "schemaVersion": "full-page-section-manifest/v1",
+  "manifestId": "about--foundation-reference-v1",
+  "role": "reference",
+  "route": "/about/foundation",
+  "family": "about-foundation",
+  "scope": {
+    "kind": "route-content",
+    "id": "about--foundation-content"
+  },
+  "source": {
+    "url": "https://white-desert.com",
+    "requestedRoute": "/about/foundation",
+    "finalRoutes": ["/about/foundation"],
+    "observedAt": "2026-08-31T01:13:05.765Z",
+    "contentRoot": ".page-content",
+    "status": "pending-capture",
+    "captureMode": "manifest-only",
+    "evidenceStatus": "pending-capture"
+  },
+  "requiredViewports": ["desktop", "tablet", "mobile"],
+  "tolerances": {
+    "boundsPx": 2,
+    "scrollHeightPx": 2
+  },
+  "domTopology": {
+    "scope": ".page-content",
+    "directChildren": [
+      "about-navigation",
+      "hero",
+      "white-desert-foundation",
+      "moreabout-us",
+      "start-planning-your-adventure"
+    ]
+  },
+  "sections": [
+    {
+      "id": "about-navigation",
+      "semantic": "div | about-nav_wrap",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "keyLinks": ["/about/founders", "/about/foundation", "/about/sustainability"],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 820.02,
+          "width": 1440,
+          "height": 79.98,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 944,
+          "width": 768,
+          "height": 80,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 764,
+          "width": 390,
+          "height": 80,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "hero",
+      "semantic": "div | about-banner-loader | About",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "About",
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Ff875121b765f2eacae042cb5cb08330236bf1442-2000x1332.jpg&w=3840&q=90"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 900,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 1024,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "white-desert-foundation",
+      "semantic": "section | padding-none bg-white | White Desert Foundation",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "White Desert Foundation",
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F612767823f9e929d3f177a46c29ac3d20065fc79-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fe334138eb0bee90aa066ce8eeced5c92717986bf-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Faf5ed8fcb760db548da6a3c019f85a19debb381c-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F93be520f41213b6a02ac84f922179561ad7d9eca-2000x1333.jpg&w=3840&q=90",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F56aaa228d924f2919fe7b27d5426532749a1d638-1080x1080.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F923d46fd72271ef26792c348495ebfed8e17278a-1080x1080.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "scroll-or-interaction-linked",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 900,
+          "width": 1440,
+          "height": 5093.19,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 1024,
+          "width": 768,
+          "height": 5441.88,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 844,
+          "width": 390,
+          "height": 4078.47,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "moreabout-us",
+      "semantic": "section | padding-top-none-bottom-large bg-white | Moreabout us",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Moreabout us",
+      "keyLinks": [
+        "/about/sustainability",
+        "/about/founders",
+        "/antarctica/behind-the-scenes",
+        "/itineraries/discovery-week"
+      ],
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fbbf3a1a202bd3b5ebbfe0f2524cdb82c449b7b97-1332x2000.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F74a619fdf688c57b789c2ca1c4e6ff71a75dc07b-1500x2250.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F7201ea4ececf92153024ad6dcbb30f1fbf3fba00-1500x2250.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fda6d5ac8485ecc6ebf2b9982cc1482a8c21e90b6-2000x2995.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 5993.19,
+          "width": 1440,
+          "height": 1554.95,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 6465.88,
+          "width": 768,
+          "height": 1648,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 4922.47,
+          "width": 390,
+          "height": 2827.61,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "start-planning-your-adventure",
+      "semantic": "section | padding-none bg-white | Start planning your adventure",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Start planning your adventure",
+      "keyLinks": ["/enquire"],
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F9334bdd2988f3125f13bc3c84eac4440fdbb7a3f-2000x1333.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 7548.14,
+          "width": 1440,
+          "height": 900,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 8113.88,
+          "width": 768,
+          "height": 1024,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 7750.08,
+          "width": 390,
+          "height": 844,
+          "pinned": false
+        }
+      }
+    }
+  ],
+  "viewports": {
+    "desktop": {
+      "width": 1440,
+      "height": 900,
+      "scrollHeight": 9389,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/about--foundation-1440x900-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "tablet": {
+      "width": 768,
+      "height": 1024,
+      "scrollHeight": 10162,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/about--foundation-768x1024-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "scrollHeight": 10706,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/about--foundation-390x844-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    }
+  },
+  "motion": {
+    "status": "incomplete",
+    "unknown": [
+      "motion evidence remains pending until four phase captures exist for every layer and viewport"
+    ],
+    "layers": [
+      {
+        "id": "gallery-slider",
+        "property": "visual state",
+        "trigger": "route motion candidate",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "sectionId": "white-desert-foundation",
+        "samples": {
+          "desktop": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 2053.5,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 2997,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 2053.5,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 5093,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 2053.5,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 4643,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 2053.5,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            }
+          },
+          "tablet": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 2512.19,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 3233,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 2512.19,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 5442,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 2512.19,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 4930,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 2512.19,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            }
+          },
+          "mobile": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1756,
+              "width": 390,
+              "height": 759.59,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 2461,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1756,
+              "width": 390,
+              "height": 759.59,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 4078,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1756,
+              "width": 390,
+              "height": 759.59,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 3656,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1756,
+              "width": 390,
+              "height": 759.59,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            }
+          }
+        },
+        "pinRanges": {}
+      }
+    ]
+  }
+}

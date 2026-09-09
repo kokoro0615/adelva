@@ -1,0 +1,817 @@
+{
+  "schemaVersion": "full-page-section-manifest/v1",
+  "manifestId": "camps--explorer-camp-reference-v1",
+  "role": "reference",
+  "route": "/camps/explorer-camp",
+  "family": "camp-detail",
+  "scope": {
+    "kind": "route-content",
+    "id": "camps--explorer-camp-content"
+  },
+  "source": {
+    "url": "https://white-desert.com",
+    "requestedRoute": "/camps/explorer-camp",
+    "finalRoutes": ["/camps/explorer-camp"],
+    "observedAt": "2026-08-31T01:33:47.510Z",
+    "contentRoot": ".page-content",
+    "status": "pending-capture",
+    "captureMode": "manifest-only",
+    "evidenceStatus": "pending-capture"
+  },
+  "requiredViewports": ["desktop", "tablet", "mobile"],
+  "tolerances": {
+    "boundsPx": 2,
+    "scrollHeightPx": 2
+  },
+  "domTopology": {
+    "scope": ".page-content",
+    "directChildren": [
+      "hero",
+      "section-2",
+      "explorer-camp",
+      "camp-amenities",
+      "section-5",
+      "gallery",
+      "highlights",
+      "planning-cta"
+    ]
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "semantic": "div | fixed-banner-loader | Explorer Camp",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Explorer Camp",
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fb701c2c688b8d00ea8ef9e0f1f8b7aba6484881f-2200x1467.jpg&w=3840&q=90",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fb701c2c688b8d00ea8ef9e0f1f8b7aba6484881f-2200x1467.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 900
+        },
+        "tablet": {
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 1024
+        },
+        "mobile": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844
+        }
+      }
+    },
+    {
+      "id": "section-2",
+      "semantic": "section | glass-center-banner",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F09cd27ad84aa5399b775410433324a70c6ea59d2-2100x1400.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 900,
+          "width": 1440,
+          "height": 1350
+        },
+        "tablet": {
+          "x": 0,
+          "y": 1024,
+          "width": 768,
+          "height": 1536
+        },
+        "mobile": {
+          "x": 0,
+          "y": 844,
+          "width": 390,
+          "height": 844
+        }
+      }
+    },
+    {
+      "id": "explorer-camp",
+      "semantic": "div | editorial-wrap | Explorer Camp",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Explorer Camp",
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fe257ebce1782dd56cb7e683a3c0ccd7cd4f367e1-1600x2400.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "scroll-or-interaction-linked",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 2250,
+          "width": 1440,
+          "height": 715.08
+        },
+        "tablet": {
+          "x": 0,
+          "y": 2560,
+          "width": 768,
+          "height": 804.59
+        },
+        "mobile": {
+          "x": 0,
+          "y": 1688,
+          "width": 390,
+          "height": 1027.25
+        }
+      }
+    },
+    {
+      "id": "camp-amenities",
+      "semantic": "div | camp-amenities_component | Camp Amenities",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Camp Amenities",
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 2965.08,
+          "width": 1440,
+          "height": 762.73
+        },
+        "tablet": {
+          "x": 0,
+          "y": 3364.59,
+          "width": 768,
+          "height": 910
+        },
+        "mobile": {
+          "x": 0,
+          "y": 2715.25,
+          "width": 390,
+          "height": 930.39
+        }
+      }
+    },
+    {
+      "id": "section-5",
+      "semantic": "section | padding-large bg-transparent",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 3727.81,
+          "width": 1440,
+          "height": 870.25
+        },
+        "tablet": {
+          "x": 0,
+          "y": 4274.59,
+          "width": 768,
+          "height": 932.73
+        },
+        "mobile": {
+          "x": 0,
+          "y": 3645.64,
+          "width": 390,
+          "height": 529.38
+        }
+      }
+    },
+    {
+      "id": "gallery",
+      "semantic": "div | gallery-slider | A Closer Look",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "A Closer Look",
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F9e199ab72fa136bdcdd2398ef7ec62a7bbe88e8f-2100x1400.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F31d2780d3415bb9ebb38435aa67bffe5a032997f-2100x1400.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fb5de1a761caedf383d1af4f3294acc816265ca9f-2300x1533.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fa645cf41cd8c7831d713c1688f3a10a54b7b6469-2200x1467.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fc7156173d5146fcb1dd42da2355e2b1212c03854-2000x1333.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 4598.06,
+          "width": 1440,
+          "height": 970.38
+        },
+        "tablet": {
+          "x": 0,
+          "y": 5207.33,
+          "width": 768,
+          "height": 1094.39
+        },
+        "mobile": {
+          "x": 0,
+          "y": 4175.02,
+          "width": 390,
+          "height": 845.98
+        }
+      }
+    },
+    {
+      "id": "highlights",
+      "semantic": "section | padding-none bg-dark | Highlights",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Highlights",
+      "keyLinks": [
+        "/itineraries/early-emperor-penguins",
+        "/itineraries/south-pole-emperor-penguins",
+        "/itineraries/south-pole-blue-rivers",
+        "/itineraries/the-long-stay",
+        "/itineraries/antarctica-in-a-day"
+      ],
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F91ab2db77f4873293557bce0c6eaa590ca56e802-2200x2750.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fabe92cd8afdd37456f1c8427302143f97ecf2cf8-1600x2000.jpg&w=3840&q=75",
+        "https://cdn.sanity.io/files/kq9qn5zn/production/33d2fe83970597f54e8a8654a5769cbb9143ae92.mp4",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Ff513bd272dc659247c787e59f1524d51590795b8-2000x3000.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F7d122c8a6ded81a28b77ee13083418de8ee0e417-2000x1336.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F11aa0e5092fd48dbf81943cb607d1bce2bff29f9-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F2e974055cba15c6c00349a82e87250235c5d7fe8-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fdb07c3140a8492221021c4356db0c0b78d75bc7e-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F2fef164beb44408c127f2200a48de4fb2bb3454d-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F0dce4f7450c2f0aebe0516db7fe11985a16797ad-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F4bf365b2bedd6309b8c27dc832b204d8c20c6da5-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F727cb22c944e4e55ca8cb6215c25981b9a231572-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fe7e7f2eece2cd2d8e0dc3e6f25f1aabc4519ba80-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F16add1ee0bdc16862dc37b826abb1600887e7fbb-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Ffc3d4887c37b05526119edbc5db9d18a0b034c6b-2000x1250.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F545ecd31bdf0cdd5605316894111fb0f197e0129-2668x2000.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F0554de84a6e2cfa68bff6d38a7d7e1c975653f91-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fa1e7092001e46b8511e5d9386f43ccfce30122d2-2000x1333.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 5568.44,
+          "width": 1440,
+          "height": 4783.95
+        },
+        "tablet": {
+          "x": 0,
+          "y": 6301.72,
+          "width": 768,
+          "height": 5108.78
+        },
+        "mobile": {
+          "x": 0,
+          "y": 5021,
+          "width": 390,
+          "height": 10592.53
+        }
+      }
+    },
+    {
+      "id": "planning-cta",
+      "semantic": "section | basic-banner | Start planning your adventure",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Start planning your adventure",
+      "keyLinks": ["/enquire"],
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F7831b5a2a94f5d1afef07cb89308e04f2713a86f-2000x1333.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 10352.39,
+          "width": 1440,
+          "height": 900
+        },
+        "tablet": {
+          "x": 0,
+          "y": 11410.5,
+          "width": 768,
+          "height": 1024
+        },
+        "mobile": {
+          "x": 0,
+          "y": 15613.53,
+          "width": 390,
+          "height": 844
+        }
+      }
+    }
+  ],
+  "viewports": {
+    "desktop": {
+      "width": 1440,
+      "height": 900,
+      "scrollHeight": 12193,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/camps--explorer-camp-1440x900-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "tablet": {
+      "width": 768,
+      "height": 1024,
+      "scrollHeight": 13459,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/camps--explorer-camp-768x1024-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "scrollHeight": 18569,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/camps--explorer-camp-390x844-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    }
+  },
+  "motion": {
+    "status": "incomplete",
+    "unknown": [
+      "motion evidence remains pending until four phase captures exist for every layer and viewport"
+    ],
+    "layers": [
+      {
+        "id": "sticky-split-slider",
+        "property": "visual state",
+        "trigger": "route motion candidate",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "sectionId": "explorer-camp",
+        "samples": {
+          "desktop": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 2250,
+              "width": 1440,
+              "height": 715.08,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 2158,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 2250,
+              "width": 1440,
+              "height": 715.08,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 2065,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 2250,
+              "width": 1440,
+              "height": 715.08,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 1615,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 2250,
+              "width": 1440,
+              "height": 715.08,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            }
+          },
+          "tablet": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 2560,
+              "width": 768,
+              "height": 804.59,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 2450,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 2560,
+              "width": 768,
+              "height": 804.59,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 2341,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 2560,
+              "width": 768,
+              "height": 804.59,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 1829,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 2560,
+              "width": 768,
+              "height": 804.59,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            }
+          },
+          "mobile": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1688,
+              "width": 390,
+              "height": 1027.25,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 1780,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1688,
+              "width": 390,
+              "height": 1027.25,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 1871,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1688,
+              "width": 390,
+              "height": 1027.25,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 1449,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1688,
+              "width": 390,
+              "height": 1027.25,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            }
+          }
+        },
+        "pinRanges": {
+          "mobile": {
+            "scrollStart": 1688,
+            "scrollEnd": 1871.25,
+            "verticalDistance": 183.25,
+            "horizontalDistance": 0
+          }
+        }
+      },
+      {
+        "id": "gallery-slider",
+        "property": "visual state",
+        "trigger": "route motion candidate",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "sectionId": "gallery",
+        "samples": {
+          "desktop": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 4598.06,
+              "width": 1440,
+              "height": 970.38,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 2158,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 4598.06,
+              "width": 1440,
+              "height": 970.38,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 2065,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 4598.06,
+              "width": 1440,
+              "height": 970.38,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 1615,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 4598.06,
+              "width": 1440,
+              "height": 970.38,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            }
+          },
+          "tablet": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 5207.33,
+              "width": 768,
+              "height": 1094.39,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 2450,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 5207.33,
+              "width": 768,
+              "height": 1094.39,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 2341,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 5207.33,
+              "width": 768,
+              "height": 1094.39,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 1829,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 5207.33,
+              "width": 768,
+              "height": 1094.39,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            }
+          },
+          "mobile": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 4175.02,
+              "width": 390,
+              "height": 845.98,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 1780,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 4175.02,
+              "width": 390,
+              "height": 845.98,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 1871,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 4175.02,
+              "width": 390,
+              "height": 845.98,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 1449,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 4175.02,
+              "width": 390,
+              "height": 845.98,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            }
+          }
+        },
+        "pinRanges": {}
+      }
+    ]
+  }
+}

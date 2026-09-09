@@ -1,0 +1,446 @@
+[
+  {
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "scaleX": 1,
+    "scaleY": 1,
+    "checks": [
+      {
+        "tag": "H1",
+        "key": "x",
+        "reference": 60,
+        "actual": 60,
+        "delta": 0,
+        "tolerance": 3,
+        "pass": true
+      },
+      {
+        "tag": "H1",
+        "key": "w",
+        "reference": 1320,
+        "actual": 1320,
+        "delta": 0,
+        "tolerance": 3,
+        "pass": true
+      },
+      {
+        "tag": "H1",
+        "key": "y",
+        "reference": 367,
+        "actual": 367,
+        "delta": 0,
+        "tolerance": 8,
+        "pass": true
+      },
+      {
+        "tag": "FORM",
+        "key": "x",
+        "reference": 520,
+        "actual": 519.984375,
+        "delta": 0.015625,
+        "tolerance": 3,
+        "pass": true
+      },
+      {
+        "tag": "FORM",
+        "key": "w",
+        "reference": 707,
+        "actual": 706.984375,
+        "delta": 0.015625,
+        "tolerance": 3,
+        "pass": true
+      },
+      {
+        "tag": "FORM",
+        "key": "y",
+        "reference": 826.09375,
+        "actual": 826.09375,
+        "delta": 0,
+        "tolerance": 22,
+        "pass": true
+      },
+      {
+        "tag": "SELECT",
+        "key": "x",
+        "reference": 520,
+        "actual": 519.984375,
+        "delta": 0.015625,
+        "tolerance": 3,
+        "pass": true
+      },
+      {
+        "tag": "SELECT",
+        "key": "w",
+        "reference": 707,
+        "actual": 706.984375,
+        "delta": 0.015625,
+        "tolerance": 3,
+        "pass": true
+      },
+      {
+        "tag": "SELECT",
+        "key": "y",
+        "reference": 945.1875,
+        "actual": 945.1875,
+        "delta": 0,
+        "tolerance": 22,
+        "pass": true
+      },
+      {
+        "tag": "SELECT",
+        "key": "h",
+        "reference": 61.09375,
+        "actual": 61.09375,
+        "delta": 0,
+        "tolerance": 3,
+        "pass": true
+      },
+      {
+        "tag": "TEXTAREA",
+        "key": "x",
+        "reference": 520,
+        "actual": 519.984375,
+        "delta": 0.015625,
+        "tolerance": 3,
+        "pass": true
+      },
+      {
+        "tag": "TEXTAREA",
+        "key": "w",
+        "reference": 707,
+        "actual": 706.984375,
+        "delta": 0.015625,
+        "tolerance": 3,
+        "pass": true
+      },
+      {
+        "tag": "TEXTAREA",
+        "key": "y",
+        "reference": 1662.125,
+        "actual": 1662.125,
+        "delta": 0,
+        "tolerance": 22,
+        "pass": true
+      },
+      {
+        "tag": "TEXTAREA",
+        "key": "h",
+        "reference": 315.125,
+        "actual": 315.09375,
+        "delta": 0.03125,
+        "tolerance": 3,
+        "pass": true
+      }
+    ],
+    "errors": [],
+    "pixelMAE": 0.19853462453911297,
+    "missing": [],
+    "extra": [],
+    "intentional": [
+      "ADELVA header/footer",
+      "ADELVA categories",
+      "UI-only status / no policy link",
+      "stronger field/placeholder contrast",
+      "16px inputs",
+      "CSS ambience"
+    ]
+  },
+  {
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "scaleX": 1,
+    "scaleY": 1,
+    "checks": [
+      {
+        "tag": "H1",
+        "key": "x",
+        "reference": 32,
+        "actual": 32,
+        "delta": 0,
+        "tolerance": 3,
+        "pass": true
+      },
+      {
+        "tag": "H1",
+        "key": "w",
+        "reference": 704,
+        "actual": 704,
+        "delta": 0,
+        "tolerance": 3,
+        "pass": true
+      },
+      {
+        "tag": "H1",
+        "key": "y",
+        "reference": 367,
+        "actual": 367,
+        "delta": 0,
+        "tolerance": 8,
+        "pass": true
+      },
+      {
+        "tag": "FORM",
+        "key": "x",
+        "reference": 277.328125,
+        "actual": 277.328125,
+        "delta": 0,
+        "tolerance": 3,
+        "pass": true
+      },
+      {
+        "tag": "FORM",
+        "key": "w",
+        "reference": 377.078125,
+        "actual": 377.0625,
+        "delta": 0.015625,
+        "tolerance": 3,
+        "pass": true
+      },
+      {
+        "tag": "FORM",
+        "key": "y",
+        "reference": 853.390625,
+        "actual": 853.390625,
+        "delta": 0,
+        "tolerance": 22,
+        "pass": true
+      },
+      {
+        "tag": "SELECT",
+        "key": "x",
+        "reference": 277.328125,
+        "actual": 277.328125,
+        "delta": 0,
+        "tolerance": 3,
+        "pass": true
+      },
+      {
+        "tag": "SELECT",
+        "key": "w",
+        "reference": 377.078125,
+        "actual": 377.0625,
+        "delta": 0.015625,
+        "tolerance": 3,
+        "pass": true
+      },
+      {
+        "tag": "SELECT",
+        "key": "y",
+        "reference": 972.484375,
+        "actual": 972.484375,
+        "delta": 0,
+        "tolerance": 22,
+        "pass": true
+      },
+      {
+        "tag": "SELECT",
+        "key": "h",
+        "reference": 61.09375,
+        "actual": 61.09375,
+        "delta": 0,
+        "tolerance": 3,
+        "pass": true
+      },
+      {
+        "tag": "TEXTAREA",
+        "key": "x",
+        "reference": 277.328125,
+        "actual": 277.328125,
+        "delta": 0,
+        "tolerance": 3,
+        "pass": true
+      },
+      {
+        "tag": "TEXTAREA",
+        "key": "w",
+        "reference": 377.078125,
+        "actual": 377.0625,
+        "delta": 0.015625,
+        "tolerance": 3,
+        "pass": true
+      },
+      {
+        "tag": "TEXTAREA",
+        "key": "y",
+        "reference": 1689.421875,
+        "actual": 1689.421875,
+        "delta": 0,
+        "tolerance": 22,
+        "pass": true
+      },
+      {
+        "tag": "TEXTAREA",
+        "key": "h",
+        "reference": 315.125,
+        "actual": 315.09375,
+        "delta": 0.03125,
+        "tolerance": 3,
+        "pass": true
+      }
+    ],
+    "errors": [],
+    "pixelMAE": 0.1974041633266769,
+    "missing": [],
+    "extra": [],
+    "intentional": [
+      "ADELVA header/footer",
+      "ADELVA categories",
+      "UI-only status / no policy link",
+      "stronger field/placeholder contrast",
+      "16px inputs",
+      "CSS ambience"
+    ]
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scaleX": 1,
+    "scaleY": 1,
+    "checks": [
+      {
+        "tag": "H1",
+        "key": "x",
+        "reference": 20.796875,
+        "actual": 20.796875,
+        "delta": 0,
+        "tolerance": 3,
+        "pass": true
+      },
+      {
+        "tag": "H1",
+        "key": "w",
+        "reference": 348.40625,
+        "actual": 348.40625,
+        "delta": 0,
+        "tolerance": 3,
+        "pass": true
+      },
+      {
+        "tag": "H1",
+        "key": "y",
+        "reference": 171.59375,
+        "actual": 171.59375,
+        "delta": 0,
+        "tolerance": 8,
+        "pass": true
+      },
+      {
+        "tag": "FORM",
+        "key": "x",
+        "reference": 20.796875,
+        "actual": 20.796875,
+        "delta": 0,
+        "tolerance": 3,
+        "pass": true
+      },
+      {
+        "tag": "FORM",
+        "key": "w",
+        "reference": 348.40625,
+        "actual": 348.40625,
+        "delta": 0,
+        "tolerance": 3,
+        "pass": true
+      },
+      {
+        "tag": "FORM",
+        "key": "y",
+        "reference": 506.859375,
+        "actual": 506.765625,
+        "delta": 0.09375,
+        "tolerance": 22,
+        "pass": true
+      },
+      {
+        "tag": "SELECT",
+        "key": "x",
+        "reference": 20.796875,
+        "actual": 20.796875,
+        "delta": 0,
+        "tolerance": 3,
+        "pass": true
+      },
+      {
+        "tag": "SELECT",
+        "key": "w",
+        "reference": 348.40625,
+        "actual": 348.40625,
+        "delta": 0,
+        "tolerance": 3,
+        "pass": true
+      },
+      {
+        "tag": "SELECT",
+        "key": "y",
+        "reference": 630.6875,
+        "actual": 630.59375,
+        "delta": 0.09375,
+        "tolerance": 22,
+        "pass": true
+      },
+      {
+        "tag": "SELECT",
+        "key": "h",
+        "reference": 70.625,
+        "actual": 70.59375,
+        "delta": 0.03125,
+        "tolerance": 3,
+        "pass": true
+      },
+      {
+        "tag": "TEXTAREA",
+        "key": "x",
+        "reference": 20.796875,
+        "actual": 20.796875,
+        "delta": 0,
+        "tolerance": 3,
+        "pass": true
+      },
+      {
+        "tag": "TEXTAREA",
+        "key": "w",
+        "reference": 348.40625,
+        "actual": 348.40625,
+        "delta": 0,
+        "tolerance": 3,
+        "pass": true
+      },
+      {
+        "tag": "TEXTAREA",
+        "key": "y",
+        "reference": 1476,
+        "actual": 1475.71875,
+        "delta": 0.28125,
+        "tolerance": 22,
+        "pass": true
+      },
+      {
+        "tag": "TEXTAREA",
+        "key": "h",
+        "reference": 413.6875,
+        "actual": 413.6875,
+        "delta": 0,
+        "tolerance": 3,
+        "pass": true
+      }
+    ],
+    "errors": [],
+    "pixelMAE": 0.25430536998278486,
+    "missing": [],
+    "extra": [],
+    "intentional": [
+      "ADELVA header/footer",
+      "ADELVA categories",
+      "UI-only status / no policy link",
+      "stronger field/placeholder contrast",
+      "16px inputs",
+      "CSS ambience"
+    ]
+  }
+]

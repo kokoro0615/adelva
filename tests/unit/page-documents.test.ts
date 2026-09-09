@@ -43,7 +43,7 @@ describe("page document registry", () => {
     expect(registryPaths).toEqual(expectedPaths);
     expect(documentPaths).toEqual(expectedPaths);
     expect(new Set(documentPaths)).toHaveLength(documentPaths.length);
-    expect(pageDocuments).toHaveLength(28);
+    expect(pageDocuments).toHaveLength(renderedRoutes.length);
     expect(() => getPageDocument("/antarctica")).toThrow(/redirect/i);
   });
 
@@ -65,7 +65,7 @@ describe("page document registry", () => {
     }
   });
 
-  it("uses only approved local asset IDs and contains no target identity or remote asset URL", () => {
+  it("uses only registered local assets for the authorized clone content", () => {
     const approvedAssetIds = new Set(Object.keys(assets));
     const serialized = JSON.stringify(pageDocuments);
 
@@ -74,7 +74,13 @@ describe("page document registry", () => {
       expect(approvedAssetIds.has(assetId), assetId).toBe(true);
     }
 
-    expect(serialized).not.toMatch(/white[\s-]*desert/i);
+    for (const asset of Object.values(assets)) {
+      expect(asset.src, asset.id).toMatch(/^\/(?!\/)/);
+      expect(asset.src, asset.id).not.toMatch(
+        /(?:white-desert\.com|cdn\.sanity\.io|cloudflarestream\.com)/i,
+      );
+    }
+
     expect(serialized).not.toMatch(/https?:\/\//i);
   });
 

@@ -25,7 +25,18 @@
     "capture:actual": "node scripts/fidelity/capture-actual.mjs",
     "extract:design": "node scripts/extraction/run-design-extract.mjs",
     "fidelity:reference": "node scripts/fidelity/compare-reference.mjs --batch",
-    "verify": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test:unit && pnpm test:e2e && pnpm build"
+    "fidelity:routes": "node scripts/fidelity/route-discovery.mjs --discovery=scripts/fidelity/manifests/white-desert-route-discovery-v1.json",
+    "fidelity:sections": "node scripts/fidelity/section-manifest.mjs --plan=scripts/fidelity/manifests/full-page-gate-plan-v1.json",
+    "verify": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test:unit && pnpm build && pnpm fidelity:routes && pnpm fidelity:sections && pnpm test:e2e",
+    "capture:nosigner:reference": "node scripts/nosigner/capture-reference.mjs",
+    "capture:nosigner:actual": "node scripts/nosigner/capture-actual.mjs",
+    "fidelity:nosigner": "node scripts/nosigner/verify.mjs",
+    "test:nosigner": "playwright test --config playwright.nosigner.config.ts",
+    "fidelity:nosigner:geometry": "node scripts/nosigner/verify.mjs --geometry-and-hero",
+    "fidelity:adelva-about": "node scripts/morght/verify-adelva.mjs",
+    "test:adelva-about": "playwright test --config playwright.morght.config.ts",
+    "test:revision": "playwright test --config playwright.revision.config.ts",
+    "fidelity:contact": "node scripts/contact/verify.mjs"
   },
   "dependencies": {
     "@gsap/react": "2.1.2",

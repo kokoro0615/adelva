@@ -1,0 +1,984 @@
+{
+  "schemaVersion": "full-page-section-manifest/v1",
+  "manifestId": "itineraries--discovery-week-reference-v1",
+  "role": "reference",
+  "route": "/itineraries/discovery-week",
+  "family": "itinerary-detail",
+  "scope": {
+    "kind": "route-content",
+    "id": "itineraries--discovery-week-content"
+  },
+  "source": {
+    "url": "https://white-desert.com",
+    "requestedRoute": "/itineraries/discovery-week",
+    "finalRoutes": ["/itineraries/discovery-week"],
+    "observedAt": "2026-08-31T01:13:05.787Z",
+    "contentRoot": ".page-content",
+    "status": "pending-capture",
+    "captureMode": "manifest-only",
+    "evidenceStatus": "pending-capture"
+  },
+  "requiredViewports": ["desktop", "tablet", "mobile"],
+  "tolerances": {
+    "boundsPx": 2,
+    "scrollHeightPx": 2
+  },
+  "domTopology": {
+    "scope": ".page-content",
+    "directChildren": [
+      "hero",
+      "div-2",
+      "overview",
+      "discovery-week",
+      "section-5",
+      "curriculum",
+      "at-the-heart-of-the-climate-system",
+      "gallery",
+      "sample-itinerary",
+      "planning-cta"
+    ]
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "semantic": "div | fixed-banner-loader | Discovery Week",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Discovery Week",
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fd7a57c1ca1946ff853ea2b4bf35366b970a872bf-2000x1080.jpg&w=3840&q=90",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fd7a57c1ca1946ff853ea2b4bf35366b970a872bf-2000x1080.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 900,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 1024,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "div-2",
+      "semantic": "div | cta-nav_wrap",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "keyLinks": ["/itineraries/discovery-week"],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 820.02,
+          "width": 1440,
+          "height": 79.98,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 944,
+          "width": 768,
+          "height": 80,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 16,
+          "y": 764,
+          "width": 358,
+          "height": 80,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "overview",
+      "semantic": "section | padding-none bg-transparent has-inset-effect | A Week of Discovery",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "A Week of Discovery",
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fe0e60399656b70194bbac0cbddf9852dbfedb62a-2192x1461.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 900,
+          "width": 1440,
+          "height": 900,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 1024,
+          "width": 768,
+          "height": 1024,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 844,
+          "width": 390,
+          "height": 844,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "discovery-week",
+      "semantic": "section | padding-none bg-transparent | Discovery Week",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Discovery Week",
+      "keyLinks": ["/prices"],
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F867b4e04cf2780d8b6233217a47c5c3e921752ab-1500x2246.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fab1ff36a2794793094d3c2a7c437e9c8edb899df-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fc8cf9e0f9933bb0c6f04033b4702f8bd72d5b614-2392x3588.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "scroll-or-interaction-linked",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 1800,
+          "width": 1440,
+          "height": 1355.05,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 2048,
+          "width": 768,
+          "height": 1288.19,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 1688,
+          "width": 390,
+          "height": 1249.84,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "section-5",
+      "semantic": "section | padding-none bg-transparent quote-section",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F1267d6fdee7eef9036e8edb1ae5e9d515ef0d3c4-5472x3648.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 3155.05,
+          "width": 1440,
+          "height": 1350,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 3336.19,
+          "width": 768,
+          "height": 1536,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 2937.84,
+          "width": 390,
+          "height": 844,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "curriculum",
+      "semantic": "section | padding-none bg-transparent has-inset-effect | A Global Perspective",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "A Global Perspective",
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fece97bdc2b4d2b092e92b671fc107ae1b91ca832-1723x1066.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 4505.05,
+          "width": 1440,
+          "height": 900,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 4872.19,
+          "width": 768,
+          "height": 1024,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 3781.84,
+          "width": 390,
+          "height": 844,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "at-the-heart-of-the-climate-system",
+      "semantic": "section | padding-none bg-transparent | At the Heart of the Climate System",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "At the Heart of the Climate System",
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fbae13dc65206cb6df3ad663a98efc72a22f72a72-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F05c5d0c8619aac5280740a7e8416e090fa86caf3-1500x2250.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F4ef1d6b62f8a960d17c05ff01319df41a98f0ac1-2000x1333.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "scroll-or-interaction-linked",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 5405.05,
+          "width": 1440,
+          "height": 1355.05,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 5896.19,
+          "width": 768,
+          "height": 1854.38,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 4625.84,
+          "width": 390,
+          "height": 1625.84,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "gallery",
+      "semantic": "div | gallery-slider",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F5b87085d67b6346a1e199f47b601fe6e119c21fc-1920x1156.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Ffc35408e43f39038f49cab1372247ae3a1ce0d97-1920x1156.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F6b7aec580ecf99e994cf15b34d070a5391000518-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Ff2505c5a73cd637593bced1ef8c20615f3a80702-2000x1334.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 6760.09,
+          "width": 1440,
+          "height": 900,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 7750.56,
+          "width": 768,
+          "height": 1024,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 6251.69,
+          "width": 390,
+          "height": 759.59,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "sample-itinerary",
+      "semantic": "section | padding-none bg-deep-blue | Sample Itinerary",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Sample Itinerary",
+      "keyLinks": [
+        "/learn/foundation",
+        "/stay/camps/explorer-camp",
+        "/learn/sustainability",
+        "/prices"
+      ],
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F9bf94a5c77f779d1863c4fcfab0664855f981293-2000x2668.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fbffc15457d5d1690f37f32b74feaf240c1765083-1500x2250.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F5bc52f3efe800eb2205457e4aa1f7a443aaf5aa7-1500x2250.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fecf265e7df60f147531225aec31246ca16756d3e-1080x1350.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Ffbc30fb110b4c56ebd8958b4df7a679d83f40a85-1080x1350.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F831cb2dfaef0451272f38885339ad2a4f58030a8-1500x2250.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F64aebe28e8a6a20928dfa5593f4f8785b51a2346-1200x1500.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F776270b132479c326da8f978c4c3a1b17474d701-1500x1875.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Ff0720248159e6097fc2dea94436d537649766380-2000x1334.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F04288ad9d48be9b5e4d31ff6085d8a6269c34c53-1500x2250.jpg&w=3840&q=75",
+        "/_next/image?url=%2Fimages%2Fcloud-gradient.png&w=3840&q=75",
+        "/_next/image?url=%2Fimages%2Fmist-gradient.png&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fbbf3a1a202bd3b5ebbfe0f2524cdb82c449b7b97-1332x2000.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fd946ca094611bf796e5b56e93039feb6ae697990-1800x2700.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F79fa0deb9dd0c864fbf9973f1e89a82585d7995b-1500x2250.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fbac771f6f5308d19ae17d43753dbff34378b9bd8-1600x2000.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "scroll-or-interaction-linked",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 7660.09,
+          "width": 1440,
+          "height": 9659.92,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 8774.56,
+          "width": 768,
+          "height": 9752,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 7011.28,
+          "width": 390,
+          "height": 7501.19,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "planning-cta",
+      "semantic": "section | basic-banner | Start planning your adventure",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Start planning your adventure",
+      "keyLinks": ["/enquire"],
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F8acf770f6855add1dcca773ba0dda7509f5a4a6a-2000x1333.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 17320.02,
+          "width": 1440,
+          "height": 900,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 18526.56,
+          "width": 768,
+          "height": 1024,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 14512.47,
+          "width": 390,
+          "height": 844,
+          "pinned": false
+        }
+      }
+    }
+  ],
+  "viewports": {
+    "desktop": {
+      "width": 1440,
+      "height": 900,
+      "scrollHeight": 19166,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/itineraries--discovery-week-1440x900-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "tablet": {
+      "width": 768,
+      "height": 1024,
+      "scrollHeight": 20575,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/itineraries--discovery-week-768x1024-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "scrollHeight": 17489,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/itineraries--discovery-week-390x844-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    }
+  },
+  "motion": {
+    "status": "incomplete",
+    "unknown": [
+      "motion evidence remains pending until four phase captures exist for every layer and viewport"
+    ],
+    "layers": [
+      {
+        "id": "sticky-split-slider",
+        "property": "visual state",
+        "trigger": "route motion candidate",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": true,
+        "sectionId": "discovery-week",
+        "samples": {
+          "desktop": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          },
+          "tablet": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          },
+          "mobile": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          }
+        },
+        "pinRanges": {
+          "desktop": {
+            "scrollStart": 1800,
+            "scrollEnd": 2255.05,
+            "verticalDistance": 455.05,
+            "horizontalDistance": 0
+          },
+          "tablet": {
+            "scrollStart": 2048,
+            "scrollEnd": 2312.19,
+            "verticalDistance": 264.19,
+            "horizontalDistance": 0
+          },
+          "mobile": {
+            "scrollStart": 1688,
+            "scrollEnd": 2093.84,
+            "verticalDistance": 405.84,
+            "horizontalDistance": 0
+          }
+        }
+      },
+      {
+        "id": "sticky-split-slider-2",
+        "property": "visual state",
+        "trigger": "route motion candidate",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": true,
+        "sectionId": "at-the-heart-of-the-climate-system",
+        "samples": {
+          "desktop": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          },
+          "tablet": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          },
+          "mobile": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          }
+        },
+        "pinRanges": {
+          "desktop": {
+            "scrollStart": 5405.05,
+            "scrollEnd": 5860.1,
+            "verticalDistance": 455.05,
+            "horizontalDistance": 0
+          },
+          "tablet": {
+            "scrollStart": 5896.19,
+            "scrollEnd": 6726.57,
+            "verticalDistance": 830.38,
+            "horizontalDistance": 0
+          },
+          "mobile": {
+            "scrollStart": 4625.84,
+            "scrollEnd": 5407.68,
+            "verticalDistance": 781.84,
+            "horizontalDistance": 0
+          }
+        }
+      },
+      {
+        "id": "gallery-slider",
+        "property": "visual state",
+        "trigger": "route motion candidate",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "sectionId": "gallery",
+        "samples": {
+          "desktop": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 6760.09,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 2028,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 6760.09,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 2255,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 6760.09,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 1805,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 6760.09,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            }
+          },
+          "tablet": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 7750.56,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 2180,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 7750.56,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 2312,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 7750.56,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 1800,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 7750.56,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            }
+          },
+          "mobile": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 6251.69,
+              "width": 390,
+              "height": 759.59,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 1891,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 6251.69,
+              "width": 390,
+              "height": 759.59,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 2094,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 6251.69,
+              "width": 390,
+              "height": 759.59,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 1672,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 6251.69,
+              "width": 390,
+              "height": 759.59,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            }
+          }
+        },
+        "pinRanges": {}
+      },
+      {
+        "id": "mist-transition-image-container",
+        "property": "transform",
+        "trigger": "sticky scroll interval",
+        "range": "pinned section range",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": true,
+        "sectionId": "sample-itinerary",
+        "samples": {
+          "desktop": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          },
+          "tablet": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          },
+          "mobile": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          }
+        },
+        "pinRanges": {
+          "desktop": {
+            "scrollStart": 7660.09,
+            "scrollEnd": 16420.01,
+            "verticalDistance": 8759.92,
+            "horizontalDistance": 0
+          },
+          "tablet": {
+            "scrollStart": 8774.56,
+            "scrollEnd": 17502.56,
+            "verticalDistance": 8728,
+            "horizontalDistance": 0
+          },
+          "mobile": {
+            "scrollStart": 7011.28,
+            "scrollEnd": 13668.47,
+            "verticalDistance": 6657.19,
+            "horizontalDistance": 0
+          }
+        }
+      },
+      {
+        "id": "scroll-speed-10",
+        "property": "visual state",
+        "trigger": "scroll-speed -10%",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "sectionId": "sample-itinerary",
+        "samples": {
+          "desktop": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          },
+          "tablet": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          },
+          "mobile": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          }
+        },
+        "pinRanges": {}
+      }
+    ]
+  }
+}

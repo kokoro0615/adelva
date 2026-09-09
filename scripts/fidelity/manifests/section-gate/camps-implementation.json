@@ -1,0 +1,2013 @@
+{
+  "schemaVersion": "full-page-section-manifest/v1",
+  "manifestId": "camps-implementation-v1",
+  "role": "implementation",
+  "route": "/camps",
+  "family": "camp-index",
+  "scope": {
+    "kind": "route-content",
+    "id": "camps-content"
+  },
+  "source": {
+    "url": "http://127.0.0.1:4517",
+    "requestedRoute": "/camps",
+    "finalRoutes": ["/camps"],
+    "observedAt": "2026-08-31T01:32:52.733Z",
+    "contentRoot": "main#main-content > [data-page-content], main#main-content > [data-index-page-content], main#main-content > .page-content, main#main-content > .stage",
+    "status": "pending-capture",
+    "captureMode": "manifest-only",
+    "evidenceStatus": "pending-capture"
+  },
+  "requiredViewports": ["desktop", "tablet", "mobile"],
+  "tolerances": {
+    "boundsPx": 2,
+    "scrollHeightPx": 2
+  },
+  "domTopology": {
+    "scope": "main#main-content > [data-page-content], main#main-content > [data-index-page-content], main#main-content > .page-content, main#main-content > .stage",
+    "directChildren": ["hero", "intro", "camps", "trips-title", "trips-cards", "cta"]
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "semantic": "section | hero hero-banner | THREE UNIQUE OUTPOSTS",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "THREE UNIQUE OUTPOSTS",
+      "assets": [
+        "/_next/image?url=%2Fmedia%2Ftarget%2Fcloud-gradient.webp&w=3840&q=75",
+        "/_next/image?url=%2Fmedia%2Ftarget%2Findex%2Fcamps-hero.webp&w=3840&q=75",
+        "/_next/image?url=%2Fmedia%2Ftarget%2Fcloud-1-cropped.webp&w=3840&q=75",
+        "/_next/image?url=%2Fmedia%2Ftarget%2Fcloud-2-full.webp&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "scroll-or-interaction-linked",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 1800
+        },
+        "tablet": {
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 2048
+        },
+        "mobile": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 1688
+        }
+      }
+    },
+    {
+      "id": "intro",
+      "semantic": "section | intro campIntro padding-large bg-white",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 1800,
+          "width": 1440,
+          "height": 786.55
+        },
+        "tablet": {
+          "x": 0,
+          "y": 2048,
+          "width": 768,
+          "height": 891.58
+        },
+        "mobile": {
+          "x": 0,
+          "y": 1688,
+          "width": 390,
+          "height": 550.59
+        }
+      }
+    },
+    {
+      "id": "camps",
+      "semantic": "section | campList padding-large bg-transparent padding-none bg-white our-camps | Our camps",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Our camps",
+      "keyLinks": ["/camps/whichaway-camp", "/camps/echo-base", "/camps/explorer-camp"],
+      "assets": [
+        "/_next/image?url=%2Fmedia%2Ftarget%2Findex%2Fcamp-whichaway.webp&w=3840&q=75",
+        "/_next/image?url=%2Fmedia%2Ftarget%2Findex%2Fcamp-echo.webp&w=3840&q=75",
+        "/_next/image?url=%2Fmedia%2Ftarget%2Findex%2Fcamp-explorer.webp&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 2586.55,
+          "width": 1440,
+          "height": 2700
+        },
+        "tablet": {
+          "x": 0,
+          "y": 2939.58,
+          "width": 768,
+          "height": 3072
+        },
+        "mobile": {
+          "x": 0,
+          "y": 2238.59,
+          "width": 390,
+          "height": 2852
+        }
+      }
+    },
+    {
+      "id": "trips-title",
+      "semantic": "section | tripsTitle padding-top-large-bottom-medium bg-white | Our Trips",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Our Trips",
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 5286.55,
+          "width": 1440,
+          "height": 540
+        },
+        "tablet": {
+          "x": 0,
+          "y": 6011.58,
+          "width": 768,
+          "height": 540
+        },
+        "mobile": {
+          "x": 0,
+          "y": 5090.59,
+          "width": 390,
+          "height": 332.97
+        }
+      }
+    },
+    {
+      "id": "trips-cards",
+      "semantic": "div | tripWrap cardflick-wrap",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "keyLinks": [
+        "/itineraries/early-emperor-penguins",
+        "/itineraries/south-pole-emperor-penguins",
+        "/itineraries/south-pole-blue-rivers",
+        "/itineraries/the-long-stay",
+        "/itineraries/antarctica-in-a-day"
+      ],
+      "assets": [
+        "/_next/image?url=%2Fmedia%2Ftarget%2Ftrip-early-emperor-penguins.webp&w=3840&q=75",
+        "/_next/image?url=%2Fmedia%2Ftarget%2Ftrip-south-pole-emperor-penguins.webp&w=3840&q=75",
+        "/_next/image?url=%2Fmedia%2Ftarget%2Ftrip-south-pole-blue-rivers.webp&w=3840&q=75",
+        "/_next/image?url=%2Fmedia%2Ftarget%2Ftrip-the-long-stay.webp&w=3840&q=75",
+        "/_next/image?url=%2Fmedia%2Ftarget%2Ftrip-antarctica-in-a-day.webp&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 5826.55,
+          "width": 1440,
+          "height": 1084.97
+        },
+        "tablet": {
+          "x": 0,
+          "y": 6551.58,
+          "width": 768,
+          "height": 1190.38
+        },
+        "mobile": {
+          "x": 0,
+          "y": 5423.56,
+          "width": 390,
+          "height": 3786.94
+        }
+      }
+    },
+    {
+      "id": "cta",
+      "semantic": "section | cta basic-banner | Start planning your adventure",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Start planning your adventure",
+      "keyLinks": ["/enquire"],
+      "assets": [
+        "/_next/image?url=%2Fmedia%2Ftarget%2Findex%2Fcamps-cta.webp&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 6911.52,
+          "width": 1440,
+          "height": 900
+        },
+        "tablet": {
+          "x": 0,
+          "y": 7741.95,
+          "width": 768,
+          "height": 1024
+        },
+        "mobile": {
+          "x": 0,
+          "y": 9210.5,
+          "width": 390,
+          "height": 844
+        }
+      }
+    }
+  ],
+  "viewports": {
+    "desktop": {
+      "width": 1440,
+      "height": 900,
+      "scrollHeight": 8758,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/actual/camps-1440x900-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "tablet": {
+      "width": 768,
+      "height": 1024,
+      "scrollHeight": 9790,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/actual/camps-768x1024-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "scrollHeight": 12188,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/actual/camps-390x844-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    }
+  },
+  "motion": {
+    "status": "incomplete",
+    "unknown": [
+      "motion evidence remains pending until four phase captures exist for every layer and viewport"
+    ],
+    "layers": [
+      {
+        "id": "mist",
+        "property": "visual state",
+        "trigger": "declared motion layer",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "sectionId": "hero",
+        "samples": {
+          "desktop": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 0,
+              "width": 1440,
+              "height": 1800,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 450,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 0,
+              "width": 1440,
+              "height": 1800,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 900,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 0,
+              "width": 1440,
+              "height": 1800,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 450,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 0,
+              "width": 1440,
+              "height": 1800,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            }
+          },
+          "tablet": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 0,
+              "width": 768,
+              "height": 2048,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 512,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 0,
+              "width": 768,
+              "height": 2048,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 1024,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 0,
+              "width": 768,
+              "height": 2048,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 512,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 0,
+              "width": 768,
+              "height": 2048,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            }
+          },
+          "mobile": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 0,
+              "width": 390,
+              "height": 1688,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 422,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 0,
+              "width": 390,
+              "height": 1688,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 844,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 0,
+              "width": 390,
+              "height": 1688,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 422,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 0,
+              "width": 390,
+              "height": 1688,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            }
+          }
+        },
+        "pinRanges": {}
+      },
+      {
+        "id": "mist-plane",
+        "property": "visual state",
+        "trigger": "sticky scroll interval",
+        "range": "pinned section range",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": true,
+        "sectionId": "hero",
+        "samples": {
+          "desktop": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 900,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 450,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 900,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 900,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 900,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 450,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 900,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            }
+          },
+          "tablet": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1024,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 512,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1024,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 1024,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1024,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 512,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1024,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            }
+          },
+          "mobile": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 844,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 422,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 844,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 844,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 844,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 422,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 844,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            }
+          }
+        },
+        "pinRanges": {
+          "desktop": {
+            "scrollStart": 0,
+            "scrollEnd": 900,
+            "verticalDistance": 900,
+            "horizontalDistance": 0
+          },
+          "tablet": {
+            "scrollStart": 0,
+            "scrollEnd": 1024,
+            "verticalDistance": 1024,
+            "horizontalDistance": 0
+          },
+          "mobile": {
+            "scrollStart": 0,
+            "scrollEnd": 844,
+            "verticalDistance": 844,
+            "horizontalDistance": 0
+          }
+        }
+      },
+      {
+        "id": "hero-wrapper",
+        "property": "visual state",
+        "trigger": "declared motion layer",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "sectionId": "hero",
+        "samples": {
+          "desktop": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 0,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 450,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 0,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 900,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 0,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 450,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 0,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            }
+          },
+          "tablet": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 0,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 512,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 0,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 1024,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 0,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 512,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 0,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            }
+          },
+          "mobile": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 0,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 422,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 0,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 844,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 0,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 422,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 0,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            }
+          }
+        },
+        "pinRanges": {}
+      },
+      {
+        "id": "hero-mid",
+        "property": "visual state",
+        "trigger": "scroll-speed -60svh",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "sectionId": "hero",
+        "samples": {
+          "desktop": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 299.98,
+              "width": 1440,
+              "height": 299.98,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 450,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 299.98,
+              "width": 1440,
+              "height": 299.98,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 900,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 299.98,
+              "width": 1440,
+              "height": 299.98,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 450,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 299.98,
+              "width": 1440,
+              "height": 299.98,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            }
+          },
+          "tablet": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 341.33,
+              "width": 768,
+              "height": 341.33,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 512,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 341.33,
+              "width": 768,
+              "height": 341.33,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 1024,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 341.33,
+              "width": 768,
+              "height": 341.33,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 512,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 341.33,
+              "width": 768,
+              "height": 341.33,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            }
+          },
+          "mobile": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 281.33,
+              "width": 390,
+              "height": 281.33,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 422,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 281.33,
+              "width": 390,
+              "height": 281.33,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 844,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 281.33,
+              "width": 390,
+              "height": 281.33,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 422,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 281.33,
+              "width": 390,
+              "height": 281.33,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            }
+          }
+        },
+        "pinRanges": {}
+      },
+      {
+        "id": "hero-bottom",
+        "property": "visual state",
+        "trigger": "scroll-speed -60svh",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "sectionId": "hero",
+        "samples": {
+          "desktop": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 600,
+              "width": 1440,
+              "height": 299.98,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 450,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 600,
+              "width": 1440,
+              "height": 299.98,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 900,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 600,
+              "width": 1440,
+              "height": 299.98,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 450,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 600,
+              "width": 1440,
+              "height": 299.98,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            }
+          },
+          "tablet": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 682.66,
+              "width": 768,
+              "height": 341.33,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 512,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 682.66,
+              "width": 768,
+              "height": 341.33,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 1024,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 682.66,
+              "width": 768,
+              "height": 341.33,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 512,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 682.66,
+              "width": 768,
+              "height": 341.33,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            }
+          },
+          "mobile": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 562.66,
+              "width": 390,
+              "height": 281.33,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 422,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 562.66,
+              "width": 390,
+              "height": 281.33,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 844,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 562.66,
+              "width": 390,
+              "height": 281.33,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 422,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 562.66,
+              "width": 390,
+              "height": 281.33,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            }
+          }
+        },
+        "pinRanges": {}
+      },
+      {
+        "id": "hero-title",
+        "property": "visual state",
+        "trigger": "declared motion layer",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "sectionId": "hero",
+        "samples": {
+          "desktop": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 364.27,
+              "y": 761.98,
+              "width": 711.45,
+              "height": 118,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 450,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 364.27,
+              "y": 761.98,
+              "width": 711.45,
+              "height": 118,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 900,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 364.27,
+              "y": 761.98,
+              "width": 711.45,
+              "height": 118,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 450,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 364.27,
+              "y": 761.98,
+              "width": 711.45,
+              "height": 118,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            }
+          },
+          "tablet": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 28.27,
+              "y": 885.98,
+              "width": 711.45,
+              "height": 118,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 512,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 28.27,
+              "y": 885.98,
+              "width": 711.45,
+              "height": 118,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 1024,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 28.27,
+              "y": 885.98,
+              "width": 711.45,
+              "height": 118,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 512,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 28.27,
+              "y": 885.98,
+              "width": 711.45,
+              "height": 118,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            }
+          },
+          "mobile": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 38.34,
+              "y": 776.98,
+              "width": 313.31,
+              "height": 52,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 422,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 38.34,
+              "y": 776.98,
+              "width": 313.31,
+              "height": 52,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 844,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 38.34,
+              "y": 776.98,
+              "width": 313.31,
+              "height": 52,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 422,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 38.34,
+              "y": 776.98,
+              "width": 313.31,
+              "height": 52,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            }
+          }
+        },
+        "pinRanges": {}
+      },
+      {
+        "id": "cloud-near",
+        "property": "visual state",
+        "trigger": "scroll-speed -80%",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "sectionId": "hero",
+        "samples": {
+          "desktop": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 900,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 450,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 900,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 900,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 900,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 450,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 900,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            }
+          },
+          "tablet": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1024,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 512,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1024,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 1024,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1024,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 512,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1024,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            }
+          },
+          "mobile": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 844,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 422,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 844,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 844,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 844,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 422,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 844,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            }
+          }
+        },
+        "pinRanges": {}
+      },
+      {
+        "id": "cloud-far",
+        "property": "visual state",
+        "trigger": "scroll-speed -10%",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "sectionId": "hero",
+        "samples": {
+          "desktop": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "0.85",
+              "visibility": "visible",
+              "x": 0,
+              "y": 900,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 450,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "0.85",
+              "visibility": "visible",
+              "x": 0,
+              "y": 900,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 900,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "0.85",
+              "visibility": "visible",
+              "x": 0,
+              "y": 900,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 450,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "0.85",
+              "visibility": "visible",
+              "x": 0,
+              "y": 900,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            }
+          },
+          "tablet": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "0.85",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1024,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 512,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "0.85",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1024,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 1024,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "0.85",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1024,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 512,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "0.85",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1024,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            }
+          },
+          "mobile": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "0.85",
+              "visibility": "visible",
+              "x": 0,
+              "y": 844,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 422,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "0.85",
+              "visibility": "visible",
+              "x": 0,
+              "y": 844,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 844,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "0.85",
+              "visibility": "visible",
+              "x": 0,
+              "y": 844,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 422,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "0.85",
+              "visibility": "visible",
+              "x": 0,
+              "y": 844,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            }
+          }
+        },
+        "pinRanges": {}
+      }
+    ]
+  }
+}

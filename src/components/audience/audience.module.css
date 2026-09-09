@@ -1,0 +1,3422 @@
+@font-face {
+  font-family: "Audience Serif";
+  src: url("/fonts/adelva-noto-serif-jp.woff2") format("woff2");
+  font-weight: 200 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "League Gothic";
+  src: url("/fonts/adelva-league-gothic.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Audience Sans";
+  src: url("/fonts/adelva-noto-sans-jp.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+.page {
+  --serif: "Audience Serif", serif;
+  --sans: "Audience Sans", sans-serif;
+  --accent: #ff7e15;
+  --accent-ink: #b04a08;
+  --muted: #586078;
+  --rule: #c9c8c2;
+  --editorial: cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  background: #f1efea;
+  color: #1f2a44;
+  font: 400 20px/1.6 var(--sans);
+  overflow: clip;
+}
+.page *,
+.page *::before,
+.page *::after {
+  box-sizing: border-box;
+}
+.page h1,
+.page h2,
+.page h3,
+.page p {
+  text-wrap: initial;
+  letter-spacing: normal;
+}
+.page h1,
+.page h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+}
+.page h2 {
+  font-size: 52px;
+  line-height: 1.27;
+}
+.page a {
+  text-decoration: none;
+}
+/* A single accent ring cannot clear 3:1 on both the bone ground and a sunlit
+   photograph, so the indicator carries its own two-tone contrast. */
+.page a:focus-visible,
+.page summary:focus-visible,
+.page [tabindex]:focus-visible {
+  outline: 2px solid #0b1620;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px #fff;
+  border-radius: 1px;
+}
+.page [id] {
+  scroll-margin-top: 24px;
+}
+.line {
+  display: block;
+}
+.issueNumber,
+.criteriaNumber,
+.stepNumber,
+.mappingNumber,
+.chapter > span:first-child {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+.mobileOnly {
+  display: none;
+}
+.desktopBreak {
+  display: block;
+}
+.skip {
+  position: absolute;
+  left: 24px;
+  top: 12px;
+  z-index: 100;
+  background: #fff;
+  color: #1f2a44;
+  padding: 12px 24px;
+  transform: translateY(-200%);
+}
+.skip:focus {
+  transform: none;
+}
+.action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  width: 280px;
+  min-height: 62px;
+  padding: 12px 24px;
+  color: #0e1118;
+  background: var(--accent);
+  font: 500 18px/28px var(--sans);
+  border: 1px solid transparent;
+  border-radius: 2px;
+  transition:
+    background-color 120ms,
+    transform 120ms;
+}
+.outline {
+  color: #fff;
+  background: transparent;
+  border-color: #fff;
+}
+.arrow {
+  display: inline-block;
+  font: 400 24px/1 var(--sans);
+  transition: transform 160ms cubic-bezier(0.2, 0, 0, 1);
+}
+.action:active {
+  transform: translateY(1px);
+}
+.photo {
+  position: relative;
+  overflow: hidden;
+}
+.photo picture,
+.photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.photo img {
+  object-fit: cover;
+}
+.chapter {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: inherit;
+  font: 400 18px/28px var(--sans);
+}
+.chapter > span:first-child {
+  color: var(--accent-ink);
+  font-size: 20px;
+}
+.chapter .slash {
+  margin-right: -14px;
+}
+.chapter i {
+  display: none;
+}
+.brandSymbol {
+  display: inline-block;
+  flex: 0 0 31px;
+  width: 31px;
+  height: 43px;
+  background: #fff;
+  mask: url("/media/adelva/audience-v3/189-65-imgLogoWhite.png") center/contain
+    no-repeat;
+}
+
+/* The supplied masthead, using the site's existing navigation data. */
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  width: 100%;
+  height: 90px;
+  color: #fff;
+}
+.headerBrand {
+  position: absolute;
+  left: 3.8889%;
+  top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 43px;
+  font: 400 20px/26px var(--sans);
+}
+.desktopNav {
+  position: absolute;
+  top: 30px;
+  left: 17.1528%;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font: 400 16px/28px var(--sans);
+}
+.desktopNav details {
+  position: relative;
+}
+.desktopNav summary {
+  cursor: pointer;
+  list-style: none;
+}
+.desktopNav summary::-webkit-details-marker,
+.mobileMenu summary::-webkit-details-marker {
+  display: none;
+}
+.desktopNav summary span {
+  margin-left: 3px;
+}
+.desktopNav details[open] summary {
+  text-decoration: underline;
+  text-underline-offset: 8px;
+}
+.dropdown {
+  position: absolute;
+  top: 46px;
+  left: -24px;
+  width: 360px;
+  padding: 16px 24px;
+  background: #f1efea;
+  color: #1f2a44;
+  box-shadow: 0 12px 40px #0003;
+  animation: menuIn 160ms ease-out;
+}
+.dropdown a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid #c9c8c2;
+  font-size: 14px;
+}
+.headerAction {
+  position: absolute;
+  right: 30px;
+  top: 18px;
+  width: 197px;
+  min-height: 54px;
+  padding: 10px 16px;
+  font-size: 14px;
+  gap: 16px;
+}
+.gm .header {
+  background: #0e111840;
+  height: 78px;
+}
+.gm .headerBrand {
+  left: 4.375%;
+  top: 16px;
+  gap: 15px;
+  font:
+    700 24px/24px "Oswald",
+    sans-serif;
+  letter-spacing: 5.07px;
+}
+.gm .desktopNav {
+  left: 26.18%;
+  top: 19px;
+  gap: 40px;
+  font-weight: 500;
+}
+.gm .headerAction {
+  right: 3.75%;
+  top: 13px;
+  width: 212px;
+  min-height: 47px;
+  font-size: 16px;
+  gap: 10px;
+  padding: 8px 16px;
+}
+.mobileMenu {
+  display: none;
+}
+
+/* Hero copy is visible from the first server render. */
+.hero {
+  position: relative;
+  height: 865px;
+  color: #fff;
+  overflow: hidden;
+}
+.heroPhoto {
+  position: absolute;
+  inset: 0;
+}
+.heroScrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.breadcrumb {
+  position: absolute;
+  left: 3.8889%;
+  top: 143px;
+  font-size: 16px;
+  line-height: 22px;
+}
+.breadcrumb a {
+  display: inline-block;
+  padding-block: 5px;
+  margin-block: -5px;
+}
+.audienceLabel {
+  position: absolute;
+  left: 3.8889%;
+  top: 195px;
+  font-size: 22px;
+  line-height: 30px;
+}
+.heroMessage {
+  position: absolute;
+  left: 3.8889%;
+  top: 237px;
+  right: 4%;
+}
+.heroMessage h1 {
+  font-size: 64px;
+  line-height: 80px;
+}
+.heroBody {
+  margin-top: 25px;
+  font-size: 20px;
+  line-height: 26px;
+}
+.heroMessage .action {
+  margin-top: 27px;
+}
+.monument {
+  position: absolute;
+  left: 3.75%;
+  top: 566px;
+  font:
+    400 200px/204px "League Gothic",
+    sans-serif;
+}
+.monument span {
+  display: block;
+}
+.owner .monument span + span {
+  font-size: 72px;
+  line-height: 76px;
+  margin-top: -6px;
+  margin-left: 2px;
+}
+.scrollCue {
+  position: absolute;
+  right: 56px;
+  bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  font:
+    400 12px/12px "Oswald",
+    sans-serif;
+}
+.scrollCue i {
+  display: block;
+  width: 1px;
+  height: 27px;
+  background: #fff;
+}
+.gm .hero {
+  height: 915px;
+}
+.gm .breadcrumb {
+  left: 4.7917%;
+  top: 127px;
+  font-size: 18px;
+  line-height: 26px;
+}
+.gm .audienceLabel {
+  left: 4.7917%;
+  top: 172px;
+  font-size: 18px;
+  line-height: 26px;
+}
+.gm .heroMessage {
+  left: 5%;
+  top: 217px;
+}
+.gm .heroMessage h1 {
+  font-weight: 500;
+}
+.gm .heroBody {
+  margin-top: 20px;
+  line-height: 32px;
+}
+.gm .heroMessage .action {
+  margin-top: 20px;
+}
+.gm .monument {
+  left: 4.6528%;
+  top: 554px;
+  font:
+    700 178px/170px "Oswald",
+    sans-serif;
+  letter-spacing: -3.6226px;
+}
+.gm .scrollCue {
+  left: 34px;
+  right: auto;
+  bottom: 4px;
+  align-items: flex-start;
+}
+.gm .scrollCue i {
+  margin-left: 13px;
+}
+
+/* Editorial bands: fixed reference rhythm, live semantic content. */
+.challenges {
+  position: relative;
+  min-height: 519px;
+}
+.owner .challenges {
+  background: url("/media/adelva/audience-v3/189-65-imgBackgroundPlate0.webp")
+    0 -865px/100% 4320px no-repeat;
+  padding: 36px 4.1667% 18px;
+}
+.owner .challenges .chapter {
+  gap: 26px;
+}
+.owner .challenges .chapter > span:first-child {
+  font-size: 22px;
+  line-height: 30px;
+}
+.owner .challenges .chapter i {
+  display: block;
+  height: 2px;
+  width: 38px;
+  background: #586078;
+}
+.challengeIntro h2 {
+  margin-top: 12px;
+}
+.issueList {
+  position: relative;
+}
+.owner .issueList {
+  display: grid;
+  grid-template-columns: 446fr 404fr;
+  column-gap: 59px;
+  width: 68.86%;
+  margin-top: 40px;
+}
+.issue {
+  display: grid;
+  position: relative;
+  align-items: start;
+}
+.issue::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  transition: background-color 220ms var(--editorial);
+}
+.owner .issueList li:nth-child(-n + 2) .issue::before {
+  bottom: 40px;
+}
+.issue > span,
+.issue > h3,
+.issue > p {
+  position: relative;
+}
+@media (hover: hover) and (pointer: fine) {
+  .issue:hover::before {
+    background: #1f2a440a;
+  }
+}
+.issue > i,
+.criteria li > i {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--rule);
+}
+.owner .issue {
+  grid-template-columns: 91px 1fr 32px;
+  grid-template-rows: 55px 48px;
+  min-height: 143px;
+  padding: 0 0 40px 16px;
+}
+.owner .issueNumber {
+  grid-row: 1 / 3;
+  font-size: 32px;
+  line-height: 44px;
+}
+.owner .issue h3 {
+  font: 400 28px/36px var(--serif);
+}
+.owner .issue p {
+  grid-column: 2;
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--muted);
+}
+.owner .issue .arrow {
+  grid-column: 3;
+  grid-row: 1;
+  margin-top: 10px;
+  font-size: 26px;
+}
+.owner .issueList li .issueNumber {
+  transition: color 200ms var(--editorial);
+}
+.owner .issueList li:first-child .issueNumber,
+.owner .issueList li:focus-within .issueNumber,
+.owner .issueList li:hover .issueNumber {
+  color: var(--accent-ink);
+}
+.owner .issueList li .issue > i {
+  transition:
+    background-color 220ms var(--editorial),
+    height 220ms var(--editorial);
+}
+.owner .issueList li:first-child .issue > i {
+  background: var(--accent-ink);
+  height: 3px;
+}
+.owner .issueList:hover li:first-child .issue > i {
+  background: var(--rule);
+  height: 1px;
+}
+.owner .issueList li:focus-within .issue > i,
+.owner .issueList:hover li:hover .issue > i {
+  background: var(--accent-ink);
+  height: 3px;
+}
+.owner .issueList li:nth-child(-n + 2) .issue > i {
+  bottom: 40px;
+}
+.owner .issueList li:nth-child(n + 3) .issue {
+  min-height: 103px;
+  padding-bottom: 0;
+}
+.gm .challenges {
+  min-height: 467px;
+  padding: 40px 5% 34px;
+}
+.gm .chapter {
+  color: var(--muted);
+  gap: 5px;
+}
+.gm .chapter > span:first-child {
+  color: inherit;
+  font-size: 18px;
+}
+.gm .chapter .slash {
+  margin: 0;
+}
+.gm .challengeIntro {
+  width: 51%;
+  margin-top: 34px;
+}
+.gm .challengeIntro h2 {
+  margin: 0;
+  font-size: 56px;
+  line-height: 68px;
+  font-weight: 500;
+}
+.gm .challengeIntro p {
+  margin-top: 30px;
+  font-size: 20px;
+  line-height: 34px;
+}
+.gm .issueList {
+  position: absolute;
+  left: 52.8472%;
+  right: 5%;
+  top: 33px;
+}
+.gm .issue {
+  grid-template-columns: 12.83% 31.94% 1fr 28px;
+  align-items: center;
+  min-height: 80px;
+}
+.gm .issueNumber {
+  color: var(--muted);
+  font:
+    300 25.358px/28px "Oswald",
+    sans-serif;
+}
+.gm .issue h3 {
+  font: 500 23.547px/30px var(--sans);
+}
+.gm .issue p {
+  font-size: 19.019px;
+  line-height: 28px;
+}
+.gm .issueList li::before {
+  content: "";
+  position: absolute;
+  left: -31px;
+  top: 17px;
+  width: 4px;
+  height: 42px;
+  background: var(--accent-ink);
+  opacity: 0;
+  transition: opacity 200ms var(--editorial);
+}
+.gm .issueList li:first-child::before {
+  opacity: 1;
+}
+.gm .issueList:hover li:first-child::before {
+  opacity: 0;
+}
+.gm .issueList li:focus-within::before,
+.gm .issueList:hover li:hover::before {
+  opacity: 1;
+}
+
+.decisions {
+  position: relative;
+  min-height: 569px;
+}
+.owner .decisions {
+  background: url("/media/adelva/audience-v3/189-65-imgBackgroundPlate0.webp")
+    0 -1384px/100% 4320px no-repeat;
+}
+.owner .decisionContent {
+  padding-top: 60px;
+  margin-left: 60.4861%;
+  margin-right: 0.5%;
+}
+.owner .decisionContent h2 {
+  margin-top: 17px;
+  line-height: 64px;
+}
+.owner .decisionLead {
+  margin-top: 30px;
+  color: var(--muted);
+  font-size: 20px;
+  line-height: 26px;
+}
+.decisionPhoto {
+  display: none;
+}
+.owner .criteria {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 50px clamp(16px, 2.292vw, 33px);
+  margin-top: 66px;
+}
+.criteria li {
+  position: relative;
+  display: flex;
+  align-items: start;
+}
+.owner .criteria li {
+  gap: clamp(12px, 1.667vw, 24px);
+  min-height: 64px;
+}
+.criteriaNumber {
+  color: var(--accent-ink);
+  font-size: 22px;
+  line-height: 30px;
+  min-width: 46px;
+  flex: 0 0 auto;
+}
+.owner .criteria h3 {
+  font: 400 clamp(19px, 1.667vw, 24px) / 1.3 var(--serif);
+}
+.gm .decisions {
+  min-height: 453px;
+}
+.gm .decisionContent {
+  margin-left: 49.5833%;
+  margin-right: 5%;
+  padding-top: 29px;
+}
+.gm .decisionContent h2 {
+  margin-top: 10px;
+  font-weight: 500;
+  line-height: 62px;
+}
+.gm .criteria {
+  margin-top: 21px;
+}
+.gm .criteria li {
+  align-items: center;
+  gap: 20px;
+  min-height: 67px;
+}
+.gm .criteria li:last-child {
+  min-height: 105px;
+}
+.gm .criteria h3 {
+  flex: 0 0 41%;
+  font: 500 22px/32px var(--sans);
+}
+.gm .criteria p {
+  flex: 1;
+  padding-right: 32px;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.support {
+  position: relative;
+  color: #fff;
+}
+.owner .support {
+  min-height: 676px;
+  padding: 46px 4.1667% 24px;
+  background: url("/media/adelva/audience-v3/189-65-imgBackgroundPlate0.webp")
+    0 -1953px/100% 4320px no-repeat;
+}
+.support .chapter > span:first-child,
+.execution .chapter > span:first-child {
+  color: var(--accent);
+}
+.support h2 {
+  margin-top: 18px;
+}
+.owner .support h2 {
+  font-size: 52px;
+  line-height: 66px;
+}
+.mappingHead {
+  display: grid;
+}
+.owner .mappingHead {
+  grid-template-columns: 251px 316px 229px;
+  gap: 45px;
+  margin-left: 4px;
+  margin-top: 39px;
+  font-size: 22px;
+  line-height: 32px;
+}
+.owner .mappingHead span {
+  border-bottom: 1px solid var(--muted);
+  padding-bottom: 9px;
+}
+.owner .mapping {
+  margin: 14px 0 0 4px;
+}
+.mappingRow {
+  position: relative;
+}
+.owner .mappingRow {
+  display: grid;
+  grid-template-columns: 251px 316px 229px;
+  gap: 45px;
+  min-height: 66px;
+}
+.mappingCell {
+  position: relative;
+}
+.owner .mappingCell {
+  border-bottom: 1px solid var(--muted);
+  padding: 8px 0 11px;
+}
+.mappingLabel {
+  display: none;
+}
+.owner .mappingCell h3 {
+  font: 400 28px/36px var(--serif);
+}
+.owner .mappingCell p {
+  font-size: 22px;
+  line-height: 32px;
+}
+.owner .connector {
+  position: absolute;
+  height: 2px;
+  background: var(--accent);
+  right: 0;
+  top: 29px;
+  width: 75px;
+  transform-origin: left;
+}
+.owner .mappingCell:nth-child(2) .connector {
+  width: 59px;
+}
+.connector::after {
+  content: "";
+  position: absolute;
+  right: -1px;
+  top: -3px;
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.owner .supportNote {
+  font-size: 18px;
+  line-height: 36px;
+  margin: 27px 0 0 4px;
+}
+.gm .support {
+  min-height: 737px;
+  padding: 65px 5.2778% 26px;
+  background: linear-gradient(90deg, #102039, #213550);
+}
+.operations {
+  position: absolute;
+  top: -4px;
+  right: 4.7222%;
+  font:
+    700 112px/112px "Oswald",
+    sans-serif;
+  opacity: 0.09;
+}
+.gm .support .chapter {
+  color: #fff;
+}
+.gm .support h2 {
+  position: relative;
+  margin-top: 16px;
+  font-size: 52px;
+  line-height: 66px;
+}
+.supportLead {
+  margin-top: 25px;
+  font-size: 20px;
+  line-height: 32px;
+}
+.gm .mappingHead {
+  grid-template-columns: 30% 39.2% 1fr;
+  margin-top: 27px;
+  padding-left: 50px;
+  color: #d5dce0;
+  font-size: 16px;
+  line-height: 26px;
+}
+.gm .mapping {
+  margin-top: 17px;
+}
+.gm .mappingRow {
+  display: grid;
+  grid-template-columns: 50px 27.8% 39.2% 1fr;
+  min-height: 110px;
+  align-items: center;
+}
+.gm .mappingNumber {
+  font:
+    300 24px/34px "Oswald",
+    sans-serif;
+}
+.gm .mappingCell h3,
+.gm .mappingCell p {
+  font: 400 20px/34px var(--sans);
+}
+.gm .mappingCell:last-of-type {
+  color: var(--accent);
+  font-weight: 500;
+}
+.gm .connector {
+  position: absolute;
+  right: 22px;
+  top: calc(50% - 1px);
+  width: 18px;
+  height: 1px;
+  background: #fff;
+}
+.gm .connector::after {
+  right: 0;
+  top: -4px;
+  width: 8px;
+  height: 8px;
+  background: none;
+  border-top: 1px solid #fff;
+  border-right: 1px solid #fff;
+  border-radius: 0;
+  transform: rotate(45deg);
+}
+.gm .mappingRule {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: #fff;
+}
+.gm .supportNote {
+  margin-top: 26px;
+  font-size: 18px;
+  line-height: 28px;
+  color: #d5dce0;
+}
+.mobileDining {
+  display: none;
+}
+.gmDining {
+  height: 275px;
+  background: url("/media/adelva/audience-v3/gm-dining-crop.webp") center/100% 100%
+    no-repeat;
+}
+
+.roles {
+  position: relative;
+}
+.owner .roles {
+  min-height: 396px;
+  padding: 36px 4.1667% 20px;
+  background: url("/media/adelva/audience-v3/189-65-imgBackgroundPlate0.webp")
+    0 -2629px/100% 4320px no-repeat;
+}
+.owner .roles h2 {
+  margin-top: 18px;
+  line-height: 64px;
+}
+.owner .roleList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-top: 28px;
+}
+.owner .roleList > div {
+  position: relative;
+  text-align: center;
+  min-height: 64px;
+  display: grid;
+  align-items: center;
+}
+.owner .roleList > div + div {
+  border-left: 1px solid var(--rule);
+}
+.owner .roleList dt {
+  font: 400 28px/36px var(--serif);
+}
+.owner .rolesAgreement {
+  margin-top: 9px;
+  font: 400 24px/36px var(--serif);
+}
+.rolesNote {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 26px;
+}
+.owner .crossLink {
+  position: absolute;
+  right: 3.8889%;
+  bottom: 24px;
+}
+.crossLink a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  font-size: 16px;
+}
+.owner .crossLink a {
+  width: 270px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--accent-ink);
+}
+.owner .crossLink .arrow {
+  color: var(--accent-ink);
+}
+.gm .roles {
+  min-height: 417px;
+  padding: 34px 5.1389%;
+}
+.gm .roles h2 {
+  margin-top: 20px;
+  font-size: 56px;
+  line-height: 70px;
+  font-weight: 500;
+}
+.rolesLead {
+  margin-top: 30px;
+  color: var(--muted);
+  font-size: 20px;
+  line-height: 34px;
+}
+.gm .rolesContent {
+  position: absolute;
+  top: 38px;
+  left: 44.375%;
+  right: 5.1389%;
+}
+.rolesCaption {
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--muted);
+}
+.gm .roleList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 34px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--rule);
+}
+.gm .roleList > div {
+  position: relative;
+  text-align: center;
+  padding: 0 12px;
+}
+.gm .roleList > div + div {
+  border-left: 1px solid var(--rule);
+}
+.gm .roleList dt {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 500;
+}
+.gm .roleList dd {
+  margin-top: 22px;
+  font-size: 20px;
+  line-height: 32px;
+  color: var(--muted);
+}
+.gm .rolesAgreement {
+  margin-top: 26px;
+  color: var(--muted);
+  font-size: 20px;
+  line-height: 32px;
+}
+.gm .crossLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30px;
+  gap: 16px;
+}
+.gm .crossLink p {
+  font-size: 16px;
+  color: var(--muted);
+}
+.gm .crossLink a {
+  font-weight: 500;
+  white-space: nowrap;
+  gap: 8px;
+}
+
+.execution {
+  position: relative;
+  color: #fff;
+}
+.owner .execution {
+  min-height: 424px;
+  padding: 46px 4.1667% 17px;
+  background: url("/media/adelva/audience-v3/189-65-imgBackgroundPlate0.webp")
+    0 -3025px/100% 4320px no-repeat;
+}
+.owner .executionPhoto {
+  display: none;
+}
+.owner .execution h2 {
+  margin-top: 16px;
+  font-size: 64px;
+  line-height: 78px;
+}
+.process {
+  position: relative;
+}
+.process ol {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+.owner .process {
+  margin-top: 78px;
+}
+.process li {
+  position: relative;
+}
+.owner .stepNumber {
+  display: block;
+  color: var(--accent);
+  font-size: 26px;
+  line-height: 36px;
+  margin-bottom: 10px;
+}
+.owner .process li > span + span {
+  font: 400 24px/32px var(--serif);
+}
+.owner .process li > i {
+  position: absolute;
+  top: 24px;
+  left: 56px;
+  right: 36px;
+  height: 2px;
+  background: var(--accent);
+}
+.owner .process li > i::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  right: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.owner .process li:last-child > i {
+  display: none;
+}
+.processRail,
+.processProgress {
+  position: absolute;
+  top: 46px;
+  left: 0;
+  width: 68.5%;
+  height: 1px;
+  transform-origin: left center;
+}
+.processRail {
+  background: #ffffff3d;
+}
+.processProgress {
+  background: var(--accent);
+}
+.owner .processRail,
+.owner .processProgress {
+  display: none;
+}
+.gm .execution {
+  min-height: 571px;
+  padding: 8px 5% 32px;
+}
+.gm .executionPhoto {
+  position: absolute;
+  inset: 0;
+}
+.gm .execution > :not(.executionPhoto) {
+  position: relative;
+}
+.implement {
+  font:
+    700 120px/132px "Oswald",
+    sans-serif;
+}
+.gm .execution h2 {
+  margin-top: 9px;
+  font-size: 44px;
+  line-height: 58px;
+}
+.executionLead {
+  margin-top: 20px;
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 500;
+}
+.gm .process {
+  margin-top: 37px;
+  width: 78.5%;
+  height: 56px;
+}
+.gm .stepNumber {
+  display: none;
+}
+.gm .process li {
+  font-size: 20px;
+  font-weight: 500;
+}
+.gm .process li > i {
+  position: absolute;
+  left: 30px;
+  top: 41px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.gm .processRail,
+.gm .processProgress {
+  width: 87%;
+}
+.approachAction {
+  margin-top: 35px;
+  width: 304px;
+  min-height: 54px;
+  justify-content: space-between;
+}
+
+.verification {
+  position: relative;
+}
+.owner .verification {
+  min-height: 278px;
+  padding: 26px 4.1667% 15px;
+  background: url("/media/adelva/audience-v3/189-65-imgBackgroundPlate0.webp")
+    0 -3449px/100% 4320px no-repeat;
+}
+.owner .verification h2 {
+  margin-top: 10px;
+  font-size: 52px;
+  line-height: 62px;
+}
+.verificationLead {
+  position: absolute;
+  left: 62.1528%;
+  top: 80px;
+  font-size: 18px;
+  line-height: 24px;
+}
+.verificationList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.owner .verificationList {
+  margin-top: 21px;
+}
+.verificationList > div {
+  position: relative;
+}
+.owner .verificationList > div {
+  padding: 6px 24px 6px 59px;
+  min-height: 54px;
+}
+.owner .verificationList > div + div {
+  border-left: 1px solid var(--rule);
+}
+.owner .verificationList dt {
+  font: 400 clamp(21px, 1.945vw, 28px) / 1.29 var(--serif);
+}
+.verificationList i {
+  position: absolute;
+  left: 35px;
+  top: 8px;
+  width: 2px;
+  height: 34px;
+  background: var(--accent-ink);
+}
+.gm .verification {
+  min-height: 286px;
+  padding: 29px 5.1389%;
+}
+.gm .verification h2 {
+  margin-top: 28px;
+  font-size: 44px;
+  line-height: 60px;
+  font-weight: 500;
+}
+.gm .verificationList {
+  position: absolute;
+  top: 80px;
+  left: 39.5833%;
+  right: 5.1389%;
+}
+.gm .verificationList > div {
+  padding: 0 18px;
+  min-height: 138px;
+}
+.gm .verificationList > div:first-child {
+  padding-left: 0;
+}
+.gm .verificationList > div + div {
+  border-left: 1px solid var(--rule);
+}
+.gm .verificationList dt {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 500;
+}
+.gm .verificationList dd {
+  margin-top: 28px;
+  font-size: 20px;
+  line-height: 34px;
+}
+.gm .verificationList i {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .action:hover {
+    background: #e97418;
+  }
+  .outline:hover {
+    background: #ffffff14;
+  }
+  .page a:hover .arrow {
+    transform: translateX(4px);
+  }
+  .issue:hover > i {
+    background: var(--accent-ink);
+  }
+  .dropdown a:hover {
+    color: var(--accent-ink);
+  }
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+}
+@keyframes menuIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Mobile is a separately authored composition, as in the 390px Figma frames. */
+@media (max-width: 1099px) {
+  .page {
+    font-size: 16px;
+    background: linear-gradient(90deg, #f3f0ea, #f5f2ed);
+  }
+  .page h2 {
+    font-size: 32px;
+    line-height: 44px;
+    font-weight: 600;
+  }
+  .mobileOnly {
+    display: initial;
+  }
+  .desktopBreak {
+    display: none;
+  }
+  .action {
+    width: 100%;
+    min-height: 56px;
+    border-radius: 0;
+    font-size: 18px;
+  }
+  .header,
+  .gm .header {
+    height: 68px;
+    background: transparent;
+  }
+  .headerBrand,
+  .gm .headerBrand {
+    top: 20px;
+    left: 24px;
+    height: 34px;
+    gap: 13px;
+    font:
+      500 24px/35px "Oswald",
+      sans-serif;
+    letter-spacing: 5.3px;
+  }
+  .brandSymbol {
+    width: 24px;
+    height: 34px;
+    flex-basis: 24px;
+  }
+  .desktopNav,
+  .headerAction {
+    display: none;
+  }
+  .mobileMenu {
+    display: block;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+  }
+  .mobileMenu summary {
+    list-style: none;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+  }
+  .mobileMenu[open] summary {
+    background: #ffffff1f;
+  }
+  .mobileMenuPanel {
+    position: absolute;
+    right: 0;
+    top: 56px;
+    width: min(366px, calc(100vw - 24px));
+    max-height: calc(100svh - 92px);
+    overflow-y: auto;
+    background: #f1efea;
+    color: #1f2a44;
+    padding: 12px 24px;
+    box-shadow: 0 15px 40px #0004;
+    animation: menuIn 160ms ease-out;
+  }
+  .mobileMenuPanel > a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    min-height: 52px;
+    border-bottom: 1px solid var(--rule);
+    font-size: 14px;
+  }
+  .hero,
+  .gm .hero {
+    height: 780px;
+  }
+  .owner .heroScrim {
+    top: 480px;
+    background: #1f2a446b;
+  }
+  .gm .heroScrim {
+    background: #1f2a4473;
+  }
+  .breadcrumb,
+  .gm .breadcrumb {
+    left: 24px;
+    top: 80px;
+    font-size: 11px;
+    line-height: 20px;
+  }
+  .gm .breadcrumb {
+    top: 82px;
+    font-size: 12px;
+  }
+  .audienceLabel,
+  .gm .audienceLabel {
+    left: 24px;
+    top: 125px;
+    font-size: 14px;
+    line-height: 24px;
+  }
+  .gm .audienceLabel {
+    top: 118px;
+    line-height: 22px;
+  }
+  .heroMessage,
+  .gm .heroMessage {
+    left: 24px;
+    right: 24px;
+    top: 154px;
+  }
+  .heroMessage h1 {
+    font-size: 32px;
+    line-height: 38px;
+    font-weight: 500;
+  }
+  .heroBody {
+    margin-top: 27px;
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .heroMessage .action {
+    margin-top: 19px;
+  }
+  .gm .heroMessage {
+    top: 168px;
+  }
+  .gm .heroMessage h1 {
+    font-size: 34px;
+    line-height: 46px;
+  }
+  .gm .heroBody {
+    margin-top: 15px;
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .gm .heroMessage .action {
+    margin-top: 22px;
+  }
+  .monument {
+    left: 16px;
+    top: 558px;
+    font-size: 96px;
+    line-height: 100px;
+  }
+  .owner .monument span + span {
+    margin-top: 2px;
+    margin-left: 0;
+    font-size: 56px;
+    line-height: 60px;
+  }
+  .owner .scrollCue {
+    left: calc(50% - 13px);
+    bottom: 20px;
+    width: 26px;
+    height: 26px;
+    background: url("/media/adelva/audience-v3/189-358-imgIconDown.svg") center/26px
+      no-repeat;
+  }
+  .owner .scrollCue > * {
+    display: none;
+  }
+  .gm .monument {
+    left: 20px;
+    top: 554px;
+    font:
+      400 96px/84px "League Gothic",
+      sans-serif;
+    letter-spacing: 4.1px;
+  }
+  .gm .scrollCue {
+    left: 24px;
+    bottom: 2px;
+    font-size: 12px;
+    line-height: 20px;
+    gap: 0;
+  }
+  .gm .scrollCue i {
+    height: 22px;
+  }
+  .chapter,
+  .gm .chapter {
+    gap: 10px;
+    font-size: 13px;
+    line-height: 28px;
+    color: #1f2a44;
+  }
+  .chapter > span:first-child,
+  .gm .chapter > span:first-child {
+    color: var(--accent-ink);
+    font: 400 22px/28px var(--serif);
+  }
+  .chapter .slash,
+  .gm .chapter .slash {
+    margin-right: -5px;
+  }
+  .chapter i {
+    display: none;
+  }
+
+  .owner .challenges {
+    min-height: 680px;
+    padding: 52px 20px 32px;
+    background: none;
+  }
+  .owner .challenges .chapter {
+    display: block;
+  }
+  .owner .challenges .chapter > span:first-child {
+    font: 400 14px/22px var(--serif);
+  }
+  .owner .challenges .chapter i {
+    width: 40px;
+    height: 1px;
+    background: var(--accent-ink);
+  }
+  .owner .challengeIntro h2 {
+    font-size: 28px;
+    line-height: 40px;
+    margin: 15px 0 0 4px;
+  }
+  .owner .issueList {
+    display: block;
+    width: 100%;
+    margin-top: 42px;
+  }
+  .owner .issue,
+  .owner .issueList li:nth-child(n + 3) .issue {
+    grid-template-columns: 65px 1fr 24px;
+    grid-template-rows: 38px 29px;
+    min-height: 115.5px;
+    padding: 12px 0 35px;
+  }
+  .owner .issueNumber {
+    font: 400 26px/38px var(--serif);
+    position: relative;
+    margin-top: 6px;
+  }
+  .owner .issueNumber::after {
+    content: "";
+    position: absolute;
+    top: -4px;
+    right: 18px;
+    width: 1px;
+    height: 55px;
+    background: var(--rule);
+  }
+  .owner .issueList li:first-child .issueNumber {
+    color: inherit;
+  }
+  .owner .issue h3 {
+    font: 600 28px/36px var(--serif);
+  }
+  .owner .issue p {
+    font-size: 16px;
+    line-height: 24px;
+    color: #1f2a44;
+    letter-spacing: -0.5px;
+  }
+  .owner .issue .arrow {
+    font-size: 0;
+    width: 24px;
+    height: 24px;
+    margin-top: 15px;
+    background: url("/media/adelva/audience-v3/189-358-imgIconChevron.svg") center/24px
+      no-repeat;
+  }
+  .owner .issueList li .issue > i,
+  .owner .issueList li:nth-child(-n + 2) .issue > i {
+    bottom: 12px;
+    height: 1px;
+  }
+  .owner .issueList li:last-child .issue > i {
+    display: none;
+  }
+  .gm .challenges {
+    min-height: 901px;
+    padding: 27px 24px 40px;
+  }
+  .gm .challenges .chapter i {
+    position: absolute;
+    top: 61px;
+    left: 24px;
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--accent-ink);
+  }
+  .gm .challengeIntro {
+    width: auto;
+    margin-top: 35px;
+  }
+  .gm .challengeIntro h2 {
+    font-size: 28px;
+    line-height: 42px;
+    font-weight: 600;
+  }
+  .gm .challengeIntro p {
+    margin-top: 20px;
+    font-size: 18px;
+    line-height: 30px;
+  }
+  .gm .issueList {
+    position: static;
+    margin-top: 37px;
+    border-top: 1px solid var(--accent-ink);
+  }
+  .gm .issue {
+    grid-template-columns: 45px 1fr 26px;
+    grid-template-rows: 37px 26px;
+    min-height: 91.5px;
+    padding: 18px 0 10px;
+  }
+  .gm .issueNumber {
+    font: 400 26px/33px var(--serif);
+    color: var(--accent-ink);
+  }
+  .gm .issue h3 {
+    font: 600 22px/33px var(--serif);
+  }
+  .gm .issue p {
+    grid-column: 1 / 4;
+    grid-row: 2;
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .gm .issue p .line {
+    display: inline;
+  }
+  .gm .issue .arrow {
+    grid-column: 3;
+    grid-row: 1;
+    font-size: 0;
+    margin-top: 16px;
+    width: 26px;
+    height: 26px;
+    background: url("/media/adelva/audience-v3/189-870-imgIconArrow.svg") center/26px
+      no-repeat;
+  }
+  .gm .issueList li:first-child::before {
+    display: none;
+  }
+  .gm .issueList li:last-child i {
+    display: none;
+  }
+
+  .owner .decisions {
+    min-height: 780px;
+    background: none;
+  }
+  .owner .decisionContent {
+    margin: 0 25px;
+    padding-top: 54px;
+  }
+  .owner .decisionContent .chapter {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 3px;
+  }
+  .owner .decisionContent h2 {
+    margin-top: 21px;
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 600;
+  }
+  .owner .decisionLead {
+    margin-top: 15px;
+    font-size: 15px;
+    line-height: 22px;
+    white-space: normal;
+    color: #1f2a44;
+  }
+  .owner .decisionPhoto {
+    display: block;
+    position: absolute;
+    top: 272px;
+    left: 0;
+    right: 0;
+    height: 248px;
+  }
+  .owner .criteria {
+    display: block;
+    margin-top: 294px;
+  }
+  .owner .criteria li {
+    align-items: center;
+    gap: 8px;
+    min-height: 53.5px;
+    border-top: 1px solid var(--rule);
+  }
+  .owner .criteria li > i {
+    display: none;
+  }
+  .owner .criteriaNumber {
+    min-width: 55px;
+    font: 400 32px/42px var(--serif);
+  }
+  .owner .criteria h3 {
+    font: 400 17px/26px var(--serif);
+  }
+  .gm .decisions {
+    min-height: 799px;
+  }
+  .gm .decisionPhoto {
+    display: block;
+    height: 238px;
+  }
+  .gm .decisionContent {
+    margin: 0 24px;
+    padding-top: 26px;
+  }
+  .gm .decisionContent .chapter {
+    font-size: 18px;
+  }
+  .gm .decisionContent .chapter > span:first-child {
+    font-size: 18px;
+  }
+  .gm .decisionContent h2 {
+    font-size: 32px;
+    line-height: 44px;
+    font-weight: 600;
+    margin-top: 13px;
+  }
+  .gm .criteria {
+    margin-top: 34px;
+  }
+  .gm .criteria li,
+  .gm .criteria li:last-child {
+    display: block;
+    min-height: 116px;
+    padding-top: 13px;
+  }
+  .gm .criteria h3 {
+    font: 600 22px/32px var(--serif);
+  }
+  .gm .criteria h3 .line {
+    display: inline;
+  }
+  .gm .criteria p {
+    font-size: 16px;
+    line-height: 25px;
+    margin-top: 4px;
+  }
+  .gm .criteria li:last-child > i {
+    display: none;
+  }
+
+  .owner .support,
+  .gm .support {
+    background: linear-gradient(90deg, #072a3e, #0c2436);
+  }
+  .owner .support {
+    min-height: 1500px;
+    padding: 50px 24px 40px;
+  }
+  .support .chapter,
+  .gm .support .chapter {
+    color: #fff;
+  }
+  .support .chapter > span:first-child,
+  .gm .support .chapter > span:first-child {
+    color: var(--accent);
+    font:
+      700 24px/32px "Oswald",
+      sans-serif;
+  }
+  .owner .support h2 {
+    margin-top: 21px;
+    font-size: 32px;
+    line-height: 44px;
+  }
+  .mappingHead,
+  .owner .mappingHead,
+  .gm .mappingHead {
+    display: none;
+  }
+  .owner .mapping {
+    margin: 54px 0 0;
+  }
+  .owner .mappingRow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    min-height: 270px;
+    margin-bottom: 23px;
+    padding-left: 61px;
+  }
+  .owner .mappingRow:nth-child(2) {
+    margin-bottom: 81px;
+  }
+  .owner .mappingCell {
+    padding: 0;
+    border: 0;
+    min-height: 82px;
+  }
+  .mappingLabel {
+    display: block;
+    font: 400 12px/22px var(--sans);
+    color: #d5dce0;
+  }
+  .owner .mappingCell h3,
+  .owner .mappingCell p {
+    font: 400 26px/38px var(--serif);
+    white-space: normal;
+  }
+  .owner .mappingCell .connector,
+  .owner .mappingCell:nth-child(2) .connector {
+    width: 1px;
+    height: 82px;
+    top: 11px;
+    left: -40px;
+    right: auto;
+    background: var(--accent);
+  }
+  .owner .connector::after {
+    left: -7px;
+    right: auto;
+    top: -3px;
+    width: 14px;
+    height: 14px;
+    background: #0b2537;
+    border: 1px solid var(--accent);
+  }
+  .owner .mappingCell:first-of-type .connector::after {
+    background: var(--accent);
+    outline: 1px solid var(--accent);
+    outline-offset: 3px;
+  }
+  .owner .mappingCell:last-of-type::before {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    top: 6px;
+    left: -47px;
+    border: 1px solid var(--accent);
+    border-radius: 50%;
+    background: #0b2537;
+  }
+  .owner .mappingRule {
+    display: block;
+    height: 1px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--accent);
+  }
+  .owner .mappingRow:nth-child(2) .mappingRule {
+    display: none;
+  }
+  .owner .supportNote {
+    margin: 20px 0 0;
+    font-size: 14px;
+    line-height: 24px;
+  }
+  .owner .supportNote > br:not(.mobileOnly) {
+    display: block;
+    content: "";
+    margin-top: 18px;
+  }
+  .gm .support {
+    min-height: 1799px;
+    padding: 42px 35px 0;
+  }
+  .operations {
+    position: static;
+    font:
+      400 40px/46px "League Gothic",
+      sans-serif;
+    opacity: 1;
+  }
+  .gm .support .chapter {
+    margin-top: 6px;
+  }
+  .gm .support .chapter i {
+    display: block;
+    background: var(--accent);
+    height: 1px;
+    flex: 1;
+  }
+  .gm .support h2 {
+    font-size: 32px;
+    line-height: 44px;
+    font-weight: 600;
+    margin-top: 18px;
+  }
+  .gm .supportLead {
+    margin-top: 9px;
+    font-size: 16px;
+    line-height: 25px;
+  }
+  .gm .mapping {
+    margin-top: 27px;
+  }
+  .gm .mappingRow {
+    display: block;
+    margin-left: 42px;
+    min-height: 439px;
+    padding: 0;
+  }
+  .gm .mappingCell h3 {
+    font: 600 32px/40px var(--serif);
+  }
+  .gm .mappingCell p {
+    font: 400 20px/29px var(--sans);
+  }
+  .gm .mappingCell p .line {
+    display: inline;
+  }
+  .gm .mappingCell p .line::after {
+    content: "";
+    display: block;
+  }
+  .gm .mappingCell {
+    position: relative;
+  }
+  .gm .mappingLabel {
+    color: var(--accent);
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 7px;
+  }
+  .gm .mappingCell + .mappingCell {
+    margin-top: 17px;
+  }
+  .gm .mappingCell:last-of-type {
+    color: #fff;
+  }
+  .gm .mappingCell::before {
+    content: "";
+    position: absolute;
+    left: -36px;
+    top: 10px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .gm .mappingCell .connector {
+    position: absolute;
+    left: -31px;
+    top: 10px;
+    width: 1px;
+    height: calc(100% + 17px);
+    background: var(--accent);
+  }
+  .gm .connector::after {
+    display: none;
+  }
+  .gm .mappingNumber {
+    display: none;
+  }
+  .gm .mappingRow:nth-child(n + 2) {
+    min-height: 333px;
+    padding-top: 41px;
+  }
+  .gm .mappingRow:nth-child(n + 2) .mappingNumber {
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: -42px;
+    right: 0;
+    align-items: center;
+    gap: 9px;
+    font:
+      700 24px/32px "Oswald",
+      sans-serif;
+    color: var(--accent);
+  }
+  .gm .mappingNumber > span + span {
+    font: 400 13px/22px var(--sans);
+    color: #fff;
+  }
+  .gm .mappingNumber::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--accent);
+  }
+  .gm .mappingRow:nth-child(n + 2) .mappingCell:first-of-type > .mappingLabel {
+    display: none;
+  }
+  .gm .mappingRow:nth-child(n + 2) .mappingLabel {
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 0;
+  }
+  .gm .mappingRow:nth-child(n + 2) .mappingCell + .mappingCell {
+    margin-top: 4px;
+  }
+  .gm .mappingRow:nth-child(n + 2) .mappingCell p {
+    font-size: 18px;
+    line-height: 25px;
+  }
+  .gm .mappingRule {
+    display: none;
+  }
+  .gm .supportNote {
+    margin-top: 0;
+    font-size: 14px;
+    line-height: 22px;
+    color: #fff;
+  }
+  .mobileDining {
+    display: block;
+    position: absolute;
+    top: 1551px;
+    left: 0;
+    right: 0;
+    height: 181px;
+  }
+  .gmDining {
+    display: none;
+  }
+
+  .owner .roles {
+    min-height: 730px;
+    padding: 58px 25px 40px;
+    background: none;
+  }
+  .owner .roles .chapter {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 4px;
+  }
+  .owner .roles h2 {
+    margin-top: 39px;
+    font-size: 28px;
+    line-height: 40px;
+    font-weight: 600;
+  }
+  .owner .roleList {
+    display: block;
+    margin-top: 22px;
+  }
+  .owner .roleList > div {
+    text-align: left;
+    min-height: 63px;
+    padding-left: 32px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .owner .roleList > div + div {
+    border-left: 0;
+  }
+  .owner .roleList > div::before {
+    content: "";
+    width: 2px;
+    height: 18px;
+    background: var(--accent-ink);
+    position: absolute;
+    left: 4px;
+    top: 22px;
+  }
+  .owner .roleList dt {
+    font: 400 20px/30px var(--serif);
+  }
+  .owner .rolesAgreement {
+    margin-top: 36px;
+    font: 400 22px/32px var(--serif);
+  }
+  .owner .rolesNote {
+    margin-top: 14px;
+    font-size: 14px;
+    line-height: 23px;
+    color: #1f2a44;
+  }
+  .owner .crossLink {
+    position: static;
+    margin-top: 18px;
+  }
+  .owner .crossLink a,
+  .gm .crossLink a {
+    justify-content: center;
+    width: 100%;
+    min-height: 52px;
+    border: 1px solid #31465a;
+    font-size: 14px;
+    gap: 12px;
+    padding: 10px;
+  }
+  .owner .crossLink .arrow {
+    color: #31465a;
+  }
+  .gm .roles {
+    min-height: 901px;
+    padding: 57px 29px 36px;
+  }
+  .gm .roles .chapter i {
+    display: block;
+    position: absolute;
+    top: 93px;
+    left: 29px;
+    width: 23px;
+    height: 1px;
+    background: var(--accent-ink);
+  }
+  .gm .roles h2 {
+    margin-top: 30px;
+    font-size: 32px;
+    line-height: 44px;
+    font-weight: 600;
+  }
+  .gm .rolesLead {
+    margin-top: 21px;
+    font-size: 16px;
+    line-height: 26px;
+    color: #1f2a44;
+  }
+  .gm .rolesContent {
+    position: static;
+    margin-top: 34px;
+  }
+  .rolesCaption {
+    font-size: 16px;
+    line-height: 26px;
+    color: #1f2a44;
+  }
+  .gm .roleList {
+    display: block;
+    margin-top: 12px;
+    padding: 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 0;
+  }
+  .gm .roleList > div,
+  .gm .roleList > div + div {
+    text-align: left;
+    border: 0;
+    border-bottom: 1px solid var(--rule);
+    padding: 12px 0;
+  }
+  .gm .roleList dt {
+    font-size: 16px;
+    line-height: 26px;
+  }
+  .gm .roleList dd {
+    font-size: 14px;
+    line-height: 23px;
+    margin-top: 0;
+  }
+  .gm .roleList dd .line {
+    display: inline;
+  }
+  .gm .roleList > div:nth-child(3) dd .line {
+    display: block;
+  }
+  .gm .rolesAgreement {
+    position: relative;
+    padding-left: 18px;
+    margin-top: 18px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #1f2a44;
+  }
+  .gm .rolesAgreement::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    bottom: 6px;
+    width: 2px;
+    background: var(--accent-ink);
+  }
+  .gm .crossLink {
+    display: block;
+    margin-top: 30px;
+  }
+  .gm .crossLink p {
+    font-size: 16px;
+    line-height: 26px;
+    color: #1f2a44;
+    margin-bottom: 12px;
+  }
+  .gm .crossLink a {
+    font-size: 15px;
+  }
+
+  .owner .execution,
+  .gm .execution {
+    background: linear-gradient(90deg, #072a3e, #0c2436);
+  }
+  .owner .execution {
+    min-height: 901px;
+    padding: 60px 24px 34px;
+  }
+  .execution .chapter {
+    color: #fff;
+  }
+  .owner .execution h2 {
+    font-size: 38px;
+    line-height: 48px;
+    margin-top: 22px;
+    font-weight: 500;
+  }
+  .owner .executionPhoto {
+    display: block;
+    position: absolute;
+    top: 220px;
+    left: 0;
+    right: 0;
+    height: 266px;
+  }
+  .owner .process {
+    margin: 320px 8px 0 40px;
+  }
+  .owner .process ol {
+    display: block;
+  }
+  .owner .process li {
+    display: flex;
+    gap: 22px;
+    min-height: 59px;
+    align-items: start;
+    padding-top: 8px;
+    border-bottom: 1px solid #d5dce0;
+  }
+  .owner .process li:last-child {
+    border: 0;
+  }
+  .owner .stepNumber {
+    font: 400 22px/32px var(--serif);
+    margin: 0;
+    min-width: 22px;
+  }
+  .owner .process li > span + span {
+    font: 400 18px/32px var(--sans);
+  }
+  .owner .process li > i,
+  .owner .process li:last-child > i {
+    display: block;
+    width: 7px;
+    height: 7px;
+    left: -24px;
+    top: 16px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .owner .process li > i::after {
+    display: none;
+  }
+  .owner .processRail {
+    display: block;
+    top: 16px;
+    left: -21px;
+    width: 1px;
+    height: calc(100% - 59px);
+    background: #d5dce0;
+  }
+  .gm .execution {
+    min-height: 914px;
+    padding: 205px 29px 35px;
+  }
+  .gm .executionPhoto {
+    position: absolute;
+    top: 0;
+    height: 197px;
+    bottom: auto;
+  }
+  .gm .implement {
+    position: absolute;
+    top: 131px;
+    left: 29px;
+    font-size: 56px;
+    line-height: 64px;
+  }
+  .gm .execution h2 {
+    font-size: 32px;
+    line-height: 42px;
+    margin-top: 0;
+    font-weight: 500;
+  }
+  .gm .executionLead {
+    margin-top: 16px;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+  }
+  .gm .executionLead .mobileOnly:nth-of-type(2) {
+    display: none;
+  }
+  .gm .process {
+    width: auto;
+    height: auto;
+    margin: 20px 0 0 42px;
+  }
+  .gm .process ol {
+    display: block;
+  }
+  .gm .process li {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-height: 52px;
+    border-bottom: 1px solid #ffffff57;
+    font: 400 17px/32px var(--serif);
+  }
+  .gm .process li:last-child {
+    border: 0;
+  }
+  .gm .stepNumber {
+    display: block;
+    width: 44px;
+    flex-shrink: 0;
+    color: var(--accent);
+    font: 400 26px/35px var(--serif);
+  }
+  .gm .process li > i,
+  .gm .process li:nth-of-type(3) > i {
+    width: 5px;
+    height: 5px;
+    top: 24px;
+    left: -27px;
+    background: var(--accent);
+  }
+  .gm .processRail {
+    top: 26px;
+    left: -25px;
+    width: 1px;
+    height: calc(100% - 52px);
+    background: #ffffff57;
+  }
+  .gm .approachAction {
+    margin-top: 22px;
+    width: 100%;
+    min-height: 54px;
+    color: #1f2a44;
+    border: none;
+    background: linear-gradient(90deg, #f48234, #ef8a40);
+    justify-content: center;
+    font-size: 18px;
+  }
+
+  .owner .verification {
+    min-height: 580px;
+    padding: 61px 21px 42px;
+    background: none;
+  }
+  .owner .verification .chapter {
+    position: relative;
+    font-size: 15px;
+    gap: 5px;
+    padding-left: 16px;
+  }
+  .owner .verification .chapter::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 2px;
+    height: 18px;
+    margin-top: -9px;
+    background: var(--accent-ink);
+  }
+  .owner .verification .chapter > span:first-child {
+    font: 400 15px/28px var(--sans);
+    color: #1f2a44;
+  }
+  .owner .verification .chapter .slash {
+    margin-right: 0;
+  }
+  .owner .verification h2 {
+    margin-top: 22px;
+    font-size: 38px;
+    line-height: 48px;
+    font-weight: 600;
+  }
+  .verificationLead {
+    position: static;
+    font-size: 18px;
+    line-height: 28px;
+    margin-top: 28px;
+  }
+  .owner .verificationList {
+    display: block;
+    margin-top: 22px;
+  }
+  .owner .verificationList > div,
+  .owner .verificationList > div + div {
+    border-left: 0;
+    border-bottom: 1px solid var(--rule);
+    padding: 9px 0 9px 28px;
+    min-height: 55.5px;
+  }
+  .owner .verificationList dt {
+    font: 400 18px/30px var(--sans);
+  }
+  .owner .verificationList i {
+    left: 8px;
+    top: 3px;
+    width: 1px;
+    height: 38px;
+  }
+  .owner .verificationList i::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-ink);
+    top: 16px;
+    left: -2.5px;
+  }
+  .gm .verification {
+    min-height: 660px;
+    padding: 61px 24px 40px;
+  }
+  .gm .verification .chapter {
+    font-size: 13px;
+    line-height: 25px;
+  }
+  .gm .verification .chapter > span:first-child {
+    font: 400 13px/25px var(--sans);
+    color: #1f2a44;
+  }
+  .gm .verification h2 {
+    margin-top: 27px;
+    font-size: 32px;
+    line-height: 44px;
+    font-weight: 600;
+  }
+  .gm .verificationList {
+    position: static;
+    display: block;
+    margin-top: 30px;
+  }
+  .gm .verificationList > div,
+  .gm .verificationList > div:first-child,
+  .gm .verificationList > div + div {
+    min-height: 105px;
+    padding: 0 0 21px 40px;
+    border: 0;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 0;
+  }
+  .gm .verificationList > div + div {
+    padding-top: 21px;
+  }
+  .gm .verificationList > div:last-child {
+    border: 0;
+  }
+  .gm .verificationList dt {
+    font: 600 26px/36px var(--serif);
+  }
+  .gm .verificationList dd {
+    margin-top: 4px;
+    font-size: 15px;
+    line-height: 25px;
+  }
+  .gm .verificationList dd .line {
+    display: inline;
+  }
+  .gm .verificationList i {
+    display: block;
+    left: 3px;
+    top: 10px;
+    height: 19px;
+    width: 4px;
+    border-radius: 2px;
+  }
+  .gm .verificationList > div + div i {
+    top: 31px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1099px) {
+  .page section:not(.hero) {
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+  .headerBrand,
+  .gm .headerBrand,
+  .breadcrumb,
+  .gm .breadcrumb,
+  .audienceLabel,
+  .gm .audienceLabel,
+  .heroMessage,
+  .gm .heroMessage {
+    left: 8%;
+  }
+  .heroMessage,
+  .gm .heroMessage {
+    right: 8%;
+  }
+  .heroMessage .action {
+    width: 342px;
+  }
+  .heroMessage h1,
+  .gm .heroMessage h1 {
+    font-size: 42px;
+  }
+  .monument,
+  .gm .monument {
+    left: 8%;
+  }
+  .owner .challenges .issue {
+    grid-template-columns: 80px 1fr 28px;
+  }
+  .owner .decisionContent,
+  .gm .decisionContent {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .owner .decisions,
+  .gm .decisions {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .owner .decisionContent,
+  .gm .decisionContent {
+    margin-left: 8%;
+    margin-right: 8%;
+  }
+  .owner .mappingCell,
+  .gm .mappingCell {
+    max-width: 440px;
+  }
+  .gm .mappingRow {
+    min-height: 439px;
+  }
+  .gm .mappingRow:nth-child(n + 2) {
+    min-height: 333px;
+  }
+  .gm .executionPhoto {
+    left: 0;
+    right: 0;
+  }
+  .gm .implement {
+    left: 8%;
+  }
+}
+
+@media (max-width: 374px) {
+  .page h2,
+  .owner .verification h2 {
+    font-size: 28px;
+  }
+  .heroMessage,
+  .gm .heroMessage {
+    left: 20px;
+    right: 20px;
+  }
+  .gm .heroMessage h1 {
+    font-size: 30px;
+  }
+  .gm .monument {
+    font-size: 82px;
+    letter-spacing: 2px;
+  }
+  .owner .issue h3 {
+    font-size: 25px;
+  }
+  .owner .issue p {
+    font-size: 13px;
+  }
+  .owner .mappingCell h3,
+  .owner .mappingCell p {
+    font-size: 22px;
+  }
+  .gm .support {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .gm .mappingCell h3 {
+    font-size: 27px;
+  }
+  .gm .mappingCell p {
+    font-size: 18px;
+  }
+  .gm .criteria h3 {
+    font-size: 18px;
+  }
+  .gm .verificationList dt {
+    font-size: 22px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page *,
+  .page *::before,
+  .page *::after {
+    animation: none !important;
+    transition-duration: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+  .page a:hover .arrow,
+  .action:active {
+    transform: none;
+  }
+}
+
+/* Original-reference alignment, after the first deterministic capture. */
+.mappingRule {
+  position: absolute;
+}
+@media (min-width: 1100px) {
+  .owner .issueList {
+    margin-top: 47px;
+  }
+  .owner .criteria {
+    grid-template-columns: minmax(0, 280fr) minmax(0, 271fr);
+    column-gap: clamp(16px, 2.361vw, 34px);
+  }
+  .owner .support {
+    padding-bottom: 11px;
+  }
+  .owner .support h2 {
+    margin-top: 14px;
+  }
+  .owner .mappingHead {
+    margin-top: 37px;
+    gap: 45px;
+  }
+  .owner .mappingHead span {
+    padding-bottom: 4px;
+  }
+  .owner .mapping {
+    margin-top: 20px;
+  }
+  .owner .mappingRow {
+    row-gap: 0;
+    height: 66px;
+    align-items: start;
+  }
+  .owner .mappingCell {
+    height: 51px;
+    padding: 0 0 12px;
+  }
+  .owner .mappingCell p {
+    padding-top: 2px;
+  }
+  .owner .mappingRule {
+    display: none;
+  }
+  .owner .connector {
+    top: 20px;
+  }
+  .owner .supportNote {
+    margin-top: 15px;
+  }
+  .owner .roles {
+    padding-bottom: 17px;
+  }
+  .owner .roles h2 {
+    margin-top: 14px;
+  }
+  .owner .roleList {
+    margin-top: 24px;
+  }
+  .owner .rolesAgreement {
+    margin-top: 6px;
+  }
+  .owner .rolesNote {
+    margin-top: 10px;
+  }
+  .owner .execution .process ol {
+    grid-template-columns: 234fr 235fr 249fr 234fr 247fr 117fr;
+  }
+  .owner .execution .process {
+    margin-top: 80px;
+    margin-left: 4px;
+  }
+  .owner .execution .process li > i {
+    right: 32px;
+  }
+  .owner .hero::after {
+    content: "";
+    position: absolute;
+    left: 96.5278%;
+    top: 597px;
+    width: 2px;
+    height: 52px;
+    background: var(--accent);
+  }
+  .gm .support {
+    padding-bottom: 19px;
+  }
+  .gm .support .chapter > span:first-child {
+    color: #fff;
+  }
+  .gm .challengeIntro h2 {
+    font-size: 52px;
+  }
+  .gm .roles h2 {
+    font-size: 52px;
+  }
+  .gm .operations {
+    letter-spacing: -2.24px;
+  }
+  .gm .implement {
+    letter-spacing: -2.4px;
+  }
+}
+@media (max-width: 1099px) {
+  .owner .challenges {
+    padding-bottom: 0;
+  }
+  .owner .challenges .chapter {
+    line-height: 22px;
+  }
+  .owner .challengeIntro h2 {
+    margin-top: 16px;
+  }
+  .owner .issueList {
+    margin-top: 47px;
+  }
+  .owner .decisions h2 {
+    margin-top: 24px;
+  }
+  .owner .criteria {
+    margin-top: 291px;
+  }
+  .owner .support h2 {
+    margin-top: 19px;
+    line-height: 43px;
+    font-weight: 500;
+  }
+  .owner .mapping {
+    margin-top: 26px;
+  }
+  .owner .mappingRow {
+    min-height: 252px;
+    margin-bottom: 20px;
+  }
+  .owner .mappingRow:nth-child(2) {
+    margin-bottom: 64px;
+  }
+  .owner .mappingRow:nth-child(3) {
+    margin-bottom: 24px;
+  }
+  .owner .mappingRow:last-child {
+    margin-bottom: 0;
+  }
+  .owner .mappingCell h3,
+  .owner .mappingCell p {
+    font-weight: 500;
+    line-height: 36px;
+  }
+  .owner .supportNote {
+    margin-top: 21px;
+    line-height: 24px;
+  }
+  .owner .roles {
+    padding-bottom: 30px;
+  }
+  .owner .roles h2 {
+    margin-top: 19px;
+  }
+  .owner .rolesAgreement {
+    margin-top: 35px;
+  }
+  .owner .rolesNote {
+    margin-top: 10px;
+  }
+  .owner .execution h2 {
+    margin-top: 14px;
+  }
+  .owner .execution .process {
+    margin-top: 309px;
+  }
+  .owner .execution .process li {
+    min-height: 58.8px;
+  }
+  .owner .verificationLead {
+    margin-top: 30px;
+  }
+  .owner .verificationList {
+    margin-top: 22px;
+  }
+  .gm .support {
+    padding-top: 40px;
+  }
+  .gm .operations {
+    line-height: 43px;
+    letter-spacing: 1.8px;
+  }
+  .gm .support .chapter {
+    margin-top: 6px;
+  }
+  .gm .support h2 {
+    margin-top: 15px;
+  }
+  .gm .rolesAgreement {
+    margin-top: 7px;
+  }
+  .gm .execution > .implement {
+    position: absolute;
+    top: 130px;
+  }
+  .gm .execution {
+    padding-top: 211px;
+  }
+  .gm .verificationList > div {
+    height: 105px;
+    min-height: 0;
+  }
+  .gm .verificationList > div:first-child {
+    height: 85px;
+    min-height: 0;
+  }
+  .gm .verificationList > div:last-child {
+    height: 85px;
+  }
+}
+
+.owner .supportNote > span {
+  display: block;
+}
+@media (min-width: 1100px) {
+  .gm .operations {
+    letter-spacing: -4.5283px;
+  }
+  .gm .implement {
+    letter-spacing: -3.6226px;
+  }
+}
+@media (max-width: 1099px) {
+  .owner .supportNote > span + span {
+    margin-top: 16px;
+  }
+  .owner .support {
+    padding-bottom: 38px;
+  }
+  .gm .challengeIntro h2 {
+    font-size: 32px;
+    letter-spacing: -0.8px;
+  }
+  .gm .roleList dt {
+    font-weight: 700;
+  }
+  .gm .execution h2 {
+    line-height: 41px;
+  }
+  .gm .executionLead {
+    margin-top: 15px;
+  }
+  .gm .approachAction {
+    margin-top: 14px;
+  }
+  .gm .support::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 67px;
+    background: #f3f0ea;
+  }
+}
+@media (min-width: 1100px) {
+  .owner .challenges {
+    padding-bottom: 15.9375px;
+  }
+}
+@media (max-width: 1099px) {
+  .owner .issueList {
+    margin-top: 46px;
+  }
+  .gm .verificationList > div:last-child {
+    min-height: 0;
+  }
+  .gm .roles {
+    padding-bottom: 34px;
+  }
+}
+@media (max-width: 1099px) {
+  .gm .challengeIntro h2 {
+    margin-top: 31px;
+    line-height: 44px;
+  }
+  .gm .decisions {
+    padding-top: 25px;
+  }
+  .gm .decisionPhoto {
+    height: 237px;
+  }
+  .gm .decisionContent {
+    padding-top: 24px;
+  }
+  .gm .decisionContent h2 {
+    margin-top: 10px;
+  }
+  .gm .criteria {
+    margin-top: 24px;
+  }
+  .gm .criteria p {
+    margin-top: 5px;
+    line-height: 24px;
+  }
+  .gm .criteria li:last-child {
+    padding-top: 16px;
+  }
+  .gm .criteria li:last-child h3 {
+    line-height: 35px;
+  }
+  .gm .rolesAgreement {
+    margin-top: 12px;
+    line-height: 23px;
+  }
+  .gm .crossLink {
+    margin-top: 28px;
+  }
+  .owner .verification h2 {
+    line-height: 51px;
+  }
+  .owner .verificationLead {
+    margin-top: 24px;
+  }
+  .owner .verificationList > div,
+  .owner .verificationList > div + div {
+    padding-top: 6px;
+  }
+  .owner .verificationList dt {
+    line-height: 29px;
+  }
+}
+@media (min-width: 1100px) {
+  .gm .challengeIntro {
+    margin-top: 30px;
+  }
+  .gm .challengeIntro p {
+    margin-top: 32px;
+  }
+  .gm .support h2 {
+    margin-top: 10px;
+    line-height: 70px;
+  }
+  .gm .supportLead {
+    margin-top: 24px;
+  }
+  .gm .roles h2 {
+    margin-top: 16px;
+  }
+  .gm .rolesLead {
+    margin-top: 24px;
+  }
+}
+@media (max-width: 1099px) {
+  .gm .challengeIntro {
+    margin-top: 31px;
+  }
+  .gm .challengeIntro h2 {
+    margin-top: 0;
+  }
+}
+@media (min-width: 350px) and (max-width: 1099px) {
+  .owner .challengeIntro h2 {
+    margin-top: 15px;
+    font-size: 30px;
+    line-height: 42px;
+    font-weight: 600;
+  }
+  .owner .issueList {
+    margin-top: 32px;
+  }
+  .owner .issueNumber {
+    margin-top: 10px;
+  }
+  .owner .issue h3 {
+    line-height: 38px;
+  }
+  .owner .issueList li .issue > i,
+  .owner .issueList li:nth-child(-n + 2) .issue > i {
+    bottom: 17.5px;
+  }
+  .gm .mappingRow:first-child {
+    min-height: 463px;
+  }
+  .gm .mappingRow:first-child .mappingCell h3 {
+    line-height: 41px;
+  }
+  .gm .mappingRow:first-child .mappingLabel {
+    line-height: 26px;
+    margin-bottom: 5px;
+  }
+  .gm .mappingRow:first-child .mappingCell + .mappingCell {
+    margin-top: 14px;
+  }
+  .gm .mappingRow:first-child .mappingCell + .mappingCell .mappingLabel {
+    margin-bottom: 4px;
+  }
+  .gm .mappingRow:first-child .mappingCell:nth-of-type(3) {
+    margin-top: 27px;
+  }
+  .gm .mappingRow:nth-child(n + 2) .mappingCell h3 {
+    line-height: 38px;
+  }
+  .gm .mappingRow:nth-child(2) .mappingCell + .mappingCell {
+    margin-top: 8px;
+  }
+  .gm .mappingRow:nth-child(2) .mappingCell:nth-of-type(3) {
+    margin-top: 12px;
+  }
+  .gm .mappingRow:nth-child(3) {
+    min-height: 312px;
+    padding-top: 43px;
+  }
+  .gm .mappingRow:nth-child(3) .mappingCell + .mappingCell {
+    margin-top: 12px;
+  }
+  .gm .mappingRow:nth-child(3) .mappingCell:nth-of-type(3) {
+    margin-top: 14px;
+  }
+  .gm .supportNote {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1100px) {
+  .owner .support h2 {
+    margin-top: 16px;
+  }
+  .owner .mappingHead {
+    margin-top: 35px;
+  }
+  .gm .mappingHead {
+    line-height: 24px;
+  }
+  .gm .mapping {
+    margin-top: 12px;
+  }
+  .gm .supportNote {
+    margin-top: 29px;
+  }
+  .gm .mappingCell:last-of-type p {
+    font-weight: 500;
+  }
+  .gm .operations {
+    top: -8px;
+    line-height: 116px;
+  }
+}
+
+/* User-authorized photo replacement and HOME shell — 2026-09-10.
+   Each photograph is a native master, never a strip from a page-sized board. */
+.page [id] {
+  scroll-margin-top: 96px;
+}
+.owner .challenges,
+.owner .decisions,
+.owner .roles,
+.owner .verification {
+  background: #f1efea;
+}
+.owner .heroScrim,
+.gm .heroScrim {
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5, 18, 25, 0.76),
+      rgba(5, 18, 25, 0.54) 38%,
+      rgba(5, 18, 25, 0.26) 66%,
+      rgba(5, 18, 25, 0.1) 86%,
+      rgba(5, 18, 25, 0.04)
+    ),
+    linear-gradient(
+      180deg,
+      rgba(5, 18, 25, 0.42),
+      rgba(5, 18, 25, 0.1) 24%,
+      rgba(5, 18, 25, 0) 46%,
+      rgba(5, 18, 25, 0.2) 76%,
+      rgba(5, 18, 25, 0.52)
+    );
+}
+.owner .support {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(7, 30, 46, 0.96),
+      rgba(7, 30, 46, 0.88) 52%,
+      rgba(7, 30, 46, 0.25)
+    ),
+    url("/media/adelva/audience-v4/water.webp") center/cover no-repeat;
+}
+.gmDining {
+  background: none;
+}
+@media (min-width: 1100px) {
+  .challengePhoto {
+    position: absolute;
+    right: 4.1667%;
+    top: 47px;
+    width: 27%;
+    height: 487px;
+  }
+  .owner .decisionPhoto {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 56.5%;
+    height: 100%;
+  }
+  .gm .decisionPhoto {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 44.1667%;
+    height: 100%;
+  }
+  .owner .execution {
+    background: #0b2030;
+  }
+  .owner .executionPhoto {
+    display: block;
+    position: absolute;
+    inset: 0;
+  }
+  .executionPhoto::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(4, 17, 24, 0.91),
+        rgba(4, 17, 24, 0.74) 52%,
+        rgba(4, 17, 24, 0.3) 85%,
+        rgba(4, 17, 24, 0.16)
+      ),
+      linear-gradient(
+        0deg,
+        rgba(4, 17, 24, 0.88),
+        rgba(4, 17, 24, 0.55) 22%,
+        rgba(4, 17, 24, 0) 46%
+      );
+  }
+  .owner .execution > :not(.executionPhoto) {
+    position: relative;
+  }
+}
+@media (max-width: 1099px) {
+  .challengePhoto {
+    display: none;
+  }
+  .owner .challenges,
+  .owner .decisions,
+  .owner .roles,
+  .owner .verification {
+    background: linear-gradient(90deg, #f3f0ea, #f5f2ed);
+  }
+  .owner .support {
+    background: linear-gradient(90deg, #072a3e, #0c2436);
+  }
+  .owner .heroScrim,
+  .gm .heroScrim {
+    background: linear-gradient(
+      180deg,
+      rgba(5, 18, 25, 0.74),
+      rgba(5, 18, 25, 0.62) 34%,
+      rgba(5, 18, 25, 0.5) 52%,
+      rgba(5, 18, 25, 0.24) 78%,
+      rgba(5, 18, 25, 0.4)
+    );
+  }
+  .owner .heroPhoto img {
+    object-position: 68% center;
+  }
+  .gm .heroPhoto img {
+    object-position: 46% center;
+  }
+  .executionPhoto::after {
+    display: none;
+  }
+}
+
+/* Between the phone frame and the 1100px composition the authored mobile stack
+   was simply stretched: 13px descriptions on a 700px measure, link arrows
+   parked half a screen from their label, and photographs held in place by
+   offsets counted for a 390px column. This range re-pairs the same content. */
+@media (min-width: 600px) and (max-width: 1099px) {
+  .page {
+    font-size: 17px;
+  }
+  .page h2 {
+    text-wrap: balance;
+  }
+  .chapter,
+  .gm .chapter {
+    font-size: 15px;
+  }
+
+  .owner .challenges,
+  .gm .challenges {
+    min-height: 0;
+    padding-inline: 40px;
+  }
+  .owner .challengeIntro h2,
+  .gm .challengeIntro h2 {
+    font-size: 34px;
+    line-height: 1.45;
+  }
+  .gm .challengeIntro p {
+    font-size: 19px;
+    max-width: 34em;
+  }
+  .owner .issueList,
+  .gm .issueList {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 44px;
+  }
+  .owner .issue p,
+  .gm .issue p {
+    font-size: 16px;
+    line-height: 26px;
+  }
+  .gm .issue h3 {
+    font-size: 21px;
+  }
+  .gm .issueList li:last-child i {
+    display: block;
+  }
+  .gm .challenges .chapter i,
+  .gm .roles .chapter i {
+    position: static;
+    width: 34px;
+    margin-left: 4px;
+  }
+
+  /* The corridor no longer sits at a counted offset with the list pushed
+     past it; both simply follow the copy. */
+  .page.owner .decisions {
+    min-height: 0;
+    padding-bottom: 48px;
+  }
+  .page.owner .decisionPhoto {
+    position: static;
+    height: 300px;
+    margin-top: 36px;
+  }
+  .page.owner .criteria {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 44px;
+    margin-top: 8px;
+  }
+  .page.owner .criteria h3 {
+    font-size: 19px;
+  }
+  .gm .decisions {
+    min-height: 0;
+    padding-bottom: 48px;
+  }
+  .gm .decisionPhoto {
+    height: 300px;
+  }
+  .page.gm .criteria li,
+  .page.gm .criteria li:last-child {
+    display: grid;
+    grid-template-columns: minmax(0, 15em) minmax(0, 1fr);
+    column-gap: 32px;
+    align-items: baseline;
+    min-height: 0;
+    padding-block: 18px;
+  }
+  .page.gm .criteria p {
+    margin-top: 0;
+  }
+
+  .owner .support,
+  .gm .support {
+    padding-inline: 40px;
+  }
+  .owner .mappingRow {
+    min-height: 0;
+    margin-bottom: 40px;
+  }
+  .owner .mappingRow:nth-child(2) {
+    margin-bottom: 40px;
+  }
+  .mobileDining {
+    position: static;
+    height: 260px;
+    margin-top: 44px;
+  }
+  .gm .supportNote {
+    max-width: 46em;
+  }
+
+  .owner .roles,
+  .gm .roles {
+    min-height: 0;
+    padding-inline: 40px;
+    padding-bottom: 56px;
+  }
+  .owner .roleList,
+  .gm .roleList {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 48px;
+  }
+  .page.gm .roleList > div,
+  .page.gm .roleList > div + div,
+  .page.owner .roleList > div,
+  .page.owner .roleList > div + div {
+    margin-bottom: 0;
+  }
+  .gm .rolesLead,
+  .rolesCaption {
+    max-width: 40em;
+  }
+  .owner .crossLink a,
+  .gm .crossLink a {
+    justify-content: flex-start;
+    width: auto;
+    min-height: 0;
+    border: 0;
+    border-bottom: 1px solid var(--accent-ink);
+    border-radius: 0;
+    padding: 6px 2px;
+    font-size: 16px;
+    gap: 20px;
+  }
+  .gm .crossLink {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  /* The bedroom band and its display word keep the authored relationship
+     instead of colliding with copy that grew with the viewport. */
+  .page.gm .execution {
+    min-height: 0;
+    padding: 320px 40px 56px;
+  }
+  .page.gm .executionPhoto {
+    height: 312px;
+  }
+  .page.gm .implement {
+    top: 216px;
+    left: 40px;
+    font-size: 76px;
+    line-height: 84px;
+  }
+  .page.gm .executionLead {
+    font-size: 17px;
+    line-height: 30px;
+    max-width: 42em;
+  }
+  .page.owner .execution {
+    min-height: 0;
+    padding: 60px 40px 56px;
+  }
+  .page.owner .executionPhoto {
+    position: static;
+    height: 300px;
+    margin-top: 36px;
+  }
+  .page.owner .execution .process,
+  .page.gm .process {
+    margin: 44px 0 0 40px;
+  }
+  .page.owner .process ol,
+  .page.gm .process ol {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 56px;
+  }
+  .page.owner .processRail,
+  .page.gm .processRail,
+  .page.owner .processProgress,
+  .page.gm .processProgress {
+    display: none;
+  }
+
+  .owner .verification,
+  .gm .verification {
+    min-height: 0;
+    padding-inline: 40px;
+    padding-bottom: 56px;
+  }
+  .owner .verificationList,
+  .gm .verificationList {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 48px;
+  }
+  .page.gm .verificationList > div,
+  .page.gm .verificationList > div:first-child,
+  .page.gm .verificationList > div + div {
+    min-height: 0;
+    padding-block: 20px;
+  }
+  .page.gm .verificationList > div + div i,
+  .page.gm .verificationList i {
+    top: 26px;
+  }
+  .verificationLead {
+    max-width: 40em;
+  }
+
+  /* Two columns halve the room a description has, so the row stops being a
+     fixed track and the arrow keeps its own column. */
+  .page.gm .issue {
+    grid-template-rows: auto auto;
+    row-gap: 4px;
+    min-height: 0;
+    padding: 18px 0 16px;
+  }
+  .page.gm .issue p {
+    grid-column: 1 / 3;
+    padding-right: 8px;
+  }
+  .page.gm .issue .arrow {
+    margin-top: 8px;
+  }
+  .page.gm .approachAction {
+    width: auto;
+    min-width: 320px;
+    align-self: start;
+    justify-content: space-between;
+    padding-inline: 24px;
+  }
+}

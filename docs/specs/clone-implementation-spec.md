@@ -1,14 +1,303 @@
-# White Desert visual-adaptation implementation specification
+# White Desert authorized-rebuild implementation specification
 
-Status: reconnaissance-informed specification; target-specific unknowns remain.
-Updated: 2026-08-30 JST.
+Status: **authorized client rebuild**; measured home manifest below is binding.
+Updated: 2026-08-31 JST.
+
+## 2026-09-08 Last Continent correction contract
+
+### Additional authorized scope: hero mist seam
+
+The user additionally requested repair of the horizontal line during hero exit.
+Keep ADELVA content and the measured scroll functions unchanged. Reference and
+before frames in `artifacts/hero-seam/{reference,before}` sample f=0.5, 0.8, 1,
+1.1, 1.3, 1.5, 1.8 at all three named viewports/DPR 1, so raster/CSS scale is 1.
+Videos are paused at time zero after hydration; hero image loading is eagerly
+resolved for deterministic inspection. This is a diagnostic loading policy.
+
+Observed target `.mist-transition_image`: `object-position:center top` and
+`background:linear-gradient(360deg,#fff,transparent 15%)`. Local mist lacks both.
+Its partially transparent lower edge reveals grey material until the next white
+section begins. At desktop f=1.1, x=400, y=809/810, before pixels are 248/255;
+target is 255/255. Restore the target's CSS backing gradient and focal alignment,
+without changing assets, motion timing, stage geometry or hero typography.
+
+Controlled follow-up isolated a second cause: the local mist parent adds
+`perspective:900px`, absent from the target. With the image decoded and the
+gradient restored, x=400/y=625 at desktop f=1.3 still read 245. Removing only
+that perspective made it 255. This unnecessary descendant perspective affects
+the rotated/clipped image compositing. Remove it; retain the parent's rotateX,
+origin, sticky bounds and scroll linkage. No animation library changes needed.
+
+Predeclared seam check: for f=1.1, 1.3, 1.5, 1.8, compare the 3-pixel bands just
+above/below section document y=2×viewportHeight, excluding navigation, flyout and
+vertical hairlines. Mean per-channel jump <=3/255, maximum sampled jump <=5/255.
+Inspect the transition frame rasters and diff at original size. Test reversal,
+normal/reduced motion and fractional viewport scroll positions. Existing
+no-JS/reduced motion readability remains required.
+
+Scope: `/`, only the Last Continent section and its decorative surface. Existing
+client authorization applies. ADELVA hero/header, routes, copy, section order,
+season imagery and global shell remain outside this correction. Mode C supplied
+precise reference; no generation, recursive discovery or additional route work.
+
+Live reference: `https://white-desert.com/`, captured 2026-09-08 at DPR 1 in
+Chromium. `artifacts/last-continent/reference/{desktop,tablet,mobile}-{entry,start,center,reverse}.png`
+are 1440×900, 768×1024 and 390×844 respectively: scaleX=scaleY=1.
+The matching JSON records computed styles, bounds, scroll and browser errors.
+Entry is section top minus half a viewport, start/reverse is section top,
+center is section top plus 200px. References are research artifacts; existing
+authorization covers the small target SVG ornament used in production.
+
+| Landmark                      | Desktop            | Tablet             | Mobile                  | Tolerance |
+| ----------------------------- | ------------------ | ------------------ | ----------------------- | --------- |
+| White background x / width    | 0 / 1440           | 0 / 768            | 0 / 390                 | 0px       |
+| Section document y / height   | 1800 / 785.55      | 2048 / 1037.59     | 1688 / 591.59           | 1px       |
+| Content grid inner gutter     | 12px               | 12px               | 12px                    | 0px       |
+| Label x / section-relative y  | 484 / 320          | 260 / 320          | 59.25 / 200             | 1px       |
+| Quote x / y / width           | 484 / 373.56 / 708 | 260 / 373.59 / 379 | 59.25 / 257.59 / 318.75 | 1px       |
+| Quote size / leading / indent | 42 / 42 / 33.3333% | 42 / 42 / 33.3333% | 26 / 26 / 25%           | 0.1px     |
+
+Background authority: opaque white, no photograph. Current `width:calc(100% -
+24px)` incorrectly applies the content inset to the painted surface, exposing
+the translated hero video at both edges. Use full width and 12px inline padding
+with the existing border-box sizing; this retains the original text grid and
+does not add a structural wrapper. Retain the section stacking context.
+
+Restore section-local 0.5px vertical rules, effective black 10% over white:
+12px, 60px, 50%, width−60.5px, width−12.5px, plus desktop/tablet grid positions
+12+(width−24)/6−0.5, 12+(width−24)/3,
+12+2(width−24)/3−0.5, 12+5(width−24)/6.
+Below 768px only the five outer/center rules remain. These decorative elements
+are absolute, pointer-inert and aria-hidden, clipped to this section.
+The label ornament uses the authorized 191×62 SVG, width 180% of the intrinsic
+label, right −10%, with its lower edge 12.1875px below the label box.
+
+Preserve Cardinal Classic Long 400 quote / italic 500 label and current semantic
+HTML. Keep existing reveal and reduced-motion behavior. The target's mask fades
+readable copy to 10% opacity and its scribble draws on entry; this correction
+retains full text contrast and a static decorative stroke. These are explicit
+accessibility/motion differences, not pixel-equivalence claims. ADELVA navigation,
+target cookie UI and the adjacent season are excluded from section pixel metrics.
+
+Acceptance: three viewport geometry checks above, white left/right edge pixels
+at entry/start/center/reverse (excluding shell controls), no hero elements above
+the section at the edges, no horizontal overflow, no new hydration/page errors.
+Inspect reference, actual, overlay and difference at original resolution. Raw
+pixel metrics remain diagnostic because of the documented mask/shell differences;
+do not loosen the separate existing external-reference release gate.
+
+Baseline: strict web audit 20/20 PASS. `pnpm build` and `pnpm exec tsc --noEmit`
+are blocked by the pre-existing undefined `MENU_GEOMETRY` in
+`tests/e2e/global-shell-clone.spec.ts:356`, associated with the ongoing ADELVA
+navigation replacement. Do not modify that unrelated work to green this task.
 
 This specification defines the implementation contract for a measurable,
-semantic visual adaptation of the public White Desert route set. It does not
-grant permission to redistribute White Desert identity, copy, photography,
-video, icons, logos, or fonts. Until ownership or redistribution permission is
-recorded, target content is research-only and production must use an approved
-original identity, copy, and owned/licensed/generated replacement assets.
+semantic **exact reconstruction** of the public White Desert route set.
+
+**Rights status (2026-08-31):** the authorized client representative gave
+explicit written authorization covering all target identity, copy, images,
+video, fonts, and other assets. Target content is therefore **approved for
+production**, recorded per asset in `docs/asset-provenance.md`. The
+research-only language retained further down this document is superseded
+wherever it conflicts with this header; it is kept for audit continuity.
+
+Fidelity target is exactness, not adaptation. A visual difference is a defect
+unless it is listed as an intentional deviation with a stated reason
+(accessibility, performance budget, or a documented technical blocker).
+
+## Measured HOME manifest — `home-target-v1` (binding, corrected 2026-08-31)
+
+Source of truth: `.Codex/docs/research/home-fidelity-gap-forensics.md`.
+Topology is scoped to `main .page-content` **only**. Global flyouts, navigation
+data and footer links are not HOME sections. A manifest derived from the whole
+served heading stream is invalid; an earlier revision of this block made exactly
+that error and is superseded here.
+
+### Hierarchy
+
+```text
+home-target-v1
++-- hero
++-- last-continent
++-- our-season
++-- our-trips
+|   +-- title-field
+|   +-- card-list[5]
++-- founder-quote
++-- our-camps            (pinned horizontal flow, 5 panels)
+|   +-- intro
+|   +-- whichaway
+|   +-- echo
+|   +-- explorer
+|   +-- camp-quote
++-- cpt-wfr-bridge
++-- mist-divider
++-- travel-globe
++-- planning-cta
++-- site-footer (global, outside .page-content)
+```
+
+Ten page-content semantic stages plus the global footer. `.page-content` exposes
+exactly **seven direct children**; the seventh is a composite wrapper holding
+`our-camps`, `cpt-wfr-bridge`, `mist-divider`, `travel-globe` and
+`planning-cta`.
+
+**"How it works" is a global flyout (`.flyout_popup .flyout_content`) and is NOT
+HOME page content.** **"Discovery Week" is global nav data and a footer link and
+is NOT a HOME trip card.**
+
+### Implementation contract
+
+Production emits stable semantic IDs, not copied target classes:
+
+- `data-fidelity-section="<id>"` on every stage above.
+- `data-fidelity-parent="<parent-id>"` on nested stages.
+- `data-motion-layer="<id>"` on each animated hero/divider layer.
+
+### Direct-child document bounds (`documentY / height`, CSS px)
+
+| Direct child                |           `1440x900` |           `768x1024` |           `390x844` |
+| --------------------------- | -------------------: | -------------------: | ------------------: |
+| hero                        |     `0.00 / 1800.00` |     `0.00 / 2048.00` |    `0.00 / 1688.00` |
+| last-continent              |   `1800.00 / 785.55` |  `2048.00 / 1037.59` |  `1688.00 / 591.59` |
+| our-season                  |  `2585.55 / 1350.00` |  `3085.59 / 1536.00` | `2279.59 / 1266.00` |
+| our-trips title-field       |   `3935.55 / 539.97` |   `4621.59 / 540.00` |  `3545.59 / 332.98` |
+| our-trips card-list         |   `4475.52 / 765.00` |   `5161.59 / 870.39` | `3878.58 / 3626.95` |
+| founder-quote               |   `5240.52 / 955.91` |  `6031.98 / 1055.19` |  `7505.53 / 738.63` |
+| composite long-form wrapper | `6196.42 / 13644.94` | `7087.17 / 11973.73` | `8244.16 / 8940.34` |
+
+### Nested stage bounds
+
+| Stage          |           `1440x900` |           `768x1024` |            `390x844` |
+| -------------- | -------------------: | -------------------: | -------------------: |
+| cpt-wfr-bridge |  `15646.42 / 427.98` |  `14451.17 / 428.00` |  `13538.16 / 500.00` |
+| mist-divider   |  `16074.41 / 900.00` | `14879.17 / 1024.00` |  `14038.16 / 844.00` |
+| travel-globe   | `16974.41 / 1966.95` | `15903.17 / 2133.73` | `14882.16 / 1458.34` |
+| planning-cta   |  `18941.36 / 900.00` | `18036.91 / 1024.00` |  `16340.50 / 844.00` |
+| site-footer    |  `19841.36 / 945.97` | `19060.91 / 1024.00` | `17184.50 / 2132.94` |
+
+### Our Camps pinned horizontal flow
+
+| Viewport   |       Container | Panel widths, in order               |     Pinned interval | Final X   |
+| ---------- | --------------: | ------------------------------------ | ------------------: | --------- |
+| `1440x900` | `5639.95 x 900` | `1440, 919.98, 919.98, 919.98, 1440` | `6196.42..14746.42` | `-4200px` |
+| `768x1024` |   `3288 x 1024` | `768, 584, 584, 584, 768`            | `7087.17..13427.17` | `-2520px` |
+| `390x844`  |    `1950 x 844` | `390, 390, 390, 390, 390`            | `8244.16..12694.16` | `-1560px` |
+
+Panels in order: intro (Our Camps / Polar Comfort), Whichaway, Echo, Explorer,
+full-viewport camp quote.
+
+### Our Trips composition
+
+- Title is a **separate** white section before the card section.
+- `section-title` is uppercase, centred, `60/60px` box `331x60` at
+  desktop/tablet; `32/32px` box `270x32` at mobile.
+- Card container has a 12px viewport inset.
+- Desktop card field `1416x765`: active card `708px` (50%), four inactive at
+  `177px` (12.5%).
+- Tablet card field `744x870.39`: active `372px`, inactive `93px`.
+- Mobile card field `366x3626.95`: five `366x717.39` cards, 10px gap, all
+  content visible.
+- Desktop/tablet inactive content opacity `0` behind an opacity `1` overlay;
+  active content opacity `1`, overlay `0`.
+- Hover switches `is-active` immediately; widths/content settle ~`600ms`; the
+  active image zooms `1 -> 1.05` over `600ms cubic-bezier(0.4,0,0.2,1)`.
+- **Intentional deviation:** the target does not activate an inactive card on
+  keyboard focus (default 1px outline only). The rebuild adds a focus/touch
+  equivalent while preserving the measured visual state.
+
+Card identity, links, price/season meta and excerpts are owned by
+`src/content/pages/home.ts`, not duplicated here.
+
+### Hero layer stack and exact motion
+
+```text
+hero (200svh)
++-- mist plane      sticky, z-index 1, transform-origin 50% 100svh, rotateX(90deg)
++-- hero wrapper (100svh)
+    +-- video       autoplay loop muted playsinline preload=metadata, no poster, object-fit cover
+    +-- overlay
+    +-- content     layout + title wrapper, both -60svh terminal
+    +-- cloud 1     near, terminal -80%
+    +-- cloud 2     far,  terminal -10%
+```
+
+Let `f = scrollY / viewportHeight`. All linkage is **linear (`ease: none`)**,
+normalized identically at all three viewports:
+
+| Layer          | Function                                  | Clamp          |
+| -------------- | ----------------------------------------- | -------------- |
+| hero wrapper   | `translateY(100f svh)`                    | `200svh`       |
+| content layers | `translateY(-30f svh)`                    | `-60svh`       |
+| `h1`           | `blur(5f px)`                             | `10px`         |
+| cloud 1        | `translateY(100 - 90f %)`                 | `-80%`         |
+| cloud 2        | `translateY(100 - 55f %)`                 | `-10%`         |
+| mist plane     | `rotateX(90deg -> 0deg)` over `0.8..1.5f` | hold both ends |
+
+Checkpoints: at `f=1.0` -> wrapper `100svh`, content `-30svh`, `blur(5px)`,
+clouds `10%` / `45%`, mist `64.2857deg`. At `f=2.0` everything clamps.
+
+The wrapper's positive translation cancels ordinary document scroll, keeping the
+one-viewport composition optically pinned across the two-viewport stage.
+
+**Interruption:** a scroll jump or mid-sequence reversal resolves directly to the
+exact scroll-linked state on the next animation frame. No catch-up tween, no
+queued forward completion, no overshoot.
+
+### Founder signature draw motion
+
+User-approved replacement (2026-09-08): render `kokoro nakagawa` in the
+HOME attribution and replace the former signature with original lowercase
+single-line cursive SVG lettering. Keep the existing semantic figure, quote,
+role, responsive width and `656.82 × 120.12` viewBox. Align the new mark
+with the attribution (remove the old negative inline margin). The decorative SVG is
+`aria-hidden`; the adjacent real text supplies the accessible name.
+
+Fourteen letter strokes draw in reading order, followed by a fine underline.
+Distribute 1.65 seconds of pen travel proportionally to SVG path length, with
+25ms pen lifts, a 120ms word break and a 100ms pause before the final flourish
+(total about 2.17s). Use linear pen travel, round caps/joins, and the existing
+GSAP DrawSVG/ScrollTrigger dependencies with scoped `useGSAP` cleanup.
+Retain `top 75%` and `play none none reverse`, including interruption from the
+current playhead. Stroke drawing is the intentional paint-property exception
+for this requested handwriting effect; no layout properties animate.
+
+SSR, JavaScript-disabled and reduced-motion states show the complete signature.
+Switching motion preference must restore the complete mark and remove the trigger.
+Verify initial, intermediate, final and reversed states at 1440×900, 768×1024 and
+390×844. The new name and handwriting intentionally differ from the historical
+external reference; retain that reference independently, without relabelling it
+as a passing comparison. No image/font download or additional dependency.
+
+### Intentional deviations (must stay explicit)
+
+1. **Reduced motion.** The target ignores `prefers-reduced-motion: reduce` —
+   transforms are numerically identical under both preferences and the video
+   keeps advancing. The rebuild instead builds **no** ScrollTrigger, tween or
+   scroll listener under `reduce`, settles every layer at its readable end
+   state, and does not autoplay the video. This is a deliberate WCAG 2.2 AA
+   improvement over the target, not a fidelity miss.
+2. **Keyboard activation of Our Trips cards** (see above).
+
+### Acceptance thresholds
+
+| Assertion                       | Threshold                                                    |
+| ------------------------------- | ------------------------------------------------------------ |
+| `.page-content` direct children | exactly 7 at all three viewports                             |
+| Semantic stages                 | exactly the 10 IDs above, in order; `missing=[]`, `extra=[]` |
+| Our Trips cards                 | exactly 5                                                    |
+| Our Camps panels                | exactly 5                                                    |
+| Hero motion layers              | 1 video + 1 mist plane + 2 cloud wraps                       |
+| Founder signature motion        | 6 paths; `0 -> partial -> 1 -> 0` under no-preference        |
+| Route statistics                | 3, exact strings                                             |
+| `how-it-works` as HOME section  | must be absent                                               |
+| `Discovery Week` as a HOME card | must be absent                                               |
+| Total `scrollHeight`            | `20787` / `20085` / `19317`, tolerance +/-3%                 |
+| Horizontal overflow             | 0 px at all three viewports                                  |
+| Production external requests    | 0 to white-desert.com / sanity.io / cloudflarestream         |
+
+Tolerances are predeclared here and must not be widened after observing a
+mismatch.
 
 ## Source of truth and non-negotiable invariants
 
@@ -20,13 +309,13 @@ and cannot override measured evidence, rights restrictions, or accessibility
 requirements.
 
 The route authority is [`scripts/fidelity/route-manifest.mjs`](../../scripts/fidelity/route-manifest.mjs).
-It defines 29 paths, 15 exact family values, and the three required named
+It defines 30 paths, 16 exact family values, and the three required named
 viewports. The complete inventory and current measurements are in
 [`white-desert-route-inventory.md`](../../.Codex/docs/research/white-desert-route-inventory.md).
 
 The implementation must preserve these invariants:
 
-- all 29 approved public paths and their internal destinations;
+- all 30 approved public paths and their internal destinations;
 - the `/antarctica` redirect to
   `/antarctica/wolfs-fang-runway-mountains` (status, chain, and canonical
   behavior still require capture);
@@ -52,23 +341,24 @@ infer a template from a pathname substring or maintain a second route list.
 The practical grouping is below; `itinerary-day` and
 `region-index-redirect` remain distinct exact manifest values.
 
-| Exact family            | Routes                             | Template responsibility                        |
-| ----------------------- | ---------------------------------- | ---------------------------------------------- |
-| `home`                  | `/`                                | Long-form homepage shell and sections          |
-| `itinerary-index`       | `/itineraries`                     | Itinerary index/list                           |
-| `camp-index`            | `/camps`                           | Camp index/list                                |
-| `about-story`           | `/about/founders`                  | Story/about page                               |
-| `about-foundation`      | `/about/foundation`                | Foundation page                                |
-| `about-sustainability`  | `/about/sustainability`            | Sustainability page                            |
-| `operations`            | `/antarctica/behind-the-scenes`    | Operations page                                |
-| `region-index-redirect` | `/antarctica`                      | Redirect response; no page template by default |
-| `rates`                 | `/prices`                          | Rates/prices page                              |
-| `enquiry-form`          | `/enquire`                         | Enquiry content and validation form            |
-| `legal`                 | Five `/legal/*` paths              | Legal document shell with route data           |
-| `camp-detail`           | Three `/camps/*` detail paths      | Shared camp-detail shell                       |
-| `itinerary-detail`      | Five itinerary detail paths        | Shared itinerary-detail shell                  |
-| `itinerary-day`         | `/itineraries/antarctica-in-a-day` | Explicit day-variant shell/data branch         |
-| `region-detail`         | Five `/antarctica/*` detail paths  | Shared region-detail shell                     |
+| Exact family            | Routes                                     | Template responsibility                        |
+| ----------------------- | ------------------------------------------ | ---------------------------------------------- |
+| `home`                  | `/`                                        | Long-form homepage shell and sections          |
+| `itinerary-index`       | `/itineraries`                             | Itinerary index/list                           |
+| `camp-index`            | `/camps`                                   | Camp index/list                                |
+| `about-story`           | `/about/founders`                          | Story/about page                               |
+| `about-foundation`      | `/about/foundation`                        | Foundation page                                |
+| `about-sustainability`  | `/about/sustainability`                    | Sustainability page                            |
+| `operations`            | `/antarctica/behind-the-scenes`            | Operations page                                |
+| `aviation`              | `/antarctica/direct-flights-to-antarctica` | Aviation/logistics long-form page              |
+| `region-index-redirect` | `/antarctica`                              | Redirect response; no page template by default |
+| `rates`                 | `/prices`                                  | Rates/prices page                              |
+| `enquiry-form`          | `/enquire`                                 | Enquiry content and validation form            |
+| `legal`                 | Five `/legal/*` paths                      | Legal document shell with route data           |
+| `camp-detail`           | Three `/camps/*` detail paths              | Shared camp-detail shell                       |
+| `itinerary-detail`      | Five itinerary detail paths                | Shared itinerary-detail shell                  |
+| `itinerary-day`         | `/itineraries/antarctica-in-a-day`         | Explicit day-variant shell/data branch         |
+| `region-detail`         | Five `/antarctica/*` detail paths          | Shared region-detail shell                     |
 
 ### Data model contract
 
@@ -161,12 +451,12 @@ All comparison and release captures use these exact CSS viewport sizes:
 | `tablet`  | `768x1024` | Reflow without clipping, preserving reading order and controls |
 | `mobile`  | `390x844`  | Linear, touch-first layout with no horizontal overflow         |
 
-The target's breakpoint values, mobile section order, and per-family geometry
-are not yet measured. Do not invent breakpoint numbers or extrapolate desktop
-pixel positions to tablet/mobile. Determine those values from fresh target
-captures and record them in the discrepancy ledger.
+Breakpoint behavior, mobile section order, and per-family geometry have now
+been measured at all three required viewports. The versioned HOME, index,
+detail, legal, global-shell, and full-page manifests are the authority; values
+must not be extrapolated from desktop or changed after observing local output.
 
-Baseline rules while those measurements are pending:
+The following baseline rules continue to apply between measured viewports:
 
 - use fluid containers and reflow rather than scaling a desktop screenshot or
   fixed canvas;
@@ -180,25 +470,21 @@ Baseline rules while those measurements are pending:
 - retain equivalent information and link destinations when columns stack or
   media crops change.
 
-### Measured homepage desktop constraints
+### Measured homepage constraints
 
-These values apply only to the observed homepage at `1440x900`; they are not
-defaults for other routes or viewports:
+These values are HOME-specific and do not become defaults for other families:
 
 - hero height: `1,800`;
 - parallax banner height: `1,350`;
 - H1 text: `Antarctica`, white, Oswald `256/256`;
 - H1 observed bounds: `x=138`, `y=620`, `width=1,165`, `height=256`;
-- detailed homepage `scrollHeight`: approximately `20,878`.
+- deterministic target `scrollHeight`: `20,787 / 20,085 / 19,317` at desktop,
+  tablet, and mobile respectively.
 
-The route inventory also records a separate representative home value of
-`20,782`; the 96 px difference is unresolved and must be explained by a fresh
-deterministic capture before either value is a hard fidelity threshold.
-
-Observed typography is Cardinal Classic Long for serif content and Inter Tight
-for body/metrics. The measured names are research evidence, not permission to
-ship those fonts. The generated master file's Playfair Display/Inter pairing is
-advisory and must not silently override these observations or the rights gate.
+Observed and authorized typography is Cardinal Classic Long for serif content,
+Inter Tight for body/metrics, and Oswald for condensed display. Same-origin
+WOFF2 files are recorded in `docs/asset-provenance.md`; generated font pairings
+must not override these measured faces.
 
 ## State inventory
 
@@ -267,16 +553,11 @@ Every production asset requires a provenance record with:
 - alt-text intent (meaningful description, decorative, or text equivalent);
 - processing/derivative notes and hash where useful for reproducibility.
 
-Target screenshots, target logos, target photography/video, target icons, target
-copy, and target fonts remain research-only until rights are documented. Do not
-hotlink the target or place target assets in the deployable bundle. Generated
-replacement media must be original, inspected, approved, and recorded in a
-separate asset manifest. Generated image text is never production copy.
-
-The measured Cardinal Classic Long, Oswald, and Inter Tight names require a
-license/ownership decision. Until then, use only an approved replacement font
-and record its metrics; do not claim typographic fidelity from an unlicensed
-download.
+The user's 2026-08-31 client authorization covers the target logos,
+photography/video, icons, copy, and fonts used by this reconstruction. Approved
+production derivatives are local and recorded in `docs/asset-provenance.md`.
+Target screenshots remain research-only evidence, hotlinking remains forbidden,
+and generated image text is never production copy.
 
 ## Accessibility and interaction requirements (WCAG 2.2 AA)
 
@@ -414,9 +695,8 @@ consent requirement is a new approved decision, not an implicit clone feature.
 Approved copy, legal claims, labels, accessible names, prices, and calls to
 action are immutable inputs to the templates. Do not invent testimonials,
 prices, statistics, customers, legal text, navigation labels, or claims. The
-current target copy and identity have no recorded redistribution permission,
-so production copy/identity is blocked pending user approval. Placeholder
-content used during scaffolding must be clearly marked and must not pass a
+current target copy and identity are authorized by the client attestation
+recorded in the workflow ledger; placeholder scaffolding must not pass a
 release gate.
 
 Preserve measured behavior and destinations, including navigation, menu close
@@ -427,30 +707,13 @@ its screenshot appears similar.
 
 ## Unknowns and release blockers
 
-The following remain open and must be recorded rather than guessed:
-
-- ownership/redistribution permission and approved replacement identity, copy,
-  legal content, media, logos, icons, and fonts;
-- per-route HTTP status, redirect chain, canonical, locale, and trailing-slash
-  behavior;
-- section order, DOM landmarks, content lengths, link destinations, and
-  per-route scroll heights at all three viewports;
-- presence and exact behavior of hover, touch, carousel, accordion, loading,
-  error, validation, and reduced-motion states;
-- motion triggers, curves, tools, interruption, and mobile fallbacks outside
-  the supplied homepage observations;
-- target capture browser/DPR/font/network conditions and final comparator
-  tolerances;
-- final approved performance caps if the provisional budgets above are not
-  accepted;
-- available format, lint, typecheck, unit, Playwright, axe, visual/reference,
-  motion, and production-build commands in the application scaffold.
-
-Full external-reference fidelity is blocked until these unknowns have evidence.
-If a mandatory quality gate is absent for an affected application, the release
-gate is blocked or the user must explicitly accept a documented exception and
-residual risk. Deployment, publishing, form submission, and production
-mutation remain out of scope without explicit human approval.
+Rights, the 30-route union, required scripts, target section order, primary
+interactions, and the three viewport dimensions are resolved. Release remains
+open until the fresh integrated format, lint, typecheck, unit, Playwright, axe,
+section/reference fidelity, production-build, and final Opus 5 Max review
+complete. The 235.7 MB long-form film is a recorded deployment/performance risk.
+Deployment, publishing, form submission, and production mutation remain out of
+scope without explicit human approval.
 
 ## Required verification evidence before completion
 
@@ -465,3 +728,103 @@ Before claiming implementation completion, report:
 - measured discrepancies, approved tolerances, intentional deviations, and
   unresolved residual risks;
 - final accessible interaction review and reduced-motion evidence.
+
+## HOME lower sequence correction — 2026-09-08
+
+Scope: HOME Our Camps through planning CTA and footer comparison. Existing ADE LVA
+navigation is an earlier approved product change and remains authoritative.
+Read-only live Chromium captures at 1440×900, 768×1024, 390×844 establish:
+
+- Horizontal distances are already correct; intro overflow incorrectly clips the
+  counter-translated background. Keep panel overflow visible inside the clipped
+  sticky viewport. Separate title/background mask from vertically moving prose.
+- Asset roles were inverted: gallery-1 is the mountain introduction, gallery-2
+  the overhead blue ice, gallery-3 the final crevasse background. Reuse authorized
+  local assets; no new production asset acquisition.
+- Intro title is centered Cardinal, 90px desktop/tablet, 32px mobile. Prose is
+  14/21px, at 2/3 of the 12px-gutter grid (mobile 3/4-width centered).
+- Card contents are centered with 32px gaps (20px mobile), 14/19.6px excerpts;
+  coordinates use Oswald at the bottom. Mobile excerpts must remain visible.
+- Final background must remain pinned through the bridge and mist. Bridge text
+  moves beyond its flow box, so clipping it is a defect. Mist is a rotating
+  transparent plane spanning the transition, not an opaque white section.
+- Travel heading sits on white; map remains dark. CTA overlay is 20% black,
+  button is rectangular 160×50, sentence case, heading has normal tracking.
+  Preserve routes, film dialog, keyboard links and reduced-motion vertical reading.
+  Validation: forward/reverse checkpoints, responsive resize, section-aligned
+  external screenshots at all three viewports, technical release gates. Captures
+  and measured computed styles initially reside in /tmp/home-audit; durable task
+  report will record retained evidence and unresolved differences.
+
+Responsive verification additionally exposed a second travel-layout bug: the
+map-stage height includes the stacked cards, but the implementation positioned
+those cards at its top and drove them with desktop translations. At tablet and
+mobile the cards belong after the actual image height (917.86/466.09px), with
+32/48px statistics and a 385px information card. Measure the image independently
+from the composite stage when deriving parallax. Keep the intro heading nowrap;
+the global heading wrap override must not split it during the column wipe.
+
+### Last Continent → Our Season boundary — 2026-09-08
+
+Focused correction requested by user: remove the apparent horizontal white line
+below the Last Continent quote. Live target uses the image's white upper sky
+without a dark overlay. Local `.season__scrim` darkens that white from its first
+pixel (15% at media top, about 18% at the cropped section edge), producing a
+255→211 RGB step. Disabling only that overlay removes the discontinuity.
+
+Keep image, crop, DOM, section geometry, copy and motion unchanged. Make the
+scrim transparent through 25% of its height, meet the previous gradient at 50%
+(alpha .385), then retain its previous lower-half interpolation to alpha .62.
+This preserves existing lower copy contrast while exposing the white upper sky.
+No new asset or dependency. Verify decoded-image boundary pixels at forward,
+fractional and reverse positions, all three required viewports and both motion
+preferences (maximum per-channel boundary jump 5/255). Record live reference
+and before/after images independently from stored full-site visual baselines.
+
+## 2026-09-09 HOME mobile scroll correction
+
+Scope: HOME only, existing authorized client rebuild. ADELVA copy, approved
+navigation, support scene and footer remain authoritative. This is a focused
+motion repair; no route discovery expansion, asset acquisition or publication.
+Live reference evidence: `artifacts/home-mobile-motion-2026-09-09/` contains
+independent `reference-{390,768,1440}-samples.json`, refined entry samples and
+390px state rasters. CSS viewport/raster mapping is 1:1 at DPR 1; 390×844,
+768×1024, 1440×900. Content differences require section-relative framing.
+
+### Measured motion contract (before implementation)
+
+| Layer             | Reference and implementation requirement                                                                                                                                                                                                                                                                                                                | Tolerance                                                                           |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| Hero wrapper      | Direct y = clamp(local scroll, 0, 2×rendered hero viewport height), in CSS pixels. Current scrollY/innerHeight followed by svh output drifts when browser chrome changes innerHeight independently of svh. Content y=-0.3×clamped scroll. Existing clouds, blur and mist retain their measured functions.                                               | 1px at static and changed visual viewport heights                                   |
+| Purpose paragraph | Linear mask parameter -40→100, from paragraph top at 80% viewport to bottom at 60%. Reference gradient alpha stops 1/.9/.8/.6/.4/.2/.1 at parameter +0/5/10/20/30/35/40. Direct scrub, reversible, no duration/lag. This request supersedes the earlier static-mask exception for normal motion; reduce, forced colors and no-JS remain fully readable. | 1 percentage point; compare by paragraph bounds, not replaced-copy document offsets |
+| Longform entry    | Clip left/right 10%→0% while longform top travels from viewport bottom to top, linear and reversible. Existing longform DOM owns clip; no extra section wrapper.                                                                                                                                                                                        | 0.1 percentage point                                                                |
+| Camp title entry  | At mobile, 60→32px while section top enters from bottom to top. At tablet/desktop, 140→90px. Then 32→24px mobile, 90→60px others over the existing lead-in×5/7. Implement equivalent scale on base font, centered, preserving bilingual copy.                                                                                                           | effective type size 0.2px                                                           |
+| Camp description  | y = clamp((4/7 - 15/14×localScroll/renderedViewportHeight), -.5, 1)×renderedViewportHeight. Current clamp of localScroll at 0 makes the text enter too early before pin.                                                                                                                                                                                | 1px                                                                                 |
+| Camps pin         | Preserve independent pin reserves 4450/6340/8550 and horizontal endpoints 1560/2520/4200 at reviewed sizes. Measure sticky element's rendered height for progress rather than dynamic innerHeight. Existing hold and three-strip wipe remain.                                                                                                           | track x 2px; strip widths .002                                                      |
+
+ADELVA copy may change wrapping/height. It does not authorize changing the
+scroll functions or making all title sizes a shared desktop shrink ratio.
+Keep semantic content, film controls, keyboard navigation, reduced motion and
+all seven direct page-content children. CSS native states remain CSS; existing
+useGSAP/ScrollTrigger manage scoped lifecycle and revert on preference change.
+Cache fixed descendant references outside scroll callbacks and avoid React state
+updates during scroll. No new dependencies or production assets.
+
+Second mist hypothesis was disproved for visible frames: the target's second
+plane is already fully rotated before it enters the viewport. Preserve the
+existing static visible divider; adding a new visible rotation would reduce
+fidelity. The approved ADELVA header and existing flyout are separate shell
+contracts; retain them and record their visible difference.
+
+Acceptance: compare start/mid/end/reverse by section-relative positions at all
+three viewports, independent target numeric measurements and unmasked diagnostic
+rasters. ADELVA copy, approved shell/support/footer, video phase and photographic
+encoding are excluded from motion metrics but remain visible in screenshots.
+No global pixel-equality claim. Run existing technical and fidelity gates and
+report their actual status; baseline currently has five format failures, six
+lint warnings and an undefined MENU_GEOMETRY in a pre-existing shell test.
+
+Static fallback check: the 90px tablet title is enabled only after HOME's
+readiness marker and under normal motion. Without JS or under reduced motion,
+keep the existing fluid 48px tablet fit so ADELVA's longer heading stays readable.
+The animated measured sizes and tolerances above are unchanged.

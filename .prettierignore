@@ -1,9 +1,16 @@
 .next
+.next-morght-review
 artifacts
 .Codex/docs/research/design-extract
 coverage
 node_modules
 playwright-report
+# Byte-exact snapshots of another repository, verified by the SHA-256 record in
+# references/adelva/sources.json. Reformatting them would break that record.
+references
 test-results
 tools/design-extract
 pnpm-lock.yaml
+
+.next-revision
+.vercel

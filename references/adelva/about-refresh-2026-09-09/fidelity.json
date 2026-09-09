@@ -1,0 +1,68 @@
+[
+  {
+    "width": 1440,
+    "heading": {
+      "x": 60,
+      "width": 1320
+    },
+    "dl": {
+      "x": 520.015625,
+      "width": 859.984375
+    },
+    "hero": {
+      "x": 357,
+      "width": 726
+    },
+    "overflow": false,
+    "referenceDeltas": {
+      "headingX": 0,
+      "dlX": 0,
+      "dlWidth": 0
+    },
+    "pass": true
+  },
+  {
+    "width": 768,
+    "heading": {
+      "x": 32,
+      "width": 704
+    },
+    "dl": {
+      "x": 277.34375,
+      "width": 458.65625
+    },
+    "hero": {
+      "x": 138.234375,
+      "width": 491.515625
+    },
+    "overflow": false,
+    "referenceDeltas": {
+      "headingX": 0,
+      "dlX": 0,
+      "dlWidth": 0
+    },
+    "pass": true
+  },
+  {
+    "width": 390,
+    "heading": {
+      "x": 20.796875,
+      "width": 348.40625
+    },
+    "dl": {
+      "x": 41.59375,
+      "width": 306.8125
+    },
+    "hero": {
+      "x": 20.796875,
+      "width": 348.390625
+    },
+    "overflow": false,
+    "referenceDeltas": {
+      "headingX": 0,
+      "dlX": 0,
+      "dlWidth": 0
+    },
+    "pass": true
+  }
+]

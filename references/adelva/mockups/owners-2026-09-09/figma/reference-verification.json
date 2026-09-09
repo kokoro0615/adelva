@@ -1,0 +1,56 @@
+[
+  {
+    "name": "desktop",
+    "source": {
+      "format": "raw",
+      "width": 724,
+      "height": 2172,
+      "channels": 3,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": false,
+      "size": 4717584
+    },
+    "export": {
+      "format": "raw",
+      "width": 724,
+      "height": 2172,
+      "channels": 3,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": false,
+      "size": 4717584
+    },
+    "maxChannelDifference": 1,
+    "meanAbsoluteChannelDifference": 0.003865749926233428,
+    "differingChannels": 18237,
+    "totalChannels": 4717584
+  },
+  {
+    "name": "mobile",
+    "source": {
+      "format": "raw",
+      "width": 725,
+      "height": 2170,
+      "channels": 3,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": false,
+      "size": 4719750
+    },
+    "export": {
+      "format": "raw",
+      "width": 725,
+      "height": 2170,
+      "channels": 3,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": false,
+      "size": 4719750
+    },
+    "maxChannelDifference": 1,
+    "meanAbsoluteChannelDifference": 0.0011494252873563218,
+    "differingChannels": 5425,
+    "totalChannels": 4719750
+  }
+]

@@ -1,0 +1,169 @@
+{
+  "fileKey": "ChpQzLAbKeC3HORU2TILlz",
+  "page": "21:2",
+  "main": "21:3",
+  "reference": "21:4",
+  "kit": "21:5",
+  "outline": "22:2",
+  "primary": "22:5",
+  "focus": "22:8",
+  "challengeRow": "24:124",
+  "audit": {
+    "mutatedNodeIds": [
+      "21:4",
+      "22:5",
+      "22:6",
+      "31:135",
+      "24:8",
+      "24:9",
+      "24:10",
+      "24:13",
+      "24:19",
+      "24:130",
+      "24:135",
+      "24:140",
+      "24:145",
+      "24:150",
+      "31:141"
+    ],
+    "main": {
+      "id": "21:3",
+      "width": 1440,
+      "height": 3582.79248046875
+    },
+    "sections": [
+      {
+        "id": "24:2",
+        "name": "01 / Hero",
+        "y": 0,
+        "height": 840.4528198242188
+      },
+      {
+        "id": "24:121",
+        "name": "02 / 現場課題",
+        "y": 840.4528198242188,
+        "height": 355.01885986328125
+      },
+      {
+        "id": "25:28",
+        "name": "03 / 最初に見極めること",
+        "y": 1195.4716796875,
+        "height": 452.8302001953125
+      },
+      {
+        "id": "26:26",
+        "name": "04 / 支援と成果物",
+        "y": 1648.3018798828125,
+        "height": 447.396240234375
+      },
+      {
+        "id": "27:26",
+        "name": "05 / Dining panorama",
+        "y": 2095.6982421875,
+        "height": 275.32073974609375
+      },
+      {
+        "id": "29:26",
+        "name": "06 / 誰が決め誰が動かすか",
+        "y": 2371.01904296875,
+        "height": 257.2075500488281
+      },
+      {
+        "id": "30:26",
+        "name": "07 / 部門をつなぎ検証と引継ぎまで",
+        "y": 2628.2265625,
+        "height": 454.6415100097656
+      },
+      {
+        "id": "31:28",
+        "name": "08 / 確認し現場に残す",
+        "y": 3082.8681640625,
+        "height": 148.52830505371094
+      },
+      {
+        "id": "31:134",
+        "name": "09 / Contact and footer",
+        "y": 3231.396484375,
+        "height": 351.396240234375
+      }
+    ],
+    "textCount": 108,
+    "instanceCount": 9,
+    "fonts": {
+      "Oswald / Bold": 6,
+      "Noto Sans JP / Medium": 35,
+      "Noto Sans JP / Regular": 50,
+      "Noto Serif JP / Medium": 5,
+      "Oswald / Regular": 1,
+      "Oswald / Light": 8,
+      "Noto Serif JP / Regular": 3
+    },
+    "images": [
+      {
+        "id": "24:3",
+        "name": "Hero / Generated photograph",
+        "hash": "3474bcc5f10fef6355c292e85d1f78cb780dca74"
+      },
+      {
+        "id": "24:5",
+        "name": "Brand / Source symbol",
+        "hash": "5adeaf9db10a8fd52697d0a2920231cc54f2e74a"
+      },
+      {
+        "id": "25:29",
+        "name": "Corridor / Exact source crop",
+        "hash": "a86b056c147f7a392f0b0670a7c8dd1315607269"
+      },
+      {
+        "id": "27:27",
+        "name": "Dining / Exact source crop",
+        "hash": "a86b056c147f7a392f0b0670a7c8dd1315607269"
+      },
+      {
+        "id": "30:27",
+        "name": "Bedroom / Generated photograph",
+        "hash": "1efba2a89db4ed7438b429d07bbfd8a4ed6ac197"
+      },
+      {
+        "id": "31:137",
+        "name": "Brand / Source symbol",
+        "hash": "5adeaf9db10a8fd52697d0a2920231cc54f2e74a"
+      }
+    ],
+    "outOfParent": [
+      {
+        "id": "26:27",
+        "name": "OPERATIONS / Decorative",
+        "chars": "OPERATIONS",
+        "bounds": [
+          490.867919921875,
+          -21.735849380493164,
+          914,
+          202
+        ],
+        "parent": [
+          "04 / 支援と成果物",
+          1440,
+          447.396240234375
+        ]
+      },
+      {
+        "id": "31:135",
+        "name": "ADELVA / Tonal decorative",
+        "chars": "ADELVA",
+        "bounds": [
+          874.867919921875,
+          -9.05660343170166,
+          530,
+          198
+        ],
+        "parent": [
+          "09 / Contact and footer",
+          1440,
+          351.396240234375
+        ]
+      }
+    ]
+  },
+  "gallery": "35:30"
+}

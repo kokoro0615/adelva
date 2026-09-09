@@ -1,0 +1,321 @@
+@font-face {
+  font-family: "Contact English";
+  src: url("/media/morght/TTCommonsProMedium.woff2") format("woff2");
+  font-display: swap;
+}
+.page {
+  color: #202020;
+  background: #f6f5f1;
+  font-family: "Zen Kaku Gothic New", "ADELVA Navigation Sans", sans-serif;
+  font-weight: 500;
+}
+.main {
+  position: relative;
+  isolation: isolate;
+  padding: 367px 0 240px;
+  background: #f6f5f1;
+  border-radius: 0 0 40px 40px;
+  overflow: clip;
+}
+.main::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -240px;
+  left: -10%;
+  width: 120%;
+  height: 860px;
+  background: linear-gradient(
+    52deg,
+    transparent 37%,
+    rgb(97 92 70 / 7%) 43%,
+    transparent 48%,
+    transparent 64%,
+    rgb(97 92 70 / 9%) 78%
+  );
+  filter: blur(28px);
+  pointer-events: none;
+}
+.heading {
+  margin-inline: 4.166667vw;
+  padding-bottom: 80px;
+  border-bottom: 1px dashed #bcbab4;
+}
+.heading h1 {
+  margin: 0;
+  font-weight: 500;
+}
+.heading h1 > span {
+  display: block;
+}
+.heading h1 > span:first-child {
+  font-family: "Contact English", sans-serif;
+  font-size: 18px;
+  line-height: 21.5px;
+  letter-spacing: 0.049em;
+}
+.heading h1 > span:last-child {
+  margin-top: 63px;
+  padding-bottom: 10px;
+  font-size: 60px;
+  line-height: 75px;
+  letter-spacing: 0.05em;
+}
+.body {
+  margin: 120px 0 0 36.111111vw;
+  width: 49.097222vw;
+}
+.intro {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.95;
+}
+.note {
+  margin: 20px 0 0;
+  font-size: 12px;
+  line-height: 14px;
+}
+.required {
+  color: #b64522;
+  margin-left: 2px;
+}
+.form {
+  padding-top: 80px;
+}
+.field {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+.field + .field {
+  margin-top: 40px;
+}
+.field > label,
+.field > legend {
+  display: block;
+  padding: 0;
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 23.1px;
+  letter-spacing: 0.05em;
+}
+.field input,
+.field select,
+.field textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: 61.1px;
+  padding: 17px 20px;
+  border: 1px solid #8c8a84;
+  border-radius: 10px;
+  background: transparent;
+  color: #202020;
+  font: inherit;
+  font-size: 16px;
+  line-height: 25px;
+  letter-spacing: 0.05em;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease;
+}
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #686660;
+  opacity: 1;
+}
+.field select {
+  padding-right: 40px;
+}
+.field textarea {
+  height: 315.1px;
+  resize: vertical;
+}
+.field [aria-invalid="true"] {
+  border-color: #b12c20;
+}
+.page :is(input, select, textarea, button, a):focus-visible {
+  outline: 2px solid #72580a;
+  outline-offset: 4px;
+}
+.nameGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.names + .field {
+  margin-top: 56px;
+}
+.consent {
+  margin-top: 40px;
+}
+.consent > label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 30px;
+  font-size: 12px;
+  line-height: 1.65;
+  cursor: pointer;
+}
+.consent input {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: #72580a;
+}
+.consent a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.send {
+  display: flex;
+  width: min(400px, 100%);
+  height: 64px;
+  padding: 0;
+  border: 0;
+  margin-top: 20px;
+  background: transparent;
+  color: #202020;
+  cursor: pointer;
+}
+.send > span {
+  background: #fcd440;
+  display: flex;
+  align-items: center;
+  border-radius: 100px;
+  transition: background-color 180ms ease;
+}
+.send > span:first-child {
+  flex: 1;
+  padding-inline: 30px;
+  font-family: "Contact English", sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+}
+.send > span:last-child {
+  justify-content: center;
+  width: 64px;
+}
+.send svg {
+  width: 22px;
+  height: 22px;
+}
+.send:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+.status {
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 20px 0 0;
+}
+.status:empty {
+  display: none;
+}
+.error {
+  margin: 8px 0 0;
+  color: #a32920;
+  font-size: 13px;
+  line-height: 1.65;
+}
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+@media (hover: hover) and (pointer: fine) {
+  .send:hover > span {
+    background: #ecc42e;
+  }
+  .field :is(input, select, textarea):hover {
+    border-color: #202020;
+  }
+}
+@media (max-width: 767px) {
+  .main {
+    padding-top: 44vw;
+    padding-bottom: 156px;
+  }
+  .heading {
+    margin-inline: 5.333333vw;
+    padding-bottom: 50px;
+  }
+  .heading h1 > span:first-child {
+    font-size: 15px;
+    line-height: 19px;
+  }
+  .heading h1 > span:last-child {
+    margin-top: 43px;
+    font-size: 31.2px;
+    line-height: 39px;
+    padding-bottom: 5px;
+  }
+  .body {
+    margin: 52px 5.333333vw 0;
+    width: auto;
+  }
+  .intro {
+    font-size: 13.52px;
+    line-height: 1.95;
+  }
+  .note {
+    margin-top: 20.8px;
+    line-height: 26.34px;
+  }
+  .form {
+    padding-top: 83.2px;
+  }
+  .field + .field {
+    margin-top: 41.6px;
+  }
+  .field > label,
+  .field > legend {
+    font-size: 14.56px;
+    line-height: 24.02px;
+    margin-bottom: 16.64px;
+  }
+  .field :is(input, select, textarea) {
+    height: 70.6px;
+    padding: 18.72px 20.8px;
+    line-height: 31.2px;
+  }
+  .field textarea {
+    height: 413.7px;
+  }
+  .nameGrid {
+    grid-template-columns: 1fr;
+    gap: 10.4px;
+  }
+  .names + .field {
+    margin-top: 41.6px;
+  }
+  .consent {
+    margin-top: 41.6px;
+  }
+  .consent > label {
+    min-height: 34.72px;
+    font-size: 12.48px;
+  }
+  .send {
+    width: min(307px, 100%);
+    height: 52px;
+    margin-top: 20.8px;
+  }
+  .send > span:last-child {
+    width: 52px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page * {
+    transition: none;
+  }
+}

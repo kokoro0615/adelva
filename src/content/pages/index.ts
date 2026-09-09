@@ -4,7 +4,7 @@ import { enquiryPage } from "@/content/pages/enquiry";
 import { homePage } from "@/content/pages/home";
 import { journeyDetailPages, journeyIndexPage } from "@/content/pages/journeys";
 import { legalPages } from "@/content/pages/legal";
-import { operationsPage } from "@/content/pages/operations";
+import { aviationPage, operationsPage } from "@/content/pages/operations";
 import { ratesPage } from "@/content/pages/rates";
 import { regionDetailPages } from "@/content/pages/regions";
 import type { RoutePath } from "@/content/route-manifest";
@@ -24,6 +24,7 @@ export const pageDocumentRegistry = {
   "/about/foundation": aboutPages[1],
   "/about/sustainability": aboutPages[2],
   "/antarctica/behind-the-scenes": operationsPage,
+  "/antarctica/direct-flights-to-antarctica": aviationPage,
   "/prices": ratesPage,
   "/enquire": enquiryPage,
   "/legal/website-terms": legalPages[0],

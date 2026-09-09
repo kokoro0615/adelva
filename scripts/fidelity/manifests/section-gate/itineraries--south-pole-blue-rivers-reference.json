@@ -1,0 +1,993 @@
+{
+  "schemaVersion": "full-page-section-manifest/v1",
+  "manifestId": "itineraries--south-pole-blue-rivers-reference-v1",
+  "role": "reference",
+  "route": "/itineraries/south-pole-blue-rivers",
+  "family": "itinerary-detail",
+  "scope": {
+    "kind": "route-content",
+    "id": "itineraries--south-pole-blue-rivers-content"
+  },
+  "source": {
+    "url": "https://white-desert.com",
+    "requestedRoute": "/itineraries/south-pole-blue-rivers",
+    "finalRoutes": ["/itineraries/south-pole-blue-rivers"],
+    "observedAt": "2026-08-31T01:13:05.790Z",
+    "contentRoot": ".page-content",
+    "status": "pending-capture",
+    "captureMode": "manifest-only",
+    "evidenceStatus": "pending-capture"
+  },
+  "requiredViewports": ["desktop", "tablet", "mobile"],
+  "tolerances": {
+    "boundsPx": 2,
+    "scrollHeightPx": 2
+  },
+  "domTopology": {
+    "scope": ".page-content",
+    "directChildren": [
+      "hero",
+      "div-2",
+      "south-pole",
+      "the-end-of-the-world",
+      "section-5",
+      "blue-rivers",
+      "antarctica-s-heartbeat",
+      "gallery",
+      "sampleitinerary",
+      "planning-cta"
+    ]
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "semantic": "div | fixed-banner-loader | South Pole & Blue Rivers",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "South Pole & Blue Rivers",
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F545ecd31bdf0cdd5605316894111fb0f197e0129-2668x2000.jpg&w=3840&q=90",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F545ecd31bdf0cdd5605316894111fb0f197e0129-2668x2000.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 900,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 1024,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "div-2",
+      "semantic": "div | cta-nav_wrap",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "keyLinks": ["/itineraries/south-pole-blue-rivers"],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 820.02,
+          "width": 1440,
+          "height": 79.98,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 944,
+          "width": 768,
+          "height": 80,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 16,
+          "y": 764,
+          "width": 358,
+          "height": 80,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "south-pole",
+      "semantic": "section | padding-none bg-transparent has-inset-effect | The South Pole",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "The South Pole",
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F64509ae8c233e5ed2a7acc04a062564d4940c29c-5472x3648.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 900,
+          "width": 1440,
+          "height": 900,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 1024,
+          "width": 768,
+          "height": 1024,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 844,
+          "width": 390,
+          "height": 844,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "the-end-of-the-world",
+      "semantic": "section | padding-none bg-transparent | The End of the World",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "The End of the World",
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F9c3c38cbddb3611bf350fd94458288ad8f5526c0-2100x1312.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F3fa68f55337ed34cb291decccbd217fe369a20d3-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F481e0ff36b146ff9fcef273f177fe57af5737f1c-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F6883cf96b9e5406147ced13e096076bed46eb58e-2000x1498.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "scroll-or-interaction-linked",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 1800,
+          "width": 1440,
+          "height": 1355.05,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 2048,
+          "width": 768,
+          "height": 1226.59,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 1688,
+          "width": 390,
+          "height": 1188.25,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "section-5",
+      "semantic": "section | padding-none bg-transparent quote-section",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F32186235ff1c7bc357ae326feffa69a9751dfed9-2000x1333.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 3155.05,
+          "width": 1440,
+          "height": 1350,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 3274.59,
+          "width": 768,
+          "height": 1536,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 2876.25,
+          "width": 390,
+          "height": 844,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "blue-rivers",
+      "semantic": "section | padding-none bg-transparent has-inset-effect | Blue Rivers",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Blue Rivers",
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F0230797d657c20006b230685cc1ae299997197e8-2000x1500.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 4505.05,
+          "width": 1440,
+          "height": 1078.98,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 4810.59,
+          "width": 768,
+          "height": 1204,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 3720.25,
+          "width": 390,
+          "height": 1024,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "antarctica-s-heartbeat",
+      "semantic": "section | padding-none bg-transparent | Antarctica’s Heartbeat",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Antarctica’s Heartbeat",
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F0ac54d07ddf431425b9b8ff0587480a62fa727a5-1500x2000.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F16904fcadf5e613254aa6b7b7b3203863c11dcaf-1500x2250.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F6e6715b40cc736254548f3f524ff2495650d7cc8-1500x1875.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F776270b132479c326da8f978c4c3a1b17474d701-1500x1875.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fb35de51328f7889eb95fb84e4c5b85ee7467eb3f-1500x2001.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "scroll-or-interaction-linked",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 5584.03,
+          "width": 1440,
+          "height": 1675.03,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 6014.59,
+          "width": 768,
+          "height": 1462.59,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 4744.25,
+          "width": 390,
+          "height": 1184.25,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "gallery",
+      "semantic": "div | gallery-slider",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F822a3d51e73f5ee68798d946930e5b42649df758-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fe2c7a2e7ad0ee3a2424fb759ea238deecb5e9951-2000x1500.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F722272d44448e7f8b5185e8bece92feb2a4e4175-2024x1350.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Ff4694dc8bfb02c4e3a04136d6ffbe5598f4efac5-2000x1334.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 7259.06,
+          "width": 1440,
+          "height": 900,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 7477.19,
+          "width": 768,
+          "height": 1024,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 5928.5,
+          "width": 390,
+          "height": 759.59,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "sampleitinerary",
+      "semantic": "section | padding-none bg-deep-blue | SampleItinerary",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "SampleItinerary",
+      "keyLinks": [
+        "/camps/whichaway-camp",
+        "/camps/echo-base",
+        "/camps/explorer-camp",
+        "/stay/trips/south-pole-emperor-penguins",
+        "/stay/trips/early-emperor-penguins",
+        "/stay/trips/the-long-stay",
+        "/prices"
+      ],
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fd30660282e94852cf2b56ea5de174e40d05509dc-1000x1500.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Ffa289d2ea10be76cb2dfd247df6209e66c89905b-1500x2250.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F56fbbb5de66cbf740f236f875ea59e8e39a07957-1500x1875.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F78d697ea2be6f6a71c43a478e735b1bacd131ae2-1500x2250.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Faed4553e84cf1acd77c2569670f452aa06dc7d3e-1500x2250.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F0f268be9dbaab946eda59cfee3609e9419b1d5c4-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F00d1fbc29bc25fdcf83a77227f4a0e2c868e0000-2000x2668.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fe6ba9125f9201c9481a295bcd3bf96536e4f803a-1500x1875.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F57fc20da842cb5f80571fbc59249349e49975240-2000x1332.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fe8f4017af2a82d33033eccb471f753fc573fb1e4-1750x1080.png&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fb701c2c688b8d00ea8ef9e0f1f8b7aba6484881f-2200x1467.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F755dd98571ba69d5cae876e711ef31cc145e93d3-1500x2250.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F8a28d8f2dc3fc1cce439b9a65d8db3502c745fb0-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F1e0d68b0c684cdcaf01bddf269179a7d0c70712e-2000x2500.jpg&w=3840&q=75",
+        "/_next/image?url=%2Fimages%2Fcloud-gradient.png&w=3840&q=75",
+        "/_next/image?url=%2Fimages%2Fmist-gradient.png&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fa921372160bdd11c05b49230ed93dec19ce88c8b-1500x1875.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F41ba3e8c48f8020b572d7e8021c2352e08db2d51-1365x2048.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F1445b5c6f626e04d14980f4737041186a3af5eb4-1500x1875.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fbac771f6f5308d19ae17d43753dbff34378b9bd8-1600x2000.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "scroll-or-interaction-linked",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 8159.06,
+          "width": 1440,
+          "height": 13634.89,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 8501.19,
+          "width": 768,
+          "height": 14192,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 6688.09,
+          "width": 390,
+          "height": 11329.42,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "planning-cta",
+      "semantic": "section | basic-banner | Start planning your adventure",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Start planning your adventure",
+      "keyLinks": ["/enquire"],
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F38d0da8ccba350a6ab932873a9c97a51652e4e76-2000x1333.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 21793.95,
+          "width": 1440,
+          "height": 900,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 22693.19,
+          "width": 768,
+          "height": 1024,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 18017.52,
+          "width": 390,
+          "height": 844,
+          "pinned": false
+        }
+      }
+    }
+  ],
+  "viewports": {
+    "desktop": {
+      "width": 1440,
+      "height": 900,
+      "scrollHeight": 23640,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/itineraries--south-pole-blue-rivers-1440x900-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "tablet": {
+      "width": 768,
+      "height": 1024,
+      "scrollHeight": 24741,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/itineraries--south-pole-blue-rivers-768x1024-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "scrollHeight": 20994,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/itineraries--south-pole-blue-rivers-390x844-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    }
+  },
+  "motion": {
+    "status": "incomplete",
+    "unknown": [
+      "motion evidence remains pending until four phase captures exist for every layer and viewport"
+    ],
+    "layers": [
+      {
+        "id": "sticky-split-slider",
+        "property": "visual state",
+        "trigger": "route motion candidate",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": true,
+        "sectionId": "the-end-of-the-world",
+        "samples": {
+          "desktop": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          },
+          "tablet": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          },
+          "mobile": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          }
+        },
+        "pinRanges": {
+          "desktop": {
+            "scrollStart": 1800,
+            "scrollEnd": 2255.05,
+            "verticalDistance": 455.05,
+            "horizontalDistance": 0
+          },
+          "tablet": {
+            "scrollStart": 2048,
+            "scrollEnd": 2250.59,
+            "verticalDistance": 202.59,
+            "horizontalDistance": 0
+          },
+          "mobile": {
+            "scrollStart": 1688,
+            "scrollEnd": 2032.25,
+            "verticalDistance": 344.25,
+            "horizontalDistance": 0
+          }
+        }
+      },
+      {
+        "id": "sticky-split-slider-2",
+        "property": "visual state",
+        "trigger": "route motion candidate",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": true,
+        "sectionId": "antarctica-s-heartbeat",
+        "samples": {
+          "desktop": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          },
+          "tablet": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          },
+          "mobile": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          }
+        },
+        "pinRanges": {
+          "desktop": {
+            "scrollStart": 5584.03,
+            "scrollEnd": 6359.06,
+            "verticalDistance": 775.03,
+            "horizontalDistance": 0
+          },
+          "tablet": {
+            "scrollStart": 6014.59,
+            "scrollEnd": 6453.18,
+            "verticalDistance": 438.59,
+            "horizontalDistance": 0
+          },
+          "mobile": {
+            "scrollStart": 4744.25,
+            "scrollEnd": 5084.5,
+            "verticalDistance": 340.25,
+            "horizontalDistance": 0
+          }
+        }
+      },
+      {
+        "id": "gallery-slider",
+        "property": "visual state",
+        "trigger": "route motion candidate",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "sectionId": "gallery",
+        "samples": {
+          "desktop": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 7259.06,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 2028,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 7259.06,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 2255,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 7259.06,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 1805,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 7259.06,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            }
+          },
+          "tablet": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 7477.19,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 2149,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 7477.19,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 2251,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 7477.19,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 1739,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 7477.19,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            }
+          },
+          "mobile": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 5928.5,
+              "width": 390,
+              "height": 759.59,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 1860,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 5928.5,
+              "width": 390,
+              "height": 759.59,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 2032,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 5928.5,
+              "width": 390,
+              "height": 759.59,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 1610,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 5928.5,
+              "width": 390,
+              "height": 759.59,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            }
+          }
+        },
+        "pinRanges": {}
+      },
+      {
+        "id": "mist-transition-image-container",
+        "property": "transform",
+        "trigger": "sticky scroll interval",
+        "range": "pinned section range",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": true,
+        "sectionId": "sampleitinerary",
+        "samples": {
+          "desktop": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          },
+          "tablet": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          },
+          "mobile": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          }
+        },
+        "pinRanges": {
+          "desktop": {
+            "scrollStart": 8159.06,
+            "scrollEnd": 20893.95,
+            "verticalDistance": 12734.89,
+            "horizontalDistance": 0
+          },
+          "tablet": {
+            "scrollStart": 8501.19,
+            "scrollEnd": 21669.19,
+            "verticalDistance": 13168,
+            "horizontalDistance": 0
+          },
+          "mobile": {
+            "scrollStart": 6688.09,
+            "scrollEnd": 17173.51,
+            "verticalDistance": 10485.42,
+            "horizontalDistance": 0
+          }
+        }
+      },
+      {
+        "id": "scroll-speed-10",
+        "property": "visual state",
+        "trigger": "scroll-speed -10%",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "sectionId": "sampleitinerary",
+        "samples": {
+          "desktop": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          },
+          "tablet": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          },
+          "mobile": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          }
+        },
+        "pinRanges": {}
+      }
+    ]
+  }
+}

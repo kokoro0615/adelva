@@ -10,7 +10,7 @@ export const enquiryPage: PageDocument = {
     eyebrow: "Local demonstration",
     eyebrowStyle: "tracked",
     title: "Start an Enquiry",
-    titleStyle: "serif-italic",
+    titleStyle: "serif",
     align: "center",
     lede: "Explore the questions locally; nothing is sent from this adaptation.",
     ledeStyle: "serif",

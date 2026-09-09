@@ -1,0 +1,142 @@
+{
+  "schemaVersion": "full-page-section-manifest/v1",
+  "manifestId": "global-shell-target-v1",
+  "role": "reference",
+  "route": "*",
+  "family": "global-shell",
+  "scope": {
+    "kind": "global-shell",
+    "id": "site-shell"
+  },
+  "source": {
+    "url": "https://white-desert.com/",
+    "observedAt": "2026-08-31 JST",
+    "reviewedEvidence": ".Codex/docs/research/codex-global-shell-forensics.md",
+    "status": "reviewed-target-data"
+  },
+  "requiredViewports": ["desktop", "tablet", "mobile"],
+  "tolerances": {
+    "boundsPx": 2,
+    "scrollHeightPx": 2
+  },
+  "sections": [
+    {
+      "id": "global-navigation",
+      "semantic": "White Desert fixed navigation",
+      "nodeKind": "element",
+      "bounds": {
+        "desktop": { "y": 0, "height": 80 },
+        "tablet": { "y": 0, "height": 80 },
+        "mobile": { "y": 0, "height": 80 }
+      }
+    },
+    {
+      "id": "how-it-works-trigger",
+      "semantic": "fixed How it works shell trigger",
+      "nodeKind": "element",
+      "boundsStatus": "unmeasured",
+      "bounds": {}
+    },
+    {
+      "id": "how-it-works-flyout",
+      "semantic": "global six-step How it works flyout",
+      "nodeKind": "element",
+      "itemCount": 6,
+      "boundsStatus": "unmeasured",
+      "bounds": {}
+    },
+    {
+      "id": "site-footer",
+      "semantic": "global White Desert footer",
+      "nodeKind": "element",
+      "isFooter": true,
+      "bounds": {
+        "desktop": { "y": 19841.36, "height": 940.97 },
+        "tablet": { "y": 19060.91, "height": 1024 },
+        "mobile": { "y": 17184.5, "height": 2111.94 }
+      }
+    }
+  ],
+  "viewports": {
+    "desktop": {
+      "width": 1440,
+      "height": 900,
+      "scrollHeight": 20782,
+      "evidence": {
+        "top": {
+          "path": "../../../artifacts/reference/target/home-1440x900-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "tablet": {
+      "width": 768,
+      "height": 1024,
+      "scrollHeight": 20085,
+      "evidence": {
+        "top": {
+          "path": "../../../artifacts/reference/target/home-768x1024-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "scrollHeight": 19296,
+      "evidence": {
+        "top": {
+          "path": "../../../artifacts/reference/target/home-390x844-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    }
+  },
+  "motion": {
+    "status": "incomplete",
+    "unknown": [
+      "How it works hover/focus/opening/open/close/interruption/keyboard/reduced-motion values require deterministic capture"
+    ],
+    "layers": [
+      {
+        "id": "how-it-works-flyout-transition",
+        "sectionId": "how-it-works-flyout",
+        "property": "interactive flyout state",
+        "trigger": "fixed shell trigger",
+        "range": "closed -> open -> closed",
+        "easing": "unresolved",
+        "interruption": "required-not-captured",
+        "reducedMotion": "required-not-captured",
+        "samples": {
+          "desktop": {
+            "start": { "state": "closed" },
+            "mid": { "status": "required-not-captured" },
+            "end": { "state": "open" },
+            "reverse": { "status": "required-not-captured" }
+          },
+          "tablet": {
+            "start": { "state": "closed" },
+            "mid": { "status": "required-not-captured" },
+            "end": { "state": "open" },
+            "reverse": { "status": "required-not-captured" }
+          },
+          "mobile": {
+            "start": { "state": "closed" },
+            "mid": { "status": "required-not-captured" },
+            "end": { "state": "open" },
+            "reverse": { "status": "required-not-captured" }
+          }
+        }
+      }
+    ]
+  }
+}

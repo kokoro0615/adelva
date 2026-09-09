@@ -1,0 +1,260 @@
+[
+  {
+    "path": "/media/adelva/audience-v3/189-358-imgIconChevron.svg",
+    "width": 26,
+    "height": 26,
+    "source": "Figma asset export; original in source-assets or retained production original: 189-358-imgIconChevron.svg",
+    "owner": "ADELVA supplied Figma project",
+    "rights": "Reuse requested for this local implementation. Earlier project records identify commissioned generated hotel imagery and supplied identity; a complete independent chain-of-rights audit was not performed.",
+    "role": "decorative control icon",
+    "altIntent": "empty; decoration, no real client/property claim",
+    "loading": "lazy HTML photograph or CSS background"
+  },
+  {
+    "path": "/media/adelva/audience-v3/189-358-imgIconDown.svg",
+    "width": 26,
+    "height": 26,
+    "source": "Figma asset export; original in source-assets or retained production original: 189-358-imgIconDown.svg",
+    "owner": "ADELVA supplied Figma project",
+    "rights": "Reuse requested for this local implementation. Earlier project records identify commissioned generated hotel imagery and supplied identity; a complete independent chain-of-rights audit was not performed.",
+    "role": "decorative control icon",
+    "altIntent": "empty; decoration, no real client/property claim",
+    "loading": "lazy HTML photograph or CSS background"
+  },
+  {
+    "path": "/media/adelva/audience-v3/189-358-imgIconMenu.svg",
+    "width": 24,
+    "height": 24,
+    "source": "Figma asset export; original in source-assets or retained production original: 189-358-imgIconMenu.svg",
+    "owner": "ADELVA supplied Figma project",
+    "rights": "Reuse requested for this local implementation. Earlier project records identify commissioned generated hotel imagery and supplied identity; a complete independent chain-of-rights audit was not performed.",
+    "role": "decorative control icon",
+    "altIntent": "empty; decoration, no real client/property claim",
+    "loading": "lazy HTML photograph or CSS background"
+  },
+  {
+    "path": "/media/adelva/audience-v3/189-358-imgPhotoContactMountainsAndWater.webp",
+    "width": 1166,
+    "height": 1349,
+    "source": "Figma asset export; original in source-assets or retained production original: 189-358-imgPhotoContactMountainsAndWater.png",
+    "owner": "ADELVA supplied Figma project",
+    "rights": "Reuse requested for this local implementation. Earlier project records identify commissioned generated hotel imagery and supplied identity; a complete independent chain-of-rights audit was not performed.",
+    "role": "decorative fictional hotel photograph",
+    "altIntent": "empty; decoration, no real client/property claim",
+    "loading": "lazy HTML photograph or CSS background"
+  },
+  {
+    "path": "/media/adelva/audience-v3/189-358-imgPhotoCorridorDecisionPoint.webp",
+    "width": 887,
+    "height": 564,
+    "source": "Figma asset export; original in source-assets or retained production original: 189-358-imgPhotoCorridorDecisionPoint.png",
+    "owner": "ADELVA supplied Figma project",
+    "rights": "Reuse requested for this local implementation. Earlier project records identify commissioned generated hotel imagery and supplied identity; a complete independent chain-of-rights audit was not performed.",
+    "role": "decorative fictional hotel photograph",
+    "altIntent": "empty; decoration, no real client/property claim",
+    "loading": "lazy HTML photograph or CSS background"
+  },
+  {
+    "path": "/media/adelva/audience-v3/189-358-imgPhotoMountainHotelAndWater.webp",
+    "width": 853,
+    "height": 1844,
+    "source": "Figma asset export; original in source-assets or retained production original: 189-358-imgPhotoMountainHotelAndWater.png",
+    "owner": "ADELVA supplied Figma project",
+    "rights": "Reuse requested for this local implementation. Earlier project records identify commissioned generated hotel imagery and supplied identity; a complete independent chain-of-rights audit was not performed.",
+    "role": "decorative fictional hotel photograph",
+    "altIntent": "empty; decoration, no real client/property claim",
+    "loading": "eager, high priority"
+  },
+  {
+    "path": "/media/adelva/audience-v3/189-358-imgPhotoTerraceMountainPool.webp",
+    "width": 825,
+    "height": 563,
+    "source": "Figma asset export; original in source-assets or retained production original: 189-358-imgPhotoTerraceMountainPool.png",
+    "owner": "ADELVA supplied Figma project",
+    "rights": "Reuse requested for this local implementation. Earlier project records identify commissioned generated hotel imagery and supplied identity; a complete independent chain-of-rights audit was not performed.",
+    "role": "decorative fictional hotel photograph",
+    "altIntent": "empty; decoration, no real client/property claim",
+    "loading": "lazy HTML photograph or CSS background"
+  },
+  {
+    "path": "/media/adelva/audience-v3/189-65-imgBackgroundPlate0.webp",
+    "width": 724,
+    "height": 2172,
+    "source": "Figma asset export; original in source-assets or retained production original: 189-65-imgBackgroundPlate0.png",
+    "owner": "ADELVA supplied Figma project",
+    "rights": "Reuse requested for this local implementation. Earlier project records identify commissioned generated hotel imagery and supplied identity; a complete independent chain-of-rights audit was not performed.",
+    "role": "decorative fictional hotel photograph",
+    "altIntent": "empty; decoration, no real client/property claim",
+    "loading": "CSS background, fetched when visible style applies"
+  },
+  {
+    "path": "/media/adelva/audience-v3/189-65-imgClimaxBlueHourTerraceNative1672X941.webp",
+    "width": 1672,
+    "height": 941,
+    "source": "Figma asset export; original in source-assets or retained production original: 189-65-imgClimaxBlueHourTerraceNative1672X941.png",
+    "owner": "ADELVA supplied Figma project",
+    "rights": "Reuse requested for this local implementation. Earlier project records identify commissioned generated hotel imagery and supplied identity; a complete independent chain-of-rights audit was not performed.",
+    "role": "decorative fictional hotel photograph",
+    "altIntent": "empty; decoration, no real client/property claim",
+    "loading": "lazy HTML photograph or CSS background"
+  },
+  {
+    "path": "/media/adelva/audience-v3/189-65-imgContactDawnInteriorNative1672X941.webp",
+    "width": 1672,
+    "height": 941,
+    "source": "Figma asset export; original in source-assets or retained production original: 189-65-imgContactDawnInteriorNative1672X941.png",
+    "owner": "ADELVA supplied Figma project",
+    "rights": "Reuse requested for this local implementation. Earlier project records identify commissioned generated hotel imagery and supplied identity; a complete independent chain-of-rights audit was not performed.",
+    "role": "decorative fictional hotel photograph",
+    "altIntent": "empty; decoration, no real client/property claim",
+    "loading": "lazy HTML photograph or CSS background"
+  },
+  {
+    "path": "/media/adelva/audience-v3/189-65-imgLogoWhite.png",
+    "width": 62,
+    "height": 86,
+    "source": "Figma asset export; original in source-assets or retained production original: 189-65-imgLogoWhite.png",
+    "owner": "ADELVA supplied Figma project",
+    "rights": "Reuse requested for this local implementation. Earlier project records identify commissioned generated hotel imagery and supplied identity; a complete independent chain-of-rights audit was not performed.",
+    "role": "brand",
+    "altIntent": "empty; decoration, no real client/property claim",
+    "loading": "lazy HTML photograph or CSS background"
+  },
+  {
+    "path": "/media/adelva/audience-v3/189-669-imgBedroomGeneratedPhotograph.webp",
+    "width": 2236,
+    "height": 703,
+    "source": "Figma asset export; original in source-assets or retained production original: 189-669-imgBedroomGeneratedPhotograph.png",
+    "owner": "ADELVA supplied Figma project",
+    "rights": "Reuse requested for this local implementation. Earlier project records identify commissioned generated hotel imagery and supplied identity; a complete independent chain-of-rights audit was not performed.",
+    "role": "decorative fictional hotel photograph",
+    "altIntent": "empty; decoration, no real client/property claim",
+    "loading": "lazy HTML photograph or CSS background"
+  },
+  {
+    "path": "/media/adelva/audience-v3/189-669-imgHeroGeneratedPhotograph.webp",
+    "width": 1642,
+    "height": 958,
+    "source": "Figma asset export; original in source-assets or retained production original: 189-669-imgHeroGeneratedPhotograph.png",
+    "owner": "ADELVA supplied Figma project",
+    "rights": "Reuse requested for this local implementation. Earlier project records identify commissioned generated hotel imagery and supplied identity; a complete independent chain-of-rights audit was not performed.",
+    "role": "decorative fictional hotel photograph",
+    "altIntent": "empty; decoration, no real client/property claim",
+    "loading": "eager, high priority"
+  },
+  {
+    "path": "/media/adelva/audience-v3/189-870-imgIconArrow.svg",
+    "width": 26,
+    "height": 26,
+    "source": "Figma asset export; original in source-assets or retained production original: 189-870-imgIconArrow.svg",
+    "owner": "ADELVA supplied Figma project",
+    "rights": "Reuse requested for this local implementation. Earlier project records identify commissioned generated hotel imagery and supplied identity; a complete independent chain-of-rights audit was not performed.",
+    "role": "decorative control icon",
+    "altIntent": "empty; decoration, no real client/property claim",
+    "loading": "lazy HTML photograph or CSS background"
+  },
+  {
+    "path": "/media/adelva/audience-v3/189-870-imgIconChevron.svg",
+    "width": 20,
+    "height": 20,
+    "source": "Figma asset export; original in source-assets or retained production original: 189-870-imgIconChevron.svg",
+    "owner": "ADELVA supplied Figma project",
+    "rights": "Reuse requested for this local implementation. Earlier project records identify commissioned generated hotel imagery and supplied identity; a complete independent chain-of-rights audit was not performed.",
+    "role": "decorative control icon",
+    "altIntent": "empty; decoration, no real client/property claim",
+    "loading": "lazy HTML photograph or CSS background"
+  },
+  {
+    "path": "/media/adelva/audience-v3/189-870-imgIconMenu.svg",
+    "width": 24,
+    "height": 24,
+    "source": "Figma asset export; original in source-assets or retained production original: 189-870-imgIconMenu.svg",
+    "owner": "ADELVA supplied Figma project",
+    "rights": "Reuse requested for this local implementation. Earlier project records identify commissioned generated hotel imagery and supplied identity; a complete independent chain-of-rights audit was not performed.",
+    "role": "decorative control icon",
+    "altIntent": "empty; decoration, no real client/property claim",
+    "loading": "lazy HTML photograph or CSS background"
+  },
+  {
+    "path": "/media/adelva/audience-v3/189-870-imgPhotoBedroomMountainView.webp",
+    "width": 1765,
+    "height": 891,
+    "source": "Figma asset export; original in source-assets or retained production original: 189-870-imgPhotoBedroomMountainView.png",
+    "owner": "ADELVA supplied Figma project",
+    "rights": "Reuse requested for this local implementation. Earlier project records identify commissioned generated hotel imagery and supplied identity; a complete independent chain-of-rights audit was not performed.",
+    "role": "decorative fictional hotel photograph",
+    "altIntent": "empty; decoration, no real client/property claim",
+    "loading": "lazy HTML photograph or CSS background"
+  },
+  {
+    "path": "/media/adelva/audience-v3/189-870-imgPhotoDiningWarmMountainInterior.webp",
+    "width": 783,
+    "height": 363,
+    "source": "Figma asset export; original in source-assets or retained production original: 189-870-imgPhotoDiningWarmMountainInterior.png",
+    "owner": "ADELVA supplied Figma project",
+    "rights": "Reuse requested for this local implementation. Earlier project records identify commissioned generated hotel imagery and supplied identity; a complete independent chain-of-rights audit was not performed.",
+    "role": "decorative fictional hotel photograph",
+    "altIntent": "empty; decoration, no real client/property claim",
+    "loading": "lazy HTML photograph or CSS background"
+  },
+  {
+    "path": "/media/adelva/audience-v3/189-870-imgPhotoMountainHotelInterior.webp",
+    "width": 853,
+    "height": 1844,
+    "source": "Figma asset export; original in source-assets or retained production original: 189-870-imgPhotoMountainHotelInterior.png",
+    "owner": "ADELVA supplied Figma project",
+    "rights": "Reuse requested for this local implementation. Earlier project records identify commissioned generated hotel imagery and supplied identity; a complete independent chain-of-rights audit was not performed.",
+    "role": "decorative fictional hotel photograph",
+    "altIntent": "empty; decoration, no real client/property claim",
+    "loading": "eager, high priority"
+  },
+  {
+    "path": "/media/adelva/audience-v3/189-870-imgPhotoStoneAndGlassCorridor.webp",
+    "width": 876,
+    "height": 532,
+    "source": "Figma asset export; original in source-assets or retained production original: 189-870-imgPhotoStoneAndGlassCorridor.png",
+    "owner": "ADELVA supplied Figma project",
+    "rights": "Reuse requested for this local implementation. Earlier project records identify commissioned generated hotel imagery and supplied identity; a complete independent chain-of-rights audit was not performed.",
+    "role": "decorative fictional hotel photograph",
+    "altIntent": "empty; decoration, no real client/property claim",
+    "loading": "lazy HTML photograph or CSS background"
+  },
+  {
+    "path": "/media/adelva/audience-v3/gm-corridor-crop.webp",
+    "width": 637,
+    "height": 453,
+    "source": "references/adelva/audience-v3/source-assets/189-669-imgCorridorExactSourceCrop.png",
+    "owner": "ADELVA supplied Figma project",
+    "rights": "Reuse requested for this local implementation. Earlier project records identify commissioned generated hotel imagery and supplied identity; a complete independent chain-of-rights audit was not performed.",
+    "role": "decorative fictional hotel photograph",
+    "altIntent": "empty; decoration, no real client/property claim",
+    "loading": "lazy HTML photograph or CSS background"
+  },
+  {
+    "path": "/media/adelva/audience-v3/gm-dining-crop.webp",
+    "width": 1440,
+    "height": 275,
+    "source": "references/adelva/audience-v3/source-assets/189-669-imgCorridorExactSourceCrop.png",
+    "owner": "ADELVA supplied Figma project",
+    "rights": "Reuse requested for this local implementation. Earlier project records identify commissioned generated hotel imagery and supplied identity; a complete independent chain-of-rights audit was not performed.",
+    "role": "decorative fictional hotel photograph",
+    "altIntent": "empty; decoration, no real client/property claim",
+    "loading": "lazy HTML photograph or CSS background"
+  },
+  {
+    "path": "/fonts/adelva-noto-serif-jp.woff2",
+    "source": "https://github.com/google/fonts/blob/main/ofl/notoserifjp/NotoSerifJP%5Bwght%5D.ttf",
+    "owner": "Noto project",
+    "license": "SIL OFL 1.1; public/fonts/OFL-NotoSerifJP.txt",
+    "role": "Japanese editorial text, variable 200–900; subset to characters in the six supplied design-context exports",
+    "loading": "font-display swap"
+  },
+  {
+    "path": "/fonts/adelva-league-gothic.woff2",
+    "source": "https://github.com/google/fonts/blob/main/ofl/leaguegothic/LeagueGothic%5Bwdth%5D.ttf",
+    "owner": "The League of Moveable Type",
+    "license": "SIL OFL 1.1; public/fonts/OFL-LeagueGothic.txt",
+    "role": "English display lettering",
+    "loading": "font-display swap"
+  }
+]

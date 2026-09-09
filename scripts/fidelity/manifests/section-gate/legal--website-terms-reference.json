@@ -1,0 +1,155 @@
+{
+  "schemaVersion": "full-page-section-manifest/v1",
+  "manifestId": "legal--website-terms-reference-v1",
+  "role": "reference",
+  "route": "/legal/website-terms",
+  "family": "legal",
+  "scope": {
+    "kind": "route-content",
+    "id": "legal--website-terms-content"
+  },
+  "source": {
+    "url": "https://white-desert.com",
+    "requestedRoute": "/legal/website-terms",
+    "finalRoutes": ["/legal/website-terms"],
+    "observedAt": "2026-08-31T01:13:05.777Z",
+    "contentRoot": ".page-content",
+    "status": "pending-capture",
+    "captureMode": "manifest-only",
+    "evidenceStatus": "pending-capture"
+  },
+  "requiredViewports": ["desktop", "tablet", "mobile"],
+  "tolerances": {
+    "boundsPx": 2,
+    "scrollHeightPx": 2
+  },
+  "domTopology": {
+    "scope": ".page-content",
+    "directChildren": ["hero", "website-terms-of-use"]
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "semantic": "div | fixed-banner-loader | Terms of Service",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Terms of Service",
+      "assets": [
+        "/_next/image?url=%2Fimages%2FWhiteDesertAntarcticaPeaks.jpg&w=3840&q=90"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 585,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 665.59,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 548.59,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "website-terms-of-use",
+      "semantic": "section | padding-medium bg-lighter-grey above-grid has-inset-effect | Website Terms of Use",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Website Terms of Use",
+      "keyLinks": ["/"],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 585,
+          "width": 1440,
+          "height": 3409.66,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 665.59,
+          "width": 768,
+          "height": 4182.91,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 548.59,
+          "width": 390,
+          "height": 4607.09,
+          "pinned": false
+        }
+      }
+    }
+  ],
+  "viewports": {
+    "desktop": {
+      "width": 1440,
+      "height": 900,
+      "scrollHeight": 4936,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/legal--website-terms-1440x900-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "tablet": {
+      "width": 768,
+      "height": 1024,
+      "scrollHeight": 5873,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/legal--website-terms-768x1024-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "scrollHeight": 7268,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/legal--website-terms-390x844-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    }
+  },
+  "motion": {
+    "status": "incomplete",
+    "unknown": [
+      "motion evidence remains pending until four phase captures exist for every layer and viewport"
+    ],
+    "layers": []
+  }
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "path": "public/fonts/nosigner/NOSIGNER-Bold.woff2",
+    "source": "https://nosigner.com/fonts/NOSIGNER-Bold.woff2",
+    "owner": "NOSIGNER",
+    "license": "User-confirmed permission 2026-09-09",
+    "role": "Display lettering",
+    "status": "approved",
+    "loading": "Local @font-face, font-display: swap",
+    "dimensions": "Not applicable: scalable font",
+    "alt": "Not applicable: live semantic HTML text"
+  },
+  {
+    "path": "public/fonts/nosigner/zen-kaku-700.woff2",
+    "source": "https://fonts.gstatic.com/l/font?kit=gNMVW2drQpDw0GjzrVNFf_valaDBcznOqodNaWTKu2tt8PzYYMC8yKfA6VWUKRExPtB3VtVy4Aa8HHNBWJY9WxaasQG2D88x0J6BM0IRskTbWwKrogu-rtHtxE-bd-aptszs9jb0nbXf35ceuuOI6axYKk2w58aq1kMTtSTIIJ6pE2wP3UU6nb6ocn1XdasL-hwIyf7oYFjA6_NHZ7EYLI_Vdj2SYm4iziN25QHUzMBEZhh6olGIge2Bnj-egN1-PiGWdIjSMg7MIeNLdxgbOfQrPSQ9LmDS6ric4wlBv3S4Q8K0kbOsORmyNDSY4yxbjSgatmDSGGnpbRce_CaU6dlDvZyLWTY8vp8ybfiiA0s-oeDP5tPtF51oYVG6tsyVl3ucMNCh8L1Q7d2_Grc-C7lbZgtApfa_zF8N7G3662FWDFaqIUHSqbbJEPA9QuFA6BOk0HA_jMpsJLlo5dPK7cK42LRq3oaWvD_DHC4D2HTXUhLhglByRo7YogpqBoVBUDSO_g8DnTecEzQL-RE_Ps9rE-jXOsO9PJdhMY3rK6eH01ruw5MtfC2tGor5eEqxvFr17j5eXzqqlaHK4o4yGXF87RjmRD-y5TaEidF3w6hSRWQ6-Pky4TZ5Hw5EFXTIFekrIs-2lcetsN22ifx1Xv-P_LdVXgVId4VTV8d6bgCQEACjpvyzXv1ZaG-Jq0aWFbsZQthEvMsY2HLWetWkp5o_qQ6oO18qyGbYgca_2q7PYINPjqaPc9Kz4DuIAjbebvZMetN3BBbxfWJxywYrstSum_6xXTIVWwMUwJ85vzZvRzN7QAJUQ6QG4Zne7jcFkYLQadFvHMtASkKLaea5ONNJf_q-qs1WFOafKG9WuaSqMoHfJ9x9gjj3meCykK1GqN76AlD2tMXkcIAicjyiosnHpFq9c17iWrhJCCiuloygI6Jb4WnbEDSo4NuVLZY_1BiXzlBdDlEPGwyq-K98uHz8GdSgyQaFprOnFfwqu2lpgwjvy-pTCPtdt9IAwz4koqsCwYDMWbf43KjVwnB7LRaE_tN7UMJ9Oq2zTRhvFjLajevhF_Dxf7W5aKsmEs6Wqa6MYtM8sHgPnBoMMl1D8Z5y5A9pLxAxIGPbvZIRDSuUWfmRQi7ZMiorh4rohioO9fI-wKNEPUbjaCtO4_zh1epFu8ffFKZ44CvZDk5J8qBwCuHy68G1pJ0MVqmHQ_0Ednl2UslhwsmZxV3mkF1mOcRni6RMHzioeGHwpmGVDvmLmIFFKC03jTUjdJdGnar59AzR-Dm9-1eTSgao4IN5QpNmJKHD_eEICOLTsu2rDa2L7Ruuzjxg37CIpU921D-Bqln_JM8vP12tdo2FrA94ZoblOXWwk2C9WeFMeDUTZnl4Pq_Z5B15mbLZvqPyL1kclKyBVCbCNobmVdQ5D00EWKLH_WmhR5M777rZDWH4kBv8Mp7VCiPU_Vq3Iwf0KFB7ciNWNEr1ol2rmSwvPo4SDwLP86fuYn1HYaNEbcD84eawzashDpCosVtVt-chFvJlScDYoXYlJ0NAV-gwe-mRsafFFciXKThbBlAuGlBPqbDKyL8bTTWS5r_swg1Pldt29MpH4ZzBVVbK2wqYtpUW-N4khIss04eRvmYTcgNbfquJEfCFHegdVpwYKxKaa-B_GWkIb8Ik_COHHkdhVfa46d1wTdfZgM54mnz2kzOCqtpTsvZZLiXPRndb0PdTDEpsaBeSpVlXsRftLKAsZL_irq-bmwJINEcWNPz13atLrOtyZz8h0t1eZTEFHWOaMuQoORZxvB_37t_Q4X3TbCQ_N8uTKev3lXvT0tC8ySpAPNYi423MQfWndipCijpoMrNg2RWtW0kHvUxPhMNyUgQ29zfheu8L8LJs2u2XnPkXWLe0uFU&skey=82994e245a1cc281&v=v18",
+    "owner": "Google Fonts / Zen project",
+    "license": "SIL Open Font License; user-confirmed site permission",
+    "role": "Japanese text subset",
+    "status": "approved",
+    "loading": "Local @font-face, font-display: swap",
+    "dimensions": "Not applicable: scalable font",
+    "alt": "Not applicable: live semantic HTML text",
+    "licenseFile": "public/fonts/nosigner/OFL-Zen-Kaku-Gothic-New.txt",
+    "licenseSource": "https://raw.githubusercontent.com/google/fonts/main/ofl/zenkakugothicnew/OFL.txt"
+  }
+]

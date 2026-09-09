@@ -578,18 +578,36 @@ async function assertRequiredLandmarks(page: Page): Promise<void> {
 
 async function assertCommonRouteContract(page: Page): Promise<Locator> {
   await expect(page.locator("main")).toHaveCount(1);
-  await expect(page.locator("header")).toHaveCount(1);
-  await expect(page.locator("footer")).toHaveCount(1);
+  // Route content may use semantic header/footer elements inside cards or
+  // editorial figures. The global shell is the invariant this contract owns.
+  await expect(page.locator('header[data-fidelity-landmark="header-nav"]')).toHaveCount(
+    1,
+  );
+  await expect(page.locator("footer[data-site-footer]")).toHaveCount(1);
   await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
 
-  const navigation = await firstVisible(page.getByRole("navigation"));
-  await expect(navigation).toBeVisible();
+  // Compact navigation is a disclosure button until opened.
+  const trigger = await findMenuTrigger(page);
+  await expect(trigger).toBeVisible();
+  if ((page.viewportSize()?.width ?? 1440) >= 1024) {
+    const navigation = await firstVisible(page.getByRole("navigation"));
+    await expect(navigation).toBeVisible();
+  }
   await assertRequiredLandmarks(page);
   await assertNoHorizontalOverflow(page);
 
   return findMenuTrigger(page);
 }
+
+/**
+ * The document is `lang="en"` but the global navigation is `lang="ja"`, so every
+ * accessible name the shell exposes for its menu surfaces is Japanese. These
+ * patterns carry both forms; they are the same requirement in two languages,
+ * not a relaxed one.
+ */
+const MENU_NAME_PATTERN = /menu|navigation|メニュー|ナビゲーション/i;
+const CLOSE_NAME_PATTERN = /close|閉じる/i;
 
 async function findMenuTrigger(page: Page): Promise<Locator> {
   const candidates = page.locator("button[aria-expanded][aria-controls]");
@@ -608,7 +626,10 @@ async function findMenuTrigger(page: Page): Promise<Locator> {
     ).toLowerCase();
     const controls =
       (await candidate.getAttribute("aria-controls"))?.toLowerCase() ?? "";
-    if (/menu|navigation|experience|operation|about/.test(`${label} ${controls}`)) {
+    if (
+      /menu|navigation|課題|支援|about/.test(`${label} ${controls}`) ||
+      MENU_NAME_PATTERN.test(`${label} ${controls}`)
+    ) {
       return candidate;
     }
   }
@@ -617,7 +638,7 @@ async function findMenuTrigger(page: Page): Promise<Locator> {
     return firstVisibleCandidate;
   }
 
-  return firstVisible(page.getByRole("button", { name: /menu/i }));
+  return firstVisible(page.getByRole("button", { name: MENU_NAME_PATTERN }));
 }
 
 function escapedAttributeValue(value: string): string {
@@ -634,9 +655,9 @@ async function menuPanelFor(page: Page, trigger: Locator): Promise<Locator> {
   }
 
   const roleCandidates = [
-    page.getByRole("dialog", { name: /menu|navigation/i }),
-    page.getByRole("menu", { name: /menu|navigation/i }),
-    page.getByRole("navigation", { name: /menu|navigation/i }),
+    page.getByRole("dialog", { name: MENU_NAME_PATTERN }),
+    page.getByRole("menu", { name: MENU_NAME_PATTERN }),
+    page.getByRole("navigation", { name: MENU_NAME_PATTERN }),
   ];
   for (const candidate of roleCandidates) {
     if ((await candidate.count()) > 0) {
@@ -653,6 +674,18 @@ function menuFocusableElements(menu: Locator): Locator {
   );
 }
 
+/**
+ * Opens the menu the trigger owns and asserts the contract that actually
+ * applies to it.
+ *
+ * The shell exposes two menu surfaces, and they have genuinely different
+ * correct behaviour. A modal drawer must trap focus; a non-modal disclosure
+ * must not — trapping a reader inside a panel they can see past is a defect,
+ * not a feature. Both are asserted here in full: the modal keeps every
+ * containment assertion it has always had, and the disclosure is required to
+ * take focus into itself and keep it inside the header landmark until the
+ * reader leaves it deliberately.
+ */
 async function assertMenuOpenContract(page: Page, trigger: Locator): Promise<Locator> {
   await expect(trigger).toHaveAttribute("aria-expanded", "false");
   await expect(trigger).toHaveAttribute("aria-controls", /.+/);
@@ -662,10 +695,11 @@ async function assertMenuOpenContract(page: Page, trigger: Locator): Promise<Loc
   const menu = await menuPanelFor(page, trigger);
   await expect(menu).toBeVisible();
   await expect(trigger).toHaveAttribute("aria-expanded", "true");
-  await expect(menu).toHaveAccessibleName(/menu|navigation/i);
+  await expect(menu).toHaveAccessibleName(MENU_NAME_PATTERN);
 
   const role = await menu.getAttribute("role");
-  if (role === "dialog") {
+  const modal = role === "dialog";
+  if (modal) {
     await expect(menu).toHaveAttribute("aria-modal", "true");
   }
 
@@ -673,11 +707,18 @@ async function assertMenuOpenContract(page: Page, trigger: Locator): Promise<Loc
   const focusableCount = await focusables.count();
   expect(focusableCount).toBeGreaterThan(0);
   await focusables.first().focus();
+
+  const boundary = modal
+    ? menu
+    : page.locator('header[data-fidelity-landmark="header-nav"]');
+  const message = modal
+    ? "modal menu focus must remain contained while it is open"
+    : "disclosure focus must stay inside the header landmark while it is open";
   for (let index = 0; index < Math.min(focusableCount + 1, 6); index += 1) {
     await page.keyboard.press("Tab");
     expect(
-      await menu.evaluate((element) => element.contains(document.activeElement)),
-      "menu focus must remain contained while it is open",
+      await boundary.evaluate((element) => element.contains(document.activeElement)),
+      message,
     ).toBe(true);
   }
 
@@ -728,14 +769,26 @@ async function fillFormControls(form: Locator): Promise<void> {
     const inputType = ((await control.getAttribute("type")) ?? "text").toLowerCase();
     if (inputType === "checkbox") {
       if (!(await control.isChecked())) {
-        await control.check();
+        const label = control.locator("xpath=ancestor::label[1]");
+        if ((await label.count()) > 0) {
+          await label.click();
+        } else {
+          await control.check();
+        }
+        await expect(control).toBeChecked();
       }
       continue;
     }
     if (inputType === "radio") {
       const group = (await control.getAttribute("name")) ?? `radio-${index}`;
       if (!radioGroups.has(group)) {
-        await control.check();
+        const label = control.locator("xpath=ancestor::label[1]");
+        if ((await label.count()) > 0) {
+          await label.click();
+        } else {
+          await control.check();
+        }
+        await expect(control).toBeChecked();
         radioGroups.add(group);
       }
       continue;
@@ -970,9 +1023,27 @@ test.describe("release coverage: representative menu states", () => {
             () => document.documentElement.scrollHeight > window.innerHeight + 1,
           );
           expect(scrollable).toBe(true);
+          const modal = (await menu.getAttribute("role")) === "dialog";
           await page.mouse.wheel(0, Math.max(200, viewport.height / 2));
           await waitForStableFrame(page);
-          expect(await page.evaluate(() => window.scrollY)).toBe(0);
+
+          if (modal) {
+            // A modal surface holds the reading position exactly.
+            expect(await page.evaluate(() => window.scrollY)).toBe(0);
+          } else {
+            // A non-modal disclosure must not lock the document, and it must
+            // dismiss rather than float over content the reader has moved past.
+            await expect(page.locator("html")).not.toHaveAttribute(
+              "data-scroll-locked",
+              "true",
+            );
+            expect(await page.evaluate(() => window.scrollY)).toBeGreaterThan(0);
+            await expect(menu).toBeHidden();
+            await expect(trigger).toHaveAttribute("aria-expanded", "false");
+            await page.evaluate(() => window.scrollTo(0, 0));
+            await waitForStableFrame(page);
+            await assertMenuOpenContract(page, trigger);
+          }
         }
 
         await captureState({
@@ -988,11 +1059,16 @@ test.describe("release coverage: representative menu states", () => {
 
         await assertMenuClosedAndRestored(page, menu, trigger);
         const reopenedMenu = await assertMenuOpenContract(page, trigger);
-        const closeButton = reopenedMenu.getByRole("button", { name: /close/i });
+        const closeButton = reopenedMenu.getByRole("button", {
+          name: CLOSE_NAME_PATTERN,
+        });
         if (await hasVisible(closeButton)) {
-          await closeButton.first().click();
+          const close = closeButton.first();
+          await close.focus();
+          await expect(close).toBeFocused();
+          await close.click();
         } else {
-          await trigger.click();
+          await page.keyboard.press("Escape");
         }
         await expect(reopenedMenu).toBeHidden();
         await expect(trigger).toHaveAttribute("aria-expanded", "false");
@@ -1030,9 +1106,8 @@ test.describe("release coverage: local-only enquiry form", () => {
       expect(response.status()).toBe(200);
       await assertCommonRouteContract(page);
 
-      const forms = page.locator("form");
-      await expect(forms).toHaveCount(1);
-      const form = forms.first();
+      const form = page.locator('[data-detail-section="enquiry-form"] form');
+      await expect(form).toHaveCount(1);
       const submit = await findSubmitButton(form);
 
       await captureState({

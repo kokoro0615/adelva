@@ -1,0 +1,472 @@
+{
+  "general-managers": [
+    {
+      "id": "00-hero",
+      "h": 844,
+      "purpose": "現場課題から継続改善への入口",
+      "head": "現場の課題を、\n続けられる改善へ。",
+      "copy": [
+        "HOME / 課題から探す",
+        "総支配人・現場責任者の方へ",
+        "ADELVAは、ホテル・旅館の\n経営実装パートナー。\n現場運営・人材・販売・ITを、\n一つの改善計画につなぎます。",
+        "GENERAL\nMANAGERS",
+        "SCROLL"
+      ],
+      "cta": [
+        "問い合わせを送信"
+      ],
+      "photo": "Immersive mountain hotel lobby, rough stone reception right, warm lamps and tall wood/glass, layered blue mountains outside; full hero photographic depth.",
+      "top": "#0E2233",
+      "bottom": "#0E2233",
+      "promptFile": "prompts/general-managers-00-hero.txt",
+      "references": [
+        "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/research/gm-desktop.png"
+      ],
+      "prompt": "Generate a final-quality, beautifully art-directed Japanese ADELVA mobile website UI mock image, a single section to be joined vertically with other sections. This is a fully composed raster UI with exact Japanese text, not a photo asset. No browser chrome, phone frame, outer margins, presentation annotations or invented copy.\nDESIGN SYSTEM: physical output ideally twice logical dimensions. Design for 390px screen width, side padding 24px, text area 342px. Japanese body 15px (30px at 780px wide), readable sans serif medium/regular, line height 25px. Section Japanese headings 30px (60 at 780), refined Japanese Mincho serif, line height 43px. Supporting labels 13px (26 at 780), never smaller than 12px logical. Large English uses strong condensed grotesk. Navy #0E2233, warm paper #F4F1EB, restrained burnt orange #CE773F. High contrast text; on orange buttons use navy lettering. Thin rules, purposeful spacious composition, no rounded cards, no tiny text. Strictly single-column mobile reflow. CTA height 56px and width 342px; smaller controls 44px. Pixel sizes above are at logical width390 and must scale with actual image width. All copy in COPY must appear, exactly; line breaks can move only at Japanese meaning boundaries. Render Japanese glyphs carefully, do not substitute or summarize. Do not add English labels, slogans, facts or navigation that are not in COPY.\nCANVAS: target 780×1688px, portrait ratio 390:844; final display 390×844px. Full canvas is this one section, never a full-page overview. Use entire height with readable type; no compressed miniature page.\nREFERENCE ROLES: Attached desktop is only the approved brand, text and architectural photo-world reference. Completely redesign composition for mobile; do not shrink desktop rows.\nCOMPOSITION: Immersive mountain hotel lobby, rough stone reception right, warm lamps and tall wood/glass, layered blue mountains outside; full hero photographic depth.\nEDGES: Top edge #0E2233; bottom edge #0E2233. Flat edge colours, no outer stroke, no vignette along left/right paper edges. Full photographic hero with navy translucent shading behind copy. Header at y16–64: ADELVA wordmark left and two-line menu icon in 44x44 area right. Breadcrumb at y90, audience y124. Headline around y162, body below with 22px gap, full-width outlined CTA next with 24px gap. Leave a true photographic breathing area. Large English near lower quarter; GM GENERAL/MANAGERS 57px over two lines, OWNERS 72px plus & EXECUTIVES 40px. The English fits within margins. Small scroll cue near bottom. No extra header CTA. End with solid navy at final 8px.\nEXACT COPY IN READING ORDER:\n\"ADELVA\"\nMAIN HEADLINE: \"現場の課題を、\n続けられる改善へ。\"\n\"HOME / 課題から探す\"\n\"総支配人・現場責任者の方へ\"\n\"ADELVAは、ホテル・旅館の\n経営実装パートナー。\n現場運営・人材・販売・ITを、\n一つの改善計画につなぎます。\"\n\"GENERAL\nMANAGERS\"\n\"SCROLL\"\nCTA BUTTON(S):\n\"問い合わせを送信 →\"\nImportant: chapter labels precede headlines visually even though copy list is semantic. Preserve every supplied condition and example qualifier. No clipping, no text behind images, no microscopic footnotes."
+    },
+    {
+      "id": "01-challenges",
+      "h": 900,
+      "purpose": "5課題を症状から読み取る",
+      "head": "いま、現場のどこで\nつまずいていますか。",
+      "copy": [
+        "01 / 現場課題",
+        "宿泊・料飲・清掃から、\n採用、販売、ITまで。\n目に見える困りごとを起点に、\n部門をまたぐ原因と\n改善の優先順位を整理します。",
+        "01　品質\nサービスや清掃の品質に\nばらつきがある",
+        "02　人材\n採用と入社後の教育が\nつながっていない",
+        "03　生産性\n人員配置や部門間の連携を\n見直したい",
+        "04　販売\nWeb・OTA・営業が\n宿泊収益につながらない",
+        "05　システム定着\n導入したシステムを\n現場で使い切れていない"
+      ],
+      "cta": [],
+      "photo": "None. Five open spacious ruled rows. Number left, title then description, arrow right.",
+      "top": "#F4F1EB",
+      "bottom": "#F4F1EB",
+      "promptFile": "prompts/general-managers-01-challenges.txt",
+      "references": [
+        "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/general-managers/sections/00-hero.png"
+      ],
+      "prompt": "Generate a final-quality, beautifully art-directed Japanese ADELVA mobile website UI mock image, a single section to be joined vertically with other sections. This is a fully composed raster UI with exact Japanese text, not a photo asset. No browser chrome, phone frame, outer margins, presentation annotations or invented copy.\nDESIGN SYSTEM: physical output ideally twice logical dimensions. Design for 390px screen width, side padding 24px, text area 342px. Japanese body 15px (30px at 780px wide), readable sans serif medium/regular, line height 25px. Section Japanese headings 30px (60 at 780), refined Japanese Mincho serif, line height 43px. Supporting labels 13px (26 at 780), never smaller than 12px logical. Large English uses strong condensed grotesk. Navy #0E2233, warm paper #F4F1EB, restrained burnt orange #CE773F. High contrast text; on orange buttons use navy lettering. Thin rules, purposeful spacious composition, no rounded cards, no tiny text. Strictly single-column mobile reflow. CTA height 56px and width 342px; smaller controls 44px. Pixel sizes above are at logical width390 and must scale with actual image width. All copy in COPY must appear, exactly; line breaks can move only at Japanese meaning boundaries. Render Japanese glyphs carefully, do not substitute or summarize. Do not add English labels, slogans, facts or navigation that are not in COPY.\nCANVAS: target 780×1800px, portrait ratio 390:900; final display 390×900px. Full canvas is this one section, never a full-page overview. Use entire height with readable type; no compressed miniature page.\nREFERENCE ROLES: Attached accepted mobile hero is the actual typography, palette, material and photo-world style reference. Do not repeat its header, hero copy or branding in this section unless listed below.\nCOMPOSITION: None. Five open spacious ruled rows. Number left, title then description, arrow right.\nEDGES: Top edge #F4F1EB; bottom edge #F4F1EB. Flat edge colours, no outer stroke, no vignette along left/right paper edges. Start chapter label 48px from top; finish after 40px breathing space. Clear visual hierarchy; don't distribute text into tiny distant islands.\nEXACT COPY IN READING ORDER:\nMAIN HEADLINE: \"いま、現場のどこで\nつまずいていますか。\"\n\"01 / 現場課題\"\n\"宿泊・料飲・清掃から、\n採用、販売、ITまで。\n目に見える困りごとを起点に、\n部門をまたぐ原因と\n改善の優先順位を整理します。\"\n\"01　品質\nサービスや清掃の品質に\nばらつきがある\"\n\"02　人材\n採用と入社後の教育が\nつながっていない\"\n\"03　生産性\n人員配置や部門間の連携を\n見直したい\"\n\"04　販売\nWeb・OTA・営業が\n宿泊収益につながらない\"\n\"05　システム定着\n導入したシステムを\n現場で使い切れていない\"\nNo CTA button for this section. Arrows only when shown as existing choice affordances.\nImportant: chapter labels precede headlines visually even though copy list is semantic. Preserve every supplied condition and example qualifier. No clipping, no text behind images, no microscopic footnotes."
+    },
+    {
+      "id": "02-decisions",
+      "h": 800,
+      "purpose": "施策の前に判断範囲を整理",
+      "head": "施策を選ぶ前に、\n原因と優先順位を。",
+      "copy": [
+        "02 / 判断",
+        "現象と原因\n品質・工数・収益などの\n基準値から現状を捉える",
+        "優先順位と影響範囲\n部門間のつながりを確認し、\n先に取り組む課題を決める",
+        "現場判断と、\nオーナー・本部判断\n現場で決められることと、\n経営判断が必要なことを分ける"
+      ],
+      "cta": [],
+      "photo": "Top edge cream 24px then 390x230 full width architectural corridor photograph toward mountain light, stone/wood; text below. Three distinct ruled stacked decision rows.",
+      "top": "#F4F1EB",
+      "bottom": "#F4F1EB",
+      "promptFile": "prompts/general-managers-02-decisions.txt",
+      "references": [
+        "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/general-managers/sections/00-hero.png"
+      ],
+      "prompt": "Generate a final-quality, beautifully art-directed Japanese ADELVA mobile website UI mock image, a single section to be joined vertically with other sections. This is a fully composed raster UI with exact Japanese text, not a photo asset. No browser chrome, phone frame, outer margins, presentation annotations or invented copy.\nDESIGN SYSTEM: physical output ideally twice logical dimensions. Design for 390px screen width, side padding 24px, text area 342px. Japanese body 15px (30px at 780px wide), readable sans serif medium/regular, line height 25px. Section Japanese headings 30px (60 at 780), refined Japanese Mincho serif, line height 43px. Supporting labels 13px (26 at 780), never smaller than 12px logical. Large English uses strong condensed grotesk. Navy #0E2233, warm paper #F4F1EB, restrained burnt orange #CE773F. High contrast text; on orange buttons use navy lettering. Thin rules, purposeful spacious composition, no rounded cards, no tiny text. Strictly single-column mobile reflow. CTA height 56px and width 342px; smaller controls 44px. Pixel sizes above are at logical width390 and must scale with actual image width. All copy in COPY must appear, exactly; line breaks can move only at Japanese meaning boundaries. Render Japanese glyphs carefully, do not substitute or summarize. Do not add English labels, slogans, facts or navigation that are not in COPY.\nCANVAS: target 780×1600px, portrait ratio 390:800; final display 390×800px. Full canvas is this one section, never a full-page overview. Use entire height with readable type; no compressed miniature page.\nREFERENCE ROLES: Attached accepted mobile hero is the actual typography, palette, material and photo-world style reference. Do not repeat its header, hero copy or branding in this section unless listed below.\nCOMPOSITION: Top edge cream 24px then 390x230 full width architectural corridor photograph toward mountain light, stone/wood; text below. Three distinct ruled stacked decision rows.\nEDGES: Top edge #F4F1EB; bottom edge #F4F1EB. Flat edge colours, no outer stroke, no vignette along left/right paper edges. Start chapter label 48px from top; finish after 40px breathing space. Clear visual hierarchy; don't distribute text into tiny distant islands.\nEXACT COPY IN READING ORDER:\nMAIN HEADLINE: \"施策を選ぶ前に、\n原因と優先順位を。\"\n\"02 / 判断\"\n\"現象と原因\n品質・工数・収益などの\n基準値から現状を捉える\"\n\"優先順位と影響範囲\n部門間のつながりを確認し、\n先に取り組む課題を決める\"\n\"現場判断と、\nオーナー・本部判断\n現場で決められることと、\n経営判断が必要なことを分ける\"\nNo CTA button for this section. Arrows only when shown as existing choice affordances.\nImportant: chapter labels precede headlines visually even though copy list is semantic. Preserve every supplied condition and example qualifier. No clipping, no text behind images, no microscopic footnotes."
+    },
+    {
+      "id": "03-support-a",
+      "h": 800,
+      "purpose": "支援の全体説明と単部門のケース",
+      "head": "必要な支援を、\nひとつの改善計画に。",
+      "copy": [
+        "OPERATIONS",
+        "03 / 支援と成果物",
+        "一部門の改善から、販売・ITを含む\n運用の再設計まで。\n課題の原因と判断の範囲に応じて、\n支援を組み合わせます。",
+        "01",
+        "改善の判断",
+        "一部門の品質・\n生産性を整える",
+        "支援の組み合わせ例",
+        "宿泊部門運営支援／\nレストラン運営改善\n客室清掃改善／\n必要に応じて採用支援",
+        "現場に残すものの例",
+        "標準業務手順（SOP）\n教育・検品の仕組み"
+      ],
+      "cta": [],
+      "photo": "No photography; flat deep navy. Large narrow OPERATIONS about 43px at top. Below introduction a single vertical three-part path, thin orange line connects judgement, support examples, output examples. No card boxes.",
+      "top": "#0E2233",
+      "bottom": "#0E2233",
+      "promptFile": "prompts/general-managers-03-support-a.txt",
+      "references": [
+        "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/general-managers/sections/00-hero.png"
+      ],
+      "prompt": "Generate a final-quality, beautifully art-directed Japanese ADELVA mobile website UI mock image, a single section to be joined vertically with other sections. This is a fully composed raster UI with exact Japanese text, not a photo asset. No browser chrome, phone frame, outer margins, presentation annotations or invented copy.\nDESIGN SYSTEM: physical output ideally twice logical dimensions. Design for 390px screen width, side padding 24px, text area 342px. Japanese body 15px (30px at 780px wide), readable sans serif medium/regular, line height 25px. Section Japanese headings 30px (60 at 780), refined Japanese Mincho serif, line height 43px. Supporting labels 13px (26 at 780), never smaller than 12px logical. Large English uses strong condensed grotesk. Navy #0E2233, warm paper #F4F1EB, restrained burnt orange #CE773F. High contrast text; on orange buttons use navy lettering. Thin rules, purposeful spacious composition, no rounded cards, no tiny text. Strictly single-column mobile reflow. CTA height 56px and width 342px; smaller controls 44px. Pixel sizes above are at logical width390 and must scale with actual image width. All copy in COPY must appear, exactly; line breaks can move only at Japanese meaning boundaries. Render Japanese glyphs carefully, do not substitute or summarize. Do not add English labels, slogans, facts or navigation that are not in COPY.\nCANVAS: target 780×1600px, portrait ratio 390:800; final display 390×800px. Full canvas is this one section, never a full-page overview. Use entire height with readable type; no compressed miniature page.\nREFERENCE ROLES: Attached accepted mobile hero is the actual typography, palette, material and photo-world style reference. Do not repeat its header, hero copy or branding in this section unless listed below.\nCOMPOSITION: No photography; flat deep navy. Large narrow OPERATIONS about 43px at top. Below introduction a single vertical three-part path, thin orange line connects judgement, support examples, output examples. No card boxes.\nEDGES: Top edge #0E2233; bottom edge #0E2233. Flat edge colours, no outer stroke, no vignette along left/right paper edges. Start chapter label 48px from top; finish after 40px breathing space. Clear visual hierarchy; don't distribute text into tiny distant islands.\nEXACT COPY IN READING ORDER:\nMAIN HEADLINE: \"必要な支援を、\nひとつの改善計画に。\"\n\"OPERATIONS\"\n\"03 / 支援と成果物\"\n\"一部門の改善から、販売・ITを含む\n運用の再設計まで。\n課題の原因と判断の範囲に応じて、\n支援を組み合わせます。\"\n\"01\"\n\"改善の判断\"\n\"一部門の品質・\n生産性を整える\"\n\"支援の組み合わせ例\"\n\"宿泊部門運営支援／\nレストラン運営改善\n客室清掃改善／\n必要に応じて採用支援\"\n\"現場に残すものの例\"\n\"標準業務手順（SOP）\n教育・検品の仕組み\"\nNo CTA button for this section. Arrows only when shown as existing choice affordances.\nImportant: chapter labels precede headlines visually even though copy list is semantic. Preserve every supplied condition and example qualifier. No clipping, no text behind images, no microscopic footnotes."
+    },
+    {
+      "id": "04-support-b",
+      "h": 1000,
+      "purpose": "販売IT・経営判断のケースと個別合意条件",
+      "head": "",
+      "copy": [
+        "02",
+        "改善の判断",
+        "販売・業務・ITを\nつなぎ直す",
+        "支援の組み合わせ例",
+        "Web集客・チャネル収益／\n宿泊営業支援\nDX・システム導入",
+        "現場に残すものの例",
+        "管理指標（KPI）\n部門間会議・運用設計",
+        "03",
+        "改善の判断",
+        "経営判断が必要な\n課題を進める",
+        "支援の組み合わせ例",
+        "経営診断・コンサル／\n経営改善・実行支援",
+        "現場に残すものの例",
+        "優先順位・改善計画\n判断権限・実行範囲",
+        "組み合わせと成果物は課題に応じて設計。\n改善支援・実運営・保守の範囲は、\n個別に合意します。"
+      ],
+      "cta": [],
+      "photo": "Two continued vertical paths 02 and 03 in the same format as preceding support asset; no repeated chapter heading. Bottom 150px panoramic hotel dining room with mountain windows, warm lamps, no people; photograph ends 24px before bottom cream edge.",
+      "top": "#0E2233",
+      "bottom": "#F4F1EB",
+      "promptFile": "prompts/general-managers-04-support-b.txt",
+      "references": [
+        "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/general-managers/sections/00-hero.png",
+        "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/general-managers/sections/03-support-a.png"
+      ],
+      "prompt": "Generate a final-quality, beautifully art-directed Japanese ADELVA mobile website UI mock image, a single section to be joined vertically with other sections. This is a fully composed raster UI with exact Japanese text, not a photo asset. No browser chrome, phone frame, outer margins, presentation annotations or invented copy.\nDESIGN SYSTEM: physical output ideally twice logical dimensions. Design for 390px screen width, side padding 24px, text area 342px. Japanese body 15px (30px at 780px wide), readable sans serif medium/regular, line height 25px. Section Japanese headings 30px (60 at 780), refined Japanese Mincho serif, line height 43px. Supporting labels 13px (26 at 780), never smaller than 12px logical. Large English uses strong condensed grotesk. Navy #0E2233, warm paper #F4F1EB, restrained burnt orange #CE773F. High contrast text; on orange buttons use navy lettering. Thin rules, purposeful spacious composition, no rounded cards, no tiny text. Strictly single-column mobile reflow. CTA height 56px and width 342px; smaller controls 44px. Pixel sizes above are at logical width390 and must scale with actual image width. All copy in COPY must appear, exactly; line breaks can move only at Japanese meaning boundaries. Render Japanese glyphs carefully, do not substitute or summarize. Do not add English labels, slogans, facts or navigation that are not in COPY.\nCANVAS: target 780×2000px, portrait ratio 390:1000; final display 390×1000px. Full canvas is this one section, never a full-page overview. Use entire height with readable type; no compressed miniature page.\nREFERENCE ROLES: Attached accepted mobile hero is the actual typography, palette, material and photo-world style reference. Do not repeat its header, hero copy or branding in this section unless listed below. Second attachment is the previous support section: continue its path styling and flat background exactly, without repeating its heading.\nCOMPOSITION: Two continued vertical paths 02 and 03 in the same format as preceding support asset; no repeated chapter heading. Bottom 150px panoramic hotel dining room with mountain windows, warm lamps, no people; photograph ends 24px before bottom cream edge.\nEDGES: Top edge #0E2233; bottom edge #F4F1EB. Flat edge colours, no outer stroke, no vignette along left/right paper edges. Start content after 24px, no blank title area. Finish meaningful content with 32px breathing space.\nEXACT COPY IN READING ORDER:\n\"02\"\n\"改善の判断\"\n\"販売・業務・ITを\nつなぎ直す\"\n\"支援の組み合わせ例\"\n\"Web集客・チャネル収益／\n宿泊営業支援\nDX・システム導入\"\n\"現場に残すものの例\"\n\"管理指標（KPI）\n部門間会議・運用設計\"\n\"03\"\n\"改善の判断\"\n\"経営判断が必要な\n課題を進める\"\n\"支援の組み合わせ例\"\n\"経営診断・コンサル／\n経営改善・実行支援\"\n\"現場に残すものの例\"\n\"優先順位・改善計画\n判断権限・実行範囲\"\n\"組み合わせと成果物は課題に応じて設計。\n改善支援・実運営・保守の範囲は、\n個別に合意します。\"\nNo CTA button for this section. Arrows only when shown as existing choice affordances.\nImportant: chapter labels precede headlines visually even though copy list is semantic. Preserve every supplied condition and example qualifier. No clipping, no text behind images, no microscopic footnotes."
+    },
+    {
+      "id": "05-roles",
+      "h": 900,
+      "purpose": "4者の役割は観点であり個別に合意する",
+      "head": "任せる範囲を、\n曖昧にしない。",
+      "copy": [
+        "04 / 役割",
+        "経営判断と現場の実行をつなぐために。\n関係者の役割と、引継ぎ先を整理します。",
+        "役割分担を整理する際の観点",
+        "オーナー・本部\n経営・投資の判断と承認",
+        "GM・部門責任者\n現場判断と部門間の調整",
+        "ADELVA\n改善計画の推進\n実行・実装支援",
+        "外部関係者\n契約に応じた専門領域の実施",
+        "判断権限・指揮命令・実行範囲・\n引継ぎ先を、お客様・ADELVA・\n外部関係者で個別に合意します。",
+        "経営・運営体制の検討から始めたい方へ"
+      ],
+      "cta": [
+        "オーナー・経営者の方へ ↗"
+      ],
+      "photo": "None. Four open full-width rows; clear hierarchy, labels bold, explanations under; agreement paragraph with restrained orange left rule. Crosslink outlined 56px full width.",
+      "top": "#F4F1EB",
+      "bottom": "#F4F1EB",
+      "promptFile": "prompts/general-managers-05-roles.txt",
+      "references": [
+        "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/general-managers/sections/00-hero.png"
+      ],
+      "prompt": "Generate a final-quality, beautifully art-directed Japanese ADELVA mobile website UI mock image, a single section to be joined vertically with other sections. This is a fully composed raster UI with exact Japanese text, not a photo asset. No browser chrome, phone frame, outer margins, presentation annotations or invented copy.\nDESIGN SYSTEM: physical output ideally twice logical dimensions. Design for 390px screen width, side padding 24px, text area 342px. Japanese body 15px (30px at 780px wide), readable sans serif medium/regular, line height 25px. Section Japanese headings 30px (60 at 780), refined Japanese Mincho serif, line height 43px. Supporting labels 13px (26 at 780), never smaller than 12px logical. Large English uses strong condensed grotesk. Navy #0E2233, warm paper #F4F1EB, restrained burnt orange #CE773F. High contrast text; on orange buttons use navy lettering. Thin rules, purposeful spacious composition, no rounded cards, no tiny text. Strictly single-column mobile reflow. CTA height 56px and width 342px; smaller controls 44px. Pixel sizes above are at logical width390 and must scale with actual image width. All copy in COPY must appear, exactly; line breaks can move only at Japanese meaning boundaries. Render Japanese glyphs carefully, do not substitute or summarize. Do not add English labels, slogans, facts or navigation that are not in COPY.\nCANVAS: target 780×1800px, portrait ratio 390:900; final display 390×900px. Full canvas is this one section, never a full-page overview. Use entire height with readable type; no compressed miniature page.\nREFERENCE ROLES: Attached accepted mobile hero is the actual typography, palette, material and photo-world style reference. Do not repeat its header, hero copy or branding in this section unless listed below.\nCOMPOSITION: None. Four open full-width rows; clear hierarchy, labels bold, explanations under; agreement paragraph with restrained orange left rule. Crosslink outlined 56px full width.\nEDGES: Top edge #F4F1EB; bottom edge #F4F1EB. Flat edge colours, no outer stroke, no vignette along left/right paper edges. Start chapter label 48px from top; finish after 40px breathing space. Clear visual hierarchy; don't distribute text into tiny distant islands.\nEXACT COPY IN READING ORDER:\nMAIN HEADLINE: \"任せる範囲を、\n曖昧にしない。\"\n\"04 / 役割\"\n\"経営判断と現場の実行をつなぐために。\n関係者の役割と、引継ぎ先を整理します。\"\n\"役割分担を整理する際の観点\"\n\"オーナー・本部\n経営・投資の判断と承認\"\n\"GM・部門責任者\n現場判断と部門間の調整\"\n\"ADELVA\n改善計画の推進\n実行・実装支援\"\n\"外部関係者\n契約に応じた専門領域の実施\"\n\"判断権限・指揮命令・実行範囲・\n引継ぎ先を、お客様・ADELVA・\n外部関係者で個別に合意します。\"\n\"経営・運営体制の検討から始めたい方へ\"\nCTA BUTTON(S):\n\"オーナー・経営者の方へ ↗ →\"\nImportant: chapter labels precede headlines visually even though copy list is semantic. Preserve every supplied condition and example qualifier. No clipping, no text behind images, no microscopic footnotes."
+    },
+    {
+      "id": "06-execution",
+      "h": 1000,
+      "purpose": "6工程と継続改善への引継ぎ",
+      "head": "実行から、現場での運用へ。\n検証し、引き継ぐところまで。",
+      "copy": [
+        "IMPLEMENT.",
+        "宿泊・料飲・清掃、販売、ITの\n担当をつなぎ、支援終了後も、\nお客様自身が改善を続けられる\n状態を目指します。",
+        "01　課題把握",
+        "02　判断",
+        "03　実行・実装",
+        "04　運用",
+        "05　検証",
+        "06　引継ぎ"
+      ],
+      "cta": [
+        "支援の進め方を見る"
+      ],
+      "photo": "Top 300px cinematic hotel bedroom/lounge with mountain windows; big IMPLEMENT. white over upper photo; Japanese heading and paragraph on solid navy below. Six numbered steps in vertical timeline, 58px each. No text on busy photo other than English.",
+      "top": "#0E2233",
+      "bottom": "#0E2233",
+      "promptFile": "prompts/general-managers-06-execution.txt",
+      "references": [
+        "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/general-managers/sections/00-hero.png"
+      ],
+      "prompt": "Generate a final-quality, beautifully art-directed Japanese ADELVA mobile website UI mock image, a single section to be joined vertically with other sections. This is a fully composed raster UI with exact Japanese text, not a photo asset. No browser chrome, phone frame, outer margins, presentation annotations or invented copy.\nDESIGN SYSTEM: physical output ideally twice logical dimensions. Design for 390px screen width, side padding 24px, text area 342px. Japanese body 15px (30px at 780px wide), readable sans serif medium/regular, line height 25px. Section Japanese headings 30px (60 at 780), refined Japanese Mincho serif, line height 43px. Supporting labels 13px (26 at 780), never smaller than 12px logical. Large English uses strong condensed grotesk. Navy #0E2233, warm paper #F4F1EB, restrained burnt orange #CE773F. High contrast text; on orange buttons use navy lettering. Thin rules, purposeful spacious composition, no rounded cards, no tiny text. Strictly single-column mobile reflow. CTA height 56px and width 342px; smaller controls 44px. Pixel sizes above are at logical width390 and must scale with actual image width. All copy in COPY must appear, exactly; line breaks can move only at Japanese meaning boundaries. Render Japanese glyphs carefully, do not substitute or summarize. Do not add English labels, slogans, facts or navigation that are not in COPY.\nCANVAS: target 780×2000px, portrait ratio 390:1000; final display 390×1000px. Full canvas is this one section, never a full-page overview. Use entire height with readable type; no compressed miniature page.\nREFERENCE ROLES: Attached accepted mobile hero is the actual typography, palette, material and photo-world style reference. Do not repeat its header, hero copy or branding in this section unless listed below.\nCOMPOSITION: Top 300px cinematic hotel bedroom/lounge with mountain windows; big IMPLEMENT. white over upper photo; Japanese heading and paragraph on solid navy below. Six numbered steps in vertical timeline, 58px each. No text on busy photo other than English.\nEDGES: Top edge #0E2233; bottom edge #0E2233. Flat edge colours, no outer stroke, no vignette along left/right paper edges. Start chapter label 48px from top; finish after 40px breathing space. Clear visual hierarchy; don't distribute text into tiny distant islands.\nEXACT COPY IN READING ORDER:\nMAIN HEADLINE: \"実行から、現場での運用へ。\n検証し、引き継ぐところまで。\"\n\"IMPLEMENT.\"\n\"宿泊・料飲・清掃、販売、ITの\n担当をつなぎ、支援終了後も、\nお客様自身が改善を続けられる\n状態を目指します。\"\n\"01　課題把握\"\n\"02　判断\"\n\"03　実行・実装\"\n\"04　運用\"\n\"05　検証\"\n\"06　引継ぎ\"\nCTA BUTTON(S):\n\"支援の進め方を見る →\"\nImportant: chapter labels precede headlines visually even though copy list is semantic. Preserve every supplied condition and example qualifier. No clipping, no text behind images, no microscopic footnotes."
+    },
+    {
+      "id": "07-verification",
+      "h": 660,
+      "purpose": "確認項目と各問いを残す",
+      "head": "改善の過程を、\n確認できる形に。",
+      "copy": [
+        "05 / 確認する内容",
+        "担当範囲\n誰が、どこまで担うか",
+        "成果物\n現場で使う手順・管理指標は何か",
+        "意思決定記録\n何を根拠に、何を決めたか",
+        "検証・引継ぎ方法\n何で確かめ、誰へ引き継ぐか"
+      ],
+      "cta": [],
+      "photo": "None. Quiet cream chapter four full width entries, orange small ticks, fine horizontal rules; meaningful prompts at 15px.",
+      "top": "#F4F1EB",
+      "bottom": "#F4F1EB",
+      "promptFile": "prompts/general-managers-07-verification.txt",
+      "references": [
+        "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/general-managers/sections/00-hero.png"
+      ],
+      "prompt": "Generate a final-quality, beautifully art-directed Japanese ADELVA mobile website UI mock image, a single section to be joined vertically with other sections. This is a fully composed raster UI with exact Japanese text, not a photo asset. No browser chrome, phone frame, outer margins, presentation annotations or invented copy.\nDESIGN SYSTEM: physical output ideally twice logical dimensions. Design for 390px screen width, side padding 24px, text area 342px. Japanese body 15px (30px at 780px wide), readable sans serif medium/regular, line height 25px. Section Japanese headings 30px (60 at 780), refined Japanese Mincho serif, line height 43px. Supporting labels 13px (26 at 780), never smaller than 12px logical. Large English uses strong condensed grotesk. Navy #0E2233, warm paper #F4F1EB, restrained burnt orange #CE773F. High contrast text; on orange buttons use navy lettering. Thin rules, purposeful spacious composition, no rounded cards, no tiny text. Strictly single-column mobile reflow. CTA height 56px and width 342px; smaller controls 44px. Pixel sizes above are at logical width390 and must scale with actual image width. All copy in COPY must appear, exactly; line breaks can move only at Japanese meaning boundaries. Render Japanese glyphs carefully, do not substitute or summarize. Do not add English labels, slogans, facts or navigation that are not in COPY.\nCANVAS: target 780×1320px, portrait ratio 390:660; final display 390×660px. Full canvas is this one section, never a full-page overview. Use entire height with readable type; no compressed miniature page.\nREFERENCE ROLES: Attached accepted mobile hero is the actual typography, palette, material and photo-world style reference. Do not repeat its header, hero copy or branding in this section unless listed below.\nCOMPOSITION: None. Quiet cream chapter four full width entries, orange small ticks, fine horizontal rules; meaningful prompts at 15px.\nEDGES: Top edge #F4F1EB; bottom edge #F4F1EB. Flat edge colours, no outer stroke, no vignette along left/right paper edges. Start chapter label 48px from top; finish after 40px breathing space. Clear visual hierarchy; don't distribute text into tiny distant islands.\nEXACT COPY IN READING ORDER:\nMAIN HEADLINE: \"改善の過程を、\n確認できる形に。\"\n\"05 / 確認する内容\"\n\"担当範囲\n誰が、どこまで担うか\"\n\"成果物\n現場で使う手順・管理指標は何か\"\n\"意思決定記録\n何を根拠に、何を決めたか\"\n\"検証・引継ぎ方法\n何で確かめ、誰へ引き継ぐか\"\nNo CTA button for this section. Arrows only when shown as existing choice affordances.\nImportant: chapter labels precede headlines visually even though copy list is semantic. Preserve every supplied condition and example qualifier. No clipping, no text behind images, no microscopic footnotes."
+    },
+    {
+      "id": "08-contact",
+      "h": 850,
+      "purpose": "未整理の課題から問い合わせ、サイト内導線",
+      "head": "課題が整理できていなくても、\nお問い合わせいただけます。",
+      "copy": [
+        "現状やお困りのことから、\nお聞かせください。\n必要な支援内容と、\n双方の役割を整理します。",
+        "ADELVA",
+        "課題から探す",
+        "支援内容",
+        "支援の進め方",
+        "導入事例",
+        "ADELVAについて",
+        "プライバシーポリシー",
+        "サイトポリシー",
+        "© ADELVA"
+      ],
+      "cta": [
+        "問い合わせを送信"
+      ],
+      "photo": "No photograph, stately deep navy ending. Headline may wrap into four meaningful lines at 28px. Orange full-width CTA 56px navy text. Very large condensed ADELVA under CTA. Five navigation rows 44px, two legal lines 13px.",
+      "top": "#0E2233",
+      "bottom": "#0E2233",
+      "promptFile": "prompts/general-managers-08-contact.txt",
+      "references": [
+        "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/general-managers/sections/00-hero.png"
+      ],
+      "prompt": "Generate a final-quality, beautifully art-directed Japanese ADELVA mobile website UI mock image, a single section to be joined vertically with other sections. This is a fully composed raster UI with exact Japanese text, not a photo asset. No browser chrome, phone frame, outer margins, presentation annotations or invented copy.\nDESIGN SYSTEM: physical output ideally twice logical dimensions. Design for 390px screen width, side padding 24px, text area 342px. Japanese body 15px (30px at 780px wide), readable sans serif medium/regular, line height 25px. Section Japanese headings 30px (60 at 780), refined Japanese Mincho serif, line height 43px. Supporting labels 13px (26 at 780), never smaller than 12px logical. Large English uses strong condensed grotesk. Navy #0E2233, warm paper #F4F1EB, restrained burnt orange #CE773F. High contrast text; on orange buttons use navy lettering. Thin rules, purposeful spacious composition, no rounded cards, no tiny text. Strictly single-column mobile reflow. CTA height 56px and width 342px; smaller controls 44px. Pixel sizes above are at logical width390 and must scale with actual image width. All copy in COPY must appear, exactly; line breaks can move only at Japanese meaning boundaries. Render Japanese glyphs carefully, do not substitute or summarize. Do not add English labels, slogans, facts or navigation that are not in COPY.\nCANVAS: target 780×1700px, portrait ratio 390:850; final display 390×850px. Full canvas is this one section, never a full-page overview. Use entire height with readable type; no compressed miniature page.\nREFERENCE ROLES: Attached accepted mobile hero is the actual typography, palette, material and photo-world style reference. Do not repeat its header, hero copy or branding in this section unless listed below.\nCOMPOSITION: No photograph, stately deep navy ending. Headline may wrap into four meaningful lines at 28px. Orange full-width CTA 56px navy text. Very large condensed ADELVA under CTA. Five navigation rows 44px, two legal lines 13px.\nEDGES: Top edge #0E2233; bottom edge #0E2233. Flat edge colours, no outer stroke, no vignette along left/right paper edges. Start chapter label 48px from top; finish after 40px breathing space. Clear visual hierarchy; don't distribute text into tiny distant islands.\nEXACT COPY IN READING ORDER:\nMAIN HEADLINE: \"課題が整理できていなくても、\nお問い合わせいただけます。\"\n\"現状やお困りのことから、\nお聞かせください。\n必要な支援内容と、\n双方の役割を整理します。\"\n\"ADELVA\"\n\"課題から探す\"\n\"支援内容\"\n\"支援の進め方\"\n\"導入事例\"\n\"ADELVAについて\"\n\"プライバシーポリシー\"\n\"サイトポリシー\"\n\"© ADELVA\"\nCTA BUTTON(S):\n\"問い合わせを送信 →\"\nImportant: chapter labels precede headlines visually even though copy list is semantic. Preserve every supplied condition and example qualifier. No clipping, no text behind images, no microscopic footnotes."
+    }
+  ],
+  "owners": [
+    {
+      "id": "00-hero",
+      "h": 844,
+      "purpose": "経営判断から実行計画への入口",
+      "head": "経営判断を、\n実行可能な\n改善計画へ。",
+      "copy": [
+        "HOME / 課題から探す",
+        "オーナー・経営者の方へ",
+        "ホテル・旅館の経営と現場を、\n一つの改善計画につなぐ。",
+        "OWNERS\n& EXECUTIVES"
+      ],
+      "cta": [
+        "問い合わせを送信"
+      ],
+      "photo": "Immersive mountain hotel exterior with reflecting pool; stone and glass building right, warm amber room lights, layered blue mist mountains. Strong spatial foreground/midground/distance. Different subject to GM interior.",
+      "top": "#0E2233",
+      "bottom": "#0E2233",
+      "promptFile": "prompts/owners-00-hero.txt",
+      "references": [
+        "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/research/owners-desktop.png"
+      ],
+      "prompt": "Generate a final-quality, beautifully art-directed Japanese ADELVA mobile website UI mock image, a single section to be joined vertically with other sections. This is a fully composed raster UI with exact Japanese text, not a photo asset. No browser chrome, phone frame, outer margins, presentation annotations or invented copy.\nDESIGN SYSTEM: physical output ideally twice logical dimensions. Design for 390px screen width, side padding 24px, text area 342px. Japanese body 15px (30px at 780px wide), readable sans serif medium/regular, line height 25px. Section Japanese headings 30px (60 at 780), refined Japanese Mincho serif, line height 43px. Supporting labels 13px (26 at 780), never smaller than 12px logical. Large English uses strong condensed grotesk. Navy #0E2233, warm paper #F4F1EB, restrained burnt orange #CE773F. High contrast text; on orange buttons use navy lettering. Thin rules, purposeful spacious composition, no rounded cards, no tiny text. Strictly single-column mobile reflow. CTA height 56px and width 342px; smaller controls 44px. Pixel sizes above are at logical width390 and must scale with actual image width. All copy in COPY must appear, exactly; line breaks can move only at Japanese meaning boundaries. Render Japanese glyphs carefully, do not substitute or summarize. Do not add English labels, slogans, facts or navigation that are not in COPY.\nCANVAS: target 780×1688px, portrait ratio 390:844; final display 390×844px. Full canvas is this one section, never a full-page overview. Use entire height with readable type; no compressed miniature page.\nREFERENCE ROLES: Attached desktop is only the approved brand, text and architectural photo-world reference. Completely redesign composition for mobile; do not shrink desktop rows.\nCOMPOSITION: Immersive mountain hotel exterior with reflecting pool; stone and glass building right, warm amber room lights, layered blue mist mountains. Strong spatial foreground/midground/distance. Different subject to GM interior.\nEDGES: Top edge #0E2233; bottom edge #0E2233. Flat edge colours, no outer stroke, no vignette along left/right paper edges. Full photographic hero with navy translucent shading behind copy. Header at y16–64: ADELVA wordmark left and two-line menu icon in 44x44 area right. Breadcrumb at y90, audience y124. Headline around y162, body below with 22px gap, full-width outlined CTA next with 24px gap. Leave a true photographic breathing area. Large English near lower quarter; GM GENERAL/MANAGERS 57px over two lines, OWNERS 72px plus & EXECUTIVES 40px. The English fits within margins. Small scroll cue near bottom. No extra header CTA. End with solid navy at final 8px.\nEXACT COPY IN READING ORDER:\n\"ADELVA\"\nMAIN HEADLINE: \"経営判断を、\n実行可能な\n改善計画へ。\"\n\"HOME / 課題から探す\"\n\"オーナー・経営者の方へ\"\n\"ホテル・旅館の経営と現場を、\n一つの改善計画につなぐ。\"\n\"OWNERS\n& EXECUTIVES\"\nCTA BUTTON(S):\n\"問い合わせを送信 →\"\nImportant: chapter labels precede headlines visually even though copy list is semantic. Preserve every supplied condition and example qualifier. No clipping, no text behind images, no microscopic footnotes."
+    },
+    {
+      "id": "01-challenges",
+      "h": 680,
+      "purpose": "4経営局面を症状と判断へつなぐ",
+      "head": "いま、どの経営局面に\nありますか。",
+      "copy": [
+        "01",
+        "01　経営・収益\n原因と優先順位を整理する",
+        "02　開業・再建\n運営体制を整える",
+        "03　GM不在\nGM機能と権限を整理する",
+        "04　投資判断\n投資対象と実行条件を見極める"
+      ],
+      "cta": [],
+      "photo": "No photo. Four spacious full width ruled choices, tall pale narrow numbers, serif titles 23px, explanation 15px. Fine orange first rule; distinct from GM symptom list.",
+      "top": "#F4F1EB",
+      "bottom": "#F4F1EB",
+      "promptFile": "prompts/owners-01-challenges.txt",
+      "references": [
+        "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/owners/sections/00-hero.png"
+      ],
+      "prompt": "Generate a final-quality, beautifully art-directed Japanese ADELVA mobile website UI mock image, a single section to be joined vertically with other sections. This is a fully composed raster UI with exact Japanese text, not a photo asset. No browser chrome, phone frame, outer margins, presentation annotations or invented copy.\nDESIGN SYSTEM: physical output ideally twice logical dimensions. Design for 390px screen width, side padding 24px, text area 342px. Japanese body 15px (30px at 780px wide), readable sans serif medium/regular, line height 25px. Section Japanese headings 30px (60 at 780), refined Japanese Mincho serif, line height 43px. Supporting labels 13px (26 at 780), never smaller than 12px logical. Large English uses strong condensed grotesk. Navy #0E2233, warm paper #F4F1EB, restrained burnt orange #CE773F. High contrast text; on orange buttons use navy lettering. Thin rules, purposeful spacious composition, no rounded cards, no tiny text. Strictly single-column mobile reflow. CTA height 56px and width 342px; smaller controls 44px. Pixel sizes above are at logical width390 and must scale with actual image width. All copy in COPY must appear, exactly; line breaks can move only at Japanese meaning boundaries. Render Japanese glyphs carefully, do not substitute or summarize. Do not add English labels, slogans, facts or navigation that are not in COPY.\nCANVAS: target 780×1360px, portrait ratio 390:680; final display 390×680px. Full canvas is this one section, never a full-page overview. Use entire height with readable type; no compressed miniature page.\nREFERENCE ROLES: Attached accepted mobile hero is the actual typography, palette, material and photo-world style reference. Do not repeat its header, hero copy or branding in this section unless listed below.\nCOMPOSITION: No photo. Four spacious full width ruled choices, tall pale narrow numbers, serif titles 23px, explanation 15px. Fine orange first rule; distinct from GM symptom list.\nEDGES: Top edge #F4F1EB; bottom edge #F4F1EB. Flat edge colours, no outer stroke, no vignette along left/right paper edges. Start chapter label 48px from top; finish after 40px breathing space. Clear visual hierarchy; don't distribute text into tiny distant islands.\nEXACT COPY IN READING ORDER:\nMAIN HEADLINE: \"いま、どの経営局面に\nありますか。\"\n\"01\"\n\"01　経営・収益\n原因と優先順位を整理する\"\n\"02　開業・再建\n運営体制を整える\"\n\"03　GM不在\nGM機能と権限を整理する\"\n\"04　投資判断\n投資対象と実行条件を見極める\"\nNo CTA button for this section. Arrows only when shown as existing choice affordances.\nImportant: chapter labels precede headlines visually even though copy list is semantic. Preserve every supplied condition and example qualifier. No clipping, no text behind images, no microscopic footnotes."
+    },
+    {
+      "id": "02-decisions",
+      "h": 780,
+      "purpose": "支援を選ぶ前に4論点を示す",
+      "head": "最初に、\n決めること。",
+      "copy": [
+        "02 / 判断の整理",
+        "支援内容を選ぶ前に、\n判断の論点を整理します。",
+        "01　原因・優先順位",
+        "02　運営モデル",
+        "03　投資対象",
+        "04　実行責任者"
+      ],
+      "cta": [],
+      "photo": "Cream title first, then a full width 270px photograph of long timber and stone hotel corridor leading to mountain light; four ruled decision lines below, numbered orange. Clear flat cream typography zones.",
+      "top": "#F4F1EB",
+      "bottom": "#F4F1EB",
+      "promptFile": "prompts/owners-02-decisions.txt",
+      "references": [
+        "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/owners/sections/00-hero.png"
+      ],
+      "prompt": "Generate a final-quality, beautifully art-directed Japanese ADELVA mobile website UI mock image, a single section to be joined vertically with other sections. This is a fully composed raster UI with exact Japanese text, not a photo asset. No browser chrome, phone frame, outer margins, presentation annotations or invented copy.\nDESIGN SYSTEM: physical output ideally twice logical dimensions. Design for 390px screen width, side padding 24px, text area 342px. Japanese body 15px (30px at 780px wide), readable sans serif medium/regular, line height 25px. Section Japanese headings 30px (60 at 780), refined Japanese Mincho serif, line height 43px. Supporting labels 13px (26 at 780), never smaller than 12px logical. Large English uses strong condensed grotesk. Navy #0E2233, warm paper #F4F1EB, restrained burnt orange #CE773F. High contrast text; on orange buttons use navy lettering. Thin rules, purposeful spacious composition, no rounded cards, no tiny text. Strictly single-column mobile reflow. CTA height 56px and width 342px; smaller controls 44px. Pixel sizes above are at logical width390 and must scale with actual image width. All copy in COPY must appear, exactly; line breaks can move only at Japanese meaning boundaries. Render Japanese glyphs carefully, do not substitute or summarize. Do not add English labels, slogans, facts or navigation that are not in COPY.\nCANVAS: target 780×1560px, portrait ratio 390:780; final display 390×780px. Full canvas is this one section, never a full-page overview. Use entire height with readable type; no compressed miniature page.\nREFERENCE ROLES: Attached accepted mobile hero is the actual typography, palette, material and photo-world style reference. Do not repeat its header, hero copy or branding in this section unless listed below.\nCOMPOSITION: Cream title first, then a full width 270px photograph of long timber and stone hotel corridor leading to mountain light; four ruled decision lines below, numbered orange. Clear flat cream typography zones.\nEDGES: Top edge #F4F1EB; bottom edge #F4F1EB. Flat edge colours, no outer stroke, no vignette along left/right paper edges. Start chapter label 48px from top; finish after 40px breathing space. Clear visual hierarchy; don't distribute text into tiny distant islands.\nEXACT COPY IN READING ORDER:\nMAIN HEADLINE: \"最初に、\n決めること。\"\n\"02 / 判断の整理\"\n\"支援内容を選ぶ前に、\n判断の論点を整理します。\"\n\"01　原因・優先順位\"\n\"02　運営モデル\"\n\"03　投資対象\"\n\"04　実行責任者\"\nNo CTA button for this section. Arrows only when shown as existing choice affordances.\nImportant: chapter labels precede headlines visually even though copy list is semantic. Preserve every supplied condition and example qualifier. No clipping, no text behind images, no microscopic footnotes."
+    },
+    {
+      "id": "03-support-a",
+      "h": 760,
+      "purpose": "組み合わせ経路1・2",
+      "head": "判断に応じて、\n支援を組み合わせる。",
+      "copy": [
+        "03 / 支援の組み合わせ",
+        "経営局面",
+        "経営・収益",
+        "支援の組み合わせ",
+        "経営診断 × 収益改善",
+        "整理すること",
+        "原因と優先順位",
+        "経営局面",
+        "開業・再建",
+        "支援の組み合わせ",
+        "開業支援 × 運営体制",
+        "整理すること",
+        "運営モデル"
+      ],
+      "cta": [],
+      "photo": "Flat navy open vertical two paths; each has labelled situation, support pair, clarification result, orange line and tiny nodes. No horizontal multi-column diagram, no cards. Two generous groups.",
+      "top": "#0E2233",
+      "bottom": "#0E2233",
+      "promptFile": "prompts/owners-03-support-a.txt",
+      "references": [
+        "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/owners/sections/00-hero.png"
+      ],
+      "prompt": "Generate a final-quality, beautifully art-directed Japanese ADELVA mobile website UI mock image, a single section to be joined vertically with other sections. This is a fully composed raster UI with exact Japanese text, not a photo asset. No browser chrome, phone frame, outer margins, presentation annotations or invented copy.\nDESIGN SYSTEM: physical output ideally twice logical dimensions. Design for 390px screen width, side padding 24px, text area 342px. Japanese body 15px (30px at 780px wide), readable sans serif medium/regular, line height 25px. Section Japanese headings 30px (60 at 780), refined Japanese Mincho serif, line height 43px. Supporting labels 13px (26 at 780), never smaller than 12px logical. Large English uses strong condensed grotesk. Navy #0E2233, warm paper #F4F1EB, restrained burnt orange #CE773F. High contrast text; on orange buttons use navy lettering. Thin rules, purposeful spacious composition, no rounded cards, no tiny text. Strictly single-column mobile reflow. CTA height 56px and width 342px; smaller controls 44px. Pixel sizes above are at logical width390 and must scale with actual image width. All copy in COPY must appear, exactly; line breaks can move only at Japanese meaning boundaries. Render Japanese glyphs carefully, do not substitute or summarize. Do not add English labels, slogans, facts or navigation that are not in COPY.\nCANVAS: target 780×1520px, portrait ratio 390:760; final display 390×760px. Full canvas is this one section, never a full-page overview. Use entire height with readable type; no compressed miniature page.\nREFERENCE ROLES: Attached accepted mobile hero is the actual typography, palette, material and photo-world style reference. Do not repeat its header, hero copy or branding in this section unless listed below.\nCOMPOSITION: Flat navy open vertical two paths; each has labelled situation, support pair, clarification result, orange line and tiny nodes. No horizontal multi-column diagram, no cards. Two generous groups.\nEDGES: Top edge #0E2233; bottom edge #0E2233. Flat edge colours, no outer stroke, no vignette along left/right paper edges. Start chapter label 48px from top; finish after 40px breathing space. Clear visual hierarchy; don't distribute text into tiny distant islands.\nEXACT COPY IN READING ORDER:\nMAIN HEADLINE: \"判断に応じて、\n支援を組み合わせる。\"\n\"03 / 支援の組み合わせ\"\n\"経営局面\"\n\"経営・収益\"\n\"支援の組み合わせ\"\n\"経営診断 × 収益改善\"\n\"整理すること\"\n\"原因と優先順位\"\n\"経営局面\"\n\"開業・再建\"\n\"支援の組み合わせ\"\n\"開業支援 × 運営体制\"\n\"整理すること\"\n\"運営モデル\"\nNo CTA button for this section. Arrows only when shown as existing choice affordances.\nImportant: chapter labels precede headlines visually even though copy list is semantic. Preserve every supplied condition and example qualifier. No clipping, no text behind images, no microscopic footnotes."
+    },
+    {
+      "id": "04-support-b",
+      "h": 740,
+      "purpose": "組み合わせ経路3・4と支援区別",
+      "head": "",
+      "copy": [
+        "経営局面",
+        "GM不在",
+        "支援の組み合わせ",
+        "GM機能 × 現場運営",
+        "整理すること",
+        "権限と実行体制",
+        "経営局面",
+        "投資判断",
+        "支援の組み合わせ",
+        "経営判断 × DX・IT",
+        "整理すること",
+        "投資対象と実行条件",
+        "必要な範囲に応じて、\n単独の支援も選択できます。",
+        "診断と実行、GM機能と全面運営、\n導入支援と開発を区別します。"
+      ],
+      "cta": [],
+      "photo": "Continue exact previous support visual format. Two vertical pathways then both important condition paragraphs in generous 15px text above a fine rule. No repeated chapter title; no photo to impair reading.",
+      "top": "#0E2233",
+      "bottom": "#0E2233",
+      "promptFile": "prompts/owners-04-support-b.txt",
+      "references": [
+        "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/owners/sections/00-hero.png",
+        "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/owners/sections/03-support-a.png"
+      ],
+      "prompt": "Generate a final-quality, beautifully art-directed Japanese ADELVA mobile website UI mock image, a single section to be joined vertically with other sections. This is a fully composed raster UI with exact Japanese text, not a photo asset. No browser chrome, phone frame, outer margins, presentation annotations or invented copy.\nDESIGN SYSTEM: physical output ideally twice logical dimensions. Design for 390px screen width, side padding 24px, text area 342px. Japanese body 15px (30px at 780px wide), readable sans serif medium/regular, line height 25px. Section Japanese headings 30px (60 at 780), refined Japanese Mincho serif, line height 43px. Supporting labels 13px (26 at 780), never smaller than 12px logical. Large English uses strong condensed grotesk. Navy #0E2233, warm paper #F4F1EB, restrained burnt orange #CE773F. High contrast text; on orange buttons use navy lettering. Thin rules, purposeful spacious composition, no rounded cards, no tiny text. Strictly single-column mobile reflow. CTA height 56px and width 342px; smaller controls 44px. Pixel sizes above are at logical width390 and must scale with actual image width. All copy in COPY must appear, exactly; line breaks can move only at Japanese meaning boundaries. Render Japanese glyphs carefully, do not substitute or summarize. Do not add English labels, slogans, facts or navigation that are not in COPY.\nCANVAS: target 780×1480px, portrait ratio 390:740; final display 390×740px. Full canvas is this one section, never a full-page overview. Use entire height with readable type; no compressed miniature page.\nREFERENCE ROLES: Attached accepted mobile hero is the actual typography, palette, material and photo-world style reference. Do not repeat its header, hero copy or branding in this section unless listed below. Second attachment is the previous support section: continue its path styling and flat background exactly, without repeating its heading.\nCOMPOSITION: Continue exact previous support visual format. Two vertical pathways then both important condition paragraphs in generous 15px text above a fine rule. No repeated chapter title; no photo to impair reading.\nEDGES: Top edge #0E2233; bottom edge #0E2233. Flat edge colours, no outer stroke, no vignette along left/right paper edges. Start content after 24px, no blank title area. Finish meaningful content with 32px breathing space.\nEXACT COPY IN READING ORDER:\n\"経営局面\"\n\"GM不在\"\n\"支援の組み合わせ\"\n\"GM機能 × 現場運営\"\n\"整理すること\"\n\"権限と実行体制\"\n\"経営局面\"\n\"投資判断\"\n\"支援の組み合わせ\"\n\"経営判断 × DX・IT\"\n\"整理すること\"\n\"投資対象と実行条件\"\n\"必要な範囲に応じて、\n単独の支援も選択できます。\"\n\"診断と実行、GM機能と全面運営、\n導入支援と開発を区別します。\"\nNo CTA button for this section. Arrows only when shown as existing choice affordances.\nImportant: chapter labels precede headlines visually even though copy list is semantic. Preserve every supplied condition and example qualifier. No clipping, no text behind images, no microscopic footnotes."
+    },
+    {
+      "id": "05-roles",
+      "h": 730,
+      "purpose": "4者・共有合意・個別契約を区別",
+      "head": "誰が決め、誰が実行し、\n何を残すか。",
+      "copy": [
+        "04 / 責任分界",
+        "オーナー・経営者",
+        "GM・現場",
+        "ADELVA",
+        "外部関係者",
+        "意思決定・権限・担当範囲・\n成果物を合意する",
+        "権限・担当範囲・条件は、\n個別の契約で確認します。"
+      ],
+      "cta": [
+        "総支配人・現場責任者の方へ"
+      ],
+      "photo": "None. Four full width parties with small open circle and fine ruled rows; beneath clear shared agreement as typographic statement, then contract condition. Do not invent descriptions for parties. Outlined 56px crosslink.",
+      "top": "#F4F1EB",
+      "bottom": "#F4F1EB",
+      "promptFile": "prompts/owners-05-roles.txt",
+      "references": [
+        "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/owners/sections/00-hero.png"
+      ],
+      "prompt": "Generate a final-quality, beautifully art-directed Japanese ADELVA mobile website UI mock image, a single section to be joined vertically with other sections. This is a fully composed raster UI with exact Japanese text, not a photo asset. No browser chrome, phone frame, outer margins, presentation annotations or invented copy.\nDESIGN SYSTEM: physical output ideally twice logical dimensions. Design for 390px screen width, side padding 24px, text area 342px. Japanese body 15px (30px at 780px wide), readable sans serif medium/regular, line height 25px. Section Japanese headings 30px (60 at 780), refined Japanese Mincho serif, line height 43px. Supporting labels 13px (26 at 780), never smaller than 12px logical. Large English uses strong condensed grotesk. Navy #0E2233, warm paper #F4F1EB, restrained burnt orange #CE773F. High contrast text; on orange buttons use navy lettering. Thin rules, purposeful spacious composition, no rounded cards, no tiny text. Strictly single-column mobile reflow. CTA height 56px and width 342px; smaller controls 44px. Pixel sizes above are at logical width390 and must scale with actual image width. All copy in COPY must appear, exactly; line breaks can move only at Japanese meaning boundaries. Render Japanese glyphs carefully, do not substitute or summarize. Do not add English labels, slogans, facts or navigation that are not in COPY.\nCANVAS: target 780×1460px, portrait ratio 390:730; final display 390×730px. Full canvas is this one section, never a full-page overview. Use entire height with readable type; no compressed miniature page.\nREFERENCE ROLES: Attached accepted mobile hero is the actual typography, palette, material and photo-world style reference. Do not repeat its header, hero copy or branding in this section unless listed below.\nCOMPOSITION: None. Four full width parties with small open circle and fine ruled rows; beneath clear shared agreement as typographic statement, then contract condition. Do not invent descriptions for parties. Outlined 56px crosslink.\nEDGES: Top edge #F4F1EB; bottom edge #F4F1EB. Flat edge colours, no outer stroke, no vignette along left/right paper edges. Start chapter label 48px from top; finish after 40px breathing space. Clear visual hierarchy; don't distribute text into tiny distant islands.\nEXACT COPY IN READING ORDER:\nMAIN HEADLINE: \"誰が決め、誰が実行し、\n何を残すか。\"\n\"04 / 責任分界\"\n\"オーナー・経営者\"\n\"GM・現場\"\n\"ADELVA\"\n\"外部関係者\"\n\"意思決定・権限・担当範囲・\n成果物を合意する\"\n\"権限・担当範囲・条件は、\n個別の契約で確認します。\"\nCTA BUTTON(S):\n\"総支配人・現場責任者の方へ →\"\nImportant: chapter labels precede headlines visually even though copy list is semantic. Preserve every supplied condition and example qualifier. No clipping, no text behind images, no microscopic footnotes."
+    },
+    {
+      "id": "06-execution",
+      "h": 900,
+      "purpose": "6工程で経営指標を行動へつなぐ",
+      "head": "経営指標を、\n現場の行動へ。",
+      "copy": [
+        "05 / 実行から引継ぎまで",
+        "01　課題把握",
+        "02　判断",
+        "03　実行・実装",
+        "04　運用",
+        "05　検証",
+        "06　引継ぎ"
+      ],
+      "cta": [],
+      "photo": "Top navy title area 200px then 300px full width lounge photograph, stone table foreground warm lamps and glass, mountains in background. Lower navy vertical 6-step timeline with orange line, spacious 56px rows. No new explanations.",
+      "top": "#0E2233",
+      "bottom": "#0E2233",
+      "promptFile": "prompts/owners-06-execution.txt",
+      "references": [
+        "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/owners/sections/00-hero.png"
+      ],
+      "prompt": "Generate a final-quality, beautifully art-directed Japanese ADELVA mobile website UI mock image, a single section to be joined vertically with other sections. This is a fully composed raster UI with exact Japanese text, not a photo asset. No browser chrome, phone frame, outer margins, presentation annotations or invented copy.\nDESIGN SYSTEM: physical output ideally twice logical dimensions. Design for 390px screen width, side padding 24px, text area 342px. Japanese body 15px (30px at 780px wide), readable sans serif medium/regular, line height 25px. Section Japanese headings 30px (60 at 780), refined Japanese Mincho serif, line height 43px. Supporting labels 13px (26 at 780), never smaller than 12px logical. Large English uses strong condensed grotesk. Navy #0E2233, warm paper #F4F1EB, restrained burnt orange #CE773F. High contrast text; on orange buttons use navy lettering. Thin rules, purposeful spacious composition, no rounded cards, no tiny text. Strictly single-column mobile reflow. CTA height 56px and width 342px; smaller controls 44px. Pixel sizes above are at logical width390 and must scale with actual image width. All copy in COPY must appear, exactly; line breaks can move only at Japanese meaning boundaries. Render Japanese glyphs carefully, do not substitute or summarize. Do not add English labels, slogans, facts or navigation that are not in COPY.\nCANVAS: target 780×1800px, portrait ratio 390:900; final display 390×900px. Full canvas is this one section, never a full-page overview. Use entire height with readable type; no compressed miniature page.\nREFERENCE ROLES: Attached accepted mobile hero is the actual typography, palette, material and photo-world style reference. Do not repeat its header, hero copy or branding in this section unless listed below.\nCOMPOSITION: Top navy title area 200px then 300px full width lounge photograph, stone table foreground warm lamps and glass, mountains in background. Lower navy vertical 6-step timeline with orange line, spacious 56px rows. No new explanations.\nEDGES: Top edge #0E2233; bottom edge #0E2233. Flat edge colours, no outer stroke, no vignette along left/right paper edges. Start chapter label 48px from top; finish after 40px breathing space. Clear visual hierarchy; don't distribute text into tiny distant islands.\nEXACT COPY IN READING ORDER:\nMAIN HEADLINE: \"経営指標を、\n現場の行動へ。\"\n\"05 / 実行から引継ぎまで\"\n\"01　課題把握\"\n\"02　判断\"\n\"03　実行・実装\"\n\"04　運用\"\n\"05　検証\"\n\"06　引継ぎ\"\nNo CTA button for this section. Arrows only when shown as existing choice affordances.\nImportant: chapter labels precede headlines visually even though copy list is semantic. Preserve every supplied condition and example qualifier. No clipping, no text behind images, no microscopic footnotes."
+    },
+    {
+      "id": "07-verification",
+      "h": 580,
+      "purpose": "検証・引継ぎ項目と継続改善",
+      "head": "確認し、\n引き継げる状態へ。",
+      "copy": [
+        "06 / 検証・引継ぎ",
+        "支援終了後も、継続して\n改善できる状態をつくります。",
+        "担当範囲",
+        "成果物",
+        "意思決定記録",
+        "検証・引継ぎ方法"
+      ],
+      "cta": [],
+      "photo": "No photo; cream spacious verification section, four ruled rows with orange thin vertical markers.",
+      "top": "#F4F1EB",
+      "bottom": "#F4F1EB",
+      "promptFile": "prompts/owners-07-verification.txt",
+      "references": [
+        "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/owners/sections/00-hero.png"
+      ],
+      "prompt": "Generate a final-quality, beautifully art-directed Japanese ADELVA mobile website UI mock image, a single section to be joined vertically with other sections. This is a fully composed raster UI with exact Japanese text, not a photo asset. No browser chrome, phone frame, outer margins, presentation annotations or invented copy.\nDESIGN SYSTEM: physical output ideally twice logical dimensions. Design for 390px screen width, side padding 24px, text area 342px. Japanese body 15px (30px at 780px wide), readable sans serif medium/regular, line height 25px. Section Japanese headings 30px (60 at 780), refined Japanese Mincho serif, line height 43px. Supporting labels 13px (26 at 780), never smaller than 12px logical. Large English uses strong condensed grotesk. Navy #0E2233, warm paper #F4F1EB, restrained burnt orange #CE773F. High contrast text; on orange buttons use navy lettering. Thin rules, purposeful spacious composition, no rounded cards, no tiny text. Strictly single-column mobile reflow. CTA height 56px and width 342px; smaller controls 44px. Pixel sizes above are at logical width390 and must scale with actual image width. All copy in COPY must appear, exactly; line breaks can move only at Japanese meaning boundaries. Render Japanese glyphs carefully, do not substitute or summarize. Do not add English labels, slogans, facts or navigation that are not in COPY.\nCANVAS: target 780×1160px, portrait ratio 390:580; final display 390×580px. Full canvas is this one section, never a full-page overview. Use entire height with readable type; no compressed miniature page.\nREFERENCE ROLES: Attached accepted mobile hero is the actual typography, palette, material and photo-world style reference. Do not repeat its header, hero copy or branding in this section unless listed below.\nCOMPOSITION: No photo; cream spacious verification section, four ruled rows with orange thin vertical markers.\nEDGES: Top edge #F4F1EB; bottom edge #F4F1EB. Flat edge colours, no outer stroke, no vignette along left/right paper edges. Start chapter label 48px from top; finish after 40px breathing space. Clear visual hierarchy; don't distribute text into tiny distant islands.\nEXACT COPY IN READING ORDER:\nMAIN HEADLINE: \"確認し、\n引き継げる状態へ。\"\n\"06 / 検証・引継ぎ\"\n\"支援終了後も、継続して\n改善できる状態をつくります。\"\n\"担当範囲\"\n\"成果物\"\n\"意思決定記録\"\n\"検証・引継ぎ方法\"\nNo CTA button for this section. Arrows only when shown as existing choice affordances.\nImportant: chapter labels precede headlines visually even though copy list is semantic. Preserve every supplied condition and example qualifier. No clipping, no text behind images, no microscopic footnotes."
+    },
+    {
+      "id": "08-contact",
+      "h": 940,
+      "purpose": "問い合わせとサイト内導線",
+      "head": "課題が整理できていなくても、\nお問い合わせいただけます。",
+      "copy": [
+        "ADELVA",
+        "課題から探す",
+        "支援内容",
+        "支援の進め方",
+        "導入事例",
+        "ADELVAについて",
+        "プライバシーポリシー",
+        "サイトポリシー",
+        "© ADELVA"
+      ],
+      "cta": [
+        "問い合わせを送信"
+      ],
+      "photo": "Top cinematic mountain and reflection photo smoothly fades into deep navy; Japanese headline in solid dark readable upper region and orange CTA. Large ADELVA 80px between image and footer. Five 44px navigation rows and two 13px legal links. Footer bottom pure navy.",
+      "top": "#0E2233",
+      "bottom": "#0E2233",
+      "promptFile": "prompts/owners-08-contact.txt",
+      "references": [
+        "/home/kokoro/projects/clients/clonetest/references/adelva/mockups/mobile-section-redesign-2026-09-09/owners/sections/00-hero.png"
+      ],
+      "prompt": "Generate a final-quality, beautifully art-directed Japanese ADELVA mobile website UI mock image, a single section to be joined vertically with other sections. This is a fully composed raster UI with exact Japanese text, not a photo asset. No browser chrome, phone frame, outer margins, presentation annotations or invented copy.\nDESIGN SYSTEM: physical output ideally twice logical dimensions. Design for 390px screen width, side padding 24px, text area 342px. Japanese body 15px (30px at 780px wide), readable sans serif medium/regular, line height 25px. Section Japanese headings 30px (60 at 780), refined Japanese Mincho serif, line height 43px. Supporting labels 13px (26 at 780), never smaller than 12px logical. Large English uses strong condensed grotesk. Navy #0E2233, warm paper #F4F1EB, restrained burnt orange #CE773F. High contrast text; on orange buttons use navy lettering. Thin rules, purposeful spacious composition, no rounded cards, no tiny text. Strictly single-column mobile reflow. CTA height 56px and width 342px; smaller controls 44px. Pixel sizes above are at logical width390 and must scale with actual image width. All copy in COPY must appear, exactly; line breaks can move only at Japanese meaning boundaries. Render Japanese glyphs carefully, do not substitute or summarize. Do not add English labels, slogans, facts or navigation that are not in COPY.\nCANVAS: target 780×1880px, portrait ratio 390:940; final display 390×940px. Full canvas is this one section, never a full-page overview. Use entire height with readable type; no compressed miniature page.\nREFERENCE ROLES: Attached accepted mobile hero is the actual typography, palette, material and photo-world style reference. Do not repeat its header, hero copy or branding in this section unless listed below.\nCOMPOSITION: Top cinematic mountain and reflection photo smoothly fades into deep navy; Japanese headline in solid dark readable upper region and orange CTA. Large ADELVA 80px between image and footer. Five 44px navigation rows and two 13px legal links. Footer bottom pure navy.\nEDGES: Top edge #0E2233; bottom edge #0E2233. Flat edge colours, no outer stroke, no vignette along left/right paper edges. Start chapter label 48px from top; finish after 40px breathing space. Clear visual hierarchy; don't distribute text into tiny distant islands.\nEXACT COPY IN READING ORDER:\nMAIN HEADLINE: \"課題が整理できていなくても、\nお問い合わせいただけます。\"\n\"ADELVA\"\n\"課題から探す\"\n\"支援内容\"\n\"支援の進め方\"\n\"導入事例\"\n\"ADELVAについて\"\n\"プライバシーポリシー\"\n\"サイトポリシー\"\n\"© ADELVA\"\nCTA BUTTON(S):\n\"問い合わせを送信 →\"\nImportant: chapter labels precede headlines visually even though copy list is semantic. Preserve every supplied condition and example qualifier. No clipping, no text behind images, no microscopic footnotes."
+    }
+  ]
+}

@@ -1,0 +1,744 @@
+import { expect, test, type Locator, type Page } from "@playwright/test";
+
+/**
+ * Global-shell acceptance contract for the HOME rebuild.
+ *
+ * The shell is deliberately tested separately from page-content.  The menu,
+ * footer, and film portal are shared by every route, while the HOME hero is
+ * the only place where the video/cloud/mist choreography lives.  All waits in
+ * this file observe a state or a geometry boundary; none depend on an
+ * arbitrary sleep.
+ */
+
+const viewports = [
+  { name: "desktop", width: 1440, height: 900 },
+  { name: "tablet", width: 768, height: 1024 },
+  { name: "mobile", width: 390, height: 844 },
+] as const;
+
+// A running dev server can be selected for local verification without
+// changing the repository's canonical Playwright config.
+const configuredBaseURL = process.env.PLAYWRIGHT_TEST_BASE_URL;
+
+type ViewportName = (typeof viewports)[number]["name"];
+type ReducedMotion = "no-preference" | "reduce";
+
+interface Rect {
+  readonly x: number;
+  readonly y: number;
+  readonly width: number;
+  readonly height: number;
+}
+
+interface FooterGeometry {
+  readonly footer: number;
+  readonly main: number;
+  readonly bottom: number;
+  readonly info: number;
+}
+
+interface LayerState {
+  readonly transform: string;
+  readonly y: number;
+  readonly m22: number;
+  readonly m23: number;
+  readonly filter: string;
+}
+
+interface HeroState {
+  readonly scrollY: number;
+  readonly near: LayerState;
+  readonly far: LayerState;
+  readonly mist: LayerState;
+}
+
+interface BrowserErrors {
+  readonly console: string[];
+  readonly page: string[];
+  readonly hydration: string[];
+}
+
+/**
+ * Authorized ADELVA navigation geometry.
+ *
+ * Every value below comes from `docs/specs/adelva-navigation-spec.md` §4, not
+ * from the retired White Desert masthead: the header is an authorized
+ * replacement rather than a reconstruction, so the target's drawer geometry no
+ * longer governs it.
+ */
+const BAR_HEIGHT: Record<ViewportName, { readonly top: number; readonly compact: number }> =
+  {
+    desktop: { top: 76, compact: 60 },
+    tablet: { top: 64, compact: 56 },
+    mobile: { top: 60, compact: 54 },
+  };
+
+/** The drawer is a right-hand sheet: `min(26rem, 100vw)`. */
+const DRAWER_RECT: Record<"tablet" | "mobile", Rect> = {
+  tablet: { x: 352, y: 0, width: 416, height: 1024 },
+  mobile: { x: 0, y: 0, width: 390, height: 844 },
+};
+
+const PRIMARY_ITEMS = [
+  "課題から探す",
+  "支援内容",
+  "支援の進め方",
+  "導入事例",
+  "ADELVAについて",
+] as const;
+
+const MEGA_PANELS = {
+  challenges: {
+    label: "課題から探すメニュー",
+    links: [
+      ["課題一覧を見る", "/challenges"],
+      ["オーナー・経営者の方へ", "/challenges/owners"],
+      ["総支配人・現場責任者の方へ", "/challenges/general-managers"],
+      ["経営・収益を改善したい", "/challenges#management-profit"],
+      ["開業・運営体制を整えたい", "/challenges#opening-operations"],
+      ["現場品質・人材を改善したい", "/challenges#operations-people"],
+      ["集客・ブランドを強くしたい", "/challenges#revenue-brand"],
+      ["DX・IT・調達を整えたい", "/challenges#digital-foundation"],
+    ],
+  },
+  services: {
+    label: "支援内容メニュー",
+    links: [
+      ["支援内容一覧", "/services"],
+      ["経営・運営統括", "/services/management-operations"],
+      ["経営診断・改善", "/services/management-operations/management-improvement"],
+      ["開業・運営体制", "/services/management-operations/opening-operations"],
+      ["現場運営改善", "/services/management-operations/operations-improvement"],
+      ["人材・採用", "/services/management-operations/people-recruitment"],
+      ["収益・ブランド成長", "/services/revenue-brand"],
+      ["集客・販売チャネル支援", "/services/revenue-brand/acquisition-sales"],
+      ["Webサイト・ビジュアル制作", "/services/revenue-brand/web-visual-production"],
+      ["SNS運用支援", "/services/revenue-brand/social-media-operations"],
+      ["DX・IT・調達基盤", "/services/dx-it-procurement"],
+      ["DX・システム導入・個別開発", "/services/dx-it-procurement/system-delivery"],
+      ["IT運用・保守", "/services/dx-it-procurement/it-operations-maintenance"],
+      ["アメニティ調達支援", "/services/dx-it-procurement/amenity-procurement"],
+    ],
+  },
+  about: {
+    label: "ADELVAについてメニュー",
+    links: [
+      ["ADELVAについて", "/about"],
+      ["私たちの役割", "/about#role"],
+      ["支援スタンス", "/about#stance"],
+      ["会社概要", "/about#company"],
+    ],
+  },
+} as const;
+
+type MegaId = keyof typeof MEGA_PANELS;
+
+const FOOTER_GEOMETRY: Record<ViewportName, FooterGeometry> = {
+  desktop: { footer: 945.97, main: 433.52, bottom: 292.47, info: 85.95 },
+  tablet: { footer: 1024, main: 530.56, bottom: 233.94, info: 116.95 },
+  mobile: { footer: 2132.94, main: 1709.75, bottom: 399.19, info: 304.56 },
+};
+
+const FOOTER_BADGES = [
+  "IAATO",
+  "Carbon Neutral",
+  "Global Vision Awards",
+  "Condé Nast",
+  "TripAdvisor",
+  "20 Years",
+] as const;
+
+const FOOTER_COPY = [
+  "Guests Enquiries",
+  "Trade Enquiries",
+  "Other Enquiries",
+  "Itineraries",
+  "Camps",
+  "Antarctica",
+  "About",
+  "Social",
+  "Watch Film",
+  "Dates & Rates",
+  "Enquire now",
+  "Newsletter Signup",
+  "We all have our own white South",
+  "Sir Ernest Shackleton",
+  "Website Terms of Use",
+  "Booking Terms",
+  "Privacy Policy",
+  "Cookies Policy",
+  "Website by",
+  "Malvah",
+  "Whitedesert©2026. All rights reserved.",
+] as const;
+
+const FOOTER_LINKS = [
+  ["Website Terms of Use", "/legal/website-terms"],
+  ["Booking Terms", "/legal/booking-terms"],
+  ["Privacy Policy", "/legal/privacy-policy"],
+  ["Cookies Policy", "/legal/cookies"],
+  ["Dates & Rates", "/prices"],
+  ["Enquire now", "/enquire"],
+] as const;
+
+function collectBrowserErrors(page: Page): BrowserErrors {
+  const errors: BrowserErrors = {
+    console: [],
+    page: [],
+    hydration: [],
+  };
+
+  page.on("console", (message) => {
+    const text = message.text();
+    if (message.type() === "error") {
+      errors.console.push(text);
+    }
+    if (/hydration|hydrat(?:e|ed|ing)/i.test(text)) {
+      errors.hydration.push(`console: ${text}`);
+    }
+  });
+  page.on("pageerror", (error) => {
+    errors.page.push(error.message);
+    if (/hydration|hydrat(?:e|ed|ing)/i.test(error.message)) {
+      errors.hydration.push(`page: ${error.message}`);
+    }
+  });
+
+  return errors;
+}
+
+function expectNoBrowserErrors(errors: BrowserErrors): void {
+  expect(errors.console, "browser console errors").toEqual([]);
+  expect(errors.page, "uncaught page errors").toEqual([]);
+  expect(errors.hydration, "hydration errors").toEqual([]);
+}
+
+async function loadHome(
+  page: Page,
+  viewport: (typeof viewports)[number],
+  reducedMotion: ReducedMotion,
+): Promise<void> {
+  await page.setViewportSize({ width: viewport.width, height: viewport.height });
+  await page.emulateMedia({ reducedMotion });
+  await page.goto(
+    configuredBaseURL ? new URL("/", configuredBaseURL).toString() : "/",
+    { waitUntil: "domcontentloaded" },
+  );
+  await page.evaluate(() => document.fonts.ready);
+  await expect(page.locator("header.masthead")).toHaveCount(1);
+  await expect(page.locator("main#main-content")).toHaveCount(1);
+  await expect(page.locator("[data-site-footer]")).toHaveCount(1);
+}
+
+async function expectRect(
+  locator: Locator,
+  expected: Rect,
+  label: string,
+  tolerance = 1.5,
+): Promise<void> {
+  await expect
+    .poll(
+      async () => {
+        const box = await locator.boundingBox();
+        if (!box) return false;
+        return (
+          Math.abs(box.x - expected.x) <= tolerance &&
+          Math.abs(box.y - expected.y) <= tolerance &&
+          Math.abs(box.width - expected.width) <= tolerance &&
+          Math.abs(box.height - expected.height) <= tolerance
+        );
+      },
+      { message: `${label} did not settle to the measured rectangle` },
+    )
+    .toBe(true);
+}
+
+async function scrollInstant(page: Page, top: number): Promise<void> {
+  await page.evaluate((target) => {
+    window.scrollTo({ top: target, left: 0, behavior: "instant" as ScrollBehavior });
+  }, top);
+  await expect
+    .poll(() => page.evaluate(() => Math.round(window.scrollY)), {
+      message: `document did not reach scrollY=${Math.round(top)}`,
+    })
+    .toBe(Math.round(top));
+}
+
+async function visibleMenuOpener(
+  page: Page,
+  viewport: (typeof viewports)[number],
+): Promise<Locator> {
+  if (viewport.name === "mobile") {
+    const menuButton = page.getByRole("button", { name: "Menu", exact: true });
+    await expect(menuButton).toBeVisible();
+    return menuButton;
+  }
+
+  const experience = page.locator("header.masthead .masthead__tab").first();
+  await expect(experience).toBeVisible();
+  return experience;
+}
+
+async function openMenu(
+  page: Page,
+  viewport: (typeof viewports)[number],
+): Promise<{ readonly menu: Locator; readonly opener: Locator }> {
+  const opener = await visibleMenuOpener(page, viewport);
+  await opener.click();
+  const menu = page.locator("#site-menu");
+  await expect(menu).toHaveAttribute("data-open", "true");
+  await expect(menu).toBeVisible();
+  return { menu, opener };
+}
+
+async function readHeroState(page: Page): Promise<HeroState> {
+  return page.evaluate(() => {
+    const read = (id: string): LayerState => {
+      const element = document.querySelector<HTMLElement>(
+        `[data-motion-layer="${id}"]`,
+      );
+      if (!element) throw new Error(`Missing hero motion layer: ${id}`);
+      const style = getComputedStyle(element);
+      const matrix =
+        style.transform === "none" ? null : new DOMMatrixReadOnly(style.transform);
+      return {
+        transform: style.transform,
+        y: matrix?.m42 ?? 0,
+        m22: matrix?.m22 ?? 1,
+        m23: matrix?.m23 ?? 0,
+        filter: style.filter,
+      };
+    };
+
+    return {
+      scrollY: window.scrollY,
+      near: read("cloud-near"),
+      far: read("cloud-far"),
+      mist: read("mist-plane"),
+    };
+  });
+}
+
+async function waitForHeroState(
+  page: Page,
+  top: number,
+  predicate: (state: HeroState) => boolean,
+): Promise<HeroState> {
+  await expect
+    .poll(
+      async () => {
+        const state = await readHeroState(page);
+        return Math.round(state.scrollY) === Math.round(top) && predicate(state);
+      },
+      { message: `hero motion did not resolve at scrollY=${Math.round(top)}` },
+    )
+    .toBe(true);
+  return readHeroState(page);
+}
+
+test.describe("global menu geometry and interaction", () => {
+  for (const viewport of viewports) {
+    test(`${viewport.name}: measured panel, controls, labels, lock, and Escape restoration`, async ({
+      page,
+    }) => {
+      const errors = collectBrowserErrors(page);
+      await loadHome(page, viewport, "no-preference");
+
+      // Arrive at a non-zero reading position while keeping the fixed opener
+      // on screen. This makes a programmatic scroll-lock failure observable.
+      await scrollInstant(page, 600);
+      await scrollInstant(page, 400);
+      await expect(page.locator("header.masthead")).not.toHaveAttribute(
+        "data-retracted",
+        "true",
+      );
+      const { menu, opener } = await openMenu(page, viewport);
+      const expected = MENU_GEOMETRY[viewport.name];
+
+      await expectRect(menu, expected.panel, `${viewport.name} menu panel`);
+      await expectRect(
+        menu.getByRole("button", { name: "Close", exact: true }),
+        expected.close,
+        `${viewport.name} Close`,
+      );
+      await expectRect(
+        menu.locator(".menu__home"),
+        expected.home,
+        `${viewport.name} Home`,
+      );
+
+      const tabs = menu.locator(".menu__tab");
+      await expect(tabs).toHaveCount(3);
+      for (const [index, rectangle] of expected.tabs.entries()) {
+        await expectRect(tabs.nth(index), rectangle, `${viewport.name} tab ${index}`);
+      }
+
+      const actions = menu.locator(".menu__action");
+      await expect(actions).toHaveCount(2);
+      await expect(actions.nth(0)).toHaveText("Dates & Prices");
+      await expect(actions.nth(1)).toHaveText("Enquire now");
+      await expect(actions.nth(0)).toHaveAttribute("href", "/prices");
+      await expect(menu.locator(".menu__action").nth(1)).toHaveAttribute(
+        "href",
+        "/enquire",
+      );
+
+      for (const [index, rectangle] of expected.actions.entries()) {
+        await expectRect(
+          actions.nth(viewport.name === "desktop" ? 1 : index),
+          rectangle,
+          `${viewport.name} action ${index}`,
+        );
+      }
+
+      // The desktop drawer keeps Close visually dormant for mouse users. The
+      // same control must become visible and keyboard-operable when focused.
+      const close = menu.getByRole("button", { name: "Close", exact: true });
+      if (viewport.name === "desktop") {
+        const idleOpacity = await close.evaluate((element) => {
+          element.blur();
+          return Number.parseFloat(getComputedStyle(element).opacity);
+        });
+        expect(idleOpacity, "desktop Close is opacity-zero until focused").toBe(0);
+
+        // Put focus back on the opener and let the modal's keyboard trap move
+        // it through the first exposed control. This exercises :focus-visible
+        // without depending on a pointer-click focus heuristic.
+        await opener.focus();
+        await page.keyboard.press("Tab");
+        await expect(close).toBeFocused();
+        await expect
+          .poll(() =>
+            close.evaluate((element) =>
+              Number.parseFloat(getComputedStyle(element).opacity),
+            ),
+          )
+          .toBeGreaterThan(0.99);
+      } else {
+        await expect(close).toBeFocused();
+      }
+
+      if (viewport.name !== "tablet") {
+        await expect(opener).toHaveAttribute("aria-expanded", "true");
+      }
+      await expect(page.locator("html")).toHaveAttribute("data-scroll-locked", "true");
+      expect(await page.evaluate(() => Math.round(window.scrollY))).toBe(400);
+
+      const beforeLock = await page.evaluate(() => ({
+        bodyTop: document.body.getBoundingClientRect().top,
+        scrollHeight: document.documentElement.scrollHeight,
+        clientWidth: document.documentElement.clientWidth,
+      }));
+
+      // Native, script, wheel, and keyboard scroll sources must all leave the
+      // document at the acquisition coordinate.
+      await page.evaluate(() => window.scrollTo(0, 700));
+      await expect
+        .poll(() => page.evaluate(() => Math.round(window.scrollY)))
+        .toBe(400);
+      await page.evaluate(() => {
+        document.querySelector("[data-site-footer]")?.scrollIntoView();
+      });
+      await expect
+        .poll(() => page.evaluate(() => Math.round(window.scrollY)))
+        .toBe(400);
+      await page.mouse.wheel(0, 700);
+      await expect
+        .poll(() => page.evaluate(() => Math.round(window.scrollY)))
+        .toBe(400);
+      await page.keyboard.press("PageDown");
+      await page.keyboard.press("End");
+      await expect
+        .poll(() => page.evaluate(() => Math.round(window.scrollY)))
+        .toBe(400);
+
+      const duringLock = await page.evaluate(() => ({
+        bodyTop: document.body.getBoundingClientRect().top,
+        scrollHeight: document.documentElement.scrollHeight,
+        clientWidth: document.documentElement.clientWidth,
+      }));
+      expect(duringLock.bodyTop).toBeCloseTo(beforeLock.bodyTop, 1);
+      expect(duringLock.scrollHeight).toBe(beforeLock.scrollHeight);
+      expect(duringLock.clientWidth).toBe(beforeLock.clientWidth);
+
+      // Tab/Shift+Tab never escape the modal, and Escape closes it while
+      // returning focus to the exact control that opened it.
+      for (let index = 0; index < 4; index += 1) {
+        await page.keyboard.press("Tab");
+        await expect
+          .poll(() =>
+            menu.evaluate((element) => element.contains(document.activeElement)),
+          )
+          .toBe(true);
+      }
+      await page.keyboard.press("Shift+Tab");
+      await expect
+        .poll(() =>
+          menu.evaluate((element) => element.contains(document.activeElement)),
+        )
+        .toBe(true);
+
+      await page.keyboard.press("Escape");
+      await expect(menu).toHaveAttribute("data-open", "false");
+      await expect(menu).toBeHidden();
+      if (viewport.name !== "tablet") {
+        await expect(opener).toHaveAttribute("aria-expanded", "false");
+      }
+      await expect(opener).toBeFocused();
+      expect(await page.evaluate(() => Math.round(window.scrollY))).toBe(400);
+
+      expectNoBrowserErrors(errors);
+    });
+  }
+
+  for (const viewport of viewports) {
+    for (const reducedMotion of ["no-preference", "reduce"] as const) {
+      test(`${viewport.name} / ${reducedMotion}: focus enters and reopens cleanly`, async ({
+        page,
+      }) => {
+        const errors = collectBrowserErrors(page);
+        await loadHome(page, viewport, reducedMotion);
+        const { menu, opener } = await openMenu(page, viewport);
+        const close = menu.getByRole("button", { name: "Close", exact: true });
+
+        await expect(menu).toBeVisible();
+        await expect(close).toBeFocused();
+        await page.keyboard.press("Escape");
+        await expect(menu).toBeHidden();
+        await expect(opener).toBeFocused();
+
+        await opener.click();
+        await expect(menu).toBeVisible();
+        await expect(close).toBeFocused();
+        await page.keyboard.press("Escape");
+        await expect(menu).toBeHidden();
+        await expect(opener).toBeFocused();
+        expectNoBrowserErrors(errors);
+      });
+    }
+  }
+});
+
+test.describe("global footer geometry and content", () => {
+  for (const viewport of viewports) {
+    test(`${viewport.name}: dimensions, badges, navigation, and content remain complete`, async ({
+      page,
+    }) => {
+      const errors = collectBrowserErrors(page);
+      await loadHome(page, viewport, "no-preference");
+      const footer = page.locator("[data-site-footer]");
+      const expected = FOOTER_GEOMETRY[viewport.name];
+
+      const actual = await footer.evaluate((element) => {
+        const getHeight = (selector: string) => {
+          const child = element.querySelector<HTMLElement>(selector);
+          if (!child) throw new Error(`Missing footer landmark: ${selector}`);
+          return child.getBoundingClientRect().height;
+        };
+        return {
+          footer: element.getBoundingClientRect().height,
+          main: getHeight(".colophon__main"),
+          bottom: getHeight(".colophon__bottom"),
+          info: getHeight(".colophon__info"),
+        };
+      });
+
+      for (const [name, value] of Object.entries(expected)) {
+        expect(
+          Math.abs(actual[name as keyof FooterGeometry] - value),
+          `${viewport.name} footer ${name}`,
+        ).toBeLessThanOrEqual(2);
+      }
+
+      const badges = footer.locator(".colophon__badges img");
+      await expect(badges).toHaveCount(FOOTER_BADGES.length);
+      expect(
+        await badges.evaluateAll((images) =>
+          images.every((image) => {
+            const element = image as HTMLImageElement;
+            const box = element.getBoundingClientRect();
+            return (
+              element.width === 42 &&
+              element.height === 42 &&
+              Math.abs(box.width - 42) <= 0.5 &&
+              Math.abs(box.height - 42) <= 0.5
+            );
+          }),
+        ),
+      ).toBe(true);
+      expect(
+        await badges.evaluateAll((images) =>
+          images.map((image) => (image as HTMLImageElement).alt),
+        ),
+      ).toEqual([...FOOTER_BADGES]);
+      for (const copy of FOOTER_COPY) {
+        await expect(footer, `missing footer content: ${copy}`).toContainText(copy);
+      }
+      for (const [label, href] of FOOTER_LINKS) {
+        await expect(
+          footer.getByRole("link", { name: label, exact: true }),
+        ).toHaveAttribute("href", href);
+      }
+
+      expectNoBrowserErrors(errors);
+    });
+  }
+});
+
+test.describe("HOME hero media, cloud/mist scroll state, and film dialog", () => {
+  for (const viewport of viewports) {
+    test(`${viewport.name}: video plays and cloud/mist state reverses deterministically`, async ({
+      page,
+    }) => {
+      const errors = collectBrowserErrors(page);
+      await loadHome(page, viewport, "no-preference");
+
+      const video = page.locator('[data-fidelity-section="hero"] video');
+      await expect(video).toHaveCount(1);
+      await expect
+        .poll(
+          () =>
+            video.evaluate((element) => {
+              const player = element as HTMLVideoElement;
+              return (
+                player.autoplay &&
+                player.loop &&
+                player.muted &&
+                player.playsInline &&
+                !player.paused &&
+                player.currentTime > 0
+              );
+            }),
+          {
+            message: `${viewport.name} hero video never entered the playing state`,
+            timeout: 10_000,
+          },
+        )
+        .toBe(true);
+
+      const start = await waitForHeroState(page, 0, () => true);
+      const halfwayTop = Math.round(viewport.height * 0.2);
+      await scrollInstant(page, halfwayTop);
+      const direct = await waitForHeroState(
+        page,
+        halfwayTop,
+        (state) =>
+          Math.abs(state.near.y - start.near.y) > 1 &&
+          Math.abs(state.far.y - start.far.y) > 1,
+      );
+      await scrollInstant(page, viewport.height);
+      const middle = await waitForHeroState(
+        page,
+        viewport.height,
+        (state) =>
+          Math.abs(state.near.y - start.near.y) > 1 &&
+          Math.abs(state.far.y - start.far.y) > 1 &&
+          Math.abs(state.mist.m23 - start.mist.m23) > 0.03,
+      );
+
+      expect(Math.abs(middle.near.y - start.near.y)).toBeGreaterThan(1);
+      expect(Math.abs(middle.far.y - start.far.y)).toBeGreaterThan(1);
+      expect(Math.abs(middle.mist.m23 - start.mist.m23)).toBeGreaterThan(0.03);
+      expect(middle.near.transform).not.toBe(start.near.transform);
+      expect(middle.far.transform).not.toBe(start.far.transform);
+      expect(middle.mist.transform).not.toBe(start.mist.transform);
+
+      await scrollInstant(page, halfwayTop);
+      const reversed = await waitForHeroState(
+        page,
+        halfwayTop,
+        (state) =>
+          Math.abs(state.near.y - direct.near.y) <= 1.5 &&
+          Math.abs(state.far.y - direct.far.y) <= 1.5 &&
+          Math.abs(state.mist.m23 - direct.mist.m23) <= 0.02,
+      );
+
+      expect(Math.abs(reversed.near.y - direct.near.y)).toBeLessThanOrEqual(1.5);
+      expect(Math.abs(reversed.far.y - direct.far.y)).toBeLessThanOrEqual(1.5);
+      expect(Math.abs(reversed.mist.m23 - direct.mist.m23)).toBeLessThanOrEqual(0.02);
+      expectNoBrowserErrors(errors);
+    });
+  }
+
+  for (const viewport of viewports) {
+    test(`${viewport.name}: Watch Film opens a local video dialog and restores focus`, async ({
+      page,
+    }) => {
+      const errors = collectBrowserErrors(page);
+      await loadHome(page, viewport, "no-preference");
+
+      const trigger = page.locator('[data-fidelity-section="hero"] [data-watch-film]');
+      const dialog = page.locator("dialog.film-dialog");
+      const dialogVideo = dialog.locator("video");
+      await expect(trigger).toHaveCount(1);
+      await trigger.click();
+      await expect
+        .poll(() => dialog.evaluate((element) => (element as HTMLDialogElement).open))
+        .toBe(true);
+      await expect(dialog).toBeVisible();
+      await expect(
+        dialog.getByRole("button", { name: "Close", exact: true }),
+      ).toBeFocused();
+      await expect(dialogVideo).toHaveCount(1);
+      await expect(dialogVideo).toHaveAttribute("controls", "");
+      const source = await dialogVideo.evaluate(
+        (element) =>
+          (element as HTMLVideoElement).currentSrc ||
+          element.querySelector("source")?.getAttribute("src") ||
+          "",
+      );
+      expect(new URL(source, page.url()).pathname).toMatch(/^\/media\/video\/.*\.mp4$/);
+      await expect(page.locator("html")).toHaveAttribute("data-scroll-locked", "true");
+
+      await dialog.getByRole("button", { name: "Close", exact: true }).click();
+      await expect
+        .poll(() => dialog.evaluate((element) => (element as HTMLDialogElement).open))
+        .toBe(false);
+      await expect(dialog).not.toBeVisible();
+      await expect(trigger).toBeFocused();
+      await expect(page.locator("html")).not.toHaveAttribute(
+        "data-scroll-locked",
+        "true",
+      );
+      expectNoBrowserErrors(errors);
+    });
+  }
+
+  for (const viewport of viewports) {
+    test(`${viewport.name}: Newsletter Signup toggles and returns focus`, async ({
+      page,
+    }) => {
+      const errors = collectBrowserErrors(page);
+      await loadHome(page, viewport, "no-preference");
+
+      const footer = page.locator("[data-site-footer]");
+      const trigger = footer.getByRole("button", {
+        name: "Newsletter Signup",
+        exact: true,
+      });
+      const panel = footer.locator("#newsletter-panel");
+      await expect(trigger).toHaveAttribute("aria-expanded", "false");
+      await expect(panel).toBeHidden();
+      await trigger.click();
+      await expect(trigger).toHaveAttribute("aria-expanded", "true");
+      await expect(panel).toHaveAttribute("data-open", "true");
+      await expect(panel).toBeVisible();
+      await expect(panel).not.toHaveAttribute("inert");
+      await expect(
+        panel.getByRole("heading", { name: "Newsletter Signup" }),
+      ).toBeVisible();
+      await expect(panel.getByPlaceholder("Name & Surname")).toBeVisible();
+      await expect(panel.getByPlaceholder("Email Address")).toBeVisible();
+
+      const close = panel.getByRole("button", {
+        name: "Close newsletter signup",
+        exact: true,
+      });
+      await close.click();
+      await expect(panel).toBeHidden();
+      await expect(trigger).toBeFocused();
+      await expect(trigger).toHaveAttribute("aria-expanded", "false");
+      expectNoBrowserErrors(errors);
+    });
+  }
+});

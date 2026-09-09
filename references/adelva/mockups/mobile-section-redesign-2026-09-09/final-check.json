@@ -1,0 +1,27 @@
+{
+  "files": [
+    {
+      "page": "general-managers",
+      "width": 390,
+      "height": 7616,
+      "bytes": 4348275,
+      "sections": 9,
+      "sha256": "06896554244e4e8bdb8a519c1d89f19b5a1c70fde5ec96b318269bc9e806572f",
+      "allSectionsMatchResizedPixels": true
+    },
+    {
+      "page": "owners",
+      "width": 390,
+      "height": 6954,
+      "bytes": 3887937,
+      "sections": 9,
+      "sha256": "792a349577e595113d9e29f402e6f3973606d40fdb9347a02f8cb0d041b8b729",
+      "allSectionsMatchResizedPixels": true
+    }
+  ],
+  "acceptedCount": 18,
+  "allPromptsPresent": true,
+  "cleanupRemoved": 72,
+  "copyReview": "Manual reading against COPY.md; no major omission or unreadable text found. Specific typography/dimension differences in README.md.",
+  "viewportReview": "All complete page ranges reviewed at width390, in844px slices; affected ranges reviewed again after final image edits."
+}

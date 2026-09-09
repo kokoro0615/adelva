@@ -1,0 +1,222 @@
+{
+  "schemaVersion": "full-page-section-manifest/v1",
+  "manifestId": "prices-implementation-v1",
+  "role": "implementation",
+  "route": "/prices",
+  "family": "rates",
+  "scope": {
+    "kind": "route-content",
+    "id": "prices-content"
+  },
+  "source": {
+    "url": "http://127.0.0.1:4517",
+    "requestedRoute": "/prices",
+    "finalRoutes": ["/prices"],
+    "observedAt": "2026-08-31T01:32:52.750Z",
+    "contentRoot": "main#main-content > [data-page-content], main#main-content > [data-index-page-content], main#main-content > .page-content, main#main-content > .stage",
+    "status": "pending-capture",
+    "captureMode": "manifest-only",
+    "evidenceStatus": "pending-capture"
+  },
+  "requiredViewports": ["desktop", "tablet", "mobile"],
+  "tolerances": {
+    "boundsPx": 2,
+    "scrollHeightPx": 2
+  },
+  "domTopology": {
+    "scope": "main#main-content > [data-page-content], main#main-content > [data-index-page-content], main#main-content > .page-content, main#main-content > .stage",
+    "directChildren": [
+      "hero",
+      "rates-body",
+      "a-considered-way-to-travel",
+      "start-planning"
+    ]
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "semantic": "section | banner fixed-banner_wrap-small | Dates & Rates",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Dates & Rates",
+      "assets": [
+        "/_next/image?url=%2Fmedia%2Ftarget%2Fdetail%2Fprices-1.webp&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 585
+        },
+        "tablet": {
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 666
+        },
+        "mobile": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 549
+        }
+      }
+    },
+    {
+      "id": "rates-body",
+      "semantic": "section | section rates rates-body | 2026 – 2027",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "2026 – 2027",
+      "keyLinks": ["/enquire"],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 585,
+          "width": 1440,
+          "height": 4074
+        },
+        "tablet": {
+          "x": 0,
+          "y": 666,
+          "width": 768,
+          "height": 8371
+        },
+        "mobile": {
+          "x": 0,
+          "y": 549,
+          "width": 390,
+          "height": 6971
+        }
+      }
+    },
+    {
+      "id": "a-considered-way-to-travel",
+      "semantic": "section | section blue editorial-wrap | A considered way to travel",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "A considered way to travel",
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 4659,
+          "width": 1440,
+          "height": 540
+        },
+        "tablet": {
+          "x": 0,
+          "y": 9037,
+          "width": 768,
+          "height": 540
+        },
+        "mobile": {
+          "x": 0,
+          "y": 7520,
+          "width": 390,
+          "height": 321
+        }
+      }
+    },
+    {
+      "id": "start-planning",
+      "semantic": "section | section light editorial-wrap | Start planning",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Start planning",
+      "assets": [
+        "/_next/image?url=%2Fmedia%2Ftarget%2Fdetail%2Fprices-2.webp&w=3840&q=75",
+        "/_next/image?url=%2Fmedia%2Ftarget%2Fdetail%2Fprices-3.webp&w=3840&q=75",
+        "/_next/image?url=%2Fmedia%2Ftarget%2Fdetail%2Fprices-4.webp&w=3840&q=75",
+        "/_next/image?url=%2Fmedia%2Ftarget%2Fdetail%2Fprices-5.webp&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 5199,
+          "width": 1440,
+          "height": 4050
+        },
+        "tablet": {
+          "x": 0,
+          "y": 9577,
+          "width": 768,
+          "height": 4608
+        },
+        "mobile": {
+          "x": 0,
+          "y": 7841,
+          "width": 390,
+          "height": 2630
+        }
+      }
+    }
+  ],
+  "viewports": {
+    "desktop": {
+      "width": 1440,
+      "height": 900,
+      "scrollHeight": 10195,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/actual/prices-1440x900-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "tablet": {
+      "width": 768,
+      "height": 1024,
+      "scrollHeight": 15209,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/actual/prices-768x1024-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "scrollHeight": 12604,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/actual/prices-390x844-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    }
+  },
+  "motion": {
+    "status": "incomplete",
+    "unknown": [
+      "motion evidence remains pending until four phase captures exist for every layer and viewport"
+    ],
+    "layers": []
+  }
+}

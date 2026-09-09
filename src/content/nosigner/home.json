@@ -1,0 +1,1955 @@
+{
+  "hero": [
+    {
+      "title": "廃棄物をその場で建材に変換したオフィス。",
+      "mode": "how",
+      "href": "https://nosigner.com/ja/projects/office",
+      "image": {
+        "src": "/media/nosigner/b60818909437.webp",
+        "width": 2560,
+        "height": 1600,
+        "srcSet": null
+      }
+    },
+    {
+      "title": "楽しい防災ブックを東京都全世帯に配布する​​​​​​​​​​​​​​。",
+      "mode": "how",
+      "href": "https://nosigner.com/ja/projects/bousai",
+      "image": {
+        "src": "/media/nosigner/673607080233.webp",
+        "width": 2560,
+        "height": 1600,
+        "srcSet": null
+      }
+    },
+    {
+      "title": "地域に宿る百の体験を提供する宿。",
+      "mode": "how",
+      "href": "https://nosigner.com/ja/projects/byaku",
+      "image": {
+        "src": "/media/nosigner/0658eb034a54.webp",
+        "width": 2560,
+        "height": 1600,
+        "srcSet": null
+      }
+    },
+    {
+      "title": "生物の進化から、創造性教育を体系化する​​​​​​​。",
+      "mode": "how",
+      "href": "https://nosigner.com/ja/projects/evolutional-creativity",
+      "image": {
+        "src": "/media/nosigner/b34f964d52a3.webp",
+        "width": 1728,
+        "height": 1080,
+        "srcSet": "/media/nosigner/da2f15d1fb4a.webp 640w, /media/nosigner/fc1904dae500.webp 960w, /media/nosigner/a3016264fb16.webp 1280w, /media/nosigner/b34f964d52a3.webp 1920w, /media/nosigner/dc00eb8b0091.webp 2560w"
+      }
+    },
+    {
+      "title": "日本酒でも、焼酎でもない、第三の和酒の発明。",
+      "mode": "how",
+      "href": "https://nosigner.com/ja/projects/jo-chu",
+      "image": {
+        "src": "/media/nosigner/2316d533dbb5.webp",
+        "width": 1728,
+        "height": 1080,
+        "srcSet": "/media/nosigner/1cfb3473f02a.webp 640w, /media/nosigner/5279501d3b86.webp 960w, /media/nosigner/43c38b679331.webp 1280w, /media/nosigner/2316d533dbb5.webp 1920w, /media/nosigner/07878e9b80f0.webp 2560w"
+      }
+    },
+    {
+      "title": "満月を3D衛星データで再現した世界初の照明。",
+      "mode": "how",
+      "href": "https://nosigner.com/ja/projects/the-moon",
+      "image": {
+        "src": "/media/nosigner/96eaffeee856.webp",
+        "width": 1728,
+        "height": 1080,
+        "srcSet": "/media/nosigner/96e05b46063b.webp 640w, /media/nosigner/ebc005cd3fd8.webp 960w, /media/nosigner/98a207874c2c.webp 1280w, /media/nosigner/96eaffeee856.webp 1920w, /media/nosigner/e63336f7ab56.webp 2560w"
+      }
+    },
+    {
+      "title": "経営経験者たちのセカンドチャンスを育むコミュニティ。",
+      "mode": "how",
+      "href": "https://nosigner.com/ja/projects/cres",
+      "image": {
+        "src": "/media/nosigner/20cd4f1e2c75.webp",
+        "width": 1728,
+        "height": 1080,
+        "srcSet": "/media/nosigner/a8d8a000d6e8.webp 640w, /media/nosigner/2f1d2fdec96e.webp 960w, /media/nosigner/6eecbaeb5b56.webp 1280w, /media/nosigner/20cd4f1e2c75.webp 1920w, /media/nosigner/4fbfe92a75d1.webp 2560w"
+      }
+    },
+    {
+      "title": "大自然の中でイノベーションとサステナビリティを学ぶ大学。",
+      "mode": "how",
+      "href": "https://nosigner.com/ja/projects/aiii",
+      "image": {
+        "src": "/media/nosigner/cc1dfe8a4b45.webp",
+        "width": 1920,
+        "height": 1062,
+        "srcSet": "/media/nosigner/b7e09728683f.webp 640w, /media/nosigner/0bf7e0fccc3c.webp 960w, /media/nosigner/1f726e878316.webp 1280w, /media/nosigner/cc1dfe8a4b45.webp 1920w, /media/nosigner/e466c77a6b9e.webp 2560w"
+      }
+    },
+    {
+      "title": "創造力を刺激するアナログツールのブランドへ。",
+      "mode": "how",
+      "href": "https://nosigner.com/ja/projects/plotter",
+      "image": {
+        "src": "/media/nosigner/f6d440b3cd66.webp",
+        "width": 1728,
+        "height": 1080,
+        "srcSet": "/media/nosigner/a85031edf674.webp 640w, /media/nosigner/8eb22ec26ff7.webp 960w, /media/nosigner/844367377ff2.webp 1280w, /media/nosigner/f6d440b3cd66.webp 1920w, /media/nosigner/2e9949f87307.webp 2560w"
+      }
+    },
+    {
+      "title": "オープンソースなオフィスデザインをつくる。",
+      "mode": "how",
+      "href": "https://nosigner.com/ja/projects/mozilla",
+      "image": {
+        "src": "/media/nosigner/4ac590bfdc9d.webp",
+        "width": 1728,
+        "height": 1080,
+        "srcSet": "/media/nosigner/90278793b6f3.webp 640w, /media/nosigner/cffdf6dd66a3.webp 960w, /media/nosigner/63c5dc2607d0.webp 1280w, /media/nosigner/4ac590bfdc9d.webp 1920w, /media/nosigner/3db1e354e5db.webp 2560w"
+      }
+    },
+    {
+      "title": "地域の文脈を汲み、温泉施設を現代的に捉え直すリブランディング。",
+      "mode": "how",
+      "href": "https://nosigner.com/ja/projects/aquaignis",
+      "image": {
+        "src": "/media/nosigner/ad1f1a9e03ab.webp",
+        "width": 1728,
+        "height": 1080,
+        "srcSet": "/media/nosigner/019539917165.webp 640w, /media/nosigner/7eae9b7b0fd2.webp 960w, /media/nosigner/fc72bbdb45e3.webp 1280w, /media/nosigner/ad1f1a9e03ab.webp 1920w, /media/nosigner/9ee4bd4314cf.webp 2560w"
+      }
+    },
+    {
+      "title": "気候変動適応のためのデザインを、生物の適応進化から学ぶ。",
+      "mode": "how",
+      "href": "https://nosigner.com/ja/projects/adaptment",
+      "image": {
+        "src": "/media/nosigner/9e122a3d4cd5.webp",
+        "width": 1920,
+        "height": 1080,
+        "srcSet": "/media/nosigner/742ada1253b5.webp 640w, /media/nosigner/c29c5a9e778b.webp 960w, /media/nosigner/c4c11d55ff08.webp 1280w, /media/nosigner/9e122a3d4cd5.webp 1920w, /media/nosigner/32747480618d.webp 2560w"
+      }
+    },
+    {
+      "title": "発酵食品を日常に取り入れやすい形態へ。",
+      "mode": "how",
+      "href": "https://nosigner.com/ja/projects/hakkoseikatsu",
+      "image": {
+        "src": "/media/nosigner/056948eb6ed1.webp",
+        "width": 1620,
+        "height": 1080,
+        "srcSet": "/media/nosigner/4d83b3ecef67.webp 640w, /media/nosigner/01d91ab5b592.webp 960w, /media/nosigner/30adf56ef756.webp 1280w, /media/nosigner/056948eb6ed1.webp 1920w, /media/nosigner/5993d0ee4309.webp 2560w"
+      }
+    },
+    {
+      "title": "未来人と気候変動に立ち向かうアニメーション。",
+      "mode": "how",
+      "href": "https://nosigner.com/ja/projects/futurekidtakara",
+      "image": {
+        "src": "/media/nosigner/a90a55ba7435.webp",
+        "width": 1080,
+        "height": 1080,
+        "srcSet": "/media/nosigner/cc4e4492f126.webp 640w, /media/nosigner/f76365f284de.webp 960w, /media/nosigner/132736ea266c.webp 1280w, /media/nosigner/a90a55ba7435.webp 1920w, /media/nosigner/8eeed3774e96.webp 2560w"
+      }
+    },
+    {
+      "title": "たのしいキッチンを評価する単位をつくる。",
+      "mode": "how",
+      "href": "https://nosigner.com/ja/projects/fun-kitchen-by-cookpad",
+      "image": {
+        "src": "/media/nosigner/09c3008ae4c6.webp",
+        "width": 1728,
+        "height": 1080,
+        "srcSet": "/media/nosigner/c37f7c5e8d4e.webp 640w, /media/nosigner/195b3bddd8a5.webp 960w, /media/nosigner/bc166dfb1d24.webp 1280w, /media/nosigner/09c3008ae4c6.webp 1920w, /media/nosigner/f4e9bf644241.webp 2560w"
+      }
+    }
+  ],
+  "cards": [
+    {
+      "label": "デザイン戦略",
+      "promise": "永く残り、響く企画を生み出す。",
+      "body": "デザイン戦略は、ビジョンを体験に翻訳する実践です。企業が存在意義を伝え、約束を果たし、人と社会に持続的な価値を生み出すあり方を形づくります。",
+      "href": "https://nosigner.com/ja/how/strategy",
+      "reverse": true,
+      "images": [
+        {
+          "src": "/media/nosigner/4ae4cd99c98f.webp",
+          "width": 800,
+          "height": 405,
+          "srcSet": "/media/nosigner/efa70f3fbd14.webp 200w, /media/nosigner/172103d42b48.webp 400w, /media/nosigner/5feb9dac865d.webp 600w, /media/nosigner/4ae4cd99c98f.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/0e66eff77958.webp",
+          "width": 800,
+          "height": 534,
+          "srcSet": "/media/nosigner/18c64f284cfe.webp 200w, /media/nosigner/ba6fb28ea9da.webp 400w, /media/nosigner/5de21da1e74b.webp 600w, /media/nosigner/0e66eff77958.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/c7456d8253a7.webp",
+          "width": 800,
+          "height": 500,
+          "srcSet": "/media/nosigner/45ca380f98dc.webp 200w, /media/nosigner/033c8fd2a7d7.webp 400w, /media/nosigner/2625e227681e.webp 600w, /media/nosigner/c7456d8253a7.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/86f245a21f4f.webp",
+          "width": 800,
+          "height": 533,
+          "srcSet": "/media/nosigner/93926e621b72.webp 200w, /media/nosigner/3ad349344dbb.webp 400w, /media/nosigner/80647290a286.webp 600w, /media/nosigner/86f245a21f4f.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/3f486b851ee0.webp",
+          "width": 800,
+          "height": 500,
+          "srcSet": "/media/nosigner/419ce0f9c5a1.webp 200w, /media/nosigner/f15869b714eb.webp 400w, /media/nosigner/b8e7ec34c14b.webp 600w, /media/nosigner/3f486b851ee0.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/efaaa360e811.webp",
+          "width": 800,
+          "height": 500,
+          "srcSet": "/media/nosigner/3467c9ebb5b1.webp 200w, /media/nosigner/95431926c8b8.webp 400w, /media/nosigner/0f0b44fa500e.webp 600w, /media/nosigner/efaaa360e811.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/7777e8769b12.webp",
+          "width": 800,
+          "height": 450,
+          "srcSet": "/media/nosigner/18a53bcc5358.webp 200w, /media/nosigner/e3e87aeef04e.webp 400w, /media/nosigner/c7fe9666e1c0.webp 600w, /media/nosigner/7777e8769b12.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/d47e691b112a.webp",
+          "width": 344,
+          "height": 600,
+          "srcSet": "/media/nosigner/a81547d80bca.webp 200w, /media/nosigner/512216408798.webp 400w, /media/nosigner/0782f99bd2bc.webp 600w, /media/nosigner/d47e691b112a.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/f81459712275.webp",
+          "width": 800,
+          "height": 500,
+          "srcSet": "/media/nosigner/203057b5bd44.webp 200w, /media/nosigner/a32f8cf380f6.webp 400w, /media/nosigner/521efab0b96e.webp 600w, /media/nosigner/f81459712275.webp 800w"
+        }
+      ]
+    },
+    {
+      "label": "ブランディングデザイン",
+      "promise": "哲学を、名前と形に結晶させる。",
+      "body": "ブランディングは、ブランドの方向性を定義し、世界観を形づくるプロセスです。価値と哲学を伝えることで、消費者との自然なつながりを育みます。",
+      "href": "https://nosigner.com/ja/how/branding",
+      "reverse": false,
+      "images": [
+        {
+          "src": "/media/nosigner/233e24e6798d.webp",
+          "width": 800,
+          "height": 533,
+          "srcSet": "/media/nosigner/201ced1ecd3e.webp 200w, /media/nosigner/8bb8d1c89486.webp 400w, /media/nosigner/164cdf8f34d6.webp 600w, /media/nosigner/233e24e6798d.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/f0abe117f0ee.webp",
+          "width": 800,
+          "height": 500,
+          "srcSet": "/media/nosigner/f22cc6022d86.webp 200w, /media/nosigner/62ea9eca4b0e.webp 400w, /media/nosigner/9e3ab2041aea.webp 600w, /media/nosigner/f0abe117f0ee.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/a0423f27806c.webp",
+          "width": 800,
+          "height": 533,
+          "srcSet": "/media/nosigner/d219628bade2.webp 200w, /media/nosigner/b43cfbf19262.webp 400w, /media/nosigner/7a033a7c18de.webp 600w, /media/nosigner/a0423f27806c.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/4a0393a77aee.webp",
+          "width": 800,
+          "height": 449,
+          "srcSet": "/media/nosigner/b028d805fcbb.webp 200w, /media/nosigner/6bd941d3eb39.webp 400w, /media/nosigner/f7218aeff773.webp 600w, /media/nosigner/4a0393a77aee.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/6ba1db6a2b4e.webp",
+          "width": 800,
+          "height": 566,
+          "srcSet": "/media/nosigner/26427d24930a.webp 200w, /media/nosigner/e483cccd93d1.webp 400w, /media/nosigner/bcb6e06f9e50.webp 600w, /media/nosigner/6ba1db6a2b4e.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/2d15f5022400.webp",
+          "width": 505,
+          "height": 600,
+          "srcSet": "/media/nosigner/3ce5132bd318.webp 200w, /media/nosigner/8e2e5cb308b1.webp 400w, /media/nosigner/974696491729.webp 600w, /media/nosigner/2d15f5022400.webp 800w"
+        }
+      ]
+    },
+    {
+      "label": "プロダクトデザイン",
+      "promise": "触れた人の記憶に宿るものをつくる。",
+      "body": "プロダクトデザインは、ものをつくることではなく、ものと人とのつながり方を形づくることです。",
+      "href": "https://nosigner.com/ja/how/product",
+      "reverse": true,
+      "images": [
+        {
+          "src": "/media/nosigner/9934da58048a.webp",
+          "width": 472,
+          "height": 600,
+          "srcSet": "/media/nosigner/42e979758a95.webp 200w, /media/nosigner/8e7300308176.webp 400w, /media/nosigner/9f46ebc814b4.webp 600w, /media/nosigner/9934da58048a.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/d57fae76c93f.webp",
+          "width": 799,
+          "height": 600,
+          "srcSet": "/media/nosigner/bf9ae92766a5.webp 200w, /media/nosigner/a07aab238ea5.webp 400w, /media/nosigner/0d3e97edd1c7.webp 600w, /media/nosigner/d57fae76c93f.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/336ea2b5fe2d.webp",
+          "width": 430,
+          "height": 600,
+          "srcSet": "/media/nosigner/831581852a8f.webp 200w, /media/nosigner/f720b799c5e8.webp 400w, /media/nosigner/adc7669e0b8f.webp 600w, /media/nosigner/336ea2b5fe2d.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/b5f8fdf67395.webp",
+          "width": 758,
+          "height": 600,
+          "srcSet": "/media/nosigner/4055560b9334.webp 200w, /media/nosigner/1a66274b55d3.webp 400w, /media/nosigner/d570461ffc61.webp 600w, /media/nosigner/b5f8fdf67395.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/566e9e3d2ef1.webp",
+          "width": 398,
+          "height": 600,
+          "srcSet": "/media/nosigner/569e2df84532.webp 200w, /media/nosigner/efbad2d1a1f0.webp 400w, /media/nosigner/ce1974b529ea.webp 600w, /media/nosigner/566e9e3d2ef1.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/c18d34bc9af7.webp",
+          "width": 800,
+          "height": 580,
+          "srcSet": "/media/nosigner/108771ea87a9.webp 200w, /media/nosigner/64708a5055ff.webp 400w, /media/nosigner/24fa6852acc5.webp 600w, /media/nosigner/c18d34bc9af7.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/dad4a2b2b4eb.webp",
+          "width": 400,
+          "height": 600,
+          "srcSet": "/media/nosigner/bdad034950bd.webp 200w, /media/nosigner/404ffc9f205a.webp 400w, /media/nosigner/5f57565981f5.webp 600w, /media/nosigner/dad4a2b2b4eb.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/111d782f3d7c.webp",
+          "width": 614,
+          "height": 600,
+          "srcSet": "/media/nosigner/0618239c702e.webp 200w, /media/nosigner/512560dede07.webp 400w, /media/nosigner/4e0fc2ac1af3.webp 600w, /media/nosigner/111d782f3d7c.webp 800w"
+        }
+      ]
+    },
+    {
+      "label": "パッケージデザイン",
+      "promise": "手に届く瞬間に、物語を宿す。",
+      "body": "パッケージは、ブランドと顧客が最初に出会う接点であり、B2Cビジネスにおける最も重要なタッチポイントの一つです。",
+      "href": "https://nosigner.com/ja/how/packaging",
+      "reverse": false,
+      "images": [
+        {
+          "src": "/media/nosigner/03b5eea12a65.webp",
+          "width": 800,
+          "height": 532,
+          "srcSet": "/media/nosigner/869a59c745dd.webp 200w, /media/nosigner/cf9a4db25f0b.webp 400w, /media/nosigner/ef1c81c05c46.webp 600w, /media/nosigner/03b5eea12a65.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/96b35e4c95f0.webp",
+          "width": 800,
+          "height": 500,
+          "srcSet": "/media/nosigner/22eabd155a3b.webp 200w, /media/nosigner/8b8750b788e1.webp 400w, /media/nosigner/662dff3e7825.webp 600w, /media/nosigner/96b35e4c95f0.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/fad824ab9df5.webp",
+          "width": 800,
+          "height": 533,
+          "srcSet": "/media/nosigner/91e0f7f6cf25.webp 200w, /media/nosigner/764d6995822c.webp 400w, /media/nosigner/804edf265350.webp 600w, /media/nosigner/fad824ab9df5.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/ac2d984c27e9.webp",
+          "width": 400,
+          "height": 600,
+          "srcSet": "/media/nosigner/b396cae92cee.webp 200w, /media/nosigner/2cb6db420e35.webp 400w, /media/nosigner/5a03eecf9075.webp 600w, /media/nosigner/ac2d984c27e9.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/62db196085e9.webp",
+          "width": 800,
+          "height": 500,
+          "srcSet": "/media/nosigner/c3eb1123203a.webp 200w, /media/nosigner/5d1948df8d55.webp 400w, /media/nosigner/fff73418bfe7.webp 600w, /media/nosigner/62db196085e9.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/d2d391ef6900.webp",
+          "width": 800,
+          "height": 500,
+          "srcSet": "/media/nosigner/9b3546be532d.webp 200w, /media/nosigner/3a0ce10eed67.webp 400w, /media/nosigner/7e0bc66ee36d.webp 600w, /media/nosigner/d2d391ef6900.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/049b9a996e5b.webp",
+          "width": 800,
+          "height": 500,
+          "srcSet": "/media/nosigner/758e03435bc0.webp 200w, /media/nosigner/7ab1ef91f475.webp 400w, /media/nosigner/3d8ce3896295.webp 600w, /media/nosigner/049b9a996e5b.webp 800w"
+        }
+      ]
+    },
+    {
+      "label": "Web / アプリデザイン",
+      "promise": "人と情報のあいだに、直感の橋を架ける。",
+      "body": "ウェブサイトは、写真、動画、モーショングラフィック、タイポグラフィ、3Dなど多様なメディアを一つのプラットフォームに統合します。",
+      "href": "https://nosigner.com/ja/how/web_app",
+      "reverse": true,
+      "images": [
+        {
+          "src": "/media/nosigner/c9f405ef1b42.webp",
+          "width": 800,
+          "height": 500,
+          "srcSet": "/media/nosigner/5375f3df0e10.webp 200w, /media/nosigner/a4de8f83407c.webp 400w, /media/nosigner/cb4c17b961de.webp 600w, /media/nosigner/c9f405ef1b42.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/2c140baff730.webp",
+          "width": 800,
+          "height": 500,
+          "srcSet": "/media/nosigner/2a6236d723b7.webp 200w, /media/nosigner/d15a836da78d.webp 400w, /media/nosigner/a2a6363a8367.webp 600w, /media/nosigner/2c140baff730.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/bd5094d34d72.webp",
+          "width": 800,
+          "height": 528,
+          "srcSet": "/media/nosigner/b873cb1c6a8b.webp 200w, /media/nosigner/2df2a9eea499.webp 400w, /media/nosigner/cc3465696fcc.webp 600w, /media/nosigner/bd5094d34d72.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/c8240761ad74.webp",
+          "width": 800,
+          "height": 587,
+          "srcSet": "/media/nosigner/41fc16a730ed.webp 200w, /media/nosigner/4078492367e5.webp 400w, /media/nosigner/e235a85b7420.webp 600w, /media/nosigner/c8240761ad74.webp 800w"
+        }
+      ]
+    },
+    {
+      "label": "建築デザイン",
+      "promise": "時間の地層の上に、未来の風景を描く。",
+      "body": "私たちは、ブランドの哲学を体現し、地域の材料と廃棄物の再利用による循環型の実践を取り入れた空間と建築をデザインしています。",
+      "href": "https://nosigner.com/ja/how/architecture",
+      "reverse": false,
+      "images": [
+        {
+          "src": "/media/nosigner/469251541c1c.webp",
+          "width": 800,
+          "height": 500,
+          "srcSet": "/media/nosigner/cb7ef0f0d15b.webp 200w, /media/nosigner/49225f63a32c.webp 400w, /media/nosigner/664952705351.webp 600w, /media/nosigner/469251541c1c.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/e008dd3516cd.webp",
+          "width": 800,
+          "height": 533,
+          "srcSet": "/media/nosigner/51adc711af3b.webp 200w, /media/nosigner/3e33ba581c7c.webp 400w, /media/nosigner/c31f6fa84e5a.webp 600w, /media/nosigner/e008dd3516cd.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/6fff0a189aac.webp",
+          "width": 800,
+          "height": 500,
+          "srcSet": "/media/nosigner/84772ac22bc8.webp 200w, /media/nosigner/36a8b16e6c54.webp 400w, /media/nosigner/5629d45dfd8a.webp 600w, /media/nosigner/6fff0a189aac.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/b4b2ecfa3299.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/d526fc7c0ef2.webp 200w, /media/nosigner/1a398a22ad25.webp 400w, /media/nosigner/125e7769aebe.webp 600w, /media/nosigner/b4b2ecfa3299.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/6aed9611e476.webp",
+          "width": 400,
+          "height": 600,
+          "srcSet": "/media/nosigner/4674afbbc887.webp 200w, /media/nosigner/4e03a93fe6d3.webp 400w, /media/nosigner/dbdba7cdfafe.webp 600w, /media/nosigner/6aed9611e476.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/8cc423ba22a4.webp",
+          "width": 800,
+          "height": 533,
+          "srcSet": "/media/nosigner/8dcbb489e8b7.webp 200w, /media/nosigner/20141a2955d7.webp 400w, /media/nosigner/cbc8e12aa1b0.webp 600w, /media/nosigner/8cc423ba22a4.webp 800w"
+        }
+      ]
+    },
+    {
+      "label": "サイン・環境デザイン",
+      "promise": "場所の誇りへとつながる立体的な情報設計。",
+      "body": "サイン・環境デザインは、人々が空間を認識し、移動するための本質的な情報設計です。",
+      "href": "https://nosigner.com/ja/how/signage",
+      "reverse": true,
+      "images": [
+        {
+          "src": "/media/nosigner/4c2296aade04.webp",
+          "width": 800,
+          "height": 500,
+          "srcSet": "/media/nosigner/128fd7bf87fc.webp 200w, /media/nosigner/28b3ccb042ba.webp 400w, /media/nosigner/533daf16778d.webp 600w, /media/nosigner/4c2296aade04.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/ae35b9dbe696.webp",
+          "width": 800,
+          "height": 267,
+          "srcSet": "/media/nosigner/0b778819b9a3.webp 200w, /media/nosigner/3202c67ee4f3.webp 400w, /media/nosigner/bc2b44988766.webp 600w, /media/nosigner/ae35b9dbe696.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/b1a3339f98e8.webp",
+          "width": 800,
+          "height": 325,
+          "srcSet": "/media/nosigner/7c5103102e09.webp 200w, /media/nosigner/fb93c1c11f19.webp 400w, /media/nosigner/2dd7b68d789e.webp 600w, /media/nosigner/b1a3339f98e8.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/d4adbdccf717.webp",
+          "width": 400,
+          "height": 600,
+          "srcSet": "/media/nosigner/8d69b663dfa0.webp 200w, /media/nosigner/9d66e636a2d5.webp 400w, /media/nosigner/29634029cb93.webp 600w, /media/nosigner/d4adbdccf717.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/acefc1712f98.webp",
+          "width": 800,
+          "height": 544,
+          "srcSet": "/media/nosigner/0e8592200c11.webp 200w, /media/nosigner/74ea62e93a9b.webp 400w, /media/nosigner/4970d776fae9.webp 600w, /media/nosigner/acefc1712f98.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/9a617a086563.webp",
+          "width": 800,
+          "height": 267,
+          "srcSet": "/media/nosigner/133dd1435661.webp 200w, /media/nosigner/6515417c5202.webp 400w, /media/nosigner/9c4a075c6e83.webp 600w, /media/nosigner/9a617a086563.webp 800w"
+        }
+      ]
+    },
+    {
+      "label": "広告デザイン",
+      "promise": "深く刺さり、行動を変える言葉と映像を届ける。",
+      "body": "NOSIGNERは、社会的意義や思想を伝える広告マーケティングを設計します。ビジュアルと言葉に本質を込め、共感を生むストーリーで意識を動かします。",
+      "href": "https://nosigner.com/ja/how/advertising",
+      "reverse": false,
+      "images": [
+        {
+          "src": "/media/nosigner/a3681e6d3a06.webp",
+          "width": 800,
+          "height": 500,
+          "srcSet": "/media/nosigner/d761991a9e93.webp 200w, /media/nosigner/20a05fd05040.webp 400w, /media/nosigner/000b75b6dc1f.webp 600w, /media/nosigner/a3681e6d3a06.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/f9184db3413a.webp",
+          "width": 800,
+          "height": 500,
+          "srcSet": "/media/nosigner/58dc7a7266ed.webp 200w, /media/nosigner/35017ddcb4ce.webp 400w, /media/nosigner/90a3e60d0877.webp 600w, /media/nosigner/f9184db3413a.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/30dca0957e3d.webp",
+          "width": 800,
+          "height": 533,
+          "srcSet": "/media/nosigner/cacc87c19234.webp 200w, /media/nosigner/0159c3eb9495.webp 400w, /media/nosigner/4df214f69344.webp 600w, /media/nosigner/30dca0957e3d.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/9a7c9907be0a.webp",
+          "width": 800,
+          "height": 500,
+          "srcSet": "/media/nosigner/fec7bb9cdfec.webp 200w, /media/nosigner/cba0b606653a.webp 400w, /media/nosigner/e80e70391b76.webp 600w, /media/nosigner/9a7c9907be0a.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/8b1bd47a1295.webp",
+          "width": 800,
+          "height": 500,
+          "srcSet": "/media/nosigner/c02047b27e30.webp 200w, /media/nosigner/e3f633f21258.webp 400w, /media/nosigner/4cbd69a14397.webp 600w, /media/nosigner/8b1bd47a1295.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/c6eda6b4c6eb.webp",
+          "width": 495,
+          "height": 600,
+          "srcSet": "/media/nosigner/c3076ae92d6f.webp 200w, /media/nosigner/b7ca17708dcb.webp 400w, /media/nosigner/7f4b2d076a40.webp 600w, /media/nosigner/c6eda6b4c6eb.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/70db7f5d4aef.webp",
+          "width": 800,
+          "height": 500,
+          "srcSet": "/media/nosigner/574603a6624c.webp 200w, /media/nosigner/e096a43d92cc.webp 400w, /media/nosigner/13f592638a8e.webp 600w, /media/nosigner/70db7f5d4aef.webp 800w"
+        }
+      ]
+    },
+    {
+      "label": "アート",
+      "promise": "自然の法則を、人の感覚に翻訳する。",
+      "body": "NOSIGNERは、社会や未来に対する問いをかたちにするアートを手がけています。空間に物語や感情を宿し、人々の意識や行動の変化を促す体験を創出します。",
+      "href": "https://nosigner.com/ja/how/art",
+      "reverse": true,
+      "images": [
+        {
+          "src": "/media/nosigner/45750db59dc8.webp",
+          "width": 800,
+          "height": 442,
+          "srcSet": "/media/nosigner/f2177918e022.webp 200w, /media/nosigner/e1afba3ebb82.webp 400w, /media/nosigner/62c4f78c9904.webp 600w, /media/nosigner/45750db59dc8.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/b9818e7bd583.webp",
+          "width": 800,
+          "height": 500,
+          "srcSet": "/media/nosigner/701eab675fe3.webp 200w, /media/nosigner/bdd49e72f435.webp 400w, /media/nosigner/464284695448.webp 600w, /media/nosigner/b9818e7bd583.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/1db9b5199cc1.webp",
+          "width": 800,
+          "height": 534,
+          "srcSet": "/media/nosigner/596ec550651f.webp 200w, /media/nosigner/468671deb246.webp 400w, /media/nosigner/6e8a94009bf9.webp 600w, /media/nosigner/1db9b5199cc1.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/3d747c1def18.webp",
+          "width": 800,
+          "height": 533,
+          "srcSet": "/media/nosigner/c5a18fa8a8c8.webp 200w, /media/nosigner/9585bbe6c6b1.webp 400w, /media/nosigner/340ee7e16fca.webp 600w, /media/nosigner/3d747c1def18.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/1dd7857503e0.webp",
+          "width": 400,
+          "height": 600,
+          "srcSet": "/media/nosigner/6c9cd9ec3fca.webp 200w, /media/nosigner/a5d9d2f80ea0.webp 400w, /media/nosigner/b7d1afa9f77a.webp 600w, /media/nosigner/1dd7857503e0.webp 800w"
+        }
+      ]
+    },
+    {
+      "label": "防災デザイン",
+      "promise": "もしものとき、あなたの命をまもりたい。",
+      "body": "私たちは、いまの「自然災害の時代」に適応するためのデザインを創造しています。命を守る知識を共有する書籍やウェブサイトから、緊急製品や災害に適応した都市空間まで。",
+      "href": "https://nosigner.com/ja/why/resilience",
+      "reverse": true,
+      "images": [
+        {
+          "src": "/media/nosigner/0d054ba98a2c.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/007ddc53c4eb.webp 200w, /media/nosigner/90426577154f.webp 400w, /media/nosigner/7c50e64b9e08.webp 600w, /media/nosigner/0d054ba98a2c.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/b12c04b02f51.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/d78e0984d1be.webp 200w, /media/nosigner/80aa90a70ed1.webp 400w, /media/nosigner/a185322059e6.webp 600w, /media/nosigner/b12c04b02f51.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/1d65741e54e4.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/ae898a5caa02.webp 200w, /media/nosigner/80987a822668.webp 400w, /media/nosigner/62d975f5e1af.webp 600w, /media/nosigner/1d65741e54e4.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/27111061fa53.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/db2e8aeae4e4.webp 200w, /media/nosigner/b64554cd9fb3.webp 400w, /media/nosigner/9190d0d1bf1e.webp 600w, /media/nosigner/27111061fa53.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/49c23ba8c7a1.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/1a0947d5fd14.webp 200w, /media/nosigner/f30d9d1b50fe.webp 400w, /media/nosigner/f61dbf535038.webp 600w, /media/nosigner/49c23ba8c7a1.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/440dc94ba944.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/d93047308dc1.webp 200w, /media/nosigner/81fa9c29fbc7.webp 400w, /media/nosigner/94d9c0006802.webp 600w, /media/nosigner/440dc94ba944.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/5c970c866d96.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/fe3e8aa7c33a.webp 200w, /media/nosigner/ab398ea9ed75.webp 400w, /media/nosigner/1cdcec864112.webp 600w, /media/nosigner/5c970c866d96.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/64726ee9554b.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/a96d8ca85558.webp 200w, /media/nosigner/35f7c74dbb80.webp 400w, /media/nosigner/4d1087f3c3ac.webp 600w, /media/nosigner/64726ee9554b.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/90a87b213de6.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/f41e6dc83242.webp 200w, /media/nosigner/bdac43716a03.webp 400w, /media/nosigner/071f2f7d061b.webp 600w, /media/nosigner/90a87b213de6.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/b09f105285b8.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/20558aba36ac.webp 200w, /media/nosigner/210d763020e2.webp 400w, /media/nosigner/146bcac52a2a.webp 600w, /media/nosigner/b09f105285b8.webp 800w"
+        }
+      ]
+    },
+    {
+      "label": "サステナブルデザイン",
+      "promise": "次の世代に、未来をつなぎたい。",
+      "body": "NOSIGNERは、環境・社会・経済の持続可能性を考慮したデザインを実践しています。自然と共生し、社会的意義のあるプロジェクトを通じて、未来に希望をつなげます。",
+      "href": "https://nosigner.com/ja/why/sustainability",
+      "reverse": false,
+      "images": [
+        {
+          "src": "/media/nosigner/ec454d63ea01.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/9136f077f3b8.webp 200w, /media/nosigner/0d23108401ea.webp 400w, /media/nosigner/4f723c1709b6.webp 600w, /media/nosigner/ec454d63ea01.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/935a6f6232b4.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/c0f7cb8afb2f.webp 200w, /media/nosigner/589a731cf4b7.webp 400w, /media/nosigner/2d4b38a7f650.webp 600w, /media/nosigner/935a6f6232b4.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/ac12ef2d991b.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/62227b0cd67e.webp 200w, /media/nosigner/d1cfa8936bbe.webp 400w, /media/nosigner/4f144267aad8.webp 600w, /media/nosigner/ac12ef2d991b.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/7274c840cb7a.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/9a4dcdce0c40.webp 200w, /media/nosigner/c849b7219201.webp 400w, /media/nosigner/1d13e668eb05.webp 600w, /media/nosigner/7274c840cb7a.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/b12c04b02f51.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/d78e0984d1be.webp 200w, /media/nosigner/80aa90a70ed1.webp 400w, /media/nosigner/a185322059e6.webp 600w, /media/nosigner/b12c04b02f51.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/709dcea230b3.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/fefecb20d97f.webp 200w, /media/nosigner/7a1e75270f38.webp 400w, /media/nosigner/15d698759369.webp 600w, /media/nosigner/709dcea230b3.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/9248ca171ac5.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/3217d2b56e62.webp 200w, /media/nosigner/c46e5bc6740a.webp 400w, /media/nosigner/5578ce0cc96d.webp 600w, /media/nosigner/9248ca171ac5.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/cfc9537dc4c3.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/a70ed00feaef.webp 200w, /media/nosigner/8d0c38950bbb.webp 400w, /media/nosigner/c0beb239fc82.webp 600w, /media/nosigner/cfc9537dc4c3.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/ba2ddaaf38d8.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/75faa1eca058.webp 200w, /media/nosigner/a76a15e6b377.webp 400w, /media/nosigner/e00c3e0f03c6.webp 600w, /media/nosigner/ba2ddaaf38d8.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/839ee115f7c8.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/dd5cb14eba45.webp 200w, /media/nosigner/45ccb3d1bd9d.webp 400w, /media/nosigner/fb84c9c03076.webp 600w, /media/nosigner/839ee115f7c8.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/cd7f7fb631c2.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/9db9fcfc0a59.webp 200w, /media/nosigner/9f17346be5ed.webp 400w, /media/nosigner/d8d269726980.webp 600w, /media/nosigner/cd7f7fb631c2.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/c701a9623f43.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/4a50d388893c.webp 200w, /media/nosigner/127e408b4d0a.webp 400w, /media/nosigner/ac112dbbfd40.webp 600w, /media/nosigner/c701a9623f43.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/435aef16fb9b.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/7afd6c0f22c4.webp 200w, /media/nosigner/d4d3fc04cfe2.webp 400w, /media/nosigner/cd7cb14bfa1a.webp 600w, /media/nosigner/435aef16fb9b.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/32fe5e6b43fc.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/d0eb3f3c3dfc.webp 200w, /media/nosigner/95178000787a.webp 400w, /media/nosigner/19766d4cb5ea.webp 600w, /media/nosigner/32fe5e6b43fc.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/10df35b61fb1.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/7d7ac3b87fc0.webp 200w, /media/nosigner/90d910e1c528.webp 400w, /media/nosigner/b959be65cb2b.webp 600w, /media/nosigner/10df35b61fb1.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/8039ad21883f.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/6d5f8292e6ed.webp 200w, /media/nosigner/8d0253e4c04f.webp 400w, /media/nosigner/5201999d4fda.webp 600w, /media/nosigner/8039ad21883f.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/6a69350d7a51.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/f6d6d22294d7.webp 200w, /media/nosigner/aa00750ee3cd.webp 400w, /media/nosigner/133035526608.webp 600w, /media/nosigner/6a69350d7a51.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/440dc94ba944.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/d93047308dc1.webp 200w, /media/nosigner/81fa9c29fbc7.webp 400w, /media/nosigner/94d9c0006802.webp 600w, /media/nosigner/440dc94ba944.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/a0c565e38d5c.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/0fbcbb6f3e30.webp 200w, /media/nosigner/d37006b140af.webp 400w, /media/nosigner/1fc5ad74ec20.webp 600w, /media/nosigner/a0c565e38d5c.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/913d027d810b.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/d61cf0e870ef.webp 200w, /media/nosigner/cecfffde02d2.webp 400w, /media/nosigner/4d8ffd2e203a.webp 600w, /media/nosigner/913d027d810b.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/7241ca405b01.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/f1caba561d89.webp 200w, /media/nosigner/ef7856682696.webp 400w, /media/nosigner/1e9f7fa675e2.webp 600w, /media/nosigner/7241ca405b01.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/2f1d90fe9690.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/818cf8c9625d.webp 200w, /media/nosigner/2870df58940f.webp 400w, /media/nosigner/cd13b3d0f1c3.webp 600w, /media/nosigner/2f1d90fe9690.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/250fa101e46d.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/c4a5f0f5b354.webp 200w, /media/nosigner/e8608ccfaf6c.webp 400w, /media/nosigner/fe81648b3b85.webp 600w, /media/nosigner/250fa101e46d.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/90a87b213de6.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/f41e6dc83242.webp 200w, /media/nosigner/bdac43716a03.webp 400w, /media/nosigner/071f2f7d061b.webp 600w, /media/nosigner/90a87b213de6.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/f92d80eae5c6.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/1ab0467341e3.webp 200w, /media/nosigner/fda26e227458.webp 400w, /media/nosigner/42e7e7d81149.webp 600w, /media/nosigner/f92d80eae5c6.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/70a77171952b.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/2acc8aaaa80f.webp 200w, /media/nosigner/3fd0c10154c3.webp 400w, /media/nosigner/11fe41f57d2b.webp 600w, /media/nosigner/70a77171952b.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/8d4e9d388b6c.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/5bdfa434eb8a.webp 200w, /media/nosigner/0b70e77770d7.webp 400w, /media/nosigner/4ccfc932245a.webp 600w, /media/nosigner/8d4e9d388b6c.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/eff2f7b024e9.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/47dcef571202.webp 200w, /media/nosigner/1af12647791e.webp 400w, /media/nosigner/a41830438f44.webp 600w, /media/nosigner/eff2f7b024e9.webp 800w"
+        }
+      ]
+    },
+    {
+      "label": "食のデザイン",
+      "promise": "食がつなぐ、いのちの循環を描きたい。",
+      "body": "NOSIGNERは、食に宿る文化・循環・命のつながりを可視化し、社会課題への意識を高めるデザインを実践。体験価値を再構築し、持続可能な食の未来を提案します。",
+      "href": "https://nosigner.com/ja/why/food",
+      "reverse": true,
+      "images": [
+        {
+          "src": "/media/nosigner/16878decabd8.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/156974013d4a.webp 200w, /media/nosigner/b14e06606c68.webp 400w, /media/nosigner/0348f44861eb.webp 600w, /media/nosigner/16878decabd8.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/8ff703a68a31.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/59279477f8cc.webp 200w, /media/nosigner/624f669a496b.webp 400w, /media/nosigner/26875bc4e8cf.webp 600w, /media/nosigner/8ff703a68a31.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/f3a1938d190b.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/75cffa939449.webp 200w, /media/nosigner/3d3fa2c75a68.webp 400w, /media/nosigner/bc4ffe5c9dcb.webp 600w, /media/nosigner/f3a1938d190b.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/d5be38868d99.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/aa1e398fe224.webp 200w, /media/nosigner/9ec9daaa8ee5.webp 400w, /media/nosigner/523c24ba240f.webp 600w, /media/nosigner/d5be38868d99.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/34be7318638b.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/8483c458caee.webp 200w, /media/nosigner/cbfea464ee31.webp 400w, /media/nosigner/e20e18b58bf3.webp 600w, /media/nosigner/34be7318638b.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/6e2a44d0a391.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/583598e49d49.webp 200w, /media/nosigner/6bce2e0b99d0.webp 400w, /media/nosigner/fc4018dda1b5.webp 600w, /media/nosigner/6e2a44d0a391.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/33b0aa9d03c6.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/c9d5865c8b11.webp 200w, /media/nosigner/0e5dff9c770e.webp 400w, /media/nosigner/eff11d556d1c.webp 600w, /media/nosigner/33b0aa9d03c6.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/c701a9623f43.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/4a50d388893c.webp 200w, /media/nosigner/127e408b4d0a.webp 400w, /media/nosigner/ac112dbbfd40.webp 600w, /media/nosigner/c701a9623f43.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/3c4bb67a0b7e.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/c618920f0d8c.webp 200w, /media/nosigner/7626189c28cf.webp 400w, /media/nosigner/5cd0b212d197.webp 600w, /media/nosigner/3c4bb67a0b7e.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/02670198422e.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/bbb200f84e0c.webp 200w, /media/nosigner/00f048fbda2b.webp 400w, /media/nosigner/ec90a8630542.webp 600w, /media/nosigner/02670198422e.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/ff6521fa890f.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/b12cbdd98d5c.webp 200w, /media/nosigner/090c2122dcba.webp 400w, /media/nosigner/00ab4a5e7132.webp 600w, /media/nosigner/ff6521fa890f.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/b1cb3d368d27.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/d000b2e37aaa.webp 200w, /media/nosigner/abb74453a3c7.webp 400w, /media/nosigner/9457179ec92a.webp 600w, /media/nosigner/b1cb3d368d27.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/a23282f61969.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/66e736822869.webp 200w, /media/nosigner/2a2137762409.webp 400w, /media/nosigner/60149815d973.webp 600w, /media/nosigner/a23282f61969.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/64726ee9554b.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/a96d8ca85558.webp 200w, /media/nosigner/35f7c74dbb80.webp 400w, /media/nosigner/4d1087f3c3ac.webp 600w, /media/nosigner/64726ee9554b.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/7de86c435e96.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/01d28e8179b8.webp 200w, /media/nosigner/dd67f86df46e.webp 400w, /media/nosigner/c277bce58ad4.webp 600w, /media/nosigner/7de86c435e96.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/58f0ffbb97ca.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/3677aabb7d99.webp 200w, /media/nosigner/81d0b7a94364.webp 400w, /media/nosigner/5998008935db.webp 600w, /media/nosigner/58f0ffbb97ca.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/91288d1ad9be.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/5bb4d6abebd2.webp 200w, /media/nosigner/1b7e6c7fad35.webp 400w, /media/nosigner/ba35c7f736f4.webp 600w, /media/nosigner/91288d1ad9be.webp 800w"
+        }
+      ]
+    },
+    {
+      "label": "衛生デザイン",
+      "promise": "見えない脅威から、日常をまもりたい。",
+      "body": "NOSIGNERは、命と生活を守るため、衛生に関する知識と行動を広めるデザインに取り組んできました。感染症対策や公衆衛生に役立つツールで行動変容を促します。",
+      "href": "https://nosigner.com/ja/why/hygiene",
+      "reverse": false,
+      "images": [
+        {
+          "src": "/media/nosigner/1d65741e54e4.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/ae898a5caa02.webp 200w, /media/nosigner/80987a822668.webp 400w, /media/nosigner/62d975f5e1af.webp 600w, /media/nosigner/1d65741e54e4.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/efd162aea63c.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/0e0aa8aadda3.webp 200w, /media/nosigner/9edf9f0cc5b1.webp 400w, /media/nosigner/518cdbeb8c05.webp 600w, /media/nosigner/efd162aea63c.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/27111061fa53.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/db2e8aeae4e4.webp 200w, /media/nosigner/b64554cd9fb3.webp 400w, /media/nosigner/9190d0d1bf1e.webp 600w, /media/nosigner/27111061fa53.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/f58832dcc3cf.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/5d91516ddf4d.webp 200w, /media/nosigner/eecfbd7a7077.webp 400w, /media/nosigner/dab32c2c9ab9.webp 600w, /media/nosigner/f58832dcc3cf.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/ead3d3063b7e.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/4cae30d7b38d.webp 200w, /media/nosigner/46e6dd9ca809.webp 400w, /media/nosigner/5c0c084fb664.webp 600w, /media/nosigner/ead3d3063b7e.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/034b6614f59a.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/cdb49b12b91e.webp 200w, /media/nosigner/ea73c044a22d.webp 400w, /media/nosigner/1af265298e22.webp 600w, /media/nosigner/034b6614f59a.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/89ff96283742.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/2490686e8c3e.webp 200w, /media/nosigner/f7871d879dc5.webp 400w, /media/nosigner/77c0bac06cde.webp 600w, /media/nosigner/89ff96283742.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/b766b27bfbcf.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/86a4aeccee93.webp 200w, /media/nosigner/f52e9dfd5a30.webp 400w, /media/nosigner/4a9096abfef0.webp 600w, /media/nosigner/b766b27bfbcf.webp 800w"
+        }
+      ]
+    },
+    {
+      "label": "地域デザイン",
+      "promise": "この土地の誇りを、未来に届けたい。",
+      "body": "NOSIGNERは、地域の文化や資源を活かし、自治体や住民とともに持続可能なまちの未来をデザインします。リサーチから実装まで、地域の可能性を引き出します。",
+      "href": "https://nosigner.com/ja/why/region",
+      "reverse": true,
+      "images": [
+        {
+          "src": "/media/nosigner/a94147725bcf.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/8986d2ec647e.webp 200w, /media/nosigner/1eaa75884e54.webp 400w, /media/nosigner/96503935a566.webp 600w, /media/nosigner/a94147725bcf.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/16878decabd8.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/156974013d4a.webp 200w, /media/nosigner/b14e06606c68.webp 400w, /media/nosigner/0348f44861eb.webp 600w, /media/nosigner/16878decabd8.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/20945cc59966.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/d899c4840db0.webp 200w, /media/nosigner/0ae49b73d5e0.webp 400w, /media/nosigner/e5f3e5046f0a.webp 600w, /media/nosigner/20945cc59966.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/935a6f6232b4.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/c0f7cb8afb2f.webp 200w, /media/nosigner/589a731cf4b7.webp 400w, /media/nosigner/2d4b38a7f650.webp 600w, /media/nosigner/935a6f6232b4.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/1c9cab857efd.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/2aca52c9ca74.webp 200w, /media/nosigner/b24e501e2844.webp 400w, /media/nosigner/b4cc0a0afd76.webp 600w, /media/nosigner/1c9cab857efd.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/12b18fbc44ee.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/9922ca7cc7e2.webp 200w, /media/nosigner/81b5df2a6378.webp 400w, /media/nosigner/9fc3124bc411.webp 600w, /media/nosigner/12b18fbc44ee.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/0d054ba98a2c.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/007ddc53c4eb.webp 200w, /media/nosigner/90426577154f.webp 400w, /media/nosigner/7c50e64b9e08.webp 600w, /media/nosigner/0d054ba98a2c.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/34be7318638b.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/8483c458caee.webp 200w, /media/nosigner/cbfea464ee31.webp 400w, /media/nosigner/e20e18b58bf3.webp 600w, /media/nosigner/34be7318638b.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/5d728376df1d.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/e1e6c6691c7b.webp 200w, /media/nosigner/8864c46bc9dd.webp 400w, /media/nosigner/9d32872e0eb8.webp 600w, /media/nosigner/5d728376df1d.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/6e2a44d0a391.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/583598e49d49.webp 200w, /media/nosigner/6bce2e0b99d0.webp 400w, /media/nosigner/fc4018dda1b5.webp 600w, /media/nosigner/6e2a44d0a391.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/55fd29c83400.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/e01599aa5ec2.webp 200w, /media/nosigner/da2d90348282.webp 400w, /media/nosigner/45e13010af79.webp 600w, /media/nosigner/55fd29c83400.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/3a104bfd7008.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/f0311af8f3e4.webp 200w, /media/nosigner/02b914d7c244.webp 400w, /media/nosigner/63d73f6601b4.webp 600w, /media/nosigner/3a104bfd7008.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/52529484a90d.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/38cf1fc1588f.webp 200w, /media/nosigner/f355ca29cbe4.webp 400w, /media/nosigner/a0997bf4cb13.webp 600w, /media/nosigner/52529484a90d.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/33b0aa9d03c6.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/c9d5865c8b11.webp 200w, /media/nosigner/0e5dff9c770e.webp 400w, /media/nosigner/eff11d556d1c.webp 600w, /media/nosigner/33b0aa9d03c6.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/9292257f714c.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/c6c91661c6e2.webp 200w, /media/nosigner/0368b7a6b582.webp 400w, /media/nosigner/167aba67c7e5.webp 600w, /media/nosigner/9292257f714c.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/c701a9623f43.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/4a50d388893c.webp 200w, /media/nosigner/127e408b4d0a.webp 400w, /media/nosigner/ac112dbbfd40.webp 600w, /media/nosigner/c701a9623f43.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/3c4bb67a0b7e.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/c618920f0d8c.webp 200w, /media/nosigner/7626189c28cf.webp 400w, /media/nosigner/5cd0b212d197.webp 600w, /media/nosigner/3c4bb67a0b7e.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/435aef16fb9b.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/7afd6c0f22c4.webp 200w, /media/nosigner/d4d3fc04cfe2.webp 400w, /media/nosigner/cd7cb14bfa1a.webp 600w, /media/nosigner/435aef16fb9b.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/8039ad21883f.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/6d5f8292e6ed.webp 200w, /media/nosigner/8d0253e4c04f.webp 400w, /media/nosigner/5201999d4fda.webp 600w, /media/nosigner/8039ad21883f.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/5c970c866d96.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/fe3e8aa7c33a.webp 200w, /media/nosigner/ab398ea9ed75.webp 400w, /media/nosigner/1cdcec864112.webp 600w, /media/nosigner/5c970c866d96.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/ff6521fa890f.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/b12cbdd98d5c.webp 200w, /media/nosigner/090c2122dcba.webp 400w, /media/nosigner/00ab4a5e7132.webp 600w, /media/nosigner/ff6521fa890f.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/e099985b1ef7.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/d176cd9a2659.webp 200w, /media/nosigner/7b9b45857134.webp 400w, /media/nosigner/b155dee25b08.webp 600w, /media/nosigner/e099985b1ef7.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/ead3d3063b7e.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/4cae30d7b38d.webp 200w, /media/nosigner/46e6dd9ca809.webp 400w, /media/nosigner/5c0c084fb664.webp 600w, /media/nosigner/ead3d3063b7e.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/756041caccc7.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/9a3bf975acb9.webp 200w, /media/nosigner/a3ee87bcbbcb.webp 400w, /media/nosigner/c3efdd36b9a0.webp 600w, /media/nosigner/756041caccc7.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/71277f3689e2.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/00d07b8cbe63.webp 200w, /media/nosigner/780b5ea1e0db.webp 400w, /media/nosigner/0fb4fd1479bf.webp 600w, /media/nosigner/71277f3689e2.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/cb9a50ec30b8.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/9335fa0d9eee.webp 200w, /media/nosigner/5fa87d5fcb9c.webp 400w, /media/nosigner/1a2d60db23be.webp 600w, /media/nosigner/cb9a50ec30b8.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/f85ce7ec6552.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/d7e0eeb79fa9.webp 200w, /media/nosigner/bcef58fac72a.webp 400w, /media/nosigner/5bda4cb5cbca.webp 600w, /media/nosigner/f85ce7ec6552.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/7de86c435e96.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/01d28e8179b8.webp 200w, /media/nosigner/dd67f86df46e.webp 400w, /media/nosigner/c277bce58ad4.webp 600w, /media/nosigner/7de86c435e96.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/835142147162.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/65656ff5c6c5.webp 200w, /media/nosigner/5f615b104819.webp 400w, /media/nosigner/2f4ce776b89b.webp 600w, /media/nosigner/835142147162.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/65a64d6ac6ac.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/1f3b99557659.webp 200w, /media/nosigner/97836fc9ee9d.webp 400w, /media/nosigner/cc6b58a39650.webp 600w, /media/nosigner/65a64d6ac6ac.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/09318b4000cf.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/2d73ff55b9b1.webp 200w, /media/nosigner/ef22689e845a.webp 400w, /media/nosigner/3b575702fe66.webp 600w, /media/nosigner/09318b4000cf.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/41998de36e3f.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/6c05fb238931.webp 200w, /media/nosigner/d057b9283ed0.webp 400w, /media/nosigner/4d5fdf4fd97e.webp 600w, /media/nosigner/41998de36e3f.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/58f0ffbb97ca.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/3677aabb7d99.webp 200w, /media/nosigner/81d0b7a94364.webp 400w, /media/nosigner/5998008935db.webp 600w, /media/nosigner/58f0ffbb97ca.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/70a77171952b.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/2acc8aaaa80f.webp 200w, /media/nosigner/3fd0c10154c3.webp 400w, /media/nosigner/11fe41f57d2b.webp 600w, /media/nosigner/70a77171952b.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/1da7cd0a1348.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/d2be3c7992dc.webp 200w, /media/nosigner/786f72f3d27f.webp 400w, /media/nosigner/472a51ca6d9d.webp 600w, /media/nosigner/1da7cd0a1348.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/d766fda4924e.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/c90cee4fe72a.webp 200w, /media/nosigner/c1fd93e6d838.webp 400w, /media/nosigner/c06d809a9ce6.webp 600w, /media/nosigner/d766fda4924e.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/3bbad0bc8584.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/b0fc9cf98c0c.webp 200w, /media/nosigner/fed12e76baeb.webp 400w, /media/nosigner/0815b323a1b3.webp 600w, /media/nosigner/3bbad0bc8584.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/2665b2ad5d64.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/53d97bc4a3b2.webp 200w, /media/nosigner/893ff33ce789.webp 400w, /media/nosigner/8e5cef301f4a.webp 600w, /media/nosigner/2665b2ad5d64.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/5e809cf7bd48.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/e695888a9bc3.webp 200w, /media/nosigner/75452b011c5c.webp 400w, /media/nosigner/ab671e15b373.webp 600w, /media/nosigner/5e809cf7bd48.webp 800w"
+        }
+      ]
+    },
+    {
+      "label": "コミュニティデザイン",
+      "promise": "人が集い、知恵が生まれる場をつくりたい。",
+      "body": "NOSIGNERは、地域や変革者などのコミュニティの支援、およびワークショップの設計に積極的に取り組み、集合知が生まれる場づくりを推進しています。",
+      "href": "https://nosigner.com/ja/why/community",
+      "reverse": false,
+      "images": [
+        {
+          "src": "/media/nosigner/a94147725bcf.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/8986d2ec647e.webp 200w, /media/nosigner/1eaa75884e54.webp 400w, /media/nosigner/96503935a566.webp 600w, /media/nosigner/a94147725bcf.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/20945cc59966.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/d899c4840db0.webp 200w, /media/nosigner/0ae49b73d5e0.webp 400w, /media/nosigner/e5f3e5046f0a.webp 600w, /media/nosigner/20945cc59966.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/935a6f6232b4.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/c0f7cb8afb2f.webp 200w, /media/nosigner/589a731cf4b7.webp 400w, /media/nosigner/2d4b38a7f650.webp 600w, /media/nosigner/935a6f6232b4.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/ac12ef2d991b.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/62227b0cd67e.webp 200w, /media/nosigner/d1cfa8936bbe.webp 400w, /media/nosigner/4f144267aad8.webp 600w, /media/nosigner/ac12ef2d991b.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/ce3f8c94a868.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/391123804bc1.webp 200w, /media/nosigner/09fe7b87d171.webp 400w, /media/nosigner/6fca3d2f4d4f.webp 600w, /media/nosigner/ce3f8c94a868.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/1c9cab857efd.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/2aca52c9ca74.webp 200w, /media/nosigner/b24e501e2844.webp 400w, /media/nosigner/b4cc0a0afd76.webp 600w, /media/nosigner/1c9cab857efd.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/5d728376df1d.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/e1e6c6691c7b.webp 200w, /media/nosigner/8864c46bc9dd.webp 400w, /media/nosigner/9d32872e0eb8.webp 600w, /media/nosigner/5d728376df1d.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/7274c840cb7a.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/9a4dcdce0c40.webp 200w, /media/nosigner/c849b7219201.webp 400w, /media/nosigner/1d13e668eb05.webp 600w, /media/nosigner/7274c840cb7a.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/1d65741e54e4.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/ae898a5caa02.webp 200w, /media/nosigner/80987a822668.webp 400w, /media/nosigner/62d975f5e1af.webp 600w, /media/nosigner/1d65741e54e4.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/1f4794889b88.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/27c725f465f4.webp 200w, /media/nosigner/e079a2279d30.webp 400w, /media/nosigner/2dabb9a10bae.webp 600w, /media/nosigner/1f4794889b88.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/55fd29c83400.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/e01599aa5ec2.webp 200w, /media/nosigner/da2d90348282.webp 400w, /media/nosigner/45e13010af79.webp 600w, /media/nosigner/55fd29c83400.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/8ae6c253bc77.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/c7fbe78f09ba.webp 200w, /media/nosigner/23c8e3f41d5c.webp 400w, /media/nosigner/162ffc1118df.webp 600w, /media/nosigner/8ae6c253bc77.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/efd162aea63c.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/0e0aa8aadda3.webp 200w, /media/nosigner/9edf9f0cc5b1.webp 400w, /media/nosigner/518cdbeb8c05.webp 600w, /media/nosigner/efd162aea63c.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/49c23ba8c7a1.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/1a0947d5fd14.webp 200w, /media/nosigner/f30d9d1b50fe.webp 400w, /media/nosigner/f61dbf535038.webp 600w, /media/nosigner/49c23ba8c7a1.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/10df35b61fb1.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/7d7ac3b87fc0.webp 200w, /media/nosigner/90d910e1c528.webp 400w, /media/nosigner/b959be65cb2b.webp 600w, /media/nosigner/10df35b61fb1.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/e61e69f8f278.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/d775be388e04.webp 200w, /media/nosigner/3288052672ae.webp 400w, /media/nosigner/2c0f6c023174.webp 600w, /media/nosigner/e61e69f8f278.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/edfe5547273b.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/4289ed61f3f6.webp 200w, /media/nosigner/0de75296b036.webp 400w, /media/nosigner/331266b75042.webp 600w, /media/nosigner/edfe5547273b.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/8ecc0193a55e.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/c2665f0b2359.webp 200w, /media/nosigner/c228f97f3551.webp 400w, /media/nosigner/559848dcb2a0.webp 600w, /media/nosigner/8ecc0193a55e.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/440dc94ba944.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/d93047308dc1.webp 200w, /media/nosigner/81fa9c29fbc7.webp 400w, /media/nosigner/94d9c0006802.webp 600w, /media/nosigner/440dc94ba944.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/1db68f8cf710.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/4f2ba6b60b27.webp 200w, /media/nosigner/6e19f46a444c.webp 400w, /media/nosigner/9249cdaea841.webp 600w, /media/nosigner/1db68f8cf710.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/89d0cbe8d248.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/8a86c31cd6c1.webp 200w, /media/nosigner/a7e32896f031.webp 400w, /media/nosigner/06ff1288a46a.webp 600w, /media/nosigner/89d0cbe8d248.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/ead3d3063b7e.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/4cae30d7b38d.webp 200w, /media/nosigner/46e6dd9ca809.webp 400w, /media/nosigner/5c0c084fb664.webp 600w, /media/nosigner/ead3d3063b7e.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/dc781432a713.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/3969f0b011d5.webp 200w, /media/nosigner/23c9338040f9.webp 400w, /media/nosigner/b7e3e2210bd0.webp 600w, /media/nosigner/dc781432a713.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/2f1d90fe9690.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/818cf8c9625d.webp 200w, /media/nosigner/2870df58940f.webp 400w, /media/nosigner/cd13b3d0f1c3.webp 600w, /media/nosigner/2f1d90fe9690.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/71277f3689e2.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/00d07b8cbe63.webp 200w, /media/nosigner/780b5ea1e0db.webp 400w, /media/nosigner/0fb4fd1479bf.webp 600w, /media/nosigner/71277f3689e2.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/392e048ccd82.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/2854d44c934b.webp 200w, /media/nosigner/c0e67eede3dc.webp 400w, /media/nosigner/f4fc14d5e201.webp 600w, /media/nosigner/392e048ccd82.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/cb9a50ec30b8.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/9335fa0d9eee.webp 200w, /media/nosigner/5fa87d5fcb9c.webp 400w, /media/nosigner/1a2d60db23be.webp 600w, /media/nosigner/cb9a50ec30b8.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/f85ce7ec6552.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/d7e0eeb79fa9.webp 200w, /media/nosigner/bcef58fac72a.webp 400w, /media/nosigner/5bda4cb5cbca.webp 600w, /media/nosigner/f85ce7ec6552.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/dd4fd67c69a7.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/5003018b66f9.webp 200w, /media/nosigner/6ad7bb755990.webp 400w, /media/nosigner/41c4071e4013.webp 600w, /media/nosigner/dd4fd67c69a7.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/41998de36e3f.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/6c05fb238931.webp 200w, /media/nosigner/d057b9283ed0.webp 400w, /media/nosigner/4d5fdf4fd97e.webp 600w, /media/nosigner/41998de36e3f.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/f92d80eae5c6.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/1ab0467341e3.webp 200w, /media/nosigner/fda26e227458.webp 400w, /media/nosigner/42e7e7d81149.webp 600w, /media/nosigner/f92d80eae5c6.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/70a77171952b.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/2acc8aaaa80f.webp 200w, /media/nosigner/3fd0c10154c3.webp 400w, /media/nosigner/11fe41f57d2b.webp 600w, /media/nosigner/70a77171952b.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/ee909e9dc926.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/149993894218.webp 200w, /media/nosigner/6b577927d927.webp 400w, /media/nosigner/8396b806aa37.webp 600w, /media/nosigner/ee909e9dc926.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/b09f105285b8.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/20558aba36ac.webp 200w, /media/nosigner/210d763020e2.webp 400w, /media/nosigner/146bcac52a2a.webp 600w, /media/nosigner/b09f105285b8.webp 800w"
+        }
+      ]
+    },
+    {
+      "label": "教育デザイン",
+      "promise": "生き抜く力を、すべての人に届けたい。",
+      "body": "NOSIGNERは、生き抜く力を育む創造性の教育に取り組んでいます。進化思考を通じて、個人と社会の可能性を引き出し、変化に適応できる人材と仕組みを育てます。",
+      "href": "https://nosigner.com/ja/why/education",
+      "reverse": true,
+      "images": [
+        {
+          "src": "/media/nosigner/fc7e96154b5a.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/475b8ea5d67a.webp 200w, /media/nosigner/1fb4ef037f5c.webp 400w, /media/nosigner/b8dbc3b887b8.webp 600w, /media/nosigner/fc7e96154b5a.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/be39588bc75d.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/bfd42e16dd88.webp 200w, /media/nosigner/515f9f135eca.webp 400w, /media/nosigner/fb9c59f9c0b9.webp 600w, /media/nosigner/be39588bc75d.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/56d7a2531359.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/0ac824b6cfe7.webp 200w, /media/nosigner/673aa351eb7d.webp 400w, /media/nosigner/c7668374bfbc.webp 600w, /media/nosigner/56d7a2531359.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/935a6f6232b4.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/c0f7cb8afb2f.webp 200w, /media/nosigner/589a731cf4b7.webp 400w, /media/nosigner/2d4b38a7f650.webp 600w, /media/nosigner/935a6f6232b4.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/ce0d8a3bce35.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/95e3d66db69a.webp 200w, /media/nosigner/0d9a8577dcf9.webp 400w, /media/nosigner/4d5dfdd542a7.webp 600w, /media/nosigner/ce0d8a3bce35.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/ee6f80a9ac6f.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/f7afacb0630a.webp 200w, /media/nosigner/cfdd67f937ec.webp 400w, /media/nosigner/e2793b5e9f31.webp 600w, /media/nosigner/ee6f80a9ac6f.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/ac12ef2d991b.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/62227b0cd67e.webp 200w, /media/nosigner/d1cfa8936bbe.webp 400w, /media/nosigner/4f144267aad8.webp 600w, /media/nosigner/ac12ef2d991b.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/1c9cab857efd.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/2aca52c9ca74.webp 200w, /media/nosigner/b24e501e2844.webp 400w, /media/nosigner/b4cc0a0afd76.webp 600w, /media/nosigner/1c9cab857efd.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/686ab4b03413.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/1ccae1e9bee3.webp 200w, /media/nosigner/f22dd5c6efdf.webp 400w, /media/nosigner/143fa66b67db.webp 600w, /media/nosigner/686ab4b03413.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/b12c04b02f51.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/d78e0984d1be.webp 200w, /media/nosigner/80aa90a70ed1.webp 400w, /media/nosigner/a185322059e6.webp 600w, /media/nosigner/b12c04b02f51.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/8ae6c253bc77.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/c7fbe78f09ba.webp 200w, /media/nosigner/23c8e3f41d5c.webp 400w, /media/nosigner/162ffc1118df.webp 600w, /media/nosigner/8ae6c253bc77.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/52529484a90d.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/38cf1fc1588f.webp 200w, /media/nosigner/f355ca29cbe4.webp 400w, /media/nosigner/a0997bf4cb13.webp 600w, /media/nosigner/52529484a90d.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/4c20242a5311.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/71d36bc05546.webp 200w, /media/nosigner/0278a73ff5e9.webp 400w, /media/nosigner/638aa6df08b0.webp 600w, /media/nosigner/4c20242a5311.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/2e5b42972a6f.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/9021124129ad.webp 200w, /media/nosigner/54c462eb89b3.webp 400w, /media/nosigner/72ae1f06a693.webp 600w, /media/nosigner/2e5b42972a6f.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/10df35b61fb1.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/7d7ac3b87fc0.webp 200w, /media/nosigner/90d910e1c528.webp 400w, /media/nosigner/b959be65cb2b.webp 600w, /media/nosigner/10df35b61fb1.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/edfe5547273b.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/4289ed61f3f6.webp 200w, /media/nosigner/0de75296b036.webp 400w, /media/nosigner/331266b75042.webp 600w, /media/nosigner/edfe5547273b.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/1db68f8cf710.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/4f2ba6b60b27.webp 200w, /media/nosigner/6e19f46a444c.webp 400w, /media/nosigner/9249cdaea841.webp 600w, /media/nosigner/1db68f8cf710.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/ad7c0334fa6a.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/672c2cac8cf4.webp 200w, /media/nosigner/c5c5bbe6f142.webp 400w, /media/nosigner/1726207a122f.webp 600w, /media/nosigner/ad7c0334fa6a.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/10f7af7c51ac.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/4175654bacac.webp 200w, /media/nosigner/4dcd0e042d4a.webp 400w, /media/nosigner/06d2fd62a6ff.webp 600w, /media/nosigner/10f7af7c51ac.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/efa1c7114ee1.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/3bc364bc13d6.webp 200w, /media/nosigner/1c0c7f951d7e.webp 400w, /media/nosigner/1902b764c658.webp 600w, /media/nosigner/efa1c7114ee1.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/f85ce7ec6552.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/d7e0eeb79fa9.webp 200w, /media/nosigner/bcef58fac72a.webp 400w, /media/nosigner/5bda4cb5cbca.webp 600w, /media/nosigner/f85ce7ec6552.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/d3b9ac97780a.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/58031ce42ad8.webp 200w, /media/nosigner/701aefedb4dc.webp 400w, /media/nosigner/45fdf74901c7.webp 600w, /media/nosigner/d3b9ac97780a.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/efce4320d07b.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/977618f6f310.webp 200w, /media/nosigner/fb1c2a530b64.webp 400w, /media/nosigner/771179ad53e8.webp 600w, /media/nosigner/efce4320d07b.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/8adf15316270.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/8e3a4265b904.webp 200w, /media/nosigner/6af20679bbd4.webp 400w, /media/nosigner/2e17c5cb124b.webp 600w, /media/nosigner/8adf15316270.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/71c1b5bbfbc4.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/24419853781b.webp 200w, /media/nosigner/55889481bfee.webp 400w, /media/nosigner/2d4071a8d2b4.webp 600w, /media/nosigner/71c1b5bbfbc4.webp 800w"
+        },
+        {
+          "src": "/media/nosigner/ee909e9dc926.webp",
+          "width": 600,
+          "height": 600,
+          "srcSet": "/media/nosigner/149993894218.webp 200w, /media/nosigner/6b577927d927.webp 400w, /media/nosigner/8396b806aa37.webp 600w, /media/nosigner/ee909e9dc926.webp 800w"
+        }
+      ]
+    }
+  ],
+  "news": [
+    {
+      "title": "日経主催 タイ現地イベント SYNC Design & Innovation in SITE 2026に代表太刀川英輔が登壇",
+      "date": "2026.8.24",
+      "datetime": "2026-08-24",
+      "category": "お知らせ",
+      "href": "https://nosigner.com/ja/news/%E6%97%A5%E7%B5%8C%E4%B8%BB%E5%82%AC-%E3%82%BF%E3%82%A4%E7%8F%BE%E5%9C%B0%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88-sync-design-innovation-in-site-2026%E3%81%AB%E4%BB%A3%E8%A1%A8%E5%A4%AA%E5%88%80",
+      "image": {
+        "src": "/media/nosigner/ecb01d6dc921.webp",
+        "width": 1270,
+        "height": 854,
+        "srcSet": "/media/nosigner/813a4e20d312.webp 400w, /media/nosigner/6def15d8b52c.webp 800w, /media/nosigner/e43ec8e2baed.webp 1200w, /media/nosigner/ecb01d6dc921.webp 1632w"
+      }
+    },
+    {
+      "title": "NOSIGNERが手がけたカプセル玩具「カプセル都市計画 パシフィコ横浜」が、Pentawards 2026にて「HOME, LEISURE & OTHER MARKETS部門」を受賞",
+      "date": "2026.8.6",
+      "datetime": "2026-08-06",
+      "category": "受賞",
+      "href": "https://nosigner.com/ja/news/pacifico_pentawards2026",
+      "image": {
+        "src": "/media/nosigner/70b996b6be9c.webp",
+        "width": 1270,
+        "height": 854,
+        "srcSet": "/media/nosigner/585b6f9587cf.webp 400w, /media/nosigner/4fdd7730b0a3.webp 800w, /media/nosigner/ed5fed75a31c.webp 1200w, /media/nosigner/70b996b6be9c.webp 1632w"
+      }
+    },
+    {
+      "title": "月刊『東京人』8月号連載企画「都市と環境」に、代表 太刀川英輔が寄稿",
+      "date": "2026.7.24",
+      "datetime": "2026-07-24",
+      "category": "メディア掲載",
+      "href": "https://nosigner.com/ja/news/tokyojin2026",
+      "image": {
+        "src": "/media/nosigner/5276b3e93c4e.webp",
+        "width": 1270,
+        "height": 854,
+        "srcSet": "/media/nosigner/eaa97d2473c7.webp 400w, /media/nosigner/0f9319bd65c9.webp 800w, /media/nosigner/ce95a6ee39d6.webp 1200w, /media/nosigner/5276b3e93c4e.webp 1632w"
+      }
+    },
+    {
+      "title": "Benesse Art Site Naoshima Learning ＆ Practice × 太刀川英輔氏「進化思考」",
+      "date": "2026.7.21",
+      "datetime": "2026-07-21",
+      "category": "お知らせ",
+      "href": "https://nosigner.com/ja/news/benessenaoshima",
+      "image": {
+        "src": "/media/nosigner/14885ffd15e4.webp",
+        "width": 1270,
+        "height": 854,
+        "srcSet": "/media/nosigner/dfdac298de13.webp 400w, /media/nosigner/a92db9c73061.webp 800w, /media/nosigner/4bcaa5af4412.webp 1200w, /media/nosigner/14885ffd15e4.webp 1632w"
+      }
+    }
+  ],
+  "links": [
+    {
+      "href": "https://nosigner.com/ja/eisuke_tachikawa/",
+      "label": "太刀川英輔"
+    },
+    {
+      "href": "https://nosigner.com/ja/#section-why",
+      "label": "WHY WE DESIGN"
+    },
+    {
+      "href": "https://nosigner.com/ja/why/resilience",
+      "label": "防災デザイン"
+    },
+    {
+      "href": "https://nosigner.com/ja/why/sustainability",
+      "label": "サステナブルデザイン"
+    },
+    {
+      "href": "https://nosigner.com/ja/why/food",
+      "label": "食のデザイン"
+    },
+    {
+      "href": "https://nosigner.com/ja/why/hygiene",
+      "label": "衛生デザイン"
+    },
+    {
+      "href": "https://nosigner.com/ja/why/region",
+      "label": "地域デザイン"
+    },
+    {
+      "href": "https://nosigner.com/ja/why/community",
+      "label": "コミュニティデザイン"
+    },
+    {
+      "href": "https://nosigner.com/ja/why/education",
+      "label": "教育デザイン"
+    },
+    {
+      "href": "https://nosigner.com/ja/#section-how",
+      "label": "HOW WE DESIGN"
+    },
+    {
+      "href": "https://nosigner.com/ja/how/strategy",
+      "label": "デザイン戦略"
+    },
+    {
+      "href": "https://nosigner.com/ja/how/branding",
+      "label": "ブランディングデザイン"
+    },
+    {
+      "href": "https://nosigner.com/ja/how/product",
+      "label": "プロダクトデザイン"
+    },
+    {
+      "href": "https://nosigner.com/ja/how/packaging",
+      "label": "パッケージデザイン"
+    },
+    {
+      "href": "https://nosigner.com/ja/how/web_app",
+      "label": "Web / アプリデザイン"
+    },
+    {
+      "href": "https://nosigner.com/ja/how/architecture",
+      "label": "建築デザイン"
+    },
+    {
+      "href": "https://nosigner.com/ja/how/signage",
+      "label": "サイン・環境デザイン"
+    },
+    {
+      "href": "https://nosigner.com/ja/how/advertising",
+      "label": "広告デザイン"
+    },
+    {
+      "href": "https://nosigner.com/ja/how/art",
+      "label": "アート"
+    },
+    {
+      "href": "https://nosigner.com/ja/projects/",
+      "label": "ALL PROJECTS"
+    },
+    {
+      "href": "https://nosigner.com/ja/company/",
+      "label": "COMPANY"
+    },
+    {
+      "href": "https://nosigner.com/ja/eisuke_tachikawa/",
+      "label": "DESIGNER"
+    },
+    {
+      "href": "https://nosigner.com/ja/news/",
+      "label": "NEWS"
+    },
+    {
+      "href": "https://nosigner.com/ja/career/",
+      "label": "CAREER"
+    },
+    {
+      "href": "https://nosigner.com/ja/contact/",
+      "label": "CONTACT"
+    },
+    {
+      "href": "https://d.bmb.jp/bm/p/f/tf.php?id=bm55512mj&task=regist",
+      "label": "ニュースレターの登録 ニュースレターの登録"
+    },
+    {
+      "href": "https://nosigner.com/ja/contact/#download",
+      "label": "会社資料のダウンロード 会社資料のダウンロード"
+    },
+    {
+      "href": "https://www.facebook.com/NOSIGNER/",
+      "label": "FaceBook"
+    },
+    {
+      "href": "https://www.instagram.com/nosigner_design/",
+      "label": "instagram"
+    },
+    {
+      "href": "https://x.com/NOSIGNER",
+      "label": "X"
+    },
+    {
+      "href": "https://note.com/nosigner",
+      "label": "note"
+    },
+    {
+      "href": "https://www.behance.net/nosigner",
+      "label": "behance"
+    },
+    {
+      "href": "https://nosigner.com/ja/",
+      "label": "ホーム   NOSIGNER"
+    },
+    {
+      "href": "https://nosigner.com/ja/eisuke_tachikawa/",
+      "label": "EISUKE TACHIKAWA"
+    },
+    {
+      "href": "https://nosigner.com/ja/projects/",
+      "label": "ALL PROJECTS"
+    },
+    {
+      "href": "https://nosigner.com/ja/company/",
+      "label": "COMPANY"
+    },
+    {
+      "href": "https://nosigner.com/ja/news/",
+      "label": "NEWS"
+    },
+    {
+      "href": "https://nosigner.com/ja/career/",
+      "label": "CAREER"
+    },
+    {
+      "href": "https://nosigner.com/ja/contact/",
+      "label": "CONTACT"
+    },
+    {
+      "href": "https://nosigner.com/ja/#section-why",
+      "label": "WHY WE DESIGN"
+    },
+    {
+      "href": "https://nosigner.com/ja/why/resilience",
+      "label": "防災デザイン"
+    },
+    {
+      "href": "https://nosigner.com/ja/why/sustainability",
+      "label": "サステナブルデザイン"
+    },
+    {
+      "href": "https://nosigner.com/ja/why/food",
+      "label": "食のデザイン"
+    },
+    {
+      "href": "https://nosigner.com/ja/why/hygiene",
+      "label": "衛生デザイン"
+    },
+    {
+      "href": "https://nosigner.com/ja/why/region",
+      "label": "地域デザイン"
+    },
+    {
+      "href": "https://nosigner.com/ja/why/community",
+      "label": "コミュニティデザイン"
+    },
+    {
+      "href": "https://nosigner.com/ja/why/education",
+      "label": "教育デザイン"
+    },
+    {
+      "href": "https://nosigner.com/ja/#section-how",
+      "label": "HOW WE DESIGN"
+    },
+    {
+      "href": "https://nosigner.com/ja/how/strategy",
+      "label": "デザイン戦略"
+    },
+    {
+      "href": "https://nosigner.com/ja/how/branding",
+      "label": "ブランディングデザイン"
+    },
+    {
+      "href": "https://nosigner.com/ja/how/product",
+      "label": "プロダクトデザイン"
+    },
+    {
+      "href": "https://nosigner.com/ja/how/packaging",
+      "label": "パッケージデザイン"
+    },
+    {
+      "href": "https://nosigner.com/ja/how/web_app",
+      "label": "Web / アプリデザイン"
+    },
+    {
+      "href": "https://nosigner.com/ja/how/architecture",
+      "label": "建築デザイン"
+    },
+    {
+      "href": "https://nosigner.com/ja/how/signage",
+      "label": "サイン・環境デザイン"
+    },
+    {
+      "href": "https://nosigner.com/ja/how/advertising",
+      "label": "広告デザイン"
+    },
+    {
+      "href": "https://nosigner.com/ja/how/art",
+      "label": "アート"
+    },
+    {
+      "href": "https://d.bmb.jp/bm/p/f/tf.php?id=bm55512mj&task=regist",
+      "label": "ニュースレターの登録 ニュースレターの登録"
+    },
+    {
+      "href": "https://nosigner.com/ja/contact/#download",
+      "label": "会社資料のダウンロード 会社資料のダウンロード"
+    },
+    {
+      "href": "https://www.facebook.com/NOSIGNER/",
+      "label": "FaceBook"
+    },
+    {
+      "href": "https://www.instagram.com/nosigner_design/",
+      "label": "instagram"
+    },
+    {
+      "href": "https://x.com/NOSIGNER",
+      "label": "X"
+    },
+    {
+      "href": "https://note.com/nosigner",
+      "label": "note"
+    },
+    {
+      "href": "https://www.behance.net/nosigner",
+      "label": "behance"
+    },
+    {
+      "href": "https://nosigner.com/ja/privacypolicy/",
+      "label": "PRIVACY POLICY"
+    },
+    {
+      "href": "https://nosigner.com/ja/#top",
+      "label": "PAGE TOP"
+    }
+  ]
+}

@@ -1,0 +1,1236 @@
+{
+  "url": "https://nosigner.com/ja/",
+  "capturedAt": "2026-09-09T10:28:18.061Z",
+  "observations": [
+    {
+      "width": 1440,
+      "height": 900,
+      "name": "intro",
+      "path": "references/nosigner/ambient-2026-09-09/reference-intro-1440.png",
+      "time": 12,
+      "canvasWidth": 1425,
+      "canvasHeight": 900,
+      "y": 1100,
+      "theme": "dark",
+      "quotes": [
+        {
+          "x": 0,
+          "y": 4444.6875,
+          "width": 1425,
+          "height": 900,
+          "top": 4444.6875,
+          "right": 1425,
+          "bottom": 5344.6875,
+          "left": 0
+        },
+        {
+          "x": 0,
+          "y": 8566.75,
+          "width": 1425,
+          "height": 900,
+          "top": 8566.75,
+          "right": 1425,
+          "bottom": 9466.75,
+          "left": 0
+        }
+      ],
+      "uniforms": {
+        "uResolution": {
+          "x": 1425,
+          "y": 900
+        },
+        "uTime": 10.36629999999702,
+        "uAlpha": 0.053,
+        "uSpeed": 0.296,
+        "uColor1": {
+          "isColor": true,
+          "r": 0.0118,
+          "g": 1,
+          "b": 0.7804
+        },
+        "uColor2": {
+          "isColor": true,
+          "r": 0.1373,
+          "g": 0.702,
+          "b": 1
+        },
+        "uColor3": {
+          "isColor": true,
+          "r": 0.0745,
+          "g": 1,
+          "b": 0.8588
+        },
+        "uColor4": {
+          "isColor": true,
+          "r": 0.5451,
+          "g": 0,
+          "b": 1
+        },
+        "uLightness": {
+          "x": 5,
+          "y": 5
+        },
+        "uOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "uRadius": 0.624,
+        "uBlurSize": 0.402,
+        "uScrollProgress": 1100,
+        "uMixFactor": 1,
+        "isBackground": 1,
+        "organicStrength": 1.413,
+        "organicSpeed": 0.345
+      },
+      "errors": []
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "name": "light",
+      "path": "references/nosigner/ambient-2026-09-09/reference-light-1440.png",
+      "time": 12,
+      "canvasWidth": 1425,
+      "canvasHeight": 900,
+      "y": 5800,
+      "theme": "light",
+      "quotes": [
+        {
+          "x": 0,
+          "y": -255.3125,
+          "width": 1425,
+          "height": 900,
+          "top": -255.3125,
+          "right": 1425,
+          "bottom": 644.6875,
+          "left": 0
+        },
+        {
+          "x": 0,
+          "y": 3887.546875,
+          "width": 1425,
+          "height": 900,
+          "top": 3887.546875,
+          "right": 1425,
+          "bottom": 4787.546875,
+          "left": 0
+        }
+      ],
+      "uniforms": {
+        "uResolution": {
+          "x": 1425,
+          "y": 900
+        },
+        "uTime": 18.03309999999777,
+        "uAlpha": 1,
+        "uSpeed": 0.296,
+        "uColor1": {
+          "isColor": true,
+          "r": 1,
+          "g": 1,
+          "b": 1
+        },
+        "uColor2": {
+          "isColor": true,
+          "r": 1,
+          "g": 1,
+          "b": 1
+        },
+        "uColor3": {
+          "isColor": true,
+          "r": 0.631,
+          "g": 0.8,
+          "b": 0.969
+        },
+        "uColor4": {
+          "isColor": true,
+          "r": 0.655,
+          "g": 0.765,
+          "b": 0.984
+        },
+        "uLightness": {
+          "x": 0,
+          "y": 0
+        },
+        "uOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "uRadius": 2,
+        "uBlurSize": 2,
+        "uScrollProgress": 5800,
+        "uMixFactor": 0,
+        "isBackground": 1,
+        "organicStrength": 1.413,
+        "organicSpeed": 0.051
+      },
+      "errors": []
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "name": "news",
+      "path": "references/nosigner/ambient-2026-09-09/reference-closing-1440.png",
+      "time": 12,
+      "canvasWidth": 1425,
+      "canvasHeight": 900,
+      "y": 9400,
+      "theme": "dark",
+      "quotes": [
+        {
+          "x": 0,
+          "y": -3855.3125,
+          "width": 1425,
+          "height": 900,
+          "top": -3855.3125,
+          "right": 1425,
+          "bottom": -2955.3125,
+          "left": 0
+        },
+        {
+          "x": 0,
+          "y": 287.546875,
+          "width": 1425,
+          "height": 900,
+          "top": 287.546875,
+          "right": 1425,
+          "bottom": 1187.546875,
+          "left": 0
+        }
+      ],
+      "uniforms": {
+        "uResolution": {
+          "x": 1425,
+          "y": 900
+        },
+        "uTime": 27.904599999997778,
+        "uAlpha": 0.053,
+        "uSpeed": 0.296,
+        "uColor1": {
+          "isColor": true,
+          "r": 0.0118,
+          "g": 1,
+          "b": 0.7804
+        },
+        "uColor2": {
+          "isColor": true,
+          "r": 0.1373,
+          "g": 0.702,
+          "b": 1
+        },
+        "uColor3": {
+          "isColor": true,
+          "r": 0.0745,
+          "g": 1,
+          "b": 0.8588
+        },
+        "uColor4": {
+          "isColor": true,
+          "r": 0.5451,
+          "g": 0,
+          "b": 1
+        },
+        "uLightness": {
+          "x": 5,
+          "y": 5
+        },
+        "uOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "uRadius": 0.624,
+        "uBlurSize": 0.402,
+        "uScrollProgress": 9400,
+        "uMixFactor": 0,
+        "isBackground": 1,
+        "organicStrength": 1.413,
+        "organicSpeed": 0.345
+      },
+      "errors": []
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "name": "closing",
+      "path": "references/nosigner/ambient-2026-09-09/reference-closing-1440.png",
+      "time": 12,
+      "canvasWidth": 1425,
+      "canvasHeight": 900,
+      "y": 9900,
+      "theme": "dark",
+      "quotes": [
+        {
+          "x": 0,
+          "y": -4355.3125,
+          "width": 1425,
+          "height": 900,
+          "top": -4355.3125,
+          "right": 1425,
+          "bottom": -3455.3125,
+          "left": 0
+        },
+        {
+          "x": 0,
+          "y": -212.453125,
+          "width": 1425,
+          "height": 900,
+          "top": -212.453125,
+          "right": 1425,
+          "bottom": 687.546875,
+          "left": 0
+        }
+      ],
+      "uniforms": {
+        "uResolution": {
+          "x": 1425,
+          "y": 900
+        },
+        "uTime": 35.8653999999985,
+        "uAlpha": 0.053,
+        "uSpeed": 0.296,
+        "uColor1": {
+          "isColor": true,
+          "r": 0.0118,
+          "g": 1,
+          "b": 0.7804
+        },
+        "uColor2": {
+          "isColor": true,
+          "r": 0.1373,
+          "g": 0.702,
+          "b": 1
+        },
+        "uColor3": {
+          "isColor": true,
+          "r": 0.0745,
+          "g": 1,
+          "b": 0.8588
+        },
+        "uColor4": {
+          "isColor": true,
+          "r": 0.5451,
+          "g": 0,
+          "b": 1
+        },
+        "uLightness": {
+          "x": 5,
+          "y": 5
+        },
+        "uOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "uRadius": 0.624,
+        "uBlurSize": 0.402,
+        "uScrollProgress": 9900,
+        "uMixFactor": 0,
+        "isBackground": 1,
+        "organicStrength": 1.413,
+        "organicSpeed": 0.345
+      },
+      "errors": []
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "name": "reverse",
+      "path": "references/nosigner/ambient-2026-09-09/reference-intro-1440.png",
+      "time": 12,
+      "canvasWidth": 1425,
+      "canvasHeight": 900,
+      "y": 1100,
+      "theme": "dark",
+      "quotes": [
+        {
+          "x": 0,
+          "y": 4444.6875,
+          "width": 1425,
+          "height": 900,
+          "top": 4444.6875,
+          "right": 1425,
+          "bottom": 5344.6875,
+          "left": 0
+        },
+        {
+          "x": 0,
+          "y": 8587.546875,
+          "width": 1425,
+          "height": 900,
+          "top": 8587.546875,
+          "right": 1425,
+          "bottom": 9487.546875,
+          "left": 0
+        }
+      ],
+      "uniforms": {
+        "uResolution": {
+          "x": 1425,
+          "y": 900
+        },
+        "uTime": 44.702199999999245,
+        "uAlpha": 0.053,
+        "uSpeed": 0.296,
+        "uColor1": {
+          "isColor": true,
+          "r": 0.0118,
+          "g": 1,
+          "b": 0.7804
+        },
+        "uColor2": {
+          "isColor": true,
+          "r": 0.1373,
+          "g": 0.702,
+          "b": 1
+        },
+        "uColor3": {
+          "isColor": true,
+          "r": 0.0745,
+          "g": 1,
+          "b": 0.8588
+        },
+        "uColor4": {
+          "isColor": true,
+          "r": 0.5451,
+          "g": 0,
+          "b": 1
+        },
+        "uLightness": {
+          "x": 5,
+          "y": 5
+        },
+        "uOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "uRadius": 0.624,
+        "uBlurSize": 0.402,
+        "uScrollProgress": 1100,
+        "uMixFactor": 1,
+        "isBackground": 1,
+        "organicStrength": 1.413,
+        "organicSpeed": 0.345
+      },
+      "errors": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "name": "intro",
+      "path": "references/nosigner/ambient-2026-09-09/reference-intro-390.png",
+      "time": 12,
+      "canvasWidth": 375,
+      "canvasHeight": 844,
+      "y": 1100,
+      "theme": "light",
+      "quotes": [
+        {
+          "x": 0,
+          "y": 3219.78125,
+          "width": 375,
+          "height": 844,
+          "top": 3219.78125,
+          "right": 375,
+          "bottom": 4063.78125,
+          "left": 0
+        },
+        {
+          "x": 0,
+          "y": 6770.40625,
+          "width": 375,
+          "height": 844,
+          "top": 6770.40625,
+          "right": 375,
+          "bottom": 7614.40625,
+          "left": 0
+        }
+      ],
+      "uniforms": {
+        "uResolution": {
+          "x": 375,
+          "y": 844
+        },
+        "uTime": 10.392100000001491,
+        "uAlpha": 1,
+        "uSpeed": 0.296,
+        "uColor1": {
+          "isColor": true,
+          "r": 1,
+          "g": 1,
+          "b": 1
+        },
+        "uColor2": {
+          "isColor": true,
+          "r": 1,
+          "g": 1,
+          "b": 1
+        },
+        "uColor3": {
+          "isColor": true,
+          "r": 0.631,
+          "g": 0.8,
+          "b": 0.969
+        },
+        "uColor4": {
+          "isColor": true,
+          "r": 0.655,
+          "g": 0.765,
+          "b": 0.984
+        },
+        "uLightness": {
+          "x": 0,
+          "y": 0
+        },
+        "uOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "uRadius": 2,
+        "uBlurSize": 2,
+        "uScrollProgress": 1100,
+        "uMixFactor": 1,
+        "isBackground": 1,
+        "organicStrength": 1.413,
+        "organicSpeed": 0.051
+      },
+      "errors": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "name": "light",
+      "path": "references/nosigner/ambient-2026-09-09/reference-light-390.png",
+      "time": 12,
+      "canvasWidth": 375,
+      "canvasHeight": 844,
+      "y": 4500,
+      "theme": "light",
+      "quotes": [
+        {
+          "x": 0,
+          "y": -180.21875,
+          "width": 375,
+          "height": 844,
+          "top": -180.21875,
+          "right": 375,
+          "bottom": 663.78125,
+          "left": 0
+        },
+        {
+          "x": 0,
+          "y": 3370.40625,
+          "width": 375,
+          "height": 844,
+          "top": 3370.40625,
+          "right": 375,
+          "bottom": 4214.40625,
+          "left": 0
+        }
+      ],
+      "uniforms": {
+        "uResolution": {
+          "x": 375,
+          "y": 844
+        },
+        "uTime": 15.709399999998489,
+        "uAlpha": 1,
+        "uSpeed": 0.296,
+        "uColor1": {
+          "isColor": true,
+          "r": 1,
+          "g": 1,
+          "b": 1
+        },
+        "uColor2": {
+          "isColor": true,
+          "r": 1,
+          "g": 1,
+          "b": 1
+        },
+        "uColor3": {
+          "isColor": true,
+          "r": 0.631,
+          "g": 0.8,
+          "b": 0.969
+        },
+        "uColor4": {
+          "isColor": true,
+          "r": 0.655,
+          "g": 0.765,
+          "b": 0.984
+        },
+        "uLightness": {
+          "x": 0,
+          "y": 0
+        },
+        "uOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "uRadius": 2,
+        "uBlurSize": 2,
+        "uScrollProgress": 4500,
+        "uMixFactor": 0,
+        "isBackground": 1,
+        "organicStrength": 1.413,
+        "organicSpeed": 0.051
+      },
+      "errors": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "name": "news",
+      "path": "references/nosigner/ambient-2026-09-09/reference-closing-390.png",
+      "time": 12,
+      "canvasWidth": 375,
+      "canvasHeight": 844,
+      "y": 7400,
+      "theme": "dark",
+      "quotes": [
+        {
+          "x": 0,
+          "y": -3080.21875,
+          "width": 375,
+          "height": 844,
+          "top": -3080.21875,
+          "right": 375,
+          "bottom": -2236.21875,
+          "left": 0
+        },
+        {
+          "x": 0,
+          "y": 470.40625,
+          "width": 375,
+          "height": 844,
+          "top": 470.40625,
+          "right": 375,
+          "bottom": 1314.40625,
+          "left": 0
+        }
+      ],
+      "uniforms": {
+        "uResolution": {
+          "x": 375,
+          "y": 844
+        },
+        "uTime": 20.96339999999848,
+        "uAlpha": 0.053,
+        "uSpeed": 0.296,
+        "uColor1": {
+          "isColor": true,
+          "r": 0.0118,
+          "g": 1,
+          "b": 0.7804
+        },
+        "uColor2": {
+          "isColor": true,
+          "r": 0.1373,
+          "g": 0.702,
+          "b": 1
+        },
+        "uColor3": {
+          "isColor": true,
+          "r": 0.0745,
+          "g": 1,
+          "b": 0.8588
+        },
+        "uColor4": {
+          "isColor": true,
+          "r": 0.5451,
+          "g": 0,
+          "b": 1
+        },
+        "uLightness": {
+          "x": 5,
+          "y": 5
+        },
+        "uOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "uRadius": 0.624,
+        "uBlurSize": 0.402,
+        "uScrollProgress": 7400,
+        "uMixFactor": 0,
+        "isBackground": 1,
+        "organicStrength": 1.413,
+        "organicSpeed": 0.345
+      },
+      "errors": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "name": "closing",
+      "path": "references/nosigner/ambient-2026-09-09/reference-closing-390.png",
+      "time": 12,
+      "canvasWidth": 375,
+      "canvasHeight": 844,
+      "y": 8400,
+      "theme": "dark",
+      "quotes": [
+        {
+          "x": 0,
+          "y": -4080.21875,
+          "width": 375,
+          "height": 844,
+          "top": -4080.21875,
+          "right": 375,
+          "bottom": -3236.21875,
+          "left": 0
+        },
+        {
+          "x": 0,
+          "y": -529.59375,
+          "width": 375,
+          "height": 844,
+          "top": -529.59375,
+          "right": 375,
+          "bottom": 314.40625,
+          "left": 0
+        }
+      ],
+      "uniforms": {
+        "uResolution": {
+          "x": 375,
+          "y": 844
+        },
+        "uTime": 26.37489999999842,
+        "uAlpha": 0.053,
+        "uSpeed": 0.296,
+        "uColor1": {
+          "isColor": true,
+          "r": 0.0118,
+          "g": 1,
+          "b": 0.7804
+        },
+        "uColor2": {
+          "isColor": true,
+          "r": 0.1373,
+          "g": 0.702,
+          "b": 1
+        },
+        "uColor3": {
+          "isColor": true,
+          "r": 0.0745,
+          "g": 1,
+          "b": 0.8588
+        },
+        "uColor4": {
+          "isColor": true,
+          "r": 0.5451,
+          "g": 0,
+          "b": 1
+        },
+        "uLightness": {
+          "x": 5,
+          "y": 5
+        },
+        "uOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "uRadius": 0.624,
+        "uBlurSize": 0.402,
+        "uScrollProgress": 8400,
+        "uMixFactor": 0,
+        "isBackground": 1,
+        "organicStrength": 1.413,
+        "organicSpeed": 0.345
+      },
+      "errors": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "name": "reverse",
+      "path": "references/nosigner/ambient-2026-09-09/reference-intro-390.png",
+      "time": 12,
+      "canvasWidth": 375,
+      "canvasHeight": 844,
+      "y": 1100,
+      "theme": "light",
+      "quotes": [
+        {
+          "x": 0,
+          "y": 3219.78125,
+          "width": 375,
+          "height": 844,
+          "top": 3219.78125,
+          "right": 375,
+          "bottom": 4063.78125,
+          "left": 0
+        },
+        {
+          "x": 0,
+          "y": 6770.40625,
+          "width": 375,
+          "height": 844,
+          "top": 6770.40625,
+          "right": 375,
+          "bottom": 7614.40625,
+          "left": 0
+        }
+      ],
+      "uniforms": {
+        "uResolution": {
+          "x": 375,
+          "y": 844
+        },
+        "uTime": 31.174800000000623,
+        "uAlpha": 1,
+        "uSpeed": 0.296,
+        "uColor1": {
+          "isColor": true,
+          "r": 1,
+          "g": 1,
+          "b": 1
+        },
+        "uColor2": {
+          "isColor": true,
+          "r": 1,
+          "g": 1,
+          "b": 1
+        },
+        "uColor3": {
+          "isColor": true,
+          "r": 0.631,
+          "g": 0.8,
+          "b": 0.969
+        },
+        "uColor4": {
+          "isColor": true,
+          "r": 0.655,
+          "g": 0.765,
+          "b": 0.984
+        },
+        "uLightness": {
+          "x": 0,
+          "y": 0
+        },
+        "uOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "uRadius": 2,
+        "uBlurSize": 2,
+        "uScrollProgress": 1100,
+        "uMixFactor": 1,
+        "isBackground": 1,
+        "organicStrength": 1.413,
+        "organicSpeed": 0.051
+      },
+      "errors": []
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "name": "intro",
+      "path": "references/nosigner/ambient-2026-09-09/reference-intro-768.png",
+      "time": 12,
+      "canvasWidth": 753,
+      "canvasHeight": 1024,
+      "y": 1100,
+      "theme": "dark",
+      "quotes": [
+        {
+          "x": 0,
+          "y": 4384.9375,
+          "width": 753,
+          "height": 1024,
+          "top": 4384.9375,
+          "right": 753,
+          "bottom": 5408.9375,
+          "left": 0
+        },
+        {
+          "x": 0,
+          "y": 8385.390625,
+          "width": 753,
+          "height": 1024,
+          "top": 8385.390625,
+          "right": 753,
+          "bottom": 9409.390625,
+          "left": 0
+        }
+      ],
+      "uniforms": {
+        "uResolution": {
+          "x": 753,
+          "y": 1024
+        },
+        "uTime": 10.350999999999996,
+        "uAlpha": 0.053,
+        "uSpeed": 0.296,
+        "uColor1": {
+          "isColor": true,
+          "r": 0.0118,
+          "g": 1,
+          "b": 0.7804
+        },
+        "uColor2": {
+          "isColor": true,
+          "r": 0.1373,
+          "g": 0.702,
+          "b": 1
+        },
+        "uColor3": {
+          "isColor": true,
+          "r": 0.0745,
+          "g": 1,
+          "b": 0.8588
+        },
+        "uColor4": {
+          "isColor": true,
+          "r": 0.5451,
+          "g": 0,
+          "b": 1
+        },
+        "uLightness": {
+          "x": 5,
+          "y": 5
+        },
+        "uOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "uRadius": 0.624,
+        "uBlurSize": 0.402,
+        "uScrollProgress": 1100,
+        "uMixFactor": 1,
+        "isBackground": 1,
+        "organicStrength": 1.413,
+        "organicSpeed": 0.345
+      },
+      "errors": []
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "name": "light",
+      "path": "references/nosigner/ambient-2026-09-09/reference-light-768.png",
+      "time": 12,
+      "canvasWidth": 753,
+      "canvasHeight": 1024,
+      "y": 5800,
+      "theme": "light",
+      "quotes": [
+        {
+          "x": 0,
+          "y": -315.0625,
+          "width": 753,
+          "height": 1024,
+          "top": -315.0625,
+          "right": 753,
+          "bottom": 708.9375,
+          "left": 0
+        },
+        {
+          "x": 0,
+          "y": 3685.390625,
+          "width": 753,
+          "height": 1024,
+          "top": 3685.390625,
+          "right": 753,
+          "bottom": 4709.390625,
+          "left": 0
+        }
+      ],
+      "uniforms": {
+        "uResolution": {
+          "x": 753,
+          "y": 1024
+        },
+        "uTime": 16.43780000000073,
+        "uAlpha": 1,
+        "uSpeed": 0.296,
+        "uColor1": {
+          "isColor": true,
+          "r": 1,
+          "g": 1,
+          "b": 1
+        },
+        "uColor2": {
+          "isColor": true,
+          "r": 1,
+          "g": 1,
+          "b": 1
+        },
+        "uColor3": {
+          "isColor": true,
+          "r": 0.631,
+          "g": 0.8,
+          "b": 0.969
+        },
+        "uColor4": {
+          "isColor": true,
+          "r": 0.655,
+          "g": 0.765,
+          "b": 0.984
+        },
+        "uLightness": {
+          "x": 0,
+          "y": 0
+        },
+        "uOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "uRadius": 2,
+        "uBlurSize": 2,
+        "uScrollProgress": 5800,
+        "uMixFactor": 0,
+        "isBackground": 1,
+        "organicStrength": 1.413,
+        "organicSpeed": 0.051
+      },
+      "errors": []
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "name": "news",
+      "path": "references/nosigner/ambient-2026-09-09/reference-closing-768.png",
+      "time": 12,
+      "canvasWidth": 753,
+      "canvasHeight": 1024,
+      "y": 9400,
+      "theme": "dark",
+      "quotes": [
+        {
+          "x": 0,
+          "y": -3915.0625,
+          "width": 753,
+          "height": 1024,
+          "top": -3915.0625,
+          "right": 753,
+          "bottom": -2891.0625,
+          "left": 0
+        },
+        {
+          "x": 0,
+          "y": 85.390625,
+          "width": 753,
+          "height": 1024,
+          "top": 85.390625,
+          "right": 753,
+          "bottom": 1109.390625,
+          "left": 0
+        }
+      ],
+      "uniforms": {
+        "uResolution": {
+          "x": 753,
+          "y": 1024
+        },
+        "uTime": 24.443899999998486,
+        "uAlpha": 0.053,
+        "uSpeed": 0.296,
+        "uColor1": {
+          "isColor": true,
+          "r": 0.0118,
+          "g": 1,
+          "b": 0.7804
+        },
+        "uColor2": {
+          "isColor": true,
+          "r": 0.1373,
+          "g": 0.702,
+          "b": 1
+        },
+        "uColor3": {
+          "isColor": true,
+          "r": 0.0745,
+          "g": 1,
+          "b": 0.8588
+        },
+        "uColor4": {
+          "isColor": true,
+          "r": 0.5451,
+          "g": 0,
+          "b": 1
+        },
+        "uLightness": {
+          "x": 5,
+          "y": 5
+        },
+        "uOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "uRadius": 0.624,
+        "uBlurSize": 0.402,
+        "uScrollProgress": 9400,
+        "uMixFactor": 0,
+        "isBackground": 1,
+        "organicStrength": 1.413,
+        "organicSpeed": 0.345
+      },
+      "errors": []
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "name": "closing",
+      "path": "references/nosigner/ambient-2026-09-09/reference-closing-768.png",
+      "time": 12,
+      "canvasWidth": 753,
+      "canvasHeight": 1024,
+      "y": 9900,
+      "theme": "dark",
+      "quotes": [
+        {
+          "x": 0,
+          "y": -4415.0625,
+          "width": 753,
+          "height": 1024,
+          "top": -4415.0625,
+          "right": 753,
+          "bottom": -3391.0625,
+          "left": 0
+        },
+        {
+          "x": 0,
+          "y": -414.609375,
+          "width": 753,
+          "height": 1024,
+          "top": -414.609375,
+          "right": 753,
+          "bottom": 609.390625,
+          "left": 0
+        }
+      ],
+      "uniforms": {
+        "uResolution": {
+          "x": 753,
+          "y": 1024
+        },
+        "uTime": 30.747800000000698,
+        "uAlpha": 0.053,
+        "uSpeed": 0.296,
+        "uColor1": {
+          "isColor": true,
+          "r": 0.0118,
+          "g": 1,
+          "b": 0.7804
+        },
+        "uColor2": {
+          "isColor": true,
+          "r": 0.1373,
+          "g": 0.702,
+          "b": 1
+        },
+        "uColor3": {
+          "isColor": true,
+          "r": 0.0745,
+          "g": 1,
+          "b": 0.8588
+        },
+        "uColor4": {
+          "isColor": true,
+          "r": 0.5451,
+          "g": 0,
+          "b": 1
+        },
+        "uLightness": {
+          "x": 5,
+          "y": 5
+        },
+        "uOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "uRadius": 0.624,
+        "uBlurSize": 0.402,
+        "uScrollProgress": 9900,
+        "uMixFactor": 0,
+        "isBackground": 1,
+        "organicStrength": 1.413,
+        "organicSpeed": 0.345
+      },
+      "errors": []
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "name": "reverse",
+      "path": "references/nosigner/ambient-2026-09-09/reference-intro-768.png",
+      "time": 12,
+      "canvasWidth": 753,
+      "canvasHeight": 1024,
+      "y": 1100,
+      "theme": "dark",
+      "quotes": [
+        {
+          "x": 0,
+          "y": 4384.9375,
+          "width": 753,
+          "height": 1024,
+          "top": 4384.9375,
+          "right": 753,
+          "bottom": 5408.9375,
+          "left": 0
+        },
+        {
+          "x": 0,
+          "y": 8385.390625,
+          "width": 753,
+          "height": 1024,
+          "top": 8385.390625,
+          "right": 753,
+          "bottom": 9409.390625,
+          "left": 0
+        }
+      ],
+      "uniforms": {
+        "uResolution": {
+          "x": 753,
+          "y": 1024
+        },
+        "uTime": 37.545300000000715,
+        "uAlpha": 0.053,
+        "uSpeed": 0.296,
+        "uColor1": {
+          "isColor": true,
+          "r": 0.0118,
+          "g": 1,
+          "b": 0.7804
+        },
+        "uColor2": {
+          "isColor": true,
+          "r": 0.1373,
+          "g": 0.702,
+          "b": 1
+        },
+        "uColor3": {
+          "isColor": true,
+          "r": 0.0745,
+          "g": 1,
+          "b": 0.8588
+        },
+        "uColor4": {
+          "isColor": true,
+          "r": 0.5451,
+          "g": 0,
+          "b": 1
+        },
+        "uLightness": {
+          "x": 5,
+          "y": 5
+        },
+        "uOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "uRadius": 0.624,
+        "uBlurSize": 0.402,
+        "uScrollProgress": 1100,
+        "uMixFactor": 1,
+        "isBackground": 1,
+        "organicStrength": 1.413,
+        "organicSpeed": 0.345
+      },
+      "errors": []
+    }
+  ]
+}

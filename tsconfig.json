@@ -13,7 +13,11 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "incremental": true,
-    "plugins": [{ "name": "next" }],
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
     "paths": {
       "@/*": ["./src/*"]
     }
@@ -25,7 +29,16 @@
     "src/**/*.tsx",
     "tests/**/*.ts",
     "tests/**/*.tsx",
-    "*.config.ts"
+    "*.config.ts",
+    ".next/dev/types/**/*.ts",
+    ".next-morght-review/types/**/*.ts",
+    ".next-morght-review/dev/types/**/*.ts",
+    ".next/footer-preview/types/**/*.ts",
+    ".next/footer-preview/dev/types/**/*.ts",
+    ".next/approach-dev/types/**/*.ts",
+    ".next/approach-dev/dev/types/**/*.ts",
+    ".next-revision/types/**/*.ts",
+    ".next-revision/dev/types/**/*.ts"
   ],
   "exclude": ["node_modules"]
 }

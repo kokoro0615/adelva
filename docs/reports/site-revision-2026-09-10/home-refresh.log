@@ -1,0 +1,16 @@
+Already up to date
+Done in 532ms using pnpm v11.22.0
+
+Running 7 tests using 1 worker
+
+(node:1684304) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/home-refresh/home.spec.ts:9:3 › ADELVA content, keyboard, photos and axe 1440 (10.6s)
+  ✓  2 tests/home-refresh/home.spec.ts:9:3 › ADELVA content, keyboard, photos and axe 768 (8.3s)
+  ✓  3 tests/home-refresh/home.spec.ts:9:3 › ADELVA content, keyboard, photos and axe 390 (7.4s)
+  ✓  4 tests/home-refresh/home.spec.ts:111:1 › audience hover reverses, ambient completes, reduced motion removes movement (3.0s)
+  ✓  5 tests/home-refresh/home.spec.ts:142:3 › expertise scroll choreography and Japanese copy 1440 (4.3s)
+  ✓  6 tests/home-refresh/home.spec.ts:142:3 › expertise scroll choreography and Japanese copy 768 (3.4s)
+  ✓  7 tests/home-refresh/home.spec.ts:142:3 › expertise scroll choreography and Japanese copy 390 (2.8s)
+
+  7 passed (40.8s)

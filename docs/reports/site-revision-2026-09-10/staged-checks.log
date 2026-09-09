@@ -1,0 +1,5 @@
+Clean staged checkout: /tmp/adelva-release-check.ZdfrFZ
+pnpm install --offline --frozen-lockfile: PASS (allowBuilds.unrs-resolver=false, locked platform bindings)
+pnpm test:unit: PASS 11 files, 100 tests, 2026-09-10 03:20 UTC
+pnpm typecheck: PASS
+pnpm lint: PASS

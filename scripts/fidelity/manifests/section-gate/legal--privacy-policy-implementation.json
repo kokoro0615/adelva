@@ -1,0 +1,149 @@
+{
+  "schemaVersion": "full-page-section-manifest/v1",
+  "manifestId": "legal--privacy-policy-implementation-v1",
+  "role": "implementation",
+  "route": "/legal/privacy-policy",
+  "family": "legal",
+  "scope": {
+    "kind": "route-content",
+    "id": "legal--privacy-policy-content"
+  },
+  "source": {
+    "url": "http://127.0.0.1:4517",
+    "requestedRoute": "/legal/privacy-policy",
+    "finalRoutes": ["/legal/privacy-policy"],
+    "observedAt": "2026-08-31T01:32:52.756Z",
+    "contentRoot": "main#main-content > [data-page-content], main#main-content > [data-index-page-content], main#main-content > .page-content, main#main-content > .stage",
+    "status": "pending-capture",
+    "captureMode": "manifest-only",
+    "evidenceStatus": "pending-capture"
+  },
+  "requiredViewports": ["desktop", "tablet", "mobile"],
+  "tolerances": {
+    "boundsPx": 2,
+    "scrollHeightPx": 2
+  },
+  "domTopology": {
+    "scope": "main#main-content > [data-page-content], main#main-content > [data-index-page-content], main#main-content > .page-content, main#main-content > .stage",
+    "directChildren": ["hero", "privacy-policy"]
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "semantic": "div | bannerLoader fixed-banner-loader | Privacy Policy",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Privacy Policy",
+      "assets": [
+        "/_next/image?url=%2Fmedia%2Ftarget%2Flegal%2FWhiteDesertAntarcticaPeaks.webp&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 585
+        },
+        "tablet": {
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 665.59
+        },
+        "mobile": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 548.59
+        }
+      }
+    },
+    {
+      "id": "privacy-policy",
+      "semantic": "section | documentSection padding-medium bg-lighter-grey above-grid has-inset-effect | PRIVACY POLICY",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "PRIVACY POLICY",
+      "keyLinks": ["/", "info@white-desert.com"],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 585,
+          "width": 1440,
+          "height": 4867.5
+        },
+        "tablet": {
+          "x": 0,
+          "y": 665.59,
+          "width": 768,
+          "height": 5392.5
+        },
+        "mobile": {
+          "x": 0,
+          "y": 548.59,
+          "width": 390,
+          "height": 5927.09
+        }
+      }
+    }
+  ],
+  "viewports": {
+    "desktop": {
+      "width": 1440,
+      "height": 900,
+      "scrollHeight": 6399,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/actual/legal--privacy-policy-1440x900-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "tablet": {
+      "width": 768,
+      "height": 1024,
+      "scrollHeight": 7082,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/actual/legal--privacy-policy-768x1024-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "scrollHeight": 8609,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/actual/legal--privacy-policy-390x844-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    }
+  },
+  "motion": {
+    "status": "incomplete",
+    "unknown": [
+      "motion evidence remains pending until four phase captures exist for every layer and viewport"
+    ],
+    "layers": []
+  }
+}

@@ -9,7 +9,7 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   reporter: [["list"], ["html", { open: "never" }]],
   use: {
-    baseURL: `http://127.0.0.1:${port}`,
+    baseURL: process.env.PLAYWRIGHT_TEST_BASE_URL ?? `http://127.0.0.1:${port}`,
     colorScheme: "light",
     contextOptions: {
       reducedMotion: "reduce",
@@ -24,10 +24,12 @@ export default defineConfig({
       use: { ...devices["Desktop Chrome"] },
     },
   ],
-  webServer: {
-    command: `pnpm start --port ${port}`,
-    url: `http://127.0.0.1:${port}`,
-    reuseExistingServer: false,
-    timeout: 120_000,
-  },
+  webServer: process.env.PLAYWRIGHT_TEST_BASE_URL
+    ? undefined
+    : {
+        command: `pnpm start --port ${port}`,
+        url: `http://127.0.0.1:${port}`,
+        reuseExistingServer: false,
+        timeout: 120_000,
+      },
 });

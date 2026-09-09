@@ -1,0 +1,2740 @@
+{
+  "schemaVersion": "full-page-section-manifest/v1",
+  "manifestId": "home-reference-v1",
+  "role": "reference",
+  "route": "/",
+  "family": "home",
+  "scope": {
+    "kind": "route-content",
+    "id": "home-content"
+  },
+  "source": {
+    "url": "https://white-desert.com",
+    "requestedRoute": "/",
+    "motionPreference": "no-preference",
+    "finalRoutes": ["/"],
+    "observedAt": "2026-08-31T09:02:20.462Z",
+    "contentRoot": ".page-content",
+    "status": "captured",
+    "captureMode": "capture",
+    "evidenceStatus": "captured"
+  },
+  "requiredViewports": ["desktop", "tablet", "mobile"],
+  "tolerances": {
+    "boundsPx": 2,
+    "scrollHeightPx": 2
+  },
+  "domTopology": {
+    "scope": ".page-content",
+    "directChildren": [
+      "hero",
+      "vast-majestic-and-unimaginably-beautiful-setting-foot-in-antarctica-s-fabled-interior-remains-a-rare-and-extraordinary-experience",
+      "our-season",
+      "our-trips",
+      "baby-penguins-blue-tunnels",
+      "section-6",
+      "our-camps"
+    ]
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "semantic": "div | hero-banner | Antarctica",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Antarctica",
+      "assets": [
+        "/_next/image?url=%2Fimages%2Fcloud-gradient.png&w=3840&q=75",
+        "https://customer-0f1muz5hahtwutl3.cloudflarestream.com/6cbe45de8a02fd4b5b862fdec4a2b1ad/downloads/default.mp4",
+        "/_next/image?url=%2Fimages%2FWhiteDesertAntarcticaActivities02.jpg&w=3840&q=75",
+        "/_next/image?url=%2Fimages%2Fcloud-1-cropped.png&w=3840&q=75",
+        "/_next/image?url=%2Fimages%2Fcloud-2-full.png&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "scroll-or-interaction-linked",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 1800
+        },
+        "tablet": {
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 2048
+        },
+        "mobile": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 1688
+        }
+      }
+    },
+    {
+      "id": "vast-majestic-and-unimaginably-beautiful-setting-foot-in-antarctica-s-fabled-interior-remains-a-rare-and-extraordinary-experience",
+      "semantic": "div | home-section | Vast, majestic and unimaginably beautiful — setting foot in Antarctica’s fabled interior remains a rare and extraordinary experience.",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Vast, majestic and unimaginably beautiful — setting foot in Antarctica’s fabled interior remains a rare and extraordinary experience.",
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 1800,
+          "width": 1440,
+          "height": 785.55
+        },
+        "tablet": {
+          "x": 0,
+          "y": 2048,
+          "width": 768,
+          "height": 1037.59
+        },
+        "mobile": {
+          "x": 0,
+          "y": 1688,
+          "width": 390,
+          "height": 591.59
+        }
+      }
+    },
+    {
+      "id": "our-season",
+      "semantic": "div | wd-mnt | Our Season",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Our Season",
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F1a56d4190cee89b1fa408978753d1558a50d2639-3000x2014.jpg&w=3840&q=90"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 2585.55,
+          "width": 1440,
+          "height": 1350
+        },
+        "tablet": {
+          "x": 0,
+          "y": 3085.59,
+          "width": 768,
+          "height": 1536
+        },
+        "mobile": {
+          "x": 0,
+          "y": 2279.59,
+          "width": 390,
+          "height": 1266
+        }
+      }
+    },
+    {
+      "id": "our-trips",
+      "semantic": "section | padding-top-large-bottom-medium bg-white | Our Trips",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Our Trips",
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 3935.55,
+          "width": 1440,
+          "height": 539.97
+        },
+        "tablet": {
+          "x": 0,
+          "y": 4621.59,
+          "width": 768,
+          "height": 540
+        },
+        "mobile": {
+          "x": 0,
+          "y": 3545.59,
+          "width": 390,
+          "height": 332.98
+        }
+      }
+    },
+    {
+      "id": "baby-penguins-blue-tunnels",
+      "semantic": "section | padding-none bg-transparent | Baby Penguins & Blue Tunnels",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Baby Penguins & Blue Tunnels",
+      "keyLinks": [
+        "/itineraries/early-emperor-penguins",
+        "/itineraries/south-pole-emperor-penguins",
+        "/itineraries/south-pole-blue-rivers",
+        "/itineraries/the-long-stay",
+        "/itineraries/antarctica-in-a-day"
+      ],
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F16add1ee0bdc16862dc37b826abb1600887e7fbb-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Ffc3d4887c37b05526119edbc5db9d18a0b034c6b-2000x1250.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F545ecd31bdf0cdd5605316894111fb0f197e0129-2668x2000.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F0554de84a6e2cfa68bff6d38a7d7e1c975653f91-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fa1e7092001e46b8511e5d9386f43ccfce30122d2-2000x1333.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 4475.52,
+          "width": 1440,
+          "height": 765
+        },
+        "tablet": {
+          "x": 0,
+          "y": 5161.59,
+          "width": 768,
+          "height": 870.39
+        },
+        "mobile": {
+          "x": 0,
+          "y": 3878.58,
+          "width": 390,
+          "height": 3626.95
+        }
+      }
+    },
+    {
+      "id": "section-6",
+      "semantic": "section | padding-large bg-transparent",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 5240.52,
+          "width": 1440,
+          "height": 955.91
+        },
+        "tablet": {
+          "x": 0,
+          "y": 6031.98,
+          "width": 768,
+          "height": 1055.19
+        },
+        "mobile": {
+          "x": 0,
+          "y": 7505.53,
+          "width": 390,
+          "height": 738.63
+        }
+      }
+    },
+    {
+      "id": "our-camps",
+      "semantic": "div | horizontal-scroll_outer | Our Camps",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Our Camps",
+      "keyLinks": [
+        "/camps/whichaway-camp",
+        "/camps/echo-base",
+        "/camps/explorer-camp",
+        "/enquire"
+      ],
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fbe7f8922a9352273b56ca6798837ff6c95d3e060-2000x1250.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F7f7efa50400ce9b425d21711fe3dbc6f34da5056-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F1748a379c910cb7c98b6c9acb5fb60be54c92d6b-2000x1250.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F997058a2941b8500aabe100c899a6443ae943494-2000x1250.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F61d6343c3239fb4e0df45fd4a35863549d97e73a-2535x1584.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F0f16bedb356a9d8a7833ce3f7155b0ff043ebd59-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F70666b38ee8bd0118204fa932c54e8105d4a8b4e-447x223.png&w=3840&q=75",
+        "/_next/image?url=%2Fimages%2Fcloud-gradient.png&w=3840&q=75",
+        "/_next/image?url=%2Fimages%2Fflight-path_large.jpg&w=3840&q=90",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Ff01b12e47026067253d81829c5e38859605ff0e1-1500x1000.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fba3ef9c03535715a86568b6f7d76baeecf698f12-2000x1333.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 6196.42,
+          "width": 1440,
+          "height": 13644.94
+        },
+        "tablet": {
+          "x": 0,
+          "y": 7087.17,
+          "width": 768,
+          "height": 11973.73
+        },
+        "mobile": {
+          "x": 0,
+          "y": 8244.16,
+          "width": 390,
+          "height": 8940.34
+        }
+      }
+    }
+  ],
+  "viewports": {
+    "desktop": {
+      "width": 1440,
+      "height": 900,
+      "scrollHeight": 20782,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/top.png",
+          "sha256": "c5786296efc4c7d8c44bfaed773326647208dd7cbe37c794abaa489650d26411",
+          "width": 1440,
+          "height": 900
+        },
+        "fullPage": {
+          "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/full-page.png"
+        },
+        "sectionCaptures": [
+          {
+            "sectionId": "hero",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/sections/section-hero.png"
+          },
+          {
+            "sectionId": "vast-majestic-and-unimaginably-beautiful-setting-foot-in-antarctica-s-fabled-interior-remains-a-rare-and-extraordinary-experience",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/sections/section-vast-majestic-and-unimaginably-beautiful-setting-foot-in-antarctica-s-fabled-interior-remains-a-rare-and-extraordinary-experience.png"
+          },
+          {
+            "sectionId": "our-season",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/sections/section-our-season.png"
+          },
+          {
+            "sectionId": "our-trips",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/sections/section-our-trips.png"
+          },
+          {
+            "sectionId": "baby-penguins-blue-tunnels",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/sections/section-baby-penguins-blue-tunnels.png"
+          },
+          {
+            "sectionId": "section-6",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/sections/section-section-6.png"
+          },
+          {
+            "sectionId": "our-camps",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/sections/section-our-camps.png"
+          }
+        ],
+        "checkpoints": [
+          {
+            "sectionId": "hero",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/checkpoints/checkpoint-hero-start.png"
+          },
+          {
+            "sectionId": "hero",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/checkpoints/checkpoint-hero-center.png"
+          },
+          {
+            "sectionId": "hero",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/checkpoints/checkpoint-hero-end.png"
+          },
+          {
+            "sectionId": "vast-majestic-and-unimaginably-beautiful-setting-foot-in-antarctica-s-fabled-interior-remains-a-rare-and-extraordinary-experience",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/checkpoints/checkpoint-vast-majestic-and-unimaginably-beautiful-setting-foot-in-antarctica-s-fabled-interior-remains-a-rare-and-extraordinary-experience-start.png"
+          },
+          {
+            "sectionId": "vast-majestic-and-unimaginably-beautiful-setting-foot-in-antarctica-s-fabled-interior-remains-a-rare-and-extraordinary-experience",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/checkpoints/checkpoint-vast-majestic-and-unimaginably-beautiful-setting-foot-in-antarctica-s-fabled-interior-remains-a-rare-and-extraordinary-experience-center.png"
+          },
+          {
+            "sectionId": "vast-majestic-and-unimaginably-beautiful-setting-foot-in-antarctica-s-fabled-interior-remains-a-rare-and-extraordinary-experience",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/checkpoints/checkpoint-vast-majestic-and-unimaginably-beautiful-setting-foot-in-antarctica-s-fabled-interior-remains-a-rare-and-extraordinary-experience-end.png"
+          },
+          {
+            "sectionId": "our-season",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/checkpoints/checkpoint-our-season-start.png"
+          },
+          {
+            "sectionId": "our-season",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/checkpoints/checkpoint-our-season-center.png"
+          },
+          {
+            "sectionId": "our-season",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/checkpoints/checkpoint-our-season-end.png"
+          },
+          {
+            "sectionId": "our-trips",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/checkpoints/checkpoint-our-trips-start.png"
+          },
+          {
+            "sectionId": "our-trips",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/checkpoints/checkpoint-our-trips-center.png"
+          },
+          {
+            "sectionId": "our-trips",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/checkpoints/checkpoint-our-trips-end.png"
+          },
+          {
+            "sectionId": "baby-penguins-blue-tunnels",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/checkpoints/checkpoint-baby-penguins-blue-tunnels-start.png"
+          },
+          {
+            "sectionId": "baby-penguins-blue-tunnels",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/checkpoints/checkpoint-baby-penguins-blue-tunnels-center.png"
+          },
+          {
+            "sectionId": "baby-penguins-blue-tunnels",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/checkpoints/checkpoint-baby-penguins-blue-tunnels-end.png"
+          },
+          {
+            "sectionId": "section-6",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/checkpoints/checkpoint-section-6-start.png"
+          },
+          {
+            "sectionId": "section-6",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/checkpoints/checkpoint-section-6-center.png"
+          },
+          {
+            "sectionId": "section-6",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/checkpoints/checkpoint-section-6-end.png"
+          },
+          {
+            "sectionId": "our-camps",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/checkpoints/checkpoint-our-camps-start.png"
+          },
+          {
+            "sectionId": "our-camps",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/checkpoints/checkpoint-our-camps-center.png"
+          },
+          {
+            "sectionId": "our-camps",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/checkpoints/checkpoint-our-camps-end.png"
+          }
+        ],
+        "motionCaptures": [
+          {
+            "layerId": "mist-transition-image-container",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/motion/motion-mist-transition-image-container-start.png"
+          },
+          {
+            "layerId": "mist-transition-image-container",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/motion/motion-mist-transition-image-container-mid.png"
+          },
+          {
+            "layerId": "mist-transition-image-container",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/motion/motion-mist-transition-image-container-end.png"
+          },
+          {
+            "layerId": "mist-transition-image-container",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/motion/motion-mist-transition-image-container-reverse.png"
+          },
+          {
+            "layerId": "scroll-speed-60svh",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/motion/motion-scroll-speed-60svh-start.png"
+          },
+          {
+            "layerId": "scroll-speed-60svh",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/motion/motion-scroll-speed-60svh-mid.png"
+          },
+          {
+            "layerId": "scroll-speed-60svh",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/motion/motion-scroll-speed-60svh-end.png"
+          },
+          {
+            "layerId": "scroll-speed-60svh",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/motion/motion-scroll-speed-60svh-reverse.png"
+          },
+          {
+            "layerId": "scroll-speed-60svh-2",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/motion/motion-scroll-speed-60svh-2-start.png"
+          },
+          {
+            "layerId": "scroll-speed-60svh-2",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/motion/motion-scroll-speed-60svh-2-mid.png"
+          },
+          {
+            "layerId": "scroll-speed-60svh-2",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/motion/motion-scroll-speed-60svh-2-end.png"
+          },
+          {
+            "layerId": "scroll-speed-60svh-2",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/motion/motion-scroll-speed-60svh-2-reverse.png"
+          },
+          {
+            "layerId": "scroll-speed-80",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/motion/motion-scroll-speed-80-start.png"
+          },
+          {
+            "layerId": "scroll-speed-80",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/motion/motion-scroll-speed-80-mid.png"
+          },
+          {
+            "layerId": "scroll-speed-80",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/motion/motion-scroll-speed-80-end.png"
+          },
+          {
+            "layerId": "scroll-speed-80",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/motion/motion-scroll-speed-80-reverse.png"
+          },
+          {
+            "layerId": "scroll-speed-10",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/motion/motion-scroll-speed-10-start.png"
+          },
+          {
+            "layerId": "scroll-speed-10",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/motion/motion-scroll-speed-10-mid.png"
+          },
+          {
+            "layerId": "scroll-speed-10",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/motion/motion-scroll-speed-10-end.png"
+          },
+          {
+            "layerId": "scroll-speed-10",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/motion/motion-scroll-speed-10-reverse.png"
+          },
+          {
+            "layerId": "founder-signature",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/motion/motion-founder-signature-start.png"
+          },
+          {
+            "layerId": "founder-signature",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/motion/motion-founder-signature-mid.png"
+          },
+          {
+            "layerId": "founder-signature",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/motion/motion-founder-signature-end.png"
+          },
+          {
+            "layerId": "founder-signature",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/motion/motion-founder-signature-reverse.png"
+          },
+          {
+            "layerId": "mist-transition-image-container-2",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/motion/motion-mist-transition-image-container-2-start.png"
+          },
+          {
+            "layerId": "mist-transition-image-container-2",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/motion/motion-mist-transition-image-container-2-mid.png"
+          },
+          {
+            "layerId": "mist-transition-image-container-2",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/motion/motion-mist-transition-image-container-2-end.png"
+          },
+          {
+            "layerId": "mist-transition-image-container-2",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/desktop/motion/motion-mist-transition-image-container-2-reverse.png"
+          }
+        ]
+      }
+    },
+    "tablet": {
+      "width": 768,
+      "height": 1024,
+      "scrollHeight": 20085,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/top.png",
+          "sha256": "8997598c6f234e08b042dd58785621089755f5b2b5435b4f933223976d64e195",
+          "width": 768,
+          "height": 1024
+        },
+        "fullPage": {
+          "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/full-page.png"
+        },
+        "sectionCaptures": [
+          {
+            "sectionId": "hero",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/sections/section-hero.png"
+          },
+          {
+            "sectionId": "vast-majestic-and-unimaginably-beautiful-setting-foot-in-antarctica-s-fabled-interior-remains-a-rare-and-extraordinary-experience",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/sections/section-vast-majestic-and-unimaginably-beautiful-setting-foot-in-antarctica-s-fabled-interior-remains-a-rare-and-extraordinary-experience.png"
+          },
+          {
+            "sectionId": "our-season",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/sections/section-our-season.png"
+          },
+          {
+            "sectionId": "our-trips",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/sections/section-our-trips.png"
+          },
+          {
+            "sectionId": "baby-penguins-blue-tunnels",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/sections/section-baby-penguins-blue-tunnels.png"
+          },
+          {
+            "sectionId": "section-6",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/sections/section-section-6.png"
+          },
+          {
+            "sectionId": "our-camps",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/sections/section-our-camps.png"
+          }
+        ],
+        "checkpoints": [
+          {
+            "sectionId": "hero",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/checkpoints/checkpoint-hero-start.png"
+          },
+          {
+            "sectionId": "hero",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/checkpoints/checkpoint-hero-center.png"
+          },
+          {
+            "sectionId": "hero",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/checkpoints/checkpoint-hero-end.png"
+          },
+          {
+            "sectionId": "vast-majestic-and-unimaginably-beautiful-setting-foot-in-antarctica-s-fabled-interior-remains-a-rare-and-extraordinary-experience",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/checkpoints/checkpoint-vast-majestic-and-unimaginably-beautiful-setting-foot-in-antarctica-s-fabled-interior-remains-a-rare-and-extraordinary-experience-start.png"
+          },
+          {
+            "sectionId": "vast-majestic-and-unimaginably-beautiful-setting-foot-in-antarctica-s-fabled-interior-remains-a-rare-and-extraordinary-experience",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/checkpoints/checkpoint-vast-majestic-and-unimaginably-beautiful-setting-foot-in-antarctica-s-fabled-interior-remains-a-rare-and-extraordinary-experience-center.png"
+          },
+          {
+            "sectionId": "vast-majestic-and-unimaginably-beautiful-setting-foot-in-antarctica-s-fabled-interior-remains-a-rare-and-extraordinary-experience",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/checkpoints/checkpoint-vast-majestic-and-unimaginably-beautiful-setting-foot-in-antarctica-s-fabled-interior-remains-a-rare-and-extraordinary-experience-end.png"
+          },
+          {
+            "sectionId": "our-season",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/checkpoints/checkpoint-our-season-start.png"
+          },
+          {
+            "sectionId": "our-season",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/checkpoints/checkpoint-our-season-center.png"
+          },
+          {
+            "sectionId": "our-season",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/checkpoints/checkpoint-our-season-end.png"
+          },
+          {
+            "sectionId": "our-trips",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/checkpoints/checkpoint-our-trips-start.png"
+          },
+          {
+            "sectionId": "our-trips",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/checkpoints/checkpoint-our-trips-center.png"
+          },
+          {
+            "sectionId": "our-trips",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/checkpoints/checkpoint-our-trips-end.png"
+          },
+          {
+            "sectionId": "baby-penguins-blue-tunnels",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/checkpoints/checkpoint-baby-penguins-blue-tunnels-start.png"
+          },
+          {
+            "sectionId": "baby-penguins-blue-tunnels",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/checkpoints/checkpoint-baby-penguins-blue-tunnels-center.png"
+          },
+          {
+            "sectionId": "baby-penguins-blue-tunnels",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/checkpoints/checkpoint-baby-penguins-blue-tunnels-end.png"
+          },
+          {
+            "sectionId": "section-6",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/checkpoints/checkpoint-section-6-start.png"
+          },
+          {
+            "sectionId": "section-6",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/checkpoints/checkpoint-section-6-center.png"
+          },
+          {
+            "sectionId": "section-6",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/checkpoints/checkpoint-section-6-end.png"
+          },
+          {
+            "sectionId": "our-camps",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/checkpoints/checkpoint-our-camps-start.png"
+          },
+          {
+            "sectionId": "our-camps",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/checkpoints/checkpoint-our-camps-center.png"
+          },
+          {
+            "sectionId": "our-camps",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/checkpoints/checkpoint-our-camps-end.png"
+          }
+        ],
+        "motionCaptures": [
+          {
+            "layerId": "mist-transition-image-container",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/motion/motion-mist-transition-image-container-start.png"
+          },
+          {
+            "layerId": "mist-transition-image-container",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/motion/motion-mist-transition-image-container-mid.png"
+          },
+          {
+            "layerId": "mist-transition-image-container",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/motion/motion-mist-transition-image-container-end.png"
+          },
+          {
+            "layerId": "mist-transition-image-container",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/motion/motion-mist-transition-image-container-reverse.png"
+          },
+          {
+            "layerId": "scroll-speed-60svh",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/motion/motion-scroll-speed-60svh-start.png"
+          },
+          {
+            "layerId": "scroll-speed-60svh",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/motion/motion-scroll-speed-60svh-mid.png"
+          },
+          {
+            "layerId": "scroll-speed-60svh",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/motion/motion-scroll-speed-60svh-end.png"
+          },
+          {
+            "layerId": "scroll-speed-60svh",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/motion/motion-scroll-speed-60svh-reverse.png"
+          },
+          {
+            "layerId": "scroll-speed-60svh-2",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/motion/motion-scroll-speed-60svh-2-start.png"
+          },
+          {
+            "layerId": "scroll-speed-60svh-2",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/motion/motion-scroll-speed-60svh-2-mid.png"
+          },
+          {
+            "layerId": "scroll-speed-60svh-2",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/motion/motion-scroll-speed-60svh-2-end.png"
+          },
+          {
+            "layerId": "scroll-speed-60svh-2",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/motion/motion-scroll-speed-60svh-2-reverse.png"
+          },
+          {
+            "layerId": "scroll-speed-80",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/motion/motion-scroll-speed-80-start.png"
+          },
+          {
+            "layerId": "scroll-speed-80",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/motion/motion-scroll-speed-80-mid.png"
+          },
+          {
+            "layerId": "scroll-speed-80",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/motion/motion-scroll-speed-80-end.png"
+          },
+          {
+            "layerId": "scroll-speed-80",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/motion/motion-scroll-speed-80-reverse.png"
+          },
+          {
+            "layerId": "scroll-speed-10",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/motion/motion-scroll-speed-10-start.png"
+          },
+          {
+            "layerId": "scroll-speed-10",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/motion/motion-scroll-speed-10-mid.png"
+          },
+          {
+            "layerId": "scroll-speed-10",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/motion/motion-scroll-speed-10-end.png"
+          },
+          {
+            "layerId": "scroll-speed-10",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/motion/motion-scroll-speed-10-reverse.png"
+          },
+          {
+            "layerId": "founder-signature",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/motion/motion-founder-signature-start.png"
+          },
+          {
+            "layerId": "founder-signature",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/motion/motion-founder-signature-mid.png"
+          },
+          {
+            "layerId": "founder-signature",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/motion/motion-founder-signature-end.png"
+          },
+          {
+            "layerId": "founder-signature",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/motion/motion-founder-signature-reverse.png"
+          },
+          {
+            "layerId": "mist-transition-image-container-2",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/motion/motion-mist-transition-image-container-2-start.png"
+          },
+          {
+            "layerId": "mist-transition-image-container-2",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/motion/motion-mist-transition-image-container-2-mid.png"
+          },
+          {
+            "layerId": "mist-transition-image-container-2",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/motion/motion-mist-transition-image-container-2-end.png"
+          },
+          {
+            "layerId": "mist-transition-image-container-2",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/tablet/motion/motion-mist-transition-image-container-2-reverse.png"
+          }
+        ]
+      }
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "scrollHeight": 19296,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/top.png",
+          "sha256": "12f1596e4e8bab767e7add627ebc16ca580c87129212873bde95ae8143354652",
+          "width": 390,
+          "height": 844
+        },
+        "fullPage": {
+          "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/full-page.png"
+        },
+        "sectionCaptures": [
+          {
+            "sectionId": "hero",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/sections/section-hero.png"
+          },
+          {
+            "sectionId": "vast-majestic-and-unimaginably-beautiful-setting-foot-in-antarctica-s-fabled-interior-remains-a-rare-and-extraordinary-experience",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/sections/section-vast-majestic-and-unimaginably-beautiful-setting-foot-in-antarctica-s-fabled-interior-remains-a-rare-and-extraordinary-experience.png"
+          },
+          {
+            "sectionId": "our-season",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/sections/section-our-season.png"
+          },
+          {
+            "sectionId": "our-trips",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/sections/section-our-trips.png"
+          },
+          {
+            "sectionId": "baby-penguins-blue-tunnels",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/sections/section-baby-penguins-blue-tunnels.png"
+          },
+          {
+            "sectionId": "section-6",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/sections/section-section-6.png"
+          },
+          {
+            "sectionId": "our-camps",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/sections/section-our-camps.png"
+          }
+        ],
+        "checkpoints": [
+          {
+            "sectionId": "hero",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/checkpoints/checkpoint-hero-start.png"
+          },
+          {
+            "sectionId": "hero",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/checkpoints/checkpoint-hero-center.png"
+          },
+          {
+            "sectionId": "hero",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/checkpoints/checkpoint-hero-end.png"
+          },
+          {
+            "sectionId": "vast-majestic-and-unimaginably-beautiful-setting-foot-in-antarctica-s-fabled-interior-remains-a-rare-and-extraordinary-experience",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/checkpoints/checkpoint-vast-majestic-and-unimaginably-beautiful-setting-foot-in-antarctica-s-fabled-interior-remains-a-rare-and-extraordinary-experience-start.png"
+          },
+          {
+            "sectionId": "vast-majestic-and-unimaginably-beautiful-setting-foot-in-antarctica-s-fabled-interior-remains-a-rare-and-extraordinary-experience",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/checkpoints/checkpoint-vast-majestic-and-unimaginably-beautiful-setting-foot-in-antarctica-s-fabled-interior-remains-a-rare-and-extraordinary-experience-center.png"
+          },
+          {
+            "sectionId": "vast-majestic-and-unimaginably-beautiful-setting-foot-in-antarctica-s-fabled-interior-remains-a-rare-and-extraordinary-experience",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/checkpoints/checkpoint-vast-majestic-and-unimaginably-beautiful-setting-foot-in-antarctica-s-fabled-interior-remains-a-rare-and-extraordinary-experience-end.png"
+          },
+          {
+            "sectionId": "our-season",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/checkpoints/checkpoint-our-season-start.png"
+          },
+          {
+            "sectionId": "our-season",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/checkpoints/checkpoint-our-season-center.png"
+          },
+          {
+            "sectionId": "our-season",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/checkpoints/checkpoint-our-season-end.png"
+          },
+          {
+            "sectionId": "our-trips",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/checkpoints/checkpoint-our-trips-start.png"
+          },
+          {
+            "sectionId": "our-trips",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/checkpoints/checkpoint-our-trips-center.png"
+          },
+          {
+            "sectionId": "our-trips",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/checkpoints/checkpoint-our-trips-end.png"
+          },
+          {
+            "sectionId": "baby-penguins-blue-tunnels",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/checkpoints/checkpoint-baby-penguins-blue-tunnels-start.png"
+          },
+          {
+            "sectionId": "baby-penguins-blue-tunnels",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/checkpoints/checkpoint-baby-penguins-blue-tunnels-center.png"
+          },
+          {
+            "sectionId": "baby-penguins-blue-tunnels",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/checkpoints/checkpoint-baby-penguins-blue-tunnels-end.png"
+          },
+          {
+            "sectionId": "section-6",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/checkpoints/checkpoint-section-6-start.png"
+          },
+          {
+            "sectionId": "section-6",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/checkpoints/checkpoint-section-6-center.png"
+          },
+          {
+            "sectionId": "section-6",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/checkpoints/checkpoint-section-6-end.png"
+          },
+          {
+            "sectionId": "our-camps",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/checkpoints/checkpoint-our-camps-start.png"
+          },
+          {
+            "sectionId": "our-camps",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/checkpoints/checkpoint-our-camps-center.png"
+          },
+          {
+            "sectionId": "our-camps",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/checkpoints/checkpoint-our-camps-end.png"
+          }
+        ],
+        "motionCaptures": [
+          {
+            "layerId": "mist-transition-image-container",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/motion/motion-mist-transition-image-container-start.png"
+          },
+          {
+            "layerId": "mist-transition-image-container",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/motion/motion-mist-transition-image-container-mid.png"
+          },
+          {
+            "layerId": "mist-transition-image-container",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/motion/motion-mist-transition-image-container-end.png"
+          },
+          {
+            "layerId": "mist-transition-image-container",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/motion/motion-mist-transition-image-container-reverse.png"
+          },
+          {
+            "layerId": "scroll-speed-60svh",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/motion/motion-scroll-speed-60svh-start.png"
+          },
+          {
+            "layerId": "scroll-speed-60svh",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/motion/motion-scroll-speed-60svh-mid.png"
+          },
+          {
+            "layerId": "scroll-speed-60svh",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/motion/motion-scroll-speed-60svh-end.png"
+          },
+          {
+            "layerId": "scroll-speed-60svh",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/motion/motion-scroll-speed-60svh-reverse.png"
+          },
+          {
+            "layerId": "scroll-speed-60svh-2",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/motion/motion-scroll-speed-60svh-2-start.png"
+          },
+          {
+            "layerId": "scroll-speed-60svh-2",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/motion/motion-scroll-speed-60svh-2-mid.png"
+          },
+          {
+            "layerId": "scroll-speed-60svh-2",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/motion/motion-scroll-speed-60svh-2-end.png"
+          },
+          {
+            "layerId": "scroll-speed-60svh-2",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/motion/motion-scroll-speed-60svh-2-reverse.png"
+          },
+          {
+            "layerId": "scroll-speed-80",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/motion/motion-scroll-speed-80-start.png"
+          },
+          {
+            "layerId": "scroll-speed-80",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/motion/motion-scroll-speed-80-mid.png"
+          },
+          {
+            "layerId": "scroll-speed-80",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/motion/motion-scroll-speed-80-end.png"
+          },
+          {
+            "layerId": "scroll-speed-80",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/motion/motion-scroll-speed-80-reverse.png"
+          },
+          {
+            "layerId": "scroll-speed-10",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/motion/motion-scroll-speed-10-start.png"
+          },
+          {
+            "layerId": "scroll-speed-10",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/motion/motion-scroll-speed-10-mid.png"
+          },
+          {
+            "layerId": "scroll-speed-10",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/motion/motion-scroll-speed-10-end.png"
+          },
+          {
+            "layerId": "scroll-speed-10",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/motion/motion-scroll-speed-10-reverse.png"
+          },
+          {
+            "layerId": "founder-signature",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/motion/motion-founder-signature-start.png"
+          },
+          {
+            "layerId": "founder-signature",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/motion/motion-founder-signature-mid.png"
+          },
+          {
+            "layerId": "founder-signature",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/motion/motion-founder-signature-end.png"
+          },
+          {
+            "layerId": "founder-signature",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/motion/motion-founder-signature-reverse.png"
+          },
+          {
+            "layerId": "mist-transition-image-container-2",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/motion/motion-mist-transition-image-container-2-start.png"
+          },
+          {
+            "layerId": "mist-transition-image-container-2",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/motion/motion-mist-transition-image-container-2-mid.png"
+          },
+          {
+            "layerId": "mist-transition-image-container-2",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/motion/motion-mist-transition-image-container-2-end.png"
+          },
+          {
+            "layerId": "mist-transition-image-container-2",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/reference/no-preference/home/mobile/motion/motion-mist-transition-image-container-2-reverse.png"
+          }
+        ]
+      }
+    }
+  },
+  "motion": {
+    "status": "complete",
+    "layers": [
+      {
+        "captureProfile": "computed-style",
+        "triggerDocumentY": 900,
+        "property": "transform",
+        "trigger": "sticky scroll interval",
+        "range": "pinned section range",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": true,
+        "id": "mist-transition-image-container",
+        "sectionId": "hero",
+        "samples": {
+          "desktop": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix3d(1, 0, 0, 0, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 1)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 900,
+              "width": 1440,
+              "height": 0,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 450,
+              "transform": "matrix3d(1, 0, 0, 0, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 1)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1350,
+              "width": 1440,
+              "height": 0,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 900,
+              "transform": "matrix3d(1, 0, 0, 0, 0, 0.433884, 0.900969, 0, 0, -0.900969, 0.433884, 0, 0, 0, 0, 1)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1409.5,
+              "width": 1440,
+              "height": 390.5,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 450,
+              "transform": "matrix3d(1, 0, 0, 0, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 1)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1350,
+              "width": 1440,
+              "height": 0,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            }
+          },
+          "tablet": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix3d(1, 0, 0, 0, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 1)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1024,
+              "width": 768,
+              "height": 0,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 512,
+              "transform": "matrix3d(1, 0, 0, 0, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 1)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1536,
+              "width": 768,
+              "height": 0,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 1024,
+              "transform": "matrix3d(1, 0, 0, 0, 0, 0.434165, 0.900833, 0, 0, -0.900833, 0.434165, 0, 0, 0, 0, 1)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1603.41,
+              "width": 768,
+              "height": 444.59,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 512,
+              "transform": "matrix3d(1, 0, 0, 0, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 1)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1536,
+              "width": 768,
+              "height": 0,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            }
+          },
+          "mobile": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix3d(1, 0, 0, 0, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 1)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 844,
+              "width": 390,
+              "height": 0,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 422,
+              "transform": "matrix3d(1, 0, 0, 0, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 1)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1266,
+              "width": 390,
+              "height": 0,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 844,
+              "transform": "matrix3d(1, 0, 0, 0, 0, 0.434225, 0.900804, 0, 0, -0.900804, 0.434225, 0, 0, 0, 0, 1)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1321.51,
+              "width": 390,
+              "height": 366.49,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 422,
+              "transform": "matrix3d(1, 0, 0, 0, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 1)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1266,
+              "width": 390,
+              "height": 0,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            }
+          }
+        },
+        "pinRanges": {
+          "desktop": {
+            "scrollStart": 0,
+            "scrollEnd": 900,
+            "verticalDistance": 900,
+            "horizontalDistance": 0
+          },
+          "tablet": {
+            "scrollStart": 0,
+            "scrollEnd": 1024,
+            "verticalDistance": 1024,
+            "horizontalDistance": 0
+          },
+          "mobile": {
+            "scrollStart": 0,
+            "scrollEnd": 844,
+            "verticalDistance": 844,
+            "horizontalDistance": 0
+          }
+        }
+      },
+      {
+        "captureProfile": "computed-style",
+        "triggerDocumentY": 428,
+        "property": "transform",
+        "trigger": "scroll-speed -60svh",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "id": "scroll-speed-60svh",
+        "sectionId": "hero",
+        "samples": {
+          "desktop": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 12,
+              "y": 428,
+              "width": 1416,
+              "height": 43.98,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 450,
+              "transform": "matrix(1, 0, 0, 1, 0, -135)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 12,
+              "y": 743,
+              "width": 1416,
+              "height": 43.98,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 900,
+              "transform": "matrix(1, 0, 0, 1, 0, -270)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 12,
+              "y": 1058,
+              "width": 1416,
+              "height": 43.98,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 450,
+              "transform": "matrix(1, 0, 0, 1, 0, -135)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 12,
+              "y": 743,
+              "width": 1416,
+              "height": 43.98,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            }
+          },
+          "tablet": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 12,
+              "y": 468.8,
+              "width": 744,
+              "height": 86.38,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 512,
+              "transform": "matrix(1, 0, 0, 1, 0, -153.6)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 12,
+              "y": 827.2,
+              "width": 744,
+              "height": 86.38,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 1024,
+              "transform": "matrix(1, 0, 0, 1, 0, -307.2)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 12,
+              "y": 1185.6,
+              "width": 744,
+              "height": 86.38,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 512,
+              "transform": "matrix(1, 0, 0, 1, 0, -153.6)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 12,
+              "y": 827.2,
+              "width": 744,
+              "height": 86.38,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            }
+          },
+          "mobile": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 12,
+              "y": 358,
+              "width": 366,
+              "height": 370,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 422,
+              "transform": "matrix(1, 0, 0, 1, 0, -126.6)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 12,
+              "y": 653.4,
+              "width": 366,
+              "height": 370,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 844,
+              "transform": "matrix(1, 0, 0, 1, 0, -253.2)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 12,
+              "y": 948.8,
+              "width": 366,
+              "height": 370,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 422,
+              "transform": "matrix(1, 0, 0, 1, 0, -126.6)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 12,
+              "y": 653.4,
+              "width": 366,
+              "height": 370,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            }
+          }
+        },
+        "pinRanges": {}
+      },
+      {
+        "captureProfile": "computed-style",
+        "triggerDocumentY": 620.02,
+        "property": "transform",
+        "trigger": "scroll-speed -60svh",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "id": "scroll-speed-60svh-2",
+        "sectionId": "hero",
+        "samples": {
+          "desktop": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 19.98,
+              "y": 620.02,
+              "width": 1400.03,
+              "height": 256,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 450,
+              "transform": "matrix(1, 0, 0, 1, 0, -135)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 19.98,
+              "y": 935.02,
+              "width": 1400.03,
+              "height": 256,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 900,
+              "transform": "matrix(1, 0, 0, 1, 0, -270)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 19.98,
+              "y": 1250.02,
+              "width": 1400.03,
+              "height": 256,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 450,
+              "transform": "matrix(1, 0, 0, 1, 0, -135)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 19.98,
+              "y": 935.02,
+              "width": 1400.03,
+              "height": 256,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            }
+          },
+          "tablet": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 20,
+              "y": 744,
+              "width": 728,
+              "height": 256,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 512,
+              "transform": "matrix(1, 0, 0, 1, 0, -153.6)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 20,
+              "y": 1102.4,
+              "width": 728,
+              "height": 256,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 1024,
+              "transform": "matrix(1, 0, 0, 1, 0, -307.2)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 20,
+              "y": 1460.8,
+              "width": 728,
+              "height": 256,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 512,
+              "transform": "matrix(1, 0, 0, 1, 0, -153.6)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 20,
+              "y": 1102.4,
+              "width": 728,
+              "height": 256,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            }
+          },
+          "mobile": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 20,
+              "y": 740,
+              "width": 350,
+              "height": 80,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 422,
+              "transform": "matrix(1, 0, 0, 1, 0, -126.6)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 20,
+              "y": 1035.4,
+              "width": 350,
+              "height": 80,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 844,
+              "transform": "matrix(1, 0, 0, 1, 0, -253.2)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 20,
+              "y": 1330.8,
+              "width": 350,
+              "height": 80,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 422,
+              "transform": "matrix(1, 0, 0, 1, 0, -126.6)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 20,
+              "y": 1035.4,
+              "width": 350,
+              "height": 80,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            }
+          }
+        },
+        "pinRanges": {}
+      },
+      {
+        "captureProfile": "computed-style",
+        "triggerDocumentY": 900,
+        "property": "transform",
+        "trigger": "scroll-speed -80%",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "id": "scroll-speed-80",
+        "sectionId": "hero",
+        "samples": {
+          "desktop": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 900)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 900,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 450,
+              "transform": "matrix(1, 0, 0, 1, 0, 495)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 945,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 900,
+              "transform": "matrix(1, 0, 0, 1, 0, 90)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 990,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 450,
+              "transform": "matrix(1, 0, 0, 1, 0, 495)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 945,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            }
+          },
+          "tablet": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 1024)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1024,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 512,
+              "transform": "matrix(1, 0, 0, 1, 0, 563.2)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1075.2,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 1024,
+              "transform": "matrix(1, 0, 0, 1, 0, 102.4)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1126.4,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 512,
+              "transform": "matrix(1, 0, 0, 1, 0, 563.2)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1075.2,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            }
+          },
+          "mobile": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 844)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 844,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 422,
+              "transform": "matrix(1, 0, 0, 1, 0, 464.2)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 886.2,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 844,
+              "transform": "matrix(1, 0, 0, 1, 0, 84.4)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 928.4,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 422,
+              "transform": "matrix(1, 0, 0, 1, 0, 464.2)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 886.2,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            }
+          }
+        },
+        "pinRanges": {}
+      },
+      {
+        "captureProfile": "computed-style",
+        "triggerDocumentY": 900,
+        "property": "transform",
+        "trigger": "scroll-speed -10%",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "id": "scroll-speed-10",
+        "sectionId": "hero",
+        "samples": {
+          "desktop": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 900)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 900,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 450,
+              "transform": "matrix(1, 0, 0, 1, 0, 652.5)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1102.5,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 900,
+              "transform": "matrix(1, 0, 0, 1, 0, 405)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1305,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 450,
+              "transform": "matrix(1, 0, 0, 1, 0, 652.5)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1102.5,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            }
+          },
+          "tablet": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 1024)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1024,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 512,
+              "transform": "matrix(1, 0, 0, 1, 0, 742.4)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1254.4,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 1024,
+              "transform": "matrix(1, 0, 0, 1, 0, 460.8)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1484.8,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 512,
+              "transform": "matrix(1, 0, 0, 1, 0, 742.4)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1254.4,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            }
+          },
+          "mobile": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 844)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 844,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 422,
+              "transform": "matrix(1, 0, 0, 1, 0, 611.9)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1033.9,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 844,
+              "transform": "matrix(1, 0, 0, 1, 0, 379.8)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1223.8,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 422,
+              "transform": "matrix(1, 0, 0, 1, 0, 611.9)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1033.9,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            }
+          }
+        },
+        "pinRanges": {}
+      },
+      {
+        "captureProfile": "discrete-draw",
+        "triggerDocumentY": 5560.5,
+        "property": "stroke-dasharray/stroke-dashoffset",
+        "trigger": "signature wrapper parent top 75%",
+        "range": "six paths draw together from 0% to 100%",
+        "easing": "power2.inOut over 1.2s",
+        "interruption": "play on enter and reverse above the trigger",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "id": "founder-signature",
+        "sectionId": "section-6",
+        "samples": {
+          "desktop": {
+            "start": {
+              "phase": "start",
+              "scrollY": 4884,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 460.41,
+              "y": 5749.41,
+              "width": 377.59,
+              "height": 73.05,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              },
+              "drawRatios": [0, 0, 0, 0, 0, 0]
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 4888,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 460.41,
+              "y": 5749.41,
+              "width": 377.59,
+              "height": 73.05,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              },
+              "drawRatios": [0.555, 0.555, 0.555, 0.555, 0.555, 0.555]
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 4888,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 460.41,
+              "y": 5749.41,
+              "width": 377.59,
+              "height": 73.05,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              },
+              "drawRatios": [1, 1, 1, 1, 1, 1]
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 4884,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 460.41,
+              "y": 5749.41,
+              "width": 377.59,
+              "height": 73.05,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              },
+              "drawRatios": [0, 0, 0, 0, 0, 0]
+            }
+          },
+          "tablet": {
+            "start": {
+              "phase": "start",
+              "scrollY": 5582,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 247.61,
+              "y": 6672.89,
+              "width": 198.39,
+              "height": 40.28,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              },
+              "drawRatios": [0, 0, 0, 0, 0, 0]
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 5586,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 247.61,
+              "y": 6672.89,
+              "width": 198.39,
+              "height": 40.28,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              },
+              "drawRatios": [0.525, 0.525, 0.525, 0.525, 0.525, 0.525]
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 5586,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 247.61,
+              "y": 6672.89,
+              "width": 198.39,
+              "height": 40.28,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              },
+              "drawRatios": [1, 1, 1, 1, 1, 1]
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 5582,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 247.61,
+              "y": 6672.89,
+              "width": 198.39,
+              "height": 40.28,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              },
+              "drawRatios": [0, 0, 0, 0, 0, 0]
+            }
+          },
+          "mobile": {
+            "start": {
+              "phase": "start",
+              "scrollY": 7031,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 45.69,
+              "y": 7986.44,
+              "width": 217.19,
+              "height": 43.72,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              },
+              "drawRatios": [0, 0, 0, 0, 0, 0]
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 7035,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 45.69,
+              "y": 7986.44,
+              "width": 217.19,
+              "height": 43.72,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              },
+              "drawRatios": [0.544, 0.544, 0.544, 0.544, 0.544, 0.544]
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 7035,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 45.69,
+              "y": 7986.44,
+              "width": 217.19,
+              "height": 43.72,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              },
+              "drawRatios": [1, 1, 1, 1, 1, 1]
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 7031,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 45.69,
+              "y": 7986.44,
+              "width": 217.19,
+              "height": 43.72,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              },
+              "drawRatios": [0, 0, 0, 0, 0, 0]
+            }
+          }
+        },
+        "pinRanges": {}
+      },
+      {
+        "captureProfile": "computed-style",
+        "triggerDocumentY": 16974.41,
+        "property": "transform",
+        "trigger": "sticky scroll interval",
+        "range": "pinned section range",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": true,
+        "id": "mist-transition-image-container-2",
+        "sectionId": "our-camps",
+        "samples": {
+          "desktop": {
+            "start": {
+              "phase": "start",
+              "scrollY": 6196,
+              "transform": "matrix3d(1, 0, 0, 0, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 1)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 16974.41,
+              "width": 1440,
+              "height": 0,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 12569,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 16074.41,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 18941,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 16074.41,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 18491,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 16074.41,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            }
+          },
+          "tablet": {
+            "start": {
+              "phase": "start",
+              "scrollY": 7087,
+              "transform": "matrix3d(1, 0, 0, 0, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 1)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 15903.17,
+              "width": 768,
+              "height": 0,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 12562,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 14879.17,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 18037,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 14879.17,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 17525,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 14879.17,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            }
+          },
+          "mobile": {
+            "start": {
+              "phase": "start",
+              "scrollY": 8244,
+              "transform": "matrix3d(1, 0, 0, 0, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 1)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 14882.16,
+              "width": 390,
+              "height": 0,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 12292,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 14038.16,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 16341,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 14038.16,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 15919,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 14038.16,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            }
+          }
+        },
+        "pinRanges": {
+          "desktop": {
+            "scrollStart": 6196.42,
+            "scrollEnd": 18941.36,
+            "verticalDistance": 12744.94,
+            "horizontalDistance": 0
+          },
+          "tablet": {
+            "scrollStart": 7087.17,
+            "scrollEnd": 18036.9,
+            "verticalDistance": 10949.73,
+            "horizontalDistance": 0
+          },
+          "mobile": {
+            "scrollStart": 8244.16,
+            "scrollEnd": 16340.5,
+            "verticalDistance": 8096.34,
+            "horizontalDistance": 0
+          }
+        }
+      }
+    ]
+  }
+}

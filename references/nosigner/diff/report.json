@@ -1,0 +1,235 @@
+{
+  "schema": "nosigner-fidelity/v1",
+  "route": "/challenges",
+  "source": "https://nosigner.com/ja/",
+  "missing": [],
+  "extra": [],
+  "geometry": [],
+  "artifacts": [],
+  "pixels": [
+    {
+      "width": 1440,
+      "state": "hero",
+      "mae": 0.000741252118131203,
+      "changedRatio": 0.0035038580246913582,
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "state": "intro",
+      "mae": 0.0454702785846849,
+      "changedRatio": 0.27835570987654323,
+      "status": "diagnostic"
+    },
+    {
+      "width": 1440,
+      "state": "intro-end",
+      "mae": 0.04744580509158396,
+      "changedRatio": 0.2119837962962963,
+      "status": "diagnostic"
+    },
+    {
+      "width": 1440,
+      "state": "how",
+      "mae": 0.021433758976841764,
+      "changedRatio": 0.04341820987654321,
+      "status": "diagnostic"
+    },
+    {
+      "width": 1440,
+      "state": "why",
+      "mae": 0.015105028040022592,
+      "changedRatio": 0.0667445987654321,
+      "status": "diagnostic"
+    },
+    {
+      "width": 1440,
+      "state": "news",
+      "mae": 0.041053726902283545,
+      "changedRatio": 0.2925432098765432,
+      "status": "diagnostic"
+    },
+    {
+      "width": 1440,
+      "state": "footer",
+      "mae": 0.040003329500524494,
+      "changedRatio": 0.2377530864197531,
+      "status": "diagnostic"
+    },
+    {
+      "width": 1440,
+      "state": "menu",
+      "mae": 0.022412960945695153,
+      "changedRatio": 0.11719135802469136,
+      "status": "diagnostic"
+    },
+    {
+      "width": 1440,
+      "state": "quote-form",
+      "mae": 0.030532426571451627,
+      "changedRatio": 0.03943904320987654,
+      "status": "diagnostic"
+    },
+    {
+      "width": 1440,
+      "state": "quote-future",
+      "mae": 0.042594238683127575,
+      "changedRatio": 0.2653996913580247,
+      "status": "diagnostic"
+    },
+    {
+      "width": 768,
+      "state": "hero",
+      "mae": 0.0010551901424632353,
+      "changedRatio": 0.006585439046223958,
+      "status": "pass"
+    },
+    {
+      "width": 768,
+      "state": "intro",
+      "mae": 0.054353379060500064,
+      "changedRatio": 0.3187421162923177,
+      "status": "diagnostic"
+    },
+    {
+      "width": 768,
+      "state": "intro-end",
+      "mae": 0.06293582292943219,
+      "changedRatio": 0.29393768310546875,
+      "status": "diagnostic"
+    },
+    {
+      "width": 768,
+      "state": "how",
+      "mae": 0.03050318533039301,
+      "changedRatio": 0.046512603759765625,
+      "status": "diagnostic"
+    },
+    {
+      "width": 768,
+      "state": "why",
+      "mae": 0.008778098777488426,
+      "changedRatio": 0.029757181803385418,
+      "status": "diagnostic"
+    },
+    {
+      "width": 768,
+      "state": "news",
+      "mae": 0.048782923746212896,
+      "changedRatio": 0.4449615478515625,
+      "status": "diagnostic"
+    },
+    {
+      "width": 768,
+      "state": "footer",
+      "mae": 0.05728098052779054,
+      "changedRatio": 0.3077430725097656,
+      "status": "diagnostic"
+    },
+    {
+      "width": 768,
+      "state": "menu",
+      "mae": 0.034428025123080915,
+      "changedRatio": 0.18548456827799478,
+      "status": "diagnostic"
+    },
+    {
+      "width": 768,
+      "state": "quote-form",
+      "mae": 0.04486827975005107,
+      "changedRatio": 0.09975051879882812,
+      "status": "diagnostic"
+    },
+    {
+      "width": 768,
+      "state": "quote-future",
+      "mae": 0.0931963320131655,
+      "changedRatio": 0.4367205301920573,
+      "status": "diagnostic"
+    },
+    {
+      "width": 390,
+      "state": "hero",
+      "mae": 0.001942369445854252,
+      "changedRatio": 0.012486328837039738,
+      "status": "pass"
+    },
+    {
+      "width": 390,
+      "state": "intro",
+      "mae": 0.07834744729503582,
+      "changedRatio": 0.35405274030866446,
+      "status": "diagnostic"
+    },
+    {
+      "width": 390,
+      "state": "intro-end",
+      "mae": 0.06878704914946901,
+      "changedRatio": 0.1402357516101592,
+      "status": "diagnostic"
+    },
+    {
+      "width": 390,
+      "state": "how",
+      "mae": 0.05020459684663755,
+      "changedRatio": 0.07570178636529347,
+      "status": "diagnostic"
+    },
+    {
+      "width": 390,
+      "state": "why",
+      "mae": 0.010893575804364765,
+      "changedRatio": 0.0382276096731073,
+      "status": "diagnostic"
+    },
+    {
+      "width": 390,
+      "state": "news",
+      "mae": 0.052503568203317294,
+      "changedRatio": 0.316180580872524,
+      "status": "diagnostic"
+    },
+    {
+      "width": 390,
+      "state": "footer",
+      "mae": 0.07935008264252758,
+      "changedRatio": 0.36082452302831447,
+      "status": "diagnostic"
+    },
+    {
+      "width": 390,
+      "state": "menu",
+      "mae": 0.05539242293911934,
+      "changedRatio": 0.2115840320816624,
+      "status": "diagnostic"
+    },
+    {
+      "width": 390,
+      "state": "quote-form",
+      "mae": 0.06792531911294108,
+      "changedRatio": 0.08960687811398711,
+      "status": "diagnostic"
+    },
+    {
+      "width": 390,
+      "state": "quote-future",
+      "mae": 0.15054794259422083,
+      "changedRatio": 0.6341323368574553,
+      "status": "diagnostic"
+    }
+  ],
+  "notes": [
+    "Time-varying canvas noise is an authored approximation and is not asserted pixel-identical.",
+    "A11y controls and contrast are documented intentional deviations."
+  ],
+  "structurePassed": true,
+  "heroPassed": true,
+  "fullVisualAcceptance": {
+    "status": "blocked",
+    "reasons": [
+      "Canvas2D light fields differ from the source WebGL shader and its timed phases.",
+      "Mobile menu opens at the beginning for keyboard access; source framing differs.",
+      "The measured geometry/hero checks are only a subset of full-page visual acceptance."
+    ]
+  }
+}

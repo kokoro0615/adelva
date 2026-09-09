@@ -1,0 +1,56 @@
+{
+  "date": "2026-09-09",
+  "method": "Native editable Figma; raster reference alignment, not identical pixels",
+  "pages": {
+    "gm": {
+      "id": "97:52",
+      "dimensions": [
+        390,
+        7616
+      ],
+      "editableTextNodes": 118,
+      "photoLayers": 4,
+      "copyItemsChecked": 85,
+      "missingCopy": [],
+      "overflow": [],
+      "unplannedWraps": [],
+      "missingFonts": [],
+      "meanAbsoluteRGBDifference": 15.405885382999353,
+      "sourceSHA256": "06896554244e4e8bdb8a519c1d89f19b5a1c70fde5ec96b318269bc9e806572f",
+      "exportSHA256": "9585ca2e4445c0586481f5e462d4958589cb3ab7c740840bdfda0bdd98647042",
+      "review": "Each of 9 sections and all consecutive 390×844 viewport slices visually inspected."
+    },
+    "owners": {
+      "id": "97:75",
+      "dimensions": [
+        390,
+        6954
+      ],
+      "editableTextNodes": 108,
+      "photoLayers": 4,
+      "copyItemsChecked": 82,
+      "missingCopy": [],
+      "overflow": [],
+      "unplannedWraps": [],
+      "missingFonts": [],
+      "meanAbsoluteRGBDifference": 11.871211182643451,
+      "sourceSHA256": "792a349577e595113d9e29f402e6f3973606d40fdb9347a02f8cb0d041b8b729",
+      "exportSHA256": "16e3ade6eb45e61b0a21fcda5882a3ed792a3bf2672c9406eb3cd34b1d12dd98",
+      "review": "Each of 9 sections and all consecutive 390×844 viewport slices visually inspected."
+    }
+  },
+  "replacementVerified": {
+    "oldFramesAbsent": [
+      "47:30",
+      "67:3"
+    ],
+    "desktopFramesPreserved": [
+      "21:3",
+      "67:2"
+    ],
+    "postMoveRender": {
+      "gm": "Identical pixels",
+      "owners": "12 RGB channel samples differed in footer antialiasing; max 15/255; visually reviewed. Latest export retained."
+    }
+  }
+}

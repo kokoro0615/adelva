@@ -1,0 +1,12 @@
+{
+  "date": "2026-09-09",
+  "route": "built-in subscription image_gen",
+  "purpose": "Mobile portrait hero photograph",
+  "reference": "hero.png — approved fictional hotel visual world; composition reference",
+  "prompt": "Create one final-production-quality photorealistic portrait architectural photograph, approximately 9:19.5 aspect ratio, for a luxury Japanese hospitality management website's mobile hero. The supplied image is the approved visual-world reference: reproduce the same fictional mountain hotel, sculptural dark rough-stone reception counter, black timber, bronze details, warm lamps, cool misty blue mountains and restrained sunset. Recompose the camera position and architecture for a genuinely vertical image, not a narrow crop of the reference. A soaring double-height lobby with a broad floor-to-ceiling window toward distant layered mountains, an unmistakable beautifully detailed reception counter on the right lower-middle, a small lounge seating arrangement at the window, and a cool reflective stone floor create majestic depth. Reserve the upper-left and middle-left 70% as calm low-detail deep blue/charcoal architecture and shadow, suitable for white Japanese headline and paragraph overlay. The mountain view should form an atmospheric central opening, not fill the whole frame like a landscape poster. Place the brightest warm counter lighting on the right around 55–68% of image height; keep the lowest quarter of the frame dark, spacious and visually quiet for large white typography to be added later. Keep straight credible verticals, refined tactile natural materials, realistic reflections, precise joinery and balanced blue-versus-warm light. No people, no text, no letters, no logos, no watermarks, no UI. One cohesive full-bleed photograph, no panels or collage. Generate as a tall portrait around 1080x2340 if possible.",
+  "output": "mobile-hero-asset.png",
+  "originalGeneratedPath": "/home/kokoro/.codex/generated_images/01a08177-b5a6-7270-9428-86239baf04ff/exec-f024c4fa-a1e5-4954-bb29-6a6993a0092a.png",
+  "status": "Selected for mobile hero; no client or real-facility claim",
+  "altIntent": "Decorative fictional hotel scene; native surrounding text communicates service proposition",
+  "modelQualityMetadata": "Not exposed by tool"
+}

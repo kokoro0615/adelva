@@ -1,0 +1,4639 @@
+{
+  "schemaVersion": "full-page-section-manifest/v1",
+  "manifestId": "home-implementation-v1",
+  "role": "implementation",
+  "route": "/",
+  "family": "home",
+  "scope": {
+    "kind": "route-content",
+    "id": "home-content"
+  },
+  "source": {
+    "url": "http://127.0.0.1:4198",
+    "requestedRoute": "/",
+    "motionPreference": "no-preference",
+    "finalRoutes": ["/"],
+    "observedAt": "2026-08-31T09:05:45.864Z",
+    "contentRoot": "main#main-content > [data-page-content], main#main-content > [data-index-page-content], main#main-content > .page-content, main#main-content > .stage",
+    "status": "captured",
+    "captureMode": "capture",
+    "evidenceStatus": "captured"
+  },
+  "requiredViewports": ["desktop", "tablet", "mobile"],
+  "tolerances": {
+    "boundsPx": 2,
+    "scrollHeightPx": 2
+  },
+  "domTopology": {
+    "scope": "main#main-content > [data-page-content], main#main-content > [data-index-page-content], main#main-content > .page-content, main#main-content > .stage",
+    "directChildren": [
+      "hero",
+      "last-continent",
+      "our-season",
+      "our-trips",
+      "card-list",
+      "founder-quote",
+      "our-camps"
+    ]
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "semantic": "section | home-hero | Antarctica",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Antarctica",
+      "assets": [
+        "/_next/image?url=%2Fmedia%2Ftarget%2Fcloud-gradient.webp&w=3840&q=75",
+        "/media/video/hero-antarctica.mp4",
+        "/_next/image?url=%2Fmedia%2Ftarget%2Fwatch-film-preview.webp&w=3840&q=75",
+        "/_next/image?url=%2Fmedia%2Ftarget%2Fcloud-1-cropped.webp&w=3840&q=75",
+        "/_next/image?url=%2Fmedia%2Ftarget%2Fcloud-2-full.webp&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "scroll-or-interaction-linked",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 1800
+        },
+        "tablet": {
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 2048
+        },
+        "mobile": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 1688
+        }
+      }
+    },
+    {
+      "id": "last-continent",
+      "semantic": "section | band band--ice last-continent | Vast, majestic and unimaginably beautiful — setting foot in Antarctica’s fabled interior remains a rare and extraordinary experience.",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Vast, majestic and unimaginably beautiful — setting foot in Antarctica’s fabled interior remains a rare and extraordinary experience.",
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 12,
+          "y": 1800,
+          "width": 1416,
+          "height": 785.59
+        },
+        "tablet": {
+          "x": 12,
+          "y": 2048,
+          "width": 744,
+          "height": 1037.59
+        },
+        "mobile": {
+          "x": 12,
+          "y": 1688,
+          "width": 366,
+          "height": 591.59
+        }
+      }
+    },
+    {
+      "id": "our-season",
+      "semantic": "section | season | Our Season",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Our Season",
+      "assets": [
+        "/_next/image?url=%2Fmedia%2Ftarget%2FtextIntroImage.webp&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 2585.59,
+          "width": 1440,
+          "height": 1350
+        },
+        "tablet": {
+          "x": 0,
+          "y": 3085.59,
+          "width": 768,
+          "height": 1536
+        },
+        "mobile": {
+          "x": 0,
+          "y": 2279.59,
+          "width": 390,
+          "height": 1266
+        }
+      }
+    },
+    {
+      "id": "our-trips",
+      "semantic": "section | trips-title | Our Trips",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Our Trips",
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 3935.59,
+          "width": 1440,
+          "height": 540
+        },
+        "tablet": {
+          "x": 0,
+          "y": 4621.59,
+          "width": 768,
+          "height": 540
+        },
+        "mobile": {
+          "x": 0,
+          "y": 3545.59,
+          "width": 390,
+          "height": 333
+        }
+      }
+    },
+    {
+      "id": "card-list",
+      "semantic": "section | trips-cards | Baby Penguins & Blue Tunnels",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Baby Penguins & Blue Tunnels",
+      "keyLinks": [
+        "/itineraries/early-emperor-penguins",
+        "/itineraries/south-pole-emperor-penguins",
+        "/itineraries/south-pole-blue-rivers",
+        "/itineraries/the-long-stay",
+        "/itineraries/antarctica-in-a-day"
+      ],
+      "assets": [
+        "/_next/image?url=%2Fmedia%2Ftarget%2Ftrip-early-emperor-penguins.webp&w=3840&q=75",
+        "/_next/image?url=%2Fmedia%2Ftarget%2Ftrip-south-pole-emperor-penguins.webp&w=3840&q=75",
+        "/_next/image?url=%2Fmedia%2Ftarget%2Ftrip-south-pole-blue-rivers.webp&w=3840&q=75",
+        "/_next/image?url=%2Fmedia%2Ftarget%2Ftrip-the-long-stay.webp&w=3840&q=75",
+        "/_next/image?url=%2Fmedia%2Ftarget%2Ftrip-antarctica-in-a-day.webp&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 4475.59,
+          "width": 1440,
+          "height": 765
+        },
+        "tablet": {
+          "x": 0,
+          "y": 5161.59,
+          "width": 768,
+          "height": 870
+        },
+        "mobile": {
+          "x": 0,
+          "y": 3878.59,
+          "width": 390,
+          "height": 3626.88
+        }
+      }
+    },
+    {
+      "id": "founder-quote",
+      "semantic": "section | founder",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "scroll-or-interaction-linked",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 5240.59,
+          "width": 1440,
+          "height": 956
+        },
+        "tablet": {
+          "x": 0,
+          "y": 6031.59,
+          "width": 768,
+          "height": 1055
+        },
+        "mobile": {
+          "x": 0,
+          "y": 7505.47,
+          "width": 390,
+          "height": 739
+        }
+      }
+    },
+    {
+      "id": "our-camps",
+      "semantic": "div | longform | Our Camps",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Our Camps",
+      "keyLinks": [
+        "/camps/whichaway-camp",
+        "/camps/echo-base",
+        "/camps/explorer-camp",
+        "/enquire"
+      ],
+      "assets": [
+        "/_next/image?url=%2Fmedia%2Ftarget%2Fcamps-gallery-1.webp&w=3840&q=75",
+        "/_next/image?url=%2Fmedia%2Ftarget%2Fcamps-gallery-3.webp&w=3840&q=75",
+        "/_next/image?url=%2Fmedia%2Ftarget%2Fcamps-gallery-2.webp&w=3840&q=75",
+        "/_next/image?url=%2Fmedia%2Ftarget%2Fcamp-whichaway.webp&w=3840&q=75",
+        "/_next/image?url=%2Fmedia%2Ftarget%2Fcamp-echo.webp&w=3840&q=75",
+        "/_next/image?url=%2Fmedia%2Ftarget%2Fcamp-explorer.webp&w=3840&q=75",
+        "/_next/image?url=%2Fmedia%2Ftarget%2Fcamps-quote-mark.webp&w=1080&q=75",
+        "/_next/image?url=%2Fmedia%2Ftarget%2Fcloud-gradient.webp&w=3840&q=75",
+        "/_next/image?url=%2Fmedia%2Ftarget%2Fflight-path_large.webp&w=3840&q=75",
+        "/_next/image?url=%2Fmedia%2Ftarget%2FrouteWidgetWatchFilmImage.webp&w=3840&q=75",
+        "/_next/image?url=%2Fmedia%2Ftarget%2FoutroBannerMedia.webp&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "scroll-or-interaction-linked",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 6196.59,
+          "width": 1440,
+          "height": 13645
+        },
+        "tablet": {
+          "x": 0,
+          "y": 7086.59,
+          "width": 768,
+          "height": 11974
+        },
+        "mobile": {
+          "x": 0,
+          "y": 8244.47,
+          "width": 390,
+          "height": 8940
+        }
+      }
+    }
+  ],
+  "viewports": {
+    "desktop": {
+      "width": 1440,
+      "height": 900,
+      "scrollHeight": 20788,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/top.png",
+          "sha256": "92d90c021d12ff9d78ab8d675900bf07d0e0745664c30de422ac8a63ec91938e",
+          "width": 1440,
+          "height": 900
+        },
+        "fullPage": {
+          "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/full-page.png"
+        },
+        "sectionCaptures": [
+          {
+            "sectionId": "hero",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/sections/section-hero.png"
+          },
+          {
+            "sectionId": "last-continent",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/sections/section-last-continent.png"
+          },
+          {
+            "sectionId": "our-season",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/sections/section-our-season.png"
+          },
+          {
+            "sectionId": "our-trips",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/sections/section-our-trips.png"
+          },
+          {
+            "sectionId": "card-list",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/sections/section-card-list.png"
+          },
+          {
+            "sectionId": "founder-quote",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/sections/section-founder-quote.png"
+          },
+          {
+            "sectionId": "our-camps",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/sections/section-our-camps.png"
+          }
+        ],
+        "checkpoints": [
+          {
+            "sectionId": "hero",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/checkpoints/checkpoint-hero-start.png"
+          },
+          {
+            "sectionId": "hero",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/checkpoints/checkpoint-hero-center.png"
+          },
+          {
+            "sectionId": "hero",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/checkpoints/checkpoint-hero-end.png"
+          },
+          {
+            "sectionId": "last-continent",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/checkpoints/checkpoint-last-continent-start.png"
+          },
+          {
+            "sectionId": "last-continent",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/checkpoints/checkpoint-last-continent-center.png"
+          },
+          {
+            "sectionId": "last-continent",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/checkpoints/checkpoint-last-continent-end.png"
+          },
+          {
+            "sectionId": "our-season",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/checkpoints/checkpoint-our-season-start.png"
+          },
+          {
+            "sectionId": "our-season",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/checkpoints/checkpoint-our-season-center.png"
+          },
+          {
+            "sectionId": "our-season",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/checkpoints/checkpoint-our-season-end.png"
+          },
+          {
+            "sectionId": "our-trips",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/checkpoints/checkpoint-our-trips-start.png"
+          },
+          {
+            "sectionId": "our-trips",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/checkpoints/checkpoint-our-trips-center.png"
+          },
+          {
+            "sectionId": "our-trips",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/checkpoints/checkpoint-our-trips-end.png"
+          },
+          {
+            "sectionId": "card-list",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/checkpoints/checkpoint-card-list-start.png"
+          },
+          {
+            "sectionId": "card-list",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/checkpoints/checkpoint-card-list-center.png"
+          },
+          {
+            "sectionId": "card-list",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/checkpoints/checkpoint-card-list-end.png"
+          },
+          {
+            "sectionId": "founder-quote",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/checkpoints/checkpoint-founder-quote-start.png"
+          },
+          {
+            "sectionId": "founder-quote",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/checkpoints/checkpoint-founder-quote-center.png"
+          },
+          {
+            "sectionId": "founder-quote",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/checkpoints/checkpoint-founder-quote-end.png"
+          },
+          {
+            "sectionId": "our-camps",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/checkpoints/checkpoint-our-camps-start.png"
+          },
+          {
+            "sectionId": "our-camps",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/checkpoints/checkpoint-our-camps-center.png"
+          },
+          {
+            "sectionId": "our-camps",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/checkpoints/checkpoint-our-camps-end.png"
+          }
+        ],
+        "motionCaptures": [
+          {
+            "layerId": "mist-plane",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-mist-plane-start.png"
+          },
+          {
+            "layerId": "mist-plane",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-mist-plane-mid.png"
+          },
+          {
+            "layerId": "mist-plane",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-mist-plane-end.png"
+          },
+          {
+            "layerId": "mist-plane",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-mist-plane-reverse.png"
+          },
+          {
+            "layerId": "hero-wrapper",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-hero-wrapper-start.png"
+          },
+          {
+            "layerId": "hero-wrapper",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-hero-wrapper-mid.png"
+          },
+          {
+            "layerId": "hero-wrapper",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-hero-wrapper-end.png"
+          },
+          {
+            "layerId": "hero-wrapper",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-hero-wrapper-reverse.png"
+          },
+          {
+            "layerId": "hero-content",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-hero-content-start.png"
+          },
+          {
+            "layerId": "hero-content",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-hero-content-mid.png"
+          },
+          {
+            "layerId": "hero-content",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-hero-content-end.png"
+          },
+          {
+            "layerId": "hero-content",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-hero-content-reverse.png"
+          },
+          {
+            "layerId": "hero-title",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-hero-title-start.png"
+          },
+          {
+            "layerId": "hero-title",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-hero-title-mid.png"
+          },
+          {
+            "layerId": "hero-title",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-hero-title-end.png"
+          },
+          {
+            "layerId": "hero-title",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-hero-title-reverse.png"
+          },
+          {
+            "layerId": "cloud-near",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-cloud-near-start.png"
+          },
+          {
+            "layerId": "cloud-near",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-cloud-near-mid.png"
+          },
+          {
+            "layerId": "cloud-near",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-cloud-near-end.png"
+          },
+          {
+            "layerId": "cloud-near",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-cloud-near-reverse.png"
+          },
+          {
+            "layerId": "cloud-far",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-cloud-far-start.png"
+          },
+          {
+            "layerId": "cloud-far",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-cloud-far-mid.png"
+          },
+          {
+            "layerId": "cloud-far",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-cloud-far-end.png"
+          },
+          {
+            "layerId": "cloud-far",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-cloud-far-reverse.png"
+          },
+          {
+            "layerId": "founder-signature",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-founder-signature-start.png"
+          },
+          {
+            "layerId": "founder-signature",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-founder-signature-mid.png"
+          },
+          {
+            "layerId": "founder-signature",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-founder-signature-end.png"
+          },
+          {
+            "layerId": "founder-signature",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-founder-signature-reverse.png"
+          },
+          {
+            "layerId": "camps-track",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-camps-track-start.png"
+          },
+          {
+            "layerId": "camps-track",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-camps-track-mid.png"
+          },
+          {
+            "layerId": "camps-track",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-camps-track-end.png"
+          },
+          {
+            "layerId": "camps-track",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-camps-track-reverse.png"
+          },
+          {
+            "layerId": "camps-intro-primary",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-camps-intro-primary-start.png"
+          },
+          {
+            "layerId": "camps-intro-primary",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-camps-intro-primary-mid.png"
+          },
+          {
+            "layerId": "camps-intro-primary",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-camps-intro-primary-end.png"
+          },
+          {
+            "layerId": "camps-intro-primary",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-camps-intro-primary-reverse.png"
+          },
+          {
+            "layerId": "camps-intro-copy",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-camps-intro-copy-start.png"
+          },
+          {
+            "layerId": "camps-intro-copy",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-camps-intro-copy-mid.png"
+          },
+          {
+            "layerId": "camps-intro-copy",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-camps-intro-copy-end.png"
+          },
+          {
+            "layerId": "camps-intro-copy",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-camps-intro-copy-reverse.png"
+          },
+          {
+            "layerId": "cpt-wfr-title",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-cpt-wfr-title-start.png"
+          },
+          {
+            "layerId": "cpt-wfr-title",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-cpt-wfr-title-mid.png"
+          },
+          {
+            "layerId": "cpt-wfr-title",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-cpt-wfr-title-end.png"
+          },
+          {
+            "layerId": "cpt-wfr-title",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-cpt-wfr-title-reverse.png"
+          },
+          {
+            "layerId": "travel-map",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-travel-map-start.png"
+          },
+          {
+            "layerId": "travel-map",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-travel-map-mid.png"
+          },
+          {
+            "layerId": "travel-map",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-travel-map-end.png"
+          },
+          {
+            "layerId": "travel-map",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-travel-map-reverse.png"
+          },
+          {
+            "layerId": "route-info",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-route-info-start.png"
+          },
+          {
+            "layerId": "route-info",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-route-info-mid.png"
+          },
+          {
+            "layerId": "route-info",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-route-info-end.png"
+          },
+          {
+            "layerId": "route-info",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-route-info-reverse.png"
+          },
+          {
+            "layerId": "route-film",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-route-film-start.png"
+          },
+          {
+            "layerId": "route-film",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-route-film-mid.png"
+          },
+          {
+            "layerId": "route-film",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-route-film-end.png"
+          },
+          {
+            "layerId": "route-film",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/desktop/motion/motion-route-film-reverse.png"
+          }
+        ]
+      }
+    },
+    "tablet": {
+      "width": 768,
+      "height": 1024,
+      "scrollHeight": 20085,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/top.png",
+          "sha256": "78de7c4521a1daa193f8029147112fbc9b4da7cb18c18d42f44dcb82b08c68d8",
+          "width": 768,
+          "height": 1024
+        },
+        "fullPage": {
+          "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/full-page.png"
+        },
+        "sectionCaptures": [
+          {
+            "sectionId": "hero",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/sections/section-hero.png"
+          },
+          {
+            "sectionId": "last-continent",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/sections/section-last-continent.png"
+          },
+          {
+            "sectionId": "our-season",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/sections/section-our-season.png"
+          },
+          {
+            "sectionId": "our-trips",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/sections/section-our-trips.png"
+          },
+          {
+            "sectionId": "card-list",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/sections/section-card-list.png"
+          },
+          {
+            "sectionId": "founder-quote",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/sections/section-founder-quote.png"
+          },
+          {
+            "sectionId": "our-camps",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/sections/section-our-camps.png"
+          }
+        ],
+        "checkpoints": [
+          {
+            "sectionId": "hero",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/checkpoints/checkpoint-hero-start.png"
+          },
+          {
+            "sectionId": "hero",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/checkpoints/checkpoint-hero-center.png"
+          },
+          {
+            "sectionId": "hero",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/checkpoints/checkpoint-hero-end.png"
+          },
+          {
+            "sectionId": "last-continent",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/checkpoints/checkpoint-last-continent-start.png"
+          },
+          {
+            "sectionId": "last-continent",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/checkpoints/checkpoint-last-continent-center.png"
+          },
+          {
+            "sectionId": "last-continent",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/checkpoints/checkpoint-last-continent-end.png"
+          },
+          {
+            "sectionId": "our-season",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/checkpoints/checkpoint-our-season-start.png"
+          },
+          {
+            "sectionId": "our-season",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/checkpoints/checkpoint-our-season-center.png"
+          },
+          {
+            "sectionId": "our-season",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/checkpoints/checkpoint-our-season-end.png"
+          },
+          {
+            "sectionId": "our-trips",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/checkpoints/checkpoint-our-trips-start.png"
+          },
+          {
+            "sectionId": "our-trips",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/checkpoints/checkpoint-our-trips-center.png"
+          },
+          {
+            "sectionId": "our-trips",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/checkpoints/checkpoint-our-trips-end.png"
+          },
+          {
+            "sectionId": "card-list",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/checkpoints/checkpoint-card-list-start.png"
+          },
+          {
+            "sectionId": "card-list",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/checkpoints/checkpoint-card-list-center.png"
+          },
+          {
+            "sectionId": "card-list",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/checkpoints/checkpoint-card-list-end.png"
+          },
+          {
+            "sectionId": "founder-quote",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/checkpoints/checkpoint-founder-quote-start.png"
+          },
+          {
+            "sectionId": "founder-quote",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/checkpoints/checkpoint-founder-quote-center.png"
+          },
+          {
+            "sectionId": "founder-quote",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/checkpoints/checkpoint-founder-quote-end.png"
+          },
+          {
+            "sectionId": "our-camps",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/checkpoints/checkpoint-our-camps-start.png"
+          },
+          {
+            "sectionId": "our-camps",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/checkpoints/checkpoint-our-camps-center.png"
+          },
+          {
+            "sectionId": "our-camps",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/checkpoints/checkpoint-our-camps-end.png"
+          }
+        ],
+        "motionCaptures": [
+          {
+            "layerId": "mist-plane",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-mist-plane-start.png"
+          },
+          {
+            "layerId": "mist-plane",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-mist-plane-mid.png"
+          },
+          {
+            "layerId": "mist-plane",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-mist-plane-end.png"
+          },
+          {
+            "layerId": "mist-plane",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-mist-plane-reverse.png"
+          },
+          {
+            "layerId": "hero-wrapper",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-hero-wrapper-start.png"
+          },
+          {
+            "layerId": "hero-wrapper",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-hero-wrapper-mid.png"
+          },
+          {
+            "layerId": "hero-wrapper",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-hero-wrapper-end.png"
+          },
+          {
+            "layerId": "hero-wrapper",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-hero-wrapper-reverse.png"
+          },
+          {
+            "layerId": "hero-content",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-hero-content-start.png"
+          },
+          {
+            "layerId": "hero-content",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-hero-content-mid.png"
+          },
+          {
+            "layerId": "hero-content",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-hero-content-end.png"
+          },
+          {
+            "layerId": "hero-content",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-hero-content-reverse.png"
+          },
+          {
+            "layerId": "hero-title",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-hero-title-start.png"
+          },
+          {
+            "layerId": "hero-title",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-hero-title-mid.png"
+          },
+          {
+            "layerId": "hero-title",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-hero-title-end.png"
+          },
+          {
+            "layerId": "hero-title",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-hero-title-reverse.png"
+          },
+          {
+            "layerId": "cloud-near",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-cloud-near-start.png"
+          },
+          {
+            "layerId": "cloud-near",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-cloud-near-mid.png"
+          },
+          {
+            "layerId": "cloud-near",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-cloud-near-end.png"
+          },
+          {
+            "layerId": "cloud-near",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-cloud-near-reverse.png"
+          },
+          {
+            "layerId": "cloud-far",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-cloud-far-start.png"
+          },
+          {
+            "layerId": "cloud-far",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-cloud-far-mid.png"
+          },
+          {
+            "layerId": "cloud-far",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-cloud-far-end.png"
+          },
+          {
+            "layerId": "cloud-far",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-cloud-far-reverse.png"
+          },
+          {
+            "layerId": "founder-signature",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-founder-signature-start.png"
+          },
+          {
+            "layerId": "founder-signature",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-founder-signature-mid.png"
+          },
+          {
+            "layerId": "founder-signature",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-founder-signature-end.png"
+          },
+          {
+            "layerId": "founder-signature",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-founder-signature-reverse.png"
+          },
+          {
+            "layerId": "camps-track",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-camps-track-start.png"
+          },
+          {
+            "layerId": "camps-track",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-camps-track-mid.png"
+          },
+          {
+            "layerId": "camps-track",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-camps-track-end.png"
+          },
+          {
+            "layerId": "camps-track",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-camps-track-reverse.png"
+          },
+          {
+            "layerId": "camps-intro-primary",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-camps-intro-primary-start.png"
+          },
+          {
+            "layerId": "camps-intro-primary",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-camps-intro-primary-mid.png"
+          },
+          {
+            "layerId": "camps-intro-primary",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-camps-intro-primary-end.png"
+          },
+          {
+            "layerId": "camps-intro-primary",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-camps-intro-primary-reverse.png"
+          },
+          {
+            "layerId": "camps-intro-copy",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-camps-intro-copy-start.png"
+          },
+          {
+            "layerId": "camps-intro-copy",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-camps-intro-copy-mid.png"
+          },
+          {
+            "layerId": "camps-intro-copy",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-camps-intro-copy-end.png"
+          },
+          {
+            "layerId": "camps-intro-copy",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-camps-intro-copy-reverse.png"
+          },
+          {
+            "layerId": "cpt-wfr-title",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-cpt-wfr-title-start.png"
+          },
+          {
+            "layerId": "cpt-wfr-title",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-cpt-wfr-title-mid.png"
+          },
+          {
+            "layerId": "cpt-wfr-title",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-cpt-wfr-title-end.png"
+          },
+          {
+            "layerId": "cpt-wfr-title",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-cpt-wfr-title-reverse.png"
+          },
+          {
+            "layerId": "travel-map",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-travel-map-start.png"
+          },
+          {
+            "layerId": "travel-map",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-travel-map-mid.png"
+          },
+          {
+            "layerId": "travel-map",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-travel-map-end.png"
+          },
+          {
+            "layerId": "travel-map",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-travel-map-reverse.png"
+          },
+          {
+            "layerId": "route-info",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-route-info-start.png"
+          },
+          {
+            "layerId": "route-info",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-route-info-mid.png"
+          },
+          {
+            "layerId": "route-info",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-route-info-end.png"
+          },
+          {
+            "layerId": "route-info",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-route-info-reverse.png"
+          },
+          {
+            "layerId": "route-film",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-route-film-start.png"
+          },
+          {
+            "layerId": "route-film",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-route-film-mid.png"
+          },
+          {
+            "layerId": "route-film",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-route-film-end.png"
+          },
+          {
+            "layerId": "route-film",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/tablet/motion/motion-route-film-reverse.png"
+          }
+        ]
+      }
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "scrollHeight": 19317,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/top.png",
+          "sha256": "0eaef6062b7d475936eff60e63b953e66929832d01624f646690b29331b2d880",
+          "width": 390,
+          "height": 844
+        },
+        "fullPage": {
+          "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/full-page.png"
+        },
+        "sectionCaptures": [
+          {
+            "sectionId": "hero",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/sections/section-hero.png"
+          },
+          {
+            "sectionId": "last-continent",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/sections/section-last-continent.png"
+          },
+          {
+            "sectionId": "our-season",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/sections/section-our-season.png"
+          },
+          {
+            "sectionId": "our-trips",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/sections/section-our-trips.png"
+          },
+          {
+            "sectionId": "card-list",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/sections/section-card-list.png"
+          },
+          {
+            "sectionId": "founder-quote",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/sections/section-founder-quote.png"
+          },
+          {
+            "sectionId": "our-camps",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/sections/section-our-camps.png"
+          }
+        ],
+        "checkpoints": [
+          {
+            "sectionId": "hero",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/checkpoints/checkpoint-hero-start.png"
+          },
+          {
+            "sectionId": "hero",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/checkpoints/checkpoint-hero-center.png"
+          },
+          {
+            "sectionId": "hero",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/checkpoints/checkpoint-hero-end.png"
+          },
+          {
+            "sectionId": "last-continent",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/checkpoints/checkpoint-last-continent-start.png"
+          },
+          {
+            "sectionId": "last-continent",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/checkpoints/checkpoint-last-continent-center.png"
+          },
+          {
+            "sectionId": "last-continent",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/checkpoints/checkpoint-last-continent-end.png"
+          },
+          {
+            "sectionId": "our-season",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/checkpoints/checkpoint-our-season-start.png"
+          },
+          {
+            "sectionId": "our-season",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/checkpoints/checkpoint-our-season-center.png"
+          },
+          {
+            "sectionId": "our-season",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/checkpoints/checkpoint-our-season-end.png"
+          },
+          {
+            "sectionId": "our-trips",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/checkpoints/checkpoint-our-trips-start.png"
+          },
+          {
+            "sectionId": "our-trips",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/checkpoints/checkpoint-our-trips-center.png"
+          },
+          {
+            "sectionId": "our-trips",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/checkpoints/checkpoint-our-trips-end.png"
+          },
+          {
+            "sectionId": "card-list",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/checkpoints/checkpoint-card-list-start.png"
+          },
+          {
+            "sectionId": "card-list",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/checkpoints/checkpoint-card-list-center.png"
+          },
+          {
+            "sectionId": "card-list",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/checkpoints/checkpoint-card-list-end.png"
+          },
+          {
+            "sectionId": "founder-quote",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/checkpoints/checkpoint-founder-quote-start.png"
+          },
+          {
+            "sectionId": "founder-quote",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/checkpoints/checkpoint-founder-quote-center.png"
+          },
+          {
+            "sectionId": "founder-quote",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/checkpoints/checkpoint-founder-quote-end.png"
+          },
+          {
+            "sectionId": "our-camps",
+            "position": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/checkpoints/checkpoint-our-camps-start.png"
+          },
+          {
+            "sectionId": "our-camps",
+            "position": "center",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/checkpoints/checkpoint-our-camps-center.png"
+          },
+          {
+            "sectionId": "our-camps",
+            "position": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/checkpoints/checkpoint-our-camps-end.png"
+          }
+        ],
+        "motionCaptures": [
+          {
+            "layerId": "mist-plane",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-mist-plane-start.png"
+          },
+          {
+            "layerId": "mist-plane",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-mist-plane-mid.png"
+          },
+          {
+            "layerId": "mist-plane",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-mist-plane-end.png"
+          },
+          {
+            "layerId": "mist-plane",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-mist-plane-reverse.png"
+          },
+          {
+            "layerId": "hero-wrapper",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-hero-wrapper-start.png"
+          },
+          {
+            "layerId": "hero-wrapper",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-hero-wrapper-mid.png"
+          },
+          {
+            "layerId": "hero-wrapper",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-hero-wrapper-end.png"
+          },
+          {
+            "layerId": "hero-wrapper",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-hero-wrapper-reverse.png"
+          },
+          {
+            "layerId": "hero-content",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-hero-content-start.png"
+          },
+          {
+            "layerId": "hero-content",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-hero-content-mid.png"
+          },
+          {
+            "layerId": "hero-content",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-hero-content-end.png"
+          },
+          {
+            "layerId": "hero-content",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-hero-content-reverse.png"
+          },
+          {
+            "layerId": "hero-title",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-hero-title-start.png"
+          },
+          {
+            "layerId": "hero-title",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-hero-title-mid.png"
+          },
+          {
+            "layerId": "hero-title",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-hero-title-end.png"
+          },
+          {
+            "layerId": "hero-title",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-hero-title-reverse.png"
+          },
+          {
+            "layerId": "cloud-near",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-cloud-near-start.png"
+          },
+          {
+            "layerId": "cloud-near",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-cloud-near-mid.png"
+          },
+          {
+            "layerId": "cloud-near",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-cloud-near-end.png"
+          },
+          {
+            "layerId": "cloud-near",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-cloud-near-reverse.png"
+          },
+          {
+            "layerId": "cloud-far",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-cloud-far-start.png"
+          },
+          {
+            "layerId": "cloud-far",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-cloud-far-mid.png"
+          },
+          {
+            "layerId": "cloud-far",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-cloud-far-end.png"
+          },
+          {
+            "layerId": "cloud-far",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-cloud-far-reverse.png"
+          },
+          {
+            "layerId": "founder-signature",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-founder-signature-start.png"
+          },
+          {
+            "layerId": "founder-signature",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-founder-signature-mid.png"
+          },
+          {
+            "layerId": "founder-signature",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-founder-signature-end.png"
+          },
+          {
+            "layerId": "founder-signature",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-founder-signature-reverse.png"
+          },
+          {
+            "layerId": "camps-track",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-camps-track-start.png"
+          },
+          {
+            "layerId": "camps-track",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-camps-track-mid.png"
+          },
+          {
+            "layerId": "camps-track",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-camps-track-end.png"
+          },
+          {
+            "layerId": "camps-track",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-camps-track-reverse.png"
+          },
+          {
+            "layerId": "camps-intro-primary",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-camps-intro-primary-start.png"
+          },
+          {
+            "layerId": "camps-intro-primary",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-camps-intro-primary-mid.png"
+          },
+          {
+            "layerId": "camps-intro-primary",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-camps-intro-primary-end.png"
+          },
+          {
+            "layerId": "camps-intro-primary",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-camps-intro-primary-reverse.png"
+          },
+          {
+            "layerId": "camps-intro-copy",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-camps-intro-copy-start.png"
+          },
+          {
+            "layerId": "camps-intro-copy",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-camps-intro-copy-mid.png"
+          },
+          {
+            "layerId": "camps-intro-copy",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-camps-intro-copy-end.png"
+          },
+          {
+            "layerId": "camps-intro-copy",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-camps-intro-copy-reverse.png"
+          },
+          {
+            "layerId": "cpt-wfr-title",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-cpt-wfr-title-start.png"
+          },
+          {
+            "layerId": "cpt-wfr-title",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-cpt-wfr-title-mid.png"
+          },
+          {
+            "layerId": "cpt-wfr-title",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-cpt-wfr-title-end.png"
+          },
+          {
+            "layerId": "cpt-wfr-title",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-cpt-wfr-title-reverse.png"
+          },
+          {
+            "layerId": "travel-map",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-travel-map-start.png"
+          },
+          {
+            "layerId": "travel-map",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-travel-map-mid.png"
+          },
+          {
+            "layerId": "travel-map",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-travel-map-end.png"
+          },
+          {
+            "layerId": "travel-map",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-travel-map-reverse.png"
+          },
+          {
+            "layerId": "route-info",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-route-info-start.png"
+          },
+          {
+            "layerId": "route-info",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-route-info-mid.png"
+          },
+          {
+            "layerId": "route-info",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-route-info-end.png"
+          },
+          {
+            "layerId": "route-info",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-route-info-reverse.png"
+          },
+          {
+            "layerId": "route-film",
+            "phase": "start",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-route-film-start.png"
+          },
+          {
+            "layerId": "route-film",
+            "phase": "mid",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-route-film-mid.png"
+          },
+          {
+            "layerId": "route-film",
+            "phase": "end",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-route-film-end.png"
+          },
+          {
+            "layerId": "route-film",
+            "phase": "reverse",
+            "path": "../../../../artifacts/reference/section-gate/implementation/no-preference/home/mobile/motion/motion-route-film-reverse.png"
+          }
+        ]
+      }
+    }
+  },
+  "motion": {
+    "status": "complete",
+    "layers": [
+      {
+        "captureProfile": "computed-style",
+        "triggerDocumentY": 900,
+        "property": "transform",
+        "trigger": "sticky scroll interval",
+        "range": "pinned section range",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": true,
+        "id": "mist-plane",
+        "sectionId": "hero",
+        "samples": {
+          "desktop": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix3d(1, 0, 0, 0, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 1)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 900,
+              "width": 1440,
+              "height": 0,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 450,
+              "transform": "matrix3d(1, 0, 0, 0, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 1)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1350,
+              "width": 1440,
+              "height": 0,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 900,
+              "transform": "matrix3d(1, 0, 0, 0, 0, 0.433884, 0.900969, 0, 0, -0.900969, 0.433884, 0, 0, 0, 0, 1)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1409.5,
+              "width": 1440,
+              "height": 390.5,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 450,
+              "transform": "matrix3d(1, 0, 0, 0, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 1)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1350,
+              "width": 1440,
+              "height": 0,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            }
+          },
+          "tablet": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix3d(1, 0, 0, 0, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 1)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1024,
+              "width": 768,
+              "height": 0,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 512,
+              "transform": "matrix3d(1, 0, 0, 0, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 1)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1536,
+              "width": 768,
+              "height": 0,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 1024,
+              "transform": "matrix3d(1, 0, 0, 0, 0, 0.433884, 0.900969, 0, 0, -0.900969, 0.433884, 0, 0, 0, 0, 1)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1603.7,
+              "width": 768,
+              "height": 444.3,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 512,
+              "transform": "matrix3d(1, 0, 0, 0, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 1)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1536,
+              "width": 768,
+              "height": 0,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            }
+          },
+          "mobile": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix3d(1, 0, 0, 0, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 1)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 844,
+              "width": 390,
+              "height": 0,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 422,
+              "transform": "matrix3d(1, 0, 0, 0, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 1)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1266,
+              "width": 390,
+              "height": 0,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 844,
+              "transform": "matrix3d(1, 0, 0, 0, 0, 0.433884, 0.900969, 0, 0, -0.900969, 0.433884, 0, 0, 0, 0, 1)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1321.8,
+              "width": 390,
+              "height": 366.2,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 422,
+              "transform": "matrix3d(1, 0, 0, 0, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 1)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1266,
+              "width": 390,
+              "height": 0,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            }
+          }
+        },
+        "pinRanges": {
+          "desktop": {
+            "scrollStart": 0,
+            "scrollEnd": 900,
+            "verticalDistance": 900,
+            "horizontalDistance": 0
+          },
+          "tablet": {
+            "scrollStart": 0,
+            "scrollEnd": 1024,
+            "verticalDistance": 1024,
+            "horizontalDistance": 0
+          },
+          "mobile": {
+            "scrollStart": 0,
+            "scrollEnd": 844,
+            "verticalDistance": 844,
+            "horizontalDistance": 0
+          }
+        }
+      },
+      {
+        "captureProfile": "computed-style",
+        "triggerDocumentY": 0,
+        "property": "transform",
+        "trigger": "declared motion layer",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "id": "hero-wrapper",
+        "sectionId": "hero",
+        "samples": {
+          "desktop": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 0,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 450,
+              "transform": "matrix(1, 0, 0, 1, 0, 450)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 450,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 900,
+              "transform": "matrix(1, 0, 0, 1, 0, 900)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 900,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 450,
+              "transform": "matrix(1, 0, 0, 1, 0, 450)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 450,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            }
+          },
+          "tablet": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 0,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 512,
+              "transform": "matrix(1, 0, 0, 1, 0, 512)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 512,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 1024,
+              "transform": "matrix(1, 0, 0, 1, 0, 1024)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1024,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 512,
+              "transform": "matrix(1, 0, 0, 1, 0, 512)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 512,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            }
+          },
+          "mobile": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 0,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 422,
+              "transform": "matrix(1, 0, 0, 1, 0, 422)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 422,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 844,
+              "transform": "matrix(1, 0, 0, 1, 0, 844)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 844,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 422,
+              "transform": "matrix(1, 0, 0, 1, 0, 422)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 422,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            }
+          }
+        },
+        "pinRanges": {}
+      },
+      {
+        "captureProfile": "computed-style",
+        "triggerDocumentY": 0,
+        "property": "transform",
+        "trigger": "declared motion layer",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "id": "hero-content",
+        "sectionId": "hero",
+        "samples": {
+          "desktop": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 0,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 450,
+              "transform": "matrix(1, 0, 0, 1, 0, -135)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 315,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 900,
+              "transform": "matrix(1, 0, 0, 1, 0, -270)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 630,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 450,
+              "transform": "matrix(1, 0, 0, 1, 0, -135)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 315,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            }
+          },
+          "tablet": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 0,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 512,
+              "transform": "matrix(1, 0, 0, 1, 0, -153.6)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 358.4,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 1024,
+              "transform": "matrix(1, 0, 0, 1, 0, -307.2)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 716.8,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 512,
+              "transform": "matrix(1, 0, 0, 1, 0, -153.6)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 358.4,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            }
+          },
+          "mobile": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 0,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 422,
+              "transform": "matrix(1, 0, 0, 1, 0, -126.6)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 295.4,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 844,
+              "transform": "matrix(1, 0, 0, 1, 0, -253.2)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 590.8,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 422,
+              "transform": "matrix(1, 0, 0, 1, 0, -126.6)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 295.4,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            }
+          }
+        },
+        "pinRanges": {}
+      },
+      {
+        "captureProfile": "computed-style",
+        "triggerDocumentY": 620,
+        "property": "filter",
+        "trigger": "declared motion layer",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "id": "hero-title",
+        "sectionId": "hero",
+        "samples": {
+          "desktop": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "blur(0px)",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 137.66,
+              "y": 620,
+              "width": 1164.67,
+              "height": 256,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 450,
+              "transform": "none",
+              "filter": "blur(2.5px)",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 137.66,
+              "y": 935,
+              "width": 1164.67,
+              "height": 256,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 900,
+              "transform": "none",
+              "filter": "blur(5px)",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 137.66,
+              "y": 1250,
+              "width": 1164.67,
+              "height": 256,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 450,
+              "transform": "none",
+              "filter": "blur(2.5px)",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 137.66,
+              "y": 935,
+              "width": 1164.67,
+              "height": 256,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            }
+          },
+          "tablet": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "blur(0px)",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 81.66,
+              "y": 744,
+              "width": 604.67,
+              "height": 256,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 512,
+              "transform": "none",
+              "filter": "blur(2.5px)",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 81.66,
+              "y": 1102.4,
+              "width": 604.67,
+              "height": 256,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 1024,
+              "transform": "none",
+              "filter": "blur(5px)",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 81.66,
+              "y": 1460.8,
+              "width": 604.67,
+              "height": 256,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 512,
+              "transform": "none",
+              "filter": "blur(2.5px)",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 81.66,
+              "y": 1102.4,
+              "width": 604.67,
+              "height": 256,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            }
+          },
+          "mobile": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "none",
+              "filter": "blur(0px)",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 12,
+              "y": 740,
+              "width": 366,
+              "height": 80,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 422,
+              "transform": "none",
+              "filter": "blur(2.5px)",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 12,
+              "y": 1035.4,
+              "width": 366,
+              "height": 80,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 844,
+              "transform": "none",
+              "filter": "blur(5px)",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 12,
+              "y": 1330.8,
+              "width": 366,
+              "height": 80,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 422,
+              "transform": "none",
+              "filter": "blur(2.5px)",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 12,
+              "y": 1035.4,
+              "width": 366,
+              "height": 80,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            }
+          }
+        },
+        "pinRanges": {}
+      },
+      {
+        "captureProfile": "computed-style",
+        "triggerDocumentY": 900,
+        "property": "transform",
+        "trigger": "declared motion layer",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "id": "cloud-near",
+        "sectionId": "hero",
+        "samples": {
+          "desktop": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 900)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 900,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 450,
+              "transform": "matrix(1, 0, 0, 1, 0, 495)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 945,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 900,
+              "transform": "matrix(1, 0, 0, 1, 0, 90)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 990,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 450,
+              "transform": "matrix(1, 0, 0, 1, 0, 495)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 945,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            }
+          },
+          "tablet": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 1024)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1024,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 512,
+              "transform": "matrix(1, 0, 0, 1, 0, 563.2)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1075.2,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 1024,
+              "transform": "matrix(1, 0, 0, 1, 0, 102.4)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1126.4,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 512,
+              "transform": "matrix(1, 0, 0, 1, 0, 563.2)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1075.2,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            }
+          },
+          "mobile": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 844)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 844,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 422,
+              "transform": "matrix(1, 0, 0, 1, 0, 464.2)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 886.2,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 844,
+              "transform": "matrix(1, 0, 0, 1, 0, 84.4)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 928.4,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 422,
+              "transform": "matrix(1, 0, 0, 1, 0, 464.2)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 886.2,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            }
+          }
+        },
+        "pinRanges": {}
+      },
+      {
+        "captureProfile": "computed-style",
+        "triggerDocumentY": 900,
+        "property": "transform",
+        "trigger": "declared motion layer",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "id": "cloud-far",
+        "sectionId": "hero",
+        "samples": {
+          "desktop": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 900)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 900,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 450,
+              "transform": "matrix(1, 0, 0, 1, 0, 652.5)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1102.5,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 900,
+              "transform": "matrix(1, 0, 0, 1, 0, 405)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1305,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 450,
+              "transform": "matrix(1, 0, 0, 1, 0, 652.5)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1102.5,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            }
+          },
+          "tablet": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 1024)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1024,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 512,
+              "transform": "matrix(1, 0, 0, 1, 0, 742.4)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1254.4,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 1024,
+              "transform": "matrix(1, 0, 0, 1, 0, 460.8)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1484.8,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 512,
+              "transform": "matrix(1, 0, 0, 1, 0, 742.4)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1254.4,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            }
+          },
+          "mobile": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 844)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 844,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 422,
+              "transform": "matrix(1, 0, 0, 1, 0, 611.9)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1033.9,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 844,
+              "transform": "matrix(1, 0, 0, 1, 0, 379.8)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1223.8,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 422,
+              "transform": "matrix(1, 0, 0, 1, 0, 611.9)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 1033.9,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            }
+          }
+        },
+        "pinRanges": {}
+      },
+      {
+        "captureProfile": "discrete-draw",
+        "triggerDocumentY": 5562.55,
+        "property": "stroke-dasharray/stroke-dashoffset",
+        "trigger": "signature wrapper parent top 75%",
+        "range": "six paths draw together from 0% to 100%",
+        "easing": "power2.inOut over 1.2s",
+        "interruption": "play on enter and reverse above the trigger",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "id": "founder-signature",
+        "sectionId": "founder-quote",
+        "samples": {
+          "desktop": {
+            "start": {
+              "phase": "start",
+              "scrollY": 4886,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 460.41,
+              "y": 5751.58,
+              "width": 377.58,
+              "height": 69.05,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              },
+              "drawRatios": [0, 0, 0, 0, 0, 0]
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 4890,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 460.41,
+              "y": 5751.58,
+              "width": 377.58,
+              "height": 69.05,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              },
+              "drawRatios": [0.502, 0.502, 0.502, 0.502, 0.502, 0.502]
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 4890,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 460.41,
+              "y": 5751.58,
+              "width": 377.58,
+              "height": 69.05,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              },
+              "drawRatios": [1, 1, 1, 1, 1, 1]
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 4886,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 460.41,
+              "y": 5751.58,
+              "width": 377.58,
+              "height": 69.05,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              },
+              "drawRatios": [0, 0, 0, 0, 0, 0]
+            }
+          },
+          "tablet": {
+            "start": {
+              "phase": "start",
+              "scrollY": 5583,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 247.61,
+              "y": 6674.48,
+              "width": 198.38,
+              "height": 36.27,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              },
+              "drawRatios": [0, 0, 0, 0, 0, 0]
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 5587,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 247.61,
+              "y": 6674.48,
+              "width": 198.38,
+              "height": 36.27,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              },
+              "drawRatios": [0.463, 0.463, 0.463, 0.463, 0.463, 0.463]
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 5587,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 247.61,
+              "y": 6674.48,
+              "width": 198.38,
+              "height": 36.27,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              },
+              "drawRatios": [1, 1, 1, 1, 1, 1]
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 5583,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 247.61,
+              "y": 6674.48,
+              "width": 198.38,
+              "height": 36.27,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              },
+              "drawRatios": [0, 0, 0, 0, 0, 0]
+            }
+          },
+          "mobile": {
+            "start": {
+              "phase": "start",
+              "scrollY": 7033,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 45.69,
+              "y": 7988.64,
+              "width": 217.19,
+              "height": 39.72,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              },
+              "drawRatios": [0, 0, 0, 0, 0, 0]
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 7037,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 45.69,
+              "y": 7988.64,
+              "width": 217.19,
+              "height": 39.72,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              },
+              "drawRatios": [0.456, 0.456, 0.456, 0.456, 0.456, 0.456]
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 7037,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 45.69,
+              "y": 7988.64,
+              "width": 217.19,
+              "height": 39.72,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              },
+              "drawRatios": [1, 1, 1, 1, 1, 1]
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 7033,
+              "transform": "none",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 45.69,
+              "y": 7988.64,
+              "width": 217.19,
+              "height": 39.72,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              },
+              "drawRatios": [0, 0, 0, 0, 0, 0]
+            }
+          }
+        },
+        "pinRanges": {}
+      },
+      {
+        "captureProfile": "computed-style",
+        "triggerDocumentY": 6196.59,
+        "property": "transform",
+        "trigger": "declared motion layer",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "id": "camps-track",
+        "sectionId": "hero",
+        "samples": {
+          "desktop": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 6196.59,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 450,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 6196.59,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 900,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 6196.59,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 450,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 6196.59,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            }
+          },
+          "tablet": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 7086.59,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 512,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 7086.59,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 1024,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 7086.59,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 512,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 7086.59,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            }
+          },
+          "mobile": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 8244.47,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 422,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 8244.47,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 844,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 8244.47,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 422,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 8244.47,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            }
+          }
+        },
+        "pinRanges": {}
+      },
+      {
+        "captureProfile": "computed-style",
+        "triggerDocumentY": 6196.59,
+        "property": "transform",
+        "trigger": "declared motion layer",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "id": "camps-intro-primary",
+        "sectionId": "hero",
+        "samples": {
+          "desktop": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 6196.59,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 450,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 6196.59,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 900,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 6196.59,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 450,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 6196.59,
+              "width": 1440,
+              "height": 900,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            }
+          },
+          "tablet": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 7086.59,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 512,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 7086.59,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 1024,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 7086.59,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 512,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 7086.59,
+              "width": 768,
+              "height": 1024,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            }
+          },
+          "mobile": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 8244.47,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 422,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 8244.47,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 844,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 8244.47,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 422,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 8244.47,
+              "width": 390,
+              "height": 844,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            }
+          }
+        },
+        "pinRanges": {}
+      },
+      {
+        "captureProfile": "computed-style",
+        "triggerDocumentY": 6710.88,
+        "property": "transform",
+        "trigger": "declared motion layer",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "id": "camps-intro-copy",
+        "sectionId": "hero",
+        "samples": {
+          "desktop": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 20,
+              "y": 6710.88,
+              "width": 1400,
+              "height": 277.36,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 450,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 20,
+              "y": 6710.88,
+              "width": 1400,
+              "height": 277.36,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 900,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 20,
+              "y": 6710.88,
+              "width": 1400,
+              "height": 277.36,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 450,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 20,
+              "y": 6710.88,
+              "width": 1400,
+              "height": 277.36,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            }
+          },
+          "tablet": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 20,
+              "y": 7671.73,
+              "width": 728,
+              "height": 326.36,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 512,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 20,
+              "y": 7671.73,
+              "width": 728,
+              "height": 326.36,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 1024,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 20,
+              "y": 7671.73,
+              "width": 728,
+              "height": 326.36,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 512,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 20,
+              "y": 7671.73,
+              "width": 728,
+              "height": 326.36,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            }
+          },
+          "mobile": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 20,
+              "y": 8726.75,
+              "width": 350,
+              "height": 312.56,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 422,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 20,
+              "y": 8726.75,
+              "width": 350,
+              "height": 312.56,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 844,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 20,
+              "y": 8726.75,
+              "width": 350,
+              "height": 312.56,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 422,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 20,
+              "y": 8726.75,
+              "width": 350,
+              "height": 312.56,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            }
+          }
+        },
+        "pinRanges": {}
+      },
+      {
+        "captureProfile": "computed-style",
+        "triggerDocumentY": 15646.59,
+        "property": "transform",
+        "trigger": "declared motion layer",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "id": "cpt-wfr-title",
+        "sectionId": "hero",
+        "samples": {
+          "desktop": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 15646.59,
+              "width": 1440,
+              "height": 428,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 450,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 15646.59,
+              "width": 1440,
+              "height": 428,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 900,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 15646.59,
+              "width": 1440,
+              "height": 428,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 450,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 15646.59,
+              "width": 1440,
+              "height": 428,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            }
+          },
+          "tablet": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 14450.59,
+              "width": 768,
+              "height": 428,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 512,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 14450.59,
+              "width": 768,
+              "height": 428,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 1024,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 14450.59,
+              "width": 768,
+              "height": 428,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 512,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 14450.59,
+              "width": 768,
+              "height": 428,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            }
+          },
+          "mobile": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 13538.47,
+              "width": 390,
+              "height": 500,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 422,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 13538.47,
+              "width": 390,
+              "height": 500,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 844,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 13538.47,
+              "width": 390,
+              "height": 500,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 422,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 13538.47,
+              "width": 390,
+              "height": 500,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            }
+          }
+        },
+        "pinRanges": {}
+      },
+      {
+        "captureProfile": "computed-style",
+        "triggerDocumentY": 17134.54,
+        "property": "transform",
+        "trigger": "declared motion layer",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "id": "travel-map",
+        "sectionId": "hero",
+        "samples": {
+          "desktop": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, -86.05)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 17134.54,
+              "width": 1440,
+              "height": 1721,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 450,
+              "transform": "matrix(1, 0, 0, 1, 0, -86.05)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 17134.54,
+              "width": 1440,
+              "height": 1721,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 900,
+              "transform": "matrix(1, 0, 0, 1, 0, -86.05)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 17134.54,
+              "width": 1440,
+              "height": 1721,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 450,
+              "transform": "matrix(1, 0, 0, 1, 0, -86.05)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 17134.54,
+              "width": 1440,
+              "height": 1721,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            }
+          },
+          "tablet": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, -88.1)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 16186.49,
+              "width": 768,
+              "height": 1762,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 512,
+              "transform": "matrix(1, 0, 0, 1, 0, -88.1)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 16186.49,
+              "width": 768,
+              "height": 1762,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 1024,
+              "transform": "matrix(1, 0, 0, 1, 0, -88.1)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 16186.49,
+              "width": 768,
+              "height": 1762,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 512,
+              "transform": "matrix(1, 0, 0, 1, 0, -88.1)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 16186.49,
+              "width": 768,
+              "height": 1762,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            }
+          },
+          "mobile": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, -54.9)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 15188.57,
+              "width": 390,
+              "height": 1098,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 422,
+              "transform": "matrix(1, 0, 0, 1, 0, -54.9)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 15188.57,
+              "width": 390,
+              "height": 1098,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 844,
+              "transform": "matrix(1, 0, 0, 1, 0, -54.9)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 15188.57,
+              "width": 390,
+              "height": 1098,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 422,
+              "transform": "matrix(1, 0, 0, 1, 0, -54.9)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 0,
+              "y": 15188.57,
+              "width": 390,
+              "height": 1098,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            }
+          }
+        },
+        "pinRanges": {}
+      },
+      {
+        "captureProfile": "computed-style",
+        "triggerDocumentY": 17650.59,
+        "property": "transform",
+        "trigger": "declared motion layer",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "id": "route-info",
+        "sectionId": "hero",
+        "samples": {
+          "desktop": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 40,
+              "y": 17650.59,
+              "width": 445.33,
+              "height": 430,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 450,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 40,
+              "y": 17650.59,
+              "width": 445.33,
+              "height": 430,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 900,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 40,
+              "y": 17650.59,
+              "width": 445.33,
+              "height": 430,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 450,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 40,
+              "y": 17650.59,
+              "width": 445.33,
+              "height": 430,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            }
+          },
+          "tablet": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 10,
+              "y": 16724.59,
+              "width": 748,
+              "height": 385,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 512,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 10,
+              "y": 16724.59,
+              "width": 748,
+              "height": 385,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 1024,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 10,
+              "y": 16724.59,
+              "width": 748,
+              "height": 385,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 512,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 10,
+              "y": 16724.59,
+              "width": 748,
+              "height": 385,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            }
+          },
+          "mobile": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 10,
+              "y": 15480.47,
+              "width": 370,
+              "height": 385,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 422,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 10,
+              "y": 15480.47,
+              "width": 370,
+              "height": 385,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 844,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 10,
+              "y": 15480.47,
+              "width": 370,
+              "height": 385,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 422,
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 10,
+              "y": 15480.47,
+              "width": 370,
+              "height": 385,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            }
+          }
+        },
+        "pinRanges": {}
+      },
+      {
+        "captureProfile": "computed-style",
+        "triggerDocumentY": 25274.55,
+        "property": "transform",
+        "trigger": "declared motion layer",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "id": "route-film",
+        "sectionId": "hero",
+        "samples": {
+          "desktop": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 7623.96)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 954.7,
+              "y": 25274.55,
+              "width": 331.02,
+              "height": 195,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 450,
+              "transform": "matrix(1, 0, 0, 1, 0, 7438.56)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 954.7,
+              "y": 25089.15,
+              "width": 331.02,
+              "height": 195,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 900,
+              "transform": "matrix(1, 0, 0, 1, 0, 7253.16)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 954.7,
+              "y": 24903.75,
+              "width": 331.02,
+              "height": 195,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 450,
+              "transform": "matrix(1, 0, 0, 1, 0, 7438.56)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 954.7,
+              "y": 25089.15,
+              "width": 331.02,
+              "height": 195,
+              "viewport": {
+                "width": 1440,
+                "height": 900
+              }
+            }
+          },
+          "tablet": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 7269.16)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 10,
+              "y": 23553.75,
+              "width": 748,
+              "height": 430,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 512,
+              "transform": "matrix(1, 0, 0, 1, 0, 7058.21)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 10,
+              "y": 23342.8,
+              "width": 748,
+              "height": 430,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 1024,
+              "transform": "matrix(1, 0, 0, 1, 0, 6847.27)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 10,
+              "y": 23131.86,
+              "width": 748,
+              "height": 430,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 512,
+              "transform": "matrix(1, 0, 0, 1, 0, 7058.21)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 10,
+              "y": 23342.8,
+              "width": 748,
+              "height": 430,
+              "viewport": {
+                "width": 768,
+                "height": 1024
+              }
+            }
+          },
+          "mobile": {
+            "start": {
+              "phase": "start",
+              "scrollY": 0,
+              "transform": "matrix(1, 0, 0, 1, 0, 6722.78)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 10,
+              "y": 21976.25,
+              "width": 370,
+              "height": 217,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "mid": {
+              "phase": "mid",
+              "scrollY": 422,
+              "transform": "matrix(1, 0, 0, 1, 0, 6548.92)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 10,
+              "y": 21802.38,
+              "width": 370,
+              "height": 217,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "end": {
+              "phase": "end",
+              "scrollY": 844,
+              "transform": "matrix(1, 0, 0, 1, 0, 6375.05)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 10,
+              "y": 21628.52,
+              "width": 370,
+              "height": 217,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            },
+            "reverse": {
+              "phase": "reverse",
+              "scrollY": 422,
+              "transform": "matrix(1, 0, 0, 1, 0, 6548.92)",
+              "filter": "none",
+              "opacity": "1",
+              "visibility": "visible",
+              "x": 10,
+              "y": 21802.38,
+              "width": 370,
+              "height": 217,
+              "viewport": {
+                "width": 390,
+                "height": 844
+              }
+            }
+          }
+        },
+        "pinRanges": {}
+      }
+    ]
+  }
+}

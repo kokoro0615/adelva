@@ -1,0 +1,10 @@
+{
+  "verifiedAt": "2026-09-09T10:31:41.922Z",
+  "origin": "http://127.0.0.1:3002/challenges",
+  "server": "Existing project next dev; observed hydrated data-ns-ready=true and new data-renderer=webgl.",
+  "hashes": {
+    "src/components/nosigner/ambient.tsx": "6bff1b44a53a0a1c27c48eeeba5737e8a305ce5d028fa831f042f744011e01fe",
+    "src/components/nosigner/ambient-renderer.ts": "87ce01ba2621bbf32fe34bbcf723c7b3e5c96eda2de034f5a93fd8c9cb668933",
+    "src/app/challenges/nosigner.css": "bf6d49e440fda944321af6c86aaf6cccfa8e101a62b9502e1ca7c6be87eafce3"
+  }
+}

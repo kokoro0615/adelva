@@ -1,0 +1,296 @@
+{
+  "scope": "Only current task delivery folder. Existing references and generated input originals outside this folder are preserved.",
+  "removed": [
+    {
+      "file": "review/general-managers-00-hero-390.png",
+      "bytes": 711241
+    },
+    {
+      "file": "review/general-managers-01-challenges-390.png",
+      "bytes": 376862
+    },
+    {
+      "file": "review/general-managers-01-challenges-first-390.png",
+      "bytes": 284813
+    },
+    {
+      "file": "review/general-managers-01-challenges-first.png",
+      "bytes": 1257884
+    },
+    {
+      "file": "review/general-managers-02-decisions-390.png",
+      "bytes": 500647
+    },
+    {
+      "file": "review/general-managers-02-decisions-first-390.png",
+      "bytes": 510125
+    },
+    {
+      "file": "review/general-managers-02-decisions-first.png",
+      "bytes": 1662917
+    },
+    {
+      "file": "review/general-managers-03-support-a-390.png",
+      "bytes": 385219
+    },
+    {
+      "file": "review/general-managers-04-support-b-390.png",
+      "bytes": 588222
+    },
+    {
+      "file": "review/general-managers-05-roles-390.png",
+      "bytes": 369512
+    },
+    {
+      "file": "review/general-managers-06-execution-390.png",
+      "bytes": 469406
+    },
+    {
+      "file": "review/general-managers-07-verification-390.png",
+      "bytes": 249014
+    },
+    {
+      "file": "review/general-managers-08-contact-390.png",
+      "bytes": 394568
+    },
+    {
+      "file": "review/general-managers-seam-1.png",
+      "bytes": 164962
+    },
+    {
+      "file": "review/general-managers-seam-2.png",
+      "bytes": 171522
+    },
+    {
+      "file": "review/general-managers-seam-3.png",
+      "bytes": 115111
+    },
+    {
+      "file": "review/general-managers-seam-4.png",
+      "bytes": 124258
+    },
+    {
+      "file": "review/general-managers-seam-5.png",
+      "bytes": 132053
+    },
+    {
+      "file": "review/general-managers-seam-6.png",
+      "bytes": 211521
+    },
+    {
+      "file": "review/general-managers-seam-7.png",
+      "bytes": 99001
+    },
+    {
+      "file": "review/general-managers-seam-8.png",
+      "bytes": 101204
+    },
+    {
+      "file": "review/general-managers-viewport-00.png",
+      "bytes": 769677
+    },
+    {
+      "file": "review/general-managers-viewport-01.png",
+      "bytes": 391908
+    },
+    {
+      "file": "review/general-managers-viewport-02.png",
+      "bytes": 549219
+    },
+    {
+      "file": "review/general-managers-viewport-03.png",
+      "bytes": 421665
+    },
+    {
+      "file": "review/general-managers-viewport-04.png",
+      "bytes": 541865
+    },
+    {
+      "file": "review/general-managers-viewport-05.png",
+      "bytes": 400529
+    },
+    {
+      "file": "review/general-managers-viewport-06.png",
+      "bytes": 543564
+    },
+    {
+      "file": "review/general-managers-viewport-07.png",
+      "bytes": 332440
+    },
+    {
+      "file": "review/general-managers-viewport-08.png",
+      "bytes": 388755
+    },
+    {
+      "file": "review/general-managers-viewport-09.png",
+      "bytes": 5555
+    },
+    {
+      "file": "review/gm-hero-first-390.png",
+      "bytes": 695931
+    },
+    {
+      "file": "review/gm-hero-first.png",
+      "bytes": 1943326
+    },
+    {
+      "file": "review/gm-hero-second-390.png",
+      "bytes": 698138
+    },
+    {
+      "file": "review/gm-hero-second.png",
+      "bytes": 1877033
+    },
+    {
+      "file": "review/gm-previous-mobile-0.png",
+      "bytes": 546485
+    },
+    {
+      "file": "review/gm-previous-mobile-1.png",
+      "bytes": 87500
+    },
+    {
+      "file": "review/owners-00-hero-390.png",
+      "bytes": 713175
+    },
+    {
+      "file": "review/owners-01-challenges-390.png",
+      "bytes": 247620
+    },
+    {
+      "file": "review/owners-01-challenges-first-390.png",
+      "bytes": 274709
+    },
+    {
+      "file": "review/owners-01-challenges-first.png",
+      "bytes": 1180297
+    },
+    {
+      "file": "review/owners-02-decisions-390.png",
+      "bytes": 455556
+    },
+    {
+      "file": "review/owners-02-decisions-first-390.png",
+      "bytes": 463582
+    },
+    {
+      "file": "review/owners-02-decisions-first.png",
+      "bytes": 1586434
+    },
+    {
+      "file": "review/owners-03-support-a-390.png",
+      "bytes": 314553
+    },
+    {
+      "file": "review/owners-04-support-b-390.png",
+      "bytes": 315413
+    },
+    {
+      "file": "review/owners-05-roles-390.png",
+      "bytes": 275860
+    },
+    {
+      "file": "review/owners-06-execution-390.png",
+      "bytes": 504232
+    },
+    {
+      "file": "review/owners-07-verification-390.png",
+      "bytes": 215177
+    },
+    {
+      "file": "review/owners-08-contact-390.png",
+      "bytes": 586638
+    },
+    {
+      "file": "review/owners-hero-first-390.png",
+      "bytes": 711529
+    },
+    {
+      "file": "review/owners-hero-first.png",
+      "bytes": 1989603
+    },
+    {
+      "file": "review/owners-previous-mobile-0.png",
+      "bytes": 478288
+    },
+    {
+      "file": "review/owners-previous-mobile-1.png",
+      "bytes": 58608
+    },
+    {
+      "file": "review/owners-seam-1.png",
+      "bytes": 153054
+    },
+    {
+      "file": "review/owners-seam-2.png",
+      "bytes": 93771
+    },
+    {
+      "file": "review/owners-seam-3.png",
+      "bytes": 102214
+    },
+    {
+      "file": "review/owners-seam-4.png",
+      "bytes": 93704
+    },
+    {
+      "file": "review/owners-seam-5.png",
+      "bytes": 110920
+    },
+    {
+      "file": "review/owners-seam-6.png",
+      "bytes": 104405
+    },
+    {
+      "file": "review/owners-seam-7.png",
+      "bytes": 84093
+    },
+    {
+      "file": "review/owners-seam-8.png",
+      "bytes": 126570
+    },
+    {
+      "file": "review/owners-viewport-00.png",
+      "bytes": 757327
+    },
+    {
+      "file": "review/owners-viewport-01.png",
+      "bytes": 324224
+    },
+    {
+      "file": "review/owners-viewport-02.png",
+      "bytes": 538691
+    },
+    {
+      "file": "review/owners-viewport-03.png",
+      "bytes": 366848
+    },
+    {
+      "file": "review/owners-viewport-04.png",
+      "bytes": 361536
+    },
+    {
+      "file": "review/owners-viewport-05.png",
+      "bytes": 545584
+    },
+    {
+      "file": "review/owners-viewport-06.png",
+      "bytes": 326656
+    },
+    {
+      "file": "review/owners-viewport-07.png",
+      "bytes": 581343
+    },
+    {
+      "file": "review/owners-viewport-08.png",
+      "bytes": 86637
+    },
+    {
+      "file": "generation-results.json",
+      "bytes": 9630,
+      "reason": "Superseded by accepted-generations.json"
+    }
+  ],
+  "removedCount": 72,
+  "retained": "18 selected generated originals, two full PNGs, source references, prompts and records."
+}

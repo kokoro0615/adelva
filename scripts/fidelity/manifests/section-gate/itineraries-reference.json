@@ -1,0 +1,545 @@
+{
+  "schemaVersion": "full-page-section-manifest/v1",
+  "manifestId": "itineraries-reference-v1",
+  "role": "reference",
+  "route": "/itineraries",
+  "family": "itinerary-index",
+  "scope": {
+    "kind": "route-content",
+    "id": "itineraries-content"
+  },
+  "source": {
+    "url": "https://white-desert.com",
+    "requestedRoute": "/itineraries",
+    "finalRoutes": ["/itineraries"],
+    "observedAt": "2026-08-31T01:13:05.759Z",
+    "contentRoot": ".page-content",
+    "status": "pending-capture",
+    "captureMode": "manifest-only",
+    "evidenceStatus": "pending-capture"
+  },
+  "requiredViewports": ["desktop", "tablet", "mobile"],
+  "tolerances": {
+    "boundsPx": 2,
+    "scrollHeightPx": 2
+  },
+  "domTopology": {
+    "scope": ".page-content",
+    "directChildren": ["hero", "choose-your-adventure", "itineraries", "planning-cta"]
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "semantic": "div | hero-banner | Our Core Journeys",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Our Core Journeys",
+      "assets": [
+        "/_next/image?url=%2Fimages%2Fcloud-gradient.png&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F34e8f1cab1bdeab200488ecda627bd216655f0d2-2000x1250.jpg&w=3840&q=90",
+        "/_next/image?url=%2Fimages%2Fcloud-1-cropped.png&w=3840&q=75",
+        "/_next/image?url=%2Fimages%2Fcloud-2-full.png&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "scroll-or-interaction-linked",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 1800,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 2048,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 1688,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "choose-your-adventure",
+      "semantic": "section | padding-large bg-white | Choose Your Adventure",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Choose Your Adventure",
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 1800,
+          "width": 1440,
+          "height": 849.55,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 2048,
+          "width": 768,
+          "height": 996.59,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 1688,
+          "width": 390,
+          "height": 655.59,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "itineraries",
+      "semantic": "section | padding-large bg-transparent itineraries-section | Baby Penguins & Blue Tunnels",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Baby Penguins & Blue Tunnels",
+      "keyLinks": [
+        "/itineraries/early-emperor-penguins",
+        "/itineraries/south-pole-emperor-penguins",
+        "/itineraries/south-pole-blue-rivers",
+        "/itineraries/the-long-stay",
+        "/itineraries/antarctica-in-a-day",
+        "/itineraries/discovery-week"
+      ],
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F16add1ee0bdc16862dc37b826abb1600887e7fbb-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Ffc3d4887c37b05526119edbc5db9d18a0b034c6b-2000x1250.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F545ecd31bdf0cdd5605316894111fb0f197e0129-2668x2000.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F0554de84a6e2cfa68bff6d38a7d7e1c975653f91-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fa1e7092001e46b8511e5d9386f43ccfce30122d2-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fd7a57c1ca1946ff853ea2b4bf35366b970a872bf-2000x1080.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 2649.55,
+          "width": 1440,
+          "height": 4689.97,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 3044.59,
+          "width": 768,
+          "height": 5248,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 2343.59,
+          "width": 390,
+          "height": 4268,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "planning-cta",
+      "semantic": "section | basic-banner | Start planning your adventure",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Start planning your adventure",
+      "keyLinks": ["/enquire"],
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F777b4af1b79168459afd3fa84c332100b77a167c-2100x1400.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 7339.52,
+          "width": 1440,
+          "height": 900,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 8292.59,
+          "width": 768,
+          "height": 1024,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 6611.59,
+          "width": 390,
+          "height": 844,
+          "pinned": false
+        }
+      }
+    }
+  ],
+  "viewports": {
+    "desktop": {
+      "width": 1440,
+      "height": 900,
+      "scrollHeight": 9180,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/itineraries-1440x900-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "tablet": {
+      "width": 768,
+      "height": 1024,
+      "scrollHeight": 10341,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/itineraries-768x1024-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "scrollHeight": 9568,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/itineraries-390x844-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    }
+  },
+  "motion": {
+    "status": "incomplete",
+    "unknown": [
+      "motion evidence remains pending until four phase captures exist for every layer and viewport"
+    ],
+    "layers": [
+      {
+        "id": "mist-transition-image-container",
+        "property": "transform",
+        "trigger": "sticky scroll interval",
+        "range": "pinned section range",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": true,
+        "sectionId": "hero",
+        "samples": {
+          "desktop": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          },
+          "tablet": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          },
+          "mobile": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          }
+        },
+        "pinRanges": {
+          "desktop": {
+            "scrollStart": 0,
+            "scrollEnd": 900,
+            "verticalDistance": 900,
+            "horizontalDistance": 0
+          },
+          "tablet": {
+            "scrollStart": 0,
+            "scrollEnd": 1024,
+            "verticalDistance": 1024,
+            "horizontalDistance": 0
+          },
+          "mobile": {
+            "scrollStart": 0,
+            "scrollEnd": 844,
+            "verticalDistance": 844,
+            "horizontalDistance": 0
+          }
+        }
+      },
+      {
+        "id": "scroll-speed-60svh",
+        "property": "transform",
+        "trigger": "scroll-speed -60svh",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "sectionId": "hero",
+        "samples": {
+          "desktop": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          },
+          "tablet": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          },
+          "mobile": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          }
+        },
+        "pinRanges": {}
+      },
+      {
+        "id": "scroll-speed-60svh-2",
+        "property": "transform",
+        "trigger": "scroll-speed -60svh",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "sectionId": "hero",
+        "samples": {
+          "desktop": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          },
+          "tablet": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          },
+          "mobile": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          }
+        },
+        "pinRanges": {}
+      },
+      {
+        "id": "scroll-speed-80",
+        "property": "transform",
+        "trigger": "scroll-speed -80%",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "sectionId": "hero",
+        "samples": {
+          "desktop": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          },
+          "tablet": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          },
+          "mobile": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          }
+        },
+        "pinRanges": {}
+      },
+      {
+        "id": "scroll-speed-10",
+        "property": "transform",
+        "trigger": "scroll-speed -10%",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "sectionId": "hero",
+        "samples": {
+          "desktop": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          },
+          "tablet": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          },
+          "mobile": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          }
+        },
+        "pinRanges": {}
+      }
+    ]
+  }
+}

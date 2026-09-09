@@ -1,0 +1,63 @@
+{
+  "date": "2026-09-09",
+  "target": "67:3",
+  "reference": "47:30",
+  "before": {
+    "width": 390,
+    "height": 1167.3103,
+    "bodyFont": 7.531,
+    "stepFont": 5.917,
+    "heroHeight": 182.359
+  },
+  "after": {
+    "width": 390,
+    "height": 6974,
+    "heroWidth": 390,
+    "heroHeight": 844,
+    "sidePadding": 24,
+    "bodyFont": 14,
+    "headings": [
+      28,
+      32
+    ],
+    "textCount": 114,
+    "fontSizes": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      16,
+      18,
+      20,
+      24,
+      28,
+      32,
+      42,
+      78
+    ],
+    "missingFonts": [],
+    "textBoxOverlaps": [],
+    "parentOverflow": [],
+    "missingRequiredCopy": [],
+    "headerActionHeight": 44,
+    "mainActionHeight": 52,
+    "preview": {
+      "nodeId": "86:16",
+      "width": 390,
+      "height": 844,
+      "overflow": "VERTICAL",
+      "copyMatches": true,
+      "playerInteractionTested": false
+    }
+  },
+  "imagegen": {
+    "prompt": "Create a final-quality photographic background for the ADELVA owners mobile website, composed specifically for a 390 x 844 phone viewport (portrait aspect 390:844, render at high resolution). Use the attached approved owners desktop mock as visual world reference ONLY: fictional Japanese alpine luxury retreat, layered misty mountains, deep midnight navy blue, warm amber lanterns and glass hotel windows, dark natural stone, an infinity reflecting pool. NO text, UI, logo, borders or montage. Build a NEW portrait composition with exquisite photographic light and depth: mountain atmosphere upper third, elegant warmly illuminated building extending along the right edge in the middle third, broad reflective water and stone foreground below. Upper-left through middle-left deliberately calm and dark for readable overlaid headings; lower quarter dark reflective water for large white OWNERS typography that will be added separately. Keep credible architectural perspective, refined restrained luxury, quiet blue dawn, very crisp premium architectural photography. This is one continuous full bleed photograph.",
+    "reference": "../long-page-mock.png",
+    "output": "mobile-hero-390-asset.png",
+    "source": "/home/kokoro/.codex/generated_images/01a08468-1380-7040-a21d-41a95f1016ba/exec-56e77ad0-a942-43e7-9643-d2b6eae67fc6.png",
+    "role": "Fictional hotel portrait hero; not a claim about actual property",
+    "imageHash": "00643c936d9185c43c669938cd84225bd5ac810d"
+  },
+  "finalPNG": "../long-page-mock-mobile-390.png"
+}

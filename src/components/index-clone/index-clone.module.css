@@ -1,0 +1,1030 @@
+.pageContent {
+  display: flow-root;
+  background: var(--ice);
+  color: var(--ink);
+}
+
+/* ------------------------------------------------------------------------- */
+/* Two-viewport index hero                                                   */
+
+.hero {
+  position: relative;
+  z-index: 0;
+  height: 200svh;
+  color: #fff;
+  isolation: isolate;
+  overflow: visible;
+}
+
+.wrapper {
+  position: relative;
+  z-index: 1;
+  height: 100svh;
+  will-change: transform;
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.backgroundImage {
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      180deg,
+      rgb(14 17 24 / 0.38) 0%,
+      rgb(14 17 24 / 0.1) 38%,
+      rgb(14 17 24 / 0.44) 100%
+    ),
+    rgb(31 42 68 / 0.1);
+}
+
+.content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.contain {
+  position: absolute;
+  inset-inline: 0;
+  width: 100%;
+  will-change: transform;
+}
+
+.containMid {
+  top: 33.333333%;
+  height: 33.333333%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.containMid h2 {
+  max-width: calc(100% - 24px);
+  color: #fff;
+  font-family: var(--font-narrow);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.5em;
+  line-height: 1.4;
+  text-align: center;
+  text-indent: 0.5em;
+  text-transform: uppercase;
+}
+
+.containBottom {
+  top: 66.666666%;
+  height: 33.333333%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0 12px 20px;
+}
+
+.titleWrap {
+  will-change: filter;
+}
+
+.titleWrap h1 {
+  color: #fff;
+  font-family: var(--font-serif);
+  font-size: 118px;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.mist {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  height: 200svh;
+  perspective: 900px;
+  pointer-events: none;
+}
+
+.mistPlane {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  margin-top: 100svh;
+  transform: rotateX(90deg);
+  transform-origin: 50% 100svh;
+  will-change: transform;
+}
+
+.mistPlane img {
+  position: absolute;
+  inset: auto 0 0;
+  width: 100%;
+  height: auto;
+}
+
+.cloud {
+  position: absolute;
+  inset-inline: 0;
+  top: 100%;
+  z-index: 4;
+  width: 100%;
+  height: 100svh;
+  transform: translate3d(0, 100%, 0);
+  pointer-events: none;
+  will-change: transform;
+}
+
+.cloudNear {
+  transform: translate3d(0, 100%, 0);
+}
+
+.cloudFar {
+  transform: translate3d(0, 100%, 0);
+  opacity: 0.85;
+}
+
+.cloudImage {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Shared readable copy and image cards                                       */
+
+.intro {
+  position: relative;
+  z-index: 5;
+  height: var(--intro-height);
+  padding: 320px 12px;
+  background: #fff;
+}
+
+.itineraryIntro {
+  --intro-height: 849.55px;
+}
+
+.campIntro {
+  --intro-height: 786.55px;
+}
+
+.introInner {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: 12px;
+  align-items: start;
+  width: 100%;
+  max-width: var(--shell);
+  height: 100%;
+  margin-inline: auto;
+}
+
+.sectionLabel {
+  grid-column: 1 / span 4;
+  color: var(--ink);
+  font-family: var(--font-narrow);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  line-height: 1.4;
+  text-indent: 0.28em;
+  text-transform: uppercase;
+}
+
+.introCopy {
+  grid-column: 7 / span 5;
+  display: grid;
+  gap: 28px;
+  max-width: 56ch;
+  color: var(--ink);
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.introCopy p {
+  margin: 0;
+}
+
+.itineraryList {
+  position: relative;
+  z-index: 5;
+  height: 4690px;
+  padding: 320px 12px;
+  background: var(--ice);
+}
+
+.itineraryItems {
+  height: 100%;
+}
+
+.itineraryItem {
+  display: grid;
+  grid-template-columns: 236px minmax(0, 1fr);
+  height: 675px;
+}
+
+.itemLabel {
+  display: flex;
+  align-items: flex-start;
+  padding-top: 44px;
+  color: var(--charcoal);
+  font-family: var(--font-narrow);
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.itineraryLink {
+  position: relative;
+  display: block;
+  min-width: 0;
+  height: 100%;
+  overflow: visible;
+  color: #fff;
+  text-decoration: none;
+  isolation: isolate;
+}
+
+.cardInner,
+.campInner {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.cardMedia,
+.campMedia,
+.cta {
+  position: relative;
+  overflow: hidden;
+}
+
+.cardMedia {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.cardImage,
+.campImage,
+.ctaImage {
+  object-fit: cover;
+  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.itineraryLink:hover .cardImage,
+.itineraryLink:focus-visible .cardImage,
+.campCard:hover .campImage,
+.campCard:focus-visible .campImage {
+  transform: scale(1.03);
+}
+
+.cardOverlay,
+.campOverlay,
+.ctaOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgb(14 17 24 / 0.08) 25%,
+    rgb(14 17 24 / 0.8) 100%
+  );
+}
+
+.cardContent {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-start;
+  width: 432px;
+  padding: 44px;
+  z-index: 1;
+}
+
+.cardContentInner {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+}
+
+.cardTitle {
+  max-width: 290px;
+  color: #fff;
+  font-family: var(--font-serif);
+  font-size: 42px;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 42px;
+  letter-spacing: 0;
+}
+
+.cardFooter {
+  display: grid;
+  gap: 24px;
+}
+
+.cardTopline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  color: rgb(255 255 255 / 0.86);
+  font-size: 16px;
+  line-height: 1;
+}
+
+.metaDivider {
+  display: inline-block;
+  width: 1px;
+  height: 16px;
+  background: rgb(255 255 255 / 0.5);
+}
+
+.cardExcerpt {
+  max-width: 45ch;
+  color: rgb(255 255 255 / 0.92);
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Camps                                                                      */
+
+.campList {
+  position: relative;
+  z-index: 5;
+  height: 2700px;
+  background: var(--ice);
+}
+
+.campItems {
+  height: 100%;
+}
+
+.campInner {
+  overflow: hidden;
+}
+
+.campCard {
+  position: relative;
+  display: block;
+  height: 900px;
+  overflow: hidden;
+  color: #fff;
+  text-decoration: none;
+  isolation: isolate;
+}
+
+.campMedia {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.campOverlay {
+  background: linear-gradient(
+    180deg,
+    rgb(14 17 24 / 0.08) 15%,
+    rgb(14 17 24 / 0.74) 100%
+  );
+}
+
+.campContent {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 360px 12px 0;
+  text-align: center;
+  z-index: 1;
+}
+
+.campContent h3 {
+  max-width: 606px;
+  margin: 30px 0 0;
+  color: #fff;
+  font-family: var(--font-serif);
+  font-size: 60px;
+  line-height: 60px;
+  text-transform: uppercase;
+}
+
+.campCoordinates {
+  width: max-content;
+  color: rgb(255 255 255 / 0.92);
+  font-family: var(--font-narrow);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.campBody {
+  max-width: 400px;
+  margin: 30px auto 0;
+  color: rgb(255 255 255 / 0.94);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+}
+
+.tripsTitle {
+  position: relative;
+  z-index: 5;
+  display: grid;
+  min-height: 540px;
+  height: 540px;
+  place-items: center;
+  padding: 320px 12px 160px;
+  background: #fff;
+}
+
+.tripsTitle h3 {
+  color: var(--ink);
+  font-family: var(--font-narrow);
+  font-size: 60px;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Five-card flick                                                            */
+
+.tripWrap {
+  position: relative;
+  z-index: 5;
+  height: 1084.98px;
+  padding: 0 12px 320px;
+  background: #fff;
+}
+
+.tripSection,
+.tripContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.tripFlick {
+  width: 100%;
+  height: 765px;
+}
+
+.tripGrid {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.tripCard {
+  position: relative;
+  flex: 0 0 12.5%;
+  min-width: 0;
+  height: 100%;
+  transition: flex-basis 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tripCardActive {
+  flex-basis: 50%;
+}
+
+.tripLink {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  color: #fff;
+  text-decoration: none;
+  isolation: isolate;
+}
+
+.tripMedia {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.tripImage {
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tripCardActive .tripImage {
+  transform: scale(1.05);
+}
+
+.tripOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgb(14 17 24 / 0.08) 35%,
+    rgb(14 17 24 / 0.78) 100%
+  );
+}
+
+.tripRail {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  opacity: 1;
+  transition: opacity 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tripRail > span {
+  color: #fff;
+  font-family: var(--font-narrow);
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  transform: rotate(-90deg);
+  white-space: nowrap;
+}
+
+.tripCardActive .tripRail {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.tripBody {
+  position: absolute;
+  inset: 0 auto 0 0;
+  display: flex;
+  align-items: flex-start;
+  width: 432px;
+  padding: 44px;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tripCardActive .tripBody {
+  opacity: 1;
+}
+
+.tripBodyInner {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+}
+
+.tripHeader {
+  display: flex;
+  align-items: flex-start;
+}
+
+.tripFooter {
+  display: grid;
+  gap: 24px;
+}
+
+.tripMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  color: rgb(255 255 255 / 0.9);
+  font-size: 16px;
+  line-height: 1;
+}
+
+.tripTitle {
+  max-width: 290px;
+  color: #fff;
+  font-family: var(--font-serif);
+  font-size: 42px;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 42px;
+}
+
+.tripExcerpt {
+  max-width: 44ch;
+  color: rgb(255 255 255 / 0.9);
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Planning banner                                                            */
+
+.cta {
+  position: relative;
+  z-index: 5;
+  display: grid;
+  height: 100svh;
+  min-height: 26rem;
+  place-items: center;
+  overflow: hidden;
+  color: #fff;
+  text-align: center;
+  isolation: isolate;
+}
+
+.ctaImage {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.ctaOverlay {
+  z-index: 1;
+  background: rgb(14 17 24 / 0.48);
+}
+
+.ctaContent {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  justify-items: center;
+  gap: 34px;
+  padding: 24px;
+}
+
+.ctaContent h3 {
+  max-width: 714px;
+  color: #fff;
+  font-family: var(--font-serif);
+  font-size: 42px;
+  line-height: 42px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.ctaLink {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 22px;
+  border: 1px solid rgb(255 255 255 / 0.7);
+  color: #fff;
+  font-family: var(--font-narrow);
+  font-size: 14px;
+  letter-spacing: 0.14em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition:
+    background-color 300ms cubic-bezier(0.5, 1, 0.89, 1),
+    border-color 300ms cubic-bezier(0.5, 1, 0.89, 1);
+}
+
+.ctaLink:hover,
+.ctaLink:focus-visible {
+  border-color: #fff;
+  background: rgb(255 255 255 / 0.14);
+}
+
+.ctaIcon {
+  position: relative;
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  flex: 0 0 11px;
+}
+
+.ctaIcon::before,
+.ctaIcon::after {
+  position: absolute;
+  display: block;
+  background: currentColor;
+  content: "";
+}
+
+.ctaIcon::before {
+  inset: 5px 0 auto;
+  height: 1px;
+}
+
+.ctaIcon::after {
+  inset: 0 auto 0 5px;
+  width: 1px;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Required target viewports                                                   */
+
+@media (min-width: 48rem) and (max-width: 63.99rem) {
+  .itineraryIntro {
+    --intro-height: 996.59px;
+  }
+
+  .campIntro {
+    --intro-height: 891.59px;
+  }
+
+  .itineraryList {
+    height: 5248px;
+  }
+
+  .itineraryItem {
+    grid-template-columns: 124px minmax(0, 1fr);
+    height: 768px;
+  }
+
+  .campList {
+    height: 3072px;
+  }
+
+  .campCard {
+    height: 1024px;
+  }
+
+  .tripWrap {
+    height: 1190.39px;
+  }
+
+  .tripFlick {
+    height: 870.39px;
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .containMid {
+    top: 33.333333%;
+    height: 33.333333%;
+  }
+
+  .containMid h2 {
+    max-width: 50%;
+    font-size: 16px;
+    letter-spacing: 0.3em;
+    line-height: 1.4;
+    text-indent: 0.3em;
+  }
+
+  .containBottom {
+    padding-bottom: 15px;
+  }
+
+  .titleWrap h1 {
+    font-size: 52px;
+    line-height: 1;
+  }
+
+  .intro {
+    padding: 160px 12px;
+  }
+
+  .itineraryIntro {
+    --intro-height: 655.59375px;
+  }
+
+  .campIntro {
+    --intro-height: 550.59375px;
+  }
+
+  .introInner {
+    display: block;
+    width: 74%;
+    margin-inline: auto;
+  }
+
+  .sectionLabel {
+    margin-bottom: 26px;
+    font-size: 14px;
+  }
+
+  .introCopy {
+    display: grid;
+    gap: 22px;
+    max-width: none;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .itineraryList {
+    height: 4268px;
+    padding: 160px 12px;
+  }
+
+  .itineraryItem {
+    display: block;
+    height: 633px;
+  }
+
+  .itemLabel {
+    display: none;
+  }
+
+  .cardContent {
+    width: 100%;
+    padding: 20px 20px 30px;
+  }
+
+  .cardTopline {
+    font-size: 16px;
+  }
+
+  .campList {
+    height: 2852px;
+    padding: 160px 0;
+  }
+
+  .campCard {
+    height: 844px;
+    clip-path: inset(12px round 6px);
+  }
+
+  .campContent {
+    padding: 60px;
+  }
+
+  .campContent h3 {
+    width: 270px;
+    margin: 0;
+    font-size: 32px;
+    line-height: 1;
+  }
+
+  .campCoordinates {
+    position: absolute;
+    left: 50%;
+    bottom: 60px;
+    margin: 0;
+    transform: translateX(-50%);
+    font-size: 14px;
+    letter-spacing: 0;
+  }
+
+  .campBody {
+    width: 270px;
+    margin: 30px 0 0;
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .tripsTitle {
+    height: 332.98px;
+    min-height: 332.98px;
+    padding: 200px 12px 48.98px;
+  }
+
+  .tripsTitle h3 {
+    font-size: 32px;
+    line-height: 1;
+  }
+
+  .tripWrap {
+    height: 3786.953125px;
+    padding: 0 12px 160px;
+  }
+
+  .tripFlick {
+    height: 3626.953125px;
+  }
+
+  .tripGrid {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .tripCard,
+  .tripCardActive {
+    flex: 0 0 auto;
+    height: 717.39px;
+    transition: none;
+  }
+
+  .tripCardActive .tripImage,
+  .tripImage {
+    transform: none;
+    transition: none;
+  }
+
+  .tripRail {
+    display: none;
+  }
+
+  .tripBody,
+  .tripCardActive .tripBody {
+    inset: 0;
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    padding: 20px 20px 30px;
+    opacity: 1;
+  }
+
+  .tripBodyInner {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .tripMeta {
+    font-size: 16px;
+  }
+
+  .tripTitle {
+    font-size: 42px;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 42px;
+  }
+
+  .tripExcerpt {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .ctaContent h3 {
+    max-width: 294px;
+    font-size: 26px;
+    line-height: 26px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wrapper,
+  .mistPlane,
+  .cloud,
+  .titleWrap {
+    will-change: auto;
+  }
+
+  .wrapper {
+    transform: none !important;
+  }
+
+  .contain,
+  .cloud,
+  .mistPlane {
+    transform: none !important;
+  }
+
+  .titleWrap {
+    filter: none !important;
+  }
+
+  .cardImage,
+  .campImage,
+  .tripImage,
+  .ctaLink {
+    transition: none;
+  }
+
+  .itineraryLink:hover .cardImage,
+  .itineraryLink:focus-visible .cardImage,
+  .campCard:hover .campImage,
+  .campCard:focus-visible .campImage,
+  .tripCardActive .tripImage {
+    transform: none;
+  }
+
+  .tripCard,
+  .tripRail,
+  .tripBody {
+    transition: none;
+  }
+}

@@ -1,0 +1,395 @@
+{
+  "date": "2026-09-09",
+  "scope": "Raster UI mocks only; no implementation, Figma writes, publishing.",
+  "sourcePriority": "User copy, GM copy-revision-audit.json and current desktop native text, OWNERS prompt-desktop-v2.txt checked against current Figma native text. Line breaks may change; meaning and conditions preserved.",
+  "dimensions": {
+    "width": 390,
+    "margin": 24,
+    "content": 342,
+    "body": 15,
+    "heading": 30,
+    "caption": 13,
+    "ctaHeight": 56,
+    "minControl": 44
+  },
+  "pages": {
+    "general-managers": [
+      {
+        "id": "00-hero",
+        "h": 844,
+        "purpose": "現場課題から継続改善への入口",
+        "head": "現場の課題を、\n続けられる改善へ。",
+        "copy": [
+          "HOME / 課題から探す",
+          "総支配人・現場責任者の方へ",
+          "ADELVAは、ホテル・旅館の\n経営実装パートナー。\n現場運営・人材・販売・ITを、\n一つの改善計画につなぎます。",
+          "GENERAL\nMANAGERS",
+          "SCROLL"
+        ],
+        "cta": [
+          "問い合わせを送信"
+        ],
+        "photo": "Immersive mountain hotel lobby, rough stone reception right, warm lamps and tall wood/glass, layered blue mountains outside; full hero photographic depth.",
+        "top": "#0E2233",
+        "bottom": "#0E2233"
+      },
+      {
+        "id": "01-challenges",
+        "h": 900,
+        "purpose": "5課題を症状から読み取る",
+        "head": "いま、現場のどこで\nつまずいていますか。",
+        "copy": [
+          "01 / 現場課題",
+          "宿泊・料飲・清掃から、\n採用、販売、ITまで。\n目に見える困りごとを起点に、\n部門をまたぐ原因と\n改善の優先順位を整理します。",
+          "01　品質\nサービスや清掃の品質に\nばらつきがある",
+          "02　人材\n採用と入社後の教育が\nつながっていない",
+          "03　生産性\n人員配置や部門間の連携を\n見直したい",
+          "04　販売\nWeb・OTA・営業が\n宿泊収益につながらない",
+          "05　システム定着\n導入したシステムを\n現場で使い切れていない"
+        ],
+        "cta": [],
+        "photo": "None. Five open spacious ruled rows. Number left, title then description, arrow right.",
+        "top": "#F4F1EB",
+        "bottom": "#F4F1EB"
+      },
+      {
+        "id": "02-decisions",
+        "h": 800,
+        "purpose": "施策の前に判断範囲を整理",
+        "head": "施策を選ぶ前に、\n原因と優先順位を。",
+        "copy": [
+          "02 / 判断",
+          "現象と原因\n品質・工数・収益などの\n基準値から現状を捉える",
+          "優先順位と影響範囲\n部門間のつながりを確認し、\n先に取り組む課題を決める",
+          "現場判断と、\nオーナー・本部判断\n現場で決められることと、\n経営判断が必要なことを分ける"
+        ],
+        "cta": [],
+        "photo": "Top edge cream 24px then 390x230 full width architectural corridor photograph toward mountain light, stone/wood; text below. Three distinct ruled stacked decision rows.",
+        "top": "#F4F1EB",
+        "bottom": "#F4F1EB"
+      },
+      {
+        "id": "03-support-a",
+        "h": 800,
+        "purpose": "支援の全体説明と単部門のケース",
+        "head": "必要な支援を、\nひとつの改善計画に。",
+        "copy": [
+          "OPERATIONS",
+          "03 / 支援と成果物",
+          "一部門の改善から、販売・ITを含む\n運用の再設計まで。\n課題の原因と判断の範囲に応じて、\n支援を組み合わせます。",
+          "01",
+          "改善の判断",
+          "一部門の品質・\n生産性を整える",
+          "支援の組み合わせ例",
+          "宿泊部門運営支援／\nレストラン運営改善\n客室清掃改善／\n必要に応じて採用支援",
+          "現場に残すものの例",
+          "標準業務手順（SOP）\n教育・検品の仕組み"
+        ],
+        "cta": [],
+        "photo": "No photography; flat deep navy. Large narrow OPERATIONS about 43px at top. Below introduction a single vertical three-part path, thin orange line connects judgement, support examples, output examples. No card boxes.",
+        "top": "#0E2233",
+        "bottom": "#0E2233"
+      },
+      {
+        "id": "04-support-b",
+        "h": 1000,
+        "purpose": "販売IT・経営判断のケースと個別合意条件",
+        "head": "",
+        "copy": [
+          "02",
+          "改善の判断",
+          "販売・業務・ITを\nつなぎ直す",
+          "支援の組み合わせ例",
+          "Web集客・チャネル収益／\n宿泊営業支援\nDX・システム導入",
+          "現場に残すものの例",
+          "管理指標（KPI）\n部門間会議・運用設計",
+          "03",
+          "改善の判断",
+          "経営判断が必要な\n課題を進める",
+          "支援の組み合わせ例",
+          "経営診断・コンサル／\n経営改善・実行支援",
+          "現場に残すものの例",
+          "優先順位・改善計画\n判断権限・実行範囲",
+          "組み合わせと成果物は課題に応じて設計。\n改善支援・実運営・保守の範囲は、\n個別に合意します。"
+        ],
+        "cta": [],
+        "photo": "Two continued vertical paths 02 and 03 in the same format as preceding support asset; no repeated chapter heading. Bottom 150px panoramic hotel dining room with mountain windows, warm lamps, no people; photograph ends 24px before bottom cream edge.",
+        "top": "#0E2233",
+        "bottom": "#F4F1EB"
+      },
+      {
+        "id": "05-roles",
+        "h": 900,
+        "purpose": "4者の役割は観点であり個別に合意する",
+        "head": "任せる範囲を、\n曖昧にしない。",
+        "copy": [
+          "04 / 役割",
+          "経営判断と現場の実行をつなぐために。\n関係者の役割と、引継ぎ先を整理します。",
+          "役割分担を整理する際の観点",
+          "オーナー・本部\n経営・投資の判断と承認",
+          "GM・部門責任者\n現場判断と部門間の調整",
+          "ADELVA\n改善計画の推進\n実行・実装支援",
+          "外部関係者\n契約に応じた専門領域の実施",
+          "判断権限・指揮命令・実行範囲・\n引継ぎ先を、お客様・ADELVA・\n外部関係者で個別に合意します。",
+          "経営・運営体制の検討から始めたい方へ"
+        ],
+        "cta": [
+          "オーナー・経営者の方へ ↗"
+        ],
+        "photo": "None. Four open full-width rows; clear hierarchy, labels bold, explanations under; agreement paragraph with restrained orange left rule. Crosslink outlined 56px full width.",
+        "top": "#F4F1EB",
+        "bottom": "#F4F1EB"
+      },
+      {
+        "id": "06-execution",
+        "h": 1000,
+        "purpose": "6工程と継続改善への引継ぎ",
+        "head": "実行から、現場での運用へ。\n検証し、引き継ぐところまで。",
+        "copy": [
+          "IMPLEMENT.",
+          "宿泊・料飲・清掃、販売、ITの\n担当をつなぎ、支援終了後も、\nお客様自身が改善を続けられる\n状態を目指します。",
+          "01　課題把握",
+          "02　判断",
+          "03　実行・実装",
+          "04　運用",
+          "05　検証",
+          "06　引継ぎ"
+        ],
+        "cta": [
+          "支援の進め方を見る"
+        ],
+        "photo": "Top 300px cinematic hotel bedroom/lounge with mountain windows; big IMPLEMENT. white over upper photo; Japanese heading and paragraph on solid navy below. Six numbered steps in vertical timeline, 58px each. No text on busy photo other than English.",
+        "top": "#0E2233",
+        "bottom": "#0E2233"
+      },
+      {
+        "id": "07-verification",
+        "h": 660,
+        "purpose": "確認項目と各問いを残す",
+        "head": "改善の過程を、\n確認できる形に。",
+        "copy": [
+          "05 / 確認する内容",
+          "担当範囲\n誰が、どこまで担うか",
+          "成果物\n現場で使う手順・管理指標は何か",
+          "意思決定記録\n何を根拠に、何を決めたか",
+          "検証・引継ぎ方法\n何で確かめ、誰へ引き継ぐか"
+        ],
+        "cta": [],
+        "photo": "None. Quiet cream chapter four full width entries, orange small ticks, fine horizontal rules; meaningful prompts at 15px.",
+        "top": "#F4F1EB",
+        "bottom": "#F4F1EB"
+      },
+      {
+        "id": "08-contact",
+        "h": 850,
+        "purpose": "未整理の課題から問い合わせ、サイト内導線",
+        "head": "課題が整理できていなくても、\nお問い合わせいただけます。",
+        "copy": [
+          "現状やお困りのことから、\nお聞かせください。\n必要な支援内容と、\n双方の役割を整理します。",
+          "ADELVA",
+          "課題から探す",
+          "支援内容",
+          "支援の進め方",
+          "導入事例",
+          "ADELVAについて",
+          "プライバシーポリシー",
+          "サイトポリシー",
+          "© ADELVA"
+        ],
+        "cta": [
+          "問い合わせを送信"
+        ],
+        "photo": "No photograph, stately deep navy ending. Headline may wrap into four meaningful lines at 28px. Orange full-width CTA 56px navy text. Very large condensed ADELVA under CTA. Five navigation rows 44px, two legal lines 13px.",
+        "top": "#0E2233",
+        "bottom": "#0E2233"
+      }
+    ],
+    "owners": [
+      {
+        "id": "00-hero",
+        "h": 844,
+        "purpose": "経営判断から実行計画への入口",
+        "head": "経営判断を、\n実行可能な\n改善計画へ。",
+        "copy": [
+          "HOME / 課題から探す",
+          "オーナー・経営者の方へ",
+          "ホテル・旅館の経営と現場を、\n一つの改善計画につなぐ。",
+          "OWNERS\n& EXECUTIVES"
+        ],
+        "cta": [
+          "問い合わせを送信"
+        ],
+        "photo": "Immersive mountain hotel exterior with reflecting pool; stone and glass building right, warm amber room lights, layered blue mist mountains. Strong spatial foreground/midground/distance. Different subject to GM interior.",
+        "top": "#0E2233",
+        "bottom": "#0E2233"
+      },
+      {
+        "id": "01-challenges",
+        "h": 680,
+        "purpose": "4経営局面を症状と判断へつなぐ",
+        "head": "いま、どの経営局面に\nありますか。",
+        "copy": [
+          "01",
+          "01　経営・収益\n原因と優先順位を整理する",
+          "02　開業・再建\n運営体制を整える",
+          "03　GM不在\nGM機能と権限を整理する",
+          "04　投資判断\n投資対象と実行条件を見極める"
+        ],
+        "cta": [],
+        "photo": "No photo. Four spacious full width ruled choices, tall pale narrow numbers, serif titles 23px, explanation 15px. Fine orange first rule; distinct from GM symptom list.",
+        "top": "#F4F1EB",
+        "bottom": "#F4F1EB"
+      },
+      {
+        "id": "02-decisions",
+        "h": 780,
+        "purpose": "支援を選ぶ前に4論点を示す",
+        "head": "最初に、\n決めること。",
+        "copy": [
+          "02 / 判断の整理",
+          "支援内容を選ぶ前に、\n判断の論点を整理します。",
+          "01　原因・優先順位",
+          "02　運営モデル",
+          "03　投資対象",
+          "04　実行責任者"
+        ],
+        "cta": [],
+        "photo": "Cream title first, then a full width 270px photograph of long timber and stone hotel corridor leading to mountain light; four ruled decision lines below, numbered orange. Clear flat cream typography zones.",
+        "top": "#F4F1EB",
+        "bottom": "#F4F1EB"
+      },
+      {
+        "id": "03-support-a",
+        "h": 760,
+        "purpose": "組み合わせ経路1・2",
+        "head": "判断に応じて、\n支援を組み合わせる。",
+        "copy": [
+          "03 / 支援の組み合わせ",
+          "経営局面",
+          "経営・収益",
+          "支援の組み合わせ",
+          "経営診断 × 収益改善",
+          "整理すること",
+          "原因と優先順位",
+          "経営局面",
+          "開業・再建",
+          "支援の組み合わせ",
+          "開業支援 × 運営体制",
+          "整理すること",
+          "運営モデル"
+        ],
+        "cta": [],
+        "photo": "Flat navy open vertical two paths; each has labelled situation, support pair, clarification result, orange line and tiny nodes. No horizontal multi-column diagram, no cards. Two generous groups.",
+        "top": "#0E2233",
+        "bottom": "#0E2233"
+      },
+      {
+        "id": "04-support-b",
+        "h": 740,
+        "purpose": "組み合わせ経路3・4と支援区別",
+        "head": "",
+        "copy": [
+          "経営局面",
+          "GM不在",
+          "支援の組み合わせ",
+          "GM機能 × 現場運営",
+          "整理すること",
+          "権限と実行体制",
+          "経営局面",
+          "投資判断",
+          "支援の組み合わせ",
+          "経営判断 × DX・IT",
+          "整理すること",
+          "投資対象と実行条件",
+          "必要な範囲に応じて、\n単独の支援も選択できます。",
+          "診断と実行、GM機能と全面運営、\n導入支援と開発を区別します。"
+        ],
+        "cta": [],
+        "photo": "Continue exact previous support visual format. Two vertical pathways then both important condition paragraphs in generous 15px text above a fine rule. No repeated chapter title; no photo to impair reading.",
+        "top": "#0E2233",
+        "bottom": "#0E2233"
+      },
+      {
+        "id": "05-roles",
+        "h": 730,
+        "purpose": "4者・共有合意・個別契約を区別",
+        "head": "誰が決め、誰が実行し、\n何を残すか。",
+        "copy": [
+          "04 / 責任分界",
+          "オーナー・経営者",
+          "GM・現場",
+          "ADELVA",
+          "外部関係者",
+          "意思決定・権限・担当範囲・\n成果物を合意する",
+          "権限・担当範囲・条件は、\n個別の契約で確認します。"
+        ],
+        "cta": [
+          "総支配人・現場責任者の方へ"
+        ],
+        "photo": "None. Four full width parties with small open circle and fine ruled rows; beneath clear shared agreement as typographic statement, then contract condition. Do not invent descriptions for parties. Outlined 56px crosslink.",
+        "top": "#F4F1EB",
+        "bottom": "#F4F1EB"
+      },
+      {
+        "id": "06-execution",
+        "h": 900,
+        "purpose": "6工程で経営指標を行動へつなぐ",
+        "head": "経営指標を、\n現場の行動へ。",
+        "copy": [
+          "05 / 実行から引継ぎまで",
+          "01　課題把握",
+          "02　判断",
+          "03　実行・実装",
+          "04　運用",
+          "05　検証",
+          "06　引継ぎ"
+        ],
+        "cta": [],
+        "photo": "Top navy title area 200px then 300px full width lounge photograph, stone table foreground warm lamps and glass, mountains in background. Lower navy vertical 6-step timeline with orange line, spacious 56px rows. No new explanations.",
+        "top": "#0E2233",
+        "bottom": "#0E2233"
+      },
+      {
+        "id": "07-verification",
+        "h": 580,
+        "purpose": "検証・引継ぎ項目と継続改善",
+        "head": "確認し、\n引き継げる状態へ。",
+        "copy": [
+          "06 / 検証・引継ぎ",
+          "支援終了後も、継続して\n改善できる状態をつくります。",
+          "担当範囲",
+          "成果物",
+          "意思決定記録",
+          "検証・引継ぎ方法"
+        ],
+        "cta": [],
+        "photo": "No photo; cream spacious verification section, four ruled rows with orange thin vertical markers.",
+        "top": "#F4F1EB",
+        "bottom": "#F4F1EB"
+      },
+      {
+        "id": "08-contact",
+        "h": 940,
+        "purpose": "問い合わせとサイト内導線",
+        "head": "課題が整理できていなくても、\nお問い合わせいただけます。",
+        "copy": [
+          "ADELVA",
+          "課題から探す",
+          "支援内容",
+          "支援の進め方",
+          "導入事例",
+          "ADELVAについて",
+          "プライバシーポリシー",
+          "サイトポリシー",
+          "© ADELVA"
+        ],
+        "cta": [
+          "問い合わせを送信"
+        ],
+        "photo": "Top cinematic mountain and reflection photo smoothly fades into deep navy; Japanese headline in solid dark readable upper region and orange CTA. Large ADELVA 80px between image and footer. Five 44px navigation rows and two 13px legal links. Footer bottom pure navy.",
+        "top": "#0E2233",
+        "bottom": "#0E2233"
+      }
+    ]
+  }
+}

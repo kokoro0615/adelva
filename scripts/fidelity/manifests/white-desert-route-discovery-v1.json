@@ -1,0 +1,298 @@
+{
+  "schemaVersion": "public-route-discovery/v1",
+  "manifestId": "white-desert-public-route-discovery-2026-08-31",
+  "origin": "https://white-desert.com",
+  "hrefPolicy": "all-same-origin-http-hrefs",
+  "requiredSourceKinds": ["navigation", "footer", "sitemap"],
+  "requiredSourceIds": ["desktop-navigation", "desktop-footer", "official-sitemap"],
+  "sources": [
+    {
+      "id": "desktop-navigation",
+      "kind": "navigation",
+      "viewport": "desktop",
+      "status": "complete",
+      "requiredStateIds": [
+        "initial",
+        "experience-open",
+        "operation-open",
+        "about-open"
+      ],
+      "captures": [
+        {
+          "stateId": "initial",
+          "url": "https://white-desert.com/",
+          "observedAt": "2026-08-30T23:34:14.085Z",
+          "statusCode": 200,
+          "selector": "nav a[href] visible in initial desktop state",
+          "hrefs": [
+            { "href": "/", "label": "Home" },
+            { "href": "/prices", "label": "Rates" },
+            { "href": "/enquire", "label": "Enquire" }
+          ]
+        },
+        {
+          "stateId": "experience-open",
+          "url": "https://white-desert.com/",
+          "observedAt": "2026-08-30T23:34:14.085Z",
+          "statusCode": 200,
+          "selector": "nav a[href] visible after opening Experience",
+          "hrefs": [
+            { "href": "/", "label": "Home" },
+            {
+              "href": "/itineraries/early-emperor-penguins",
+              "label": "Baby Penguins & Blue Tunnels"
+            },
+            {
+              "href": "/itineraries/south-pole-emperor-penguins",
+              "label": "South Pole & Penguins"
+            },
+            {
+              "href": "/itineraries/south-pole-blue-rivers",
+              "label": "South Pole & Blue Rivers"
+            },
+            {
+              "href": "/itineraries/the-long-stay",
+              "label": "The Long Stay"
+            },
+            {
+              "href": "/itineraries/antarctica-in-a-day",
+              "label": "Antarctica in a Day"
+            },
+            {
+              "href": "/itineraries/discovery-week",
+              "label": "Discovery Week"
+            },
+            { "href": "/itineraries", "label": "View All" },
+            { "href": "/camps/whichaway-camp", "label": "Whichaway Camp" },
+            { "href": "/camps/echo-base", "label": "Echo Base" },
+            { "href": "/camps/explorer-camp", "label": "Explorer Camp" },
+            { "href": "/camps", "label": "View All" },
+            { "href": "/prices", "label": "Rates" },
+            { "href": "/enquire", "label": "Enquire" }
+          ]
+        },
+        {
+          "stateId": "operation-open",
+          "url": "https://white-desert.com/",
+          "observedAt": "2026-08-30T23:34:14.085Z",
+          "statusCode": 200,
+          "selector": "nav a[href] visible after opening Operation",
+          "hrefs": [
+            { "href": "/", "label": "Home" },
+            {
+              "href": "/antarctica/behind-the-scenes",
+              "label": "Behind the Scenes"
+            },
+            {
+              "href": "/antarctica/direct-flights-to-antarctica",
+              "label": "Aviation"
+            },
+            {
+              "href": "/antarctica/polar-plateau",
+              "label": "The High Polar Plateau"
+            },
+            { "href": "/antarctica/fuel-depot", "label": "Ice Shelf Coast" },
+            {
+              "href": "/antarctica/atka-penguin-colony",
+              "label": "Emperor Penguin Ice Fields"
+            },
+            {
+              "href": "/antarctica/wolfs-fang-runway-mountains",
+              "label": "The Mountains"
+            },
+            {
+              "href": "/antarctica/schirmacher-oasis",
+              "label": "The Rock Oasis"
+            },
+            { "href": "/antarctica", "label": "View All" },
+            { "href": "/prices", "label": "Rates" },
+            { "href": "/enquire", "label": "Enquire" }
+          ]
+        },
+        {
+          "stateId": "about-open",
+          "url": "https://white-desert.com/",
+          "observedAt": "2026-08-30T23:34:14.085Z",
+          "statusCode": 200,
+          "selector": "nav a[href] visible after opening About",
+          "hrefs": [
+            { "href": "/", "label": "Home" },
+            { "href": "/about/founders", "label": "Founders" },
+            { "href": "/about/foundation", "label": "Foundation" },
+            {
+              "href": "/about/sustainability",
+              "label": "Sustainability"
+            },
+            { "href": "/prices", "label": "Rates" },
+            { "href": "/enquire", "label": "Enquire" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "desktop-footer",
+      "kind": "footer",
+      "viewport": "desktop",
+      "status": "complete",
+      "requiredStateIds": ["default"],
+      "captures": [
+        {
+          "stateId": "default",
+          "url": "https://white-desert.com/",
+          "observedAt": "2026-08-30T23:33:20.094Z",
+          "statusCode": 200,
+          "selector": ".footer-component a[href]",
+          "hrefs": [
+            {
+              "href": "/itineraries/early-emperor-penguins",
+              "label": "Baby Penguins & Blue Tunnels"
+            },
+            {
+              "href": "/itineraries/south-pole-emperor-penguins",
+              "label": "South Pole & Penguins"
+            },
+            {
+              "href": "/itineraries/south-pole-blue-rivers",
+              "label": "South Pole & Blue Rivers"
+            },
+            {
+              "href": "/itineraries/the-long-stay",
+              "label": "The Long Stay"
+            },
+            {
+              "href": "/itineraries/antarctica-in-a-day",
+              "label": "Antarctica in a Day"
+            },
+            {
+              "href": "/itineraries/discovery-week",
+              "label": "Discovery Week"
+            },
+            { "href": "/itineraries", "label": "View All" },
+            { "href": "/camps/whichaway-camp", "label": "Whichaway Camp" },
+            { "href": "/camps/echo-base", "label": "Echo Base" },
+            { "href": "/camps/explorer-camp", "label": "Explorer Camp" },
+            { "href": "/camps", "label": "View All" },
+            {
+              "href": "/antarctica/polar-plateau",
+              "label": "The High Polar Plateau"
+            },
+            { "href": "/antarctica/fuel-depot", "label": "Ice Shelf Coast" },
+            {
+              "href": "/antarctica/atka-penguin-colony",
+              "label": "Emperor Penguin Ice Fields"
+            },
+            {
+              "href": "/antarctica/wolfs-fang-runway-mountains",
+              "label": "The Mountains"
+            },
+            {
+              "href": "/antarctica/schirmacher-oasis",
+              "label": "The Rock Oasis"
+            },
+            {
+              "href": "/antarctica/direct-flights-to-antarctica",
+              "label": "Aviation"
+            },
+            { "href": "/antarctica", "label": "View All" },
+            { "href": "/about/founders", "label": "Our Story" },
+            { "href": "/prices", "label": "Dates & Rates" },
+            { "href": "/enquire", "label": "Enquire now" },
+            {
+              "href": "/legal/website-terms",
+              "label": "Website Terms of Use"
+            },
+            { "href": "/legal/booking-terms", "label": "Booking Terms" },
+            { "href": "/legal/privacy-policy", "label": "Privacy Policy" },
+            { "href": "/legal/cookies", "label": "Cookies Policy" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "official-sitemap",
+      "kind": "sitemap",
+      "viewport": null,
+      "status": "complete",
+      "requiredStateIds": ["document"],
+      "captures": [
+        {
+          "stateId": "document",
+          "url": "https://white-desert.com/sitemap.xml",
+          "observedAt": "2026-08-30T23:40:33.555Z",
+          "statusCode": 200,
+          "selector": "urlset > url > loc",
+          "contentSha256": "a2ec7a9670e5d6b85e4e590987a56c02748a0d77fcc251331cb3d22f51f1e46f",
+          "hrefs": [
+            { "href": "https://white-desert.com/" },
+            { "href": "https://white-desert.com/itineraries" },
+            { "href": "https://white-desert.com/camps" },
+            { "href": "https://white-desert.com/about/founders" },
+            { "href": "https://white-desert.com/about/foundation" },
+            { "href": "https://white-desert.com/about/sustainability" },
+            {
+              "href": "https://white-desert.com/antarctica/behind-the-scenes"
+            },
+            { "href": "https://white-desert.com/antarctica" },
+            { "href": "https://white-desert.com/prices" },
+            { "href": "https://white-desert.com/enquire" },
+            { "href": "https://white-desert.com/legal/website-terms" },
+            { "href": "https://white-desert.com/legal/booking-terms" },
+            { "href": "https://white-desert.com/legal/privacy-policy" },
+            { "href": "https://white-desert.com/legal/cookies" },
+            { "href": "https://white-desert.com/legal/medical-disclaimer" },
+            { "href": "https://white-desert.com/camps/echo-base" },
+            { "href": "https://white-desert.com/camps/explorer-camp" },
+            { "href": "https://white-desert.com/camps/whichaway-camp" },
+            {
+              "href": "https://white-desert.com/itineraries/discovery-week"
+            },
+            {
+              "href": "https://white-desert.com/itineraries/south-pole-emperor-penguins"
+            },
+            {
+              "href": "https://white-desert.com/itineraries/south-pole-blue-rivers"
+            },
+            {
+              "href": "https://white-desert.com/itineraries/antarctica-in-a-day"
+            },
+            {
+              "href": "https://white-desert.com/itineraries/early-emperor-penguins"
+            },
+            {
+              "href": "https://white-desert.com/itineraries/the-long-stay"
+            },
+            {
+              "href": "https://white-desert.com/antarctica/wolfs-fang-runway-mountains"
+            },
+            {
+              "href": "https://white-desert.com/antarctica/schirmacher-oasis"
+            },
+            {
+              "href": "https://white-desert.com/antarctica/polar-plateau"
+            },
+            {
+              "href": "https://white-desert.com/antarctica/atka-penguin-colony"
+            },
+            { "href": "https://white-desert.com/antarctica/fuel-depot" }
+          ]
+        }
+      ]
+    }
+  ],
+  "exclusions": [],
+  "verifiedPublicRoutes": [
+    {
+      "path": "/antarctica/direct-flights-to-antarctica",
+      "observedAt": "2026-08-30T23:40:41.460Z",
+      "statusCode": 200,
+      "finalUrl": "https://white-desert.com/antarctica/direct-flights-to-antarctica",
+      "canonical": "https://white-desert.com/antarctica/direct-flights-to-antarctica",
+      "title": "Private Flights to Antarctica from Cape Town | White Desert",
+      "h1": "Aviation"
+    }
+  ],
+  "notes": [
+    "The 29-entry official sitemap omits Aviation.",
+    "Both the open desktop Operation menu and the global footer expose the Aviation href; the three-source union therefore contains 30 public routes."
+  ]
+}

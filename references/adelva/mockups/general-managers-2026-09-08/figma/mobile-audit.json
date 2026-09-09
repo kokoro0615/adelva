@@ -1,0 +1,919 @@
+{
+  "mainId": "47:30",
+  "previewId": "55:42",
+  "previewContentId": "55:43",
+  "menuId": "51:40",
+  "size": {
+    "width": 390,
+    "height": 6703
+  },
+  "sections": [
+    {
+      "id": "47:31",
+      "name": "01 / Mobile Hero",
+      "y": 0,
+      "h": 844
+    },
+    {
+      "id": "47:57",
+      "name": "02 / Mobile 現場課題",
+      "y": 844,
+      "h": 737
+    },
+    {
+      "id": "47:103",
+      "name": "03 / Mobile corridor",
+      "y": 1581,
+      "h": 240
+    },
+    {
+      "id": "47:105",
+      "name": "04 / Mobile 判断",
+      "y": 1821,
+      "h": 536
+    },
+    {
+      "id": "48:34",
+      "name": "05 / Mobile 支援と成果物",
+      "y": 2357,
+      "h": 1331
+    },
+    {
+      "id": "48:75",
+      "name": "06 / Mobile Dining",
+      "y": 3688,
+      "h": 230
+    },
+    {
+      "id": "48:77",
+      "name": "07 / Mobile 役割",
+      "y": 3918,
+      "h": 724
+    },
+    {
+      "id": "49:36",
+      "name": "08 / Mobile 実行・検証・引継ぎ",
+      "y": 4642,
+      "h": 864
+    },
+    {
+      "id": "49:84",
+      "name": "09 / Mobile 確認する内容",
+      "y": 5506,
+      "h": 436
+    },
+    {
+      "id": "49:107",
+      "name": "10 / Mobile Contact and footer",
+      "y": 5942,
+      "h": 761
+    }
+  ],
+  "mainAudit": {
+    "textCount": 125,
+    "missingFonts": [],
+    "overlaps": [],
+    "overflow": [],
+    "texts": [
+      {
+        "id": "47:39",
+        "text": "ADELVA"
+      },
+      {
+        "id": "I47:40;22:3",
+        "text": "問い合わせ"
+      },
+      {
+        "id": "47:46",
+        "text": "HOME / 課題から探す"
+      },
+      {
+        "id": "47:48",
+        "text": "総支配人・現場責任者の方へ"
+      },
+      {
+        "id": "47:49",
+        "text": "現場の課題を、\n続けられる改善へ。"
+      },
+      {
+        "id": "47:50",
+        "text": "ADELVAは、ホテル・旅館の\n経営実装パートナー。\n現場運営・人材・販売・ITを、\n一つの改善計画につなぎます。"
+      },
+      {
+        "id": "I47:51;22:3",
+        "text": "問い合わせを送信"
+      },
+      {
+        "id": "I47:51;22:4",
+        "text": "→"
+      },
+      {
+        "id": "47:54",
+        "text": "GENERAL\nMANAGERS"
+      },
+      {
+        "id": "47:55",
+        "text": "SCROLL"
+      },
+      {
+        "id": "47:59",
+        "text": "01 / 現場課題"
+      },
+      {
+        "id": "47:60",
+        "text": "いま、現場のどこで\nつまずいていますか。"
+      },
+      {
+        "id": "47:61",
+        "text": "宿泊・料飲・清掃から、採用、販売、ITまで。目に見える困りごとを起点に、部門をまたぐ原因と改善の優先順位を整理します。"
+      },
+      {
+        "id": "47:65",
+        "text": "01"
+      },
+      {
+        "id": "47:67",
+        "text": "品質"
+      },
+      {
+        "id": "47:68",
+        "text": "サービスや清掃の品質にばらつきがある"
+      },
+      {
+        "id": "47:69",
+        "text": "→"
+      },
+      {
+        "id": "47:73",
+        "text": "02"
+      },
+      {
+        "id": "47:75",
+        "text": "人材"
+      },
+      {
+        "id": "47:76",
+        "text": "採用と入社後の教育がつながっていない"
+      },
+      {
+        "id": "47:77",
+        "text": "→"
+      },
+      {
+        "id": "47:81",
+        "text": "03"
+      },
+      {
+        "id": "47:83",
+        "text": "生産性"
+      },
+      {
+        "id": "47:84",
+        "text": "人員配置や部門間の連携を見直したい"
+      },
+      {
+        "id": "47:85",
+        "text": "→"
+      },
+      {
+        "id": "47:89",
+        "text": "04"
+      },
+      {
+        "id": "47:91",
+        "text": "販売"
+      },
+      {
+        "id": "47:92",
+        "text": "Web・OTA・営業が宿泊収益につながらない"
+      },
+      {
+        "id": "47:93",
+        "text": "→"
+      },
+      {
+        "id": "47:97",
+        "text": "05"
+      },
+      {
+        "id": "47:99",
+        "text": "システム定着"
+      },
+      {
+        "id": "47:100",
+        "text": "導入したシステムを現場で使い切れていない"
+      },
+      {
+        "id": "47:101",
+        "text": "→"
+      },
+      {
+        "id": "47:107",
+        "text": "02 / 判断"
+      },
+      {
+        "id": "47:108",
+        "text": "施策を選ぶ前に、\n原因と優先順位を。"
+      },
+      {
+        "id": "47:111",
+        "text": "現象と原因"
+      },
+      {
+        "id": "47:112",
+        "text": "品質・工数・収益などの\n基準値から現状を捉える"
+      },
+      {
+        "id": "47:115",
+        "text": "優先順位と影響範囲"
+      },
+      {
+        "id": "47:116",
+        "text": "部門間のつながりを確認し、\n先に取り組む課題を決める"
+      },
+      {
+        "id": "47:119",
+        "text": "現場判断と、オーナー・本部判断"
+      },
+      {
+        "id": "47:120",
+        "text": "現場で決められることと、\n経営判断が必要なことを分ける"
+      },
+      {
+        "id": "48:36",
+        "text": "OPERATIONS"
+      },
+      {
+        "id": "48:37",
+        "text": "03 / 支援と成果物"
+      },
+      {
+        "id": "48:38",
+        "text": "必要な支援を、\nひとつの改善計画に。"
+      },
+      {
+        "id": "48:39",
+        "text": "一部門の改善から、\n販売・ITを含む運用の再設計まで。\n課題の原因と判断の範囲に応じて、\n支援を組み合わせます。"
+      },
+      {
+        "id": "48:43",
+        "text": "01"
+      },
+      {
+        "id": "48:44",
+        "text": "一部門の品質・生産性を整える"
+      },
+      {
+        "id": "48:46",
+        "text": "支援の組み合わせ例"
+      },
+      {
+        "id": "48:47",
+        "text": "宿泊部門運営支援\nレストラン運営改善\n客室清掃改善\n必要に応じて採用支援"
+      },
+      {
+        "id": "48:49",
+        "text": "現場に残すものの例"
+      },
+      {
+        "id": "48:50",
+        "text": "標準業務手順（SOP）\n教育・検品の仕組み"
+      },
+      {
+        "id": "48:54",
+        "text": "02"
+      },
+      {
+        "id": "48:55",
+        "text": "販売・業務・ITをつなぎ直す"
+      },
+      {
+        "id": "48:57",
+        "text": "支援の組み合わせ例"
+      },
+      {
+        "id": "48:58",
+        "text": "Web集客・チャネル収益\n宿泊営業支援\nDX・システム導入"
+      },
+      {
+        "id": "48:60",
+        "text": "現場に残すものの例"
+      },
+      {
+        "id": "48:61",
+        "text": "管理指標（KPI）\n部門間会議・運用設計"
+      },
+      {
+        "id": "48:65",
+        "text": "03"
+      },
+      {
+        "id": "48:66",
+        "text": "経営判断が必要な課題を進める"
+      },
+      {
+        "id": "48:68",
+        "text": "支援の組み合わせ例"
+      },
+      {
+        "id": "48:69",
+        "text": "経営診断・コンサル\n経営改善・実行支援"
+      },
+      {
+        "id": "48:71",
+        "text": "現場に残すものの例"
+      },
+      {
+        "id": "48:72",
+        "text": "優先順位・改善計画\n判断権限・実行範囲"
+      },
+      {
+        "id": "48:74",
+        "text": "組み合わせと成果物は課題に応じて設計。改善支援・実運営・保守の範囲は、個別に合意します。"
+      },
+      {
+        "id": "48:79",
+        "text": "04 / 役割"
+      },
+      {
+        "id": "48:80",
+        "text": "任せる範囲を、\n曖昧にしない。"
+      },
+      {
+        "id": "48:81",
+        "text": "経営判断と現場の実行をつなぐために。関係者の役割と、引継ぎ先を整理します。"
+      },
+      {
+        "id": "48:83",
+        "text": "役割分担を整理する際の観点"
+      },
+      {
+        "id": "48:86",
+        "text": "オーナー・本部"
+      },
+      {
+        "id": "48:87",
+        "text": "経営・投資の\n判断と承認"
+      },
+      {
+        "id": "48:90",
+        "text": "GM・部門責任者"
+      },
+      {
+        "id": "48:91",
+        "text": "現場判断と\n部門間の調整"
+      },
+      {
+        "id": "48:95",
+        "text": "ADELVA"
+      },
+      {
+        "id": "48:96",
+        "text": "改善計画の推進\n実行・実装支援"
+      },
+      {
+        "id": "48:99",
+        "text": "外部関係者"
+      },
+      {
+        "id": "48:100",
+        "text": "契約に応じた\n専門領域の実施"
+      },
+      {
+        "id": "48:102",
+        "text": "判断権限・指揮命令・実行範囲・引継ぎ先を、お客様・ADELVA・外部関係者で個別に合意します。"
+      },
+      {
+        "id": "48:104",
+        "text": "経営・運営体制の検討から始めたい方へ"
+      },
+      {
+        "id": "I48:105;22:3",
+        "text": "オーナー・経営者の方へ"
+      },
+      {
+        "id": "I48:105;22:4",
+        "text": "→"
+      },
+      {
+        "id": "49:41",
+        "text": "IMPLEMENT."
+      },
+      {
+        "id": "49:42",
+        "text": "実行から、現場での運用へ。\n検証し、引き継ぐところまで。"
+      },
+      {
+        "id": "49:43",
+        "text": "宿泊・料飲・清掃、販売、ITの担当をつなぎ、支援終了後も、お客様自身が改善を続けられる状態を目指します。"
+      },
+      {
+        "id": "49:47",
+        "text": "01"
+      },
+      {
+        "id": "49:51",
+        "text": "課題把握"
+      },
+      {
+        "id": "49:53",
+        "text": "02"
+      },
+      {
+        "id": "49:57",
+        "text": "判断"
+      },
+      {
+        "id": "49:59",
+        "text": "03"
+      },
+      {
+        "id": "49:63",
+        "text": "実行・実装"
+      },
+      {
+        "id": "49:65",
+        "text": "04"
+      },
+      {
+        "id": "49:69",
+        "text": "運用"
+      },
+      {
+        "id": "49:71",
+        "text": "05"
+      },
+      {
+        "id": "49:75",
+        "text": "検証"
+      },
+      {
+        "id": "49:77",
+        "text": "06"
+      },
+      {
+        "id": "49:80",
+        "text": "引継ぎ"
+      },
+      {
+        "id": "I49:81;22:3",
+        "text": "支援の進め方を見る"
+      },
+      {
+        "id": "I49:81;22:4",
+        "text": "→"
+      },
+      {
+        "id": "49:86",
+        "text": "05 / 確認する内容"
+      },
+      {
+        "id": "49:87",
+        "text": "改善の過程を、\n確認できる形に。"
+      },
+      {
+        "id": "49:91",
+        "text": "担当範囲"
+      },
+      {
+        "id": "49:92",
+        "text": "誰が、どこまで\n担うか"
+      },
+      {
+        "id": "49:95",
+        "text": "成果物"
+      },
+      {
+        "id": "49:96",
+        "text": "現場で使う手順・\n管理指標は何か"
+      },
+      {
+        "id": "49:100",
+        "text": "意思決定記録"
+      },
+      {
+        "id": "49:101",
+        "text": "何を根拠に、\n何を決めたか"
+      },
+      {
+        "id": "49:104",
+        "text": "検証・引継ぎ方法"
+      },
+      {
+        "id": "49:105",
+        "text": "何で確かめ、\n誰へ引き継ぐか"
+      },
+      {
+        "id": "49:112",
+        "text": "ADELVA"
+      },
+      {
+        "id": "49:113",
+        "text": "課題が整理できていなくても、\nお問い合わせいただけます。"
+      },
+      {
+        "id": "49:114",
+        "text": "現状やお困りのことから、お聞かせください。必要な支援内容と、双方の役割を整理します。"
+      },
+      {
+        "id": "I49:115;22:6",
+        "text": "問い合わせを送信"
+      },
+      {
+        "id": "I49:115;22:7",
+        "text": "→"
+      },
+      {
+        "id": "49:121",
+        "text": "課題から探す"
+      },
+      {
+        "id": "49:122",
+        "text": "↗"
+      },
+      {
+        "id": "49:124",
+        "text": "支援内容"
+      },
+      {
+        "id": "49:125",
+        "text": "↗"
+      },
+      {
+        "id": "49:127",
+        "text": "支援の進め方"
+      },
+      {
+        "id": "49:128",
+        "text": "↗"
+      },
+      {
+        "id": "49:130",
+        "text": "導入事例"
+      },
+      {
+        "id": "49:131",
+        "text": "↗"
+      },
+      {
+        "id": "49:133",
+        "text": "ADELVAについて"
+      },
+      {
+        "id": "49:134",
+        "text": "↗"
+      },
+      {
+        "id": "49:136",
+        "text": "プライバシーポリシー"
+      },
+      {
+        "id": "49:137",
+        "text": "サイトポリシー"
+      },
+      {
+        "id": "49:138",
+        "text": "© ADELVA"
+      }
+    ],
+    "actions": [
+      {
+        "id": "47:40",
+        "reactions": [
+          {
+            "action": {
+              "type": "NODE",
+              "destinationId": "49:107",
+              "navigation": "SCROLL_TO",
+              "transition": null,
+              "resetVideoPosition": false
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "49:107",
+                "navigation": "SCROLL_TO",
+                "transition": null,
+                "resetVideoPosition": false
+              }
+            ],
+            "trigger": {
+              "type": "ON_CLICK"
+            }
+          }
+        ]
+      },
+      {
+        "id": "47:43",
+        "reactions": [
+          {
+            "action": {
+              "type": "NODE",
+              "destinationId": "51:40",
+              "navigation": "OVERLAY",
+              "transition": null,
+              "resetVideoPosition": false
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "51:40",
+                "navigation": "OVERLAY",
+                "transition": null,
+                "resetVideoPosition": false
+              }
+            ],
+            "trigger": {
+              "type": "ON_CLICK"
+            }
+          }
+        ]
+      },
+      {
+        "id": "47:51",
+        "reactions": [
+          {
+            "action": {
+              "type": "NODE",
+              "destinationId": "49:107",
+              "navigation": "SCROLL_TO",
+              "transition": null,
+              "resetVideoPosition": false
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "49:107",
+                "navigation": "SCROLL_TO",
+                "transition": null,
+                "resetVideoPosition": false
+              }
+            ],
+            "trigger": {
+              "type": "ON_CLICK"
+            }
+          }
+        ]
+      },
+      {
+        "id": "47:63",
+        "reactions": [
+          {
+            "action": {
+              "type": "NODE",
+              "destinationId": "48:34",
+              "navigation": "SCROLL_TO",
+              "transition": null,
+              "resetVideoPosition": false
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "48:34",
+                "navigation": "SCROLL_TO",
+                "transition": null,
+                "resetVideoPosition": false
+              }
+            ],
+            "trigger": {
+              "type": "ON_CLICK"
+            }
+          }
+        ]
+      },
+      {
+        "id": "47:71",
+        "reactions": [
+          {
+            "action": {
+              "type": "NODE",
+              "destinationId": "48:34",
+              "navigation": "SCROLL_TO",
+              "transition": null,
+              "resetVideoPosition": false
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "48:34",
+                "navigation": "SCROLL_TO",
+                "transition": null,
+                "resetVideoPosition": false
+              }
+            ],
+            "trigger": {
+              "type": "ON_CLICK"
+            }
+          }
+        ]
+      },
+      {
+        "id": "47:79",
+        "reactions": [
+          {
+            "action": {
+              "type": "NODE",
+              "destinationId": "48:34",
+              "navigation": "SCROLL_TO",
+              "transition": null,
+              "resetVideoPosition": false
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "48:34",
+                "navigation": "SCROLL_TO",
+                "transition": null,
+                "resetVideoPosition": false
+              }
+            ],
+            "trigger": {
+              "type": "ON_CLICK"
+            }
+          }
+        ]
+      },
+      {
+        "id": "47:87",
+        "reactions": [
+          {
+            "action": {
+              "type": "NODE",
+              "destinationId": "48:34",
+              "navigation": "SCROLL_TO",
+              "transition": null,
+              "resetVideoPosition": false
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "48:34",
+                "navigation": "SCROLL_TO",
+                "transition": null,
+                "resetVideoPosition": false
+              }
+            ],
+            "trigger": {
+              "type": "ON_CLICK"
+            }
+          }
+        ]
+      },
+      {
+        "id": "47:95",
+        "reactions": [
+          {
+            "action": {
+              "type": "NODE",
+              "destinationId": "48:34",
+              "navigation": "SCROLL_TO",
+              "transition": null,
+              "resetVideoPosition": false
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "48:34",
+                "navigation": "SCROLL_TO",
+                "transition": null,
+                "resetVideoPosition": false
+              }
+            ],
+            "trigger": {
+              "type": "ON_CLICK"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "menuAudit": {
+    "textCount": 19,
+    "missingFonts": [],
+    "overlaps": [],
+    "overflow": [],
+    "texts": [
+      {
+        "id": "51:46",
+        "text": "ADELVA"
+      },
+      {
+        "id": "51:48",
+        "text": "×"
+      },
+      {
+        "id": "51:49",
+        "text": "MENU"
+      },
+      {
+        "id": "51:52",
+        "text": "課題から探す"
+      },
+      {
+        "id": "51:53",
+        "text": "→"
+      },
+      {
+        "id": "51:55",
+        "text": "支援内容"
+      },
+      {
+        "id": "51:56",
+        "text": "→"
+      },
+      {
+        "id": "51:58",
+        "text": "支援の進め方"
+      },
+      {
+        "id": "51:59",
+        "text": "→"
+      },
+      {
+        "id": "51:61",
+        "text": "導入事例"
+      },
+      {
+        "id": "51:62",
+        "text": "→"
+      },
+      {
+        "id": "51:64",
+        "text": "ADELVAについて"
+      },
+      {
+        "id": "51:65",
+        "text": "→"
+      },
+      {
+        "id": "51:68",
+        "text": "総支配人・現場責任者の方へ"
+      },
+      {
+        "id": "51:69",
+        "text": "オーナー・経営者の方へ ↗"
+      },
+      {
+        "id": "I51:70;22:6",
+        "text": "問い合わせを送信"
+      },
+      {
+        "id": "I51:70;22:7",
+        "text": "→"
+      },
+      {
+        "id": "51:74",
+        "text": "プライバシーポリシー"
+      },
+      {
+        "id": "51:75",
+        "text": "サイトポリシー"
+      }
+    ],
+    "actions": [
+      {
+        "id": "51:47",
+        "reactions": [
+          {
+            "action": {
+              "type": "CLOSE"
+            },
+            "actions": [
+              {
+                "type": "CLOSE"
+              }
+            ],
+            "trigger": {
+              "type": "ON_CLICK"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "previewCopyIdentical": true,
+  "heroFills": [
+    {
+      "id": "47:32",
+      "hash": "c7ace2785d490bf3afa644cb2d0be06506eb81d3"
+    },
+    {
+      "id": "55:45",
+      "hash": "c7ace2785d490bf3afa644cb2d0be06506eb81d3"
+    }
+  ],
+  "copyCheck": {
+    "checked": 32,
+    "missing": [],
+    "textCount": 125
+  },
+  "generatedAsset": {
+    "file": "mobile-hero-asset.png",
+    "width": 853,
+    "height": 1844,
+    "bytes": 2063014,
+    "hash": "c7ace2785d490bf3afa644cb2d0be06506eb81d3"
+  },
+  "verificationDate": "2026-09-09",
+  "prototypePlayerClickTest": "Not performed; reactions saved and read back"
+}

@@ -1,0 +1,456 @@
+{
+  "schemaVersion": "full-page-section-manifest/v1",
+  "manifestId": "about--founders-reference-v1",
+  "role": "reference",
+  "route": "/about/founders",
+  "family": "about-story",
+  "scope": {
+    "kind": "route-content",
+    "id": "about--founders-content"
+  },
+  "source": {
+    "url": "https://white-desert.com",
+    "requestedRoute": "/about/founders",
+    "finalRoutes": ["/about/founders"],
+    "observedAt": "2026-08-31T01:13:05.764Z",
+    "contentRoot": ".page-content",
+    "status": "pending-capture",
+    "captureMode": "manifest-only",
+    "evidenceStatus": "pending-capture"
+  },
+  "requiredViewports": ["desktop", "tablet", "mobile"],
+  "tolerances": {
+    "boundsPx": 2,
+    "scrollHeightPx": 2
+  },
+  "domTopology": {
+    "scope": ".page-content",
+    "directChildren": [
+      "about-navigation",
+      "hero",
+      "how-it-all-started",
+      "team",
+      "story-scrub",
+      "moreabout-us",
+      "more-about-cards",
+      "start-planning-your-adventure"
+    ]
+  },
+  "sections": [
+    {
+      "id": "about-navigation",
+      "semantic": "div | about-nav_wrap explore-pages",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "keyLinks": ["/about/founders", "/about/foundation", "/about/sustainability"],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 820.02,
+          "width": 1440,
+          "height": 79.98,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 944,
+          "width": 768,
+          "height": 80,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 764,
+          "width": 390,
+          "height": 80,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "hero",
+      "semantic": "div | about-banner-loader | About",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "About",
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fe5dced77beee74a016464ea9b206cc2aba809d85-2000x1114.webp&w=3840&q=90"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 900,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 1024,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "how-it-all-started",
+      "semantic": "section | padding-none bg-white | How it all started",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "How it all started",
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F291a791e13c0d671aad1c83b6c58d8b38b85df03-2000x1374.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F2702dc358dff91712fbbd5d8305fab4c65d99adb-1280x802.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 900,
+          "width": 1440,
+          "height": 2727.88,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 1024,
+          "width": 768,
+          "height": 2947.31,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 844,
+          "width": 390,
+          "height": 2452.44,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "team",
+      "semantic": "div | team-members-section | Our Founders",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Our Founders",
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F4c08b977cc8a6869e77488bb512861ed06d1ea29-2000x2000.png&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F7ba9bf380f86e2077ab60d33d1e0aa05f124a520-2000x2000.png&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 3627.88,
+          "width": 1440,
+          "height": 1586.97,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 3971.31,
+          "width": 768,
+          "height": 1247.63,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 3296.44,
+          "width": 390,
+          "height": 1761.23,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "story-scrub",
+      "semantic": "div | about-scrub_component | White Desert was born from real exploration and a belief that Antarctica could be shared.",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "White Desert was born from real exploration and a belief that Antarctica could be shared.",
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F0fb7e6936106ca24a89796b932359632cb99f4e5-653x1000.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F48210af2bcd3c60ee10f6432434016b7abbc2eb6-1760x1258.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F291a791e13c0d671aad1c83b6c58d8b38b85df03-2000x1374.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F55852a301b5dd14959ea7b2ab1fa8b4e8abff99b-2100x1395.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F23bfa25a949811240296c8c7fdaa0904ae30ecf9-2000x1040.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F5b7acda18a5b2c1378f3e7514dee59e47500f647-962x722.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F45b1f441987f125eded0a67a83e31e7708f3f038-2000x1279.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 5214.84,
+          "width": 1440,
+          "height": 3600,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 5218.94,
+          "width": 768,
+          "height": 4096,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 5057.67,
+          "width": 390,
+          "height": 844,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "moreabout-us",
+      "semantic": "section | padding-title bg-white | Moreabout us",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Moreabout us",
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 8814.84,
+          "width": 1440,
+          "height": 559.97,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 9314.94,
+          "width": 768,
+          "height": 560,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 5901.67,
+          "width": 390,
+          "height": 325.23,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "more-about-cards",
+      "semantic": "div | cards-simple-section",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "keyLinks": [
+        "/learn/foundation",
+        "/explore/operation",
+        "/learn/sustainability",
+        "/explore/regions"
+      ],
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fbbf3a1a202bd3b5ebbfe0f2524cdb82c449b7b97-1332x2000.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F7201ea4ececf92153024ad6dcbb30f1fbf3fba00-1500x2250.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F8ec4628ba233cdb82b9452d6601171ec36d3096f-1280x1600.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F28d2df713873aadb6b0137862f24b72f3b349de4-1500x2250.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 9374.81,
+          "width": 1440,
+          "height": 675,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 9874.94,
+          "width": 768,
+          "height": 768,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 6226.91,
+          "width": 390,
+          "height": 2342.38,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "start-planning-your-adventure",
+      "semantic": "section | padding-top-large-bottom-none bg-white | Start planning your adventure",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Start planning your adventure",
+      "keyLinks": ["/enquire"],
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F8f3d7406e38febcefe9dbddceafb319c10ec367b-2100x1400.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 10049.81,
+          "width": 1440,
+          "height": 1219.98,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 10642.94,
+          "width": 768,
+          "height": 1344,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 8569.28,
+          "width": 390,
+          "height": 924,
+          "pinned": false
+        }
+      }
+    }
+  ],
+  "viewports": {
+    "desktop": {
+      "width": 1440,
+      "height": 900,
+      "scrollHeight": 12211,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/about--founders-1440x900-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "tablet": {
+      "width": 768,
+      "height": 1024,
+      "scrollHeight": 13011,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/about--founders-768x1024-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "scrollHeight": 11605,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/about--founders-390x844-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    }
+  },
+  "motion": {
+    "status": "incomplete",
+    "unknown": [
+      "motion evidence remains pending until four phase captures exist for every layer and viewport"
+    ],
+    "layers": [
+      {
+        "id": "about-scrub-component",
+        "property": "visual state",
+        "trigger": "route motion candidate",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "pinned": false,
+        "sectionId": "story-scrub",
+        "samples": {
+          "desktop": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          },
+          "tablet": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          },
+          "mobile": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          }
+        },
+        "pinRanges": {}
+      }
+    ]
+  }
+}

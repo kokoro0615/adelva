@@ -288,8 +288,15 @@ export async function compareImagePair({
   await mkdir(resolvedOutputRoot, { recursive: true });
   const referencePng = await sharp(resolvedReferencePath).png().toBuffer();
   const actualPng = await sharp(resolvedActualPath).png().toBuffer();
+  // Sharp composite does not implement an `opacity` option. Give the source
+  // a real half-alpha channel; otherwise the reference is completely hidden.
+  const translucentActual = await sharp(actualPng)
+    .removeAlpha()
+    .ensureAlpha(128 / 255)
+    .png()
+    .toBuffer();
   await sharp(referencePng)
-    .composite([{ input: actualPng, blend: "over", opacity: 0.5 }])
+    .composite([{ input: translucentActual, blend: "over" }])
     .png()
     .toFile(outputPaths.overlay);
   await sharp(difference, {

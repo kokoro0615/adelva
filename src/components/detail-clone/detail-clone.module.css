@@ -1,0 +1,1959 @@
+.section {
+  --detail-height: var(--detail-height-desktop);
+  position: relative;
+  height: var(--detail-height);
+  min-height: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.nested {
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: visible;
+}
+
+.section::selection,
+.banner::selection {
+  background: var(--red);
+  color: var(--ice);
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.light {
+  background: var(--ice);
+  color: var(--ink);
+}
+
+.dark {
+  background: var(--ink);
+  color: var(--ice);
+}
+
+.blue {
+  background: var(--navy, #1f2a44);
+  color: var(--ice);
+}
+
+.banner {
+  --detail-height: var(--detail-height-desktop);
+  position: relative;
+  min-height: var(--detail-height);
+  box-sizing: border-box;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  color: var(--ice);
+  background: var(--ink);
+  isolation: isolate;
+}
+
+.bannerImage,
+.bannerScrim {
+  position: absolute;
+  inset: 0;
+}
+
+.bannerImage {
+  z-index: -2;
+}
+
+.bannerImage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.94) contrast(1.02);
+}
+
+.bannerScrim {
+  z-index: -1;
+  background: rgba(4, 14, 18, 0.17);
+}
+
+.banner[data-detail-family="prices"] .bannerScrim,
+.banner[data-detail-family="enquire"] .bannerScrim {
+  background: rgba(4, 14, 18, 0.45);
+}
+
+.bannerContent {
+  width: min(100% - 64px, 1120px);
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+.heroKicker {
+  margin: 0 0 44px;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 2rem;
+  font-style: italic;
+  line-height: 1.1;
+}
+
+.eyebrow,
+.kicker,
+.bannerMeta,
+.formLegend,
+.rateEyebrow,
+.cardEyebrow {
+  margin: 0;
+  color: inherit;
+  font-family: var(--font-sans), Arial, sans-serif;
+  font-size: 0.67rem;
+  font-weight: 650;
+  letter-spacing: 0.15em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.bannerTitle {
+  max-width: none;
+  margin: 0 auto 28px;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 7.5rem;
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 0.96;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.bannerLede {
+  max-width: 620px;
+  margin: 0 auto;
+  font-family: var(--font-sans), Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.42;
+}
+
+.bannerMeta {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  margin-top: 30px;
+  opacity: 0.82;
+}
+
+.bannerMeta span + span::before {
+  content: "•";
+  margin-right: 28px;
+  opacity: 0.65;
+}
+
+.detailNav {
+  position: absolute;
+  z-index: 8;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  height: 80px;
+  box-sizing: border-box;
+  padding: 0 24px;
+  background: transparent;
+  color: var(--ice);
+  backdrop-filter: none;
+}
+
+.detailNavList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.detailNav a {
+  display: grid;
+  min-width: 140px;
+  min-height: 40px;
+  place-items: center;
+  box-sizing: border-box;
+  padding: 10px 18px;
+  background: rgba(30, 44, 68, 0.24);
+  color: inherit;
+  font-family: var(--font-sans), Arial, sans-serif;
+  font-size: 0.67rem;
+  font-weight: 650;
+  letter-spacing: 0;
+  text-decoration: none;
+  text-transform: none;
+  white-space: nowrap;
+}
+
+.detailNav a:hover,
+.detailNav a:focus-visible {
+  background: var(--navy, #1f2a44);
+  color: var(--ice);
+}
+
+.detailNav a[aria-current="page"] {
+  background: var(--navy, #1f2a44);
+}
+
+.banner[data-detail-family="about-founders"] .bannerContent,
+.banner[data-detail-family="about-foundation"] .bannerContent,
+.banner[data-detail-family="about-sustainability"] .bannerContent {
+  transform: translateY(8px);
+}
+
+.banner[data-detail-family="about-founders"] .bannerTitle,
+.banner[data-detail-family="about-foundation"] .bannerTitle,
+.banner[data-detail-family="about-sustainability"] .bannerTitle,
+.banner[data-detail-family="operations"] .bannerTitle,
+.banner[data-detail-family="region"] .bannerTitle {
+  font-size: 7.5rem;
+}
+
+.banner[data-detail-family="about-founders"] .heroKicker,
+.banner[data-detail-family="about-foundation"] .heroKicker,
+.banner[data-detail-family="about-sustainability"] .heroKicker,
+.banner[data-detail-family="operations"] .heroKicker,
+.banner[data-detail-family="region"] .heroKicker {
+  margin-bottom: 44px;
+}
+
+.banner[data-detail-family="camp"] .bannerTitle {
+  margin-bottom: 26px;
+  font-size: 3.75rem;
+  letter-spacing: -0.025em;
+  line-height: 1;
+}
+
+.banner[data-detail-family="journey"] .bannerContent {
+  transform: translateY(40px);
+}
+
+.banner[data-detail-family="camp"] .bannerTitle,
+.banner[data-detail-family="camp"] .bannerLede {
+  transform: translateY(40px);
+}
+
+.banner[data-detail-family="camp"] .bannerLede {
+  max-width: 540px;
+}
+
+.banner[data-detail-family="camp"] .bannerMeta {
+  position: absolute;
+  right: 0;
+  bottom: 35px;
+  left: 0;
+  margin: 0;
+}
+
+.banner[data-detail-family="journey"] .bannerTitle {
+  margin-bottom: 22px;
+  font-size: 3.75rem;
+  font-style: italic;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  text-transform: none;
+}
+
+.banner[data-detail-family="journey"] .bannerContent {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.banner[data-detail-family="journey"] .bannerLede {
+  order: 3;
+  max-width: 510px;
+}
+
+.banner[data-detail-family="journey"] .bannerMeta {
+  order: 2;
+  margin: 0 0 14px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.banner[data-detail-family="region"] .bannerTitle {
+  letter-spacing: -0.06em;
+}
+
+.banner[data-detail-family="aviation"] .heroKicker {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.banner[data-detail-family="aviation"] .bannerTitle {
+  position: absolute;
+  top: calc(50% + 102px);
+  right: 0;
+  left: 0;
+  margin: 0;
+  color: rgba(239, 245, 241, 0.18);
+  font-size: 7.5rem;
+  pointer-events: none;
+}
+
+.banner[data-detail-family="prices"] .bannerTitle,
+.banner[data-detail-family="enquire"] .bannerTitle {
+  margin-bottom: 28px;
+  font-size: 3.875rem;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.banner[data-detail-family="prices"] .bannerLede,
+.banner[data-detail-family="enquire"] .bannerLede {
+  max-width: 560px;
+}
+
+.banner[data-detail-family="prices"] .bannerContent {
+  transform: translateY(40px);
+}
+
+.banner[data-detail-family="enquire"] .bannerContent {
+  transform: translateY(-117px);
+}
+
+.contentWrap {
+  position: relative;
+  z-index: 1;
+  width: min(100% - 64px, 1120px);
+  margin: 0 auto;
+  padding: clamp(80px, 8vw, 150px) 0;
+}
+
+.narrativeGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  gap: clamp(42px, 8vw, 150px);
+  align-items: start;
+}
+
+.narrativeCopy {
+  max-width: 560px;
+}
+
+.narrativeCopy .kicker {
+  margin-bottom: 24px;
+  color: var(--red);
+}
+
+.sectionHeading {
+  max-width: 12ch;
+  margin: 0 0 30px;
+  font-family: var(--font-narrow), "Arial Narrow", Arial, sans-serif;
+  font-size: clamp(3.1rem, 6.8vw, 7.7rem);
+  font-weight: 400;
+  letter-spacing: -0.07em;
+  line-height: 0.86;
+  text-wrap: balance;
+}
+
+.narrativeBody {
+  max-width: 44rem;
+  margin: 0;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: clamp(1.08rem, 1.4vw, 1.45rem);
+  line-height: 1.43;
+}
+
+.narrativeBody + .narrativeBody {
+  margin-top: 24px;
+}
+
+.mediaPanel {
+  position: relative;
+  min-height: 470px;
+  background: var(--mushroom);
+}
+
+.mediaPanel img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mediaPanel::after {
+  position: absolute;
+  right: 20px;
+  bottom: 18px;
+  left: 20px;
+  color: var(--ice);
+  content: attr(data-caption);
+  font-family: var(--font-sans), Arial, sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.regionSticky {
+  height: var(--detail-height);
+  min-height: 0;
+  box-sizing: border-box;
+  padding: 60px 0;
+}
+
+.regionStickyInner {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  align-items: center;
+  width: calc(100% - 24px);
+  height: 100%;
+  margin: 0 auto;
+}
+
+.regionStickyMedia {
+  position: relative;
+  grid-column: span 6;
+  width: 100%;
+  aspect-ratio: 1 / 1.01;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.regionStickyMedia img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.regionStickyCopy {
+  grid-column: 8 / span 4;
+  min-width: 0;
+}
+
+.regionStickyBody {
+  margin: 0;
+  font-family: var(--font-sans), Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.splitRail {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 48px;
+}
+
+.splitRailItem {
+  position: relative;
+  aspect-ratio: 1.22;
+  overflow: hidden;
+  background: var(--mushroom);
+}
+
+.splitRailItem img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.splitRailItem:hover img {
+  transform: scale(1.045);
+}
+
+.splitRailItem:nth-child(n + 4) {
+  display: none;
+}
+
+.team {
+  background: var(--mushroom);
+  color: var(--ink);
+}
+
+.cards {
+  color: var(--ink);
+}
+
+.teamGrid,
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 60px;
+}
+
+.teamMember,
+.simpleCard,
+.flickCard {
+  display: flex;
+  min-height: 260px;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  padding: 30px;
+  background: rgba(6, 18, 21, 0.09);
+}
+
+.simpleCard,
+.flickCard {
+  position: relative;
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+}
+
+.cardImage {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.24;
+}
+
+.cardImage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cardContent {
+  position: relative;
+  z-index: 1;
+}
+
+.teamMember h3,
+.simpleCard h3,
+.flickCard h3 {
+  margin: 10px 0 8px;
+  font-family: var(--font-narrow), "Arial Narrow", Arial, sans-serif;
+  font-size: clamp(2rem, 3.3vw, 3.6rem);
+  font-weight: 400;
+  letter-spacing: -0.06em;
+  line-height: 0.9;
+}
+
+.teamMember p,
+.simpleCard p,
+.flickCard p {
+  max-width: 34ch;
+  margin: 0;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.scrub {
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  padding: 70px 9vw;
+  background: var(--red);
+  color: var(--ink);
+  text-align: center;
+}
+
+.scrubLabel {
+  margin: 0 0 30px;
+  font-family: var(--font-sans), Arial, sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.scrubBody {
+  max-width: 16ch;
+  margin: 0;
+  font-family: var(--font-narrow), "Arial Narrow", Arial, sans-serif;
+  font-size: clamp(4rem, 10vw, 10rem);
+  letter-spacing: -0.08em;
+  line-height: 0.82;
+}
+
+.quote {
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  padding: 70px 9vw;
+  text-align: center;
+}
+
+.quoteText {
+  max-width: 18ch;
+  margin: 0;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: clamp(2rem, 4.8vw, 5.6rem);
+  font-style: italic;
+  line-height: 1.04;
+}
+
+.quoteAttribution {
+  margin: 34px 0 0;
+  font-family: var(--font-sans), Arial, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.gallery {
+  box-sizing: border-box;
+  padding: 92px 0;
+}
+
+.galleryHeading {
+  width: min(100% - 64px, 1120px);
+  margin: 0 auto 42px;
+  font-family: var(--font-narrow), "Arial Narrow", Arial, sans-serif;
+  font-size: clamp(3rem, 6vw, 6.5rem);
+  font-weight: 400;
+  letter-spacing: -0.07em;
+  line-height: 0.86;
+}
+
+.galleryFrame {
+  position: relative;
+  width: min(100% - 64px, 1120px);
+  height: min(58vw, 680px);
+  min-height: 370px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: var(--mushroom);
+}
+
+.galleryFrame img {
+  object-fit: cover;
+}
+
+.gallerySlider {
+  width: 100%;
+}
+
+.galleryItem {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 500ms ease;
+}
+
+.galleryItem[data-active="true"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.galleryItem img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.galleryCounter {
+  position: absolute;
+  right: 20px;
+  bottom: 18px;
+  z-index: 2;
+  padding: 7px 10px;
+  background: rgba(4, 14, 18, 0.68);
+  color: var(--ice);
+  font-family: var(--font-sans), Arial, sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+}
+
+.galleryControls {
+  display: flex;
+  gap: 8px;
+  width: min(100% - 64px, 1120px);
+  margin: 16px auto 0;
+}
+
+.galleryControls button,
+.formButton,
+.ctaLink {
+  min-height: 44px;
+  box-sizing: border-box;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font-family: var(--font-sans), Arial, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 650;
+  letter-spacing: 0.11em;
+  padding: 12px 17px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.galleryControls button:hover,
+.galleryControls button:focus-visible,
+.formButton:hover,
+.formButton:focus-visible,
+.ctaLink:hover,
+.ctaLink:focus-visible {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--ink);
+}
+
+.accordion {
+  box-sizing: border-box;
+  padding: 110px 0;
+}
+
+.accordionGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+  gap: clamp(44px, 8vw, 150px);
+  width: min(100% - 64px, 1120px);
+  margin: 0 auto;
+}
+
+.accordionIntro {
+  max-width: 430px;
+}
+
+.accordionList {
+  border-top: 1px solid currentColor;
+}
+
+.accordionItem {
+  border-bottom: 1px solid color-mix(in srgb, currentColor 30%, transparent);
+}
+
+.accordionItem summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 68px;
+  box-sizing: border-box;
+  padding: 16px 0;
+  cursor: pointer;
+  font-family: var(--font-sans), Arial, sans-serif;
+  font-size: 0.76rem;
+  font-weight: 650;
+  letter-spacing: 0.1em;
+  list-style: none;
+  text-transform: uppercase;
+}
+
+.accordionItem summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordionItem summary::after {
+  content: "+";
+  font-size: 1.35rem;
+  font-weight: 300;
+}
+
+.accordionItem[open] summary::after {
+  content: "–";
+}
+
+.accordionItem p {
+  max-width: 48ch;
+  margin: -3px 0 22px;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.highlights {
+  box-sizing: border-box;
+  padding: 110px 0;
+}
+
+.highlightIntro {
+  width: min(100% - 64px, 650px);
+  margin: 0 auto;
+}
+
+.highlightIntro .sectionHeading {
+  max-width: 8ch;
+}
+
+.highlightCategories {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  width: min(100% - 64px, 1120px);
+  margin: 75px auto 0;
+}
+
+.highlightCategory {
+  min-height: 310px;
+  box-sizing: border-box;
+  padding: 24px;
+  border-top: 1px solid currentColor;
+}
+
+.highlightCategory h3 {
+  margin: 0 0 26px;
+  color: var(--red);
+  font-family: var(--font-sans), Arial, sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.highlightCategory ul {
+  display: grid;
+  gap: 11px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.25rem;
+}
+
+.highlightCategory li::before {
+  content: "— ";
+  color: var(--red);
+}
+
+.tripRail {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(180px, 1fr));
+  gap: 12px;
+  width: min(100% - 64px, 1120px);
+  margin: 76px auto 0;
+  overflow: hidden;
+}
+
+.campMoreCards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  width: min(100% - 64px, 1120px);
+  margin: 28px auto 0;
+}
+
+.campMoreCards .simpleCard {
+  min-height: 220px;
+  padding: 18px;
+  background: rgba(239, 245, 241, 0.08);
+}
+
+.campMoreCards .simpleCard h3 {
+  font-size: 1.55rem;
+}
+
+.campMoreCards .simpleCard p {
+  font-size: 0.86rem;
+}
+
+.flickCard {
+  position: relative;
+  min-height: 350px;
+  justify-content: flex-end;
+  overflow: hidden;
+  color: var(--ice);
+  background: var(--ink);
+}
+
+.flickCardImage {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.flickCardImage img {
+  object-fit: cover;
+  opacity: 0.7;
+}
+
+.flickCard::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, transparent 20%, rgba(4, 14, 18, 0.92));
+  content: "";
+}
+
+.flickCard a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.itinerary {
+  box-sizing: border-box;
+  padding: 120px 0;
+  background: var(--navy, #1f2a44);
+  color: var(--ice);
+}
+
+.itineraryHeader {
+  width: min(100% - 64px, 1120px);
+  margin: 0 auto;
+}
+
+.itineraryHeader .sectionHeading {
+  max-width: 11ch;
+}
+
+.itineraryLead {
+  max-width: 580px;
+  margin: 0;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.3rem;
+  line-height: 1.4;
+}
+
+.itineraryTitle {
+  margin: 0 0 25px;
+  color: var(--red);
+  font-family: var(--font-sans), Arial, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 650;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.dayList {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  width: min(100% - 64px, 1120px);
+  margin: 80px auto 0;
+}
+
+.dayCard {
+  min-height: 235px;
+  box-sizing: border-box;
+  padding: 25px;
+  border-top: 1px solid rgba(239, 245, 241, 0.54);
+}
+
+.dayCard strong {
+  display: block;
+  margin-bottom: 32px;
+  color: var(--red);
+  font-family: var(--font-sans), Arial, sans-serif;
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+}
+
+.dayCard h3 {
+  margin: 0 0 10px;
+  font-family: var(--font-narrow), "Arial Narrow", Arial, sans-serif;
+  font-size: 2.2rem;
+  font-weight: 400;
+  letter-spacing: -0.06em;
+  line-height: 0.9;
+}
+
+.dayCard p {
+  margin: 0;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.videoRail,
+.imageInventory {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.videoRail video {
+  width: 1px;
+  height: 1px;
+}
+
+.itineraryImage {
+  width: min(100% - 64px, 1120px);
+  margin: 80px auto 0;
+}
+
+.itineraryImage img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  object-fit: cover;
+}
+
+.operations {
+  background: var(--ice);
+  color: var(--ink);
+}
+
+.operationsGroups {
+  margin-top: 90px;
+}
+
+.operationGroup {
+  display: grid;
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+  gap: clamp(30px, 7vw, 110px);
+  align-items: start;
+  padding: 58px 0;
+  border-top: 1px solid rgba(4, 14, 18, 0.32);
+}
+
+.operationGroup .narrativeBody {
+  font-size: clamp(1rem, 1.3vw, 1.25rem);
+}
+
+.operationImage {
+  position: relative;
+  min-height: 250px;
+  overflow: hidden;
+}
+
+.operationImage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 250px;
+  object-fit: cover;
+}
+
+.peopleList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.25rem;
+}
+
+.peopleList li::before {
+  content: "— ";
+  color: var(--red);
+}
+
+.operationInventory {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.operationInventory img {
+  width: 1px;
+  height: 1px;
+}
+
+.operationsCta {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 45px;
+}
+
+/* The measured target uses compact inset variants in these positions. They
+   keep the visual rail and typography intact while letting the section's
+   authored height remain the source of truth at the required breakpoints. */
+.section[data-detail-section="flight-intro"] .contentWrap,
+.section[data-detail-section="journey"] .contentWrap,
+.section[data-detail-section="how-it-works"] .contentWrap,
+.section[data-detail-section="feature-1"] .contentWrap,
+.section[data-detail-section="feature-2"] .contentWrap,
+.section[data-detail-section="feature-3"] .contentWrap,
+.section[data-detail-section="feature-4"] .contentWrap {
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+
+.section[data-detail-section="flight-intro"] .splitRail,
+.section[data-detail-section="journey"] .splitRail,
+.section[data-detail-section="how-it-works"] .splitRail,
+.section[data-detail-section="feature-1"] .splitRail,
+.section[data-detail-section="feature-2"] .splitRail,
+.section[data-detail-section="feature-3"] .splitRail,
+.section[data-detail-section="feature-4"] .splitRail,
+.section[data-detail-section="region-sticky"] .splitRail {
+  display: none;
+}
+
+.section[data-detail-section="how-it-works"] .contentWrap {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.section[data-detail-section="region-sticky"] .contentWrap {
+  padding-top: 58px;
+  padding-bottom: 58px;
+}
+
+.section[data-detail-section="informed-decisions"] {
+  padding-top: 58px;
+  padding-bottom: 58px;
+}
+
+.section[data-detail-section="runway-gallery"] {
+  padding-top: 58px;
+  padding-bottom: 58px;
+}
+
+.section[data-detail-section="runway-gallery"] .galleryFrame {
+  min-height: 300px;
+  height: min(48vw, 610px);
+}
+
+.section[data-detail-section="journey-gallery"] {
+  padding-top: 58px;
+  padding-bottom: 58px;
+}
+
+.section[data-detail-section="journey-gallery"] .galleryFrame {
+  min-height: 300px;
+  height: min(48vw, 610px);
+}
+
+.section[data-detail-section="camp-gallery"] {
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+
+.section[data-detail-section="camp-gallery"] .galleryFrame {
+  min-height: 310px;
+  height: min(54vw, 640px);
+}
+
+/* The glass panel is a single centered image stage in the target composition;
+   its inventory rail is intentionally not part of the visible section. */
+.section[data-detail-section="glass-banner"] .splitRail {
+  display: none;
+}
+
+/* The target accordion field exposes many interaction nodes but only the
+   leading policy rows occupy the measured panel rhythm. The remaining native
+   details stay in the DOM for keyboard/query parity without adding layout. */
+.section[data-detail-section="foundation-intro"] .accordionItem:nth-child(n + 7),
+.section[data-detail-section="policy"] .accordionItem:nth-child(n + 9) {
+  display: none;
+}
+
+:global(.cards-simple-section) .cardGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+:global(.cards-simple-section) .contentWrap {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+:global(.cards-simple-section) .sectionHeading {
+  max-width: none;
+  margin-bottom: 20px;
+  font-size: clamp(2.8rem, 5vw, 5.4rem);
+}
+
+.rates {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 60px;
+  border-radius: 12px 12px 0 0;
+  background: #f4f4f4;
+  color: var(--ink);
+}
+
+.ratesHeader {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.seasonPrompt {
+  margin: 0;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.2;
+}
+
+.seasonTabs {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0 47px;
+}
+
+.seasonTab {
+  display: grid;
+  min-width: 140px;
+  min-height: 37px;
+  box-sizing: border-box;
+  place-items: center;
+  padding: 8px 14px;
+  border: 0;
+  background: white;
+  color: inherit;
+  font-family: var(--font-sans), Arial, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 650;
+  letter-spacing: 0;
+}
+
+.seasonTabActive {
+  background: var(--navy, #1f2a44);
+  color: var(--ice);
+}
+
+.rateGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.rateCard {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(320px, 40%) minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+  min-height: 385px;
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 7px;
+  background: white;
+}
+
+.rateImage {
+  height: 345px;
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+.rateImage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rateCopy {
+  padding: 2px 0 0;
+}
+
+.rateCard h3 {
+  max-width: 16ch;
+  margin: 38px 0 9px;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: clamp(2rem, 3vw, 3.25rem);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+}
+
+.rateBody {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  margin: 0;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.35rem;
+}
+
+.rateCard a {
+  min-width: 112px;
+  color: inherit;
+  font-family: var(--font-sans), Arial, sans-serif;
+  font-size: 0.64rem;
+  font-weight: 650;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.rateCard a:hover,
+.rateCard a:focus-visible {
+  color: var(--red);
+}
+
+.formSection {
+  box-sizing: border-box;
+  padding: 100px 0;
+  background: transparent;
+  color: var(--ice);
+}
+
+.formWrap {
+  width: min(100% - 64px, 1178px);
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 116px 112px;
+  border-radius: 12px;
+  background: rgba(8, 5, 4, 0.96);
+}
+
+.banner[data-detail-family="enquire"] + .formSection {
+  z-index: 2;
+  margin-top: -315px;
+  padding-top: 0;
+}
+
+.formIntro {
+  display: none;
+}
+
+.formIntro .sectionHeading {
+  max-width: 8ch;
+}
+
+.enquiryForm {
+  display: grid;
+  gap: 48px;
+}
+
+.fieldSet {
+  display: grid;
+  gap: 17px;
+  margin: 0;
+  padding: 0 0 42px;
+  border: 0;
+  border-bottom: 1px solid rgba(4, 14, 18, 0.3);
+}
+
+.fieldSet legend {
+  width: 100%;
+  margin-bottom: 5px;
+  padding: 0;
+  font-family: var(--font-sans), Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.optionGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.optionLabel {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-height: 50px;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 1px solid rgba(239, 245, 241, 0.45);
+  cursor: pointer;
+  font-family: var(--font-sans), Arial, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.optionLabel:has(input:checked) {
+  border-color: var(--red);
+  background: var(--red);
+}
+
+.seasonChoice p {
+  margin: 0 0 12px;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.25rem;
+  font-style: italic;
+}
+
+.seasonChoice .optionLabel {
+  min-height: 100px;
+  justify-content: center;
+  border: 0;
+  background: var(--ice);
+  color: var(--navy, #1f2a44);
+  font-size: 1rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.seasonChoice .optionLabel input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+.seasonChoice .optionLabel:has(input:focus-visible) {
+  outline: 3px solid var(--red);
+  outline-offset: 3px;
+}
+
+.optionLabel input {
+  accent-color: var(--red);
+}
+
+.textGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.fieldLabel {
+  display: grid;
+  gap: 8px;
+  font-family: var(--font-sans), Arial, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 650;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.fieldLabel input,
+.fieldLabel select,
+.fieldLabel textarea {
+  min-height: 50px;
+  box-sizing: border-box;
+  border: 1px solid rgba(239, 245, 241, 0.5);
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  letter-spacing: normal;
+  padding: 12px;
+  text-transform: none;
+}
+
+.fieldLabel textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.messageField {
+  grid-column: 1 / -1;
+}
+
+.formFoot {
+  display: flex;
+  justify-content: flex-end;
+  gap: 18px;
+  align-items: center;
+}
+
+.formNote {
+  max-width: 38ch;
+  margin: 0;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+
+.formButton {
+  background: var(--ink);
+  color: var(--ice);
+}
+
+.cta {
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  padding: 80px 32px;
+  background: var(--red);
+  color: var(--ink);
+  text-align: center;
+}
+
+.ctaHeading {
+  max-width: 10ch;
+  margin: 0 0 22px;
+  font-family: var(--font-narrow), "Arial Narrow", Arial, sans-serif;
+  font-size: clamp(4rem, 9vw, 9rem);
+  font-weight: 400;
+  letter-spacing: -0.08em;
+  line-height: 0.8;
+}
+
+.ctaBody {
+  max-width: 40ch;
+  margin: 0 auto 30px;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.25rem;
+  line-height: 1.35;
+}
+
+.ctaLink {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.inventoryImage {
+  width: 1px;
+  height: 1px;
+}
+
+@media (max-width: 900px) {
+  .section,
+  .banner {
+    --detail-height: var(--detail-height-tablet);
+  }
+
+  .bannerContent,
+  .contentWrap,
+  .galleryHeading,
+  .galleryFrame,
+  .galleryControls,
+  .accordionGrid,
+  .highlightIntro,
+  .highlightCategories,
+  .tripRail,
+  .itineraryHeader,
+  .dayList,
+  .ratesHeader,
+  .rateGrid,
+  .formWrap {
+    width: min(100% - 44px, 760px);
+  }
+
+  .bannerContent {
+    padding: 0;
+  }
+
+  .banner[data-detail-family="enquire"] + .formSection {
+    margin-top: -358px;
+  }
+
+  .banner[data-detail-family="enquire"] .bannerContent {
+    transform: translateY(-142px);
+  }
+
+  .banner[data-detail-family="enquire"] + .formSection .formWrap {
+    width: calc(100% - 150px);
+    padding: 116px 20px 80px;
+  }
+
+  .narrativeGrid,
+  .accordionGrid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  /* Keep the tablet feature panel in its measured two-column split so the
+     image's intrinsic aspect ratio cannot turn the authored section height
+     into a content minimum. */
+  .section[data-detail-section="feature-2"] .narrativeGrid {
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  }
+
+  .operationGroup {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .operationImage {
+    min-height: 320px;
+  }
+
+  .operationImage img {
+    min-height: 320px;
+  }
+
+  .highlightCategories {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tripRail {
+    grid-template-columns: repeat(3, minmax(180px, 1fr));
+  }
+
+  .tripRail > :nth-child(n + 4) {
+    display: none;
+  }
+
+  .rateGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .ratesHeader,
+  .rateGrid {
+    width: 100%;
+  }
+
+  .seasonTabs {
+    flex-direction: column;
+  }
+
+  .seasonTab {
+    width: 100%;
+  }
+
+  .dayList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  /* The tablet accordion content ends above the authored panel boundary;
+     trim only the surplus bottom inset so its min-content height stays in
+     that boundary without hiding any summary rows. */
+  .section[data-detail-section="amenities"] {
+    padding-bottom: 61px;
+  }
+}
+
+@media (max-width: 600px) {
+  .section,
+  .banner {
+    --detail-height: var(--detail-height-mobile);
+  }
+
+  .bannerContent,
+  .contentWrap,
+  .galleryHeading,
+  .galleryFrame,
+  .galleryControls,
+  .accordionGrid,
+  .highlightIntro,
+  .highlightCategories,
+  .tripRail,
+  .itineraryHeader,
+  .dayList,
+  .ratesHeader,
+  .rateGrid,
+  .formWrap {
+    width: calc(100% - 32px);
+  }
+
+  .bannerContent {
+    padding: 0;
+  }
+
+  .bannerTitle {
+    font-size: 2.5rem;
+    line-height: 1.05;
+  }
+
+  .bannerLede {
+    max-width: 34ch;
+    font-size: 1.02rem;
+  }
+
+  .heroKicker {
+    margin-bottom: 40px;
+    font-size: 2rem;
+  }
+
+  .banner[data-detail-family="about-founders"] .bannerTitle,
+  .banner[data-detail-family="about-foundation"] .bannerTitle,
+  .banner[data-detail-family="about-sustainability"] .bannerTitle,
+  .banner[data-detail-family="operations"] .bannerTitle,
+  .banner[data-detail-family="region"] .bannerTitle {
+    font-size: 2.5rem;
+    white-space: normal;
+  }
+
+  .banner[data-detail-family="camp"] .bannerTitle,
+  .banner[data-detail-family="journey"] .bannerTitle {
+    font-size: 2.5rem;
+  }
+
+  .banner[data-detail-family="journey"] .bannerTitle {
+    font-size: 2rem;
+    line-height: 1;
+  }
+
+  .banner[data-detail-family="prices"] .bannerTitle,
+  .banner[data-detail-family="enquire"] .bannerTitle {
+    font-size: 2rem;
+  }
+
+  .banner[data-detail-family="aviation"] .heroKicker {
+    font-size: 2rem;
+    white-space: nowrap;
+  }
+
+  .banner[data-detail-family="aviation"] .bannerTitle {
+    top: calc(50% + 110px);
+    font-size: 4.5rem;
+  }
+
+  .banner[data-detail-family="enquire"] .bannerContent {
+    transform: translateY(-100px);
+  }
+
+  .banner[data-detail-family="journey"] .bannerLede {
+    max-width: 330px;
+    font-size: 1rem;
+  }
+
+  .banner[data-detail-family="camp"] .bannerLede,
+  .banner[data-detail-family="prices"] .bannerLede,
+  .banner[data-detail-family="enquire"] .bannerLede {
+    max-width: 300px;
+  }
+
+  .detailNav {
+    top: auto;
+    bottom: 0;
+    height: 80px;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding: 0 16px;
+  }
+
+  .detailNavList {
+    justify-content: flex-start;
+    gap: 5px;
+    width: max-content;
+  }
+
+  .contentWrap,
+  .accordion,
+  .highlights,
+  .itinerary,
+  .rates,
+  .formSection {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .narrativeGrid {
+    gap: 34px;
+  }
+
+  .section[data-detail-section="feature-2"] .narrativeGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .section[data-detail-section="flight-intro"] .contentWrap {
+    padding-bottom: 42px;
+  }
+
+  .regionSticky {
+    padding: 60px 0 0;
+  }
+
+  .regionStickyInner {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 80px;
+  }
+
+  .regionStickyMedia,
+  .regionStickyCopy {
+    width: 100%;
+    flex: none;
+  }
+
+  .operationGroup {
+    padding: 38px 0;
+  }
+
+  .operationImage,
+  .operationImage img {
+    min-height: 240px;
+  }
+
+  .peopleList {
+    grid-template-columns: 1fr;
+    font-size: 1.1rem;
+  }
+
+  .sectionHeading {
+    max-width: 10ch;
+    font-size: clamp(3rem, 17vw, 5.3rem);
+  }
+
+  .narrativeBody {
+    font-size: 1rem;
+  }
+
+  .mediaPanel {
+    min-height: 330px;
+  }
+
+  .splitRail {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 34px;
+  }
+
+  .splitRailItem:nth-child(n + 3) {
+    display: none;
+  }
+
+  .teamGrid,
+  .cardGrid,
+  .optionGrid,
+  .textGrid,
+  .dayList {
+    grid-template-columns: 1fr;
+  }
+
+  .teamMember,
+  .simpleCard {
+    min-height: 210px;
+    padding: 22px;
+  }
+
+  .scrubBody {
+    max-width: 11ch;
+    font-size: clamp(3.5rem, 18vw, 6.5rem);
+  }
+
+  .quoteText {
+    max-width: 13ch;
+    font-size: clamp(2.15rem, 10vw, 3.2rem);
+  }
+
+  /* Keep the longer aviation attribution readable inside its measured
+     mobile quote panel instead of allowing the text minimum to grow it. */
+  .section[data-detail-section="informed-decisions"] {
+    padding-top: 57px;
+    padding-bottom: 57px;
+  }
+
+  .section[data-detail-section="informed-decisions"] .quoteText {
+    max-width: none;
+    font-size: 2rem;
+  }
+
+  .gallery {
+    padding: 72px 0;
+  }
+
+  .galleryFrame {
+    height: 64vw;
+    min-height: 270px;
+  }
+
+  .galleryHeading {
+    margin-bottom: 28px;
+    font-size: clamp(3.2rem, 16vw, 5.2rem);
+  }
+
+  .highlightCategories,
+  .tripRail {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 42px;
+  }
+
+  .highlightCategory {
+    min-height: 0;
+    padding: 18px 0;
+  }
+
+  .tripRail {
+    margin-top: 45px;
+  }
+
+  .tripRail > :nth-child(n + 3) {
+    display: none;
+  }
+
+  .flickCard {
+    min-height: 300px;
+  }
+
+  .dayList {
+    margin-top: 48px;
+  }
+
+  .dayCard {
+    min-height: 190px;
+  }
+
+  .rateCard {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    min-height: 0;
+    padding: 10px;
+  }
+
+  .rateImage {
+    height: 330px;
+  }
+
+  .rateBody {
+    position: static;
+    padding: 0 10px;
+    font-size: 1rem;
+  }
+
+  .rateCard a {
+    justify-self: start;
+  }
+
+  .formIntro {
+    margin-bottom: 48px;
+  }
+
+  .banner[data-detail-family="enquire"] + .formSection {
+    margin-top: -295px;
+  }
+
+  .banner[data-detail-family="enquire"] + .formSection .formWrap {
+    width: calc(100% - 24px);
+    padding: 78px 20px 64px;
+  }
+
+  .seasonOptionGrid {
+    gap: 24px;
+  }
+
+  .seasonChoice .optionLabel {
+    min-height: 94px;
+  }
+
+  .formFoot {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .formButton {
+    width: 100%;
+  }
+
+  .rates {
+    margin: 0;
+    padding: 63px 20px 72px;
+    border-radius: 0;
+  }
+
+  .ratesHeader,
+  .rateGrid {
+    width: 100%;
+  }
+
+  .seasonTabs {
+    flex-direction: column;
+    margin: 21px 0 33px;
+  }
+
+  .seasonTab {
+    width: 100%;
+    min-height: 42px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .splitRailItem img {
+    transition: none;
+  }
+
+  .galleryItem {
+    transition: none;
+  }
+}

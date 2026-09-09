@@ -26,3 +26,14 @@ jobs:
       - run: pnpm test:unit
       - run: pnpm build
       - run: pnpm test:e2e
+      - run: pnpm test:revision
+      - name: Contact reference fidelity
+        run: |
+          pnpm start --hostname 127.0.0.1 --port 4196 > /tmp/contact-server.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          for attempt in $(seq 1 30); do
+            if curl --silent --fail http://127.0.0.1:4196/contact > /dev/null; then break; fi
+            sleep 1
+          done
+          pnpm fidelity:contact

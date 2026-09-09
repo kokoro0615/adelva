@@ -1,0 +1,158 @@
+{
+  "schemaVersion": "full-page-section-manifest/v1",
+  "manifestId": "enquire-reference-v1",
+  "role": "reference",
+  "route": "/enquire",
+  "family": "enquiry-form",
+  "scope": {
+    "kind": "route-content",
+    "id": "enquire-content"
+  },
+  "source": {
+    "url": "https://white-desert.com",
+    "requestedRoute": "/enquire",
+    "finalRoutes": ["/enquire"],
+    "observedAt": "2026-08-31T01:13:05.775Z",
+    "contentRoot": ".page-content",
+    "status": "pending-capture",
+    "captureMode": "manifest-only",
+    "evidenceStatus": "pending-capture"
+  },
+  "requiredViewports": ["desktop", "tablet", "mobile"],
+  "tolerances": {
+    "boundsPx": 2,
+    "scrollHeightPx": 2
+  },
+  "domTopology": {
+    "scope": ".page-content",
+    "directChildren": ["hero", "when-do-you-want-to-travel"]
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "semantic": "div | fixed-banner-loader | Start Planning",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Start Planning",
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F7c7f6f64913081fc99d82a953ea0021ca5e85867-2048x1365.jpg&w=3840&q=90"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 585,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 665.59,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 548.59,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "when-do-you-want-to-travel",
+      "semantic": "div | container-large | When do you want to travel?",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "When do you want to travel?",
+      "keyLinks": ["/prices", "/enquire"],
+      "assets": [
+        "https://cdn.sanity.io/images/kq9qn5zn/production/0ee4e5b98050ef062a7ae2f17f027eec6589d4db-120x32.svg"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 12,
+          "y": 585,
+          "width": 1416,
+          "height": 3051.75,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 12,
+          "y": 665.59,
+          "width": 744,
+          "height": 3641.61,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 12,
+          "y": 548.59,
+          "width": 366,
+          "height": 3528.25,
+          "pinned": false
+        }
+      }
+    }
+  ],
+  "viewports": {
+    "desktop": {
+      "width": 1440,
+      "height": 900,
+      "scrollHeight": 4578,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/enquire-1440x900-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "tablet": {
+      "width": 768,
+      "height": 1024,
+      "scrollHeight": 5331,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/enquire-768x1024-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "scrollHeight": 6189,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/enquire-390x844-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    }
+  },
+  "motion": {
+    "status": "incomplete",
+    "unknown": [
+      "motion evidence remains pending until four phase captures exist for every layer and viewport"
+    ],
+    "layers": []
+  }
+}

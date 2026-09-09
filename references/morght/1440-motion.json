@@ -1,0 +1,41 @@
+{
+  "geometry": {
+    "start": 3446.609375,
+    "height": 3150,
+    "viewport": 900
+  },
+  "samples": [
+    {
+      "state": "start",
+      "scrollY": 3447,
+      "clip": "576px",
+      "image": "576px",
+      "ring": "1",
+      "path": "references/morght/1440-circle-start.png"
+    },
+    {
+      "state": "mid",
+      "scrollY": 4572,
+      "clip": "1137.44px",
+      "image": "1417.78px",
+      "ring": "0",
+      "path": "references/morght/1440-circle-mid.png"
+    },
+    {
+      "state": "end",
+      "scrollY": 5697,
+      "clip": "1698.11px",
+      "image": "1698.11px",
+      "ring": "0",
+      "path": "references/morght/1440-circle-end.png"
+    },
+    {
+      "state": "reverse",
+      "scrollY": 3447,
+      "clip": "576px",
+      "image": "576.375px",
+      "ring": "1",
+      "path": "references/morght/1440-circle-reverse.png"
+    }
+  ]
+}

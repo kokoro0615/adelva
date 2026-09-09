@@ -1,0 +1,1626 @@
+{
+  "id": "97:75",
+  "size": [
+    390,
+    6954
+  ],
+  "sections": [
+    {
+      "id": "98:196",
+      "name": "01 / HERO",
+      "y": 0,
+      "h": 843,
+      "texts": [
+        {
+          "id": "98:202",
+          "text": "ADELVA",
+          "font": "Oswald/Medium",
+          "size": 22,
+          "box": [
+            61.083251953125,
+            21,
+            112,
+            32
+          ],
+          "line": 32,
+          "missing": false
+        },
+        {
+          "id": "98:207",
+          "text": "HOME / 課題から探す",
+          "font": "Noto Sans JP/Regular",
+          "size": 11,
+          "box": [
+            20,
+            80,
+            350,
+            20
+          ],
+          "line": 20,
+          "missing": false
+        },
+        {
+          "id": "98:209",
+          "text": "オーナー・経営者の方へ",
+          "font": "Noto Sans JP/Regular",
+          "size": 14,
+          "box": [
+            20,
+            125,
+            350,
+            24
+          ],
+          "line": 24,
+          "missing": false
+        },
+        {
+          "id": "98:211",
+          "text": "経営判断を、\n実行可能な\n改善計画へ。",
+          "font": "Noto Serif JP/Medium",
+          "size": 32,
+          "box": [
+            20,
+            154,
+            350,
+            114
+          ],
+          "line": 38,
+          "missing": false
+        },
+        {
+          "id": "98:213",
+          "text": "ホテル・旅館の経営と現場を、\n一つの改善計画につなぐ。",
+          "font": "Noto Sans JP/Regular",
+          "size": 14,
+          "box": [
+            20,
+            295,
+            350,
+            44
+          ],
+          "line": 22,
+          "missing": false
+        },
+        {
+          "id": "I98:214;22:3",
+          "text": "問い合わせを送信",
+          "font": "Noto Sans JP/Regular",
+          "size": 15,
+          "box": [
+            118.5,
+            369.5,
+            120,
+            28
+          ],
+          "line": 28,
+          "missing": false
+        },
+        {
+          "id": "I98:214;22:4",
+          "text": "→",
+          "font": "Noto Sans JP/Regular",
+          "size": 22,
+          "box": [
+            248.5,
+            369.5,
+            22,
+            28
+          ],
+          "line": 28,
+          "missing": false
+        },
+        {
+          "id": "98:218",
+          "text": "OWNERS",
+          "font": "League Gothic/Regular",
+          "size": 96,
+          "box": [
+            16,
+            603,
+            350,
+            100
+          ],
+          "line": 100,
+          "missing": false
+        },
+        {
+          "id": "98:220",
+          "text": "& EXECUTIVES",
+          "font": "League Gothic/Regular",
+          "size": 64,
+          "box": [
+            16,
+            690,
+            366,
+            66
+          ],
+          "line": 66,
+          "missing": false
+        }
+      ],
+      "images": [
+        {
+          "id": "98:197",
+          "name": "Photo / Mountain hotel and water",
+          "hash": "0e80db87cee40b405ca6610c97cf9bec106f6f01"
+        }
+      ]
+    },
+    {
+      "id": "102:127",
+      "name": "02 / 経営局面",
+      "y": 843,
+      "h": 680,
+      "texts": [
+        {
+          "id": "102:129",
+          "text": "01",
+          "font": "Noto Serif JP/Regular",
+          "size": 14,
+          "box": [
+            20,
+            52,
+            350,
+            23
+          ],
+          "line": 23,
+          "missing": false
+        },
+        {
+          "id": "102:132",
+          "text": "いま、どの経営局面に\nありますか。",
+          "font": "Noto Serif JP/SemiBold",
+          "size": 33,
+          "box": [
+            20,
+            91,
+            354,
+            88
+          ],
+          "line": 44,
+          "missing": false
+        },
+        {
+          "id": "102:134",
+          "text": "01",
+          "font": "Noto Serif JP/Regular",
+          "size": 25,
+          "box": [
+            20,
+            229,
+            43,
+            36
+          ],
+          "line": 36,
+          "missing": false
+        },
+        {
+          "id": "102:137",
+          "text": "経営・収益",
+          "font": "Noto Serif JP/SemiBold",
+          "size": 29,
+          "box": [
+            86,
+            219,
+            259,
+            40
+          ],
+          "line": 40,
+          "missing": false
+        },
+        {
+          "id": "102:138",
+          "text": "原因と優先順位を整理する",
+          "font": "Noto Sans JP/Regular",
+          "size": 16,
+          "box": [
+            86,
+            259,
+            259,
+            27
+          ],
+          "line": 27,
+          "missing": false
+        },
+        {
+          "id": "102:143",
+          "text": "02",
+          "font": "Noto Serif JP/Regular",
+          "size": 25,
+          "box": [
+            20,
+            344.5,
+            43,
+            36
+          ],
+          "line": 36,
+          "missing": false
+        },
+        {
+          "id": "102:146",
+          "text": "開業・再建",
+          "font": "Noto Serif JP/SemiBold",
+          "size": 29,
+          "box": [
+            86,
+            334.5,
+            259,
+            40
+          ],
+          "line": 40,
+          "missing": false
+        },
+        {
+          "id": "102:147",
+          "text": "運営体制を整える",
+          "font": "Noto Sans JP/Regular",
+          "size": 16,
+          "box": [
+            86,
+            374.5,
+            259,
+            27
+          ],
+          "line": 27,
+          "missing": false
+        },
+        {
+          "id": "102:152",
+          "text": "03",
+          "font": "Noto Serif JP/Regular",
+          "size": 25,
+          "box": [
+            20,
+            460,
+            43,
+            36
+          ],
+          "line": 36,
+          "missing": false
+        },
+        {
+          "id": "102:155",
+          "text": "GM不在",
+          "font": "Noto Serif JP/SemiBold",
+          "size": 29,
+          "box": [
+            86,
+            450,
+            259,
+            40
+          ],
+          "line": 40,
+          "missing": false
+        },
+        {
+          "id": "102:156",
+          "text": "GM機能と権限を整理する",
+          "font": "Noto Sans JP/Regular",
+          "size": 16,
+          "box": [
+            86,
+            490,
+            259,
+            27
+          ],
+          "line": 27,
+          "missing": false
+        },
+        {
+          "id": "102:161",
+          "text": "04",
+          "font": "Noto Serif JP/Regular",
+          "size": 25,
+          "box": [
+            20,
+            575.5,
+            43,
+            36
+          ],
+          "line": 36,
+          "missing": false
+        },
+        {
+          "id": "102:164",
+          "text": "投資判断",
+          "font": "Noto Serif JP/SemiBold",
+          "size": 29,
+          "box": [
+            86,
+            565.5,
+            259,
+            40
+          ],
+          "line": 40,
+          "missing": false
+        },
+        {
+          "id": "102:165",
+          "text": "投資対象と実行条件を見極める",
+          "font": "Noto Sans JP/Regular",
+          "size": 16,
+          "box": [
+            86,
+            605.5,
+            259,
+            27
+          ],
+          "line": 27,
+          "missing": false
+        }
+      ],
+      "images": []
+    },
+    {
+      "id": "103:26",
+      "name": "03 / 判断の整理",
+      "y": 1523,
+      "h": 780,
+      "texts": [
+        {
+          "id": "103:28",
+          "text": "02",
+          "font": "Noto Serif JP/Regular",
+          "size": 22,
+          "box": [
+            25,
+            54,
+            28,
+            28
+          ],
+          "line": 28,
+          "missing": false
+        },
+        {
+          "id": "103:29",
+          "text": "/  判断の整理",
+          "font": "Noto Sans JP/Regular",
+          "size": 13,
+          "box": [
+            62,
+            57,
+            270,
+            22
+          ],
+          "line": 22,
+          "missing": false
+        },
+        {
+          "id": "103:32",
+          "text": "最初に、\n決めること。",
+          "font": "Noto Serif JP/SemiBold",
+          "size": 33,
+          "box": [
+            25,
+            110,
+            340,
+            82
+          ],
+          "line": 41,
+          "missing": false
+        },
+        {
+          "id": "103:34",
+          "text": "支援内容を選ぶ前に、\n判断の論点を整理します。",
+          "font": "Noto Sans JP/Regular",
+          "size": 15,
+          "box": [
+            26,
+            205,
+            338,
+            46
+          ],
+          "line": 23,
+          "missing": false
+        },
+        {
+          "id": "103:38",
+          "text": "01",
+          "font": "Noto Serif JP/Regular",
+          "size": 32,
+          "box": [
+            25,
+            548,
+            55,
+            45
+          ],
+          "line": 45,
+          "missing": false
+        },
+        {
+          "id": "103:40",
+          "text": "原因・優先順位",
+          "font": "Noto Serif JP/Medium",
+          "size": 18,
+          "box": [
+            88,
+            555,
+            247,
+            30
+          ],
+          "line": 30,
+          "missing": false
+        },
+        {
+          "id": "103:45",
+          "text": "02",
+          "font": "Noto Serif JP/Regular",
+          "size": 32,
+          "box": [
+            25,
+            601.5,
+            55,
+            45
+          ],
+          "line": 45,
+          "missing": false
+        },
+        {
+          "id": "103:47",
+          "text": "運営モデル",
+          "font": "Noto Serif JP/Medium",
+          "size": 18,
+          "box": [
+            88,
+            608.5,
+            247,
+            30
+          ],
+          "line": 30,
+          "missing": false
+        },
+        {
+          "id": "103:52",
+          "text": "03",
+          "font": "Noto Serif JP/Regular",
+          "size": 32,
+          "box": [
+            25,
+            655,
+            55,
+            45
+          ],
+          "line": 45,
+          "missing": false
+        },
+        {
+          "id": "103:54",
+          "text": "投資対象",
+          "font": "Noto Serif JP/Medium",
+          "size": 18,
+          "box": [
+            88,
+            662,
+            247,
+            30
+          ],
+          "line": 30,
+          "missing": false
+        },
+        {
+          "id": "103:59",
+          "text": "04",
+          "font": "Noto Serif JP/Regular",
+          "size": 32,
+          "box": [
+            25,
+            708.5,
+            55,
+            45
+          ],
+          "line": 45,
+          "missing": false
+        },
+        {
+          "id": "103:61",
+          "text": "実行責任者",
+          "font": "Noto Serif JP/Medium",
+          "size": 18,
+          "box": [
+            88,
+            715.5,
+            247,
+            30
+          ],
+          "line": 30,
+          "missing": false
+        }
+      ],
+      "images": [
+        {
+          "id": "103:35",
+          "name": "Photo / Corridor / Decision point",
+          "hash": "5afcb7adfebcb90652c5b88f49ffcf98eb14293e"
+        }
+      ]
+    },
+    {
+      "id": "103:256",
+      "name": "04 / 支援の組み合わせ 01・02",
+      "y": 2303,
+      "h": 759,
+      "texts": [
+        {
+          "id": "103:258",
+          "text": "03",
+          "font": "Oswald/Bold",
+          "size": 24,
+          "box": [
+            24,
+            50,
+            28,
+            28
+          ],
+          "line": 28,
+          "missing": false
+        },
+        {
+          "id": "103:259",
+          "text": "/  支援の組み合わせ",
+          "font": "Noto Sans JP/Regular",
+          "size": 13,
+          "box": [
+            61,
+            53,
+            270,
+            22
+          ],
+          "line": 22,
+          "missing": false
+        },
+        {
+          "id": "103:261",
+          "text": "判断に応じて、\n支援を組み合わせる。",
+          "font": "Noto Serif JP/Medium",
+          "size": 33.5,
+          "box": [
+            24,
+            101,
+            342,
+            90
+          ],
+          "line": 45,
+          "missing": false
+        },
+        {
+          "id": "103:266",
+          "text": "経営局面",
+          "font": "Noto Sans JP/Regular",
+          "size": 12,
+          "box": [
+            85,
+            213,
+            281,
+            22
+          ],
+          "line": 22,
+          "missing": false
+        },
+        {
+          "id": "103:267",
+          "text": "経営・収益",
+          "font": "Noto Serif JP/Medium",
+          "size": 26,
+          "box": [
+            85,
+            235,
+            281,
+            36
+          ],
+          "line": 36,
+          "missing": false
+        },
+        {
+          "id": "103:270",
+          "text": "支援の組み合わせ",
+          "font": "Noto Sans JP/Regular",
+          "size": 12,
+          "box": [
+            85,
+            295,
+            281,
+            22
+          ],
+          "line": 22,
+          "missing": false
+        },
+        {
+          "id": "103:271",
+          "text": "経営診断 × 収益改善",
+          "font": "Noto Serif JP/Medium",
+          "size": 26,
+          "box": [
+            85,
+            317,
+            281,
+            36
+          ],
+          "line": 36,
+          "missing": false
+        },
+        {
+          "id": "103:274",
+          "text": "整理すること",
+          "font": "Noto Sans JP/Regular",
+          "size": 12,
+          "box": [
+            85,
+            377,
+            281,
+            22
+          ],
+          "line": 22,
+          "missing": false
+        },
+        {
+          "id": "103:275",
+          "text": "原因と優先順位",
+          "font": "Noto Serif JP/Medium",
+          "size": 26,
+          "box": [
+            85,
+            399,
+            281,
+            36
+          ],
+          "line": 36,
+          "missing": false
+        },
+        {
+          "id": "103:281",
+          "text": "経営局面",
+          "font": "Noto Sans JP/Regular",
+          "size": 12,
+          "box": [
+            85,
+            485,
+            281,
+            22
+          ],
+          "line": 22,
+          "missing": false
+        },
+        {
+          "id": "103:282",
+          "text": "開業・再建",
+          "font": "Noto Serif JP/Medium",
+          "size": 26,
+          "box": [
+            85,
+            507,
+            281,
+            36
+          ],
+          "line": 36,
+          "missing": false
+        },
+        {
+          "id": "103:285",
+          "text": "支援の組み合わせ",
+          "font": "Noto Sans JP/Regular",
+          "size": 12,
+          "box": [
+            85,
+            567,
+            281,
+            22
+          ],
+          "line": 22,
+          "missing": false
+        },
+        {
+          "id": "103:286",
+          "text": "開業支援 × 運営体制",
+          "font": "Noto Serif JP/Medium",
+          "size": 26,
+          "box": [
+            85,
+            589,
+            281,
+            36
+          ],
+          "line": 36,
+          "missing": false
+        },
+        {
+          "id": "103:289",
+          "text": "整理すること",
+          "font": "Noto Sans JP/Regular",
+          "size": 12,
+          "box": [
+            85,
+            649,
+            281,
+            22
+          ],
+          "line": 22,
+          "missing": false
+        },
+        {
+          "id": "103:290",
+          "text": "運営モデル",
+          "font": "Noto Serif JP/Medium",
+          "size": 26,
+          "box": [
+            85,
+            671,
+            281,
+            36
+          ],
+          "line": 36,
+          "missing": false
+        }
+      ],
+      "images": []
+    },
+    {
+      "id": "104:119",
+      "name": "05 / 支援の組み合わせ 03・04",
+      "y": 3062,
+      "h": 741,
+      "texts": [
+        {
+          "id": "104:124",
+          "text": "経営局面",
+          "font": "Noto Sans JP/Regular",
+          "size": 12,
+          "box": [
+            87,
+            42,
+            279,
+            22
+          ],
+          "line": 22,
+          "missing": false
+        },
+        {
+          "id": "104:125",
+          "text": "GM不在",
+          "font": "Noto Serif JP/Medium",
+          "size": 28,
+          "box": [
+            87,
+            64,
+            279,
+            37
+          ],
+          "line": 37,
+          "missing": false
+        },
+        {
+          "id": "104:128",
+          "text": "支援の組み合わせ",
+          "font": "Noto Sans JP/Regular",
+          "size": 12,
+          "box": [
+            87,
+            124,
+            279,
+            22
+          ],
+          "line": 22,
+          "missing": false
+        },
+        {
+          "id": "104:129",
+          "text": "GM機能 × 現場運営",
+          "font": "Noto Serif JP/Medium",
+          "size": 28,
+          "box": [
+            87,
+            146,
+            279,
+            37
+          ],
+          "line": 37,
+          "missing": false
+        },
+        {
+          "id": "104:132",
+          "text": "整理すること",
+          "font": "Noto Sans JP/Regular",
+          "size": 12,
+          "box": [
+            87,
+            206,
+            279,
+            22
+          ],
+          "line": 22,
+          "missing": false
+        },
+        {
+          "id": "104:133",
+          "text": "権限と実行体制",
+          "font": "Noto Serif JP/Medium",
+          "size": 28,
+          "box": [
+            87,
+            228,
+            279,
+            37
+          ],
+          "line": 37,
+          "missing": false
+        },
+        {
+          "id": "104:139",
+          "text": "経営局面",
+          "font": "Noto Sans JP/Regular",
+          "size": 12,
+          "box": [
+            87,
+            318,
+            279,
+            22
+          ],
+          "line": 22,
+          "missing": false
+        },
+        {
+          "id": "104:140",
+          "text": "投資判断",
+          "font": "Noto Serif JP/Medium",
+          "size": 28,
+          "box": [
+            87,
+            340,
+            279,
+            37
+          ],
+          "line": 37,
+          "missing": false
+        },
+        {
+          "id": "104:143",
+          "text": "支援の組み合わせ",
+          "font": "Noto Sans JP/Regular",
+          "size": 12,
+          "box": [
+            87,
+            400,
+            279,
+            22
+          ],
+          "line": 22,
+          "missing": false
+        },
+        {
+          "id": "104:144",
+          "text": "経営判断 × DX・IT",
+          "font": "Noto Serif JP/Medium",
+          "size": 28,
+          "box": [
+            87,
+            422,
+            279,
+            37
+          ],
+          "line": 37,
+          "missing": false
+        },
+        {
+          "id": "104:147",
+          "text": "整理すること",
+          "font": "Noto Sans JP/Regular",
+          "size": 12,
+          "box": [
+            87,
+            482,
+            279,
+            22
+          ],
+          "line": 22,
+          "missing": false
+        },
+        {
+          "id": "104:148",
+          "text": "投資対象と実行条件",
+          "font": "Noto Serif JP/Medium",
+          "size": 28,
+          "box": [
+            87,
+            504,
+            279,
+            37
+          ],
+          "line": 37,
+          "missing": false
+        },
+        {
+          "id": "104:151",
+          "text": "必要な範囲に応じて、\n単独の支援も選択できます。",
+          "font": "Noto Sans JP/Regular",
+          "size": 14,
+          "box": [
+            25,
+            591,
+            342,
+            48
+          ],
+          "line": 24,
+          "missing": false
+        },
+        {
+          "id": "104:153",
+          "text": "診断と実行、GM機能と全面運営、\n導入支援と開発を区別します。",
+          "font": "Noto Sans JP/Regular",
+          "size": 14,
+          "box": [
+            25,
+            655,
+            342,
+            48
+          ],
+          "line": 24,
+          "missing": false
+        }
+      ],
+      "images": []
+    },
+    {
+      "id": "104:286",
+      "name": "06 / 責任分界",
+      "y": 3803,
+      "h": 730,
+      "texts": [
+        {
+          "id": "104:288",
+          "text": "04",
+          "font": "Noto Serif JP/Regular",
+          "size": 22,
+          "box": [
+            24,
+            56,
+            28,
+            28
+          ],
+          "line": 28,
+          "missing": false
+        },
+        {
+          "id": "104:289",
+          "text": "/  責任分界",
+          "font": "Noto Sans JP/Regular",
+          "size": 13,
+          "box": [
+            61,
+            59,
+            270,
+            22
+          ],
+          "line": 22,
+          "missing": false
+        },
+        {
+          "id": "104:292",
+          "text": "誰が決め、誰が実行し、\n何を残すか。",
+          "font": "Noto Serif JP/SemiBold",
+          "size": 29,
+          "box": [
+            24,
+            110,
+            343,
+            80
+          ],
+          "line": 40,
+          "missing": false
+        },
+        {
+          "id": "104:295",
+          "text": "オーナー・経営者",
+          "font": "Noto Serif JP/Medium",
+          "size": 20,
+          "box": [
+            57,
+            225,
+            305,
+            32
+          ],
+          "line": 32,
+          "missing": false
+        },
+        {
+          "id": "104:299",
+          "text": "GM・現場",
+          "font": "Noto Serif JP/Medium",
+          "size": 20,
+          "box": [
+            57,
+            288.5,
+            305,
+            32
+          ],
+          "line": 32,
+          "missing": false
+        },
+        {
+          "id": "104:303",
+          "text": "ADELVA",
+          "font": "Noto Serif JP/Medium",
+          "size": 20,
+          "box": [
+            57,
+            352,
+            305,
+            32
+          ],
+          "line": 32,
+          "missing": false
+        },
+        {
+          "id": "104:307",
+          "text": "外部関係者",
+          "font": "Noto Serif JP/Medium",
+          "size": 20,
+          "box": [
+            57,
+            415.5,
+            305,
+            32
+          ],
+          "line": 32,
+          "missing": false
+        },
+        {
+          "id": "104:310",
+          "text": "意思決定・権限・担当範囲・\n成果物を合意する",
+          "font": "Noto Serif JP/Medium",
+          "size": 21,
+          "box": [
+            24,
+            499,
+            342,
+            60
+          ],
+          "line": 30,
+          "missing": false
+        },
+        {
+          "id": "104:312",
+          "text": "権限・担当範囲・条件は、\n個別の契約で確認します。",
+          "font": "Noto Sans JP/Regular",
+          "size": 14,
+          "box": [
+            25,
+            573,
+            341,
+            48
+          ],
+          "line": 24,
+          "missing": false
+        },
+        {
+          "id": "I104:313;22:3",
+          "text": "総支配人・現場責任者の方へ",
+          "font": "Noto Sans JP/Regular",
+          "size": 14,
+          "box": [
+            88,
+            648,
+            182,
+            28
+          ],
+          "line": 28,
+          "missing": false
+        },
+        {
+          "id": "I104:313;22:4",
+          "text": "→",
+          "font": "Noto Sans JP/Regular",
+          "size": 22,
+          "box": [
+            280,
+            648,
+            22,
+            28
+          ],
+          "line": 28,
+          "missing": false
+        }
+      ],
+      "images": []
+    },
+    {
+      "id": "106:219",
+      "name": "07 / 実行から引継ぎまで",
+      "y": 4533,
+      "h": 901,
+      "texts": [
+        {
+          "id": "106:221",
+          "text": "05",
+          "font": "Noto Serif JP/Regular",
+          "size": 22,
+          "box": [
+            24,
+            60,
+            28,
+            28
+          ],
+          "line": 28,
+          "missing": false
+        },
+        {
+          "id": "106:222",
+          "text": "/  実行から引継ぎまで",
+          "font": "Noto Sans JP/Regular",
+          "size": 13,
+          "box": [
+            61,
+            63,
+            270,
+            22
+          ],
+          "line": 22,
+          "missing": false
+        },
+        {
+          "id": "106:224",
+          "text": "経営指標を、\n現場の行動へ。",
+          "font": "Noto Serif JP/SemiBold",
+          "size": 38,
+          "box": [
+            23,
+            102,
+            345,
+            98
+          ],
+          "line": 49,
+          "missing": false
+        },
+        {
+          "id": "106:229",
+          "text": "01",
+          "font": "Noto Serif JP/Regular",
+          "size": 22,
+          "box": [
+            64,
+            515,
+            27,
+            31
+          ],
+          "line": 31,
+          "missing": false
+        },
+        {
+          "id": "106:230",
+          "text": "課題把握",
+          "font": "Noto Sans JP/Regular",
+          "size": 18,
+          "box": [
+            109,
+            515,
+            249,
+            31
+          ],
+          "line": 31,
+          "missing": false
+        },
+        {
+          "id": "106:234",
+          "text": "02",
+          "font": "Noto Serif JP/Regular",
+          "size": 22,
+          "box": [
+            64,
+            573.7998046875,
+            27,
+            31
+          ],
+          "line": 31,
+          "missing": false
+        },
+        {
+          "id": "106:235",
+          "text": "判断",
+          "font": "Noto Sans JP/Regular",
+          "size": 18,
+          "box": [
+            109,
+            573.7998046875,
+            249,
+            31
+          ],
+          "line": 31,
+          "missing": false
+        },
+        {
+          "id": "106:239",
+          "text": "03",
+          "font": "Noto Serif JP/Regular",
+          "size": 22,
+          "box": [
+            64,
+            632.60009765625,
+            27,
+            31
+          ],
+          "line": 31,
+          "missing": false
+        },
+        {
+          "id": "106:240",
+          "text": "実行・実装",
+          "font": "Noto Sans JP/Regular",
+          "size": 18,
+          "box": [
+            109,
+            632.60009765625,
+            249,
+            31
+          ],
+          "line": 31,
+          "missing": false
+        },
+        {
+          "id": "106:244",
+          "text": "04",
+          "font": "Noto Serif JP/Regular",
+          "size": 22,
+          "box": [
+            64,
+            691.39990234375,
+            27,
+            31
+          ],
+          "line": 31,
+          "missing": false
+        },
+        {
+          "id": "106:245",
+          "text": "運用",
+          "font": "Noto Sans JP/Regular",
+          "size": 18,
+          "box": [
+            109,
+            691.39990234375,
+            249,
+            31
+          ],
+          "line": 31,
+          "missing": false
+        },
+        {
+          "id": "106:249",
+          "text": "05",
+          "font": "Noto Serif JP/Regular",
+          "size": 22,
+          "box": [
+            64,
+            750.2001953125,
+            27,
+            31
+          ],
+          "line": 31,
+          "missing": false
+        },
+        {
+          "id": "106:250",
+          "text": "検証",
+          "font": "Noto Sans JP/Regular",
+          "size": 18,
+          "box": [
+            109,
+            750.2001953125,
+            249,
+            31
+          ],
+          "line": 31,
+          "missing": false
+        },
+        {
+          "id": "106:254",
+          "text": "06",
+          "font": "Noto Serif JP/Regular",
+          "size": 22,
+          "box": [
+            64,
+            809,
+            27,
+            31
+          ],
+          "line": 31,
+          "missing": false
+        },
+        {
+          "id": "106:255",
+          "text": "引継ぎ",
+          "font": "Noto Sans JP/Regular",
+          "size": 18,
+          "box": [
+            109,
+            809,
+            249,
+            31
+          ],
+          "line": 31,
+          "missing": false
+        }
+      ],
+      "images": [
+        {
+          "id": "106:225",
+          "name": "Photo / Terrace / Mountain pool",
+          "hash": "912d288f1070d812431501951c9c6a4402c95c33"
+        }
+      ]
+    },
+    {
+      "id": "106:256",
+      "name": "08 / 検証・引継ぎ",
+      "y": 5434,
+      "h": 580,
+      "texts": [
+        {
+          "id": "106:259",
+          "text": "06 / 検証・引継ぎ",
+          "font": "Noto Sans JP/Regular",
+          "size": 15,
+          "box": [
+            40,
+            63,
+            328,
+            26
+          ],
+          "line": 26,
+          "missing": false
+        },
+        {
+          "id": "106:261",
+          "text": "確認し、\n引き継げる状態へ。",
+          "font": "Noto Serif JP/SemiBold",
+          "size": 38,
+          "box": [
+            21,
+            111,
+            350,
+            102
+          ],
+          "line": 51,
+          "missing": false
+        },
+        {
+          "id": "106:263",
+          "text": "支援終了後も、継続して\n改善できる状態をつくります。",
+          "font": "Noto Sans JP/Regular",
+          "size": 18,
+          "box": [
+            21,
+            237,
+            347,
+            56
+          ],
+          "line": 28,
+          "missing": false
+        },
+        {
+          "id": "106:267",
+          "text": "担当範囲",
+          "font": "Noto Sans JP/Regular",
+          "size": 18,
+          "box": [
+            49,
+            321,
+            318,
+            29
+          ],
+          "line": 29,
+          "missing": false
+        },
+        {
+          "id": "106:272",
+          "text": "成果物",
+          "font": "Noto Sans JP/Regular",
+          "size": 18,
+          "box": [
+            49,
+            376.5,
+            318,
+            29
+          ],
+          "line": 29,
+          "missing": false
+        },
+        {
+          "id": "106:277",
+          "text": "意思決定記録",
+          "font": "Noto Sans JP/Regular",
+          "size": 18,
+          "box": [
+            49,
+            432,
+            318,
+            29
+          ],
+          "line": 29,
+          "missing": false
+        },
+        {
+          "id": "106:282",
+          "text": "検証・引継ぎ方法",
+          "font": "Noto Sans JP/Regular",
+          "size": 18,
+          "box": [
+            49,
+            487.5,
+            318,
+            29
+          ],
+          "line": 29,
+          "missing": false
+        }
+      ],
+      "images": []
+    },
+    {
+      "id": "107:28",
+      "name": "09 / CONTACT & FOOTER",
+      "y": 6014,
+      "h": 940,
+      "texts": [
+        {
+          "id": "107:31",
+          "text": "課題が整理できて\nいなくても、\nお問い合わせ\nいただけます。",
+          "font": "Noto Serif JP/SemiBold",
+          "size": 31,
+          "box": [
+            24,
+            46,
+            342,
+            144
+          ],
+          "line": 36,
+          "missing": false
+        },
+        {
+          "id": "I107:32;22:6",
+          "text": "問い合わせを送信",
+          "font": "Noto Sans JP/Medium",
+          "size": 18,
+          "box": [
+            86,
+            233,
+            144,
+            28
+          ],
+          "line": 28,
+          "missing": false
+        },
+        {
+          "id": "I107:32;22:7",
+          "text": "→",
+          "font": "Noto Sans JP/Medium",
+          "size": 22,
+          "box": [
+            240,
+            233,
+            22,
+            28
+          ],
+          "line": 28,
+          "missing": false
+        },
+        {
+          "id": "107:36",
+          "text": "ADELVA",
+          "font": "Oswald/Medium",
+          "size": 56,
+          "box": [
+            26,
+            473,
+            340,
+            76
+          ],
+          "line": 76,
+          "missing": false
+        },
+        {
+          "id": "107:39",
+          "text": "課題から探す",
+          "font": "Noto Sans JP/Regular",
+          "size": 20,
+          "box": [
+            27,
+            566,
+            295,
+            32
+          ],
+          "line": 32,
+          "missing": false
+        },
+        {
+          "id": "107:44",
+          "text": "支援内容",
+          "font": "Noto Sans JP/Regular",
+          "size": 20,
+          "box": [
+            27,
+            615.2998046875,
+            295,
+            32
+          ],
+          "line": 32,
+          "missing": false
+        },
+        {
+          "id": "107:49",
+          "text": "支援の進め方",
+          "font": "Noto Sans JP/Regular",
+          "size": 20,
+          "box": [
+            27,
+            664.599609375,
+            295,
+            32
+          ],
+          "line": 32,
+          "missing": false
+        },
+        {
+          "id": "107:54",
+          "text": "導入事例",
+          "font": "Noto Sans JP/Regular",
+          "size": 20,
+          "box": [
+            27,
+            713.900390625,
+            295,
+            32
+          ],
+          "line": 32,
+          "missing": false
+        },
+        {
+          "id": "107:59",
+          "text": "ADELVAについて",
+          "font": "Noto Sans JP/Regular",
+          "size": 20,
+          "box": [
+            27,
+            763.2001953125,
+            295,
+            32
+          ],
+          "line": 32,
+          "missing": false
+        },
+        {
+          "id": "107:64",
+          "text": "プライバシーポリシー\nサイトポリシー",
+          "font": "Noto Sans JP/Regular",
+          "size": 13,
+          "box": [
+            27,
+            832,
+            337,
+            46
+          ],
+          "line": 23,
+          "missing": false
+        },
+        {
+          "id": "107:66",
+          "text": "© ADELVA",
+          "font": "Noto Sans JP/Regular",
+          "size": 13,
+          "box": [
+            27,
+            886,
+            337,
+            23
+          ],
+          "line": 23,
+          "missing": false
+        }
+      ],
+      "images": [
+        {
+          "id": "107:29",
+          "name": "Photo / Contact / Mountains and water",
+          "hash": "83ed78eb9bd9e2485d77f5ae1be5f54bd2d71e77"
+        }
+      ]
+    }
+  ]
+}

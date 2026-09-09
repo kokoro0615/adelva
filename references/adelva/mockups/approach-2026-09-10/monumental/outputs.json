@@ -1,0 +1,29 @@
+[
+  {
+    "file": "A1-granite-garden.png",
+    "width": 1086,
+    "height": 1448,
+    "format": "png",
+    "hasAlpha": false,
+    "bytes": 3135316,
+    "sha256": "f1eae32122ba86d88f3c99159656b8aa84784de0a67a0544bdfc2196de53df53"
+  },
+  {
+    "file": "A2-water-mirror.png",
+    "width": 1086,
+    "height": 1448,
+    "format": "png",
+    "hasAlpha": false,
+    "bytes": 2261461,
+    "sha256": "2f80103ce6f0521411ce93550c735030247eba55267756ac7c483b3ffc96d0b3"
+  },
+  {
+    "file": "A3-coastal-garden.png",
+    "width": 1086,
+    "height": 1448,
+    "format": "png",
+    "hasAlpha": false,
+    "bytes": 3155863,
+    "sha256": "211eaf15c42374f5fc4475f116fa2a8819df421e5a968d7b95d5c55257a288aa"
+  }
+]

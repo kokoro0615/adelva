@@ -1,0 +1,317 @@
+{
+  "removed": [
+    {
+      "file": "review/general-managers-00-hero.png",
+      "bytes": 711241
+    },
+    {
+      "file": "review/general-managers-01-challenges.png",
+      "bytes": 376862
+    },
+    {
+      "file": "review/general-managers-02-decisions.png",
+      "bytes": 500647
+    },
+    {
+      "file": "review/general-managers-03-support-a.png",
+      "bytes": 385219
+    },
+    {
+      "file": "review/general-managers-04-support-b.png",
+      "bytes": 588222
+    },
+    {
+      "file": "review/general-managers-05-roles.png",
+      "bytes": 369512
+    },
+    {
+      "file": "review/general-managers-06-execution.png",
+      "bytes": 469406
+    },
+    {
+      "file": "review/general-managers-07-verification.png",
+      "bytes": 249014
+    },
+    {
+      "file": "review/general-managers-08-contact.png",
+      "bytes": 394568
+    },
+    {
+      "file": "review/gm-00-final.png",
+      "bytes": 733883
+    },
+    {
+      "file": "review/gm-01-final.png",
+      "bytes": 134846
+    },
+    {
+      "file": "review/gm-01-native.png",
+      "bytes": 61504
+    },
+    {
+      "file": "review/gm-02-final.png",
+      "bytes": 353550
+    },
+    {
+      "file": "review/gm-02-native.png",
+      "bytes": 224405
+    },
+    {
+      "file": "review/gm-03-final.png",
+      "bytes": 138124
+    },
+    {
+      "file": "review/gm-03-native.png",
+      "bytes": 60476
+    },
+    {
+      "file": "review/gm-04-final.png",
+      "bytes": 344994
+    },
+    {
+      "file": "review/gm-04-native.png",
+      "bytes": 66135
+    },
+    {
+      "file": "review/gm-05-final.png",
+      "bytes": 134358
+    },
+    {
+      "file": "review/gm-05-native.png",
+      "bytes": 61593
+    },
+    {
+      "file": "review/gm-06-final.png",
+      "bytes": 303933
+    },
+    {
+      "file": "review/gm-06-native.png",
+      "bytes": 183498
+    },
+    {
+      "file": "review/gm-07-final.png",
+      "bytes": 91895
+    },
+    {
+      "file": "review/gm-07-native.png",
+      "bytes": 37442
+    },
+    {
+      "file": "review/gm-08-final.png",
+      "bytes": 145424
+    },
+    {
+      "file": "review/gm-08-native.png",
+      "bytes": 48865
+    },
+    {
+      "file": "review/gm-hero-native.png",
+      "bytes": 553419
+    },
+    {
+      "file": "review/gm-post-replacement.png",
+      "bytes": 2276880
+    },
+    {
+      "file": "review/gm-viewport-00.png",
+      "bytes": 733298
+    },
+    {
+      "file": "review/gm-viewport-01.png",
+      "bytes": 129199
+    },
+    {
+      "file": "review/gm-viewport-02.png",
+      "bytes": 358949
+    },
+    {
+      "file": "review/gm-viewport-03.png",
+      "bytes": 143542
+    },
+    {
+      "file": "review/gm-viewport-04.png",
+      "bytes": 278330
+    },
+    {
+      "file": "review/gm-viewport-05.png",
+      "bytes": 172650
+    },
+    {
+      "file": "review/gm-viewport-06.png",
+      "bytes": 316369
+    },
+    {
+      "file": "review/gm-viewport-07.png",
+      "bytes": 117994
+    },
+    {
+      "file": "review/gm-viewport-08.png",
+      "bytes": 133382
+    },
+    {
+      "file": "review/gm-viewport-09.png",
+      "bytes": 2519
+    },
+    {
+      "file": "review/owners-00-final.png",
+      "bytes": 745002
+    },
+    {
+      "file": "review/owners-00-hero.png",
+      "bytes": 713175
+    },
+    {
+      "file": "review/owners-01-challenges.png",
+      "bytes": 247620
+    },
+    {
+      "file": "review/owners-01-final.png",
+      "bytes": 95484
+    },
+    {
+      "file": "review/owners-01-native.png",
+      "bytes": 39129
+    },
+    {
+      "file": "review/owners-02-decisions.png",
+      "bytes": 455556
+    },
+    {
+      "file": "review/owners-02-final.png",
+      "bytes": 351716
+    },
+    {
+      "file": "review/owners-02-native.png",
+      "bytes": 226028
+    },
+    {
+      "file": "review/owners-03-final.png",
+      "bytes": 121375
+    },
+    {
+      "file": "review/owners-03-native.png",
+      "bytes": 45549
+    },
+    {
+      "file": "review/owners-03-support-a.png",
+      "bytes": 314553
+    },
+    {
+      "file": "review/owners-04-final.png",
+      "bytes": 120757
+    },
+    {
+      "file": "review/owners-04-native.png",
+      "bytes": 46910
+    },
+    {
+      "file": "review/owners-04-support-b.png",
+      "bytes": 315413
+    },
+    {
+      "file": "review/owners-05-final.png",
+      "bytes": 99723
+    },
+    {
+      "file": "review/owners-05-native.png",
+      "bytes": 38743
+    },
+    {
+      "file": "review/owners-05-roles.png",
+      "bytes": 275860
+    },
+    {
+      "file": "review/owners-06-execution.png",
+      "bytes": 504232
+    },
+    {
+      "file": "review/owners-06-final.png",
+      "bytes": 383406
+    },
+    {
+      "file": "review/owners-06-native.png",
+      "bytes": 242629
+    },
+    {
+      "file": "review/owners-07-final.png",
+      "bytes": 78524
+    },
+    {
+      "file": "review/owners-07-native.png",
+      "bytes": 30741
+    },
+    {
+      "file": "review/owners-07-verification.png",
+      "bytes": 215177
+    },
+    {
+      "file": "review/owners-08-contact.png",
+      "bytes": 586638
+    },
+    {
+      "file": "review/owners-08-final.png",
+      "bytes": 444883
+    },
+    {
+      "file": "review/owners-08-native.png",
+      "bytes": 329921
+    },
+    {
+      "file": "review/owners-hero-native.png",
+      "bytes": 591581
+    },
+    {
+      "file": "review/owners-post-8.png",
+      "bytes": 444881
+    },
+    {
+      "file": "review/owners-post-replacement.png",
+      "bytes": 2298742
+    },
+    {
+      "file": "review/owners-viewport-00.png",
+      "bytes": 744703
+    },
+    {
+      "file": "review/owners-viewport-01.png",
+      "bytes": 115226
+    },
+    {
+      "file": "review/owners-viewport-02.png",
+      "bytes": 371088
+    },
+    {
+      "file": "review/owners-viewport-03.png",
+      "bytes": 133482
+    },
+    {
+      "file": "review/owners-viewport-04.png",
+      "bytes": 125432
+    },
+    {
+      "file": "review/owners-viewport-05.png",
+      "bytes": 380215
+    },
+    {
+      "file": "review/owners-viewport-06.png",
+      "bytes": 117205
+    },
+    {
+      "file": "review/owners-viewport-07.png",
+      "bytes": 431386
+    },
+    {
+      "file": "review/owners-viewport-08.png",
+      "bytes": 27611
+    },
+    {
+      "file": "gm-audit.json",
+      "bytes": 39477
+    },
+    {
+      "file": "owners-audit.json",
+      "bytes": 34998
+    }
+  ],
+  "kept": "Final full exports, final presentation previews, accepted photo plates, required sources, vector symbol, construction scripts and final audit records."
+}

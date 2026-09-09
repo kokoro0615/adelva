@@ -1,0 +1,71 @@
+{
+  "width": 1440,
+  "height": 5606,
+  "format": "png",
+  "bytes": 12844817,
+  "baseSHA256": "974ff7a1461d75d2fe46d41f7b7e1fd7b69c7997b7243bc775b5d17950104ef1",
+  "finalSHA256": "d188ae81bd8f27ade3ba8a72127dd5fae172cc4c3f501d99c353a61d05d694da",
+  "heroRegion": {
+    "x": 0,
+    "y": 95,
+    "width": 1440,
+    "height": 737
+  },
+  "processRegion": {
+    "x": 0,
+    "y": 3716,
+    "width": 1440,
+    "height": 802
+  },
+  "heroIndexRemoved": true,
+  "heroTitleProtectedPixels": 19008,
+  "protectedChanges": 0,
+  "processLabels": [
+    "課題把握",
+    "判断",
+    "実行・実装",
+    "運用",
+    "検証",
+    "引継ぎ"
+  ],
+  "unchanged": [
+    {
+      "name": "header",
+      "originalTop": 0,
+      "finalTop": 0,
+      "height": 95,
+      "rgbExact": true
+    },
+    {
+      "name": "audience-and-five-challenge-sections",
+      "originalTop": 832,
+      "finalTop": 832,
+      "height": 2884,
+      "rgbExact": true
+    },
+    {
+      "name": "contact-and-footer",
+      "originalTop": 4002,
+      "finalTop": 4518,
+      "height": 1088,
+      "rgbExact": true
+    }
+  ],
+  "assets": [
+    {
+      "name": "hero-panorama",
+      "file": "exec-44fce9fb-7ad7-4ae9-bd69-3fe0f6583cdd.png",
+      "width": 1754,
+      "height": 897,
+      "upscaled": false
+    },
+    {
+      "name": "process-editorial",
+      "file": "exec-651f67c4-4f12-40b6-a267-1a68ee6e76db.png",
+      "width": 1681,
+      "height": 936,
+      "upscaled": false
+    }
+  ],
+  "pngRGBExact": true
+}

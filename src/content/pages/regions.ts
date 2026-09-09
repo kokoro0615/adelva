@@ -32,7 +32,7 @@ function buildRegion(spec: RegionSpec): PageDocument {
       eyebrow: "Regions",
       eyebrowStyle: "serif",
       title: spec.title,
-      titleStyle: "serif-italic",
+      titleStyle: "serif",
       align: "center",
       lede: spec.lede,
       ledeStyle: "serif",

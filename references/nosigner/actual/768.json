@@ -1,0 +1,310 @@
+{
+  "width": 768,
+  "height": 1024,
+  "scrollHeight": 11536,
+  "landmarks": [
+    {
+      "id": "intro",
+      "tag": "SECTION",
+      "parent": "ns-main",
+      "x": 0,
+      "y": 0,
+      "width": 753,
+      "height": 2293.75,
+      "items": 0
+    },
+    {
+      "id": "index-main",
+      "tag": "DIV",
+      "parent": "ns-main",
+      "x": 0,
+      "y": 2613.75,
+      "width": 753,
+      "height": 7895.640625,
+      "items": 0
+    },
+    {
+      "id": "how-group",
+      "tag": "DIV",
+      "parent": "ns-index-main",
+      "x": 0,
+      "y": 2613.75,
+      "width": 753,
+      "height": 3895.1875,
+      "items": 0
+    },
+    {
+      "id": "how",
+      "tag": "SECTION",
+      "parent": "ns-how-group",
+      "x": 0,
+      "y": 2613.75,
+      "width": 753,
+      "height": 2871.1875,
+      "items": 9
+    },
+    {
+      "id": "strip-0",
+      "tag": "LI",
+      "parent": "ns-strips",
+      "x": 0,
+      "y": 2784.9375,
+      "width": 753,
+      "height": 300,
+      "items": 0
+    },
+    {
+      "id": "strip-1",
+      "tag": "LI",
+      "parent": "ns-strips",
+      "x": 0,
+      "y": 3084.9375,
+      "width": 753,
+      "height": 300,
+      "items": 0
+    },
+    {
+      "id": "strip-2",
+      "tag": "LI",
+      "parent": "ns-strips",
+      "x": 0,
+      "y": 3384.9375,
+      "width": 753,
+      "height": 300,
+      "items": 0
+    },
+    {
+      "id": "strip-3",
+      "tag": "LI",
+      "parent": "ns-strips",
+      "x": 0,
+      "y": 3684.9375,
+      "width": 753,
+      "height": 300,
+      "items": 0
+    },
+    {
+      "id": "strip-4",
+      "tag": "LI",
+      "parent": "ns-strips",
+      "x": 0,
+      "y": 3984.9375,
+      "width": 753,
+      "height": 300,
+      "items": 0
+    },
+    {
+      "id": "strip-5",
+      "tag": "LI",
+      "parent": "ns-strips",
+      "x": 0,
+      "y": 4284.9375,
+      "width": 753,
+      "height": 300,
+      "items": 0
+    },
+    {
+      "id": "strip-6",
+      "tag": "LI",
+      "parent": "ns-strips",
+      "x": 0,
+      "y": 4584.9375,
+      "width": 753,
+      "height": 300,
+      "items": 0
+    },
+    {
+      "id": "strip-7",
+      "tag": "LI",
+      "parent": "ns-strips",
+      "x": 0,
+      "y": 4884.9375,
+      "width": 753,
+      "height": 300,
+      "items": 0
+    },
+    {
+      "id": "strip-8",
+      "tag": "LI",
+      "parent": "ns-strips",
+      "x": 0,
+      "y": 5184.9375,
+      "width": 753,
+      "height": 300,
+      "items": 0
+    },
+    {
+      "id": "quote-form",
+      "tag": "SECTION",
+      "parent": "ns-how-group",
+      "x": 0,
+      "y": 5484.9375,
+      "width": 753,
+      "height": 1024,
+      "items": 0
+    },
+    {
+      "id": "why",
+      "tag": "SECTION",
+      "parent": "ns-index-main",
+      "x": 0,
+      "y": 6708.9375,
+      "width": 753,
+      "height": 2271.1875,
+      "items": 7
+    },
+    {
+      "id": "strip-9",
+      "tag": "LI",
+      "parent": "ns-strips",
+      "x": 0,
+      "y": 6880.125,
+      "width": 753,
+      "height": 300,
+      "items": 0
+    },
+    {
+      "id": "strip-10",
+      "tag": "LI",
+      "parent": "ns-strips",
+      "x": 0,
+      "y": 7180.125,
+      "width": 753,
+      "height": 300,
+      "items": 0
+    },
+    {
+      "id": "strip-11",
+      "tag": "LI",
+      "parent": "ns-strips",
+      "x": 0,
+      "y": 7480.125,
+      "width": 753,
+      "height": 300,
+      "items": 0
+    },
+    {
+      "id": "strip-12",
+      "tag": "LI",
+      "parent": "ns-strips",
+      "x": 0,
+      "y": 7780.125,
+      "width": 753,
+      "height": 300,
+      "items": 0
+    },
+    {
+      "id": "strip-13",
+      "tag": "LI",
+      "parent": "ns-strips",
+      "x": 0,
+      "y": 8080.125,
+      "width": 753,
+      "height": 300,
+      "items": 0
+    },
+    {
+      "id": "strip-14",
+      "tag": "LI",
+      "parent": "ns-strips",
+      "x": 0,
+      "y": 8380.125,
+      "width": 753,
+      "height": 300,
+      "items": 0
+    },
+    {
+      "id": "strip-15",
+      "tag": "LI",
+      "parent": "ns-strips",
+      "x": 0,
+      "y": 8680.125,
+      "width": 753,
+      "height": 300,
+      "items": 0
+    },
+    {
+      "id": "news",
+      "tag": "SECTION",
+      "parent": "ns-index-main",
+      "x": 0,
+      "y": 9180.125,
+      "width": 753,
+      "height": 305.265625,
+      "items": 4
+    },
+    {
+      "id": "quote-future",
+      "tag": "SECTION",
+      "parent": "ns-index-main",
+      "x": 0,
+      "y": 9485.390625,
+      "width": 753,
+      "height": 1024,
+      "items": 0
+    },
+    {
+      "id": "footer",
+      "tag": "FOOTER",
+      "parent": "ns-page",
+      "x": 0,
+      "y": 10509.390625,
+      "width": 753,
+      "height": 1027,
+      "items": 0
+    }
+  ],
+  "tiles": [
+    {
+      "y": 0,
+      "path": "references/nosigner/actual/768-checkpoint-0.png"
+    },
+    {
+      "y": 1024,
+      "path": "references/nosigner/actual/768-checkpoint-1.png"
+    },
+    {
+      "y": 2048,
+      "path": "references/nosigner/actual/768-checkpoint-2.png"
+    },
+    {
+      "y": 3072,
+      "path": "references/nosigner/actual/768-checkpoint-3.png"
+    },
+    {
+      "y": 4096,
+      "path": "references/nosigner/actual/768-checkpoint-4.png"
+    },
+    {
+      "y": 5120,
+      "path": "references/nosigner/actual/768-checkpoint-5.png"
+    },
+    {
+      "y": 6144,
+      "path": "references/nosigner/actual/768-checkpoint-6.png"
+    },
+    {
+      "y": 7168,
+      "path": "references/nosigner/actual/768-checkpoint-7.png"
+    },
+    {
+      "y": 8192,
+      "path": "references/nosigner/actual/768-checkpoint-8.png"
+    },
+    {
+      "y": 9216,
+      "path": "references/nosigner/actual/768-checkpoint-9.png"
+    },
+    {
+      "y": 10240,
+      "path": "references/nosigner/actual/768-checkpoint-10.png"
+    },
+    {
+      "y": 10512,
+      "path": "references/nosigner/actual/768-checkpoint-11.png"
+    }
+  ],
+  "errors": [],
+  "observedAt": "2026-09-09T08:51:02.324Z",
+  "source": "http://127.0.0.1:3002/challenges"
+}

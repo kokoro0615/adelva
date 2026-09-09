@@ -1,0 +1,662 @@
+{
+  "schemaVersion": "full-page-section-manifest/v1",
+  "manifestId": "home-target-v1",
+  "role": "reference",
+  "route": "/",
+  "family": "home",
+  "scope": {
+    "kind": "route-content",
+    "id": "home-content"
+  },
+  "source": {
+    "url": "https://white-desert.com/",
+    "observedAt": "2026-08-31 JST",
+    "contentRoot": ".page-content",
+    "reviewedEvidence": ".Codex/docs/research/home-fidelity-gap-forensics.md",
+    "status": "reviewed-target-data"
+  },
+  "requiredViewports": ["desktop", "tablet", "mobile"],
+  "tolerances": {
+    "boundsPx": 2,
+    "scrollHeightPx": 2
+  },
+  "domTopology": {
+    "scope": ".page-content",
+    "directChildren": [
+      "hero",
+      "last-continent",
+      "our-season",
+      "our-trips-title",
+      "our-trips-cards",
+      "founder-quote",
+      "long-form-composite"
+    ]
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "semantic": "hero",
+      "nodeKind": "element",
+      "bounds": {
+        "desktop": { "y": 0, "height": 1800 },
+        "tablet": { "y": 0, "height": 2048 },
+        "mobile": { "y": 0, "height": 1688 }
+      }
+    },
+    {
+      "id": "last-continent",
+      "semantic": "last-continent",
+      "nodeKind": "element",
+      "bounds": {
+        "desktop": { "y": 1800, "height": 785.55 },
+        "tablet": { "y": 2048, "height": 1037.59 },
+        "mobile": { "y": 1688, "height": 591.59 }
+      }
+    },
+    {
+      "id": "our-season",
+      "semantic": "our-season",
+      "nodeKind": "element",
+      "bounds": {
+        "desktop": { "y": 2585.55, "height": 1350 },
+        "tablet": { "y": 3085.59, "height": 1536 },
+        "mobile": { "y": 2279.59, "height": 1266 }
+      }
+    },
+    {
+      "id": "our-trips",
+      "semantic": "our-trips",
+      "nodeKind": "virtual",
+      "bounds": {},
+      "children": [
+        {
+          "id": "our-trips-title",
+          "semantic": "our-trips-title-field",
+          "nodeKind": "element",
+          "bounds": {
+            "desktop": { "y": 3935.55, "height": 539.97 },
+            "tablet": { "y": 4621.59, "height": 540 },
+            "mobile": { "y": 3545.59, "height": 332.98 }
+          }
+        },
+        {
+          "id": "our-trips-cards",
+          "semantic": "our-trips-card-list",
+          "nodeKind": "element",
+          "itemCount": 5,
+          "bounds": {
+            "desktop": { "y": 4475.52, "height": 765 },
+            "tablet": { "y": 5161.59, "height": 870.39 },
+            "mobile": { "y": 3878.58, "height": 3626.95 }
+          },
+          "children": [
+            {
+              "id": "trip-early-emperor-penguins",
+              "semantic": "Baby Penguins & Blue Tunnels|/itineraries/early-emperor-penguins",
+              "keyLinks": ["/itineraries/early-emperor-penguins"],
+              "assets": [
+                "https://cdn.sanity.io/images/kq9qn5zn/production/16add1ee0bdc16862dc37b826abb1600887e7fbb-2000x1333.jpg"
+              ],
+              "nodeKind": "element",
+              "bounds": {
+                "desktop": { "y": 4475.52, "height": 765 },
+                "tablet": { "y": 5161.59, "height": 870.39 },
+                "mobile": { "y": 3878.58, "height": 717.39 }
+              }
+            },
+            {
+              "id": "trip-south-pole-emperor-penguins",
+              "semantic": "South Pole & Penguins|/itineraries/south-pole-emperor-penguins",
+              "keyLinks": ["/itineraries/south-pole-emperor-penguins"],
+              "assets": [
+                "https://cdn.sanity.io/images/kq9qn5zn/production/fc3d4887c37b05526119edbc5db9d18a0b034c6b-2000x1250.jpg"
+              ],
+              "nodeKind": "element",
+              "bounds": {
+                "desktop": { "y": 4475.52, "height": 765 },
+                "tablet": { "y": 5161.59, "height": 870.39 },
+                "mobile": { "y": 4605.97, "height": 717.39 }
+              }
+            },
+            {
+              "id": "trip-south-pole-blue-rivers",
+              "semantic": "South Pole & Blue Rivers|/itineraries/south-pole-blue-rivers",
+              "keyLinks": ["/itineraries/south-pole-blue-rivers"],
+              "assets": [
+                "https://cdn.sanity.io/images/kq9qn5zn/production/545ecd31bdf0cdd5605316894111fb0f197e0129-2668x2000.jpg"
+              ],
+              "nodeKind": "element",
+              "bounds": {
+                "desktop": { "y": 4475.52, "height": 765 },
+                "tablet": { "y": 5161.59, "height": 870.39 },
+                "mobile": { "y": 5333.36, "height": 717.39 }
+              }
+            },
+            {
+              "id": "trip-the-long-stay",
+              "semantic": "The Long Stay|/itineraries/the-long-stay",
+              "keyLinks": ["/itineraries/the-long-stay"],
+              "assets": [
+                "https://cdn.sanity.io/images/kq9qn5zn/production/0554de84a6e2cfa68bff6d38a7d7e1c975653f91-2000x1333.jpg"
+              ],
+              "nodeKind": "element",
+              "bounds": {
+                "desktop": { "y": 4475.52, "height": 765 },
+                "tablet": { "y": 5161.59, "height": 870.39 },
+                "mobile": { "y": 6060.75, "height": 717.39 }
+              }
+            },
+            {
+              "id": "trip-antarctica-in-a-day",
+              "semantic": "Antarctica in a Day|/itineraries/antarctica-in-a-day",
+              "keyLinks": ["/itineraries/antarctica-in-a-day"],
+              "assets": [
+                "https://cdn.sanity.io/images/kq9qn5zn/production/a1e7092001e46b8511e5d9386f43ccfce30122d2-2000x1333.jpg"
+              ],
+              "nodeKind": "element",
+              "bounds": {
+                "desktop": { "y": 4475.52, "height": 765 },
+                "tablet": { "y": 5161.59, "height": 870.39 },
+                "mobile": { "y": 6788.14, "height": 717.39 }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "founder-quote",
+      "semantic": "patrick-woodhead-founder-quote",
+      "nodeKind": "element",
+      "bounds": {
+        "desktop": { "y": 5240.52, "height": 955.91 },
+        "tablet": { "y": 6031.98, "height": 1055.19 },
+        "mobile": { "y": 7505.53, "height": 738.63 }
+      }
+    },
+    {
+      "id": "long-form-composite",
+      "semantic": "camps-route-mist-travel-cta-composite",
+      "nodeKind": "element",
+      "bounds": {
+        "desktop": { "y": 6196.42, "height": 13644.94 },
+        "tablet": { "y": 7087.17, "height": 11973.73 },
+        "mobile": { "y": 8244.16, "height": 8940.34 }
+      },
+      "children": [
+        {
+          "id": "our-camps",
+          "semantic": "our-camps-horizontal-pin-flow",
+          "nodeKind": "element",
+          "itemCount": 5,
+          "pinned": true,
+          "bounds": {
+            "desktop": { "y": 6196.42, "height": 9450 },
+            "tablet": { "y": 7087.17, "height": 7364 },
+            "mobile": { "y": 8244.16, "height": 5294 }
+          },
+          "children": [
+            {
+              "id": "our-camps-intro",
+              "semantic": "Our Camps|Polar Comfort",
+              "nodeKind": "element",
+              "bounds": {
+                "desktop": { "y": 6196.42, "height": 900 },
+                "tablet": { "y": 7087.17, "height": 1024 },
+                "mobile": { "y": 8244.16, "height": 844 }
+              }
+            },
+            {
+              "id": "camp-whichaway",
+              "semantic": "Whichaway",
+              "nodeKind": "element",
+              "bounds": {
+                "desktop": { "y": 6196.42, "height": 900 },
+                "tablet": { "y": 7087.17, "height": 1024 },
+                "mobile": { "y": 8244.16, "height": 844 }
+              }
+            },
+            {
+              "id": "camp-echo",
+              "semantic": "Echo",
+              "nodeKind": "element",
+              "bounds": {
+                "desktop": { "y": 6196.42, "height": 900 },
+                "tablet": { "y": 7087.17, "height": 1024 },
+                "mobile": { "y": 8244.16, "height": 844 }
+              }
+            },
+            {
+              "id": "camp-explorer",
+              "semantic": "Explorer",
+              "nodeKind": "element",
+              "bounds": {
+                "desktop": { "y": 6196.42, "height": 900 },
+                "tablet": { "y": 7087.17, "height": 1024 },
+                "mobile": { "y": 8244.16, "height": 844 }
+              }
+            },
+            {
+              "id": "our-camps-quote",
+              "semantic": "stanley-stewart-camp-quote",
+              "nodeKind": "element",
+              "bounds": {
+                "desktop": { "y": 6196.42, "height": 900 },
+                "tablet": { "y": 7087.17, "height": 1024 },
+                "mobile": { "y": 8244.16, "height": 844 }
+              }
+            }
+          ]
+        },
+        {
+          "id": "cpt-wfr-bridge",
+          "semantic": "CPT-WFR|To the End of the Earth",
+          "nodeKind": "element",
+          "bounds": {
+            "desktop": { "y": 15646.42, "height": 427.98 },
+            "tablet": { "y": 14451.17, "height": 428 },
+            "mobile": { "y": 13538.16, "height": 500 }
+          }
+        },
+        {
+          "id": "mist-divider",
+          "semantic": "second-mist-divider-static-flow",
+          "nodeKind": "element",
+          "motionDisposition": "static-flow",
+          "bounds": {
+            "desktop": { "y": 16074.41, "height": 900 },
+            "tablet": { "y": 14879.17, "height": 1024 },
+            "mobile": { "y": 14038.16, "height": 844 }
+          }
+        },
+        {
+          "id": "travel-globe",
+          "semantic": "travel-globe-route-map-info-video",
+          "nodeKind": "element",
+          "bounds": {
+            "desktop": { "y": 16974.41, "height": 1966.95 },
+            "tablet": { "y": 15903.17, "height": 2133.73 },
+            "mobile": { "y": 14882.16, "height": 1458.34 }
+          }
+        },
+        {
+          "id": "planning-cta",
+          "semantic": "Start planning your adventure",
+          "nodeKind": "element",
+          "bounds": {
+            "desktop": { "y": 18941.36, "height": 900 },
+            "tablet": { "y": 18036.91, "height": 1024 },
+            "mobile": { "y": 16340.5, "height": 844 }
+          }
+        }
+      ]
+    }
+  ],
+  "viewports": {
+    "desktop": {
+      "width": 1440,
+      "height": 900,
+      "scrollHeight": 20782,
+      "evidence": {
+        "top": {
+          "path": "../../../artifacts/reference/target/home-1440x900-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "tablet": {
+      "width": 768,
+      "height": 1024,
+      "scrollHeight": 20085,
+      "evidence": {
+        "top": {
+          "path": "../../../artifacts/reference/target/home-768x1024-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "scrollHeight": 19296,
+      "evidence": {
+        "top": {
+          "path": "../../../artifacts/reference/target/home-390x844-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    }
+  },
+  "motion": {
+    "status": "incomplete",
+    "unknown": [
+      "travel-globe exact layer transforms and reverse values require deterministic capture"
+    ],
+    "layers": [
+      {
+        "id": "hero-wrapper-pin",
+        "sectionId": "hero",
+        "property": "translateY",
+        "trigger": "scrollY / viewportHeight, clamped 0..2",
+        "range": "0svh -> 200svh",
+        "easing": "none",
+        "interruption": "direct next-frame scroll linkage",
+        "reducedMotion": "target unchanged under reduce",
+        "samples": {
+          "desktop": {
+            "start": "0svh",
+            "mid": "100svh",
+            "end": "200svh",
+            "reverse": "20svh"
+          },
+          "tablet": {
+            "start": "0svh",
+            "mid": "100svh",
+            "end": "200svh",
+            "reverse": "20svh"
+          },
+          "mobile": {
+            "start": "0svh",
+            "mid": "100svh",
+            "end": "200svh",
+            "reverse": "20svh"
+          }
+        }
+      },
+      {
+        "id": "hero-layout-lift",
+        "sectionId": "hero",
+        "property": "translateY",
+        "trigger": "scrollY / viewportHeight, clamped 0..2",
+        "range": "0svh -> -60svh",
+        "easing": "none",
+        "interruption": "direct next-frame scroll linkage",
+        "reducedMotion": "target unchanged under reduce",
+        "samples": {
+          "desktop": {
+            "start": "0svh",
+            "mid": "-30svh",
+            "end": "-60svh",
+            "reverse": "-6svh"
+          },
+          "tablet": {
+            "start": "0svh",
+            "mid": "-30svh",
+            "end": "-60svh",
+            "reverse": "-6svh"
+          },
+          "mobile": {
+            "start": "0svh",
+            "mid": "-30svh",
+            "end": "-60svh",
+            "reverse": "-6svh"
+          }
+        }
+      },
+      {
+        "id": "hero-title-lift",
+        "sectionId": "hero",
+        "property": "translateY",
+        "trigger": "scrollY / viewportHeight, clamped 0..2",
+        "range": "0svh -> -60svh",
+        "easing": "none",
+        "interruption": "direct next-frame scroll linkage",
+        "reducedMotion": "target unchanged under reduce",
+        "samples": {
+          "desktop": {
+            "start": "0svh",
+            "mid": "-30svh",
+            "end": "-60svh",
+            "reverse": "-6svh"
+          },
+          "tablet": {
+            "start": "0svh",
+            "mid": "-30svh",
+            "end": "-60svh",
+            "reverse": "-6svh"
+          },
+          "mobile": {
+            "start": "0svh",
+            "mid": "-30svh",
+            "end": "-60svh",
+            "reverse": "-6svh"
+          }
+        }
+      },
+      {
+        "id": "hero-title-blur",
+        "sectionId": "hero",
+        "property": "filter.blur",
+        "trigger": "scrollY / viewportHeight, clamped 0..2",
+        "range": "0px -> 10px",
+        "easing": "none",
+        "interruption": "direct next-frame scroll linkage",
+        "reducedMotion": "target unchanged under reduce",
+        "samples": {
+          "desktop": { "start": "0px", "mid": "5px", "end": "10px", "reverse": "1px" },
+          "tablet": { "start": "0px", "mid": "5px", "end": "10px", "reverse": "1px" },
+          "mobile": { "start": "0px", "mid": "5px", "end": "10px", "reverse": "1px" }
+        }
+      },
+      {
+        "id": "hero-cloud-near",
+        "sectionId": "hero",
+        "property": "translateY",
+        "trigger": "scrollY / viewportHeight, clamped 0..2",
+        "range": "100% -> -80%",
+        "easing": "none",
+        "interruption": "direct next-frame scroll linkage",
+        "reducedMotion": "target unchanged under reduce",
+        "samples": {
+          "desktop": { "start": "100%", "mid": "10%", "end": "-80%", "reverse": "82%" },
+          "tablet": { "start": "100%", "mid": "10%", "end": "-80%", "reverse": "82%" },
+          "mobile": { "start": "100%", "mid": "10%", "end": "-80%", "reverse": "82%" }
+        }
+      },
+      {
+        "id": "hero-cloud-far",
+        "sectionId": "hero",
+        "property": "translateY",
+        "trigger": "scrollY / viewportHeight, clamped 0..2",
+        "range": "100% -> -10%",
+        "easing": "none",
+        "interruption": "direct next-frame scroll linkage",
+        "reducedMotion": "target unchanged under reduce",
+        "samples": {
+          "desktop": { "start": "100%", "mid": "45%", "end": "-10%", "reverse": "89%" },
+          "tablet": { "start": "100%", "mid": "45%", "end": "-10%", "reverse": "89%" },
+          "mobile": { "start": "100%", "mid": "45%", "end": "-10%", "reverse": "89%" }
+        }
+      },
+      {
+        "id": "hero-mist-rotate",
+        "sectionId": "hero",
+        "property": "rotateX",
+        "trigger": "hold through 0.8vh; linear 0.8..1.5vh; hold",
+        "range": "90deg -> 0deg",
+        "easing": "none",
+        "interruption": "direct next-frame scroll linkage",
+        "reducedMotion": "target unchanged under reduce",
+        "samples": {
+          "desktop": {
+            "start": "90deg",
+            "mid": "64.2857deg",
+            "end": "0deg",
+            "reverse": "90deg"
+          },
+          "tablet": {
+            "start": "90deg",
+            "mid": "64.2857deg",
+            "end": "0deg",
+            "reverse": "90deg"
+          },
+          "mobile": {
+            "start": "90deg",
+            "mid": "64.2857deg",
+            "end": "0deg",
+            "reverse": "90deg"
+          }
+        }
+      },
+      {
+        "id": "founder-signature",
+        "sectionId": "founder-quote",
+        "property": "stroke-dasharray/stroke-dashoffset",
+        "trigger": "signature wrapper parent top crosses 75% of the viewport",
+        "range": "six paths draw together from 0% to 100%",
+        "easing": "power2.inOut over 1.2s",
+        "interruption": "play on enter; reverse after crossing back above the trigger",
+        "reducedMotion": "target unchanged under reduce; implementation keeps the completed static signature",
+        "samples": {
+          "desktop": {
+            "start": { "scrollY": 4884, "drawRatios": [0, 0, 0, 0, 0, 0] },
+            "mid": {
+              "scrollY": 4888,
+              "drawRatios": [0.619, 0.619, 0.619, 0.619, 0.619, 0.619]
+            },
+            "end": { "scrollY": 4888, "drawRatios": [1, 1, 1, 1, 1, 1] },
+            "reverse": { "scrollY": 4884, "drawRatios": [0, 0, 0, 0, 0, 0] }
+          },
+          "tablet": {
+            "start": { "scrollY": 5582, "drawRatios": [0, 0, 0, 0, 0, 0] },
+            "mid": {
+              "scrollY": 5586,
+              "drawRatios": [0.544, 0.544, 0.544, 0.544, 0.544, 0.544]
+            },
+            "end": { "scrollY": 5586, "drawRatios": [1, 1, 1, 1, 1, 1] },
+            "reverse": { "scrollY": 5582, "drawRatios": [0, 0, 0, 0, 0, 0] }
+          },
+          "mobile": {
+            "start": { "scrollY": 7031, "drawRatios": [0, 0, 0, 0, 0, 0] },
+            "mid": {
+              "scrollY": 7035,
+              "drawRatios": [0.704, 0.704, 0.704, 0.704, 0.704, 0.704]
+            },
+            "end": { "scrollY": 7035, "drawRatios": [1, 1, 1, 1, 1, 1] },
+            "reverse": { "scrollY": 7031, "drawRatios": [0, 0, 0, 0, 0, 0] }
+          }
+        }
+      },
+      {
+        "id": "our-camps-track",
+        "sectionId": "our-camps",
+        "property": "translateX",
+        "trigger": "pinned vertical scroll interval",
+        "range": "viewport-specific horizontal distance",
+        "easing": "none",
+        "interruption": "reverse sample still required",
+        "reducedMotion": "target observation incomplete",
+        "pinned": true,
+        "samples": {
+          "desktop": {
+            "start": { "x": 0 },
+            "mid": { "status": "required-not-captured" },
+            "end": { "x": -4200 },
+            "reverse": { "status": "required-not-captured" }
+          },
+          "tablet": {
+            "start": { "x": 0 },
+            "mid": { "status": "required-not-captured" },
+            "end": { "x": -2520 },
+            "reverse": { "status": "required-not-captured" }
+          },
+          "mobile": {
+            "start": { "x": 0 },
+            "mid": { "status": "required-not-captured" },
+            "end": { "x": -1560 },
+            "reverse": { "status": "required-not-captured" }
+          }
+        },
+        "pinRanges": {
+          "desktop": {
+            "scrollStart": 6196.42,
+            "scrollEnd": 14746.42,
+            "verticalDistance": 8550,
+            "horizontalDistance": 4200
+          },
+          "tablet": {
+            "scrollStart": 7087.17,
+            "scrollEnd": 13427.17,
+            "verticalDistance": 6340,
+            "horizontalDistance": 2520
+          },
+          "mobile": {
+            "scrollStart": 8244.16,
+            "scrollEnd": 12694.16,
+            "verticalDistance": 4450,
+            "horizontalDistance": 1560
+          }
+        }
+      },
+      {
+        "id": "cpt-wfr-lift",
+        "sectionId": "cpt-wfr-bridge",
+        "property": "translateY",
+        "trigger": "adjacent route-stage scroll",
+        "range": "0svh -> 120svh",
+        "easing": "none",
+        "interruption": "reverse sample still required",
+        "reducedMotion": "target observation incomplete",
+        "samples": {
+          "desktop": {
+            "start": "0svh",
+            "mid": { "status": "required-not-captured" },
+            "end": "120svh",
+            "reverse": { "status": "required-not-captured" }
+          },
+          "tablet": {
+            "start": "0svh",
+            "mid": { "status": "required-not-captured" },
+            "end": "120svh",
+            "reverse": { "status": "required-not-captured" }
+          },
+          "mobile": {
+            "start": "0svh",
+            "mid": { "status": "required-not-captured" },
+            "end": "120svh",
+            "reverse": { "status": "required-not-captured" }
+          }
+        }
+      },
+      {
+        "id": "travel-globe-scroll-state",
+        "sectionId": "travel-globe",
+        "property": "route-stroke-info-video-state",
+        "trigger": "travel-globe scroll range",
+        "range": "header plus 1721px map on desktop; responsive values unresolved",
+        "easing": "unresolved",
+        "interruption": "reverse sample still required",
+        "reducedMotion": "target observation incomplete",
+        "samples": {
+          "desktop": {
+            "start": { "status": "observed" },
+            "mid": { "status": "required-not-captured" },
+            "end": { "status": "observed" },
+            "reverse": { "status": "required-not-captured" }
+          },
+          "tablet": {
+            "start": { "status": "required-not-captured" },
+            "mid": { "status": "required-not-captured" },
+            "end": { "status": "required-not-captured" },
+            "reverse": { "status": "required-not-captured" }
+          },
+          "mobile": {
+            "start": { "status": "required-not-captured" },
+            "mid": { "status": "required-not-captured" },
+            "end": { "status": "required-not-captured" },
+            "reverse": { "status": "required-not-captured" }
+          }
+        }
+      }
+    ]
+  }
+}

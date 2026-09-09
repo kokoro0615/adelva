@@ -1,0 +1,1731 @@
+@font-face {
+  font-family: "ADELVA Navigation Sans";
+  src: url("/fonts/adelva-noto-sans-jp.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+}
+
+/*
+ * ADELVA global navigation — scoped styles.
+ *
+ * Specification: `docs/specs/adelva-navigation-spec.md`.
+ *
+ * Design read: the ADELVA monogram is an engineered lockup — straight lines,
+ * one arc, no ornament. The navigation answers it with instrumentation rather
+ * than decoration: a precise glass bar, a full-bleed shelf that opens like a
+ * drawer of the record, an index column that numbers each panel, and a single
+ * rule that travels between items. Nothing bounces, pops or spins.
+ *
+ * Transparent material refinement: neutral feathered backing protects bar
+ * labels; the shelf and drawer use translucent white with dark local ink.
+ * See the dated material contract in the specification for research and states.
+ */
+
+.header,
+.drawer {
+  /* Deliver the same Japanese/Latin interface face on every OS. */
+  --nav-font-jp:
+    "ADELVA Navigation Sans", "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
+  --nav-inline: 1.25rem;
+  --nav-brand-mark: 32px;
+
+  font-family: var(--nav-font-jp);
+  line-break: strict;
+  word-break: normal;
+}
+
+.header {
+  --nav-bar-height: 4.25rem;
+  /* How far the reading veil feathers past the bar before it is gone. */
+  --nav-veil-feather: 64px;
+
+  /*
+   * The one material the expanded navigation is made of.
+   *
+   * Raised from the previous 68%/20px: over a moving hero that pairing still
+   * passed recognisable shapes through, which read as dirt under the Japanese
+   * text rather than as glass. 86% with a wider blur and a saturation lift
+   * keeps the scene's light and colour and none of its detail.
+   */
+  --nav-glass: oklch(1 0 0 / 86%);
+  --nav-glass-blur: 32px;
+
+  /* Ink, shared by the bar's inverted state and the sheet it stands on so the
+     two are literally the same colour rather than two near neighbours. */
+  --nav-ink: oklch(0.22 0.015 260);
+  --nav-hairline: oklch(0.25 0.015 260 / 20%);
+
+  /* Bar chips: white over photography, ink once the sheet is down, so a hover
+     never dissolves into its own surface. */
+  --nav-chip: oklch(1 0 0 / 10%);
+  --nav-chip-strong: oklch(1 0 0 / 16%);
+
+  /* Opening and closing are different gestures — the sheet is drawn down, and
+     it is already gone. Every layer of the sheet shares these two numbers. */
+  --nav-open: 440ms;
+  --nav-close: 280ms;
+  /* The veil hands the reading surface to the sheet and clears before the sheet
+     is fully opaque, so the handover is a crossfade rather than a gap. */
+  --nav-veil-fade: 200ms;
+
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  z-index: 40;
+}
+
+.header[data-menu-open="true"] {
+  --nav-chip: oklch(0.22 0.015 260 / 6%);
+  --nav-chip-strong: oklch(0.22 0.015 260 / 9%);
+}
+
+/*
+ * An open shelf has to clear the persistent "How it works" edge tab, which sits
+ * at z-index 10000 on every route. A child cannot escape its own stacking
+ * context, so the header itself is raised — but only while a panel is open, and
+ * only to just under the drawer scrim, so the modal surfaces still win.
+ */
+.header[data-menu-open="true"] {
+  z-index: 10010;
+}
+
+/*
+ * The reading veil — proportional, not painted.
+ *
+ * A flat black plate has to be dark enough for the worst backdrop the heroes
+ * can present, a blown-out sky; measured, that is 53% black. The same 53% over
+ * a night scene is the opaque strip this pass exists to remove, which is
+ * exactly what the previous 62% plate looked like.
+ *
+ * Pulling the backdrop's own brightness down instead scales itself: it takes
+ * more than half off a white sky and almost nothing off an already-dark frame,
+ * and because it is a multiplication the photograph keeps all of its internal
+ * contrast and texture. It reads as a graduated filter on the lens rather than
+ * as a rectangle over the picture. 0.44 is the darkest step needed: it lands
+ * white text at 4.96:1 against pure white, and the mask feathers the filter out
+ * below the label band instead of ending it on an edge.
+ */
+.veil {
+  position: absolute;
+  z-index: 0;
+  inset-inline: 0;
+  top: 0;
+  height: calc(var(--nav-bar-height) + var(--nav-veil-feather));
+  pointer-events: none;
+  -webkit-backdrop-filter: brightness(0.44);
+  backdrop-filter: brightness(0.44);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 0,
+    #000 calc(var(--nav-bar-height) - 18px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    #000 0,
+    #000 calc(var(--nav-bar-height) - 18px),
+    transparent 100%
+  );
+  transition:
+    height var(--dur-state) var(--ease-state),
+    opacity var(--nav-veil-fade) var(--ease-panel),
+    -webkit-backdrop-filter 0s linear 0s,
+    backdrop-filter 0s linear 0s;
+}
+
+/* No backdrop filter: the measured flat equivalent, feathered the same way. */
+@supports not (
+  (backdrop-filter: brightness(1)) or (-webkit-backdrop-filter: brightness(1))
+) {
+  .veil {
+    background: linear-gradient(
+      to bottom,
+      oklch(0 0 0 / 56%) 0,
+      oklch(0 0 0 / 56%) calc(var(--nav-bar-height) - 18px),
+      oklch(0 0 0 / 0%) 100%
+    );
+  }
+}
+
+/*
+ * Nothing to protect once the sheet is down — it is its own reading surface —
+ * and the filter has to go, not merely the pixels.
+ *
+ * A backdrop-filtered element beneath another one nests the two backdrop roots:
+ * the sheet's blur then re-filters the veil's output on every frame the hero
+ * moves. Measured here on a software rasteriser, that nesting halves the
+ * descent to 33ms per frame and keeps dropping frames for as long as the menu
+ * stays open — at every blur radius from 6px to 32px, so it is the nesting and
+ * not the blur. Removing the sheet's filter alone restores 16.7ms; so does
+ * removing the veil's. The veil's is the one that is redundant here, and it is
+ * switched off at exactly the moment its own opacity reaches zero, where
+ * nothing can see it go.
+ */
+.header[data-menu-open="true"] .veil {
+  opacity: 0;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  transition:
+    opacity var(--nav-veil-fade) var(--ease-panel),
+    -webkit-backdrop-filter 0s linear var(--nav-veil-fade),
+    backdrop-filter 0s linear var(--nav-veil-fade);
+}
+
+/*
+ * The sheet.
+ *
+ * One pane spanning the bar *and* the shelf, rather than a glass shelf butted
+ * against a dark bar. Two adjacent backdrop-filtered boxes each blur only the
+ * backdrop they clip, so they seam at the join; one element cannot. This is
+ * what makes the open navigation read as a single object.
+ */
+.pane {
+  position: absolute;
+  z-index: 1;
+  inset-inline: 0;
+  top: 0;
+  height: var(--nav-bar-height);
+  visibility: hidden;
+  opacity: 0;
+  background-color: var(--nav-glass);
+  /*
+   * One filter, not a chain.
+   *
+   * Measured on this machine over the tallest panel, four opens each:
+   * `blur(32px)` holds 16.7ms per frame — identical to no filter at all, which
+   * is also what clears the height transition below of any suspicion. Chaining
+   * `saturate(150%)` after it dropped one open in four to 33.3ms for a lift
+   * that 14% of visible backdrop cannot show anyway.
+   */
+  -webkit-backdrop-filter: blur(var(--nav-glass-blur));
+  backdrop-filter: blur(var(--nav-glass-blur));
+  box-shadow: 0 30px 60px -44px oklch(0.16 0.02 260 / 45%);
+  pointer-events: none;
+  transition:
+    height var(--nav-close) var(--ease-panel),
+    opacity var(--nav-close) var(--ease-panel),
+    visibility 0s linear var(--nav-close);
+}
+
+.header[data-menu-open="true"] .pane {
+  height: calc(var(--nav-bar-height) + var(--shelf-h, 0px));
+  visibility: visible;
+  opacity: 1;
+  transition:
+    height var(--nav-open) var(--ease-panel),
+    opacity 220ms var(--ease-panel),
+    visibility 0s;
+}
+
+/* --------------------------------------------------------------------- bar */
+
+.bar {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 1.6vw, 1.75rem);
+  height: var(--nav-bar-height);
+  padding-inline: var(--nav-inline);
+  background-color: transparent;
+  isolation: isolate;
+  color: var(--paper);
+  /* A tight halo that travels with the glyph. The veil already carries the
+     measured ratio; this is for the case the ratio cannot see — a thin bright
+     edge in the photograph running behind a thin stroke. */
+  text-shadow: 0 1px 2px oklch(0 0 0 / 38%);
+  transition:
+    height var(--dur-state) var(--ease-state),
+    color var(--nav-open) var(--ease-panel),
+    text-shadow var(--nav-open) var(--ease-panel),
+    box-shadow var(--dur-state) var(--ease-state);
+}
+
+/*
+ * The inversion.
+ *
+ * With the sheet down the bar is standing on paper, not on a photograph, so
+ * its ink turns over *with* the material instead of after it. One object
+ * changing state — not two surfaces disagreeing about which one you are on.
+ */
+.header[data-menu-open="true"] .bar {
+  color: var(--nav-ink);
+  text-shadow: none;
+}
+
+/*
+ * Compact state. The bar tightens once the reader has left the top of the
+ * document and states its own lower edge, because with no fill nothing else
+ * does. A hidden bar can strand a keyboard user, so this replaces the
+ * retracting masthead the header previously used.
+ */
+.header[data-compact="true"] {
+  --nav-bar-height: 3.375rem;
+}
+
+.header[data-compact="true"] .bar {
+  box-shadow: 0 1px 0 0 oklch(1 0 0 / 14%);
+}
+
+.header[data-menu-open="true"] .bar {
+  box-shadow: none;
+}
+
+/* ------------------------------------------------------------------- brand */
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(12px, 1.1vw, 16px);
+  flex: 0 0 auto;
+  min-width: 0;
+  height: 44px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.brandMark {
+  display: block;
+  width: calc(var(--nav-brand-mark) * 0.66);
+  height: var(--nav-brand-mark);
+  flex: 0 0 auto;
+  background-color: currentColor;
+  /* Scale the existing 29x44 optical window and its mask together, preserving
+     the complete symbol at every responsive mark height. */
+  -webkit-mask: url("/brand/adelva-logo.png") calc(var(--nav-brand-mark) * -0.65909)
+    calc(var(--nav-brand-mark) * -0.46591) / calc(var(--nav-brand-mark) * 1.97727)
+    calc(var(--nav-brand-mark) * 1.97727) no-repeat;
+  mask: url("/brand/adelva-logo.png") calc(var(--nav-brand-mark) * -0.65909)
+    calc(var(--nav-brand-mark) * -0.46591) / calc(var(--nav-brand-mark) * 1.97727)
+    calc(var(--nav-brand-mark) * 1.97727) no-repeat;
+}
+
+.brandWord {
+  font-family: var(--font-narrow);
+  font-size: clamp(21px, 2.1vw, 30px);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-indent: 0.18em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* -------------------------------------------------------- primary nav bar */
+
+.primary {
+  position: relative;
+  display: none;
+  align-items: center;
+  gap: 0.125rem;
+  height: 44px;
+  margin-inline-start: auto;
+}
+
+.item {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  height: 40px;
+  padding-inline: clamp(0.6rem, 1.1vw, 1rem);
+  border: 0;
+  border-radius: 3px;
+  background-color: transparent;
+  color: inherit;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  font-feature-settings: normal;
+  white-space: nowrap;
+  text-decoration: none;
+  /*
+   * The bar owns the inversion, for the whole row, once.
+   *
+   * Three of these items are buttons and two are anchors, and the global
+   * stylesheet gives every anchor `transition: color 300ms`. Left alone, the
+   * two links animate the inherited colour again on a second, shorter curve of
+   * their own, and the row turns over in two waves — visible as 支援の進め方 and
+   * 導入事例 trailing the rest. Declining the transition here puts all five back
+   * on the bar's single curve.
+   */
+  transition: color 0s;
+}
+
+/*
+ * The chip rises rather than fades.
+ *
+ * The stylesheet's governing idea is that things are uncovered by an edge that
+ * sweeps — so the hover field grows up out of the same baseline the travelling
+ * rule sits on, and the two read as one gesture instead of a fade competing
+ * with a slide.
+ */
+.item::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border-radius: inherit;
+  background-color: var(--nav-chip);
+  transform: scaleY(0);
+  transform-origin: 50% 100%;
+  transition:
+    transform var(--dur-release) var(--ease-wipe),
+    background-color var(--nav-open) var(--ease-panel);
+}
+
+.item:hover::before,
+.item:focus-visible::before {
+  transform: scaleY(1);
+}
+
+.item[aria-expanded="true"]::before,
+.item[aria-current="page"]::before {
+  transform: scaleY(1);
+  background-color: var(--nav-chip-strong);
+}
+
+.chevron {
+  display: block;
+  width: 6px;
+  height: 6px;
+  flex: 0 0 auto;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform var(--dur-state) var(--ease-panel);
+}
+
+.item[aria-expanded="true"] .chevron {
+  transform: translateY(1px) rotate(-135deg);
+}
+
+/*
+ * One rule for the whole row. It follows the pointer while the reader is
+ * browsing and parks under the trigger that owns the open shelf, so the bar
+ * always states exactly one thing about where you are. White, because the bar
+ * composites over unknown photography and white is the only value measured
+ * safe there.
+ */
+.rule {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 1.5px;
+  /* Inherits the bar's ink, so it turns over with the material. */
+  background-color: currentColor;
+  transform-origin: 0 50%;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform 300ms var(--ease-panel),
+    opacity var(--dur-fast) var(--ease-panel);
+}
+
+.rule[data-visible="true"] {
+  opacity: 1;
+}
+
+/* ------------------------------------------------------------------- calls */
+
+.cta,
+.ctaCompact {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 40px;
+  padding-inline: 1.125rem;
+  border-radius: 3px;
+  background-color: var(--flare);
+  color: var(--ink-deep);
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  text-decoration: none;
+  transition:
+    background-color 180ms var(--ease-state),
+    border-color 180ms var(--ease-state);
+}
+
+.cta {
+  margin-inline-start: clamp(1rem, 1.8vw, 2rem);
+}
+
+.ctaCompact {
+  display: inline-flex;
+  margin-inline-start: auto;
+}
+
+.arrow {
+  position: relative;
+  display: block;
+  width: 15px;
+  height: 8px;
+  flex: 0 0 auto;
+  transition: transform var(--dur-release) var(--ease-panel);
+}
+
+.cta:hover .arrow,
+.cta:focus-visible .arrow,
+.ctaCompact:hover .arrow,
+.ctaCompact:focus-visible .arrow {
+  transform: translateX(4px);
+}
+
+.arrow::before {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  top: calc(50% - 0.75px);
+  height: 1.5px;
+  background-color: currentColor;
+}
+
+.arrow::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-top: 1.5px solid currentColor;
+  border-right: 1.5px solid currentColor;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/* ----------------------------------------------------------------- burger */
+
+.burger {
+  display: inline-grid;
+  place-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  margin-inline-start: 0.25rem;
+  border: 0;
+  background-color: transparent;
+  color: inherit;
+}
+
+.burger span {
+  display: block;
+  width: 20px;
+  height: 1.5px;
+  background-color: currentColor;
+  transition: transform var(--dur-state) var(--ease-state);
+}
+
+.burger[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+
+.burger[aria-expanded="true"] span:nth-child(2) {
+  transform: scaleX(0);
+}
+
+.burger[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* -------------------------------------------------------------- mega shelf */
+
+/*
+ * The shelf is a window, not a surface.
+ *
+ * Its material moved to `.pane`; all it owns now is the clipping rectangle.
+ * That matters: the panel is parked at the top of this box, so growing the box
+ * *uncovers* the menu from the leading edge down. The old build then cross-faded
+ * the panel on top of that reveal and cancelled it out.
+ */
+.shelf {
+  /* The height transition here and on `.pane` is the reveal itself, and it is
+     free: both boxes are out of flow inside a fixed header whose only children
+     are also out of flow, so nothing re-lays-out. Measured at 16.7ms per frame,
+     the same as the page with no navigation animation running at all. */
+  position: absolute;
+  z-index: 2;
+  inset-inline: 0;
+  top: 100%;
+  height: 0;
+  overflow: hidden;
+  color: var(--nav-ink);
+  transition: height var(--nav-close) var(--ease-panel);
+}
+
+.shelf[data-open="true"] {
+  height: var(--shelf-h, 0px);
+  transition: height var(--nav-open) var(--ease-panel);
+}
+
+/* The edge that arrives with the sheet, drawn rather than switched on. */
+.shelf::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 1px;
+  background-color: var(--nav-hairline);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform var(--nav-close) var(--ease-wipe);
+}
+
+.shelf[data-open="true"]::after {
+  transform: scaleX(1);
+  transition: transform 620ms var(--ease-wipe) 60ms;
+}
+
+/* Only long enough to carry a switch between two open panels. On the first
+   open the sheet's own descent is the reveal. */
+.panel {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity 120ms var(--ease-panel),
+    visibility 0s linear 120ms;
+}
+
+.panel[data-open="true"] {
+  visibility: visible;
+  opacity: 1;
+  transition:
+    opacity 180ms var(--ease-panel),
+    visibility 0s;
+}
+
+/*
+ * The settle.
+ *
+ * Column by column, behind the descending edge, capped at three steps so the
+ * last thing to arrive is never something the reader is already waiting on.
+ */
+.panel .intro,
+.panel .body > .group {
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+  transition:
+    opacity 260ms var(--ease-panel),
+    transform 420ms var(--ease-reveal);
+}
+
+.panel[data-open="true"] .intro,
+.panel[data-open="true"] .body > .group {
+  opacity: 1;
+  transform: none;
+}
+
+.panel[data-open="true"] .intro {
+  transition-delay: 70ms;
+}
+
+.panel[data-open="true"] .body > .group:nth-child(1) {
+  transition-delay: 130ms;
+}
+
+.panel[data-open="true"] .body > .group:nth-child(2) {
+  transition-delay: 190ms;
+}
+
+.panelInner {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: clamp(2rem, 3.4vw, 3.5rem);
+  width: 100%;
+  max-width: var(--shell);
+  margin-inline: auto;
+  padding: 2.5rem var(--nav-inline) 2.75rem;
+}
+
+.intro {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding-inline-end: clamp(1rem, 2vw, 2rem);
+}
+
+.intro::after {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  inset-inline-end: 0;
+  width: 1px;
+  background-color: var(--hairline);
+  transform: scaleY(0);
+  transform-origin: 50% 0;
+  transition: transform var(--nav-close) var(--ease-wipe);
+}
+
+.panel[data-open="true"] .intro::after {
+  transform: scaleY(1);
+  transition: transform 560ms var(--ease-wipe) 120ms;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin: 0;
+  color: var(--flare-ink);
+  font-family: var(--font-narrow);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.34em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.eyebrow b {
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.introTitle {
+  margin: 0;
+  font-size: 1.625rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+  font-feature-settings: normal;
+}
+
+.indexLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  min-height: 44px;
+  color: var(--ink-soft);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: color var(--dur-state) var(--ease-state);
+}
+
+.indexLink .arrow {
+  transition: transform var(--dur-state) var(--ease-state);
+}
+
+.indexLink:hover {
+  color: var(--flare-ink);
+}
+
+.indexLink:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* --------------------------------------------------------- panel contents */
+
+.body {
+  display: grid;
+  gap: clamp(1.75rem, 2.6vw, 3rem);
+  align-content: start;
+}
+
+.bodySplit {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+}
+
+/* The label sits on its own row and the content takes the rest, so two groups
+   of very different lengths still share one baseline and one bottom edge. */
+.group {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 1rem;
+  min-width: 0;
+}
+
+.groupLabel {
+  margin: 0;
+  color: var(--charcoal);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  line-height: 1;
+  font-feature-settings: normal;
+}
+
+/* The two audiences share the column height exactly: equal area, equal weight,
+   neither one subordinate to the other. */
+.cards {
+  display: grid;
+  grid-auto-rows: minmax(0, 1fr);
+  gap: 0.75rem;
+}
+
+/*
+ * Two doors beside an index.
+ *
+ * The card fills its half of a column as tall as five list rows, so its content
+ * is centred in that height and the affordance sits on the centre line with it.
+ * Parked on the bottom edge instead — as it was — the arrow read as something
+ * left behind at the foot of an empty box.
+ */
+.card {
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "title arrow"
+    "detail arrow";
+  align-content: center;
+  column-gap: 1.25rem;
+}
+
+.card .cardTitle {
+  grid-area: title;
+}
+
+.card .detail {
+  grid-area: detail;
+}
+
+.cardArrow {
+  grid-area: arrow;
+  align-self: center;
+  color: var(--charcoal);
+  transition: color var(--dur-state) var(--ease-state);
+}
+
+.card:hover .cardArrow,
+.card:focus-visible .cardArrow {
+  color: var(--flare-ink);
+}
+
+.card:hover .cardArrow .arrow,
+.card:focus-visible .cardArrow .arrow {
+  transform: translateX(5px);
+}
+
+/* The list item is a pure layout wrapper: the card itself is the grid item, so
+   it fills its column and every card in a row shares one height. */
+.cards li,
+.tiles li,
+.domains li {
+  display: grid;
+}
+
+/* Title and description at the top, the affordance parked on the bottom edge:
+   the card reads as a composed block rather than as text with padding under it. */
+.card {
+  display: grid;
+  row-gap: 0.4rem;
+  min-height: 44px;
+  padding: 1.25rem 1.375rem;
+  border: 1px solid var(--hairline);
+  border-radius: 3px;
+  background-color: transparent;
+  color: inherit;
+  text-decoration: none;
+  transition:
+    border-color var(--dur-state) var(--ease-state),
+    background-color var(--dur-state) var(--ease-state);
+}
+
+.card:hover {
+  border-color: color-mix(in oklch, var(--ink) 35%, transparent);
+  background-color: color-mix(in oklch, var(--ink) 3%, transparent);
+}
+
+.cardTitle {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  font-feature-settings: normal;
+}
+
+.detail {
+  color: var(--ink-soft);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.85;
+}
+
+.rows {
+  display: grid;
+  gap: 0;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 0.2rem 1rem;
+  min-height: 44px;
+  padding-block: 0.75rem;
+  border-top: 1px solid var(--hairline);
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--dur-state) var(--ease-state);
+}
+
+.rows li:last-child .row {
+  border-bottom: 1px solid var(--hairline);
+}
+
+.rowLabel {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  font-feature-settings: normal;
+}
+
+.row .detail {
+  grid-column: 1 / -1;
+}
+
+.row .arrow {
+  align-self: center;
+  color: var(--charcoal);
+  transition:
+    transform var(--dur-release) var(--ease-panel),
+    color var(--dur-state) var(--ease-state);
+}
+
+.row:hover {
+  color: var(--flare-ink);
+}
+
+.row:hover .arrow,
+.row:focus-visible .arrow {
+  color: inherit;
+  transform: translateX(5px);
+}
+
+/* ------------------------------------------------------------- 02 services */
+
+.domains {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2vw, 2.25rem);
+}
+
+.domain {
+  display: grid;
+  align-content: start;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.domainHead {
+  display: grid;
+  align-content: start;
+  gap: 0.45rem;
+  padding-bottom: 0.875rem;
+  border-bottom: 1px solid var(--hairline);
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--dur-state) var(--ease-state);
+}
+
+.domainHead:hover {
+  color: var(--flare-ink);
+}
+
+.domainNumber {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  color: var(--flare-ink);
+  font-family: var(--font-narrow);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* "01 ———— 11 services": the hairline is a flex spacer, and the count is
+   ordered after it so the number and the tally sit at opposite ends. */
+.domainNumber::after {
+  content: "";
+  flex: 1 1 auto;
+  height: 1px;
+  background-color: var(--hairline);
+}
+
+.domainNumber .count {
+  order: 1;
+}
+
+.themes {
+  display: grid;
+  gap: 0;
+}
+
+.theme {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding-block: 0.55rem;
+  color: var(--ink-soft);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  text-decoration: none;
+  font-feature-settings: normal;
+  transition: color var(--dur-state) var(--ease-state);
+}
+
+.theme::before {
+  content: "";
+  width: 10px;
+  height: 1px;
+  flex: 0 0 auto;
+  background-color: var(--charcoal);
+  transition:
+    width var(--dur-release) var(--ease-panel),
+    background-color var(--dur-state) var(--ease-state);
+}
+
+.theme:hover {
+  color: var(--flare-ink);
+}
+
+.theme:hover::before,
+.theme:focus-visible::before {
+  width: 20px;
+  background-color: currentColor;
+}
+
+.count {
+  color: var(--charcoal);
+  font-family: var(--font-narrow);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* ---------------------------------------------------------------- 03 about */
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  max-width: 40rem;
+}
+
+/* A compact menu, so at full width the four destinations read as one row of
+   equal cards rather than a block floating in an empty panel. */
+@media (min-width: 80rem) {
+  .tiles {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    max-width: none;
+  }
+}
+
+.tile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 76px;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--hairline);
+  border-radius: 3px;
+  color: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  font-feature-settings: normal;
+  transition:
+    border-color var(--dur-state) var(--ease-state),
+    background-color var(--dur-state) var(--ease-state),
+    color var(--dur-state) var(--ease-state);
+}
+
+.tile .arrow {
+  color: var(--charcoal);
+  transition:
+    transform var(--dur-release) var(--ease-panel),
+    color var(--dur-state) var(--ease-state);
+}
+
+.tile:hover {
+  border-color: color-mix(in oklch, var(--ink) 35%, transparent);
+  background-color: color-mix(in oklch, var(--ink) 3%, transparent);
+  color: var(--flare-ink);
+}
+
+.tile:hover .arrow,
+.tile:focus-visible .arrow {
+  color: inherit;
+  transform: translateX(5px);
+}
+
+/* ------------------------------------------------------ current page, ink */
+
+.card[aria-current="page"] .cardTitle,
+.row[aria-current="page"] .rowLabel,
+.theme[aria-current="page"],
+.tile[aria-current="page"],
+.indexLink[aria-current="page"],
+.drawerLink[aria-current="page"],
+.drawerDirect[aria-current="page"],
+.disclosureLink[aria-current="page"],
+.domainHead[aria-current="page"] {
+  color: var(--flare-ink);
+}
+
+/* -------------------------------------------------------------- overlay */
+
+.scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 10020;
+  visibility: hidden;
+  opacity: 0;
+  background-color: oklch(0 0 0 / 12%);
+  pointer-events: none;
+  transition:
+    opacity var(--dur-panel) var(--ease-panel),
+    visibility 0s linear var(--dur-panel);
+}
+
+.scrim[data-open="true"] {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transition:
+    opacity var(--dur-panel) var(--ease-panel),
+    visibility 0s;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10030;
+  display: flex;
+  flex-direction: column;
+  width: min(26rem, 100vw);
+  visibility: hidden;
+  transform: translate3d(100%, 0, 0);
+  background-color: var(--paper);
+  color: var(--ink);
+  transition:
+    transform var(--dur-wipe-out) var(--ease-wipe),
+    visibility 0s linear var(--dur-wipe-out);
+}
+
+.drawer[data-open="true"] {
+  visibility: visible;
+  transform: translate3d(0, 0, 0);
+  transition:
+    transform var(--dur-wipe) var(--ease-wipe),
+    visibility 0s;
+}
+
+.drawerTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex: 0 0 auto;
+  height: 60px;
+  padding-inline: 1.25rem;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.drawerClose {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  height: 44px;
+  min-width: 44px;
+  padding-inline: 0.75rem;
+  margin-inline-end: -0.75rem;
+  border: 0;
+  background-color: transparent;
+  color: var(--flare-ink);
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.closeGlyph {
+  position: relative;
+  display: block;
+  width: 13px;
+  height: 13px;
+  flex: 0 0 auto;
+}
+
+.closeGlyph::before,
+.closeGlyph::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  top: calc(50% - 0.75px);
+  height: 1.5px;
+  background-color: currentColor;
+}
+
+.closeGlyph::before {
+  transform: rotate(45deg);
+}
+
+.closeGlyph::after {
+  transform: rotate(-45deg);
+}
+
+.drawerNav {
+  flex: 1 1 auto;
+  padding: 0.25rem 1.25rem 1.25rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.disclosure {
+  border-bottom: 1px solid var(--hairline);
+}
+
+.disclosureHead {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.disclosureButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: 56px;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  color: inherit;
+  font-family: inherit;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-align: start;
+  font-feature-settings: normal;
+  transition: color var(--dur-state) var(--ease-state);
+}
+
+.disclosureLink {
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+  min-height: 56px;
+  color: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  font-feature-settings: normal;
+  transition: color var(--dur-state) var(--ease-state);
+}
+
+.disclosureToggle {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  border: 0;
+  background-color: transparent;
+  color: var(--charcoal);
+}
+
+.plus {
+  position: relative;
+  display: block;
+  width: 13px;
+  height: 13px;
+}
+
+.plus::before,
+.plus::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  top: calc(50% - 0.75px);
+  height: 1.5px;
+  background-color: currentColor;
+  transition: transform var(--dur-state) var(--ease-state);
+}
+
+.plus::after {
+  transform: rotate(90deg);
+}
+
+[aria-expanded="true"] .plus::after {
+  transform: rotate(0deg);
+}
+
+.disclosurePanel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows var(--dur-panel) var(--ease-panel),
+    opacity var(--dur-state) var(--ease-panel);
+}
+
+.disclosurePanel[data-expanded="true"] {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.disclosureInner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.disclosurePanel[data-expanded="true"] .disclosureInner {
+  padding-bottom: 0.75rem;
+}
+
+.drawerGroupLabel {
+  margin: 0.875rem 0 0.125rem;
+  color: var(--charcoal);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  line-height: 1;
+}
+
+.drawerLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 48px;
+  padding-block: 0.5rem;
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  text-decoration: none;
+  font-feature-settings: normal;
+  transition: color var(--dur-state) var(--ease-state);
+}
+
+.drawerLink:hover {
+  color: var(--flare-ink);
+}
+
+.nested {
+  margin-inline-start: 0.75rem;
+  padding-inline-start: 0.875rem;
+  border-inline-start: 1px solid var(--hairline);
+}
+
+.nested .disclosure {
+  border-bottom: 0;
+}
+
+.nested .disclosureLink {
+  min-height: 48px;
+  font-size: 0.9375rem;
+}
+
+.drawerDirect {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 56px;
+  border-bottom: 1px solid var(--hairline);
+  color: inherit;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  font-feature-settings: normal;
+  transition: color var(--dur-state) var(--ease-state);
+}
+
+.drawerDirect:hover,
+.disclosureLink:hover,
+.disclosureButton:hover {
+  color: var(--flare-ink);
+}
+
+.drawerFoot {
+  flex: 0 0 auto;
+  padding: 1rem 1.25rem calc(1rem + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid var(--hairline);
+}
+
+.drawerCta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  width: 100%;
+  min-height: 56px;
+  border-radius: 3px;
+  background-color: var(--flare);
+  color: var(--ink-deep);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition:
+    background-color 180ms var(--ease-state),
+    border-color 180ms var(--ease-state);
+}
+
+/* ------------------------------------------------------------ breakpoints */
+
+@media (min-width: 48rem) {
+  .header,
+  .drawer {
+    --nav-inline: 1.5rem;
+    --nav-brand-mark: 38px;
+  }
+
+  .header {
+    --nav-bar-height: 4rem;
+  }
+
+  .header[data-compact="true"] {
+    --nav-bar-height: 3.5rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .header {
+    --nav-inline: clamp(1.5rem, 3vw, 3rem);
+    --nav-bar-height: 5.5rem;
+    --nav-brand-mark: 44px;
+    --nav-veil-feather: 76px;
+  }
+
+  .header[data-compact="true"] {
+    --nav-bar-height: 3.75rem;
+  }
+
+  .primary {
+    display: flex;
+  }
+
+  .cta {
+    display: inline-flex;
+  }
+
+  .ctaCompact,
+  .burger {
+    display: none;
+  }
+}
+
+/* Between the mega breakpoint and a comfortable reading width the challenges
+   panel stacks, so Japanese labels never wrap mid-phrase in a narrow column. */
+@media (min-width: 64rem) and (max-width: 79.999rem) {
+  .panelInner {
+    grid-template-columns: 200px minmax(0, 1fr);
+    padding-block: 2.25rem 2.5rem;
+  }
+
+  .bodySplit {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/*
+ * Reading tokens for every surface that stands on the glass.
+ *
+ * They are declared on the header rather than on the shelf because the bar
+ * inverts into the same ink when the sheet is down, and a bar reading one navy
+ * while the sheet under it reads another is exactly the seam this pass removes.
+ */
+.header,
+.drawer {
+  --ink: oklch(0.22 0.015 260);
+  --ink-soft: oklch(0.27 0.015 260);
+  --charcoal: oklch(0.31 0.012 260);
+  --flare-ink: oklch(0.34 0.07 48);
+  --hairline: oklch(0.25 0.015 260 / 20%);
+}
+
+.drawer {
+  background-color: var(--nav-glass, oklch(1 0 0 / 86%));
+  -webkit-backdrop-filter: blur(32px);
+  backdrop-filter: blur(32px);
+}
+
+/*
+ * The contact call, as an outline that fills.
+ *
+ * The only element in the bar allowed a plane of its own, and it earns it by
+ * arriving the way everything else on this site arrives: an edge sweeps across
+ * and the label is left standing on what it uncovered. Filled at rest it would
+ * be the one opaque rectangle in a bar whose whole point is that it has none.
+ */
+.cta,
+.ctaCompact {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 44px;
+  border: 1px solid oklch(1 0 0 / 55%);
+  background-color: transparent;
+  color: inherit;
+  transition:
+    border-color var(--dur-release) var(--ease-state),
+    color var(--dur-release) var(--ease-state),
+    text-shadow var(--dur-release) var(--ease-state);
+}
+
+.cta::before,
+.ctaCompact::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform var(--dur-release) var(--ease-wipe);
+}
+
+.cta:hover::before,
+.cta:focus-visible::before,
+.ctaCompact:hover::before,
+.ctaCompact:focus-visible::before {
+  transform: scaleX(1);
+}
+
+.cta:hover,
+.cta:focus-visible,
+.ctaCompact:hover,
+.ctaCompact:focus-visible {
+  border-color: currentColor;
+  color: var(--ink-deep);
+  text-shadow: none;
+}
+
+/* `currentColor` on the fill and on the label cannot both be read at once, so
+   the fill is painted from the resting ink and the label from its opposite. */
+.cta:hover::before,
+.cta:focus-visible::before,
+.ctaCompact:hover::before,
+.ctaCompact:focus-visible::before {
+  background-color: var(--paper);
+}
+
+.header[data-menu-open="true"] .cta {
+  border-color: oklch(0.22 0.015 260 / 32%);
+}
+
+.header[data-menu-open="true"] .cta:hover,
+.header[data-menu-open="true"] .cta:focus-visible {
+  border-color: var(--nav-ink);
+  color: var(--paper);
+}
+
+.header[data-menu-open="true"] .cta:hover::before,
+.header[data-menu-open="true"] .cta:focus-visible::before {
+  background-color: var(--nav-ink);
+}
+
+.drawerCta {
+  border: 1px solid var(--ink);
+  background-color: transparent;
+  color: var(--ink);
+}
+
+.drawerCta:hover {
+  background-color: color-mix(in oklch, var(--ink) 5%, transparent);
+}
+
+.bar :focus-visible {
+  outline: 2px solid var(--paper);
+  outline-offset: 4px;
+}
+
+/* The ring turns over with the ink it is drawn against. */
+.header[data-menu-open="true"] .bar :focus-visible {
+  outline-color: var(--nav-ink);
+}
+
+.shelf :focus-visible,
+.drawer :focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .pane,
+  .drawer {
+    background-color: var(--paper);
+  }
+}
+
+/*
+ * Transparency is the request, not the requirement.
+ *
+ * Where the reader has asked for less of it, the veil stops feathering and
+ * becomes the opaque reading band it was standing in for, and the sheet drops
+ * its blur for paper.
+ */
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  .veil {
+    height: var(--nav-bar-height);
+    background: oklch(0.18 0.012 260);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .bar {
+    text-shadow: none;
+  }
+
+  .pane,
+  .drawer {
+    background-color: var(--paper);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .bar,
+  .pane,
+  .drawer {
+    background: Canvas;
+    color: CanvasText;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .pane {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .header:not([data-menu-open="true"]) .pane {
+    background: none;
+  }
+
+  .veil {
+    background: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .bar {
+    text-shadow: none;
+  }
+
+  .item::before,
+  .cta::before,
+  .ctaCompact::before {
+    background: none;
+  }
+
+  .item,
+  .cta,
+  .ctaCompact {
+    color: LinkText;
+  }
+
+  .bar :focus-visible,
+  .shelf :focus-visible,
+  .drawer :focus-visible {
+    outline-color: Highlight;
+  }
+}
+
+/* ------------------------------------------------------- reduced motion */
+
+/*
+ * Authored fallback, not `animation: none`.
+ *
+ * The global stylesheet caps every transition at 40ms with `!important` on the
+ * universal selector, which also *creates* transitions on properties that
+ * authored none — including inherited `visibility`. A surface that is painted
+ * must be focusable in the same frame, so the navigation's presence
+ * transitions resolve at 0s. These selectors outrank `*` on specificity, so
+ * the important declarations below win. Colour feedback keeps the global 40ms
+ * resolve, and still reads as a change.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .veil,
+  .pane,
+  .shelf,
+  .shelf::after,
+  .panel,
+  .panel .intro,
+  .panel .intro::after,
+  .panel .body > .group,
+  .scrim,
+  .drawer,
+  .disclosurePanel,
+  .rule {
+    transition-duration: 0s !important;
+  }
+
+  /* A settled surface that arrives on a timer is still an animation. The
+     staggered columns and the drawn edges land in the same frame as the sheet. */
+  .panel[data-open="true"] .intro,
+  .panel[data-open="true"] .intro::after,
+  .panel[data-open="true"] .body > .group,
+  .shelf[data-open="true"]::after {
+    transition-delay: 0s !important;
+  }
+}
+
+/* Paper pages use the same shell with a readable ink treatment. */
+.header[data-surface="light"] .bar {
+  background: rgb(246 245 241 / 94%);
+  color: var(--nav-ink);
+  text-shadow: none;
+}
+.header[data-surface="light"] .veil {
+  opacity: 0;
+  backdrop-filter: none;
+}
+.header[data-surface="light"] {
+  --nav-chip: oklch(0.22 0.015 260 / 6%);
+  --nav-chip-strong: oklch(0.22 0.015 260 / 9%);
+}
+.header[data-surface="light"] :is(.cta, .compactCta) {
+  border-color: var(--nav-hairline);
+}
+@media (min-width: 48rem) {
+  .brandWord {
+    font-size: 26px;
+  }
+}
+@media (min-width: 64rem) {
+  .brandWord {
+    font-size: 30px;
+  }
+  .header[data-compact="true"] {
+    --nav-bar-height: 4.5rem;
+  }
+}

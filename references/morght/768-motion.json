@@ -1,0 +1,41 @@
+{
+  "geometry": {
+    "start": 2787.96875,
+    "height": 3584,
+    "viewport": 1024
+  },
+  "samples": [
+    {
+      "state": "start",
+      "scrollY": 2788,
+      "clip": "307.188px",
+      "image": "307.188px",
+      "ring": "1",
+      "path": "references/morght/768-circle-start.png"
+    },
+    {
+      "state": "mid",
+      "scrollY": 4068,
+      "clip": "793.609px",
+      "image": "1036.8px",
+      "ring": "0",
+      "path": "references/morght/768-circle-mid.png"
+    },
+    {
+      "state": "end",
+      "scrollY": 5348,
+      "clip": "1280px",
+      "image": "1280px",
+      "ring": "0",
+      "path": "references/morght/768-circle-end.png"
+    },
+    {
+      "state": "reverse",
+      "scrollY": 2788,
+      "clip": "307.188px",
+      "image": "307.219px",
+      "ring": "1",
+      "path": "references/morght/768-circle-reverse.png"
+    }
+  ]
+}

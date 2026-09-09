@@ -1,0 +1,222 @@
+{
+  "schemaVersion": "full-page-section-gate-plan/v1",
+  "routeAuthority": "../route-manifest.mjs",
+  "comparisons": [
+    {
+      "id": "home-content",
+      "scopeKind": "route-content",
+      "route": "/",
+      "reference": "section-gate/home-reference.json",
+      "implementation": "section-gate/home-implementation.json"
+    },
+    {
+      "id": "itineraries-content",
+      "scopeKind": "route-content",
+      "route": "/itineraries",
+      "reference": "section-gate/itineraries-reference.json",
+      "implementation": "section-gate/itineraries-implementation.json"
+    },
+    {
+      "id": "camps-content",
+      "scopeKind": "route-content",
+      "route": "/camps",
+      "reference": "section-gate/camps-reference.json",
+      "implementation": "section-gate/camps-implementation.json"
+    },
+    {
+      "id": "about-founders-content",
+      "scopeKind": "route-content",
+      "route": "/about/founders",
+      "reference": "section-gate/about--founders-reference.json",
+      "implementation": "section-gate/about--founders-implementation.json"
+    },
+    {
+      "id": "about-foundation-content",
+      "scopeKind": "route-content",
+      "route": "/about/foundation",
+      "reference": "section-gate/about--foundation-reference.json",
+      "implementation": "section-gate/about--foundation-implementation.json"
+    },
+    {
+      "id": "about-sustainability-content",
+      "scopeKind": "route-content",
+      "route": "/about/sustainability",
+      "reference": "section-gate/about--sustainability-reference.json",
+      "implementation": "section-gate/about--sustainability-implementation.json"
+    },
+    {
+      "id": "antarctica-behind-the-scenes-content",
+      "scopeKind": "route-content",
+      "route": "/antarctica/behind-the-scenes",
+      "reference": "section-gate/antarctica--behind-the-scenes-reference.json",
+      "implementation": "section-gate/antarctica--behind-the-scenes-implementation.json"
+    },
+    {
+      "id": "antarctica-direct-flights-to-antarctica-content",
+      "scopeKind": "route-content",
+      "route": "/antarctica/direct-flights-to-antarctica",
+      "reference": "section-gate/antarctica--direct-flights-to-antarctica-reference.json",
+      "implementation": "section-gate/antarctica--direct-flights-to-antarctica-implementation.json"
+    },
+    {
+      "id": "antarctica-content",
+      "scopeKind": "route-content",
+      "route": "/antarctica",
+      "reference": "section-gate/antarctica-reference.json",
+      "implementation": "section-gate/antarctica-implementation.json"
+    },
+    {
+      "id": "prices-content",
+      "scopeKind": "route-content",
+      "route": "/prices",
+      "reference": "section-gate/prices-reference.json",
+      "implementation": "section-gate/prices-implementation.json"
+    },
+    {
+      "id": "enquire-content",
+      "scopeKind": "route-content",
+      "route": "/enquire",
+      "reference": "section-gate/enquire-reference.json",
+      "implementation": "section-gate/enquire-implementation.json"
+    },
+    {
+      "id": "legal-website-terms-content",
+      "scopeKind": "route-content",
+      "route": "/legal/website-terms",
+      "reference": "section-gate/legal--website-terms-reference.json",
+      "implementation": "section-gate/legal--website-terms-implementation.json"
+    },
+    {
+      "id": "legal-booking-terms-content",
+      "scopeKind": "route-content",
+      "route": "/legal/booking-terms",
+      "reference": "section-gate/legal--booking-terms-reference.json",
+      "implementation": "section-gate/legal--booking-terms-implementation.json"
+    },
+    {
+      "id": "legal-privacy-policy-content",
+      "scopeKind": "route-content",
+      "route": "/legal/privacy-policy",
+      "reference": "section-gate/legal--privacy-policy-reference.json",
+      "implementation": "section-gate/legal--privacy-policy-implementation.json"
+    },
+    {
+      "id": "legal-cookies-content",
+      "scopeKind": "route-content",
+      "route": "/legal/cookies",
+      "reference": "section-gate/legal--cookies-reference.json",
+      "implementation": "section-gate/legal--cookies-implementation.json"
+    },
+    {
+      "id": "legal-medical-disclaimer-content",
+      "scopeKind": "route-content",
+      "route": "/legal/medical-disclaimer",
+      "reference": "section-gate/legal--medical-disclaimer-reference.json",
+      "implementation": "section-gate/legal--medical-disclaimer-implementation.json"
+    },
+    {
+      "id": "camps-echo-base-content",
+      "scopeKind": "route-content",
+      "route": "/camps/echo-base",
+      "reference": "section-gate/camps--echo-base-reference.json",
+      "implementation": "section-gate/camps--echo-base-implementation.json"
+    },
+    {
+      "id": "camps-explorer-camp-content",
+      "scopeKind": "route-content",
+      "route": "/camps/explorer-camp",
+      "reference": "section-gate/camps--explorer-camp-reference.json",
+      "implementation": "section-gate/camps--explorer-camp-implementation.json"
+    },
+    {
+      "id": "camps-whichaway-camp-content",
+      "scopeKind": "route-content",
+      "route": "/camps/whichaway-camp",
+      "reference": "section-gate/camps--whichaway-camp-reference.json",
+      "implementation": "section-gate/camps--whichaway-camp-implementation.json"
+    },
+    {
+      "id": "itineraries-discovery-week-content",
+      "scopeKind": "route-content",
+      "route": "/itineraries/discovery-week",
+      "reference": "section-gate/itineraries--discovery-week-reference.json",
+      "implementation": "section-gate/itineraries--discovery-week-implementation.json"
+    },
+    {
+      "id": "itineraries-south-pole-emperor-penguins-content",
+      "scopeKind": "route-content",
+      "route": "/itineraries/south-pole-emperor-penguins",
+      "reference": "section-gate/itineraries--south-pole-emperor-penguins-reference.json",
+      "implementation": "section-gate/itineraries--south-pole-emperor-penguins-implementation.json"
+    },
+    {
+      "id": "itineraries-south-pole-blue-rivers-content",
+      "scopeKind": "route-content",
+      "route": "/itineraries/south-pole-blue-rivers",
+      "reference": "section-gate/itineraries--south-pole-blue-rivers-reference.json",
+      "implementation": "section-gate/itineraries--south-pole-blue-rivers-implementation.json"
+    },
+    {
+      "id": "itineraries-antarctica-in-a-day-content",
+      "scopeKind": "route-content",
+      "route": "/itineraries/antarctica-in-a-day",
+      "reference": "section-gate/itineraries--antarctica-in-a-day-reference.json",
+      "implementation": "section-gate/itineraries--antarctica-in-a-day-implementation.json"
+    },
+    {
+      "id": "itineraries-early-emperor-penguins-content",
+      "scopeKind": "route-content",
+      "route": "/itineraries/early-emperor-penguins",
+      "reference": "section-gate/itineraries--early-emperor-penguins-reference.json",
+      "implementation": "section-gate/itineraries--early-emperor-penguins-implementation.json"
+    },
+    {
+      "id": "itineraries-the-long-stay-content",
+      "scopeKind": "route-content",
+      "route": "/itineraries/the-long-stay",
+      "reference": "section-gate/itineraries--the-long-stay-reference.json",
+      "implementation": "section-gate/itineraries--the-long-stay-implementation.json"
+    },
+    {
+      "id": "antarctica-wolfs-fang-runway-mountains-content",
+      "scopeKind": "route-content",
+      "route": "/antarctica/wolfs-fang-runway-mountains",
+      "reference": "section-gate/antarctica--wolfs-fang-runway-mountains-reference.json",
+      "implementation": "section-gate/antarctica--wolfs-fang-runway-mountains-implementation.json"
+    },
+    {
+      "id": "antarctica-schirmacher-oasis-content",
+      "scopeKind": "route-content",
+      "route": "/antarctica/schirmacher-oasis",
+      "reference": "section-gate/antarctica--schirmacher-oasis-reference.json",
+      "implementation": "section-gate/antarctica--schirmacher-oasis-implementation.json"
+    },
+    {
+      "id": "antarctica-polar-plateau-content",
+      "scopeKind": "route-content",
+      "route": "/antarctica/polar-plateau",
+      "reference": "section-gate/antarctica--polar-plateau-reference.json",
+      "implementation": "section-gate/antarctica--polar-plateau-implementation.json"
+    },
+    {
+      "id": "antarctica-atka-penguin-colony-content",
+      "scopeKind": "route-content",
+      "route": "/antarctica/atka-penguin-colony",
+      "reference": "section-gate/antarctica--atka-penguin-colony-reference.json",
+      "implementation": "section-gate/antarctica--atka-penguin-colony-implementation.json"
+    },
+    {
+      "id": "antarctica-fuel-depot-content",
+      "scopeKind": "route-content",
+      "route": "/antarctica/fuel-depot",
+      "reference": "section-gate/antarctica--fuel-depot-reference.json",
+      "implementation": "section-gate/antarctica--fuel-depot-implementation.json"
+    },
+    {
+      "id": "global-shell",
+      "scopeKind": "global-shell",
+      "reference": "section-gate/global-shell-reference.json",
+      "implementation": "section-gate/global-shell-implementation.json"
+    }
+  ]
+}

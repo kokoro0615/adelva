@@ -1,0 +1,691 @@
+{
+  "schemaVersion": 1,
+  "role": "reference",
+  "route": "/",
+  "scope": "route-content",
+  "sourceUrl": "https://morght.com/",
+  "status": 200,
+  "observedAt": "2026-09-09T12:52:57.975Z",
+  "width": 390,
+  "height": 844,
+  "scrollHeight": 9544,
+  "scaleX": 1,
+  "scaleY": 1,
+  "contentRoot": "main",
+  "directChildren": [
+    "intro",
+    "mission",
+    "service",
+    "career",
+    "news",
+    "company"
+  ],
+  "sections": [
+    {
+      "id": "intro",
+      "kind": "element",
+      "parent": "route-content",
+      "order": 0,
+      "tag": "SECTION",
+      "heading": "Morght",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 603.921875
+      },
+      "items": 0,
+      "headings": [
+        "Morght"
+      ],
+      "assets": [
+        "img-1.webp",
+        "img-2.webp",
+        "img-2-deco.png",
+        "img-3.webp",
+        "img-3-deco.png",
+        "img-4.webp",
+        "img-4-deco.png",
+        "img-5.webp",
+        "img-6.webp",
+        "img-6-deco.png",
+        "img-7.webp",
+        "img-8.webp",
+        "img-8-deco.png",
+        "img-9.webp",
+        "img-9-deco.png",
+        "img-10.webp",
+        "img-10-deco.png",
+        "img-11.webp",
+        "img-12.webp",
+        "img-12-deco.png",
+        "img-13.webp",
+        "img-14.webp",
+        "img-14-deco.png",
+        "img-15.webp",
+        "img-15-deco.png",
+        "img-16.webp"
+      ],
+      "links": [],
+      "children": [
+        "DIV",
+        "DIV",
+        "DIV"
+      ]
+    },
+    {
+      "id": "mission",
+      "kind": "element",
+      "parent": "route-content",
+      "order": 1,
+      "tag": "SECTION",
+      "heading": "Mission",
+      "bounds": {
+        "x": 0,
+        "y": 739.109375,
+        "width": 390,
+        "height": 469.609375
+      },
+      "items": 0,
+      "headings": [
+        "Mission"
+      ],
+      "assets": [
+        "headline-mission.png"
+      ],
+      "links": [
+        {
+          "text": "View more",
+          "href": "/mission"
+        }
+      ],
+      "children": [
+        "H2",
+        "P",
+        "DIV"
+      ]
+    },
+    {
+      "id": "service",
+      "kind": "element",
+      "parent": "route-content",
+      "order": 2,
+      "tag": "SECTION",
+      "heading": "Service",
+      "bounds": {
+        "x": 0,
+        "y": 1375.109375,
+        "width": 390,
+        "height": 1085.90625
+      },
+      "items": 0,
+      "headings": [
+        "Service"
+      ],
+      "assets": [
+        "service-1.webp",
+        "service-1-deco.png",
+        "headline-service.png",
+        "service-2.webp",
+        "service-2-deco.png"
+      ],
+      "links": [
+        {
+          "text": "View more",
+          "href": "/service"
+        }
+      ],
+      "children": [
+        "DIV",
+        "DIV"
+      ]
+    },
+    {
+      "id": "career",
+      "kind": "element",
+      "parent": "route-content",
+      "order": 3,
+      "tag": "SECTION",
+      "heading": "Career",
+      "bounds": {
+        "x": 0,
+        "y": 2627.40625,
+        "width": 390,
+        "height": 3140.96875
+      },
+      "items": 0,
+      "headings": [
+        "Career"
+      ],
+      "assets": [
+        "career.webp",
+        "career-deco.png",
+        "headline-career.png"
+      ],
+      "links": [
+        {
+          "text": "View more",
+          "href": "/career"
+        }
+      ],
+      "children": [
+        "DIV",
+        "DIV"
+      ]
+    },
+    {
+      "id": "news",
+      "kind": "element",
+      "parent": "route-content",
+      "order": 4,
+      "tag": "SECTION",
+      "heading": "News",
+      "bounds": {
+        "x": 0,
+        "y": 5768.375,
+        "width": 390,
+        "height": 1171.5625
+      },
+      "items": 6,
+      "headings": [
+        "News"
+      ],
+      "assets": [
+        "%E3%83%9D%E3%82%B1%E3%83%A2%E3%83%B3%E3%82%B3%E3%82%A4%E3%83%AB.webp",
+        "34237-160-d62d1ed3238d15681113b1c92a49da5f-1200x630-1.webp",
+        "%E3%81%8B%E3%81%91%E5%B8%83%E5%9B%A3%E3%82%AB%E3%83%90%E3%83%BC.webp",
+        "34237-156-9c377f10a08cca765bbbbc964d25ab3a-1200x630-1.webp",
+        "34237-158-001bf43c6fa78debeebf5666121ee36f-1200x628-1.webp",
+        "34237-157-da24293fc793fb07ad5dfd6d66ca5c10-1200x630-1.webp"
+      ],
+      "links": [
+        {
+          "text": "【睡眠ブランドNELL】ポケモンのコイルを主役とした商品「NELL×COIL COLLECTION」9月7日（月）より一般発売開始2026.09.07Press Release",
+          "href": "/news/20260907"
+        },
+        {
+          "text": "ポケモンのコイルが\"大量発生\"したシーツやルームウェアが、「ポケットコイル」マットレスブランド「NELL」から登場！9月1日より販売開始2026.09.01Press Release",
+          "href": "/news/20260901-2"
+        },
+        {
+          "text": "【新製品】カバー替えの“格闘”も、朝の“ズレ直し”も不要。「NELL かけ布団カバー」が予約販売を開始2026.09.01Press Release",
+          "href": "/news/20260901"
+        },
+        {
+          "text": "【夫婦500名に調査】パートナーで「シングルベッド」は正解！？ 37.4%がひとり向けサイズで寝るも、満足度84%と広さは関係なし！常識を覆す“寝室のリアル”2026.08.24Press Release",
+          "href": "/news/20260824-2"
+        },
+        {
+          "text": "医師の94%が「睡眠の質を良くしたい人に薦めたい」と回答したマットレスも15%OFF！夏の疲れをリセットする「NELL ラストサマーセール」を8月24日より開催2026.08.24Press Release",
+          "href": "/news/20260824"
+        },
+        {
+          "text": "【9月3日は秋の睡眠の日】“隠れ睡眠ロス”は1日平均62分、年間約15日分 20〜50代の6割が一晩30分以上「ベッドの中で眠れずに」過ごす2026.08.21Press Release",
+          "href": "/news/20260821"
+        },
+        {
+          "text": "View more",
+          "href": "/news"
+        }
+      ],
+      "children": [
+        "H2",
+        "DIV",
+        "DIV"
+      ]
+    },
+    {
+      "id": "company",
+      "kind": "element",
+      "parent": "route-content",
+      "order": 5,
+      "tag": "SECTION",
+      "heading": "Company",
+      "bounds": {
+        "x": 0,
+        "y": 7106.328125,
+        "width": 390,
+        "height": 1106.234375
+      },
+      "items": 0,
+      "headings": [
+        "Company"
+      ],
+      "assets": [
+        "company-1.webp",
+        "company-1-deco.png",
+        "headline-company.png",
+        "company-2.webp",
+        "company-2-deco.png",
+        "company-3.webp",
+        "company-3-deco.png",
+        "company-4.webp",
+        "company-4-deco.png"
+      ],
+      "links": [
+        {
+          "text": "View more",
+          "href": "/company"
+        }
+      ],
+      "children": [
+        "DIV",
+        "DIV",
+        "DIV"
+      ]
+    }
+  ],
+  "shell": {
+    "id": "global-shell",
+    "sections": [
+      {
+        "id": "footer",
+        "kind": "element",
+        "parent": "global-shell",
+        "order": 6,
+        "tag": "FOOTER",
+        "heading": "Footer",
+        "bounds": {
+          "x": 0,
+          "y": 8378.953125,
+          "width": 390,
+          "height": 1165.171875
+        },
+        "items": 6,
+        "headings": [],
+        "assets": [],
+        "links": [
+          {
+            "text": "Morght",
+            "href": "/"
+          },
+          {
+            "text": "〒107-0062東京都港区南青山3-1-343rd MINAMI AOYAMA 6F",
+            "href": "https://maps.app.goo.gl/HTRvHsbm8eDS5qjdA"
+          },
+          {
+            "text": "Mission",
+            "href": "/mission"
+          },
+          {
+            "text": "Service",
+            "href": "/service"
+          },
+          {
+            "text": "Career",
+            "href": "/career"
+          },
+          {
+            "text": "Company",
+            "href": "/company"
+          },
+          {
+            "text": "News",
+            "href": "/news"
+          },
+          {
+            "text": "Contact",
+            "href": "/contact"
+          },
+          {
+            "text": "Job list",
+            "href": "https://herp.careers/v1/morght"
+          },
+          {
+            "text": "Note",
+            "href": "https://note.com/morght_note/"
+          },
+          {
+            "text": "Recruitment Deck",
+            "href": "https://x.gd/EEH61"
+          },
+          {
+            "text": "NELL",
+            "href": "https://nell.life/"
+          },
+          {
+            "text": "Instagram",
+            "href": "https://www.instagram.com/nell_mattress/"
+          },
+          {
+            "text": "X",
+            "href": "https://twitter.com/NELL_mattress"
+          },
+          {
+            "text": "YouTube",
+            "href": "https://www.youtube.com/channel/UCqwYszIoGBgAnjWqGqvFO1g"
+          },
+          {
+            "text": "Privacy policy",
+            "href": "/privacy"
+          }
+        ],
+        "children": [
+          "DIV"
+        ]
+      }
+    ],
+    "links": [
+      {
+        "href": "https://morght.com/",
+        "text": "Home"
+      },
+      {
+        "href": "https://morght.com/mission",
+        "text": "Mission"
+      },
+      {
+        "href": "https://morght.com/service",
+        "text": "Service"
+      },
+      {
+        "href": "https://morght.com/career",
+        "text": "Career"
+      },
+      {
+        "href": "https://morght.com/company",
+        "text": "Company"
+      },
+      {
+        "href": "https://morght.com/news",
+        "text": "News"
+      },
+      {
+        "href": "https://herp.careers/v1/morght",
+        "text": "Job list"
+      },
+      {
+        "href": "https://note.com/morght_note/",
+        "text": "Note"
+      },
+      {
+        "href": "https://nell.life/",
+        "text": "NELL"
+      },
+      {
+        "href": "https://morght.com/contact",
+        "text": "Contact"
+      },
+      {
+        "href": "https://morght.com/privacy",
+        "text": "Privacy policy"
+      },
+      {
+        "href": "https://www.instagram.com/nell_mattress/",
+        "text": "Instagram"
+      },
+      {
+        "href": "https://twitter.com/NELL_mattress",
+        "text": "X"
+      },
+      {
+        "href": "https://www.youtube.com/channel/UCqwYszIoGBgAnjWqGqvFO1g",
+        "text": "YouTube"
+      },
+      {
+        "href": "https://maps.app.goo.gl/HTRvHsbm8eDS5qjdA",
+        "text": "〒107-0062東京都港区南青山3-1-343rd MINAMI AOYAMA 6F"
+      },
+      {
+        "href": "https://morght.com/",
+        "text": "Morght"
+      }
+    ]
+  },
+  "artifacts": [
+    {
+      "name": "top",
+      "path": "references/morght/final/390-top.png",
+      "scrollY": 0,
+      "fullPage": false
+    },
+    {
+      "name": "intro-start",
+      "path": "references/morght/final/390-intro-start.png",
+      "scrollY": 0,
+      "fullPage": false
+    },
+    {
+      "name": "intro-center",
+      "path": "references/morght/final/390-intro-center.png",
+      "scrollY": 0,
+      "fullPage": false
+    },
+    {
+      "name": "intro-end",
+      "path": "references/morght/final/390-intro-end.png",
+      "scrollY": 0,
+      "fullPage": false
+    },
+    {
+      "name": "intro-crop",
+      "path": "references/morght/final/390-intro-crop.png",
+      "scrollY": 0,
+      "fullPage": false
+    },
+    {
+      "name": "mission-start",
+      "path": "references/morght/final/390-mission-start.png",
+      "scrollY": 739,
+      "fullPage": false
+    },
+    {
+      "name": "mission-center",
+      "path": "references/morght/final/390-mission-center.png",
+      "scrollY": 739,
+      "fullPage": false
+    },
+    {
+      "name": "mission-end",
+      "path": "references/morght/final/390-mission-end.png",
+      "scrollY": 739,
+      "fullPage": false
+    },
+    {
+      "name": "mission-crop",
+      "path": "references/morght/final/390-mission-crop.png",
+      "scrollY": 739,
+      "fullPage": false
+    },
+    {
+      "name": "service-start",
+      "path": "references/morght/final/390-service-start.png",
+      "scrollY": 1375,
+      "fullPage": false
+    },
+    {
+      "name": "service-center",
+      "path": "references/morght/final/390-service-center.png",
+      "scrollY": 1496,
+      "fullPage": false
+    },
+    {
+      "name": "service-end",
+      "path": "references/morght/final/390-service-end.png",
+      "scrollY": 1617,
+      "fullPage": false
+    },
+    {
+      "name": "service-crop",
+      "path": "references/morght/final/390-service-crop.png",
+      "scrollY": 83,
+      "fullPage": false
+    },
+    {
+      "name": "career-start",
+      "path": "references/morght/final/390-career-start.png",
+      "scrollY": 2627,
+      "fullPage": false
+    },
+    {
+      "name": "career-center",
+      "path": "references/morght/final/390-career-center.png",
+      "scrollY": 3776,
+      "fullPage": false
+    },
+    {
+      "name": "career-end",
+      "path": "references/morght/final/390-career-end.png",
+      "scrollY": 4924,
+      "fullPage": false
+    },
+    {
+      "name": "career-crop",
+      "path": "references/morght/final/390-career-crop.png",
+      "scrollY": 83,
+      "fullPage": false
+    },
+    {
+      "name": "news-start",
+      "path": "references/morght/final/390-news-start.png",
+      "scrollY": 5768,
+      "fullPage": false
+    },
+    {
+      "name": "news-center",
+      "path": "references/morght/final/390-news-center.png",
+      "scrollY": 5932,
+      "fullPage": false
+    },
+    {
+      "name": "news-end",
+      "path": "references/morght/final/390-news-end.png",
+      "scrollY": 6096,
+      "fullPage": false
+    },
+    {
+      "name": "news-crop",
+      "path": "references/morght/final/390-news-crop.png",
+      "scrollY": 83,
+      "fullPage": false
+    },
+    {
+      "name": "company-start",
+      "path": "references/morght/final/390-company-start.png",
+      "scrollY": 7106,
+      "fullPage": false
+    },
+    {
+      "name": "company-center",
+      "path": "references/morght/final/390-company-center.png",
+      "scrollY": 7237,
+      "fullPage": false
+    },
+    {
+      "name": "company-end",
+      "path": "references/morght/final/390-company-end.png",
+      "scrollY": 7369,
+      "fullPage": false
+    },
+    {
+      "name": "company-crop",
+      "path": "references/morght/final/390-company-crop.png",
+      "scrollY": 83,
+      "fullPage": false
+    },
+    {
+      "name": "footer-start",
+      "path": "references/morght/final/390-footer-start.png",
+      "scrollY": 8379,
+      "fullPage": false
+    },
+    {
+      "name": "footer-center",
+      "path": "references/morght/final/390-footer-center.png",
+      "scrollY": 8540,
+      "fullPage": false
+    },
+    {
+      "name": "footer-end",
+      "path": "references/morght/final/390-footer-end.png",
+      "scrollY": 8700,
+      "fullPage": false
+    },
+    {
+      "name": "footer-crop",
+      "path": "references/morght/final/390-footer-crop.png",
+      "scrollY": 83,
+      "fullPage": false
+    },
+    {
+      "name": "overview",
+      "path": "references/morght/final/390-overview.png",
+      "scrollY": 0,
+      "fullPage": true
+    },
+    {
+      "name": "circle-start",
+      "path": "references/morght/final/390-circle-start.png",
+      "scrollY": 2627,
+      "fullPage": false
+    },
+    {
+      "name": "circle-mid",
+      "path": "references/morght/final/390-circle-mid.png",
+      "scrollY": 3471,
+      "fullPage": false
+    },
+    {
+      "name": "circle-end",
+      "path": "references/morght/final/390-circle-end.png",
+      "scrollY": 4315,
+      "fullPage": false
+    },
+    {
+      "name": "circle-reverse",
+      "path": "references/morght/final/390-circle-reverse.png",
+      "scrollY": 2627,
+      "fullPage": false
+    },
+    {
+      "name": "menu",
+      "path": "references/morght/final/390-menu.png",
+      "scrollY": 8379,
+      "fullPage": false
+    }
+  ],
+  "motion": [
+    {
+      "id": "circle",
+      "trigger": "scroll",
+      "property": "crop scale / image scale",
+      "pinStart": 2627.40625,
+      "pinEnd": 4315.40625,
+      "pinDistance": 1688,
+      "horizontalTravel": 0,
+      "easing": [
+        "quadratic-in-out",
+        "quadratic-out"
+      ],
+      "interruption": "reversible",
+      "reducedMotion": "static full image (intentional accessibility adaptation)",
+      "samples": [
+        {
+          "phase": "start",
+          "crop": 156,
+          "image": 156,
+          "path": "references/morght/final/390-circle-start.png"
+        },
+        {
+          "phase": "mid",
+          "crop": 542.5,
+          "image": 736.125,
+          "path": "references/morght/final/390-circle-mid.png"
+        },
+        {
+          "phase": "end",
+          "crop": 929.75,
+          "image": 929.75,
+          "path": "references/morght/final/390-circle-end.png"
+        },
+        {
+          "phase": "reverse",
+          "crop": 156,
+          "image": 156,
+          "path": "references/morght/final/390-circle-reverse.png"
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

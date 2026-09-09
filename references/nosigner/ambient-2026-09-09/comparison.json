@@ -1,0 +1,173 @@
+{
+  "thresholds": {
+    "mae": 0.08,
+    "centroidDelta": 0.08
+  },
+  "results": [
+    {
+      "viewport": 1440,
+      "state": "intro",
+      "mae": 0.006573591713488515,
+      "centroidDelta": 4.658141512307086e-05,
+      "pass": true,
+      "reference": "references/nosigner/ambient-2026-09-09/reference-intro-1440.png",
+      "actual": "references/nosigner/ambient-2026-09-09/actual-intro-1440.png",
+      "difference": "references/nosigner/ambient-2026-09-09/diff-intro-1440.png",
+      "overlay": "references/nosigner/ambient-2026-09-09/diff-intro-1440-overlay.png"
+    },
+    {
+      "viewport": 1440,
+      "state": "light",
+      "mae": 0.008640966250047778,
+      "centroidDelta": 0.0011291114293689806,
+      "pass": true,
+      "reference": "references/nosigner/ambient-2026-09-09/reference-light-1440.png",
+      "actual": "references/nosigner/ambient-2026-09-09/actual-light-1440.png",
+      "difference": "references/nosigner/ambient-2026-09-09/diff-light-1440.png",
+      "overlay": "references/nosigner/ambient-2026-09-09/diff-light-1440-overlay.png"
+    },
+    {
+      "viewport": 1440,
+      "state": "news",
+      "mae": 0.011886544101721259,
+      "centroidDelta": 2.350444467315276e-05,
+      "pass": true,
+      "reference": "references/nosigner/ambient-2026-09-09/reference-closing-1440.png",
+      "actual": "references/nosigner/ambient-2026-09-09/actual-closing-1440.png",
+      "difference": "references/nosigner/ambient-2026-09-09/diff-closing-1440.png",
+      "overlay": "references/nosigner/ambient-2026-09-09/diff-closing-1440-overlay.png"
+    },
+    {
+      "viewport": 1440,
+      "state": "closing",
+      "mae": 0.011886544101721259,
+      "centroidDelta": 2.350444467315276e-05,
+      "pass": true,
+      "reference": "references/nosigner/ambient-2026-09-09/reference-closing-1440.png",
+      "actual": "references/nosigner/ambient-2026-09-09/actual-closing-1440.png",
+      "difference": "references/nosigner/ambient-2026-09-09/diff-closing-1440.png",
+      "overlay": "references/nosigner/ambient-2026-09-09/diff-closing-1440-overlay.png"
+    },
+    {
+      "viewport": 1440,
+      "state": "reverse",
+      "mae": 0.006573591713488515,
+      "centroidDelta": 4.658141512307086e-05,
+      "pass": true,
+      "reference": "references/nosigner/ambient-2026-09-09/reference-intro-1440.png",
+      "actual": "references/nosigner/ambient-2026-09-09/actual-intro-1440.png",
+      "difference": "references/nosigner/ambient-2026-09-09/diff-intro-1440.png",
+      "overlay": "references/nosigner/ambient-2026-09-09/diff-intro-1440-overlay.png"
+    },
+    {
+      "viewport": 390,
+      "state": "intro",
+      "mae": 0.014505673780834082,
+      "centroidDelta": 0.0022278326144215435,
+      "pass": true,
+      "reference": "references/nosigner/ambient-2026-09-09/reference-intro-390.png",
+      "actual": "references/nosigner/ambient-2026-09-09/actual-intro-390.png",
+      "difference": "references/nosigner/ambient-2026-09-09/diff-intro-390.png",
+      "overlay": "references/nosigner/ambient-2026-09-09/diff-intro-390-overlay.png"
+    },
+    {
+      "viewport": 390,
+      "state": "light",
+      "mae": 0.011089564166898987,
+      "centroidDelta": 0.00110709862517552,
+      "pass": true,
+      "reference": "references/nosigner/ambient-2026-09-09/reference-light-390.png",
+      "actual": "references/nosigner/ambient-2026-09-09/actual-light-390.png",
+      "difference": "references/nosigner/ambient-2026-09-09/diff-light-390.png",
+      "overlay": "references/nosigner/ambient-2026-09-09/diff-light-390-overlay.png"
+    },
+    {
+      "viewport": 390,
+      "state": "news",
+      "mae": 0.008540858449751675,
+      "centroidDelta": 0.0013429595740539796,
+      "pass": true,
+      "reference": "references/nosigner/ambient-2026-09-09/reference-closing-390.png",
+      "actual": "references/nosigner/ambient-2026-09-09/actual-closing-390.png",
+      "difference": "references/nosigner/ambient-2026-09-09/diff-closing-390.png",
+      "overlay": "references/nosigner/ambient-2026-09-09/diff-closing-390-overlay.png"
+    },
+    {
+      "viewport": 390,
+      "state": "closing",
+      "mae": 0.008540858449751675,
+      "centroidDelta": 0.0013429595740539796,
+      "pass": true,
+      "reference": "references/nosigner/ambient-2026-09-09/reference-closing-390.png",
+      "actual": "references/nosigner/ambient-2026-09-09/actual-closing-390.png",
+      "difference": "references/nosigner/ambient-2026-09-09/diff-closing-390.png",
+      "overlay": "references/nosigner/ambient-2026-09-09/diff-closing-390-overlay.png"
+    },
+    {
+      "viewport": 390,
+      "state": "reverse",
+      "mae": 0.014505673780834082,
+      "centroidDelta": 0.0022278326144215435,
+      "pass": true,
+      "reference": "references/nosigner/ambient-2026-09-09/reference-intro-390.png",
+      "actual": "references/nosigner/ambient-2026-09-09/actual-intro-390.png",
+      "difference": "references/nosigner/ambient-2026-09-09/diff-intro-390.png",
+      "overlay": "references/nosigner/ambient-2026-09-09/diff-intro-390-overlay.png"
+    },
+    {
+      "viewport": 768,
+      "state": "intro",
+      "mae": 0.007606846239768595,
+      "centroidDelta": 5.02285421589802e-05,
+      "pass": true,
+      "reference": "references/nosigner/ambient-2026-09-09/reference-intro-768.png",
+      "actual": "references/nosigner/ambient-2026-09-09/actual-intro-768.png",
+      "difference": "references/nosigner/ambient-2026-09-09/diff-intro-768.png",
+      "overlay": "references/nosigner/ambient-2026-09-09/diff-intro-768-overlay.png"
+    },
+    {
+      "viewport": 768,
+      "state": "light",
+      "mae": 0.008816949996853545,
+      "centroidDelta": 0.002405068789419941,
+      "pass": true,
+      "reference": "references/nosigner/ambient-2026-09-09/reference-light-768.png",
+      "actual": "references/nosigner/ambient-2026-09-09/actual-light-768.png",
+      "difference": "references/nosigner/ambient-2026-09-09/diff-light-768.png",
+      "overlay": "references/nosigner/ambient-2026-09-09/diff-light-768-overlay.png"
+    },
+    {
+      "viewport": 768,
+      "state": "news",
+      "mae": 0.014151268699710961,
+      "centroidDelta": 5.3100327229499665e-05,
+      "pass": true,
+      "reference": "references/nosigner/ambient-2026-09-09/reference-closing-768.png",
+      "actual": "references/nosigner/ambient-2026-09-09/actual-closing-768.png",
+      "difference": "references/nosigner/ambient-2026-09-09/diff-closing-768.png",
+      "overlay": "references/nosigner/ambient-2026-09-09/diff-closing-768-overlay.png"
+    },
+    {
+      "viewport": 768,
+      "state": "closing",
+      "mae": 0.014151268699710961,
+      "centroidDelta": 5.3100327229499665e-05,
+      "pass": true,
+      "reference": "references/nosigner/ambient-2026-09-09/reference-closing-768.png",
+      "actual": "references/nosigner/ambient-2026-09-09/actual-closing-768.png",
+      "difference": "references/nosigner/ambient-2026-09-09/diff-closing-768.png",
+      "overlay": "references/nosigner/ambient-2026-09-09/diff-closing-768-overlay.png"
+    },
+    {
+      "viewport": 768,
+      "state": "reverse",
+      "mae": 0.007606846239768595,
+      "centroidDelta": 5.02285421589802e-05,
+      "pass": true,
+      "reference": "references/nosigner/ambient-2026-09-09/reference-intro-768.png",
+      "actual": "references/nosigner/ambient-2026-09-09/actual-intro-768.png",
+      "difference": "references/nosigner/ambient-2026-09-09/diff-intro-768.png",
+      "overlay": "references/nosigner/ambient-2026-09-09/diff-intro-768-overlay.png"
+    }
+  ]
+}

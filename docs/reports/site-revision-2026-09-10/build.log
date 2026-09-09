@@ -1,0 +1,56 @@
+$ next build
+▲ Next.js 16.3.3 (Turbopack)
+✓ Running next.config.ts took 21ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 2.6s
+  Running TypeScript ...
+  Finished TypeScript in 4.8s ...
+  Collecting page data using 19 workers ...
+  Generating static pages using 19 workers (0/37) ...
+  Generating static pages using 19 workers (9/37)
+  Generating static pages using 19 workers (18/37)
+  Generating static pages using 19 workers (27/37)
+✓ Generating static pages using 19 workers (37/37) in 873ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /about
+├   /about/[topic]
+│ ├ ● /about/founders
+│ ├ ● /about/foundation
+│ └ ● /about/sustainability
+├   /antarctica/[region]
+│ ├ ● /antarctica/behind-the-scenes
+│ ├ ● /antarctica/direct-flights-to-antarctica
+│ ├ ● /antarctica/wolfs-fang-runway-mountains
+│ └ ● [+4 more paths]
+├ ○ /camps
+├   /camps/[camp]
+│ ├ ● /camps/echo-base
+│ ├ ● /camps/explorer-camp
+│ └ ● /camps/whichaway-camp
+├ ○ /challenges
+├ ○ /challenges/general-managers
+├ ○ /challenges/owner
+├ ○ /challenges/owners
+├ ○ /contact
+├ ○ /enquire
+├ ○ /itineraries
+├   /itineraries/[journey]
+│ ├ ● /itineraries/discovery-week
+│ ├ ● /itineraries/south-pole-emperor-penguins
+│ ├ ● /itineraries/south-pole-blue-rivers
+│ └ ● [+3 more paths]
+├   /legal/[document]
+│ ├ ● /legal/website-terms
+│ ├ ● /legal/booking-terms
+│ ├ ● /legal/privacy-policy
+│ └ ● [+2 more paths]
+└ ○ /prices
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)

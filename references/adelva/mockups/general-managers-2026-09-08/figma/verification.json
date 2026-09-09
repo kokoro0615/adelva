@@ -1,0 +1,158 @@
+{
+  "source": {
+    "width": 795,
+    "height": 1978
+  },
+  "native": {
+    "width": 1440,
+    "height": 3583
+  },
+  "comparisonMethod": "Actual downsampled to source dimensions with sharp; raw RGB absolute differences, diagnostic only, no acceptance threshold invented.",
+  "nativeVsSource": {
+    "meanAbsoluteChannelError": 22.18197955285923,
+    "channelFractionDifferenceOver8": 0.3757856335836762
+  },
+  "referenceVsSource": {
+    "meanAbsoluteChannelError": 0.005438863133885741,
+    "channelFractionDifferenceOver8": 0
+  },
+  "assets": [
+    {
+      "name": "hero",
+      "path": "hero.png",
+      "width": 1642,
+      "height": 958,
+      "format": "png"
+    },
+    {
+      "name": "corridor",
+      "path": "corridor.png",
+      "width": 1486,
+      "height": 1059,
+      "format": "png"
+    },
+    {
+      "name": "dining",
+      "path": "dining.png",
+      "width": 2188,
+      "height": 719,
+      "format": "png"
+    },
+    {
+      "name": "bedroom",
+      "path": "bedroom.png",
+      "width": 2236,
+      "height": 703,
+      "format": "png"
+    }
+  ],
+  "geometry": [
+    {
+      "id": "24:2",
+      "sourceY": 0,
+      "actualSourceY": 0,
+      "errorSourcePx": 0
+    },
+    {
+      "id": "24:121",
+      "sourceY": 464,
+      "actualSourceY": 463.9999942779541,
+      "errorSourcePx": 0.0000057220458984375
+    },
+    {
+      "id": "25:28",
+      "sourceY": 660,
+      "actualSourceY": 659.999989827474,
+      "errorSourcePx": 0.000010172526003771054
+    },
+    {
+      "id": "26:26",
+      "sourceY": 910,
+      "actualSourceY": 909.9999961853027,
+      "errorSourcePx": 0.000003814697265625
+    },
+    {
+      "id": "27:26",
+      "sourceY": 1157,
+      "actualSourceY": 1157.0000712076824,
+      "errorSourcePx": 0.00007120768236745789
+    },
+    {
+      "id": "29:26",
+      "sourceY": 1309,
+      "actualSourceY": 1309.0000966389973,
+      "errorSourcePx": 0.00009663899732004211
+    },
+    {
+      "id": "30:26",
+      "sourceY": 1451,
+      "actualSourceY": 1451.0000813802083,
+      "errorSourcePx": 0.00008138020825754211
+    },
+    {
+      "id": "31:28",
+      "sourceY": 1702,
+      "actualSourceY": 1702.0001322428386,
+      "errorSourcePx": 0.0001322428386174579
+    },
+    {
+      "id": "31:134",
+      "sourceY": 1784,
+      "actualSourceY": 1784.0001424153645,
+      "errorSourcePx": 0.0001424153645075421
+    }
+  ],
+  "textCount": 108,
+  "instanceCount": 9,
+  "fonts": {
+    "Oswald / Bold": 6,
+    "Noto Sans JP / Medium": 35,
+    "Noto Sans JP / Regular": 50,
+    "Noto Serif JP / Medium": 5,
+    "Oswald / Regular": 1,
+    "Oswald / Light": 8,
+    "Noto Serif JP / Regular": 3
+  },
+  "outOfParent": [
+    {
+      "id": "26:27",
+      "name": "OPERATIONS / Decorative",
+      "chars": "OPERATIONS",
+      "bounds": [
+        490.867919921875,
+        -21.735849380493164,
+        914,
+        202
+      ],
+      "parent": [
+        "04 / 支援と成果物",
+        1440,
+        447.396240234375
+      ]
+    },
+    {
+      "id": "31:135",
+      "name": "ADELVA / Tonal decorative",
+      "chars": "ADELVA",
+      "bounds": [
+        874.867919921875,
+        -9.05660343170166,
+        530,
+        198
+      ],
+      "parent": [
+        "09 / Contact and footer",
+        1440,
+        351.396240234375
+      ]
+    }
+  ],
+  "status": "Native editable reconstruction delivered for review; strict full-image pixel equality not achieved because regenerated photographs and native glyph rendering differ.",
+  "finalImageSelection": {
+    "hero": "generated",
+    "bedroom": "generated",
+    "corridor": "exact original raster crop",
+    "dining": "exact original raster crop",
+    "generatedAlternatives": "All four high-resolution generated photos retained locally and in Figma gallery 35:30."
+  }
+}

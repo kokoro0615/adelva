@@ -1,0 +1,37 @@
+[
+  {
+    "file": "long-page-mock-v1-approved.png",
+    "width": 724,
+    "height": 2172,
+    "bytes": 1993559,
+    "sha256": "c398ab773545d3b55eedaf966691ebab4ce644149d352e4fdc04988edcb587db"
+  },
+  {
+    "file": "long-page-mock.png",
+    "width": 724,
+    "height": 2172,
+    "bytes": 2212101,
+    "sha256": "ba2705c792aab3197b362611b0760ed658aa586a232303f3364aec831fc18c4e"
+  },
+  {
+    "file": "long-page-mock.png",
+    "width": 724,
+    "height": 2172,
+    "bytes": 2212101,
+    "sha256": "ba2705c792aab3197b362611b0760ed658aa586a232303f3364aec831fc18c4e"
+  },
+  {
+    "file": "mobile-v1-rejected.png",
+    "width": 725,
+    "height": 2170,
+    "bytes": 2170802,
+    "sha256": "54774a03651ce25be4f988747143c05096fc30e0c40ac6bef2a5e822e678fc71"
+  },
+  {
+    "file": "long-page-mock-mobile.png",
+    "width": 725,
+    "height": 2170,
+    "bytes": 1771909,
+    "sha256": "df30390940c1e9772d4a1eb652d18922355f2c6684d1309c6d819cb431bf5e82"
+  }
+]

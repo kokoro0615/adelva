@@ -1,5 +1,6 @@
 node_modules/
 .next/
+.next-morght-review/
 out/
 coverage/
 test-results/
@@ -13,3 +14,9 @@ artifacts/
 .DS_Store
 pnpm-debug.log*
 npm-debug.log*
+
+# Isolated release verification and local deployment linkage.
+.next-revision/
+.vercel/
+# Original 225 MiB research/master video; ship the complete web rendition.
+/public/media/video/white-desert-film.mp4

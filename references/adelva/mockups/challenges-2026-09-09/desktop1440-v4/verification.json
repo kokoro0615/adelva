@@ -1,0 +1,82 @@
+{
+  "width": 1440,
+  "height": 5090,
+  "format": "png",
+  "bytes": 13129291,
+  "sha256": "070820227979de03a23d395bedd924271c7ae9a5b0bf410c252d6f21a6aab8de",
+  "upscaled": false,
+  "stretched": false,
+  "normalization": "Proportional downsampling from native widths >= 1440. No cropping. Lossless PNG encoding.",
+  "sections": [
+    {
+      "id": "a-opening",
+      "source": "exec-e3ae15bf-6174-462e-9377-e2ce6359da11.png",
+      "nativeWidth": 1442,
+      "nativeHeight": 1091,
+      "finalWidth": 1440,
+      "finalHeight": 1089,
+      "top": 0,
+      "scale": 0.9986130374479889,
+      "crop": null,
+      "sourceSHA256": "3ce8fbeff5d5d78a82e9e40d219c70f171699dceb6f1f244397c59fa5abeada9",
+      "normalizedRawSHA256": "a4f6b5b9fc26dea06d0bc95f4f916730ed95b9616169cc4c0f6ec9f59d380d17",
+      "compositePixelsMatch": true
+    },
+    {
+      "id": "b-management-opening",
+      "source": "exec-cd7d1cc4-89f8-495a-a04f-9eb45fed4502.png",
+      "nativeWidth": 1577,
+      "nativeHeight": 997,
+      "finalWidth": 1440,
+      "finalHeight": 910,
+      "top": 1089,
+      "scale": 0.9131261889663919,
+      "crop": null,
+      "sourceSHA256": "4026e398e3c11958df0ad1a6c9c353ca00ac589ee407f2b4de28d4b4ae6aac69",
+      "normalizedRawSHA256": "f8fd275567801fb66a08dfc70f7dba4af267d72c1d7726d3a669fdb1773f372e",
+      "compositePixelsMatch": true
+    },
+    {
+      "id": "c-operations-brand",
+      "source": "exec-f7ebe26c-6a9b-4560-bad7-d666128796d1.png",
+      "nativeWidth": 1443,
+      "nativeHeight": 1090,
+      "finalWidth": 1440,
+      "finalHeight": 1088,
+      "top": 1999,
+      "scale": 0.997920997920998,
+      "crop": null,
+      "sourceSHA256": "8760de85e77fc6b179e286af97218a3a5f22ba85de65c142000bf04404ed3a42",
+      "normalizedRawSHA256": "2884e450d4e4cacf1d07215b757c706203fbe723b4c0845f9dd20344b370607b",
+      "compositePixelsMatch": true
+    },
+    {
+      "id": "d-infrastructure-approach",
+      "source": "exec-cf25d1f0-1e83-484f-8119-f98f6e66cda3.png",
+      "nativeWidth": 1573,
+      "nativeHeight": 1000,
+      "finalWidth": 1440,
+      "finalHeight": 915,
+      "top": 3087,
+      "scale": 0.9154481881754609,
+      "crop": null,
+      "sourceSHA256": "4a9deeef50fc98b36eab788df29212fa1667d24d85b24a6c06bc2b5214ae4e92",
+      "normalizedRawSHA256": "e9f957e2652e2e0f860a60cd754776902e877e8c19697a0e9f741d92a5fed3f5",
+      "compositePixelsMatch": true
+    },
+    {
+      "id": "e-contact-footer",
+      "source": "exec-266f46d5-518b-4021-8030-30f28d696056.png",
+      "nativeWidth": 1443,
+      "nativeHeight": 1090,
+      "finalWidth": 1440,
+      "finalHeight": 1088,
+      "top": 4002,
+      "scale": 0.997920997920998,
+      "crop": null,
+      "sourceSHA256": "dd16cbc587583edd1418c1f9d620369faf8d55d9c6e357d57f526ae9c551dfba",
+      "normalizedRawSHA256": "96ab1f3f9f7a8ba68a5166ffae46244ced611a31bfa8c4b68b5d32279fbef422",
+      "compositePixelsMatch": true
+    }
+  ]
+}

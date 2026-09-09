@@ -1,0 +1,259 @@
+{
+  "schemaVersion": "full-page-section-manifest/v1",
+  "manifestId": "global-shell-implementation-v1",
+  "role": "implementation",
+  "route": "*",
+  "family": "global-shell",
+  "scope": {
+    "kind": "global-shell",
+    "id": "site-shell"
+  },
+  "source": {
+    "url": "http://127.0.0.1:4517",
+    "observedRoute": "/",
+    "observedAt": "2026-08-31T01:32:52.791Z",
+    "status": "pending-capture",
+    "captureMode": "manifest-only",
+    "contentRoot": "global document shell"
+  },
+  "requiredViewports": ["desktop", "tablet", "mobile"],
+  "tolerances": {
+    "boundsPx": 2,
+    "scrollHeightPx": 2
+  },
+  "sections": [
+    {
+      "id": "global-navigation",
+      "semantic": "global navigation",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 82
+        },
+        "tablet": {
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 82
+        },
+        "mobile": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 80
+        }
+      },
+      "visibleState": {
+        "default": "visible"
+      }
+    },
+    {
+      "id": "how-it-works-trigger",
+      "semantic": "How it works trigger",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "bounds": {
+        "desktop": {
+          "x": 1380,
+          "y": 349,
+          "width": 60,
+          "height": 202
+        },
+        "tablet": {
+          "x": 708,
+          "y": 411,
+          "width": 60,
+          "height": 202
+        },
+        "mobile": {
+          "x": 330,
+          "y": 321,
+          "width": 60,
+          "height": 202
+        }
+      },
+      "visibleState": {
+        "default": "visible"
+      }
+    },
+    {
+      "id": "how-it-works-flyout",
+      "semantic": "How it works flyout",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "bounds": {
+        "desktop": {
+          "x": 1440,
+          "y": 0,
+          "width": 720,
+          "height": 900
+        },
+        "tablet": {
+          "x": 768,
+          "y": 0,
+          "width": 720,
+          "height": 1024
+        },
+        "mobile": {
+          "x": 390,
+          "y": 0,
+          "width": 390,
+          "height": 844
+        }
+      },
+      "visibleState": {
+        "default": "visible"
+      }
+    },
+    {
+      "id": "site-footer",
+      "semantic": "global footer",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "isFooter": true,
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 13559,
+          "width": 1440,
+          "height": 946.31
+        },
+        "tablet": {
+          "x": 0,
+          "y": 15280.98,
+          "width": 768,
+          "height": 1024
+        },
+        "mobile": {
+          "x": 0,
+          "y": 14844.86,
+          "width": 390,
+          "height": 2133.02
+        }
+      },
+      "visibleState": {
+        "default": "visible"
+      }
+    }
+  ],
+  "viewports": {
+    "desktop": {
+      "width": 1440,
+      "height": 900,
+      "scrollHeight": 14505,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/actual/home-1440x900-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "tablet": {
+      "width": 768,
+      "height": 1024,
+      "scrollHeight": 16305,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/actual/home-768x1024-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "scrollHeight": 16978,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/actual/home-390x844-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    }
+  },
+  "motion": {
+    "status": "incomplete",
+    "unknown": [
+      "How it works open/close interruption and reduced-motion phases require capture"
+    ],
+    "layers": [
+      {
+        "id": "how-it-works-flyout-transition",
+        "sectionId": "how-it-works-flyout",
+        "property": "interactive visibility and translateX",
+        "trigger": "How it works shell trigger",
+        "range": "closed -> open -> closed",
+        "easing": "sampled computed state",
+        "interruption": "close/reopen and Escape must return to closed state",
+        "reducedMotion": "capture required for selected preference",
+        "samples": {
+          "desktop": {
+            "start": {
+              "status": "not-sampled"
+            },
+            "mid": {
+              "status": "not-sampled"
+            },
+            "end": {
+              "status": "not-sampled"
+            },
+            "reverse": {
+              "status": "not-sampled"
+            }
+          },
+          "tablet": {
+            "start": {
+              "status": "not-sampled"
+            },
+            "mid": {
+              "status": "not-sampled"
+            },
+            "end": {
+              "status": "not-sampled"
+            },
+            "reverse": {
+              "status": "not-sampled"
+            }
+          },
+          "mobile": {
+            "start": {
+              "status": "not-sampled"
+            },
+            "mid": {
+              "status": "not-sampled"
+            },
+            "end": {
+              "status": "not-sampled"
+            },
+            "reverse": {
+              "status": "not-sampled"
+            }
+          }
+        },
+        "pinRanges": {}
+      }
+    ]
+  },
+  "domTopology": {
+    "scope": "global document shell",
+    "directChildren": [
+      "global-navigation",
+      "how-it-works-trigger",
+      "how-it-works-flyout",
+      "site-footer"
+    ]
+  }
+}

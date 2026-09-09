@@ -1,0 +1,1629 @@
+Already up to date
+Done in 329ms using pnpm v11.22.0
+[WebServer] (node:1655103) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] $ next start --port 4173
+[WebServer] (node:1655197) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 365 tests using 3 workers
+
+(node:1655357) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1655348) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1655351) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache vLTlpYBzWCsIgRuYHOae1pQ9TmT0cuR_lznrHcz_6hc Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache gCzAlAyIZHpgg0X3z6cuYSb93bX_aEQSZVGka9zbBcQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache FPKjxt5cvk_dq6JktMBihGcjRAVh2nzk55aInh_N8to Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache LD9f5mYP74veebPgQ_7gYoCpe0J1QJYd-3vmn1CKm6s Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache qeWWxa93LxiwXG-D-tB4bG4HtyaEJi9_Xh9t0NjxZyw Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓    2 [chromium] › tests/e2e/detail-clone.spec.ts:125:5 › detail clone route contract › /about/founders renders its measured shell (1.4s)
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache JlcH7gXk0U50oKRaxzw5fAjQf4jzTNQ_Y1FZAFG6h_4 Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache MNynuRhb0hOOfsoK5PiZU1bbaQ3LQQHFf2m0wJ-olkE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache gmlGyimo7FiXYJCHP-G6hIclkVZtczwLRVlTdrx2Xck Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓    1 [chromium] › tests/e2e/global-shell-clone.spec.ts:161:5 › HOME hero media, cloud/mist scroll state, and film dialog › desktop: video plays and cloud/mist state reverses deterministically (2.1s)
+  ✓    3 [chromium] › tests/e2e/accessibility.spec.ts:16:3 › / has no automatically detectable WCAG A/AA violations (2.0s)
+[WebServer] ⨯ Failed to write image to cache H74oop5lO-uBsEUSCpSZOtJyOq9kTlhjnn0HkwxP0bM Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache u41hhkMmwWEuJN55-_qWAT_Eg1-tVEIfyw3MwpgHKBg Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache swQtRDGcvdPeP-Q_BigbCOhaDHgsut1UqLBfdLwRhAg Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache DY8lZYIXZaLZF1457QY1OR4UND5irmS0vuttGnkaxaE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache RFYjR-wgU34g9bIE1fsNmlY2IDcei38K600sGrfEZZQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache oTn8FT2XpuCnmXJtGHS3XDTcGsUhAUu5_ibLd1enShk Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache Qq5ioqDVJnasz3FusZMYGT_GvjK_iNUwduVbjgVz9Bg Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache FPKjxt5cvk_dq6JktMBihGcjRAVh2nzk55aInh_N8to Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache W3OSjLnECbgGxXdIFr0MWNmBkHWJP4lclR6YTk_M6uQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache ij_oIldwQ5PkPzjsydg8yeNYnf_Wh_X7927FCYgup4I Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓    4 [chromium] › tests/e2e/detail-clone.spec.ts:125:5 › detail clone route contract › /about/foundation renders its measured shell (2.2s)
+[WebServer] ⨯ Failed to write image to cache sAIQWz1UinpwUHHXusFiZLGUAaZsFXTXlaFpEcA4CFQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache MDHquSgJzGGDoV_j19mpPDFeitl-oEsJoth3iaAdDrs Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓    5 [chromium] › tests/e2e/global-shell-clone.spec.ts:161:5 › HOME hero media, cloud/mist scroll state, and film dialog › tablet: video plays and cloud/mist state reverses deterministically (1.9s)
+[WebServer] ⨯ Failed to write image to cache HhoqSRRXo0aNxxobakwdaBbsuH8n-RbA5Bj1VLcSUa4 Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache bzL8yk_ydi2d7VRwkfUC5gNOqjmH_SlUkgL4CYtVPyk Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache gCzAlAyIZHpgg0X3z6cuYSb93bX_aEQSZVGka9zbBcQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache MNynuRhb0hOOfsoK5PiZU1bbaQ3LQQHFf2m0wJ-olkE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache LD9f5mYP74veebPgQ_7gYoCpe0J1QJYd-3vmn1CKm6s Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache 71mpr556HAf3xS6DsApS4l9sFNGcx0QZbv17g4sEtFg Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache uYFUI_RCeBHglhow0c-meZex67yRpT0cDCLibWLjKog Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓    6 [chromium] › tests/e2e/accessibility.spec.ts:16:3 › /itineraries has no automatically detectable WCAG A/AA violations (3.6s)
+[WebServer] ⨯ Failed to write image to cache zCLw6LzyQsAFayHSiZ7Vt1oaZjSy4kNM1eOnRQrgjQQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache t3KDiidenzX-28XxvkqFSoFh5DW4FgHCtIjMEGqc85k Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache Y0inYgFvsfjAs8_ES_94fvAJK6E-P_BDxDQXnHyDK3I Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache yb9GCpzVGJkymAjr5cxuNorFbLifoJ1ZrVfJWt9R5aA Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓    7 [chromium] › tests/e2e/detail-clone.spec.ts:125:5 › detail clone route contract › /about/sustainability renders its measured shell (2.5s)
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache xjC3KHaQlvCZi7w_O4XM-dm5ZlLlevvX5Rbsg7mWmzU Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓    8 [chromium] › tests/e2e/global-shell-clone.spec.ts:161:5 › HOME hero media, cloud/mist scroll state, and film dialog › mobile: video plays and cloud/mist state reverses deterministically (2.9s)
+  ✓   10 [chromium] › tests/e2e/detail-clone.spec.ts:125:5 › detail clone route contract › /antarctica/behind-the-scenes renders its measured shell (1.0s)
+[WebServer] ⨯ Failed to write image to cache 6YmGxHtyYPYJDJ7HDywlAJGf0cFqwGHGMac4fZKMuRo Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache I9Nodfon1Irl30OJptRi8-pqO8LrrPIKZyyy3r52zp0 Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache rIczw362DZCYO7LlEa5jWDBkXr0-eKIBneKb4lx2o3k Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache MNynuRhb0hOOfsoK5PiZU1bbaQ3LQQHFf2m0wJ-olkE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache rN1dxHNWGi0izEpVOJ8c_CEQya0Q0V5TfoJYMI_gECs Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache gCzAlAyIZHpgg0X3z6cuYSb93bX_aEQSZVGka9zbBcQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache FPKjxt5cvk_dq6JktMBihGcjRAVh2nzk55aInh_N8to Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache ewXLqJ25ZQDVdUu_K1IPWKERX7HYspHLF4qchK4e2qA Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   12 [chromium] › tests/e2e/detail-clone.spec.ts:125:5 › detail clone route contract › /antarctica/direct-flights-to-antarctica renders its measured shell (2.0s)
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache LD9f5mYP74veebPgQ_7gYoCpe0J1QJYd-3vmn1CKm6s Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache SD2qnuUKB70m4dZIOG9w_krummPMm9Q-E2zFwKhZIkc Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓    9 [chromium] › tests/e2e/accessibility.spec.ts:16:3 › /camps/echo-base has no automatically detectable WCAG A/AA violations (4.9s)
+[WebServer] ⨯ Failed to write image to cache xjC3KHaQlvCZi7w_O4XM-dm5ZlLlevvX5Rbsg7mWmzU Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   13 [chromium] › tests/e2e/detail-clone.spec.ts:125:5 › detail clone route contract › /camps/echo-base renders its measured shell (2.3s)
+  ✓   11 [chromium] › tests/e2e/global-shell-clone.spec.ts:235:5 › HOME hero media, cloud/mist scroll state, and film dialog › desktop: Watch Film opens a local video dialog and restores focus (4.7s)
+[WebServer] ⨯ Failed to write image to cache I9Nodfon1Irl30OJptRi8-pqO8LrrPIKZyyy3r52zp0 Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache cV8xI6nYriU9RVPli1XRtt-bkFkGQuqzZO6PISsjkpo Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache HIovq0McQAy7czPa7QxW07zB_sovxE-_BQO3YjIpb7g Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache ycJubTPpSn2lFKHkkUdzdqSx6riXPJEhoOQ0f0BsqaU Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache c5qbArKafWU4i-9LPBjW5HG3QTEO0RHcDJqXdWUxUiE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache Qq5ioqDVJnasz3FusZMYGT_GvjK_iNUwduVbjgVz9Bg Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache W3OSjLnECbgGxXdIFr0MWNmBkHWJP4lclR6YTk_M6uQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   15 [chromium] › tests/e2e/detail-clone.spec.ts:125:5 › detail clone route contract › /camps/explorer-camp renders its measured shell (2.4s)
+[WebServer] ⨯ Failed to write image to cache ij_oIldwQ5PkPzjsydg8yeNYnf_Wh_X7927FCYgup4I Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache F6yY_JLbomMl0-IX58CKqMnx6yR8YNwvA4AzSQeGJOM Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache hHQEVgeSD5iNQ4wF2SZBe2pW4Jk6_m1UBDGZ2B3i4oY Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   17 [chromium] › tests/e2e/detail-clone.spec.ts:125:5 › detail clone route contract › /camps/whichaway-camp renders its measured shell (1.5s)
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache E2qa_u5joFBnmT4-75_367gw1WYkhBTBinefi7SNj9E Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache r0F5tsh9oFCMA6A6vBrasE6tL4bqTxhdt56uUQoobCU Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   16 [chromium] › tests/e2e/global-shell-clone.spec.ts:235:5 › HOME hero media, cloud/mist scroll state, and film dialog › tablet: Watch Film opens a local video dialog and restores focus (4.3s)
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache MNynuRhb0hOOfsoK5PiZU1bbaQ3LQQHFf2m0wJ-olkE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache fJYoZ5stLubUPx5rlhjzGd8-bz6n-xmC_A8JkX36xMQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   14 [chromium] › tests/e2e/accessibility.spec.ts:16:3 › /itineraries/south-pole-blue-rivers has no automatically detectable WCAG A/AA violations (5.8s)
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache zCLw6LzyQsAFayHSiZ7Vt1oaZjSy4kNM1eOnRQrgjQQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache iWk2sR3G8RxrvKF75JEpEi2qgm5VmxGyg2m52mlj6t8 Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache t3KDiidenzX-28XxvkqFSoFh5DW4FgHCtIjMEGqc85k Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache Y0inYgFvsfjAs8_ES_94fvAJK6E-P_BDxDQXnHyDK3I Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   18 [chromium] › tests/e2e/detail-clone.spec.ts:125:5 › detail clone route contract › /itineraries/discovery-week renders its measured shell (1.4s)
+[WebServer] ⨯ Failed to write image to cache DTE-fBdQQDWsTdiRgDVdQlAcmQfxU91cijqGzozVIz0 Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache HHWxNjBqxnrQSVR5xIqOpWbzURCrMsjigW3Wfn5cj-o Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache aEFK7SvEY2IQ2OKtpWj6hfckmowO-7odL8OmbzWDAdo Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache ofKciT7NDLXR1kIZOfMzSCBcdUByMXeEhE-hg33JVms Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache MNynuRhb0hOOfsoK5PiZU1bbaQ3LQQHFf2m0wJ-olkE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   19 [chromium] › tests/e2e/global-shell-clone.spec.ts:235:5 › HOME hero media, cloud/mist scroll state, and film dialog › mobile: Watch Film opens a local video dialog and restores focus (3.2s)
+  ✓   21 [chromium] › tests/e2e/detail-clone.spec.ts:125:5 › detail clone route contract › /itineraries/south-pole-emperor-penguins renders its measured shell (2.3s)
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   20 [chromium] › tests/e2e/accessibility.spec.ts:16:3 › /antarctica/polar-plateau has no automatically detectable WCAG A/AA violations (3.1s)
+[WebServer] ⨯ Failed to write image to cache qCPFQTeL50TsPg0liFO-BVAFLsdsCfEHIcELP1siy0g Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache QSi6-80Ia5sqKvJA3_A0PG16V5sCwgAwHRsWc6CYUT0 Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache cV8xI6nYriU9RVPli1XRtt-bkFkGQuqzZO6PISsjkpo Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache FPKjxt5cvk_dq6JktMBihGcjRAVh2nzk55aInh_N8to Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache gCzAlAyIZHpgg0X3z6cuYSb93bX_aEQSZVGka9zbBcQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache HIovq0McQAy7czPa7QxW07zB_sovxE-_BQO3YjIpb7g Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache LD9f5mYP74veebPgQ_7gYoCpe0J1QJYd-3vmn1CKm6s Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   23 [chromium] › tests/e2e/detail-clone.spec.ts:125:5 › detail clone route contract › /itineraries/south-pole-blue-rivers renders its measured shell (2.1s)
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache c5qbArKafWU4i-9LPBjW5HG3QTEO0RHcDJqXdWUxUiE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache SoG-rvs1tGTrcQ-0w5_LxuaEI_494kLpewLNKqZnd8U Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache LTG1PvdO_IEGamf5eSs3KxmidRAVVvVXGuO_t8chs_w Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache MNynuRhb0hOOfsoK5PiZU1bbaQ3LQQHFf2m0wJ-olkE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache JH-XLR3Is662CxKsNikJZx5WstIOM-0ieZNquLtKm2k Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache EktIRRzkaLWgx52wvQtRPcISXx47zufe39o1-6U06Tc Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache juKpZWddPs1BBXAsvQxBzvaUiOqD6xc-Gk-zWZvhMwg Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache zDXFv9VVx1OstmupJ6nW6_uZF0DQ6z5HcvGEK3mtuDE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache I1fAhMMJ3Uda_yMs3t_XAqnbZXuBRTz_WKoh-Uk4PZE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache 3DU_3NPm2k1lh24iac0Hb8vAe30oUvn4MTDfQggMMFk Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache BeuFAtmzj8Ks2s0lBNZ-Zo5q_iemNV7pQePMepoKgoc Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache FL-3W7S_Ep6h92QNBovI7JaPDZoksDrVjf2XgcOX6kE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache sTdBakzKiasK8ZSrkjrqa6c6rb4Ji7mDZckIdQ_jhZc Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache rv1HmGMj_3DtniDDBrxO12b0EXv0eKlSEmTMaPHMUr0 Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache i-vUFdByZYiT6zwEhKK2_9hZsDDHg4JXRIpxH-QFruE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   25 [chromium] › tests/e2e/detail-clone.spec.ts:125:5 › detail clone route contract › /itineraries/antarctica-in-a-day renders its measured shell (1.9s)
+  ✓   22 [chromium] › tests/e2e/global-shell-clone.spec.ts:279:5 › HOME hero media, cloud/mist scroll state, and film dialog › desktop: legacy Newsletter Signup toggles and returns focus (4.2s)
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache xvpk9ZmX01g6KRdxS8FfbmC-4VxuSkq4U5KWp3xW6Mc Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   26 [chromium] › tests/e2e/detail-clone.spec.ts:125:5 › detail clone route contract › /itineraries/early-emperor-penguins renders its measured shell (969ms)
+[WebServer] ⨯ Failed to write image to cache jTBWi864DcidITPT1OUhgYNT5RBHeq5-w0PZj9ELCnE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache 1UN8vgwXnqDLZWHTIVPEeYQOGg90v7ArNgop_J-bSxY Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache koTuIbv-9g0PlPYYtUKau4FUX_GjRL59DsGS3GiGDBo Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache Qq5ioqDVJnasz3FusZMYGT_GvjK_iNUwduVbjgVz9Bg Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache W3OSjLnECbgGxXdIFr0MWNmBkHWJP4lclR6YTk_M6uQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   24 [chromium] › tests/e2e/accessibility.spec.ts:16:3 › /prices has no automatically detectable WCAG A/AA violations (5.1s)
+[WebServer] ⨯ Failed to write image to cache FNDkvJVmSyOO4my3yjaeur_kLaaDGzt8m2yRjqB6Cw4 Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache ij_oIldwQ5PkPzjsydg8yeNYnf_Wh_X7927FCYgup4I Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache AOvGykCy3Yh7Zcz5bXcohE9r9IdQwJBcDJH0Ef-nOvQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache 4I8bnSvNR57-xUR7kp5w_8Q9JjYYL79RmGO20o3m9fo Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   28 [chromium] › tests/e2e/detail-clone.spec.ts:125:5 › detail clone route contract › /itineraries/the-long-stay renders its measured shell (1.5s)
+[WebServer] ⨯ Failed to write image to cache cAFEjHgnJfEYfrD3WpFKF2tms7kjUXzNoIpA67FLDN4 Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache YI4y08RXWD0Kl8HscrBucGervOIvl8N_vN0rzyuiKqo Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache bPk0WBJW3ezGhrRHGEvnDutZdY0Dh8qdxgeXdxNyIeM Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache QSPulV1-z7xyMqfWIjmq60p3oLi-M3r3DUdTlKt1RQY Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache iwdMc8L-eUrAej5FQZ3Q5VQqfxvipDWkT06dU0m5gbs Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache RGNNJGfwr-S_c-9KvHM45i5jrD2bbD3U_9ZLjubY8fc Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache MNynuRhb0hOOfsoK5PiZU1bbaQ3LQQHFf2m0wJ-olkE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache e3sFDEuQHfOtPKVPMsFQKuKzOcat4VR3Py2V0wcHed4 Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache JH-XLR3Is662CxKsNikJZx5WstIOM-0ieZNquLtKm2k Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache BeuFAtmzj8Ks2s0lBNZ-Zo5q_iemNV7pQePMepoKgoc Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache EktIRRzkaLWgx52wvQtRPcISXx47zufe39o1-6U06Tc Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache rv1HmGMj_3DtniDDBrxO12b0EXv0eKlSEmTMaPHMUr0 Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache I1fAhMMJ3Uda_yMs3t_XAqnbZXuBRTz_WKoh-Uk4PZE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache 3DU_3NPm2k1lh24iac0Hb8vAe30oUvn4MTDfQggMMFk Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache FL-3W7S_Ep6h92QNBovI7JaPDZoksDrVjf2XgcOX6kE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache W0hp9MFO8-jOcekB9J2Y1xzvUAPhylxqESUkkEyBlSQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   30 [chromium] › tests/e2e/detail-clone.spec.ts:125:5 › detail clone route contract › /antarctica/wolfs-fang-runway-mountains renders its measured shell (2.0s)
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache QvK9PephXb0VD-m9MFeI2peJXJntXjKdWu4ITi9xjtU Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   27 [chromium] › tests/e2e/global-shell-clone.spec.ts:279:5 › HOME hero media, cloud/mist scroll state, and film dialog › tablet: legacy Newsletter Signup toggles and returns focus (4.8s)
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache UQWC3lI-C5LaY2gq6svQd9ATXCSVWFTXdbp0PI622Rk Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache f-h7IP6m7ieRIF8TACt6-XVdDQXayvIXUTo9HWa8w4A Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache zCLw6LzyQsAFayHSiZ7Vt1oaZjSy4kNM1eOnRQrgjQQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache t3KDiidenzX-28XxvkqFSoFh5DW4FgHCtIjMEGqc85k Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   31 [chromium] › tests/e2e/detail-clone.spec.ts:125:5 › detail clone route contract › /antarctica/schirmacher-oasis renders its measured shell (1.2s)
+[WebServer] ⨯ Failed to write image to cache Y0inYgFvsfjAs8_ES_94fvAJK6E-P_BDxDQXnHyDK3I Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache _MvNSeztOIyhmExBTZxOl5UB0Rw20IkFHQpu3ekFplA Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   29 [chromium] › tests/e2e/accessibility.spec.ts:16:3 › /enquire has no automatically detectable WCAG A/AA violations (4.7s)
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache DTE-fBdQQDWsTdiRgDVdQlAcmQfxU91cijqGzozVIz0 Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache vfXsf6WBU2ZQ9K-3ZLeMrnA5BBz7qxi0fzbawzJw7n4 Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache woFd3mtTS177IxDmpyAta-XiL6lMJHcZcXjOkb0TrsU Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache aAkzoTkLjDE3Gl6GlOeejPNd4v-jr7m6cJFT-NjTglw Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   33 [chromium] › tests/e2e/detail-clone.spec.ts:125:5 › detail clone route contract › /antarctica/polar-plateau renders its measured shell (1.3s)
+[WebServer] ⨯ Failed to write image to cache 8vlZZp5JrTOPebCdZUHFswLCozdrUxs4CHpijB1MKfA Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache 6QlwA5N3zsUTeHyVVwC1o848euTsWqmTRKYybDG6Qqw Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache 3DU_3NPm2k1lh24iac0Hb8vAe30oUvn4MTDfQggMMFk Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache FL-3W7S_Ep6h92QNBovI7JaPDZoksDrVjf2XgcOX6kE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache I1fAhMMJ3Uda_yMs3t_XAqnbZXuBRTz_WKoh-Uk4PZE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache pNNH-95-9dGavBApiBR03UFG6YpCbkNboT3MujPm_mc Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache JH-XLR3Is662CxKsNikJZx5WstIOM-0ieZNquLtKm2k Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache EktIRRzkaLWgx52wvQtRPcISXx47zufe39o1-6U06Tc Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache aEFK7SvEY2IQ2OKtpWj6hfckmowO-7odL8OmbzWDAdo Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache BeuFAtmzj8Ks2s0lBNZ-Zo5q_iemNV7pQePMepoKgoc Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache Vf0UJtPvVBM7yVAB2ZZWXfybBBkO0wgIT5A-GYC9YUE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache MNynuRhb0hOOfsoK5PiZU1bbaQ3LQQHFf2m0wJ-olkE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   32 [chromium] › tests/e2e/global-shell-clone.spec.ts:279:5 › HOME hero media, cloud/mist scroll state, and film dialog › mobile: legacy Newsletter Signup toggles and returns focus (3.5s)
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   35 [chromium] › tests/e2e/detail-clone.spec.ts:125:5 › detail clone route contract › /antarctica/atka-penguin-colony renders its measured shell (2.0s)
+[WebServer] ⨯ Failed to write image to cache KGnb7agTF-jXmywkvZadrINmldzPKh4lX69vxMWbzgA Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache uvSD-DrVOqzmScBGJCuA4KuAdd0uuq7LqgtcsEUxnrM Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache FPKjxt5cvk_dq6JktMBihGcjRAVh2nzk55aInh_N8to Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache gCzAlAyIZHpgg0X3z6cuYSb93bX_aEQSZVGka9zbBcQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache PA1Nf0es-3pd7VW659G_8Ae11MnM4TuMPyWpVEn7_dU Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   36 [chromium] › tests/e2e/global-shell-clone.spec.ts:319:3 › desktop: ADELVA header preserves direct links, disclosures and focus (2.0s)
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache LD9f5mYP74veebPgQ_7gYoCpe0J1QJYd-3vmn1CKm6s Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache LYxvGUjKTMCsiU5FNPmdy3ZYZw40bn32RnDBbJTTWQM Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   37 [chromium] › tests/e2e/detail-clone.spec.ts:125:5 › detail clone route contract › /antarctica/fuel-depot renders its measured shell (2.0s)
+[WebServer] ⨯ Failed to write image to cache W3OSjLnECbgGxXdIFr0MWNmBkHWJP4lclR6YTk_M6uQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache Qq5ioqDVJnasz3FusZMYGT_GvjK_iNUwduVbjgVz9Bg Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache ij_oIldwQ5PkPzjsydg8yeNYnf_Wh_X7927FCYgup4I Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache eLfGaocJqcCP3KtraLGeILZUtF2vx-GigRKNdIoSGWE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   38 [chromium] › tests/e2e/global-shell-clone.spec.ts:319:3 › tablet: ADELVA header preserves direct links, disclosures and focus (1.6s)
+[WebServer] ⨯ Failed to write image to cache MNynuRhb0hOOfsoK5PiZU1bbaQ3LQQHFf2m0wJ-olkE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache SoG-rvs1tGTrcQ-0w5_LxuaEI_494kLpewLNKqZnd8U Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache sTdBakzKiasK8ZSrkjrqa6c6rb4Ji7mDZckIdQ_jhZc Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache LTG1PvdO_IEGamf5eSs3KxmidRAVVvVXGuO_t8chs_w Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   39 [chromium] › tests/e2e/detail-clone.spec.ts:125:5 › detail clone route contract › /prices renders its measured shell (1.8s)
+[WebServer] ⨯ Failed to write image to cache zCLw6LzyQsAFayHSiZ7Vt1oaZjSy4kNM1eOnRQrgjQQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache t3KDiidenzX-28XxvkqFSoFh5DW4FgHCtIjMEGqc85k Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache zDXFv9VVx1OstmupJ6nW6_uZF0DQ6z5HcvGEK3mtuDE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   34 [chromium] › tests/e2e/accessibility.spec.ts:16:3 › /legal/privacy-policy has no automatically detectable WCAG A/AA violations (7.1s)
+[WebServer] ⨯ Failed to write image to cache juKpZWddPs1BBXAsvQxBzvaUiOqD6xc-Gk-zWZvhMwg Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache Y0inYgFvsfjAs8_ES_94fvAJK6E-P_BDxDQXnHyDK3I Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache RGNNJGfwr-S_c-9KvHM45i5jrD2bbD3U_9ZLjubY8fc Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache 4I8bnSvNR57-xUR7kp5w_8Q9JjYYL79RmGO20o3m9fo Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   40 [chromium] › tests/e2e/global-shell-clone.spec.ts:319:3 › mobile: ADELVA header preserves direct links, disclosures and focus (2.0s)
+[WebServer] ⨯ Failed to write image to cache rv1HmGMj_3DtniDDBrxO12b0EXv0eKlSEmTMaPHMUr0 Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache gCzAlAyIZHpgg0X3z6cuYSb93bX_aEQSZVGka9zbBcQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   41 [chromium] › tests/e2e/detail-clone.spec.ts:125:5 › detail clone route contract › /enquire renders its measured shell (1.5s)
+[WebServer] ⨯ Failed to write image to cache FPKjxt5cvk_dq6JktMBihGcjRAVh2nzk55aInh_N8to Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache LD9f5mYP74veebPgQ_7gYoCpe0J1QJYd-3vmn1CKm6s Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache MNynuRhb0hOOfsoK5PiZU1bbaQ3LQQHFf2m0wJ-olkE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache SoG-rvs1tGTrcQ-0w5_LxuaEI_494kLpewLNKqZnd8U Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache gCzAlAyIZHpgg0X3z6cuYSb93bX_aEQSZVGka9zbBcQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache FPKjxt5cvk_dq6JktMBihGcjRAVh2nzk55aInh_N8to Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   44 [chromium] › tests/e2e/detail-clone.spec.ts:146:3 › detail clone nested interaction contract › rates expose all season cards and planning links without leaving the route (2.9s)
+[WebServer] ⨯ Failed to write image to cache EIoLCw5BsaabZD-yzWoJBtsoO3jR-VrtNwST7it_M8k Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache LD9f5mYP74veebPgQ_7gYoCpe0J1QJYd-3vmn1CKm6s Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache LTG1PvdO_IEGamf5eSs3KxmidRAVVvVXGuO_t8chs_w Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   42 [chromium] › tests/e2e/home-footer.spec.ts:11:5 › 1440px HOME footer › approved content, responsive layout, keyboard, fonts and axe (5.0s)
+[WebServer] ⨯ Failed to write image to cache 4I8bnSvNR57-xUR7kp5w_8Q9JjYYL79RmGO20o3m9fo Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache MNynuRhb0hOOfsoK5PiZU1bbaQ3LQQHFf2m0wJ-olkE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache RGNNJGfwr-S_c-9KvHM45i5jrD2bbD3U_9ZLjubY8fc Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache N0ezmx1FbjUyJ5md2PhCF47xldbZRA3sfNuobZao03k Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   45 [chromium] › tests/e2e/detail-clone.spec.ts:154:3 › detail clone nested interaction contract › enquiry keeps the four keyboard-first fieldsets local (3.1s)
+[WebServer] ⨯ Failed to write image to cache MFhUvLqROTmbBB25uoCtCoB0nH0D76x_FXPY5lqX6E4 Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache CRgWsEiwGZNXM2rYCjFxy_HFrsSce7xFY9ld0qMpSMM Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache oHaGg8nnby462eZnSJCVrZbI8l81sFluXFINw9MJK-U Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache jZxj3ToK5xTm7goOmLsD7gBn-4WGwkjLJQvaTMHdtFo Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache xjC3KHaQlvCZi7w_O4XM-dm5ZlLlevvX5Rbsg7mWmzU Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache I9Nodfon1Irl30OJptRi8-pqO8LrrPIKZyyy3r52zp0 Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache cQbGei38HsLNtuuDTToJay4-BvqmZEiitSmLgMRasH0 Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache FPKjxt5cvk_dq6JktMBihGcjRAVh2nzk55aInh_N8to Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache gCzAlAyIZHpgg0X3z6cuYSb93bX_aEQSZVGka9zbBcQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache EIoLCw5BsaabZD-yzWoJBtsoO3jR-VrtNwST7it_M8k Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   46 [chromium] › tests/e2e/home-footer.spec.ts:85:5 › 1440px HOME footer › contact stays clickable, utility restores focus, reduced motion and top anchor (5.9s)
+[WebServer] ⨯ Failed to write image to cache IZgeFhlL0Vf-QtKeeP-EFRyFvqWENZ9gCf-nnhPV4dE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache LD9f5mYP74veebPgQ_7gYoCpe0J1QJYd-3vmn1CKm6s Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache IgCIPQSiODHhKkX7oO38za8Z5d-UmsqHswBjdlg1NtU Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache Qq5ioqDVJnasz3FusZMYGT_GvjK_iNUwduVbjgVz9Bg Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache W3OSjLnECbgGxXdIFr0MWNmBkHWJP4lclR6YTk_M6uQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache ij_oIldwQ5PkPzjsydg8yeNYnf_Wh_X7927FCYgup4I Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache PPL1PRx0ZtFwGCV8klcQwy7KSp5TxDQRGvqYAKzdl2w Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache CRgWsEiwGZNXM2rYCjFxy_HFrsSce7xFY9ld0qMpSMM Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache MNynuRhb0hOOfsoK5PiZU1bbaQ3LQQHFf2m0wJ-olkE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache EIoLCw5BsaabZD-yzWoJBtsoO3jR-VrtNwST7it_M8k Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✘   47 [chromium] › tests/e2e/detail-clone.spec.ts:170:3 › detail clone nested interaction contract › gallery controls update an announced slide without hiding controls (7.6s)
+  ✓   48 [chromium] › tests/e2e/home-footer.spec.ts:11:5 › 768px HOME footer › approved content, responsive layout, keyboard, fonts and axe (4.6s)
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+(node:1660703) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] ⨯ Failed to write image to cache Qq5ioqDVJnasz3FusZMYGT_GvjK_iNUwduVbjgVz9Bg Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache W3OSjLnECbgGxXdIFr0MWNmBkHWJP4lclR6YTk_M6uQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache ij_oIldwQ5PkPzjsydg8yeNYnf_Wh_X7927FCYgup4I Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache CRgWsEiwGZNXM2rYCjFxy_HFrsSce7xFY9ld0qMpSMM Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache uYFUI_RCeBHglhow0c-meZex67yRpT0cDCLibWLjKog Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache yb9GCpzVGJkymAjr5cxuNorFbLifoJ1ZrVfJWt9R5aA Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   50 [chromium] › tests/e2e/detail-clone.spec.ts:183:3 › detail clone nested interaction contract › accordions expose the target labels and remain native details (2.4s)
+[WebServer] ⨯ Failed to write image to cache MNynuRhb0hOOfsoK5PiZU1bbaQ3LQQHFf2m0wJ-olkE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   49 [chromium] › tests/e2e/home-footer.spec.ts:85:5 › 768px HOME footer › contact stays clickable, utility restores focus, reduced motion and top anchor (3.7s)
+[WebServer] ⨯ Failed to write image to cache _80Rb-Eb7MbrMPN973UC84MPX5BjR_alaOKGnApi95o Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache xjC3KHaQlvCZi7w_O4XM-dm5ZlLlevvX5Rbsg7mWmzU Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache 0knsplVJSZ4gP32Zk1f8A_us9qmRtcdhSRrphfq5-Lg Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache EIoLCw5BsaabZD-yzWoJBtsoO3jR-VrtNwST7it_M8k Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache zCLw6LzyQsAFayHSiZ7Vt1oaZjSy4kNM1eOnRQrgjQQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache t3KDiidenzX-28XxvkqFSoFh5DW4FgHCtIjMEGqc85k Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache Y0inYgFvsfjAs8_ES_94fvAJK6E-P_BDxDQXnHyDK3I Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache I9Nodfon1Irl30OJptRi8-pqO8LrrPIKZyyy3r52zp0 Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache 1UN8vgwXnqDLZWHTIVPEeYQOGg90v7ArNgop_J-bSxY Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache jTBWi864DcidITPT1OUhgYNT5RBHeq5-w0PZj9ELCnE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache CRgWsEiwGZNXM2rYCjFxy_HFrsSce7xFY9ld0qMpSMM Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   51 [chromium] › tests/e2e/detail-clone.spec.ts:199:3 › detail clone nested interaction contract › secondary film media is opt-in and hero images fill their stages (4.1s)
+[WebServer] ⨯ Failed to write image to cache FNDkvJVmSyOO4my3yjaeur_kLaaDGzt8m2yRjqB6Cw4 Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache MNynuRhb0hOOfsoK5PiZU1bbaQ3LQQHFf2m0wJ-olkE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache xjC3KHaQlvCZi7w_O4XM-dm5ZlLlevvX5Rbsg7mWmzU Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache I9Nodfon1Irl30OJptRi8-pqO8LrrPIKZyyy3r52zp0 Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   52 [chromium] › tests/e2e/home-footer.spec.ts:11:5 › 390px HOME footer › approved content, responsive layout, keyboard, fonts and axe (5.7s)
+[WebServer] ⨯ Failed to write image to cache EIoLCw5BsaabZD-yzWoJBtsoO3jR-VrtNwST7it_M8k Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache IZgeFhlL0Vf-QtKeeP-EFRyFvqWENZ9gCf-nnhPV4dE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache t3KDiidenzX-28XxvkqFSoFh5DW4FgHCtIjMEGqc85k Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache zCLw6LzyQsAFayHSiZ7Vt1oaZjSy4kNM1eOnRQrgjQQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   53 [chromium] › tests/e2e/detail-clone.spec.ts:236:3 › detail clone nested interaction contract › detail-owned interactions stay free of post-hydration diagnostics (2.9s)
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache Y0inYgFvsfjAs8_ES_94fvAJK6E-P_BDxDQXnHyDK3I Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache CRgWsEiwGZNXM2rYCjFxy_HFrsSce7xFY9ld0qMpSMM Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache IgCIPQSiODHhKkX7oO38za8Z5d-UmsqHswBjdlg1NtU Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache PPL1PRx0ZtFwGCV8klcQwy7KSp5TxDQRGvqYAKzdl2w Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache vLTlpYBzWCsIgRuYHOae1pQ9TmT0cuR_lznrHcz_6hc Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache qeWWxa93LxiwXG-D-tB4bG4HtyaEJi9_Xh9t0NjxZyw Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache MNynuRhb0hOOfsoK5PiZU1bbaQ3LQQHFf2m0wJ-olkE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   54 [chromium] › tests/e2e/home-footer.spec.ts:85:5 › 390px HOME footer › contact stays clickable, utility restores focus, reduced motion and top anchor (3.5s)
+[WebServer] ⨯ Failed to write image to cache JlcH7gXk0U50oKRaxzw5fAjQf4jzTNQ_Y1FZAFG6h_4 Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache 6YmGxHtyYPYJDJ7HDywlAJGf0cFqwGHGMac4fZKMuRo Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache EIoLCw5BsaabZD-yzWoJBtsoO3jR-VrtNwST7it_M8k Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache rIczw362DZCYO7LlEa5jWDBkXr0-eKIBneKb4lx2o3k Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache gmlGyimo7FiXYJCHP-G6hIclkVZtczwLRVlTdrx2Xck Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache rN1dxHNWGi0izEpVOJ8c_CEQya0Q0V5TfoJYMI_gECs Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache SD2qnuUKB70m4dZIOG9w_krummPMm9Q-E2zFwKhZIkc Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache zCLw6LzyQsAFayHSiZ7Vt1oaZjSy4kNM1eOnRQrgjQQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache t3KDiidenzX-28XxvkqFSoFh5DW4FgHCtIjMEGqc85k Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache ewXLqJ25ZQDVdUu_K1IPWKERX7HYspHLF4qchK4e2qA Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache Y0inYgFvsfjAs8_ES_94fvAJK6E-P_BDxDQXnHyDK3I Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   56 [chromium] › tests/e2e/home-footer.spec.ts:120:1 › 320px and enlarged footer text stay readable without horizontal overflow (3.5s)
+[WebServer] ⨯ Failed to write image to cache xjC3KHaQlvCZi7w_O4XM-dm5ZlLlevvX5Rbsg7mWmzU Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache I9Nodfon1Irl30OJptRi8-pqO8LrrPIKZyyy3r52zp0 Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache MNynuRhb0hOOfsoK5PiZU1bbaQ3LQQHFf2m0wJ-olkE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache SoG-rvs1tGTrcQ-0w5_LxuaEI_494kLpewLNKqZnd8U Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache fJYoZ5stLubUPx5rlhjzGd8-bz6n-xmC_A8JkX36xMQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache ycJubTPpSn2lFKHkkUdzdqSx6riXPJEhoOQ0f0BsqaU Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache RGNNJGfwr-S_c-9KvHM45i5jrD2bbD3U_9ZLjubY8fc Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache LTG1PvdO_IEGamf5eSs3KxmidRAVVvVXGuO_t8chs_w Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   55 [chromium] › tests/e2e/detail-clone.spec.ts:258:5 › detail clone measured family fidelity › desktop family masters preserve title, nav, media, and geometry (8.8s)
+[WebServer] ⨯ Failed to write image to cache 4I8bnSvNR57-xUR7kp5w_8Q9JjYYL79RmGO20o3m9fo Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✘   43 [chromium] › tests/e2e/home-lower-sequence.spec.ts:9:3 › 1440: camps remain visible over their background and reverse cleanly (33.5s)
+[WebServer] ⨯ Failed to write image to cache gCzAlAyIZHpgg0X3z6cuYSb93bX_aEQSZVGka9zbBcQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   57 [chromium] › tests/e2e/home-footer.spec.ts:134:1 › legacy routes keep their footer on navigation and return to HOME correctly (3.3s)
+[WebServer] ⨯ Failed to write image to cache 5LUk1TLMIc-KmQgWxH0X56JOcDTyIP5Ed9r81QIZYKI Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache FPKjxt5cvk_dq6JktMBihGcjRAVh2nzk55aInh_N8to Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+(node:1662191) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache LD9f5mYP74veebPgQ_7gYoCpe0J1QJYd-3vmn1CKm6s Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache 6MQbQBySMH97PJQ_tZAOd4TUOEdP14pDyrB5deiVWWM Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache WA9wfnCi3oFT7C3-oX7CUYY47slfTFJcHNS78vW-YaY Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache VT_sCNaIdV_fIsqgdkG-Cy9_RPjADn1U4Ux1BEd8a_Y Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache MNynuRhb0hOOfsoK5PiZU1bbaQ3LQQHFf2m0wJ-olkE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache gCzAlAyIZHpgg0X3z6cuYSb93bX_aEQSZVGka9zbBcQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache FPKjxt5cvk_dq6JktMBihGcjRAVh2nzk55aInh_N8to Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache YT7S08FcxeOLMNCoyWBRJ0kifbH2ssAdFKz4RO7pt3o Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache 2nYJNxWXzg1Z6rvwebc4jy0Z_pkGQM3QTlov-xgbOUY Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache UsFbwTMF5qXet1-5fCJUOz15IWNMy9YaeTvZAyAXNpU Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache 8qPei8AovJNiTwUnHnieOBEiQj9PdcEkwU2We6QJ_oQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache LD9f5mYP74veebPgQ_7gYoCpe0J1QJYd-3vmn1CKm6s Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache vabJjm1UBJu_7KFOFDUN7ag6vBh1e4vFcX9lZXF_I94 Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache gCzAlAyIZHpgg0X3z6cuYSb93bX_aEQSZVGka9zbBcQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache FPKjxt5cvk_dq6JktMBihGcjRAVh2nzk55aInh_N8to Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache fcnWl3DheyS9QIZZZqvdXKNnPeaPyN-u8HHRBJfAegw Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache LOol5Y5mOL9DOpTb8rnj4d92rLW9_D2N5bAfvzdEkkI Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache X3KAzE4FAR1GI_9wHDns8Q7BZgOVej7yLNuj3CsbXlI Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache Lvlyx8CoJvGN_Ta18LN8av0vQpmENL8erhcjNEQmsSY Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache HDUOfQaLDn1AYESVYz_WpmvnmUZVrEthRNS2SRn4c_I Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache A2Nfu-aXNCk2t9XN5Z__5Kbz2l2X5LTmy8Z2W5mmVOY Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache olbEY8JslKm8L53H33WLBd2w7mStOxPsyBPjLFRobKs Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache MNynuRhb0hOOfsoK5PiZU1bbaQ3LQQHFf2m0wJ-olkE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache -tSBTkaESsmk61x0atWAswQqIThocATXg_KCM8KNPPk Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache bPk0WBJW3ezGhrRHGEvnDutZdY0Dh8qdxgeXdxNyIeM Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache YI4y08RXWD0Kl8HscrBucGervOIvl8N_vN0rzyuiKqo Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache QSPulV1-z7xyMqfWIjmq60p3oLi-M3r3DUdTlKt1RQY Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache RGNNJGfwr-S_c-9KvHM45i5jrD2bbD3U_9ZLjubY8fc Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache g2yFF8BMtgs3Xl2rx7S8Sccqe_lFL0yPs6g1gRbZ4KA Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache e3sFDEuQHfOtPKVPMsFQKuKzOcat4VR3Py2V0wcHed4 Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   60 [chromium] › tests/e2e/home-lower-sequence.spec.ts:91:3 › 1440: lower content remains readable with reduced motion (5.7s)
+[WebServer] ⨯ Failed to write image to cache iwdMc8L-eUrAej5FQZ3Q5VQqfxvipDWkT06dU0m5gbs Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   58 [chromium] › tests/e2e/detail-clone.spec.ts:258:5 › detail clone measured family fidelity › tablet family masters preserve title, nav, media, and geometry (7.3s)
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache 9KGZoDL8GLw4Dob5l-2uXrKbCtr0vnRYEGhVGqLqMlE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache Qq5ioqDVJnasz3FusZMYGT_GvjK_iNUwduVbjgVz9Bg Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache W3OSjLnECbgGxXdIFr0MWNmBkHWJP4lclR6YTk_M6uQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache ij_oIldwQ5PkPzjsydg8yeNYnf_Wh_X7927FCYgup4I Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache -WocgoGlNLFV7QhV45xTUsL5ML7M4QAMYqGK2QqDzzY Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache Q84fsa8YbQ9Na0grxSVzAwkDP94vYeX3mNlRjUczfxU Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache ZdDtlL9-s8w5hgPrHy3fi32Mm5YVZYaalcBX_rNnVT8 Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache zAsJu-1IcbEerrmM3F7RW8oeoUQZTvaWnqO7Ay81DdQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache y_nGYhBbt2ejYn0sWTDMQBYphM1sx3fnB0wzRbwlLq0 Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache RSwLf-Reea1ThjrAwnurrJVdnL4GxfGmAIV9alOEIzQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache vbemVuZOU-cSmUSq6DQxr-MDH9D04r-G_6hHCeUwCvY Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache x2Djs_S2OYEixlQ95Rsy37F4TToFDGn8DKMBRrp4TjE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache oOd5rlpXZm_bk5jp4qiGPV8HWZa7IbJDhGO7fbCA30I Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache VpealvArpzQ0yUGnmr3cnzDVWjWXSg_u8ZSbU_mMDwo Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache at-RzNohaSX1ozk72Dk-3b3GYfRh_n9WfwHwnVFTn1A Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache yPVIElYxM95mwfAPFZI4Y9iBZ0WlRbtwRBTdhYAMEyQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache YdP0i3Qfr6u0B5ixUjz_zSxmEhEtksODrCvpSn2iKiQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache MNynuRhb0hOOfsoK5PiZU1bbaQ3LQQHFf2m0wJ-olkE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache KFj-YkBm94y43L8YWEq3xvHthmd6fq4Jrb3N_HhYcUo Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache NLufavCJOZ5igD6rlofw01fCA_ipiSereJzT-PqI0fQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache 92ebIFVw0rGlNC9BBhwq_nRHXbfWgoavVW5U9SFTIXM Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache ZGe_JZLay6H-6raMVxzBtez0rU14eSWueKJ6MNu1tfk Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache z9zZnjA0HUVI42nlnGkrzZ-cYYlK6Qz1u-uiCQRL4Y8 Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache y6Gc9T4YG95F8Bg74q3DeBEEEQGpdiWRHXH4jKSppCg Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache OZodIgWRU7CaXfc35riCkWH-1oasqohZShwl4TeFYEs Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache RpohVkn0E5_Vrh1afC0bDXn4CSxpbC95ORY0Ub-3HRs Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache 2u3TkhunLdjEEE03bcTt8uNr5Dl7YkFdJ6wMk_Nsrnw Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache aAkzoTkLjDE3Gl6GlOeejPNd4v-jr7m6cJFT-NjTglw Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache vfXsf6WBU2ZQ9K-3ZLeMrnA5BBz7qxi0fzbawzJw7n4 Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache pNNH-95-9dGavBApiBR03UFG6YpCbkNboT3MujPm_mc Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache RGNNJGfwr-S_c-9KvHM45i5jrD2bbD3U_9ZLjubY8fc Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache -iFQ2hPRct0txmS_PKmUJaxlAaYItEikIJDot1ALNHs Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache 6QlwA5N3zsUTeHyVVwC1o848euTsWqmTRKYybDG6Qqw Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache 8vlZZp5JrTOPebCdZUHFswLCozdrUxs4CHpijB1MKfA Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   62 [chromium] › tests/e2e/detail-clone.spec.ts:258:5 › detail clone measured family fidelity › mobile family masters preserve title, nav, media, and geometry (5.5s)
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache RGNNJGfwr-S_c-9KvHM45i5jrD2bbD3U_9ZLjubY8fc Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache LTG1PvdO_IEGamf5eSs3KxmidRAVVvVXGuO_t8chs_w Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache SoG-rvs1tGTrcQ-0w5_LxuaEI_494kLpewLNKqZnd8U Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache 4I8bnSvNR57-xUR7kp5w_8Q9JjYYL79RmGO20o3m9fo Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache g2yFF8BMtgs3Xl2rx7S8Sccqe_lFL0yPs6g1gRbZ4KA Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache bPk0WBJW3ezGhrRHGEvnDutZdY0Dh8qdxgeXdxNyIeM Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache YI4y08RXWD0Kl8HscrBucGervOIvl8N_vN0rzyuiKqo Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache e3sFDEuQHfOtPKVPMsFQKuKzOcat4VR3Py2V0wcHed4 Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache QSPulV1-z7xyMqfWIjmq60p3oLi-M3r3DUdTlKt1RQY Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache g2yFF8BMtgs3Xl2rx7S8Sccqe_lFL0yPs6g1gRbZ4KA Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache iwdMc8L-eUrAej5FQZ3Q5VQqfxvipDWkT06dU0m5gbs Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache vfXsf6WBU2ZQ9K-3ZLeMrnA5BBz7qxi0fzbawzJw7n4 Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache 6QlwA5N3zsUTeHyVVwC1o848euTsWqmTRKYybDG6Qqw Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache 8vlZZp5JrTOPebCdZUHFswLCozdrUxs4CHpijB1MKfA Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache pNNH-95-9dGavBApiBR03UFG6YpCbkNboT3MujPm_mc Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache -iFQ2hPRct0txmS_PKmUJaxlAaYItEikIJDot1ALNHs Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+  ✓   63 [chromium] › tests/e2e/detail-clone.spec.ts:330:3 › detail clone measured family fidelity › rates and enquiry begin at the measured hero boundary (3.4s)
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache zCLw6LzyQsAFayHSiZ7Vt1oaZjSy4kNM1eOnRQrgjQQ Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache dconMs03V-a_q907aiLzNsum2ZlVRWmw9K75fw26iVs Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ Failed to write image to cache MNynuRhb0hOOfsoK5PiZU1bbaQ3LQQHFf2m0wJ-olkE Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames
+[WebServer] ⨯ unhandledRejection: Error: LRUCache: calculateSize returned 0, but size must be > 0. Items with size 0 would never be evicted, causing unbounded cache growth.
+[WebServer]     at ignore-listed frames

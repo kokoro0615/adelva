@@ -1,0 +1,38 @@
+[
+  {
+    "image_url": "https://www.figma.com/api/mcp/asset/666a1f12-b825-4bec-acb1-b74f8618f264.png",
+    "width": 1440,
+    "height": 4660,
+    "format": "png",
+    "original_width": 1440,
+    "original_height": 4660,
+    "name": "owners-desktop"
+  },
+  {
+    "image_url": "https://www.figma.com/api/mcp/asset/c98f5ae9-abe0-4ebd-ad43-03dc1b684f5c.png",
+    "width": 390,
+    "height": 6891,
+    "format": "png",
+    "original_width": 390,
+    "original_height": 6891,
+    "name": "owners-mobile"
+  },
+  {
+    "image_url": "https://www.figma.com/api/mcp/asset/dee33824-7a56-43ee-9fc9-366eea7e6ce8.png",
+    "width": 1440,
+    "height": 4556,
+    "format": "png",
+    "original_width": 1440,
+    "original_height": 4556,
+    "name": "gm-desktop"
+  },
+  {
+    "image_url": "https://www.figma.com/api/mcp/asset/3cd34095-dabf-46c4-8ed1-31dc7eba98de.png",
+    "width": 390,
+    "height": 7705,
+    "format": "png",
+    "original_width": 390,
+    "original_height": 7705,
+    "name": "gm-mobile"
+  }
+]

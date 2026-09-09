@@ -1,49 +1,49 @@
 import type { CardRef, CallToAction, HeroTab } from "@/content/types";
 
-/**
- * Identity for this visual adaptation.
- *
- * The target brand, wordmark, photography and copy have no recorded
- * redistribution permission, so production ships an unmistakably original
- * neutral identity instead.
- */
+/** Authorized client identity for the production reconstruction. */
 export const brand = {
-  name: "Antarctic Field Notes",
-  wordmark: "Antarctic Field Notes",
-  shortName: "Field Notes",
-  tagline: "A field record of ice, light and distance.",
+  name: "White Desert",
+  wordmark: "White Desert",
+  shortName: "White Desert",
+  tagline: "Luxury and adventure in the most remote place on Earth",
 } as const;
 
 export const regionTabs: readonly HeroTab[] = [
-  { href: "/antarctica/wolfs-fang-runway-mountains", label: "Runway & Mountains" },
-  { href: "/antarctica/schirmacher-oasis", label: "Ice-Free Oasis" },
-  { href: "/antarctica/polar-plateau", label: "Polar Plateau" },
-  { href: "/antarctica/atka-penguin-colony", label: "Penguin Bay" },
-  { href: "/antarctica/fuel-depot", label: "Fuel Depot" },
+  { href: "/antarctica/polar-plateau", label: "The High Polar Plateau" },
+  { href: "/antarctica/fuel-depot", label: "Ice Shelf Coast" },
+  {
+    href: "/antarctica/atka-penguin-colony",
+    label: "Emperor Penguin Ice Fields",
+  },
+  { href: "/antarctica/wolfs-fang-runway-mountains", label: "The Mountains" },
+  { href: "/antarctica/schirmacher-oasis", label: "The Rock Oasis" },
 ];
 
 export const aboutTabs: readonly HeroTab[] = [
-  { href: "/about/founders", label: "Our Story" },
-  { href: "/about/foundation", label: "Field Science" },
-  { href: "/about/sustainability", label: "Responsible Observation" },
+  { href: "/about/founders", label: "Founders" },
+  { href: "/about/foundation", label: "Foundation" },
+  { href: "/about/sustainability", label: "Sustainability" },
 ];
 
 export const campTabs: readonly HeroTab[] = [
+  { href: "/camps/whichaway-camp", label: "Whichaway Camp" },
   { href: "/camps/echo-base", label: "Echo Base" },
   { href: "/camps/explorer-camp", label: "Explorer Camp" },
-  { href: "/camps/whichaway-camp", label: "Lakeside Camp" },
 ];
 
 export const journeyTabs: readonly HeroTab[] = [
-  { href: "/itineraries/discovery-week", label: "Discovery Week" },
+  {
+    href: "/itineraries/early-emperor-penguins",
+    label: "Baby Penguins & Blue Tunnels",
+  },
   {
     href: "/itineraries/south-pole-emperor-penguins",
-    label: "South Pole & Emperor Penguins",
+    label: "South Pole & Penguins",
   },
   { href: "/itineraries/south-pole-blue-rivers", label: "South Pole & Blue Rivers" },
-  { href: "/itineraries/antarctica-in-a-day", label: "Antarctica in a Day" },
-  { href: "/itineraries/early-emperor-penguins", label: "Early Emperor Penguins" },
   { href: "/itineraries/the-long-stay", label: "The Long Stay" },
+  { href: "/itineraries/antarctica-in-a-day", label: "Antarctica in a Day" },
+  { href: "/itineraries/discovery-week", label: "Discovery Week" },
 ];
 
 export const journeyCards: readonly CardRef[] = [

@@ -1,0 +1,255 @@
+{
+  "schemaVersion": "full-page-section-manifest/v1",
+  "manifestId": "prices-reference-v1",
+  "role": "reference",
+  "route": "/prices",
+  "family": "rates",
+  "scope": {
+    "kind": "route-content",
+    "id": "prices-content"
+  },
+  "source": {
+    "url": "https://white-desert.com",
+    "requestedRoute": "/prices",
+    "finalRoutes": ["/prices"],
+    "observedAt": "2026-08-31T01:13:05.773Z",
+    "contentRoot": ".page-content",
+    "status": "pending-capture",
+    "captureMode": "manifest-only",
+    "evidenceStatus": "pending-capture"
+  },
+  "requiredViewports": ["desktop", "tablet", "mobile"],
+  "tolerances": {
+    "boundsPx": 2,
+    "scrollHeightPx": 2
+  },
+  "domTopology": {
+    "scope": ".page-content",
+    "directChildren": ["hero", "section-2", "how-it-works", "planning-cta"]
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "semantic": "div | fixed-banner_wrap-small | Dates & Rates",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Dates & Rates",
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F2e954420ffa57d75e899d688ceae38ef1940c269-2160x1451.jpg&w=3840&q=90"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 585,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 665.59,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 548.59,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "section-2",
+      "semantic": "section | padding-small bg-lighter-grey above-grid has-inset-effect",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "keyLinks": ["/enquire"],
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fa837984efca2054da45c0e08fdde6bad2f20ca99-2484x1446.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fe180a1304970d4e076f008fe5ac7d65e14be7cbe-4496x3000.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F2d53f7e0e8cfbdc05302ff63fbf0f8d934212371-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F837e4da1830552c3fc12d1532fc931ca0dfa032e-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Ffc3d4887c37b05526119edbc5db9d18a0b034c6b-2000x1250.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fb64b5c839290b01bb4a97c7492002bbc34a996a9-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fb020895bb1bf33668f5a94c91bc570edce7df2d8-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F2aac2a0f8e33e36d12da2e46ca20646e2e0d3d7d-2000x1267.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F2eab3324163097886dd54ab130f0513738f4184a-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F9ed59e6ad6e9a999263aed653ecd04dada37a3ae-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fa2ca7a5a0ecbf1794807739396aed71fc23e4c4d-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fd31dc723780468d769aeabe4e1d127c941d1720f-2048x1365.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F231d166307a40fbbfbf79f61c1c1a88a1ada6c9d-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fac3aa8f67ec0d903de8e2566baf9d7f4423f2c65-2668x2000.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fe83e61f3e3c7379c1d428c3c3bbd844a12ccb695-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F89a82b013923c763ab6199172ea8043671d04e39-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F314aee96c704ff4ee3d48a28c187e52b150ef84e-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fb31243611c96d450e3a23f52e8a534bae8c336ad-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F35fef556802b45189fd6b473a2c7e6bd1bfb9e27-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F77ddca1807985a3d92c4fe29a5d7d89d1810cb87-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F524f1217d87fcfe17fac90fe174ca06b25ea2844-2000x1332.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F4dbb0634c9da5ddb37a445f26cc4f75cf6da5543-2000x1499.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F999ef3a8ccffe0a193f572d23a89081ef38bbdbf-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F279f7288b7fd4eb66022ee9c273ae4013bc83a7b-2000x1336.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 585,
+          "width": 1440,
+          "height": 4073.77,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 665.59,
+          "width": 768,
+          "height": 8370.72,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 548.59,
+          "width": 390,
+          "height": 6971.31,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "how-it-works",
+      "semantic": "section | padding-top-large-bottom-medium bg-deep-blue | How it works",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "How it works",
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 4658.77,
+          "width": 1440,
+          "height": 539.97,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 9036.31,
+          "width": 768,
+          "height": 540,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 7519.91,
+          "width": 390,
+          "height": 321.23,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "planning-cta",
+      "semantic": "div | above-footer",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F3b51191a8c51b3002d6264a1322806ea51e18a21-1500x1875.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fa921372160bdd11c05b49230ed93dec19ce88c8b-1500x1875.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fbac771f6f5308d19ae17d43753dbff34378b9bd8-1600x2000.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fcc76b77d09c56cfb914a69355b1f47dce8adf7b1-1440x900.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F95bc7cb9a1c3b7cded43fae2e25294ae8a98b42e-1500x2250.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F3c4bf0887c247554c3a57a7a0f27d5cbae2b0430-2100x2625.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 5198.73,
+          "width": 1440,
+          "height": 4050,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 9576.31,
+          "width": 768,
+          "height": 4608,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 7841.14,
+          "width": 390,
+          "height": 2629.56,
+          "pinned": false
+        }
+      }
+    }
+  ],
+  "viewports": {
+    "desktop": {
+      "width": 1440,
+      "height": 900,
+      "scrollHeight": 10190,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/prices-1440x900-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "tablet": {
+      "width": 768,
+      "height": 1024,
+      "scrollHeight": 15208,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/prices-768x1024-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "scrollHeight": 12583,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/prices-390x844-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    }
+  },
+  "motion": {
+    "status": "incomplete",
+    "unknown": [
+      "motion evidence remains pending until four phase captures exist for every layer and viewport"
+    ],
+    "layers": []
+  }
+}

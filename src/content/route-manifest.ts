@@ -16,6 +16,7 @@ export const routeManifest = [
   { path: "/about/foundation", family: "about-foundation" },
   { path: "/about/sustainability", family: "about-sustainability" },
   { path: "/antarctica/behind-the-scenes", family: "operations" },
+  { path: "/antarctica/direct-flights-to-antarctica", family: "aviation" },
   { path: "/antarctica", family: "region-index-redirect" },
   { path: "/prices", family: "rates" },
   { path: "/enquire", family: "enquiry-form" },

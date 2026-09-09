@@ -7,8 +7,11 @@ export default defineConfig([
   ...nextTypeScript,
   globalIgnores([
     ".next/**",
+    ".next-revision/**",
+    ".next-morght-review/**",
     ".Codex/docs/research/design-extract/**",
     "artifacts/**",
+    "references/**",
     "coverage/**",
     "playwright-report/**",
     "test-results/**",

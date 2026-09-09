@@ -1,0 +1,18 @@
+[
+  [
+    "hero",
+    "Extract and faithfully reconstruct ONLY the TOP HERO PHOTOGRAPH from the attached full-page ADELVA mock. Remove every word, logo, navigation, button, vertical UI grid, scroll cue and all other UI, inpainting the exact underlying hotel scene. Return one pristine text-free architectural photograph, landscape 795:464 aspect (roughly 1.71:1), highest final quality and native resolution. Preserve precisely the image's original composition: tall dark timber lobby with panoramic mullioned windows and blue misty mountain ridges at dawn, honed dark stone reception desk occupying right foreground with warm light underneath, amber lamps, chairs in middle distance, polished stone floor, dark left foreground pillar. Match camera, perspective, object positions, crop, blue vs amber color balance and light of the top photo exactly. No redesign, no people, no new architecture, no ADELVA signage. Only the hero photo, no lower page sections, no margins or UI. Preserve exact scene identity, reconstruct text-covered areas naturally."
+  ],
+  [
+    "corridor",
+    "Extract ONLY the small CORRIDOR PHOTOGRAPH in the third section, left of the Japanese diagnosis heading, from attached full-page mock. Reconstruct faithfully as one text-free landscape architectural photograph in exact 351:250 aspect ratio (1.404:1), high final detail. Same straight receding timber and stone hotel corridor toward the distant blue mountain panorama at dawn. Amber rectangular wall lamps on the left, rough dark stone close wall on right, warm ceiling beams, reflective stone slabs receding toward central opening, mountain ridge and golden sky framed in distance. Preserve exact original camera angle, proportions, crop and warm/cool balance of that corridor image. No new scene, no UI, no lettering, no added props, no people, no outer margins, no other parts of the webpage."
+  ],
+  [
+    "dining",
+    "Extract ONLY the WIDE DINING ROOM PANORAMA beneath the navy OPERATIONS section in the supplied webpage mock. Reconstruct faithfully as one text-free ultrawide photograph, exact 795:152 aspect ratio (5.23:1), high final native detail. Preserve the original panoramic crop, exact low horizontal perspective, dark timber window mullions, amber table lamps and glasses on empty restaurant tables in foreground, upholstered chairs, breathtaking layered blue mountains and mist beyond. The full width of the original scene must be visible. This is an architectural panoramic strip, not a standard 16:9 picture. No letters, UI, people, borders, signage or additional scenes. Same photograph composition and colors, sharpen natural materials and subtle light with photographic realism."
+  ],
+  [
+    "bedroom",
+    "Extract and reconstruct ONLY the lower BEDROOM PHOTO behind IMPLEMENT and the process line in the supplied full-page mock. Remove all text, buttons, UI lines, dots and any overlays, inpainting the underlying original scene. Return one text-free wide architectural photograph with exact 795:250 aspect ratio (3.18:1), high final native quality. Preserve camera, crop, object positions and scene identity: soft dark bed occupies lower left and middle foreground; panoramic mountain windows across middle and right with blue cloud sea and dusk sky; tall amber lamp and soft lounge chair at right; dark wood and stone, gentle reflective floor, warmer light inside versus cool mountains. No people, no extra props, no different architecture, no other page sections. Match the original photographic color and shadows closely."
+  ]
+]

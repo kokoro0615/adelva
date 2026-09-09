@@ -1,0 +1,536 @@
+{
+  "method": "Proportional resize to width 390 with sharp, then simple vertical concatenation; no crop, design edits, overlays or stretching.",
+  "pages": {
+    "general-managers": {
+      "output": "general-managers/mobile-full-390.png",
+      "width": 390,
+      "height": 7616,
+      "bytes": 4348275,
+      "sha256": "06896554244e4e8bdb8a519c1d89f19b5a1c70fde5ec96b318269bc9e806572f",
+      "sections": [
+        {
+          "id": "00-hero",
+          "file": "general-managers/sections/00-hero.png",
+          "width": 853,
+          "height": 1844,
+          "theoreticalHeightAt390": 843.094958968347,
+          "resizedHeight": 843,
+          "y": 0,
+          "bytes": 1882833,
+          "sha256": "850538b0d6b5fdf5bf705463eaf873b7ca7d8c85bd4d2f77064a65be694e25c6",
+          "topMedianRGB": [
+            15,
+            36,
+            57
+          ],
+          "bottomMedianRGB": [
+            16,
+            36,
+            56
+          ],
+          "normalizedPixelHash": "ecee9bfc57c033518809a9655404c9bcaf19cfb9e213f6e5b98e6193a8619e53",
+          "joinedPixelsMatchNormalizedSection": true
+        },
+        {
+          "id": "01-challenges",
+          "file": "general-managers/sections/01-challenges.png",
+          "width": 825,
+          "height": 1905,
+          "theoreticalHeightAt390": 900.5454545454545,
+          "resizedHeight": 901,
+          "y": 843,
+          "bytes": 1258204,
+          "sha256": "82c37966e40ac53ee3c7debc3c46f98d49d9f85b145e24f3a9a9b92dc78639f8",
+          "topMedianRGB": [
+            244,
+            241,
+            235
+          ],
+          "bottomMedianRGB": [
+            244,
+            241,
+            234
+          ],
+          "normalizedPixelHash": "e684a0acff3f6f7edadfaf415f1a4df49859a21c634ac8675ee944a1c7b0674e",
+          "joinedPixelsMatchNormalizedSection": true
+        },
+        {
+          "id": "02-decisions",
+          "file": "general-managers/sections/02-decisions.png",
+          "width": 876,
+          "height": 1795,
+          "theoreticalHeightAt390": 799.1438356164383,
+          "resizedHeight": 799,
+          "y": 1744,
+          "bytes": 1609604,
+          "sha256": "6e1aa3fe8c35361fa3942bccb790ff4ab7dd7be7273e734f7c9aa3f5761194c8",
+          "topMedianRGB": [
+            244,
+            240,
+            235
+          ],
+          "bottomMedianRGB": [
+            243,
+            240,
+            235
+          ],
+          "normalizedPixelHash": "360915c9e0836e611a4a98eedcbf52c013d27e9d52a5c15be8d94850d376b02b",
+          "joinedPixelsMatchNormalizedSection": true
+        },
+        {
+          "id": "03-support-a",
+          "file": "general-managers/sections/03-support-a.png",
+          "width": 876,
+          "height": 1795,
+          "theoreticalHeightAt390": 799.1438356164383,
+          "resizedHeight": 799,
+          "y": 2543,
+          "bytes": 1391652,
+          "sha256": "60d82c17ca939f23e976f417d1978e315175e46e918f34647fa0762f8d1a7f42",
+          "topMedianRGB": [
+            6,
+            40,
+            64
+          ],
+          "bottomMedianRGB": [
+            6,
+            38,
+            61
+          ],
+          "normalizedPixelHash": "c63a029e61f79183ccb11797ce2730c74596863a3a584fc6f2b97ef99e964632",
+          "joinedPixelsMatchNormalizedSection": true
+        },
+        {
+          "id": "04-support-b",
+          "file": "general-managers/sections/04-support-b.png",
+          "width": 783,
+          "height": 2008,
+          "theoreticalHeightAt390": 1000.1532567049809,
+          "resizedHeight": 1000,
+          "y": 3342,
+          "bytes": 1610714,
+          "sha256": "b1823720199cef89ce0ecf317eedcbafeaecbaf0ee5c631da96849f7e4ef3f54",
+          "topMedianRGB": [
+            10,
+            40,
+            62
+          ],
+          "bottomMedianRGB": [
+            244,
+            240,
+            235
+          ],
+          "normalizedPixelHash": "03a3348a97aa6c7533c83060f4c81a582eecd100cec5848c81b6ddfdc9588154",
+          "joinedPixelsMatchNormalizedSection": true
+        },
+        {
+          "id": "05-roles",
+          "file": "general-managers/sections/05-roles.png",
+          "width": 825,
+          "height": 1905,
+          "theoreticalHeightAt390": 900.5454545454545,
+          "resizedHeight": 901,
+          "y": 4342,
+          "bytes": 1257280,
+          "sha256": "e778fd0a69c05540e6209a8af8b8fa1a98fc670e0b7435f2be4ffff991b24ef2",
+          "topMedianRGB": [
+            244,
+            241,
+            235
+          ],
+          "bottomMedianRGB": [
+            244,
+            241,
+            234
+          ],
+          "normalizedPixelHash": "fedec40774d0298332ae8936d812444e561e26f0702857cc51db8cfb404b113e",
+          "joinedPixelsMatchNormalizedSection": true
+        },
+        {
+          "id": "06-execution",
+          "file": "general-managers/sections/06-execution.png",
+          "width": 897,
+          "height": 1753,
+          "theoreticalHeightAt390": 762.1739130434783,
+          "resizedHeight": 762,
+          "y": 5243,
+          "bytes": 1629724,
+          "sha256": "3f4bd154093e51d9d6eeb1294877c2bfa82e789fc650bc4a9667da2707cc3bbf",
+          "topMedianRGB": [
+            64,
+            47,
+            44
+          ],
+          "bottomMedianRGB": [
+            9,
+            40,
+            63
+          ],
+          "normalizedPixelHash": "e3a2763c4696c7d660e4cfff3339d73a81a7c69df32917c4fa758bd742279060",
+          "joinedPixelsMatchNormalizedSection": true
+        },
+        {
+          "id": "07-verification",
+          "file": "general-managers/sections/07-verification.png",
+          "width": 964,
+          "height": 1632,
+          "theoreticalHeightAt390": 660.2489626556016,
+          "resizedHeight": 660,
+          "y": 6005,
+          "bytes": 1134333,
+          "sha256": "286bdb59502bbe24bd7435fcf1d5cdf64d696b067c43f75ec755f6ae4983c3b5",
+          "topMedianRGB": [
+            243,
+            240,
+            234
+          ],
+          "bottomMedianRGB": [
+            243,
+            240,
+            234
+          ],
+          "normalizedPixelHash": "28defe5b7204991dade625296420171298ddac6ef1192801380107ecccd2476d",
+          "joinedPixelsMatchNormalizedSection": true
+        },
+        {
+          "id": "08-contact",
+          "file": "general-managers/sections/08-contact.png",
+          "width": 803,
+          "height": 1958,
+          "theoreticalHeightAt390": 950.9589041095891,
+          "resizedHeight": 951,
+          "y": 6665,
+          "bytes": 1238599,
+          "sha256": "e8ab20f25cc218564e8ae7e05c2e8ed48c8380488427bbfc30b631fe72f9f21c",
+          "topMedianRGB": [
+            10,
+            38,
+            60
+          ],
+          "bottomMedianRGB": [
+            10,
+            37,
+            59
+          ],
+          "normalizedPixelHash": "7acf43abe0b8fce05e96ec27ff00bd9b39428eb1d2f41ffc76ce451e460ecbac",
+          "joinedPixelsMatchNormalizedSection": true
+        }
+      ],
+      "viewportReviewSlices": [
+        {
+          "filename": "general-managers-viewport-00.png",
+          "top": 0,
+          "height": 844
+        },
+        {
+          "filename": "general-managers-viewport-01.png",
+          "top": 844,
+          "height": 844
+        },
+        {
+          "filename": "general-managers-viewport-02.png",
+          "top": 1688,
+          "height": 844
+        },
+        {
+          "filename": "general-managers-viewport-03.png",
+          "top": 2532,
+          "height": 844
+        },
+        {
+          "filename": "general-managers-viewport-04.png",
+          "top": 3376,
+          "height": 844
+        },
+        {
+          "filename": "general-managers-viewport-05.png",
+          "top": 4220,
+          "height": 844
+        },
+        {
+          "filename": "general-managers-viewport-06.png",
+          "top": 5064,
+          "height": 844
+        },
+        {
+          "filename": "general-managers-viewport-07.png",
+          "top": 5908,
+          "height": 844
+        },
+        {
+          "filename": "general-managers-viewport-08.png",
+          "top": 6752,
+          "height": 844
+        },
+        {
+          "filename": "general-managers-viewport-09.png",
+          "top": 7596,
+          "height": 20
+        }
+      ]
+    },
+    "owners": {
+      "output": "owners/mobile-full-390.png",
+      "width": 390,
+      "height": 6954,
+      "bytes": 3887937,
+      "sha256": "792a349577e595113d9e29f402e6f3973606d40fdb9347a02f8cb0d041b8b729",
+      "sections": [
+        {
+          "id": "00-hero",
+          "file": "owners/sections/00-hero.png",
+          "width": 853,
+          "height": 1844,
+          "theoreticalHeightAt390": 843.094958968347,
+          "resizedHeight": 843,
+          "y": 0,
+          "bytes": 1989326,
+          "sha256": "02958f7c51bd972b771c09d3a922f47919071c25a0fc442954a0ddb6453f6c36",
+          "topMedianRGB": [
+            13,
+            42,
+            69
+          ],
+          "bottomMedianRGB": [
+            13,
+            39,
+            64
+          ],
+          "normalizedPixelHash": "da3a0773eb7c591baabbc24069d6519403c872eadfe15f2e3d98a28809ea03e8",
+          "joinedPixelsMatchNormalizedSection": true
+        },
+        {
+          "id": "01-challenges",
+          "file": "owners/sections/01-challenges.png",
+          "width": 950,
+          "height": 1656,
+          "theoreticalHeightAt390": 679.8315789473684,
+          "resizedHeight": 680,
+          "y": 843,
+          "bytes": 1117907,
+          "sha256": "8bab9d4d1c7ea62f24e02c048c77d2d9c3c23f406c24ac835adc83572f4f2294",
+          "topMedianRGB": [
+            244,
+            241,
+            235
+          ],
+          "bottomMedianRGB": [
+            244,
+            241,
+            234
+          ],
+          "normalizedPixelHash": "e22db43d4382a06710a6a9e7546fbeacee03db751b9173c57bd21457aa547e4c",
+          "joinedPixelsMatchNormalizedSection": true
+        },
+        {
+          "id": "02-decisions",
+          "file": "owners/sections/02-decisions.png",
+          "width": 887,
+          "height": 1774,
+          "theoreticalHeightAt390": 780,
+          "resizedHeight": 780,
+          "y": 1523,
+          "bytes": 1536963,
+          "sha256": "138e8ad15f73a2ab834c9ceee5faa9455478252f801ed6b480d2c66aecca3453",
+          "topMedianRGB": [
+            243,
+            240,
+            234
+          ],
+          "bottomMedianRGB": [
+            243,
+            240,
+            234
+          ],
+          "normalizedPixelHash": "f40e64775bb2ed6a0a14b0ed309ed56db3ff0b81fc0a7e61f9d90d65628902e2",
+          "joinedPixelsMatchNormalizedSection": true
+        },
+        {
+          "id": "03-support-a",
+          "file": "owners/sections/03-support-a.png",
+          "width": 899,
+          "height": 1750,
+          "theoreticalHeightAt390": 759.1768631813126,
+          "resizedHeight": 759,
+          "y": 2303,
+          "bytes": 1262731,
+          "sha256": "ab879be05dabf3e352007627fec577c33bb8db3c5ede74c1806a0723f16e38e8",
+          "topMedianRGB": [
+            11,
+            38,
+            61
+          ],
+          "bottomMedianRGB": [
+            10,
+            37,
+            60
+          ],
+          "normalizedPixelHash": "4ca8ad3de0ec035b8d6796695432d500369adbdd8bc08f5bcfc4e2c40a2a213e",
+          "joinedPixelsMatchNormalizedSection": true
+        },
+        {
+          "id": "04-support-b",
+          "file": "owners/sections/04-support-b.png",
+          "width": 910,
+          "height": 1728,
+          "theoreticalHeightAt390": 740.5714285714286,
+          "resizedHeight": 741,
+          "y": 3062,
+          "bytes": 1275478,
+          "sha256": "40cdea0dc9441d2cba50c540ed697387648c6f4d3e4f6962601096c60f6c99c9",
+          "topMedianRGB": [
+            10,
+            39,
+            62
+          ],
+          "bottomMedianRGB": [
+            10,
+            38,
+            61
+          ],
+          "normalizedPixelHash": "bd22e6bdc7480d18dc8ac0d9c887919e2fff60087e45ff20a63d1ab001867e5c",
+          "joinedPixelsMatchNormalizedSection": true
+        },
+        {
+          "id": "05-roles",
+          "file": "owners/sections/05-roles.png",
+          "width": 917,
+          "height": 1716,
+          "theoreticalHeightAt390": 729.814612868048,
+          "resizedHeight": 730,
+          "y": 3803,
+          "bytes": 1134947,
+          "sha256": "b4c96a0953fb9d5075204a6e779fe51685283e06baa8be27182df01bb0c6aa8e",
+          "topMedianRGB": [
+            244,
+            240,
+            234
+          ],
+          "bottomMedianRGB": [
+            243,
+            240,
+            234
+          ],
+          "normalizedPixelHash": "8c5d1411b92b5c06ecf1ea1fb0bd38c5b4687237e97d1565dd37a5d678f0a176",
+          "joinedPixelsMatchNormalizedSection": true
+        },
+        {
+          "id": "06-execution",
+          "file": "owners/sections/06-execution.png",
+          "width": 825,
+          "height": 1905,
+          "theoreticalHeightAt390": 900.5454545454545,
+          "resizedHeight": 901,
+          "y": 4533,
+          "bytes": 1476034,
+          "sha256": "ff63fe9d4c8f00d9a659bde310cd3f9e12a290d178aae902b6f29de58a7e90ce",
+          "topMedianRGB": [
+            9,
+            37,
+            61
+          ],
+          "bottomMedianRGB": [
+            9,
+            36,
+            60
+          ],
+          "normalizedPixelHash": "2790f819c13bedd78748f019913f342ee066d5a164a597ec3b3c5d70d5b710a0",
+          "joinedPixelsMatchNormalizedSection": true
+        },
+        {
+          "id": "07-verification",
+          "file": "owners/sections/07-verification.png",
+          "width": 1028,
+          "height": 1529,
+          "theoreticalHeightAt390": 580.068093385214,
+          "resizedHeight": 580,
+          "y": 5434,
+          "bytes": 1110567,
+          "sha256": "1a42fe3212ff743dce7e9c7cfed035ad56004326d96b18115044594da3e7c7bb",
+          "topMedianRGB": [
+            244,
+            241,
+            235
+          ],
+          "bottomMedianRGB": [
+            244,
+            241,
+            235
+          ],
+          "normalizedPixelHash": "08e59dd417e3d3da1c2e6a05e4943a7f2fc4e4e932c44fd7de1c244f44fda2ca",
+          "joinedPixelsMatchNormalizedSection": true
+        },
+        {
+          "id": "08-contact",
+          "file": "owners/sections/08-contact.png",
+          "width": 808,
+          "height": 1947,
+          "theoreticalHeightAt390": 939.7648514851485,
+          "resizedHeight": 940,
+          "y": 6014,
+          "bytes": 1720188,
+          "sha256": "4ff099de7bf0c9258373ad6cdb404ea5d118d56510a55ff113b61085e927941c",
+          "topMedianRGB": [
+            5,
+            45,
+            79
+          ],
+          "bottomMedianRGB": [
+            5,
+            37,
+            65
+          ],
+          "normalizedPixelHash": "3747f3011d8145e3eefba437b414b5c8fbd3bcb772578bcdda763f8effad4157",
+          "joinedPixelsMatchNormalizedSection": true
+        }
+      ],
+      "viewportReviewSlices": [
+        {
+          "filename": "owners-viewport-00.png",
+          "top": 0,
+          "height": 844
+        },
+        {
+          "filename": "owners-viewport-01.png",
+          "top": 844,
+          "height": 844
+        },
+        {
+          "filename": "owners-viewport-02.png",
+          "top": 1688,
+          "height": 844
+        },
+        {
+          "filename": "owners-viewport-03.png",
+          "top": 2532,
+          "height": 844
+        },
+        {
+          "filename": "owners-viewport-04.png",
+          "top": 3376,
+          "height": 844
+        },
+        {
+          "filename": "owners-viewport-05.png",
+          "top": 4220,
+          "height": 844
+        },
+        {
+          "filename": "owners-viewport-06.png",
+          "top": 5064,
+          "height": 844
+        },
+        {
+          "filename": "owners-viewport-07.png",
+          "top": 5908,
+          "height": 844
+        },
+        {
+          "filename": "owners-viewport-08.png",
+          "top": 6752,
+          "height": 202
+        }
+      ]
+    }
+  }
+}

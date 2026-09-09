@@ -1,0 +1,182 @@
+{
+  "schemaVersion": "full-page-section-manifest/v1",
+  "manifestId": "antarctica--behind-the-scenes-reference-v1",
+  "role": "reference",
+  "route": "/antarctica/behind-the-scenes",
+  "family": "operations",
+  "scope": {
+    "kind": "route-content",
+    "id": "antarctica--behind-the-scenes-content"
+  },
+  "source": {
+    "url": "https://white-desert.com",
+    "requestedRoute": "/antarctica/behind-the-scenes",
+    "finalRoutes": ["/antarctica/behind-the-scenes"],
+    "observedAt": "2026-08-31T01:13:05.768Z",
+    "contentRoot": ".page-content",
+    "status": "pending-capture",
+    "captureMode": "manifest-only",
+    "evidenceStatus": "pending-capture"
+  },
+  "requiredViewports": ["desktop", "tablet", "mobile"],
+  "tolerances": {
+    "boundsPx": 2,
+    "scrollHeightPx": 2
+  },
+  "domTopology": {
+    "scope": ".page-content",
+    "directChildren": ["hero", "expertise"]
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "semantic": "div | about-banner-loader | Logistics",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Logistics",
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fe2cf62aff3f1457a9d708167856d8a6fd4f75c40-2000x1332.jpg&w=3840&q=90",
+        "/_next/image?url=%2Fimages%2FOperational.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 900,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 1024,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "expertise",
+      "semantic": "div | expertise-page_content u-white | Behind the scenes",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Behind the scenes",
+      "keyLinks": ["/enquire"],
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fe92fb9faf2b22603a4830f6919e364497ec469df-2100x1400.jpg&w=3840&q=90",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F4947b0b6bc98dfb58e882557aa906d2a36fac0fa-1700x1525.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fe9490c0a28359b9d20d3bdf4e1277cd250c263a4-1900x1267.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F789cd2764abfd13593deac54b74d61448701f253-1500x1875.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fa11228b992fe0479de070a40b572398cf5181306-2100x2625.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F17400093f064a5c935c8159ea864eb296a0fcd68-2100x1400.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F56d9a4c629e47e43aed16ff7f09c4db90735c6c8-2000x1334.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fe92fb9faf2b22603a4830f6919e364497ec469df-2100x1400.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fc76ca35d4443b52d0f1089cc02c3fb6912e147e7-2000x3000.jpg&w=3840&q=75",
+        "https://cdn.sanity.io/images/kq9qn5zn/production/e3ef9ec73b489bc85d7c6ee641b5192574ce1165-2000x1333.jpg",
+        "https://cdn.sanity.io/images/kq9qn5zn/production/3d7730030e82045577ccfb1f450f917fa509232e-2000x1333.jpg",
+        "https://cdn.sanity.io/images/kq9qn5zn/production/34251ed5c94b319335cf99b0959a7be33da8b83e-2000x1333.jpg",
+        "https://cdn.sanity.io/images/kq9qn5zn/production/34e57b2bc9b5df7a1f50a3fb6cf1bd3bfa30a8dc-2000x1333.jpg",
+        "https://cdn.sanity.io/images/kq9qn5zn/production/56a8260b698120a4d537957180d8fcb89894b116-2000x1333.jpg",
+        "https://cdn.sanity.io/images/kq9qn5zn/production/7997c0b1228b5be60fb7b64028a86f73929570fb-2000x1333.jpg",
+        "https://cdn.sanity.io/images/kq9qn5zn/production/67d60c9c0bcf9521d8f77c79a07ee344151dee48-2000x1333.jpg",
+        "https://cdn.sanity.io/images/kq9qn5zn/production/2c417bf309c4e22e7e4117b199a2ab5220610bab-2000x1333.jpg",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F660354043a36aedc1bbbc2c2667fde0c25210ff4-2100x1400.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fd703710a11e56c41f89675538dfac3e2035b9428-8570x5713.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Ffb435f3895c1b0bbf742ed41608a01ff75f4d98f-2200x1467.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F244e30cc23e4f6dbda9f22d7cc7e5b6909f9735d-2000x1334.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Ff26c673752fa7fd9c6f3b929cf3fd4c014613a80-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fb03ebb7599f1b0a5d269e7a9a28fbc242c6f7d03-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F2238e26ce72d525e1fcb75fb195fb3d00a493d28-2000x1333.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 900,
+          "width": 1440,
+          "height": 6608.55,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 1024,
+          "width": 768,
+          "height": 5554.88,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 844,
+          "width": 390,
+          "height": 6514.06,
+          "pinned": false
+        }
+      }
+    }
+  ],
+  "viewports": {
+    "desktop": {
+      "width": 1440,
+      "height": 900,
+      "scrollHeight": 8450,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/antarctica--behind-the-scenes-1440x900-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "tablet": {
+      "width": 768,
+      "height": 1024,
+      "scrollHeight": 7603,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/antarctica--behind-the-scenes-768x1024-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "scrollHeight": 9470,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/antarctica--behind-the-scenes-390x844-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    }
+  },
+  "motion": {
+    "status": "incomplete",
+    "unknown": [
+      "motion evidence remains pending until four phase captures exist for every layer and viewport"
+    ],
+    "layers": []
+  }
+}

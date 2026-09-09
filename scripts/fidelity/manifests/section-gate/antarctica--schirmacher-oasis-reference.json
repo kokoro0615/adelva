@@ -1,0 +1,386 @@
+{
+  "schemaVersion": "full-page-section-manifest/v1",
+  "manifestId": "antarctica--schirmacher-oasis-reference-v1",
+  "role": "reference",
+  "route": "/antarctica/schirmacher-oasis",
+  "family": "region-detail",
+  "scope": {
+    "kind": "route-content",
+    "id": "antarctica--schirmacher-oasis-content"
+  },
+  "source": {
+    "url": "https://white-desert.com",
+    "requestedRoute": "/antarctica/schirmacher-oasis",
+    "finalRoutes": ["/antarctica/schirmacher-oasis"],
+    "observedAt": "2026-08-31T01:13:05.798Z",
+    "contentRoot": ".page-content",
+    "status": "pending-capture",
+    "captureMode": "manifest-only",
+    "evidenceStatus": "pending-capture"
+  },
+  "requiredViewports": ["desktop", "tablet", "mobile"],
+  "tolerances": {
+    "boundsPx": 2,
+    "scrollHeightPx": 2
+  },
+  "domTopology": {
+    "scope": ".page-content",
+    "directChildren": [
+      "about-navigation",
+      "hero",
+      "continental-warmth",
+      "sticky-split",
+      "moreabout-us",
+      "start-planning-your-adventure"
+    ]
+  },
+  "sections": [
+    {
+      "id": "about-navigation",
+      "semantic": "div | about-nav_wrap",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "keyLinks": [
+        "/antarctica/wolfs-fang-runway-mountains",
+        "/antarctica/schirmacher-oasis",
+        "/antarctica/polar-plateau",
+        "/antarctica/atka-penguin-colony",
+        "/antarctica/fuel-depot"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 820.02,
+          "width": 1440,
+          "height": 79.98,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 944,
+          "width": 768,
+          "height": 80,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 764,
+          "width": 390,
+          "height": 80,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "hero",
+      "semantic": "div | about-banner-loader | Regions",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Regions",
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F22b5bbe7d3b77e7f82faee5482b8b80fddb158df-2000x1333.jpg&w=3840&q=90"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 900,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 1024,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "continental-warmth",
+      "semantic": "section | padding-none bg-white | Continental Warmth",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Continental Warmth",
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F2fce42050a052435f0d00da06ebe75beaf305815-2000x1332.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Ff02bd25880faa01b59c6face2fe0ebe9d37731ab-1444x1333.png&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F0a5cba75dbd63edf3795a48d84c2f7fd26466775-1508x1333.png&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fa6539b04988b7ef4a31077417a3a115a9312b84b-2000x1333.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F80ff41f51c46d105d23fac415c8f78b385defc4b-1500x2250.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fb97664d7f3765ae96657ef45606b673a575b19a5-2000x1333.jpg&w=3840&q=90"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 900,
+          "width": 1440,
+          "height": 4387.03,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 1024,
+          "width": 768,
+          "height": 5749.58,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 844,
+          "width": 390,
+          "height": 6534.16,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "sticky-split",
+      "semantic": "div | sticky-split_slider",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F0ca55e2265d0797268dcb4a4f9e2d76d0e216373-1500x1985.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 5287.03,
+          "width": 1440,
+          "height": 835.05,
+          "pinned": true
+        },
+        "tablet": {
+          "x": 0,
+          "y": 6773.58,
+          "width": 768,
+          "height": 495.72,
+          "pinned": true
+        },
+        "mobile": {
+          "x": 0,
+          "y": 7378.16,
+          "width": 390,
+          "height": 677.66,
+          "pinned": true
+        }
+      },
+      "pinned": true
+    },
+    {
+      "id": "moreabout-us",
+      "semantic": "section | padding-none bg-white | Moreabout us",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Moreabout us",
+      "keyLinks": [
+        "/learn/our-story",
+        "/learn/sustainability",
+        "/learn/foundation",
+        "/stay/camps"
+      ],
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F74a619fdf688c57b789c2ca1c4e6ff71a75dc07b-1500x2250.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F6a8eeee16707a7f4e0ecebe6a2229a487ebcd2f9-1050x2400.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fbbf3a1a202bd3b5ebbfe0f2524cdb82c449b7b97-1332x2000.jpg&w=3840&q=75",
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2Fd946ca094611bf796e5b56e93039feb6ae697990-1800x2700.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 6122.08,
+          "width": 1440,
+          "height": 1234.97,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 7269.3,
+          "width": 768,
+          "height": 1328,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 8055.81,
+          "width": 390,
+          "height": 2667.61,
+          "pinned": false
+        }
+      }
+    },
+    {
+      "id": "start-planning-your-adventure",
+      "semantic": "section | padding-top-large-bottom-none bg-white | Start planning your adventure",
+      "nodeKind": "element",
+      "captureRequired": true,
+      "headingPurpose": "Start planning your adventure",
+      "keyLinks": ["/enquire"],
+      "assets": [
+        "/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fkq9qn5zn%2Fproduction%2F26d96f15b0b62095a606e39e31a9392d444b9238-2000x1333.jpg&w=3840&q=75"
+      ],
+      "visibleState": {
+        "default": "visible"
+      },
+      "motionDisposition": "static-flow",
+      "bounds": {
+        "desktop": {
+          "x": 0,
+          "y": 7357.05,
+          "width": 1440,
+          "height": 1219.98,
+          "pinned": false
+        },
+        "tablet": {
+          "x": 0,
+          "y": 8597.3,
+          "width": 768,
+          "height": 1344,
+          "pinned": false
+        },
+        "mobile": {
+          "x": 0,
+          "y": 10723.42,
+          "width": 390,
+          "height": 924,
+          "pinned": false
+        }
+      }
+    }
+  ],
+  "viewports": {
+    "desktop": {
+      "width": 1440,
+      "height": 900,
+      "scrollHeight": 9523,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/antarctica--schirmacher-oasis-1440x900-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "tablet": {
+      "width": 768,
+      "height": 1024,
+      "scrollHeight": 10965,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/antarctica--schirmacher-oasis-768x1024-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "scrollHeight": 13780,
+      "evidence": {
+        "top": {
+          "path": "../../../../artifacts/reference/target/antarctica--schirmacher-oasis-390x844-top.png"
+        },
+        "fullPage": null,
+        "sectionCaptures": [],
+        "checkpoints": [],
+        "motionCaptures": []
+      }
+    }
+  },
+  "motion": {
+    "status": "incomplete",
+    "unknown": [
+      "motion evidence remains pending until four phase captures exist for every layer and viewport"
+    ],
+    "layers": [
+      {
+        "id": "sticky-split-slider",
+        "property": "visual state",
+        "trigger": "route motion candidate",
+        "range": "scroll-linked state",
+        "easing": "sampled computed state",
+        "interruption": "reverse and direct scroll checkpoint required",
+        "reducedMotion": "capture required for selected preference",
+        "sectionId": "sticky-split",
+        "samples": {
+          "desktop": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          },
+          "tablet": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          },
+          "mobile": {
+            "start": {
+              "status": "missing"
+            },
+            "mid": {
+              "status": "missing"
+            },
+            "end": {
+              "status": "missing"
+            },
+            "reverse": {
+              "status": "missing"
+            }
+          }
+        },
+        "pinRanges": {}
+      }
+    ]
+  }
+}

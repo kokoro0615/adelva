@@ -1,0 +1,271 @@
+{
+  "width": 1440,
+  "height": 900,
+  "scrollHeight": 11524,
+  "scrollRoot": "document",
+  "landmarks": [
+    {
+      "id": "intro",
+      "tag": "SECTION",
+      "x": 0,
+      "y": 0,
+      "width": 1425,
+      "height": 2016,
+      "items": 0
+    },
+    {
+      "id": "how",
+      "tag": "SECTION",
+      "x": 0,
+      "y": 2336,
+      "width": 1425,
+      "height": 3208.6875,
+      "items": 9
+    },
+    {
+      "id": "quote-form",
+      "tag": "DIV",
+      "x": 0,
+      "y": 5544.6875,
+      "width": 1425,
+      "height": 900,
+      "items": 0
+    },
+    {
+      "id": "why",
+      "tag": "SECTION",
+      "x": 0,
+      "y": 6644.6875,
+      "width": 1425,
+      "height": 2533.6875,
+      "items": 7
+    },
+    {
+      "id": "news",
+      "tag": "SECTION",
+      "x": 0,
+      "y": 9378.375,
+      "width": 1425,
+      "height": 309.171875,
+      "items": 4
+    },
+    {
+      "id": "quote-future",
+      "tag": "CITATION-LAYER",
+      "x": 0,
+      "y": 9687.546875,
+      "width": 1425,
+      "height": 900,
+      "items": 0
+    },
+    {
+      "id": "footer",
+      "tag": "FOOTER-EL",
+      "x": 0,
+      "y": 10587.546875,
+      "width": 1425,
+      "height": 936.5,
+      "items": 0
+    },
+    {
+      "id": "strip-0",
+      "tag": "LI",
+      "x": 0,
+      "y": 2507.1875,
+      "width": 1425,
+      "height": 337.5,
+      "items": 0
+    },
+    {
+      "id": "strip-1",
+      "tag": "LI",
+      "x": 0,
+      "y": 2844.6875,
+      "width": 1425,
+      "height": 337.5,
+      "items": 0
+    },
+    {
+      "id": "strip-2",
+      "tag": "LI",
+      "x": 0,
+      "y": 3182.1875,
+      "width": 1425,
+      "height": 337.5,
+      "items": 0
+    },
+    {
+      "id": "strip-3",
+      "tag": "LI",
+      "x": 0,
+      "y": 3519.6875,
+      "width": 1425,
+      "height": 337.5,
+      "items": 0
+    },
+    {
+      "id": "strip-4",
+      "tag": "LI",
+      "x": 0,
+      "y": 3857.1875,
+      "width": 1425,
+      "height": 337.5,
+      "items": 0
+    },
+    {
+      "id": "strip-5",
+      "tag": "LI",
+      "x": 0,
+      "y": 4194.6875,
+      "width": 1425,
+      "height": 337.5,
+      "items": 0
+    },
+    {
+      "id": "strip-6",
+      "tag": "LI",
+      "x": 0,
+      "y": 4532.1875,
+      "width": 1425,
+      "height": 337.5,
+      "items": 0
+    },
+    {
+      "id": "strip-7",
+      "tag": "LI",
+      "x": 0,
+      "y": 4869.6875,
+      "width": 1425,
+      "height": 337.5,
+      "items": 0
+    },
+    {
+      "id": "strip-8",
+      "tag": "LI",
+      "x": 0,
+      "y": 5207.1875,
+      "width": 1425,
+      "height": 337.5,
+      "items": 0
+    },
+    {
+      "id": "strip-9",
+      "tag": "LI",
+      "x": 0,
+      "y": 6815.875,
+      "width": 1425,
+      "height": 337.5,
+      "items": 0
+    },
+    {
+      "id": "strip-10",
+      "tag": "LI",
+      "x": 0,
+      "y": 7153.375,
+      "width": 1425,
+      "height": 337.5,
+      "items": 0
+    },
+    {
+      "id": "strip-11",
+      "tag": "LI",
+      "x": 0,
+      "y": 7490.875,
+      "width": 1425,
+      "height": 337.5,
+      "items": 0
+    },
+    {
+      "id": "strip-12",
+      "tag": "LI",
+      "x": 0,
+      "y": 7828.375,
+      "width": 1425,
+      "height": 337.5,
+      "items": 0
+    },
+    {
+      "id": "strip-13",
+      "tag": "LI",
+      "x": 0,
+      "y": 8165.875,
+      "width": 1425,
+      "height": 337.5,
+      "items": 0
+    },
+    {
+      "id": "strip-14",
+      "tag": "LI",
+      "x": 0,
+      "y": 8503.375,
+      "width": 1425,
+      "height": 337.5,
+      "items": 0
+    },
+    {
+      "id": "strip-15",
+      "tag": "LI",
+      "x": 0,
+      "y": 8840.875,
+      "width": 1425,
+      "height": 337.5,
+      "items": 0
+    }
+  ],
+  "tiles": [
+    {
+      "y": 0,
+      "path": "references/nosigner/reference/1440-checkpoint-0.png"
+    },
+    {
+      "y": 900,
+      "path": "references/nosigner/reference/1440-checkpoint-1.png"
+    },
+    {
+      "y": 1800,
+      "path": "references/nosigner/reference/1440-checkpoint-2.png"
+    },
+    {
+      "y": 2700,
+      "path": "references/nosigner/reference/1440-checkpoint-3.png"
+    },
+    {
+      "y": 3600,
+      "path": "references/nosigner/reference/1440-checkpoint-4.png"
+    },
+    {
+      "y": 4500,
+      "path": "references/nosigner/reference/1440-checkpoint-5.png"
+    },
+    {
+      "y": 5400,
+      "path": "references/nosigner/reference/1440-checkpoint-6.png"
+    },
+    {
+      "y": 6300,
+      "path": "references/nosigner/reference/1440-checkpoint-7.png"
+    },
+    {
+      "y": 7200,
+      "path": "references/nosigner/reference/1440-checkpoint-8.png"
+    },
+    {
+      "y": 8100,
+      "path": "references/nosigner/reference/1440-checkpoint-9.png"
+    },
+    {
+      "y": 9000,
+      "path": "references/nosigner/reference/1440-checkpoint-10.png"
+    },
+    {
+      "y": 9900,
+      "path": "references/nosigner/reference/1440-checkpoint-11.png"
+    },
+    {
+      "y": 10624,
+      "path": "references/nosigner/reference/1440-checkpoint-12.png"
+    }
+  ],
+  "source": "https://nosigner.com/ja/",
+  "observedAt": "2026-09-09T08:41:43.204Z"
+}
