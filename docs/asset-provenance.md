@@ -75,6 +75,11 @@ whose static-file or transfer budget cannot accommodate it. This risk does not
 apply to the 19.4 MB muted hero loop, which uses a dedicated web encode with
 faststart and no audio track.
 
+`public/media/target/hero-poster.webp` is the 1920×1080 first decoded frame of
+the current `hero-antarctica` web encode. It is a decorative loading fallback
+with the same ADELVA ownership and user-directed production approval as the
+video, and prevents the retired Antarctica poster from flashing before playback.
+
 ## Identity and global-shell imagery
 
 | Class         | Local paths                                                 | Source / owner                       | Production role                      | Loading | Alt intent                                   | Status   |
