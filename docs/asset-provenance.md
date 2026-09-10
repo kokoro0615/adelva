@@ -63,16 +63,16 @@ The source filename's provisional designation is retained here for provenance.
 
 ## Video assets
 
-| Asset ID          | Local path                                 | Role                              | Source                                              | Owner        | Permission           | Format                                                  | Loading                                          | Alt intent                                 | Status   |
-| ----------------- | ------------------------------------------ | --------------------------------- | --------------------------------------------------- | ------------ | -------------------- | ------------------------------------------------------- | ------------------------------------------------ | ------------------------------------------ | -------- |
-| hero-antarctica   | `public/media/video/hero-antarctica.mp4`   | Home hero background              | Project-authored `aman-nature-v2-32s-web-1080p.mp4` | ADELVA       | User-directed use    | MP4 H.264, 1920×1080, 32.00 s, 4.85 Mbps, 19.4 MB       | `preload="metadata"`, autoplay/loop/muted/inline | Decorative; `aria-hidden`, poster fallback | Approved |
-| white-desert-film | `public/media/video/white-desert-film.mp4` | Watch Film modal and detail media | Cloudflare Stream `87c22e0a…/downloads/default.mp4` | White Desert | Client authorization | MP4 H.264/AAC, 1920×1080, 420.93 s, 4.48 Mbps, 235.7 MB | `preload="metadata"`; playback only on request   | Labelled native video controls             | Approved |
+| Asset ID          | Local path                                 | Role                              | Source                                                                      | Owner        | Permission           | Format                                                  | Loading                                          | Alt intent                                 | Status   |
+| ----------------- | ------------------------------------------ | --------------------------------- | --------------------------------------------------------------------------- | ------------ | -------------------- | ------------------------------------------------------- | ------------------------------------------------ | ------------------------------------------ | -------- |
+| hero-antarctica   | `public/media/video/hero-antarctica.mp4`   | Home hero background              | Project-authored `quality-repair/aman-nature-v2-32s-restored-web-1080p.mp4` | ADELVA       | User-directed use    | MP4 H.264, 1920×1080, 32.00 s, 11.60 Mbps, 46.4 MB      | `preload="metadata"`, autoplay/loop/muted/inline | Decorative; `aria-hidden`, poster fallback | Approved |
+| white-desert-film | `public/media/video/white-desert-film.mp4` | Watch Film modal and detail media | Cloudflare Stream `87c22e0a…/downloads/default.mp4`                         | White Desert | Client authorization | MP4 H.264/AAC, 1920×1080, 420.93 s, 4.48 Mbps, 235.7 MB | `preload="metadata"`; playback only on request   | Labelled native video controls             | Approved |
 
 The long-form film is now present locally and is not deferred. Its 235.7 MB
 payload is a recorded delivery risk: it is excluded from above-fold loading,
 but must be replaced by an approved web-encoded derivative before a deployment
 whose static-file or transfer budget cannot accommodate it. This risk does not
-apply to the 19.4 MB muted hero loop, which uses a dedicated web encode with
+apply to the 46.4 MB muted hero loop, which uses a dedicated web encode with
 faststart and no audio track.
 
 `public/media/target/hero-poster.webp` is the 1920×1080 first decoded frame of

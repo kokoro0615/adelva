@@ -1,5 +1,18 @@
 # White Desert Clone Workflow Ledger
 
+## HOME restored hero video — 2026-09-11
+
+User authorizes the supplied restored 1080p video, matching first-frame poster,
+Git commit/push and connected Vercel production deployment. No subagents.
+Focused asset substitution: preserve DOM, copy, cover framing, responsive geometry,
+scroll motion, muted/loop/inline playback, metadata preload, offscreen pause and
+reduced-motion poster fallback. Copy the supplied MP4 byte-for-byte; extract its
+first frame as the existing 1920×1080 WebP poster. The supplied video supersedes
+previous hero imagery; external grid/motion references remain unchanged. Verify
+three required viewports, playback/reduction, axe and visual regression, plus
+format, lint, typecheck, unit and production build. Asset authority is recorded in
+`docs/asset-provenance.md`; evidence in `docs/reports/home-hero-restored-2026-09-11.md`.
+
 ## HOME mobile scroll and grid repair — 2026-09-10
 
 The current user authorizes investigation of https://www.adelva.jp/ HOME against
