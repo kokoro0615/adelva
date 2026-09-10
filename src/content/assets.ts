@@ -397,7 +397,7 @@ export const videoAssets = {
     src: "/media/video/hero-antarctica.mp4",
     width: 1920,
     height: 1080,
-    durationSeconds: 17.52,
+    durationSeconds: 32,
   },
   "white-desert-film": {
     id: "white-desert-film",
