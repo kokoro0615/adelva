@@ -44,11 +44,6 @@ export function HomeDocument() {
         data-fidelity-landmark="primary-content"
         data-reveal-group
       >
-        <div className="last-continent__rules" aria-hidden="true">
-          {Array.from({ length: 9 }, (_, index) => (
-            <span key={index} />
-          ))}
-        </div>
         <p className="last-continent__label" data-reveal>
           {t.lastContinent.label}
           <span className="home-title-ja" lang="ja">

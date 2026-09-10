@@ -520,6 +520,10 @@ html[data-navigating="true"] .route-progress {
   pointer-events: none;
 }
 
+.grid-rules span:nth-child(n + 7) {
+  display: none;
+}
+
 .grid-rules span + span {
   border-left: 1px solid rgba(255, 255, 255, 0.16);
 }
@@ -2899,7 +2903,7 @@ body:has([data-site-nav-shelf][data-open="true"]) .how-it-works {
   }
 }
 
-/* --- 1. Hero stage: 200svh with a scroll-cancelled 100svh composition ----- */
+/* --- 1. Hero stage: 200svh with a native-pinned 100svh composition ----- */
 
 .home-hero {
   position: relative;
@@ -3237,50 +3241,6 @@ body:has([data-site-nav-shelf][data-open="true"]) .how-it-works {
   align-content: start;
   background: var(--paper);
   overflow: clip;
-}
-
-/* The content grid is inset; the opaque surface must cover the translated
-   hero all the way to both viewport edges. These rules belong to this surface,
-   above its paint, rather than the global grid underneath opaque sections. */
-.last-continent__rules {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.last-continent__rules span {
-  position: absolute;
-  inset-block: 0;
-  width: 0.5px;
-  background: rgb(0 0 0 / 0.1);
-}
-
-.last-continent__rules span:nth-child(1) {
-  left: 12px;
-}
-.last-continent__rules span:nth-child(2) {
-  left: 60px;
-}
-.last-continent__rules span:nth-child(3) {
-  left: calc(12px + (100% - 24px) / 6 - 0.5px);
-}
-.last-continent__rules span:nth-child(4) {
-  left: calc(12px + (100% - 24px) / 3);
-}
-.last-continent__rules span:nth-child(5) {
-  left: 50%;
-}
-.last-continent__rules span:nth-child(6) {
-  left: calc(12px + (100% - 24px) * 2 / 3 - 0.5px);
-}
-.last-continent__rules span:nth-child(7) {
-  left: calc(12px + (100% - 24px) * 5 / 6);
-}
-.last-continent__rules span:nth-child(8) {
-  right: 60px;
-}
-.last-continent__rules span:nth-child(9) {
-  right: 12px;
 }
 
 .last-continent__scribble {
@@ -4378,8 +4338,70 @@ body:has([data-site-nav-shelf][data-open="true"]) .how-it-works {
   text-wrap: balance;
 }
 
+/* Live White Desert geometry: one continuous, background-aware hairline grid. */
 body:has([data-page-content]) .grid-rules {
-  inset-inline: 20px;
+  inset: 0;
+  display: block;
+  z-index: 3;
+  opacity: 0.1;
+  mix-blend-mode: difference;
+}
+body:has([data-page-content]) .grid-rules span {
+  display: block;
+  position: absolute;
+  inset-block: 0;
+  width: 0.5px;
+  border: 0;
+  background: #fff;
+}
+body:has([data-page-content]) .grid-rules span:nth-child(1) {
+  left: 12px;
+}
+body:has([data-page-content]) .grid-rules span:nth-child(2) {
+  left: 60px;
+}
+body:has([data-page-content]) .grid-rules span:nth-child(3) {
+  left: calc(12px + (100% - 24px) / 6 - 0.5px);
+}
+body:has([data-page-content]) .grid-rules span:nth-child(4) {
+  left: calc(12px + (100% - 24px) / 3);
+}
+body:has([data-page-content]) .grid-rules span:nth-child(5) {
+  left: 50%;
+}
+body:has([data-page-content]) .grid-rules span:nth-child(6) {
+  left: calc(12px + (100% - 24px) * 2 / 3 - 0.5px);
+}
+body:has([data-page-content]) .grid-rules span:nth-child(7) {
+  left: calc(12px + (100% - 24px) * 5 / 6);
+}
+body:has([data-page-content]) .grid-rules span:nth-child(8) {
+  right: 60px;
+}
+body:has([data-page-content]) .grid-rules span:nth-child(9) {
+  right: 12px;
+}
+@media (width < 768px) {
+  body:has([data-page-content])
+    .grid-rules
+    span:is(:nth-child(3), :nth-child(4), :nth-child(6), :nth-child(7)) {
+    display: none;
+  }
+}
+
+/* The browser pins this plane even while the JS thread is busy. The containing
+   plane extends beyond the 200svh story, behind the opaque next section. */
+@media (prefers-reduced-motion: no-preference) {
+  .home-hero__pin-stage {
+    position: absolute;
+    inset: 0 0 auto;
+    height: 300svh;
+  }
+  .home-hero__wrapper {
+    position: sticky;
+    top: 0;
+    will-change: auto;
+  }
 }
 
 .planning__cta {
@@ -4606,13 +4628,6 @@ body:has([data-page-content]) .grid-rules {
     row-gap: 36px;
     min-height: 0;
     padding-block: 200px 100px;
-  }
-
-  .last-continent__rules span:nth-child(3),
-  .last-continent__rules span:nth-child(4),
-  .last-continent__rules span:nth-child(6),
-  .last-continent__rules span:nth-child(7) {
-    display: none;
   }
 
   .last-continent__label,

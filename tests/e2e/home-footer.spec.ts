@@ -108,10 +108,15 @@ for (const viewport of viewports) {
       await contact.hover();
       expect(await circle.evaluate((n) => getComputedStyle(n).transform)).toBe("none");
       await page.emulateMedia({ reducedMotion: "no-preference" });
-      await contact.hover();
-      await expect
-        .poll(() => circle.evaluate((n) => getComputedStyle(n).transform))
-        .not.toBe("none");
+      // Restoring the pinned sections changes document height. Scroll anchoring
+      // may move the footer after hover() returns; reacquire the target while
+      // that layout settles, then verify the same actual hover transform.
+      await expect(async () => {
+        await contact.hover();
+        expect(await circle.evaluate((n) => getComputedStyle(n).transform)).not.toBe(
+          "none",
+        );
+      }).toPass({ timeout: 5000 });
       await footer.getByRole("link", { name: "ページの先頭へ戻る" }).click();
       await expect.poll(() => page.evaluate(() => scrollY)).toBeLessThan(5);
     });

@@ -75,18 +75,35 @@ export function CampsFlow() {
         const secondary = root.querySelector<HTMLElement>(".camps__intro-secondary");
         const maskStrips = root.querySelectorAll<SVGRectElement>(".camps__mask rect");
 
+        let viewportHeight = 1;
+        let rootTop = 0;
+        let pinDistance = 1;
+        let horizontalDistance = 0;
+        let viewportWidth = 0;
+        let previousScroll = Number.NaN;
+        let active = true;
+        const measure = () => {
+          viewportHeight = viewport?.clientHeight || 1;
+          rootTop = root.getBoundingClientRect().top + window.scrollY;
+          pinDistance = Math.max(1, root.offsetHeight - viewportHeight);
+          viewportWidth = document.documentElement.clientWidth;
+          horizontalDistance = Math.max(0, track.scrollWidth - viewportWidth);
+          previousScroll = Number.NaN;
+          requestApply();
+        };
         const apply = () => {
           frame = 0;
-
-          const viewportHeight = viewport?.clientHeight || 1;
-          const rootTop = root.getBoundingClientRect().top + window.scrollY;
-          const localScroll = window.scrollY - rootTop;
-          const pinDistance = Math.max(1, root.offsetHeight - viewportHeight);
-          const horizontalDistance = Math.max(0, track.scrollWidth - window.innerWidth);
+          const localScroll = gsap.utils.clamp(
+            -viewportHeight,
+            pinDistance,
+            window.scrollY - rootTop,
+          );
+          if (localScroll === previousScroll) return;
+          previousScroll = localScroll;
 
           // The target holds the intro before horizontal travel begins, then
           // reaches its terminal offset exactly at the end of the pin.
-          const movementStart = holdViewportHeights(window.innerWidth) * viewportHeight;
+          const movementStart = holdViewportHeights(viewportWidth) * viewportHeight;
           const movementEnd = Math.max(movementStart + 1, pinDistance);
           const progress = gsap.utils.clamp(
             0,
@@ -95,7 +112,7 @@ export function CampsFlow() {
           );
           const x = -horizontalDistance * progress;
           const introProgress = localScroll / viewportHeight;
-          const mobile = window.innerWidth < 768;
+          const mobile = viewportWidth < 768;
           const titleProgress = gsap.utils.clamp(
             0,
             1,
@@ -145,14 +162,23 @@ export function CampsFlow() {
           if (frame === 0) frame = window.requestAnimationFrame(apply);
         };
 
-        apply();
+        const geometry = new ResizeObserver(measure);
+        geometry.observe(root);
+        geometry.observe(track);
+        if (viewport) geometry.observe(viewport);
+        void document.fonts.ready.then(() => {
+          if (active) measure();
+        });
+        measure();
         window.addEventListener("scroll", requestApply, { passive: true });
-        window.addEventListener("resize", requestApply, { passive: true });
+        window.addEventListener("resize", measure, { passive: true });
 
         return () => {
+          active = false;
+          geometry.disconnect();
           if (frame !== 0) window.cancelAnimationFrame(frame);
           window.removeEventListener("scroll", requestApply);
-          window.removeEventListener("resize", requestApply);
+          window.removeEventListener("resize", measure);
           track.style.removeProperty("transform");
           introPrimary?.style.removeProperty("transform");
           introPrimary?.style.removeProperty("clip-path");

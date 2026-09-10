@@ -1,5 +1,16 @@
 # White Desert Clone Workflow Ledger
 
+## HOME mobile scroll and grid repair — 2026-09-10
+
+The current user authorizes investigation of https://www.adelva.jp/ HOME against
+https://white-desert.com/, implementation, verification and Git-backed Vercel
+production deployment. No subagents. This scoped authorization supersedes older
+no-deployment and independent-review requirements for this repair. Existing
+ADELVA copy, assets, routes and interactions remain authoritative. Specification:
+`docs/specs/home-scroll-2026-09-10.md`; results:
+`docs/reports/home-scroll-2026-09-10.md`. External measured grid fidelity and
+native-scroll interruption checks are separate from existing visual goldens.
+
 ## ADELVA requested revision — 2026-09-10
 
 Current user authorizes header identity enlargement, removal of cases navigation and

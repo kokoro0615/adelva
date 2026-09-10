@@ -39,10 +39,12 @@ export default function RootLayout({ children }: { readonly children: ReactNode 
                 Skip to content
               </a>
 
-              {/* Measured target device: a fixed six-column hairline grid that reads
-            over the photographic heroes and is covered by the opaque content
-            bands. Decorative only. */}
+              {/* HOME uses the measured nine-rule grid (five on mobile).
+                  Other legacy routes retain their six-column treatment. */}
               <div className="grid-rules" aria-hidden="true">
+                <span />
+                <span />
+                <span />
                 <span />
                 <span />
                 <span />

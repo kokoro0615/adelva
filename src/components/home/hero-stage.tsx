@@ -9,32 +9,10 @@ import { WatchFilmButton } from "@/components/home/film-experience";
 import { getAsset, getVideoAsset } from "@/content/assets";
 import { homeTarget } from "@/content/home-target";
 
-/**
- * HOME hero stage — `home-target-v1`.
- *
- * A 200svh stage holding one sticky mist plane, a 100svh wrapper with the
- * video/overlay/content, and two independent cloud wraps.
- *
- * Motion is **direct scroll linkage**, not a scrubbed tween. The measured
- * target resolves to its exact scroll-linked state on the next animation frame
- * after a jump or a mid-sequence reversal, with no catch-up and no overshoot,
- * so a `scrub` timeline would be the wrong mechanism. With `f = scrollY / vh`:
- *
- *   wrapper        translateY(100f svh)      clamp 200svh
- *   content/title  translateY(-30f svh)      clamp -60svh
- *   h1             blur(5f px)               clamp 10px
- *   cloud near     translateY(100 - 90f %)   clamp -80%
- *   cloud far      translateY(100 - 55f %)   clamp -10%
- *   mist           rotateX(90 -> 0deg) linearly across f 0.8..1.5, held outside
- *
- * The wrapper's positive lift cancels ordinary document scroll, which is what
- * keeps the one-viewport composition optically pinned across the two-viewport
- * stage.
- *
- * Under `prefers-reduced-motion: reduce` no listener, frame loop or tween is
- * created at all: every layer is left at its authored f=0 state, which is the
- * fully readable hero, and the video is not autoplayed. That is an intentional
- * deviation from the target, which ignores the preference entirely.
+/** Native sticky owns the pin; scroll updates only move the inner scene.
+ * Keeping document motion on the compositor prevents touch scrolling from
+ * outrunning a JavaScript translateY correction. The 200svh story and measured
+ * cloud/content/mist trajectories remain reversible; reduced motion is static.
  */
 
 const MIST_START = 0.8;
@@ -81,20 +59,23 @@ export function HeroStage() {
         }
 
         let frame = 0;
+        let height = 1;
+        let top = 0;
+        let lastTravel = -1;
+        const measure = () => {
+          height = wrapper?.clientHeight || 1;
+          top = root.getBoundingClientRect().top + window.scrollY;
+          lastTravel = -1;
+          onScroll();
+        };
 
         const apply = () => {
           frame = 0;
-          // `innerHeight` changes when mobile browser chrome retracts, while
-          // the CSS svh stage stays put. Use the stage's own coordinate system
-          // and pixels so the wrapper continues cancelling document scroll.
-          const vh = wrapper?.clientHeight || 1;
-          const localScroll = Math.max(0, -root.getBoundingClientRect().top);
-          const travel = Math.min(localScroll, 2 * vh);
-          const f = travel / vh;
+          const travel = Math.min(Math.max(0, window.scrollY - top), 2 * height);
+          if (travel === lastTravel) return;
+          lastTravel = travel;
+          const f = travel / height;
 
-          if (wrapper) {
-            wrapper.style.transform = `translate3d(0, ${travel}px, 0)`;
-          }
           if (content) {
             content.style.transform = `translate3d(0, ${-0.3 * travel}px, 0)`;
           }
@@ -119,15 +100,27 @@ export function HeroStage() {
           if (frame === 0) frame = requestAnimationFrame(apply);
         };
 
-        apply();
+        const geometry = new ResizeObserver(measure);
+        geometry.observe(root);
+        if (wrapper) geometry.observe(wrapper);
+        const visibility = new IntersectionObserver(([entry]) => {
+          if (!player) return;
+          if (entry.isIntersecting && !document.hidden)
+            void player.play().catch(() => {});
+          else player.pause();
+        });
+        visibility.observe(root);
+        measure();
         window.addEventListener("scroll", onScroll, { passive: true });
-        window.addEventListener("resize", onScroll, { passive: true });
+        window.addEventListener("resize", measure, { passive: true });
 
         return () => {
           if (frame !== 0) cancelAnimationFrame(frame);
           window.removeEventListener("scroll", onScroll);
-          window.removeEventListener("resize", onScroll);
-          for (const layer of [wrapper, content, cloudNear, cloudFar, mistPlane]) {
+          window.removeEventListener("resize", measure);
+          geometry.disconnect();
+          visibility.disconnect();
+          for (const layer of [content, cloudNear, cloudFar, mistPlane]) {
             layer?.style.removeProperty("transform");
           }
           title?.style.removeProperty("filter");
@@ -164,83 +157,85 @@ export function HeroStage() {
         </div>
       </div>
 
-      <div className="home-hero__wrapper" data-motion-layer="hero-wrapper">
-        <div className="home-hero__bg">
-          <video
-            ref={videoRef}
-            className="home-hero__video"
-            loop
-            muted
-            playsInline
-            preload="metadata"
-            poster={poster.src}
-            aria-hidden="true"
-            tabIndex={-1}
-          >
-            <source src={video.src} type="video/mp4" />
-          </video>
-        </div>
-
-        <div className="home-hero__overlay" aria-hidden="true" />
-
-        <div className="home-hero__content" data-motion-layer="hero-content">
-          <div className="home-hero__layout">
-            <WatchFilmButton className="home-hero__film" data-watch-film>
-              <span className="home-hero__film-preview" aria-hidden="true">
-                <Image
-                  src={preview.src}
-                  alt=""
-                  width={preview.width}
-                  height={preview.height}
-                  sizes="200px"
-                  className="home-hero__film-image"
-                />
-              </span>
-              <span className="home-hero__film-label">{hero.watchFilmLabel}</span>
-              <span className="home-hero__film-glyph" aria-hidden="true" />
-            </WatchFilmButton>
+      <div className="home-hero__pin-stage">
+        <div className="home-hero__wrapper" data-motion-layer="hero-wrapper">
+          <div className="home-hero__bg">
+            <video
+              ref={videoRef}
+              className="home-hero__video"
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              poster={poster.src}
+              aria-hidden="true"
+              tabIndex={-1}
+            >
+              <source src={video.src} type="video/mp4" />
+            </video>
           </div>
 
-          {/* Measured: the blur is authored on the `h1` itself, not on its
+          <div className="home-hero__overlay" aria-hidden="true" />
+
+          <div className="home-hero__content" data-motion-layer="hero-content">
+            <div className="home-hero__layout">
+              <WatchFilmButton className="home-hero__film" data-watch-film>
+                <span className="home-hero__film-preview" aria-hidden="true">
+                  <Image
+                    src={preview.src}
+                    alt=""
+                    width={preview.width}
+                    height={preview.height}
+                    sizes="200px"
+                    className="home-hero__film-image"
+                  />
+                </span>
+                <span className="home-hero__film-label">{hero.watchFilmLabel}</span>
+                <span className="home-hero__film-glyph" aria-hidden="true" />
+              </WatchFilmButton>
+            </div>
+
+            {/* Measured: the blur is authored on the `h1` itself, not on its
               wrapper. The wrapper only carries the -30f svh content lift, which
               this implementation consolidates onto `home-hero__content`. */}
-          <div className="home-hero__title-wrap">
-            <h1
-              className="home-hero__title"
-              id="page-title"
-              data-motion-layer="hero-title"
-              data-fidelity-landmark="hero-title"
-            >
-              {hero.title}
-            </h1>
+            <div className="home-hero__title-wrap">
+              <h1
+                className="home-hero__title"
+                id="page-title"
+                data-motion-layer="hero-title"
+                data-fidelity-landmark="hero-title"
+              >
+                {hero.title}
+              </h1>
+            </div>
           </div>
-        </div>
 
-        <div
-          className="home-hero__cloud home-hero__cloud--near"
-          data-motion-layer="cloud-near"
-          aria-hidden="true"
-        >
-          <Image
-            src={near.src}
-            alt=""
-            width={near.width}
-            height={near.height}
-            sizes="100vw"
-          />
-        </div>
-        <div
-          className="home-hero__cloud home-hero__cloud--far"
-          data-motion-layer="cloud-far"
-          aria-hidden="true"
-        >
-          <Image
-            src={far.src}
-            alt=""
-            width={far.width}
-            height={far.height}
-            sizes="100vw"
-          />
+          <div
+            className="home-hero__cloud home-hero__cloud--near"
+            data-motion-layer="cloud-near"
+            aria-hidden="true"
+          >
+            <Image
+              src={near.src}
+              alt=""
+              width={near.width}
+              height={near.height}
+              sizes="100vw"
+            />
+          </div>
+          <div
+            className="home-hero__cloud home-hero__cloud--far"
+            data-motion-layer="cloud-far"
+            aria-hidden="true"
+          >
+            <Image
+              src={far.src}
+              alt=""
+              width={far.width}
+              height={far.height}
+              sizes="100vw"
+            />
+          </div>
         </div>
       </div>
     </section>
