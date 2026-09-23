@@ -17,6 +17,7 @@ export function RouteShell({
     pathname === "/challenges/owners" ||
     pathname === "/challenges/general-managers" ||
     pathname === "/about" ||
+    pathname === "/services/management-operations" ||
     pathname === "/contact"
     ? children
     : legacy;

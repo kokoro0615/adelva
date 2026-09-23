@@ -1,0 +1,35 @@
+{
+  "id": "M-process-lit-1",
+  "tool": "built-in image_gen",
+  "prompt": "Edit this image into a clean, text-free photographic plate of the same scene. The upper part is a dark, finely textured stone wall with faint vertical slats at the right. Below it, a tall glass-and-bronze lift shaft stands on the left half of the frame, seen straight on, with landings at regular intervals, glowing warm amber-orange, set into a dark stone wall.\n1. Remove every web-page overlay and fill with the surface behind it: the large vertical Japanese heading, the thin orange vertical line with its dot, all Japanese paragraphs, the numbers 01–03, the Japanese step names, the small outlined tag boxes and their text, the orange check marks, and the thin grey horizontal indicator lines that run from the shaft to the right, with their round end dots.\n2. Keep the shaft lit exactly as it is: the warm amber-orange glow and the central vertical light strip from top to bottom.\nKeep the shaft's position and width, every landing slab at the same height and the walls exactly as they are. Redraw the photographic detail sharply at full resolution.\nNo text, letters, numbers, logos, lines, dots, icons or UI of any kind. No people. The same portrait size as the input.",
+  "prompt_file": "assets/source/generated/adelva/management-operations-2026-09-24/prompts/M-process-lit-1.txt",
+  "inputs": [
+    {
+      "path": "assets/source/generated/adelva/management-operations-2026-09-24/inputs/M-process-1-input.png",
+      "role": "edit input (process-joined rows 0–1844)"
+    }
+  ],
+  "generated_original_path": "/home/kokoro/.codex/generated_images/01a0cf66-127d-7590-97b3-48345ac4aa6e/exec-0a1f39d4-4aec-47c2-9a4e-ef19b0950283.png",
+  "width": 853,
+  "height": 1844,
+  "bytes": 1761775,
+  "sha256": "1f77dfd6e82ee8a972eb1288a8c491cf1d7c1de4c119e82a4ff044f9740b7a4b",
+  "attempts": [
+    {
+      "attempt": 1,
+      "generated_original_path": "/home/kokoro/.codex/generated_images/01a0cf66-127d-7590-97b3-48345ac4aa6e/exec-0a1f39d4-4aec-47c2-9a4e-ef19b0950283.png",
+      "saved": true,
+      "technically_usable": true
+    }
+  ],
+  "observations": [
+    "Inspected the generated original with view_image at original detail.",
+    "Portrait image with dark textured stone wall and vertical slats; illuminated glass-and-bronze shaft occupies the lower left.",
+    "No visible text, letters, numbers, logos, tag boxes, check icons, or other web-page UI.",
+    "The orange heading line and dot, and grey horizontal indicator lines and their end dots, are no longer visible.",
+    "Architectural lines remain: wall panel seams, vertical slats, shaft framing, horizontal railings and landing edges, and the central amber vertical light strip.",
+    "Small bright dot-like ceiling lights and reflections, and rectangular light fixtures, remain within the shaft.",
+    "Wall texture appears more pronounced than in the input; exact pixel-level preservation of walls and landing positions is not established.",
+    "Saved attempt 1 by plain byte-for-byte copy without resizing, cropping, conversion, or other image processing."
+  ]
+}

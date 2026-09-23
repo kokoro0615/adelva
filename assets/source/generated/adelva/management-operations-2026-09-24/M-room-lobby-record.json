@@ -1,0 +1,32 @@
+{
+  "id": "M-room-lobby",
+  "tool": "built-in image_gen",
+  "prompt": "Redraw this photograph as a clean, final, high-resolution editorial plate with the same composition, framing and lighting: a cutaway section of a hotel reception floor set into a granite cliff, framed by a rough stone slab above and below — a pale marble reception desk with a small plant, a textured cream stone feature wall washed by warm light, wood-panelled walls, niche shelves with small plants, a slim vertical orange-glowing lift core at the right edge. Remove the round orange dot on the desk. Keep every element where it is, and fit the scene to a landscape 3:2 frame. Sharpen the stone, marble, wood and glass detail to the finest level.\nNo text, letters, numbers, logos, lines, dots or UI. No people.",
+  "prompt_file": "assets/source/generated/adelva/management-operations-2026-09-24/prompts/M-room-lobby.txt",
+  "inputs": [
+    {
+      "path": "assets/source/generated/adelva/management-operations-2026-09-24/inputs/M-room-lobby-input.png",
+      "role": "edit input"
+    }
+  ],
+  "generated_original_path": "/home/kokoro/.codex/generated_images/01a0cf68-9803-7000-9a63-cff0fb067061/exec-54b5cf50-5aa3-42a7-9b57-7d9803fd07ab.png",
+  "attempts": [
+    {
+      "attempt": 1,
+      "saved": true,
+      "technically_usable": true,
+      "generated_original_path": "/home/kokoro/.codex/generated_images/01a0cf68-9803-7000-9a63-cff0fb067061/exec-54b5cf50-5aa3-42a7-9b57-7d9803fd07ab.png"
+    }
+  ],
+  "observations": [
+    "Inspected the generated original at full size (1536 x 1024). Landscape 3:2 reception scene is visible, not blank, and not subject-cropped.",
+    "The round orange desk dot is absent; the vertical orange-white light at the right remains.",
+    "No readable text, letters, numbers, logos, or UI overlays are visible. No people are visible.",
+    "Visible lines remain in stone cracks and marble veins, wood grain, panel seams, shelf and furniture edges, floor joints, and the vertical light strip.",
+    "Small dot-like details remain: dark knots and hardware on wood panels, round recessed ceiling lights, and a tiny light-colored spot at the center of the black desk planter."
+  ],
+  "width": 1536,
+  "height": 1024,
+  "bytes": 2867545,
+  "sha256": "92aeab30522a274b3a3c86438381f2b72583561ab0d0487bfbbba6bc279f46b1"
+}

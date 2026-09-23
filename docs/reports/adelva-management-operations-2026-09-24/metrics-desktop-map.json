@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "label": "desktop-map",
+  "reference": "/home/kokoro/projects/clients/clonetest/artifacts/adelva-management-operations/fidelity/frames/desktop-map-reference.png",
+  "actual": "/home/kokoro/projects/clients/clonetest/artifacts/adelva-management-operations/fidelity/frames/desktop-map-actual.png",
+  "mapping": {
+    "referenceRaster": {
+      "width": 1440,
+      "height": 2160
+    },
+    "implementationRaster": {
+      "width": 1440,
+      "height": 2160
+    },
+    "referencePixelsPerCssPixel": {
+      "x": 1,
+      "y": 1
+    },
+    "aspectDelta": 0
+  },
+  "metrics": {
+    "mae": 0.06191955051911025,
+    "rmse": 0.14408737803578775,
+    "diffRatio": 0.10600630144032921,
+    "edgeMae": 0.02092615469071583
+  },
+  "thresholds": {
+    "pixelThreshold": 0.1
+  },
+  "status": "MEASURED",
+  "failures": [],
+  "artifacts": {
+    "overlay": "/home/kokoro/projects/clients/clonetest/artifacts/adelva-management-operations/fidelity/desktop-map-overlay.png",
+    "difference": "/home/kokoro/projects/clients/clonetest/artifacts/adelva-management-operations/fidelity/desktop-map-difference.png",
+    "sideBySide": "/home/kokoro/projects/clients/clonetest/artifacts/adelva-management-operations/fidelity/desktop-map-side-by-side.png"
+  }
+}

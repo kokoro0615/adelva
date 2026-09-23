@@ -1,0 +1,34 @@
+{
+  "id": "M-room-meeting",
+  "tool": "built-in image_gen",
+  "prompt": "Redraw this photograph as a clean, final, high-resolution editorial plate with the same composition, framing and lighting: a cutaway view into the boardroom of a cliffside hotel at dusk — a long wooden table with dark upholstered chairs and a small warm table lamp, floor-to-ceiling windows onto misty blue mountains, a wood ceiling with small downlights, wood-panelled walls with a thin vertical orange light strip at the right, a sideboard with a plant, and rough granite with a small tree at the left edge. Keep every element where it is, and extend the scene naturally above and below to fill a landscape 3:2 frame. Sharpen the wood grain, upholstery, glass reflections and mountain mist to the finest detail.\nNo text, letters, numbers, logos, lines, dots or UI. No people.",
+  "prompt_file": "assets/source/generated/adelva/management-operations-2026-09-24/prompts/M-room-meeting.txt",
+  "inputs": [
+    {
+      "path": "assets/source/generated/adelva/management-operations-2026-09-24/inputs/M-room-meeting-input.png",
+      "role": "edit input"
+    }
+  ],
+  "generated_original_path": "/home/kokoro/.codex/generated_images/01a0cf68-97a6-7a21-8fb7-8f0075dfb9b1/exec-66a59da4-9c37-4ee9-a7bf-b319ed93616f.png",
+  "width": 1536,
+  "height": 1024,
+  "bytes": 2550601,
+  "sha256": "34b8db1620560da4b8a99f2673317e8fe10c5b57cdcc7caed9b1ffbcf6b395a7",
+  "attempts": [
+    {
+      "attempt": 1,
+      "generated_original_path": "/home/kokoro/.codex/generated_images/01a0cf68-97a6-7a21-8fb7-8f0075dfb9b1/exec-66a59da4-9c37-4ee9-a7bf-b319ed93616f.png",
+      "saved": true,
+      "prompt_identical": true
+    }
+  ],
+  "observations": [
+    "Landscape 3:2 boardroom scene with ceiling and foreground floor extended; table, chairs, lamp, mountains, granite, trees and sideboard are visible.",
+    "No visible text, letters, numbers, logos, UI or people observed in the displayed output.",
+    "Visible lines include ceiling and wall panel seams, window mullions, furniture edges, floor tile joints and the orange vertical light strip.",
+    "Visible dots and small points include ceiling downlights, the round table lamp, tiny distant warm lights and small bright foliage details.",
+    "A small curved dark mark is visible near the upper-right window pane.",
+    "Generated output was visually inspected; original-detail view was requested. No claim of exhaustive pixel-level verification.",
+    "Original PNG copied without resizing, cropping, format conversion or other image processing; destination bytes equal source bytes."
+  ]
+}

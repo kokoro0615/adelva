@@ -1,0 +1,35 @@
+{
+  "id": "M-process-base-2",
+  "tool": "built-in image_gen",
+  "prompt": "Edit this image into the next part of the same clean, text-free photographic plate. The top band of the image, from the top edge down to about 18% of the height, is already clean and final: keep it exactly as it is — the same pixels, positions, scale and colours.\nContinue downward seamlessly at exactly the same scale, horizontal position and lighting: the unlit glass-and-bronze lift shaft continues with its landings at the same regular spacing — dark glass, only tiny faint downlights, no orange glow and no light strip. Remove the glowing glass lift cabin at the fourth landing and show the empty dark shaft there. At the bottom the shaft opens through a bronze lintel with small downlights into a wide lobby with tall glass doors standing open onto a sunrise over misty mountains, potted plants on both sides and a polished stone floor reflecting the warm light — keep that lobby exactly as it is.\nRemove every web-page overlay and fill with the surface behind it: the numbers 04–06, the Japanese step names, the small outlined tag boxes and their text, the thin grey or orange horizontal indicator lines with their round end dots (including the glowing orange line at the fourth landing), and the orange-underlined Japanese link with its arrow.\nRedraw the photographic detail sharply at full resolution. No text, letters, numbers, logos, lines, dots, icons or UI of any kind. No people. The same portrait size as the input.",
+  "prompt_file": "assets/source/generated/adelva/management-operations-2026-09-24/prompts/M-process-base-2.txt",
+  "inputs": [
+    {
+      "path": "assets/source/generated/adelva/management-operations-2026-09-24/inputs/M-process-base-2-canvas.png",
+      "role": "edit canvas"
+    }
+  ],
+  "generated_original_path": "/home/kokoro/.codex/generated_images/01a0cf68-9793-7b32-812d-a97952d6391c/exec-3d9279a1-1493-45fe-9a73-7c18bba8e746.png",
+  "width": 853,
+  "height": 1844,
+  "bytes": 1914811,
+  "sha256": "df1ecce63833bb5db73d65b7e15a2e5819f385094d81a9e267e53d7f1a55eba4",
+  "attempts": [
+    {
+      "attempt": 1,
+      "generated_original_path": "/home/kokoro/.codex/generated_images/01a0cf68-9793-7b32-812d-a97952d6391c/exec-3d9279a1-1493-45fe-9a73-7c18bba8e746.png",
+      "saved": true,
+      "technically_usable": true
+    }
+  ],
+  "observations": [
+    "Inspected the generated original at full size with view_image detail=original.",
+    "Portrait composition retains the shaft, lobby, open glass doors, sunrise mountains, two plants and reflective floor; image is not blank and the subject is not cropped away.",
+    "No visible text, letters, numbers, logos, icons, tag boxes, link, arrow or other webpage UI.",
+    "No visible grey or orange overlay indicator lines or their round end dots.",
+    "Architectural horizontal and vertical lines remain in rails, glass mullions, wall joints, bronze frames and floor seams; small point-like downlights and reflections remain.",
+    "Warm orange highlights, small lights and light cones remain along the shaft; the shaft is not entirely unlit. The bright orange cabin outline and vertical strip from the input are no longer visible.",
+    "The top band and lobby appear visually retained; exact pixel preservation of these regions was not established.",
+    "Saved by plain file copy; destination bytes match the generated original exactly. One generation, no retry."
+  ]
+}

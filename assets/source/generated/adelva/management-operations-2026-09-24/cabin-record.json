@@ -1,0 +1,35 @@
+{
+  "id": "cabin",
+  "tool": "built-in image_gen",
+  "prompt": "Redraw only the glowing glass lift cabin from this crop as a standalone object on a pure, flat black background (#000000): a small rectangular glass-and-bronze lift car lit warm golden from inside, with its bright top and bottom light bands and its thin bronze frame, seen straight on with the same perspective and proportions as in the crop. Remove the shaft, the rails, the walls, the landing slabs and every horizontal line around it — nothing but the cabin and its own soft glow, which fades to pure black well before the image edges. Centred, filling about 45% of the width.\nNo text, lines, dots or UI. Square 1:1.",
+  "prompt_file": "assets/source/generated/adelva/management-operations-2026-09-24/prompts/cabin.txt",
+  "inputs": [
+    {
+      "path": "assets/source/generated/adelva/management-operations-2026-09-24/inputs/cabin-input.png",
+      "role": "edit input",
+      "description": "keyframe 04 cabin crop x700–940 y375–615, ×4.27"
+    }
+  ],
+  "generated_original_path": "/home/kokoro/.codex/generated_images/01a0cf66-1271-7ad1-bb36-31257b591fbe/exec-4c90ab70-3e58-4c6d-83d1-0c6bd71ca0dd.png",
+  "width": 1254,
+  "height": 1254,
+  "bytes": 753174,
+  "sha256": "0dd8819e16d469d1209688aa9e46882ca67fda14d72c8196ec0c5656fac7cd83",
+  "attempts": [
+    {
+      "attempt": 1,
+      "generated_original_path": "/home/kokoro/.codex/generated_images/01a0cf66-1271-7ad1-bb36-31257b591fbe/exec-4c90ab70-3e58-4c6d-83d1-0c6bd71ca0dd.png",
+      "saved": true,
+      "technically_usable": true
+    }
+  ],
+  "observations": [
+    "Inspected the generated original at full size with view_image, detail original.",
+    "Square image with the entire upright glass-and-bronze cabin visible against a black-looking background; warm glow surrounds the cabin.",
+    "No visible text, letters, numbers, or UI.",
+    "A bright horizontal line remains across the cabin interior near mid-height. Horizontal frame edges and top and bottom light bands, vertical glass and frame lines, and diagonal perspective edges are visible.",
+    "Several small bright dot-like reflections remain on the interior glass, including left of centre and on the right.",
+    "No surrounding shaft, rails, walls, or landing slabs are visible.",
+    "One generation; no retry. Saved by plain byte-for-byte copy with matching bytes."
+  ]
+}

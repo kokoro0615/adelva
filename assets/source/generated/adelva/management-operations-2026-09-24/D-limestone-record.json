@@ -1,0 +1,34 @@
+{
+  "id": "D-limestone",
+  "tool": "built-in image_gen",
+  "prompt": "Redraw this photograph as a clean, final, high-resolution editorial plate with exactly the same composition, framing and lighting: a close-up of the outer edge of a cliffside hotel at night — rough pale-grey limestone and granite on the left with small trailing plants, a cantilevered limestone slab, a warm-lit interior with a lounge chair, a potted plant and wood panels, and a slim vertical orange light strip. Keep every element where it is. Sharpen the stone texture, wood grain, leaves and glass reflections to the finest detail, with natural night light and no CGI sheen.\nNo text, letters, numbers, logos, lines, dots or UI. No people. Portrait 2:3.",
+  "prompt_file": "assets/source/generated/adelva/management-operations-2026-09-24/prompts/D-limestone.txt",
+  "inputs": [
+    {
+      "path": "assets/source/generated/adelva/management-operations-2026-09-24/inputs/D-limestone-input.png",
+      "role": "edit input"
+    }
+  ],
+  "generated_original_path": "/home/kokoro/.codex/generated_images/01a0cf68-97f5-7932-97e9-f53029ba648d/exec-4378058e-5b38-4f6a-8370-ee37c00ee2e2.png",
+  "width": 1024,
+  "height": 1536,
+  "bytes": 2916069,
+  "sha256": "42b712a002b69917c034ea5f1839dd4c384fceda84d027648695da786ead53b6",
+  "attempts": [
+    {
+      "attempt": 1,
+      "generated_original_path": "/home/kokoro/.codex/generated_images/01a0cf68-97f5-7932-97e9-f53029ba648d/exec-4378058e-5b38-4f6a-8370-ee37c00ee2e2.png",
+      "saved": true,
+      "technically_usable": true
+    }
+  ],
+  "observations": [
+    "Inspected the generated original using view_image with detail original at full 1024 x 1536 size.",
+    "Portrait 2:3 image; cliff stone, trailing plants, cantilevered slab, warm wood interior, lounge chair, potted plants and vertical orange lighting are visible.",
+    "No visible text, letters, numbers, logos, UI or people.",
+    "Visible lines include window frames, railing bars, panel and slab seams, stone veins and cracks, furniture edges, and the vertical orange light strip.",
+    "Visible dots and small bright points include recessed ceiling lights, candle flames and highlights, and small plant buds.",
+    "The broad input composition is retained, but the framing is wider relative to height and fine architectural, plant and furniture details differ.",
+    "Saved by plain byte-for-byte copy; no resizing, cropping, conversion or other image processing."
+  ]
+}

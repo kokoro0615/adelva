@@ -1,0 +1,5 @@
+Edit this image into a clean, text-free photographic plate of the same scene. The upper part is a dark, finely textured stone wall with faint vertical slats at the right. Below it, a tall glass-and-bronze lift shaft stands on the left half of the frame, seen straight on, with landings at regular intervals, glowing warm amber-orange, set into a dark stone wall.
+1. Remove every web-page overlay and fill with the surface behind it: the large vertical Japanese heading, the thin orange vertical line with its dot, all Japanese paragraphs, the numbers 01–03, the Japanese step names, the small outlined tag boxes and their text, the orange check marks, and the thin grey horizontal indicator lines that run from the shaft to the right, with their round end dots.
+2. Keep the shaft lit exactly as it is: the warm amber-orange glow and the central vertical light strip from top to bottom.
+Keep the shaft's position and width, every landing slab at the same height and the walls exactly as they are. Redraw the photographic detail sharply at full resolution.
+No text, letters, numbers, logos, lines, dots, icons or UI of any kind. No people. The same portrait size as the input.

@@ -1,0 +1,33 @@
+{
+  "id": "M-building-thumb",
+  "tool": "built-in image_gen",
+  "prompt": "Redraw this photograph as a clean, final, high-resolution plate with the same composition: a tall, narrow cutaway view of the whole cliffside hotel, from the rooftop terrace and pines at the top down through six warm-lit floors — boardroom, office, reception lobby, restaurant, guest room, staff room — to the granite foundation, with the slim orange-glowing lift core running down the right side of the building and dark granite on both sides. Remove the thin orange bracket drawn at the left edge and fill that area with granite. Keep every element where it is and keep the tall, narrow portrait format of the input.\nNo text, letters, numbers, logos, lines, dots or UI. No people.",
+  "prompt_file": "assets/source/generated/adelva/management-operations-2026-09-24/prompts/M-building-thumb.txt",
+  "inputs": [
+    {
+      "path": "assets/source/generated/adelva/management-operations-2026-09-24/inputs/M-building-thumb-input.png",
+      "role": "edit input"
+    }
+  ],
+  "generated_original_path": "/home/kokoro/.codex/generated_images/01a0cf69-4dd8-7a53-a664-8ff6190feb5a/exec-95f75b48-30e1-4a2b-9c42-870c16ded26f.png",
+  "width": 762,
+  "height": 2064,
+  "bytes": 2489796,
+  "sha256": "976f629d48bfb278665cf88a6673aea51f7d83a644dbc4e4e2b1d2de7b96e364",
+  "attempts": [
+    {
+      "attempt": 1,
+      "generated_original_path": "/home/kokoro/.codex/generated_images/01a0cf69-4dd8-7a53-a664-8ff6190feb5a/exec-95f75b48-30e1-4a2b-9c42-870c16ded26f.png",
+      "saved": true,
+      "technically_usable": true
+    }
+  ],
+  "observations": [
+    "Inspected the generated original at full size using view_image with detail=original.",
+    "Tall portrait composition shows rooftop pines, six furnished warm-lit floors, granite sides and foundation. No people visible.",
+    "The left orange bracket is absent; granite fills the left side.",
+    "No readable text, letters, numbers, logos or UI overlays observed. A small indistinct pale mark is visible on the restaurant back wall; it is not readable as text.",
+    "Visible lines include the bright orange-white lift strip on the right, window mullions, floor slab edges, wall and cabinet seams, tile joints and pendant cords.",
+    "Visible dot-like details include ceiling downlights, dark locker handles, small hardware and light reflections."
+  ]
+}

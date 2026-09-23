@@ -1,0 +1,34 @@
+{
+  "id": "D-building-1",
+  "tool": "built-in image_gen",
+  "prompt": "Edit this image into a clean, text-free photographic plate. It is the top of a tall web-page mock drawn over one continuous night photograph: misty layered mountains under a deep blue-black sky, dark pines, and on the right a cutaway modern hotel built into a granite cliff, with warm-lit rooms stacked floor by floor and a slim orange-glowing lift core.\nRemove every non-photographic overlay and fill those areas with the photograph that would be behind them: the ADELVA logo and the navigation bar at the top, the breadcrumb, all Japanese and English text, the orange number and its divider, the orange button, the four small grey and orange tick marks at the far left, and every thin orange line, bracket and round orange dot drawn over the picture. Where text sat over the sky and mountains, continue the sky, the misty ridges and the dark forest naturally.\nKeep everything else exactly where it is: the building's position and scale, every floor slab edge, the orange lift core, the rooms, their furniture and warm light, the rooftop terrace, the cliff, the trees and the horizon — same framing, same perspective, same colour and light. Redraw the photographic detail as sharply and finely as possible at full resolution: crisp concrete slab edges, glass mullions, wood grain, stone texture, pine needles, soft mist.\nThe result must contain no text, letters, numbers, logos, lines, dots, icons, buttons or UI of any kind — only the photograph. No people. Landscape 3:2, the same size as the input.",
+  "prompt_file": "assets/source/generated/adelva/management-operations-2026-09-24/prompts/D-building-1.txt",
+  "inputs": [
+    {
+      "path": "assets/source/generated/adelva/management-operations-2026-09-24/inputs/D-building-1-input.png",
+      "role": "edit input"
+    }
+  ],
+  "generated_original_path": "/home/kokoro/.codex/generated_images/01a0cf65-e91d-7c11-876e-f3e7b7db66c1/exec-4c6b2bfd-c06a-417a-ae2e-cb09e7d0b600.png",
+  "width": 1536,
+  "height": 1024,
+  "bytes": 2138879,
+  "sha256": "6da02846b376a261f591bcee2ec1407b19f0441ec8353b8aa0573825dbedbf7f",
+  "attempts": [
+    {
+      "attempt": 1,
+      "generated_original_path": "/home/kokoro/.codex/generated_images/01a0cf65-e91d-7c11-876e-f3e7b7db66c1/exec-4c6b2bfd-c06a-417a-ae2e-cb09e7d0b600.png",
+      "saved": true,
+      "technically_usable": true
+    }
+  ],
+  "observations": [
+    "Inspected the generated original at full size using view_image with original detail.",
+    "No visible text, letters, numbers, logos, navigation, breadcrumbs, buttons, icons, left-edge ticks, orange annotation brackets, connector lines or large orange annotation dots.",
+    "Visible lines belong to the architecture: slab edges, glass mullions, railings, wall joints and the orange-lit vertical core.",
+    "Small bright dot-like ceiling lights and faint star-like specks in the upper sky remain visible.",
+    "Misty mountain ridges and forest fill the left side; the cliff hotel, warm rooms, furniture and rooftop terrace occupy the right. No visible people.",
+    "Landscape composition is intact; the lower floor meets the bottom edge as in the input.",
+    "Saved by plain file copy; saved bytes exactly match the generated original. PNG chunk checksums and compressed image data validated."
+  ]
+}

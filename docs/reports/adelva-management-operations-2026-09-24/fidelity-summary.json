@@ -1,0 +1,1460 @@
+{
+  "plateBox": {
+    "left": 25,
+    "top": 33,
+    "width": 1390,
+    "height": 927
+  },
+  "stageP": 0.9049586776859504,
+  "summary": [
+    {
+      "id": "desktop-viewport",
+      "columns": [
+        {
+          "name": "hero text",
+          "x": [80, 600],
+          "y": [120, 700],
+          "ink": "bright",
+          "tolerance": 8,
+          "referenceBands": 7,
+          "actualBands": 7,
+          "reference": [
+            [152, 167],
+            [234, 261],
+            [293, 381],
+            [407, 419],
+            [460, 486],
+            [508, 535],
+            [575, 642]
+          ],
+          "actual": [
+            [151, 167],
+            [237, 260],
+            [292, 375],
+            [405, 415],
+            [459, 482],
+            [507, 530],
+            [575, 642]
+          ],
+          "passed": 7,
+          "pairs": [
+            {
+              "reference": [152, 167],
+              "actual": [151, 167],
+              "delta": -1,
+              "pass": true
+            },
+            {
+              "reference": [234, 261],
+              "actual": [237, 260],
+              "delta": 3,
+              "pass": true
+            },
+            {
+              "reference": [293, 381],
+              "actual": [292, 375],
+              "delta": -1,
+              "pass": true
+            },
+            {
+              "reference": [407, 419],
+              "actual": [405, 415],
+              "delta": -2,
+              "pass": true
+            },
+            {
+              "reference": [460, 486],
+              "actual": [459, 482],
+              "delta": -1,
+              "pass": true
+            },
+            {
+              "reference": [508, 535],
+              "actual": [507, 530],
+              "delta": -1,
+              "pass": true
+            },
+            {
+              "reference": [575, 642],
+              "actual": [575, 642],
+              "delta": 0,
+              "pass": true
+            }
+          ]
+        }
+      ],
+      "pixel": {
+        "mae": 0.0756112543371258,
+        "rmse": 0.1656612330240874,
+        "diffRatio": 0.13784799382716048,
+        "edgeMae": 0.023463582177652834
+      }
+    },
+    {
+      "id": "desktop-map",
+      "columns": [
+        {
+          "name": "chapters",
+          "x": [80, 400],
+          "y": [700, 2000],
+          "ink": "bright",
+          "tolerance": 12,
+          "referenceBands": 15,
+          "actualBands": 15,
+          "reference": [
+            [737, 778],
+            [811, 835],
+            [866, 891],
+            [992, 1033],
+            [1067, 1092],
+            [1123, 1147],
+            [1178, 1202],
+            [1234, 1258],
+            [1350, 1391],
+            [1424, 1448],
+            [1510, 1535],
+            [1568, 1593],
+            [1694, 1719],
+            [1830, 1871],
+            [1908, 1932]
+          ],
+          "actual": [
+            [737, 776],
+            [809, 832],
+            [865, 888],
+            [991, 1030],
+            [1065, 1088],
+            [1121, 1144],
+            [1176, 1199],
+            [1232, 1255],
+            [1350, 1389],
+            [1423, 1446],
+            [1508, 1531],
+            [1566, 1589],
+            [1692, 1715],
+            [1828, 1867],
+            [1906, 1929]
+          ],
+          "passed": 15,
+          "pairs": [
+            {
+              "reference": [737, 778],
+              "actual": [737, 776],
+              "delta": 0,
+              "pass": true
+            },
+            {
+              "reference": [811, 835],
+              "actual": [809, 832],
+              "delta": -2,
+              "pass": true
+            },
+            {
+              "reference": [866, 891],
+              "actual": [865, 888],
+              "delta": -1,
+              "pass": true
+            },
+            {
+              "reference": [992, 1033],
+              "actual": [991, 1030],
+              "delta": -1,
+              "pass": true
+            },
+            {
+              "reference": [1067, 1092],
+              "actual": [1065, 1088],
+              "delta": -2,
+              "pass": true
+            },
+            {
+              "reference": [1123, 1147],
+              "actual": [1121, 1144],
+              "delta": -2,
+              "pass": true
+            },
+            {
+              "reference": [1178, 1202],
+              "actual": [1176, 1199],
+              "delta": -2,
+              "pass": true
+            },
+            {
+              "reference": [1234, 1258],
+              "actual": [1232, 1255],
+              "delta": -2,
+              "pass": true
+            },
+            {
+              "reference": [1350, 1391],
+              "actual": [1350, 1389],
+              "delta": 0,
+              "pass": true
+            },
+            {
+              "reference": [1424, 1448],
+              "actual": [1423, 1446],
+              "delta": -1,
+              "pass": true
+            },
+            {
+              "reference": [1510, 1535],
+              "actual": [1508, 1531],
+              "delta": -2,
+              "pass": true
+            },
+            {
+              "reference": [1568, 1593],
+              "actual": [1566, 1589],
+              "delta": -2,
+              "pass": true
+            },
+            {
+              "reference": [1694, 1719],
+              "actual": [1692, 1715],
+              "delta": -2,
+              "pass": true
+            },
+            {
+              "reference": [1830, 1871],
+              "actual": [1828, 1867],
+              "delta": -2,
+              "pass": true
+            },
+            {
+              "reference": [1908, 1932],
+              "actual": [1906, 1929],
+              "delta": -2,
+              "pass": true
+            }
+          ]
+        }
+      ],
+      "pixel": {
+        "mae": 0.06191955051911025,
+        "rmse": 0.14408737803578775,
+        "diffRatio": 0.10600630144032921,
+        "edgeMae": 0.02092615469071583
+      }
+    },
+    {
+      "id": "desktop-boundaries",
+      "columns": [
+        {
+          "name": "left column",
+          "x": [490, 930],
+          "y": [40, 660],
+          "ink": "dark",
+          "tolerance": 8,
+          "referenceBands": 8,
+          "actualBands": 8,
+          "reference": [
+            [72, 113],
+            [166, 194],
+            [221, 241],
+            [324, 351],
+            [378, 397],
+            [480, 507],
+            [535, 555],
+            [619, 638]
+          ],
+          "actual": [
+            [72, 106],
+            [165, 189],
+            [221, 237],
+            [321, 345],
+            [377, 393],
+            [477, 501],
+            [533, 549],
+            [618, 634]
+          ],
+          "passed": 8,
+          "pairs": [
+            {
+              "reference": [72, 113],
+              "actual": [72, 106],
+              "delta": 0,
+              "pass": true
+            },
+            {
+              "reference": [166, 194],
+              "actual": [165, 189],
+              "delta": -1,
+              "pass": true
+            },
+            {
+              "reference": [221, 241],
+              "actual": [221, 237],
+              "delta": 0,
+              "pass": true
+            },
+            {
+              "reference": [324, 351],
+              "actual": [321, 345],
+              "delta": -3,
+              "pass": true
+            },
+            {
+              "reference": [378, 397],
+              "actual": [377, 393],
+              "delta": -1,
+              "pass": true
+            },
+            {
+              "reference": [480, 507],
+              "actual": [477, 501],
+              "delta": -3,
+              "pass": true
+            },
+            {
+              "reference": [535, 555],
+              "actual": [533, 549],
+              "delta": -2,
+              "pass": true
+            },
+            {
+              "reference": [619, 638],
+              "actual": [618, 634],
+              "delta": -1,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "name": "right column",
+          "x": [960, 1420],
+          "y": [40, 600],
+          "ink": "dark",
+          "tolerance": 8,
+          "referenceBands": 6,
+          "actualBands": 6,
+          "reference": [
+            [165, 194],
+            [219, 239],
+            [324, 351],
+            [378, 398],
+            [480, 507],
+            [535, 555]
+          ],
+          "actual": [
+            [165, 189],
+            [221, 237],
+            [320, 345],
+            [377, 393],
+            [476, 501],
+            [533, 549]
+          ],
+          "passed": 6,
+          "pairs": [
+            {
+              "reference": [165, 194],
+              "actual": [165, 189],
+              "delta": 0,
+              "pass": true
+            },
+            {
+              "reference": [219, 239],
+              "actual": [221, 237],
+              "delta": 2,
+              "pass": true
+            },
+            {
+              "reference": [324, 351],
+              "actual": [320, 345],
+              "delta": -4,
+              "pass": true
+            },
+            {
+              "reference": [378, 398],
+              "actual": [377, 393],
+              "delta": -1,
+              "pass": true
+            },
+            {
+              "reference": [480, 507],
+              "actual": [476, 501],
+              "delta": -4,
+              "pass": true
+            },
+            {
+              "reference": [535, 555],
+              "actual": [533, 549],
+              "delta": -2,
+              "pass": true
+            }
+          ]
+        }
+      ],
+      "pixel": {
+        "mae": 0.07675293766082755,
+        "rmse": 0.17710476891586088,
+        "diffRatio": 0.2134965077071291,
+        "edgeMae": 0.023362257706157404
+      }
+    },
+    {
+      "id": "process-01",
+      "columns": [
+        {
+          "name": "steps",
+          "x": [1040, 1470],
+          "y": [110, 900],
+          "ink": "bright",
+          "tolerance": 12,
+          "referenceBands": 4,
+          "actualBands": 8,
+          "reference": [
+            [113, 127],
+            [190, 223],
+            [249, 259],
+            [395, 403]
+          ],
+          "actual": [
+            [110, 142],
+            [188, 221],
+            [328, 361],
+            [392, 397],
+            [483, 514],
+            [549, 555],
+            [643, 676],
+            [788, 821]
+          ],
+          "passed": 3,
+          "pairs": [
+            {
+              "reference": [113, 127],
+              "actual": [110, 142],
+              "delta": -3,
+              "pass": true
+            },
+            {
+              "reference": [190, 223],
+              "actual": [188, 221],
+              "delta": -2,
+              "pass": true
+            },
+            {
+              "reference": [249, 259],
+              "actual": [188, 221],
+              "delta": -61,
+              "pass": false
+            },
+            {
+              "reference": [395, 403],
+              "actual": [392, 397],
+              "delta": -3,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "name": "intro",
+          "x": [190, 660],
+          "y": [100, 620],
+          "ink": "bright",
+          "tolerance": 12,
+          "referenceBands": 6,
+          "actualBands": 6,
+          "reference": [
+            [137, 168],
+            [186, 217],
+            [277, 294],
+            [311, 329],
+            [345, 363],
+            [560, 582]
+          ],
+          "actual": [
+            [137, 164],
+            [187, 214],
+            [278, 295],
+            [312, 329],
+            [345, 362],
+            [558, 581]
+          ],
+          "passed": 6,
+          "pairs": [
+            {
+              "reference": [137, 168],
+              "actual": [137, 164],
+              "delta": 0,
+              "pass": true
+            },
+            {
+              "reference": [186, 217],
+              "actual": [187, 214],
+              "delta": 1,
+              "pass": true
+            },
+            {
+              "reference": [277, 294],
+              "actual": [278, 295],
+              "delta": 1,
+              "pass": true
+            },
+            {
+              "reference": [311, 329],
+              "actual": [312, 329],
+              "delta": 1,
+              "pass": true
+            },
+            {
+              "reference": [345, 363],
+              "actual": [345, 362],
+              "delta": 0,
+              "pass": true
+            },
+            {
+              "reference": [560, 582],
+              "actual": [558, 581],
+              "delta": -2,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "name": "landings",
+          "x": [976, 1000],
+          "y": [30, 900],
+          "ink": "line",
+          "tolerance": 4,
+          "referenceBands": 6,
+          "actualBands": 6,
+          "reference": [
+            [78, 87],
+            [212, 214],
+            [353, 354],
+            [504, 505],
+            [668, 669],
+            [812, 813]
+          ],
+          "actual": [
+            [76, 80],
+            [212, 212],
+            [353, 353],
+            [506, 506],
+            [668, 668],
+            [812, 812]
+          ],
+          "passed": 6,
+          "pairs": [
+            {
+              "reference": [78, 87],
+              "actual": [76, 80],
+              "delta": -2,
+              "pass": true
+            },
+            {
+              "reference": [212, 214],
+              "actual": [212, 212],
+              "delta": 0,
+              "pass": true
+            },
+            {
+              "reference": [353, 354],
+              "actual": [353, 353],
+              "delta": 0,
+              "pass": true
+            },
+            {
+              "reference": [504, 505],
+              "actual": [506, 506],
+              "delta": 2,
+              "pass": true
+            },
+            {
+              "reference": [668, 669],
+              "actual": [668, 668],
+              "delta": 0,
+              "pass": true
+            },
+            {
+              "reference": [812, 813],
+              "actual": [812, 812],
+              "delta": 0,
+              "pass": true
+            }
+          ]
+        }
+      ],
+      "pixel": {
+        "mae": 0.08349376088393799,
+        "rmse": 0.17751163996982486,
+        "diffRatio": 0.1723473866780599,
+        "edgeMae": 0.01997755880019807
+      }
+    },
+    {
+      "id": "process-04",
+      "columns": [
+        {
+          "name": "steps",
+          "x": [1040, 1470],
+          "y": [110, 900],
+          "ink": "bright",
+          "tolerance": 12,
+          "referenceBands": 9,
+          "actualBands": 9,
+          "reference": [
+            [113, 127],
+            [189, 243],
+            [248, 262],
+            [331, 386],
+            [392, 406],
+            [474, 531],
+            [547, 561],
+            [703, 716],
+            [849, 863]
+          ],
+          "actual": [
+            [115, 128],
+            [188, 244],
+            [250, 262],
+            [328, 385],
+            [391, 403],
+            [478, 538],
+            [540, 571],
+            [643, 676],
+            [788, 821]
+          ],
+          "passed": 7,
+          "pairs": [
+            {
+              "reference": [113, 127],
+              "actual": [115, 128],
+              "delta": 2,
+              "pass": true
+            },
+            {
+              "reference": [189, 243],
+              "actual": [188, 244],
+              "delta": -1,
+              "pass": true
+            },
+            {
+              "reference": [248, 262],
+              "actual": [250, 262],
+              "delta": 2,
+              "pass": true
+            },
+            {
+              "reference": [331, 386],
+              "actual": [328, 385],
+              "delta": -3,
+              "pass": true
+            },
+            {
+              "reference": [392, 406],
+              "actual": [391, 403],
+              "delta": -1,
+              "pass": true
+            },
+            {
+              "reference": [474, 531],
+              "actual": [478, 538],
+              "delta": 4,
+              "pass": true
+            },
+            {
+              "reference": [547, 561],
+              "actual": [540, 571],
+              "delta": -7,
+              "pass": true
+            },
+            {
+              "reference": [703, 716],
+              "actual": [643, 676],
+              "delta": -60,
+              "pass": false
+            },
+            {
+              "reference": [849, 863],
+              "actual": [788, 821],
+              "delta": -61,
+              "pass": false
+            }
+          ]
+        },
+        {
+          "name": "intro",
+          "x": [190, 660],
+          "y": [100, 620],
+          "ink": "bright",
+          "tolerance": 12,
+          "referenceBands": 6,
+          "actualBands": 6,
+          "reference": [
+            [137, 168],
+            [186, 217],
+            [277, 294],
+            [311, 329],
+            [345, 363],
+            [560, 583]
+          ],
+          "actual": [
+            [137, 164],
+            [187, 214],
+            [278, 295],
+            [312, 329],
+            [345, 362],
+            [558, 581]
+          ],
+          "passed": 6,
+          "pairs": [
+            {
+              "reference": [137, 168],
+              "actual": [137, 164],
+              "delta": 0,
+              "pass": true
+            },
+            {
+              "reference": [186, 217],
+              "actual": [187, 214],
+              "delta": 1,
+              "pass": true
+            },
+            {
+              "reference": [277, 294],
+              "actual": [278, 295],
+              "delta": 1,
+              "pass": true
+            },
+            {
+              "reference": [311, 329],
+              "actual": [312, 329],
+              "delta": 1,
+              "pass": true
+            },
+            {
+              "reference": [345, 363],
+              "actual": [345, 362],
+              "delta": 0,
+              "pass": true
+            },
+            {
+              "reference": [560, 583],
+              "actual": [558, 581],
+              "delta": -2,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "name": "landings",
+          "x": [976, 1000],
+          "y": [30, 900],
+          "ink": "line",
+          "tolerance": 4,
+          "referenceBands": 6,
+          "actualBands": 6,
+          "reference": [
+            [78, 79],
+            [212, 213],
+            [353, 354],
+            [501, 510],
+            [668, 669],
+            [812, 813]
+          ],
+          "actual": [
+            [78, 78],
+            [212, 212],
+            [353, 353],
+            [504, 509],
+            [668, 668],
+            [812, 812]
+          ],
+          "passed": 6,
+          "pairs": [
+            {
+              "reference": [78, 79],
+              "actual": [78, 78],
+              "delta": 0,
+              "pass": true
+            },
+            {
+              "reference": [212, 213],
+              "actual": [212, 212],
+              "delta": 0,
+              "pass": true
+            },
+            {
+              "reference": [353, 354],
+              "actual": [353, 353],
+              "delta": 0,
+              "pass": true
+            },
+            {
+              "reference": [501, 510],
+              "actual": [504, 509],
+              "delta": 3,
+              "pass": true
+            },
+            {
+              "reference": [668, 669],
+              "actual": [668, 668],
+              "delta": 0,
+              "pass": true
+            },
+            {
+              "reference": [812, 813],
+              "actual": [812, 812],
+              "delta": 0,
+              "pass": true
+            }
+          ]
+        }
+      ],
+      "pixel": {
+        "mae": 0.06985337916023071,
+        "rmse": 0.15779540168471262,
+        "diffRatio": 0.13608169555664062,
+        "edgeMae": 0.02198912959893329
+      }
+    },
+    {
+      "id": "process-06",
+      "columns": [
+        {
+          "name": "steps",
+          "x": [1040, 1470],
+          "y": [110, 900],
+          "ink": "bright",
+          "tolerance": 12,
+          "referenceBands": 11,
+          "actualBands": 12,
+          "reference": [
+            [113, 127],
+            [189, 243],
+            [248, 262],
+            [331, 386],
+            [392, 406],
+            [474, 531],
+            [547, 561],
+            [641, 698],
+            [703, 716],
+            [788, 872],
+            [886, 899]
+          ],
+          "actual": [
+            [115, 128],
+            [188, 244],
+            [250, 262],
+            [328, 385],
+            [391, 403],
+            [483, 538],
+            [544, 556],
+            [643, 700],
+            [706, 718],
+            [783, 844],
+            [856, 868],
+            [879, 899]
+          ],
+          "passed": 11,
+          "pairs": [
+            {
+              "reference": [113, 127],
+              "actual": [115, 128],
+              "delta": 2,
+              "pass": true
+            },
+            {
+              "reference": [189, 243],
+              "actual": [188, 244],
+              "delta": -1,
+              "pass": true
+            },
+            {
+              "reference": [248, 262],
+              "actual": [250, 262],
+              "delta": 2,
+              "pass": true
+            },
+            {
+              "reference": [331, 386],
+              "actual": [328, 385],
+              "delta": -3,
+              "pass": true
+            },
+            {
+              "reference": [392, 406],
+              "actual": [391, 403],
+              "delta": -1,
+              "pass": true
+            },
+            {
+              "reference": [474, 531],
+              "actual": [483, 538],
+              "delta": 9,
+              "pass": true
+            },
+            {
+              "reference": [547, 561],
+              "actual": [544, 556],
+              "delta": -3,
+              "pass": true
+            },
+            {
+              "reference": [641, 698],
+              "actual": [643, 700],
+              "delta": 2,
+              "pass": true
+            },
+            {
+              "reference": [703, 716],
+              "actual": [706, 718],
+              "delta": 3,
+              "pass": true
+            },
+            {
+              "reference": [788, 872],
+              "actual": [783, 844],
+              "delta": -5,
+              "pass": true
+            },
+            {
+              "reference": [886, 899],
+              "actual": [879, 899],
+              "delta": -7,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "name": "intro",
+          "x": [190, 660],
+          "y": [100, 620],
+          "ink": "bright",
+          "tolerance": 12,
+          "referenceBands": 6,
+          "actualBands": 6,
+          "reference": [
+            [137, 168],
+            [186, 217],
+            [277, 294],
+            [311, 329],
+            [345, 363],
+            [560, 582]
+          ],
+          "actual": [
+            [137, 164],
+            [187, 214],
+            [278, 295],
+            [312, 329],
+            [345, 362],
+            [558, 581]
+          ],
+          "passed": 6,
+          "pairs": [
+            {
+              "reference": [137, 168],
+              "actual": [137, 164],
+              "delta": 0,
+              "pass": true
+            },
+            {
+              "reference": [186, 217],
+              "actual": [187, 214],
+              "delta": 1,
+              "pass": true
+            },
+            {
+              "reference": [277, 294],
+              "actual": [278, 295],
+              "delta": 1,
+              "pass": true
+            },
+            {
+              "reference": [311, 329],
+              "actual": [312, 329],
+              "delta": 1,
+              "pass": true
+            },
+            {
+              "reference": [345, 363],
+              "actual": [345, 362],
+              "delta": 0,
+              "pass": true
+            },
+            {
+              "reference": [560, 582],
+              "actual": [558, 581],
+              "delta": -2,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "name": "landings",
+          "x": [976, 1000],
+          "y": [30, 900],
+          "ink": "line",
+          "tolerance": 4,
+          "referenceBands": 6,
+          "actualBands": 6,
+          "reference": [
+            [78, 79],
+            [212, 213],
+            [353, 354],
+            [505, 506],
+            [668, 669],
+            [798, 832]
+          ],
+          "actual": [
+            [78, 78],
+            [212, 212],
+            [353, 353],
+            [506, 506],
+            [668, 668],
+            [809, 815]
+          ],
+          "passed": 5,
+          "pairs": [
+            {
+              "reference": [78, 79],
+              "actual": [78, 78],
+              "delta": 0,
+              "pass": true
+            },
+            {
+              "reference": [212, 213],
+              "actual": [212, 212],
+              "delta": 0,
+              "pass": true
+            },
+            {
+              "reference": [353, 354],
+              "actual": [353, 353],
+              "delta": 0,
+              "pass": true
+            },
+            {
+              "reference": [505, 506],
+              "actual": [506, 506],
+              "delta": 1,
+              "pass": true
+            },
+            {
+              "reference": [668, 669],
+              "actual": [668, 668],
+              "delta": 0,
+              "pass": true
+            },
+            {
+              "reference": [798, 832],
+              "actual": [809, 815],
+              "delta": 11,
+              "pass": false
+            }
+          ]
+        }
+      ],
+      "pixel": {
+        "mae": 0.060814532111672794,
+        "rmse": 0.15899302568137905,
+        "diffRatio": 0.0948486328125,
+        "edgeMae": 0.023362821779497087
+      }
+    },
+    {
+      "id": "mobile-sections",
+      "columns": [
+        {
+          "name": "paper sections",
+          "x": [0, 390],
+          "y": [0, 5569],
+          "ink": "paper",
+          "tolerance": 24,
+          "referenceBands": 16,
+          "actualBands": 17,
+          "reference": [
+            [3370, 3427],
+            [3429, 3469],
+            [3471, 3496],
+            [3510, 3525],
+            [3536, 3578],
+            [3580, 3605],
+            [3620, 3633],
+            [3644, 3672],
+            [3674, 3698],
+            [3712, 3726],
+            [3736, 3788],
+            [3799, 3886],
+            [5418, 5452],
+            [5458, 5488],
+            [5490, 5513],
+            [5533, 5568]
+          ],
+          "actual": [
+            [3374, 3473],
+            [3475, 3497],
+            [3509, 3525],
+            [3537, 3545],
+            [3549, 3573],
+            [3575, 3597],
+            [3609, 3626],
+            [3637, 3673],
+            [3675, 3697],
+            [3709, 3727],
+            [3737, 3755],
+            [3757, 3786],
+            [3797, 3894],
+            [5425, 5460],
+            [5466, 5499],
+            [5501, 5530],
+            [5549, 5568]
+          ],
+          "passed": 15,
+          "pairs": [
+            {
+              "reference": [3370, 3427],
+              "actual": [3374, 3473],
+              "delta": 4,
+              "pass": true
+            },
+            {
+              "reference": [3429, 3469],
+              "actual": [3475, 3497],
+              "delta": 46,
+              "pass": false
+            },
+            {
+              "reference": [3471, 3496],
+              "actual": [3475, 3497],
+              "delta": 4,
+              "pass": true
+            },
+            {
+              "reference": [3510, 3525],
+              "actual": [3509, 3525],
+              "delta": -1,
+              "pass": true
+            },
+            {
+              "reference": [3536, 3578],
+              "actual": [3537, 3545],
+              "delta": 1,
+              "pass": true
+            },
+            {
+              "reference": [3580, 3605],
+              "actual": [3575, 3597],
+              "delta": -5,
+              "pass": true
+            },
+            {
+              "reference": [3620, 3633],
+              "actual": [3609, 3626],
+              "delta": -11,
+              "pass": true
+            },
+            {
+              "reference": [3644, 3672],
+              "actual": [3637, 3673],
+              "delta": -7,
+              "pass": true
+            },
+            {
+              "reference": [3674, 3698],
+              "actual": [3675, 3697],
+              "delta": 1,
+              "pass": true
+            },
+            {
+              "reference": [3712, 3726],
+              "actual": [3709, 3727],
+              "delta": -3,
+              "pass": true
+            },
+            {
+              "reference": [3736, 3788],
+              "actual": [3737, 3755],
+              "delta": 1,
+              "pass": true
+            },
+            {
+              "reference": [3799, 3886],
+              "actual": [3797, 3894],
+              "delta": -2,
+              "pass": true
+            },
+            {
+              "reference": [5418, 5452],
+              "actual": [5425, 5460],
+              "delta": 7,
+              "pass": true
+            },
+            {
+              "reference": [5458, 5488],
+              "actual": [5466, 5499],
+              "delta": 8,
+              "pass": true
+            },
+            {
+              "reference": [5490, 5513],
+              "actual": [5501, 5530],
+              "delta": 11,
+              "pass": true
+            },
+            {
+              "reference": [5533, 5568],
+              "actual": [5549, 5568],
+              "delta": 16,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "name": "chapter text",
+          "x": [20, 380],
+          "y": [1496, 3370],
+          "ink": "bright",
+          "tolerance": 24,
+          "referenceBands": 18,
+          "actualBands": 21,
+          "reference": [
+            [1547, 1732],
+            [1759, 1788],
+            [1819, 1837],
+            [1875, 1894],
+            [1953, 1981],
+            [2014, 2024],
+            [2026, 2313],
+            [2460, 2465],
+            [2470, 2645],
+            [2671, 2677],
+            [2706, 2740],
+            [2763, 2814],
+            [2835, 2850],
+            [2889, 2904],
+            [2944, 2959],
+            [3028, 3153],
+            [3222, 3255],
+            [3294, 3309]
+          ],
+          "actual": [
+            [1537, 1733],
+            [1761, 1788],
+            [1826, 1839],
+            [1883, 1897],
+            [1967, 1994],
+            [2032, 2092],
+            [2097, 2138],
+            [2144, 2185],
+            [2191, 2282],
+            [2289, 2331],
+            [2469, 2636],
+            [2677, 2684],
+            [2711, 2739],
+            [2754, 2807],
+            [2829, 2843],
+            [2884, 2898],
+            [2938, 2952],
+            [3011, 3142],
+            [3163, 3199],
+            [3236, 3265],
+            [3299, 3313]
+          ],
+          "passed": 18,
+          "pairs": [
+            {
+              "reference": [1547, 1732],
+              "actual": [1537, 1733],
+              "delta": -10,
+              "pass": true
+            },
+            {
+              "reference": [1759, 1788],
+              "actual": [1761, 1788],
+              "delta": 2,
+              "pass": true
+            },
+            {
+              "reference": [1819, 1837],
+              "actual": [1826, 1839],
+              "delta": 7,
+              "pass": true
+            },
+            {
+              "reference": [1875, 1894],
+              "actual": [1883, 1897],
+              "delta": 8,
+              "pass": true
+            },
+            {
+              "reference": [1953, 1981],
+              "actual": [1967, 1994],
+              "delta": 14,
+              "pass": true
+            },
+            {
+              "reference": [2014, 2024],
+              "actual": [2032, 2092],
+              "delta": 18,
+              "pass": true
+            },
+            {
+              "reference": [2026, 2313],
+              "actual": [2032, 2092],
+              "delta": 6,
+              "pass": true
+            },
+            {
+              "reference": [2460, 2465],
+              "actual": [2469, 2636],
+              "delta": 9,
+              "pass": true
+            },
+            {
+              "reference": [2470, 2645],
+              "actual": [2469, 2636],
+              "delta": -1,
+              "pass": true
+            },
+            {
+              "reference": [2671, 2677],
+              "actual": [2677, 2684],
+              "delta": 6,
+              "pass": true
+            },
+            {
+              "reference": [2706, 2740],
+              "actual": [2711, 2739],
+              "delta": 5,
+              "pass": true
+            },
+            {
+              "reference": [2763, 2814],
+              "actual": [2754, 2807],
+              "delta": -9,
+              "pass": true
+            },
+            {
+              "reference": [2835, 2850],
+              "actual": [2829, 2843],
+              "delta": -6,
+              "pass": true
+            },
+            {
+              "reference": [2889, 2904],
+              "actual": [2884, 2898],
+              "delta": -5,
+              "pass": true
+            },
+            {
+              "reference": [2944, 2959],
+              "actual": [2938, 2952],
+              "delta": -6,
+              "pass": true
+            },
+            {
+              "reference": [3028, 3153],
+              "actual": [3011, 3142],
+              "delta": -17,
+              "pass": true
+            },
+            {
+              "reference": [3222, 3255],
+              "actual": [3236, 3265],
+              "delta": 14,
+              "pass": true
+            },
+            {
+              "reference": [3294, 3309],
+              "actual": [3299, 3313],
+              "delta": 5,
+              "pass": true
+            }
+          ]
+        }
+      ],
+      "pixel": {
+        "mae": 0.07395731590486167,
+        "rmse": 0.16949494342322266,
+        "diffRatio": 0.17449341823556225,
+        "edgeMae": 0.03346550830223126
+      }
+    },
+    {
+      "id": "mobile-viewport",
+      "columns": [
+        {
+          "name": "hero text",
+          "x": [20, 370],
+          "y": [60, 360],
+          "ink": "bright",
+          "tolerance": 8,
+          "referenceBands": 7,
+          "actualBands": 7,
+          "reference": [
+            [79, 87],
+            [126, 141],
+            [161, 202],
+            [216, 222],
+            [244, 257],
+            [270, 283],
+            [307, 352]
+          ],
+          "actual": [
+            [81, 88],
+            [123, 140],
+            [159, 201],
+            [214, 220],
+            [244, 256],
+            [270, 282],
+            [307, 351]
+          ],
+          "passed": 7,
+          "pairs": [
+            {
+              "reference": [79, 87],
+              "actual": [81, 88],
+              "delta": 2,
+              "pass": true
+            },
+            {
+              "reference": [126, 141],
+              "actual": [123, 140],
+              "delta": -3,
+              "pass": true
+            },
+            {
+              "reference": [161, 202],
+              "actual": [159, 201],
+              "delta": -2,
+              "pass": true
+            },
+            {
+              "reference": [216, 222],
+              "actual": [214, 220],
+              "delta": -2,
+              "pass": true
+            },
+            {
+              "reference": [244, 257],
+              "actual": [244, 256],
+              "delta": 0,
+              "pass": true
+            },
+            {
+              "reference": [270, 283],
+              "actual": [270, 282],
+              "delta": 0,
+              "pass": true
+            },
+            {
+              "reference": [307, 352],
+              "actual": [307, 351],
+              "delta": 0,
+              "pass": true
+            }
+          ]
+        }
+      ],
+      "pixel": {
+        "mae": 0.0584701760154785,
+        "rmse": 0.1399335766010034,
+        "diffRatio": 0.09230465427147892,
+        "edgeMae": 0.028472724413736047
+      }
+    }
+  ]
+}

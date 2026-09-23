@@ -1,0 +1,33 @@
+{
+  "id": "M-hero-1",
+  "tool": "built-in image_gen",
+  "prompt": "Edit this image into a clean, text-free photographic plate. It is the top of a tall mobile web-page mock drawn over one continuous night photograph: a deep blue-black sky, misty layered mountains and dark forest with a few tiny village lights, and lower down a cutaway modern hotel built into a granite cliff on the right, with warm-lit rooms and a slim orange-glowing lift core.\nRemove every non-photographic overlay and fill with the photograph behind it: the ADELVA logo, the outlined button and the menu icon at the top, the breadcrumb, all Japanese and English text, the orange number and its divider, and the wide orange button. Where these sat over the sky and mountains, continue the sky, the misty ridges and the forest naturally.\nKeep everything else exactly where it is: the building's position and scale, the slab edges, the lift core, the rooms, the cliff, the trees and the mountains — the same framing, perspective, colour and light. Redraw the photographic detail sharply at full resolution.\nNo text, letters, numbers, logos, lines, dots, icons, buttons or UI of any kind. No people. The same portrait size as the input.",
+  "prompt_file": "assets/source/generated/adelva/management-operations-2026-09-24/prompts/M-hero-1.txt",
+  "inputs": [
+    {
+      "path": "assets/source/generated/adelva/management-operations-2026-09-24/inputs/M-hero-1-input.png",
+      "role": "edit input (hero-joined rows 0–1844)"
+    }
+  ],
+  "generated_original_path": "/home/kokoro/.codex/generated_images/01a0cf66-1256-7b63-9df7-588c19a26893/exec-7d2a1f20-563c-4e2e-970d-639ffd81d6f1.png",
+  "attempts": [
+    {
+      "attempt": 1,
+      "mode": "edit",
+      "saved": true,
+      "prompt_identical": true,
+      "result": "Usable portrait image; no retry."
+    }
+  ],
+  "observations": [
+    "Inspected the generated original at full size using view_image with detail original.",
+    "No visible text, letters, numbers, logos, icons, buttons, or other UI overlays.",
+    "Visible lines belong to architectural slab edges, window frames, railings, stone joints, and the orange-lit vertical core. No separate graphic divider or full-height overlay line observed.",
+    "Small dot-like lights remain in the valley and room ceilings; these are scene lighting.",
+    "Dark blue sky, layered misty mountains, forest, granite cliff, and warm-lit hotel remain visible. No people observed."
+  ],
+  "width": 853,
+  "height": 1844,
+  "bytes": 2075187,
+  "sha256": "6acf2c8ae82eca2d81a8834a2710354a6adec548c8da56931d4b296ea60ace81"
+}

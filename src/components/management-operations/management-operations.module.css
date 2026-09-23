@@ -1,0 +1,1641 @@
+/*
+ * ADELVA 経営・運営統括 — /services/management-operations.
+ *
+ * Specification: docs/specs/adelva-management-operations-spec.md.
+ * Geometry comes from the adopted A2 mocks. Desktop section-map values use
+ * `--u` (1px at a 1440px-wide section); the pinned process stage uses `--p`
+ * (one natural pixel of the 1536×1024 keyframes); the mobile process plate
+ * uses `--m` (one natural pixel of the 853px-wide plate). Every state that
+ * scripts change starts from the finished, readable state.
+ */
+
+@font-face {
+  font-family: "MO Serif";
+  src: url("/fonts/adelva-noto-serif-jp.woff2") format("woff2");
+  font-weight: 200 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "MO Sans";
+  src: url("/fonts/adelva-noto-sans-jp.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+.page {
+  --serif: "MO Serif", "Noto Serif JP", serif;
+  --sans: "MO Sans", "Noto Sans JP", sans-serif;
+  --night: #0c1018;
+  --night-raised: #161d26;
+  --stone: #07090d;
+  --paper: #f1efea;
+  --paper-rule: #d9d8d3;
+  --paper-muted: #596070;
+  --line-muted: rgb(255 255 255 / 18%);
+  /* Upcoming steps, sampled from keyframe 01 (35% brightness) and kept AA. */
+  --text-dim: #aeb2bb;
+  --tag-dim: #a4a8b1;
+  --number-dim: #868a94;
+  /* Physical container units: `cqi` follows a vertical element's own axis. */
+  --u: calc(min(100cqw, 1920px) / 1440);
+  --x0: calc((100cqw - min(100cqw, 1920px)) / 2);
+  position: relative;
+  background: var(--night);
+  color: #fff;
+  font: 400 16px/1.6 var(--sans);
+  overflow: clip;
+}
+/* Zero-specificity resets, so every component rule below wins over them. */
+:where(.page) *,
+:where(.page) *::before,
+:where(.page) *::after {
+  box-sizing: border-box;
+}
+:where(.page) :where(h1, h2, h3, p, ul, ol, dl, dd) {
+  margin: 0;
+  padding: 0;
+  text-wrap: initial;
+  letter-spacing: normal;
+}
+:where(.page) :where(ul, ol) {
+  list-style: none;
+}
+:where(.page) :where(a) {
+  color: inherit;
+  text-decoration: none;
+}
+/* Two-tone ring: holds 3:1 on night, stone, paper and photographs alike. */
+.page a:focus-visible,
+.page button:focus-visible,
+.page [tabindex]:focus-visible {
+  outline: 2px solid #0b1620;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px #fff;
+  border-radius: 1px;
+}
+.page [id] {
+  scroll-margin-top: 72px;
+}
+.skip {
+  position: absolute;
+  left: 24px;
+  top: 12px;
+  z-index: 100;
+  background: #fff;
+  color: var(--night);
+  padding: 12px 24px;
+  transform: translateY(-200%);
+}
+.skip:focus {
+  transform: none;
+}
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.main {
+  display: block;
+}
+.arrow {
+  display: inline-block;
+  transition: transform 180ms cubic-bezier(0.2, 0, 0, 1);
+}
+.desktopBreak {
+  display: none;
+}
+.nakaguro {
+  margin-inline: -0.175em;
+}
+.photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ------------------------------------------------------------------ map */
+
+.map {
+  position: relative;
+  container-type: inline-size;
+  --index-space: 0px;
+  --scene-offset: 0px;
+}
+.scene {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 853 / 3272;
+  margin-top: var(--scene-offset);
+  margin-bottom: var(--index-space);
+  overflow: hidden;
+}
+.scenePicture,
+.scenePicture img,
+.mapOverlay,
+.mobileFloors {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.scenePicture img {
+  object-fit: cover;
+}
+.mapOverlay {
+  display: none;
+}
+.floorVeil {
+  fill: #06080c;
+  opacity: 0;
+  transition: opacity var(--dur-state, 300ms) var(--ease-state, ease);
+}
+.floorGlow {
+  opacity: 0;
+  mix-blend-mode: screen;
+  transition: opacity 180ms ease;
+}
+[data-floor][data-dim="true"] .floorVeil {
+  opacity: 0.6;
+}
+.sceneFade {
+  display: none;
+}
+.tickRail {
+  display: none;
+}
+
+.hero {
+  position: absolute;
+  inset: 0 0 auto;
+  height: calc(100cqw * 3272 / 853 + var(--index-space) + var(--scene-offset));
+  display: flex;
+  flex-direction: column;
+  padding: 0 24px;
+}
+.breadcrumb {
+  margin-top: 73px;
+  font-size: 13px;
+  line-height: 20px;
+}
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+}
+.breadcrumb li + li::before {
+  content: "/" / "";
+  margin: 0 12px;
+  opacity: 0.8;
+}
+.breadcrumb a {
+  display: inline-block;
+  padding-block: 12px;
+  margin-block: -12px;
+}
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 23px;
+  font-size: 15px;
+  line-height: 30px;
+}
+.eyebrowIndex {
+  color: var(--flare, #ff7e15);
+  font-size: 24px;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+.eyebrowRule {
+  width: 2px;
+  height: 16px;
+  background: var(--flare, #ff7e15);
+}
+.title {
+  margin-top: 4px;
+  font: 400 47px/56px var(--serif);
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+.roman {
+  margin-top: 4px;
+  font-size: 9.5px;
+  line-height: 14px;
+  letter-spacing: 0.52em;
+  white-space: nowrap;
+}
+.lead {
+  margin-top: 13px;
+  font-size: 14px;
+  line-height: 26px;
+}
+.leadLine {
+  display: block;
+}
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  min-height: 45px;
+  margin-top: 18px;
+  padding: 8px 20px;
+  background: var(--flare, #ff7e15);
+  color: #0e1118;
+  font-size: 16px;
+  line-height: 24px;
+  transition:
+    background-color 120ms ease,
+    transform 120ms ease;
+}
+.cta:active {
+  transform: translateY(1px);
+}
+.chapterIndex {
+  margin-top: auto;
+  margin-bottom: 33px;
+}
+.chapterIndex ul {
+  border-top: 1px solid rgb(255 255 255 / 20%);
+}
+.chapterIndex li {
+  border-bottom: 1px solid rgb(255 255 255 / 20%);
+}
+.chapterIndex a {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-height: 48px;
+  padding-left: 6px;
+  transition: background-color 120ms ease;
+}
+.chapterIndex a:active {
+  background: rgb(255 255 255 / 6%);
+}
+.indexTitle {
+  font: 400 18px/26px var(--serif);
+}
+.indexNumbers {
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.04em;
+}
+.indexArrow {
+  margin-left: auto;
+  margin-right: 18px;
+  color: var(--flare, #ff7e15);
+  font-size: 18px;
+}
+
+/* ------------------------------------------------------------- chapters */
+
+.chapters {
+  background: var(--night);
+}
+.chapter {
+  position: relative;
+  padding: 0 25px 0 47px;
+}
+.chapter[data-chapter="management-improvement"] {
+  padding-top: 41px;
+}
+.chapter[data-chapter="opening-operations"] {
+  padding-top: 40px;
+  display: grid;
+  grid-template-columns: 129px 1fr;
+  grid-template-areas:
+    "title title"
+    "photo rows";
+  column-gap: 10px;
+  padding-left: 31px;
+}
+.chapter[data-chapter="opening-operations"] .chapterTitle {
+  grid-area: title;
+  padding-left: 16px;
+}
+.chapter[data-chapter="opening-operations"] .photo {
+  grid-area: photo;
+}
+.chapter[data-chapter="opening-operations"] .rows {
+  grid-area: rows;
+}
+.chapter[data-chapter-style="plain"] {
+  padding: 0 15px 0 27px;
+}
+.chapter[data-chapter="operations-improvement"] {
+  padding-top: 91px;
+}
+.chapter[data-chapter="operations-improvement"][data-chapter-style] .chapterTitle {
+  margin-top: 0;
+}
+.chapter[data-chapter="people-recruitment"] {
+  padding-top: 38px;
+  padding-bottom: 40px;
+}
+.photoMeeting {
+  margin: 0 -25px 0 -16px;
+  aspect-ratio: 359 / 197;
+  overflow: hidden;
+}
+.photoThumb {
+  margin-top: 11px;
+  height: 350px;
+  overflow: hidden;
+}
+.photoStaff {
+  margin: 0 -15px 0 0;
+  aspect-ratio: 362 / 191;
+  overflow: hidden;
+}
+.chapterTitle {
+  font: 400 31px/42px var(--serif);
+  letter-spacing: 0.02em;
+}
+.chapter[data-chapter="management-improvement"] .chapterTitle {
+  margin-top: 19px;
+}
+.chapter[data-chapter-style="plain"] .chapterTitle {
+  margin-top: 26px;
+  padding-left: 14px;
+  font-size: 33px;
+}
+.rows {
+  margin-top: 8px;
+}
+.row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 43px 1px 1fr;
+  align-items: center;
+  column-gap: 17px;
+  min-height: 58px;
+  border-top: 1px solid rgb(255 255 255 / 16%);
+}
+.row:first-child {
+  border-top: 0;
+}
+.row::after {
+  content: "";
+  grid-column: 2;
+  grid-row: 1;
+  height: 26px;
+  background: rgb(255 255 255 / 40%);
+}
+.rowNumber {
+  grid-column: 1;
+  grid-row: 1;
+  color: var(--flare, #ff7e15);
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+.rowName {
+  grid-column: 3;
+  grid-row: 1;
+  font-size: 15px;
+  line-height: 24px;
+}
+.rowRule {
+  display: none;
+}
+.chapter[data-chapter="opening-operations"] .row {
+  grid-template-columns: 30px 1px 1fr;
+  column-gap: 14px;
+  min-height: 65px;
+}
+.chapter[data-chapter="opening-operations"] .rowName {
+  font-size: 14px;
+}
+.chapter[data-chapter-style="plain"] .row {
+  grid-template-columns: 44px 1fr;
+  column-gap: 0;
+  min-height: 55px;
+  padding-left: 16px;
+  border-top: 1px solid rgb(255 255 255 / 12%);
+  border-bottom: 0;
+  transition:
+    background-color var(--dur-state, 300ms) ease,
+    color var(--dur-state, 300ms) ease;
+}
+.chapter[data-chapter-style="plain"] .row:last-child {
+  border-bottom: 1px solid rgb(255 255 255 / 12%);
+}
+.chapter[data-chapter-style="plain"] .row::after {
+  display: none;
+}
+.chapter[data-chapter-style="plain"] .rowNumber {
+  color: #c9ccd3;
+  font-size: 17px;
+}
+.chapter[data-chapter-style="plain"] .rowName {
+  grid-column: 2;
+  font-size: 16.5px;
+}
+/* The carousel's room lights its rows; the lobby (06) is the initial state. */
+.chapter[data-active-room="lobby"] [data-row="06"],
+.chapter[data-active-room="restaurant"] :is([data-row="07"], [data-row="08"]),
+.chapter[data-active-room="guest"] [data-row="09"] {
+  background: var(--night-raised);
+  box-shadow: inset 4px 0 0 var(--flare, #ff7e15);
+}
+.chapter[data-active-room="lobby"] [data-row="06"] .rowNumber,
+.chapter[data-active-room="restaurant"]
+  :is([data-row="07"], [data-row="08"])
+  .rowNumber,
+.chapter[data-active-room="guest"] [data-row="09"] .rowNumber {
+  color: var(--flare, #ff7e15);
+}
+
+/* Photograph edge flash after arriving from the chapter index. */
+[data-arrived] .photo {
+  animation: edge-flash 900ms var(--ease-reveal, ease) 1;
+}
+@keyframes edge-flash {
+  0% {
+    box-shadow: 0 0 0 0 rgb(255 126 21 / 0%);
+  }
+  30% {
+    box-shadow: 0 0 0 2px rgb(255 126 21 / 90%);
+  }
+  100% {
+    box-shadow: 0 0 0 2px rgb(255 126 21 / 0%);
+  }
+}
+
+/* ------------------------------------------------------------ carousel */
+
+.carousel {
+  margin: 0 -15px 0 12px;
+}
+.track {
+  display: flex;
+  gap: 13px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding-right: 64px;
+  overscroll-behavior-x: contain;
+}
+.track::-webkit-scrollbar {
+  display: none;
+}
+.slide {
+  flex: 0 0 273px;
+  aspect-ratio: 273 / 200;
+  scroll-snap-align: start;
+  overflow: hidden;
+  border-radius: 2px;
+}
+.slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.carouselControls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 6px;
+  margin-right: 64px;
+}
+.carouselButton {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  background: transparent;
+  color: rgb(255 255 255 / 80%);
+  cursor: pointer;
+}
+.carouselButton[aria-disabled="true"] {
+  color: rgb(255 255 255 / 25%);
+  cursor: default;
+}
+.carouselButton svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+}
+.dots {
+  display: flex;
+  gap: 8px;
+}
+.dots li {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 28%);
+  transition: background-color var(--dur-state, 300ms) ease;
+}
+.dots li[data-active] {
+  background: var(--flare, #ff7e15);
+}
+
+/* ---------------------------------------------------------- boundaries */
+
+.boundaries {
+  position: relative;
+  container-type: inline-size;
+  background: var(--paper);
+  color: #1f2a44;
+}
+.boundariesInner {
+  padding: 42px 20px 72px;
+}
+.limestone {
+  display: none;
+}
+.boundariesTitle {
+  font: 400 29px/40px var(--serif);
+}
+.pairs {
+  margin-top: 18px;
+  border-top: 1px solid var(--paper-rule);
+}
+.pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  border-bottom: 1px solid var(--paper-rule);
+}
+.pairItem {
+  padding: 16px 0 16px 3px;
+}
+.pairItem + .pairItem {
+  border-left: 1px solid var(--paper-rule);
+  margin-block: 12px;
+  padding-block: 4px 4px;
+  padding-left: 14px;
+}
+.pairItem dt {
+  display: grid;
+  grid-template-columns: 29px 1fr;
+  align-items: baseline;
+  font-size: 12px;
+  line-height: 22px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.pairNumber {
+  font-size: 15px;
+  font-weight: 600;
+}
+.pairItem dd {
+  margin-top: 8px;
+  padding-left: 29px;
+  color: var(--paper-muted);
+  font-size: 12px;
+  line-height: 18px;
+}
+.note {
+  margin-top: 24px;
+  padding-left: 3px;
+  font-size: 12px;
+  line-height: 21px;
+  max-width: 15em;
+}
+
+/* ------------------------------------------------------------- process */
+
+.process {
+  position: relative;
+  background: var(--stone);
+}
+.stage {
+  position: relative;
+  width: min(100%, 600px);
+  margin-inline: auto;
+  aspect-ratio: 853 / 3348;
+  container-type: inline-size;
+  overflow: hidden;
+  background: #0a0d12;
+  --m: calc(100cqw / 853);
+  /* The finished (06) state; scripts rewind it only when motion is allowed. */
+  --cabin-y: 804;
+  --m-cabin-y: 2680;
+  --door: 1;
+  --dawn: 1;
+}
+.plate {
+  position: absolute;
+  inset: 0;
+}
+.layers {
+  display: none;
+}
+.mobileLayers {
+  position: absolute;
+  inset: 0;
+}
+.mobileBase {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.mobileShaft {
+  position: absolute;
+  left: calc(64 * var(--m));
+  top: calc(716 * var(--m));
+  width: calc(372 * var(--m));
+  height: calc(1964 * var(--m));
+  overflow: hidden;
+}
+.mobileShaftWindow {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  transform: translateY(calc((var(--m-cabin-y) - 2680) * var(--m)));
+}
+.mobileShaftWindow img {
+  position: absolute;
+  left: calc(-24 * var(--m));
+  top: calc(-26 * var(--m));
+  width: calc(420 * var(--m));
+  height: calc(2020 * var(--m));
+  max-width: none;
+  transform: translateY(calc((2680 - var(--m-cabin-y)) * var(--m)));
+}
+.mobileDawn {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(2640 * var(--m));
+  bottom: 0;
+  background:
+    radial-gradient(
+      ellipse 60% 45% at 50% 62%,
+      rgb(255 214 150 / 42%),
+      rgb(255 170 90 / 0%) 70%
+    ),
+    linear-gradient(to top, rgb(255 190 120 / 16%), rgb(255 190 120 / 0%) 60%);
+  mix-blend-mode: screen;
+  opacity: var(--dawn);
+  pointer-events: none;
+}
+.mobileCabin {
+  position: absolute;
+  left: calc((251 - 171.5) * var(--m));
+  top: 0;
+  width: calc(343 * var(--m));
+  height: calc(343 * var(--m));
+  max-width: none;
+  mix-blend-mode: screen;
+  transform: translateY(calc((var(--m-cabin-y) - 171.5) * var(--m)));
+  opacity: 0;
+}
+.mobileLandings {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.landingLine {
+  stroke: rgb(214 219 228 / 58%);
+  stroke-width: 2;
+  transition: stroke var(--dur-state, 300ms) ease;
+}
+.mobileLandings .landingLine {
+  stroke-width: 3;
+}
+.landingGlow {
+  stroke: var(--flare, #ff7e15);
+  stroke-width: 7;
+  stroke-linecap: round;
+  opacity: 0;
+  transition: opacity var(--dur-state, 300ms) ease;
+}
+.landingDot {
+  fill: rgb(214 219 228 / 80%);
+  transition: fill var(--dur-state, 300ms) ease;
+}
+.landingHalo {
+  opacity: 0;
+  transition: opacity var(--dur-state, 300ms) ease;
+}
+.landing[data-state="current"] .landingLine {
+  stroke: #ffb46e;
+}
+.landing[data-state="current"] .landingGlow {
+  opacity: 0.45;
+  animation: arrive 600ms ease-out 1;
+}
+.landing[data-state="current"] .landingDot {
+  fill: #fff4e6;
+}
+.landing[data-state="current"] .landingHalo {
+  opacity: 1;
+}
+@keyframes arrive {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.45;
+  }
+}
+
+.processIntro {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.processIntro > * {
+  pointer-events: auto;
+}
+.processHeading {
+  position: absolute;
+  left: calc(59 * var(--m));
+  top: calc(72 * var(--m));
+}
+.processTitle {
+  writing-mode: vertical-rl;
+  font: 400 calc(94 * var(--m)) / 1 var(--serif);
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+.headingRule {
+  position: absolute;
+  left: calc(111 * var(--m));
+  top: calc(5 * var(--m));
+  width: 2px;
+  height: calc(573 * var(--m));
+  background: var(--flare, #ff7e15);
+  transform-origin: top;
+}
+.headingRule i {
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  border-radius: 50%;
+  background: var(--flare, #ff7e15);
+}
+.processLead {
+  position: absolute;
+  left: calc(235 * var(--m));
+  top: calc(84 * var(--m));
+  font: 400 calc(50 * var(--m)) / calc(82 * var(--m)) var(--serif);
+  white-space: nowrap;
+}
+.processBody {
+  position: absolute;
+  left: calc(238 * var(--m));
+  top: calc(371 * var(--m));
+  font-size: max(13px, calc(30.6 * var(--m)));
+  line-height: calc(52.5 * var(--m));
+  white-space: nowrap;
+}
+.steps {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.step {
+  position: absolute;
+  left: calc(455 * var(--m));
+  top: calc(var(--m-landing) * var(--m));
+  width: calc(390 * var(--m));
+  pointer-events: auto;
+}
+.stepNumber {
+  position: absolute;
+  left: 0;
+  top: calc(-52 * var(--m));
+  font: 300 calc(82 * var(--m)) / 1 var(--serif);
+  letter-spacing: -0.02em;
+  transition: color var(--dur-state, 300ms) ease;
+}
+.stepHead {
+  position: absolute;
+  left: calc(100 * var(--m));
+  top: calc(-34 * var(--m));
+  display: flex;
+  align-items: center;
+  gap: calc(16 * var(--m));
+  white-space: nowrap;
+}
+.stepName {
+  font: 400 calc(35 * var(--m)) / calc(42 * var(--m)) var(--serif);
+  transform-origin: left center;
+  transition:
+    color var(--dur-state, 300ms) ease,
+    transform var(--dur-state, 300ms) var(--ease-state, ease);
+}
+.check {
+  flex: none;
+  width: calc(34 * var(--m));
+  height: calc(34 * var(--m));
+  opacity: 1;
+  transition: opacity 200ms ease;
+}
+.check circle {
+  fill: var(--flare, #ff7e15);
+}
+.check path {
+  fill: none;
+  stroke: #1a0d02;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 200ms ease;
+}
+.tags {
+  position: absolute;
+  left: calc(97 * var(--m));
+  top: calc(33 * var(--m));
+  width: calc(300 * var(--m));
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(9 * var(--m));
+}
+.tags li {
+  padding: 0 calc(14 * var(--m));
+  border: 1px solid rgb(255 255 255 / 30%);
+  background: rgb(12 16 22 / 55%);
+  font-size: max(12px, calc(26 * var(--m)));
+  line-height: calc(42 * var(--m));
+  white-space: nowrap;
+  transition:
+    color var(--dur-state, 300ms) ease,
+    border-color var(--dur-state, 300ms) ease;
+}
+.processLink {
+  position: absolute;
+  left: calc(494 * var(--m));
+  top: calc(2562 * var(--m));
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  font-size: 14px;
+  line-height: 24px;
+  white-space: nowrap;
+  border-bottom: 2px solid var(--flare, #ff7e15);
+}
+.processLink .arrow {
+  color: var(--flare, #ff7e15);
+}
+
+/* Step states: passed (ivory + check), current, upcoming (dimmed but AA). */
+.step[data-state="passed"] .stepNumber,
+.step[data-state="passed"] .stepName {
+  color: var(--paper);
+}
+.step[data-state="current"] .stepNumber {
+  color: var(--flare, #ff7e15);
+}
+.step[data-state="current"] .stepName {
+  color: #fff;
+  transform: scale(1.28);
+}
+.step[data-state="current"] .tags li {
+  border-color: rgb(255 170 100 / 75%);
+  animation: tag-reveal 400ms var(--ease-reveal, ease) 1 both;
+}
+.step:not([data-state="passed"]) .check {
+  opacity: 0;
+}
+.step:not([data-state="passed"]) .check path {
+  stroke-dashoffset: 1;
+}
+.step[data-state="upcoming"] .stepNumber {
+  color: var(--number-dim);
+}
+.step[data-state="upcoming"] .stepName {
+  color: var(--text-dim);
+}
+.step[data-state="upcoming"] .tags li {
+  color: var(--tag-dim);
+  border-color: rgb(255 255 255 / 16%);
+}
+@keyframes tag-reveal {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0);
+  }
+}
+
+/* ----------------------------------------------------------- audiences */
+
+.audiences {
+  position: relative;
+  container-type: inline-size;
+  background: #f3f1ed;
+  color: #1f2a44;
+}
+.audiences ul {
+  padding: 0 20px;
+}
+.audiences li + li {
+  border-top: 1px solid #c6c4bf;
+}
+.audienceLink {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  min-height: 75px;
+  padding-left: 5px;
+  font: 400 21px/30px var(--serif);
+  transition: background-color 120ms ease;
+}
+.audienceLink:active {
+  background: rgb(31 42 68 / 5%);
+}
+
+/* ============================================================= tablet */
+
+@media (min-width: 600px) {
+  .map {
+    --index-space: 250px;
+    /* The descent starts below the heading: the tablet frame has less sky. */
+    --scene-offset: 190px;
+  }
+  .scene {
+    aspect-ratio: 1536 / 2304;
+    mask-image: linear-gradient(to bottom, transparent, #000 160px);
+  }
+  .mapOverlay {
+    display: block;
+  }
+  .mobileFloors,
+  .leader,
+  .dot,
+  .dotHalo,
+  .bracket {
+    display: none;
+  }
+  .sceneFade {
+    display: block;
+    position: absolute;
+    inset: 72% 0 0;
+    background: linear-gradient(to bottom, rgb(12 16 24 / 0%), var(--night));
+  }
+  .hero {
+    height: calc(100cqw * 2304 / 1536 + var(--index-space) + var(--scene-offset));
+    padding: 0 40px;
+  }
+  .breadcrumb {
+    margin-top: 110px;
+    font-size: 15px;
+  }
+  .title {
+    font-size: 56px;
+    line-height: 68px;
+  }
+  .roman {
+    font-size: 12px;
+  }
+  .lead {
+    font-size: 17px;
+    line-height: 30px;
+    max-width: 22em;
+  }
+  .cta {
+    align-self: flex-start;
+    min-width: 280px;
+    min-height: 56px;
+  }
+  .chapterIndex {
+    width: min(100%, 640px);
+    margin-inline: auto;
+  }
+  .chapters {
+    padding-bottom: 40px;
+  }
+  .chapter,
+  .chapter[data-chapter-style="plain"],
+  .chapter[data-chapter="opening-operations"] {
+    width: min(100% - 80px, 640px);
+    margin-inline: auto;
+    padding-inline: 0;
+  }
+  .photoMeeting,
+  .photoStaff {
+    margin-inline: 0;
+  }
+  .carousel {
+    margin-inline: 0;
+  }
+  .slide {
+    flex-basis: 420px;
+    aspect-ratio: 3 / 2;
+  }
+  .boundariesInner {
+    width: min(100% - 80px, 720px);
+    margin-inline: auto;
+    padding-inline: 0;
+  }
+  .note {
+    max-width: none;
+  }
+  .audiences ul {
+    width: min(100% - 80px, 720px);
+    margin-inline: auto;
+    padding: 0;
+  }
+}
+
+/* ============================================================ desktop */
+
+@media (min-width: 1024px) {
+  .map {
+    --index-space: 0px;
+    --scene-offset: 0px;
+  }
+  .scene {
+    width: min(100%, 1920px);
+    margin-inline: auto;
+    mask-image: none;
+  }
+  .leader,
+  .dot,
+  .dotHalo,
+  .bracket {
+    display: inline;
+  }
+  .sceneFade {
+    display: none;
+  }
+  .leader,
+  .bracket {
+    fill: none;
+    stroke: var(--flare, #ff7e15);
+    stroke-width: 2.4;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+  }
+  .dot {
+    fill: var(--flare, #ff7e15);
+  }
+  .dotHalo {
+    fill: rgb(255 126 21 / 22%);
+  }
+  .tickRail {
+    display: block;
+    position: absolute;
+    left: calc(var(--x0) + 28 * var(--u));
+    top: calc(416 * var(--u));
+    bottom: 0;
+    width: calc(17 * var(--u));
+  }
+  .ticks {
+    position: sticky;
+    top: calc(50svh - 48px);
+    display: grid;
+    gap: calc(30 * var(--u));
+  }
+  .ticks li {
+    height: 2px;
+    background: rgb(255 255 255 / 45%);
+    transition: background-color var(--dur-state, 300ms) ease;
+  }
+  .ticks li[data-current] {
+    background: var(--flare, #ff7e15);
+  }
+
+  .hero {
+    inset: 0 auto auto calc(var(--x0) + 96 * var(--u));
+    width: calc(760 * var(--u));
+    height: calc(700 * var(--u));
+    display: block;
+    padding: 0;
+  }
+  .hero > * {
+    position: absolute;
+    left: 0;
+  }
+  .breadcrumb {
+    top: calc(146 * var(--u));
+    margin: 0;
+    font-size: calc(17 * var(--u));
+    line-height: calc(24 * var(--u));
+  }
+  .breadcrumb li + li::before {
+    margin: 0 calc(16 * var(--u));
+  }
+  .eyebrow {
+    top: calc(229 * var(--u));
+    margin: 0;
+    gap: calc(28 * var(--u));
+    font-size: calc(19 * var(--u));
+    line-height: calc(30 * var(--u));
+  }
+  .eyebrowIndex {
+    font-size: calc(32 * var(--u));
+    line-height: calc(36 * var(--u));
+  }
+  .eyebrowRule {
+    height: calc(19 * var(--u));
+  }
+  .title {
+    top: calc(275 * var(--u));
+    margin: 0;
+    font-size: calc(92 * var(--u));
+    line-height: calc(108 * var(--u));
+    letter-spacing: 0;
+    white-space: nowrap;
+  }
+  .roman {
+    top: calc(400 * var(--u));
+    margin: 0;
+    font-size: calc(15 * var(--u));
+    line-height: calc(20 * var(--u));
+    letter-spacing: 0.55em;
+  }
+  .lead {
+    top: calc(446 * var(--u));
+    margin: 0;
+    max-width: none;
+    font-size: calc(26 * var(--u));
+    line-height: calc(48 * var(--u));
+    white-space: nowrap;
+  }
+  .cta {
+    top: calc(575 * var(--u));
+    width: calc(295 * var(--u));
+    min-width: 0;
+    height: calc(68 * var(--u));
+    min-height: 44px;
+    margin: 0;
+    gap: calc(28 * var(--u));
+    font-size: calc(24 * var(--u));
+  }
+  .chapterIndex {
+    display: none;
+  }
+
+  .chapters {
+    position: absolute;
+    inset: 0;
+    padding: 0;
+    background: none;
+    pointer-events: none;
+  }
+  .chapter,
+  .chapter[data-chapter],
+  .chapter[data-chapter-style="plain"],
+  .chapter[data-chapter="opening-operations"] {
+    position: absolute;
+    left: calc(var(--x0) + 96 * var(--u));
+    top: calc((var(--top) - 10.5) * var(--u));
+    width: calc(560 * var(--u));
+    margin: 0;
+    padding: 0;
+    display: block;
+    pointer-events: auto;
+  }
+  .chapter .photo,
+  .carousel {
+    display: none;
+  }
+  .chapterTitle,
+  .chapter[data-chapter-style="plain"] .chapterTitle,
+  .chapter[data-chapter="opening-operations"] .chapterTitle,
+  .chapter[data-chapter="management-improvement"] .chapterTitle {
+    margin: 0;
+    padding: 0;
+    font-size: calc(44 * var(--u));
+    line-height: calc(56 * var(--u));
+    letter-spacing: 0;
+  }
+  .rows {
+    margin: 0;
+  }
+  .row,
+  .chapter[data-chapter-style="plain"] .row,
+  .chapter[data-chapter="opening-operations"] .row {
+    position: absolute;
+    left: 0;
+    top: calc((var(--row-top) + 2.8) * var(--u));
+    display: flex;
+    align-items: center;
+    gap: 0;
+    min-height: 0;
+    height: calc(36 * var(--u));
+    padding: 0;
+    border: 0;
+    background: none;
+    box-shadow: none;
+    white-space: nowrap;
+  }
+  .row::after,
+  .chapter[data-chapter-style="plain"] .row::after {
+    display: none;
+  }
+  .rowNumber,
+  .chapter[data-chapter-style="plain"] .rowNumber,
+  .chapter[data-active-room] [data-row] .rowNumber {
+    width: calc(62 * var(--u));
+    color: #fff;
+    font-size: calc(26 * var(--u));
+    font-weight: 400;
+    letter-spacing: 0;
+    transition: color 180ms ease;
+  }
+  .rowName,
+  .chapter[data-chapter-style="plain"] .rowName,
+  .chapter[data-chapter="opening-operations"] .rowName {
+    font-size: calc(26 * var(--u));
+    line-height: calc(36 * var(--u));
+    transition: color 180ms ease;
+  }
+  .rowRule {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: calc(-34 * var(--u));
+    bottom: calc(-4 * var(--u));
+    height: 2px;
+    background: var(--flare, #ff7e15);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 180ms cubic-bezier(0.2, 0, 0, 1);
+  }
+
+  .boundaries {
+    height: calc(692 * var(--u));
+  }
+  .boundariesInner {
+    position: absolute;
+    inset: 0 auto 0 var(--x0);
+    width: calc(1440 * var(--u));
+    padding: 0;
+    margin: 0;
+  }
+  .limestone {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: calc(411 * var(--u));
+    height: 100%;
+    overflow: hidden;
+  }
+  .boundariesBody {
+    position: absolute;
+    left: calc(495 * var(--u));
+    top: 0;
+    width: calc(880 * var(--u));
+  }
+  .boundariesTitle {
+    margin-top: calc(62 * var(--u));
+    padding-left: calc(1 * var(--u));
+    font-size: calc(40 * var(--u));
+    line-height: calc(52 * var(--u));
+  }
+  .pairs {
+    margin-top: calc(16 * var(--u));
+    border-top: 0;
+  }
+  .pair {
+    grid-template-columns: calc(443 * var(--u)) 1fr;
+    min-height: calc(156 * var(--u));
+  }
+  .pair:last-child {
+    border-bottom: 0;
+  }
+  .pairItem {
+    padding: calc(28 * var(--u)) 0 0 calc(5 * var(--u));
+  }
+  .pairItem + .pairItem {
+    margin-block: calc(11 * var(--u)) calc(19 * var(--u));
+    padding: calc(17 * var(--u)) 0 0 calc(37 * var(--u));
+  }
+  .pairItem dt {
+    grid-template-columns: calc(62 * var(--u)) 1fr;
+    font-size: calc(28 * var(--u));
+    line-height: calc(36 * var(--u));
+  }
+  .pairItem + .pairItem dt {
+    grid-template-columns: calc(59 * var(--u)) 1fr;
+  }
+  .pairNumber {
+    font-size: calc(28 * var(--u));
+    font-weight: 500;
+  }
+  .pairItem dd {
+    white-space: nowrap;
+    margin-top: calc(21 * var(--u));
+    padding-left: calc(62 * var(--u));
+    font-size: max(13px, calc(20 * var(--u)));
+    line-height: calc(28 * var(--u));
+  }
+  .pairItem + .pairItem dd {
+    padding-left: calc(59 * var(--u));
+  }
+  .note {
+    margin-top: calc(14 * var(--u));
+    padding-left: calc(4 * var(--u));
+    font-size: max(13px, calc(19 * var(--u)));
+    line-height: calc(28 * var(--u));
+  }
+
+  /* The pinned stage: one viewport, clear of the fixed header (84px). */
+  .stage {
+    width: 100%;
+    height: 100svh;
+    min-height: 620px;
+    aspect-ratio: auto;
+    container-type: size;
+    background: #07090c;
+  }
+  .plate {
+    --p: min(calc((100cqh - 84px) / 968), calc(100cqw / 1480));
+    inset: auto auto 0 calc(50% - 768 * var(--p));
+    width: calc(1536 * var(--p));
+    height: calc(1024 * var(--p));
+  }
+  .mobileLayers {
+    display: none;
+  }
+  .layers {
+    display: block;
+    position: absolute;
+    inset: 0;
+  }
+  .layers img {
+    max-width: none;
+  }
+  .layerBase {
+    position: absolute;
+    left: calc(-256 * var(--p));
+    top: calc(-262 * var(--p));
+    width: calc(2048 * var(--p));
+    height: calc(1286 * var(--p));
+  }
+  /* L1 inside the shaft columns, revealed from the top down to the cabin. */
+  .shaft {
+    position: absolute;
+    left: calc(668 * var(--p));
+    top: calc(-262 * var(--p));
+    width: calc(294 * var(--p));
+    height: calc(962 * var(--p));
+    overflow: hidden;
+  }
+  .shaftWindow {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    transform: translateY(calc((min(var(--cabin-y), 700) - 700) * var(--p)));
+  }
+  .shaftWindow img {
+    position: absolute;
+    left: calc(-924 * var(--p));
+    top: 0;
+    width: calc(2048 * var(--p));
+    height: calc(1286 * var(--p));
+    transform: translateY(calc((700 - min(var(--cabin-y), 700)) * var(--p)));
+  }
+  /* L1's warm lower third, around (not through) the doorway. */
+  .dawn {
+    position: absolute;
+    left: calc(-256 * var(--p));
+    top: calc(700 * var(--p));
+    width: calc(2048 * var(--p));
+    height: calc(324 * var(--p));
+    overflow: hidden;
+    opacity: var(--dawn);
+    clip-path: polygon(
+      evenodd,
+      0 0,
+      100% 0,
+      100% 100%,
+      0 100%,
+      0 0,
+      calc(956 * var(--p)) 0,
+      calc(1186 * var(--p)) 0,
+      calc(1186 * var(--p)) calc(266 * var(--p)),
+      calc(956 * var(--p)) calc(266 * var(--p)),
+      calc(956 * var(--p)) 0
+    );
+    mask-image: linear-gradient(to bottom, transparent, #000 calc(90 * var(--p)));
+  }
+  .dawn img {
+    position: absolute;
+    left: 0;
+    top: calc(-962 * var(--p));
+    width: calc(2048 * var(--p));
+    height: calc(1286 * var(--p));
+  }
+  /* The doorway opens from its centre outwards. */
+  .door {
+    position: absolute;
+    left: calc(700 * var(--p));
+    top: calc(700 * var(--p));
+    width: calc(230 * var(--p));
+    height: calc(266 * var(--p));
+    overflow: hidden;
+    clip-path: inset(0 calc(50% * (1 - var(--door))) 0 calc(50% * (1 - var(--door))));
+  }
+  .door img {
+    position: absolute;
+    left: calc(-956 * var(--p));
+    top: calc(-962 * var(--p));
+    width: calc(2048 * var(--p));
+    height: calc(1286 * var(--p));
+  }
+  .cabin {
+    position: absolute;
+    left: calc((819 - 117.5) * var(--p));
+    top: 0;
+    width: calc(235 * var(--p));
+    height: calc(235 * var(--p));
+    mix-blend-mode: screen;
+    transform: translateY(calc((var(--cabin-y) - 117.5) * var(--p)));
+    opacity: calc(1 - var(--door));
+  }
+  .landings {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .processHeading {
+    left: calc(67 * var(--p));
+    top: calc(122 * var(--p));
+  }
+  .processTitle {
+    font-size: calc(85.3 * var(--p));
+  }
+  .headingRule {
+    left: calc(97 * var(--p));
+    top: calc(5 * var(--p));
+    height: calc(505 * var(--p));
+  }
+  .processLead {
+    left: calc(198 * var(--p));
+    top: calc(125 * var(--p));
+    font-size: calc(30.9 * var(--p));
+    line-height: calc(49 * var(--p));
+    font-feature-settings: "palt" 1;
+  }
+  .processBody {
+    left: calc(198 * var(--p));
+    top: calc(268 * var(--p));
+    font-size: max(13px, calc(20.3 * var(--p)));
+    line-height: calc(34 * var(--p));
+  }
+  .processLink {
+    left: calc(202 * var(--p));
+    top: calc(546 * var(--p));
+    gap: calc(18 * var(--p));
+    font-size: calc(25.6 * var(--p));
+    line-height: calc(40 * var(--p));
+    padding-bottom: calc(4 * var(--p));
+  }
+  .step {
+    left: calc(1047 * var(--p));
+    top: calc(var(--landing) * var(--p));
+    width: calc(440 * var(--p));
+  }
+  .stepNumber {
+    top: calc(-36.7 * var(--p));
+    font-size: calc(72.5 * var(--p));
+  }
+  .stepHead {
+    left: calc(103 * var(--p));
+    top: calc(-32.7 * var(--p));
+    gap: calc(18 * var(--p));
+  }
+  .stepName {
+    font-size: calc(38.4 * var(--p));
+    line-height: calc(46 * var(--p));
+  }
+  .check {
+    width: calc(26 * var(--p));
+    height: calc(26 * var(--p));
+  }
+  .tags {
+    left: calc(103 * var(--p));
+    top: calc(26 * var(--p));
+    width: calc(340 * var(--p));
+    gap: calc(9 * var(--p));
+  }
+  /* The current name grows, so its tags step down (keyframe 04: +6p). */
+  .step[data-state="current"] .tags {
+    transform: translateY(calc(6 * var(--p)));
+  }
+  .tags {
+    transition: transform var(--dur-state, 300ms) var(--ease-state, ease);
+  }
+  .tags li {
+    padding: 0 calc(12 * var(--p));
+    font-size: max(12px, calc(15 * var(--p)));
+    line-height: calc(31 * var(--p));
+  }
+
+  .audiences {
+    height: calc(131 * var(--u));
+  }
+  .audiences ul {
+    position: absolute;
+    inset: 0 auto 0 var(--x0);
+    width: calc(1440 * var(--u));
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+  .audiences li {
+    display: flex;
+    justify-content: center;
+  }
+  .audiences li + li {
+    border-top: 0;
+    border-left: 1px solid #b9b7b2;
+    height: calc(69 * var(--u));
+    align-items: center;
+  }
+  .audienceLink {
+    min-height: 44px;
+    gap: calc(26 * var(--u));
+    padding: 0 calc(8 * var(--u));
+    font-size: calc(34 * var(--u));
+    line-height: calc(48 * var(--u));
+    border-bottom: 1px solid transparent;
+    transition:
+      border-color 180ms ease,
+      background-color 120ms ease;
+  }
+  .audienceLink:is(:hover, :focus-visible) {
+    border-bottom-color: #1f2a44;
+  }
+  .audienceLink:is(:hover, :focus-visible) .arrow {
+    transform: translateX(4px);
+  }
+  .desktopBreak {
+    display: inline;
+  }
+  .mobileBreak {
+    display: none;
+  }
+}
+
+/* Rows light their room only for a precise pointer: an auxiliary cue. */
+@media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
+  .row:hover .rowNumber,
+  .row:hover .rowName {
+    color: var(--flare, #ff7e15);
+  }
+  .row:hover .rowRule {
+    transform: scaleX(1);
+  }
+  .map:has([data-row="01"]:hover, [data-row="02"]:hover)
+    [data-floor="meeting"]
+    .floorGlow,
+  .map:has([data-row="06"]:hover) [data-floor="lobby"] .floorGlow,
+  .map:has([data-row="07"]:hover, [data-row="08"]:hover)
+    [data-floor="restaurant"]
+    .floorGlow,
+  .map:has([data-row="09"]:hover) [data-floor="guest"] .floorGlow,
+  .map:has([data-row="10"]:hover) [data-floor="staff"] .floorGlow,
+  .map:has([data-chapter="opening-operations"] .row:hover) .floorGlow {
+    opacity: 1;
+  }
+  .map:has([data-row="01"]:hover) [data-leader="01"] .leader,
+  .map:has([data-row="02"]:hover) [data-leader="02"] .leader,
+  .map:has([data-row="06"]:hover) [data-leader="06"] .leader,
+  .map:has([data-row="07"]:hover) [data-leader="07"] .leader,
+  .map:has([data-row="08"]:hover) [data-leader="08"] .leader,
+  .map:has([data-row="09"]:hover) [data-leader="09"] .leader,
+  .map:has([data-row="10"]:hover) [data-leader="10"] .leader {
+    stroke: #ffb46e;
+    stroke-width: 3.4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .landing[data-state="current"] .landingGlow,
+  .step[data-state="current"] .tags li,
+  [data-arrived] .photo {
+    animation: none;
+  }
+}
+
+/*
+ * While the process stage is pinned, the shared header keeps protecting its
+ * own labels (full veil inside the bar) but stops feathering the veil down
+ * over the stage, whose first landing sits right under the bar. Scoped to this
+ * page by the attribute the motion layer sets on <html> during the pin.
+ */
+:global(html[data-mo-stage="pinned"])
+  :global(header[data-fidelity-landmark="header-nav"]) {
+  --nav-veil-feather: 0px;
+}

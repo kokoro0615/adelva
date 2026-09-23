@@ -1,0 +1,35 @@
+{
+  "id": "D-building-3",
+  "tool": "built-in image_gen",
+  "prompt": "Edit this image into the last part of the same clean, text-free photographic plate. The top band of the image, from the top edge down to about 37% of the height, is already clean and final: keep it exactly as it is — the same pixels, positions, scale and colours. Below that band the image still shows a web-page mock drawn over the photograph.\nContinue the photograph downward seamlessly from the top band, at exactly the same scale, horizontal position and lighting: the cutaway hotel on the right continues — the guest-room floor with crisp white beds, bedside lamps and a linen trolley, then the staff room with wooden lockers and a small table — each floor separated by crisp concrete slabs; the slim orange-glowing lift core continues straight down at exactly the same x position and width and ends at the lowest slab; below the building the rough granite foundation and cliff continue, with a few dark pines. Towards the bottom edge the rock gradually darkens into flat deep navy-black #0e1118 over roughly the last 8% of the height — a soft vertical fade with no horizontal edge.\nRemove every non-photographic overlay below the top band and fill it with what would be behind it: all Japanese text and numbers, every thin orange line and bracket, every round orange dot. Where text sat over the dark background on the left, continue the dark cliff and night forest naturally.\nKeep the rooms, furniture, floor positions and building edges where they are in the input. Redraw the photographic detail sharply at full resolution.\nNo text, letters, numbers, logos, lines, dots, icons or UI. No people. Landscape 3:2, the same size as the input.",
+  "prompt_file": "assets/source/generated/adelva/management-operations-2026-09-24/prompts/D-building-3.txt",
+  "inputs": [
+    {
+      "path": "assets/source/generated/adelva/management-operations-2026-09-24/inputs/D-building-3-canvas.png",
+      "role": "edit canvas (top 384 rows = clean joined D-building-1+2 rows 1280–1664; below = band1-1536 rows 1664–2304)"
+    }
+  ],
+  "generated_original_path": "/home/kokoro/.codex/generated_images/01a0cf6c-527e-7c20-a2ef-eec31e03be3e/exec-6c1a57c4-a3de-4074-9022-6c52c9a11488.png",
+  "width": 1536,
+  "height": 1024,
+  "bytes": 2290022,
+  "sha256": "ef6791dfb4d330960bb77acf78e162dcf661bcbe3550b7240e18a4147df86dd4",
+  "attempts": [
+    {
+      "attempt": 1,
+      "generated_original_path": "/home/kokoro/.codex/generated_images/01a0cf6c-527e-7c20-a2ef-eec31e03be3e/exec-6c1a57c4-a3de-4074-9022-6c52c9a11488.png",
+      "saved": true,
+      "technically_usable": true
+    }
+  ],
+  "observations": [
+    "Inspected the generated original at full 1536x1024 resolution.",
+    "No visible text, letters, numbers, logos, icons, UI, or people.",
+    "No visible orange annotation leader lines, brackets, or round annotation dots.",
+    "Photographic lines remain: orange vertical lift illumination, slab edges, window frames, furniture edges and locker seams. Small dark dot-like locker fittings and points of room light remain.",
+    "Guest rooms, linen trolley, staff room, lockers, table, concrete slabs, cliff and forest are visible; the lower edge fades into a dark background.",
+    "A faint vertical tonal seam is visible in the left forest near x=285 in the lower half.",
+    "Exact pixel preservation of the top band has not been established.",
+    "Saved by plain file copy; destination bytes match generated original."
+  ]
+}

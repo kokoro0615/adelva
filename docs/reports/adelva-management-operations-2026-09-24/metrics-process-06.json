@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "label": "process-06",
+  "reference": "/home/kokoro/projects/clients/clonetest/artifacts/adelva-management-operations/fidelity/frames/process-06-reference.png",
+  "actual": "/home/kokoro/projects/clients/clonetest/artifacts/adelva-management-operations/fidelity/frames/process-06-actual.png",
+  "mapping": {
+    "referenceRaster": {
+      "width": 1536,
+      "height": 1024
+    },
+    "implementationRaster": {
+      "width": 1536,
+      "height": 1024
+    },
+    "referencePixelsPerCssPixel": {
+      "x": 1,
+      "y": 1
+    },
+    "aspectDelta": 0
+  },
+  "metrics": {
+    "mae": 0.060814532111672794,
+    "rmse": 0.15899302568137905,
+    "diffRatio": 0.0948486328125,
+    "edgeMae": 0.023362821779497087
+  },
+  "thresholds": {
+    "pixelThreshold": 0.1
+  },
+  "status": "MEASURED",
+  "failures": [],
+  "artifacts": {
+    "overlay": "/home/kokoro/projects/clients/clonetest/artifacts/adelva-management-operations/fidelity/process-06-overlay.png",
+    "difference": "/home/kokoro/projects/clients/clonetest/artifacts/adelva-management-operations/fidelity/process-06-difference.png",
+    "sideBySide": "/home/kokoro/projects/clients/clonetest/artifacts/adelva-management-operations/fidelity/process-06-side-by-side.png"
+  }
+}

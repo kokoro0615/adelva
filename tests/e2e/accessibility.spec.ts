@@ -10,6 +10,7 @@ const representativeRoutes = [
   "/prices",
   "/enquire",
   "/legal/privacy-policy",
+  "/services/management-operations",
 ];
 
 for (const route of representativeRoutes) {

@@ -1,0 +1,38 @@
+{
+  "measured": "2026-09-24",
+  "dawnMax": 0.85,
+  "results": [
+    {
+      "viewport": "1440x960",
+      "state": "current",
+      "nameColor": "rgb(255, 255, 255)",
+      "tagColor": "rgb(255, 255, 255)",
+      "nameContrast": 15.65,
+      "tagContrast": 16.94
+    },
+    {
+      "viewport": "1440x900",
+      "state": "current",
+      "nameColor": "rgb(255, 255, 255)",
+      "tagColor": "rgb(255, 255, 255)",
+      "nameContrast": 15.77,
+      "tagContrast": 16.97
+    },
+    {
+      "viewport": "1280x800",
+      "state": "current",
+      "nameColor": "rgb(255, 255, 255)",
+      "tagColor": "rgb(255, 255, 255)",
+      "nameContrast": 15.65,
+      "tagContrast": 16.94
+    },
+    {
+      "viewport": "1920x1080",
+      "state": "current",
+      "nameColor": "rgb(255, 255, 255)",
+      "tagColor": "rgb(255, 255, 255)",
+      "nameContrast": 15.77,
+      "tagContrast": 16.97
+    }
+  ]
+}

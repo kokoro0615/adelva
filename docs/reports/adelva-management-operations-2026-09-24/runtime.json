@@ -1,0 +1,195 @@
+{
+  "measured": "2026-09-23T19:52:33.452Z",
+  "snapping": {
+    "forward": [
+      {
+        "t": 0.992,
+        "onLanding": true,
+        "progress": "2",
+        "lenis": true,
+        "pinned": true
+      },
+      {
+        "t": 2,
+        "onLanding": true,
+        "progress": "3",
+        "lenis": true,
+        "pinned": true
+      },
+      {
+        "t": 3,
+        "onLanding": true,
+        "progress": "4",
+        "lenis": true,
+        "pinned": true
+      },
+      {
+        "t": 4,
+        "onLanding": true,
+        "progress": "5",
+        "lenis": true,
+        "pinned": true
+      },
+      {
+        "t": 5,
+        "onLanding": true,
+        "progress": "6",
+        "lenis": true,
+        "pinned": true
+      },
+      {
+        "t": 5.5,
+        "onLanding": true,
+        "progress": "6",
+        "lenis": true,
+        "pinned": true
+      },
+      {
+        "t": 6,
+        "onLanding": true,
+        "progress": "6",
+        "lenis": true,
+        "pinned": false
+      }
+    ],
+    "backward": [
+      {
+        "t": 5.5,
+        "onLanding": true,
+        "progress": "6",
+        "lenis": true,
+        "pinned": true
+      },
+      {
+        "t": 5,
+        "onLanding": true,
+        "progress": "6",
+        "lenis": true,
+        "pinned": true
+      },
+      {
+        "t": 4,
+        "onLanding": true,
+        "progress": "5",
+        "lenis": true,
+        "pinned": true
+      },
+      {
+        "t": 3,
+        "onLanding": true,
+        "progress": "4",
+        "lenis": true,
+        "pinned": true
+      },
+      {
+        "t": 2,
+        "onLanding": true,
+        "progress": "3",
+        "lenis": true,
+        "pinned": true
+      },
+      {
+        "t": 1,
+        "onLanding": true,
+        "progress": "2",
+        "lenis": true,
+        "pinned": true
+      },
+      {
+        "t": 0,
+        "onLanding": true,
+        "progress": "1",
+        "lenis": true,
+        "pinned": true
+      }
+    ],
+    "midJump": {
+      "t": 3,
+      "onLanding": true,
+      "progress": "4",
+      "lenis": true,
+      "pinned": true
+    },
+    "end": {
+      "atBottom": true
+    },
+    "home": {
+      "scrollY": 0
+    },
+    "beforeResize": {
+      "t": 2,
+      "onLanding": true,
+      "progress": "3",
+      "lenis": true,
+      "pinned": true
+    },
+    "afterResize": {
+      "t": 2,
+      "onLanding": true,
+      "progress": "3",
+      "lenis": true,
+      "pinned": true
+    },
+    "afterRestore": {
+      "t": 2,
+      "onLanding": true,
+      "progress": "3",
+      "lenis": true,
+      "pinned": true
+    },
+    "beforeLeave": {
+      "t": 4,
+      "onLanding": true,
+      "progress": "5",
+      "lenis": true,
+      "pinned": true
+    },
+    "afterBack": {
+      "t": 4,
+      "onLanding": true,
+      "progress": "5",
+      "lenis": true,
+      "pinned": true
+    }
+  },
+  "performance": {
+    "cpuThrottle": 4,
+    "frames": 289,
+    "p50": 16.8,
+    "p95": 50,
+    "over33ms": 40,
+    "longTasks": [81, 50, 55]
+  },
+  "lcp": {
+    "desktop": {
+      "ms": 556,
+      "element": "H1",
+      "url": null,
+      "preloaded": [
+        {
+          "href": null,
+          "media": "(min-width: 600px)"
+        },
+        {
+          "href": "/media/adelva/management-operations/m-hero.webp",
+          "media": "(max-width: 599.98px)"
+        }
+      ]
+    },
+    "mobile": {
+      "ms": 464,
+      "element": "H1",
+      "url": null,
+      "preloaded": [
+        {
+          "href": null,
+          "media": "(min-width: 600px)"
+        },
+        {
+          "href": "/media/adelva/management-operations/m-hero.webp",
+          "media": "(max-width: 599.98px)"
+        }
+      ]
+    }
+  }
+}

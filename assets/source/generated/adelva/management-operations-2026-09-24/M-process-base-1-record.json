@@ -1,0 +1,37 @@
+{
+  "id": "M-process-base-1",
+  "tool": "built-in image_gen",
+  "prompt": "Edit this image into a clean, text-free photographic plate of the same scene. The upper part is a dark, finely textured stone wall with faint vertical slats at the right. Below it, a tall glass-and-bronze lift shaft stands on the left half of the frame, seen straight on, with landings at regular intervals, set into a dark stone wall.\n1. Remove every web-page overlay and fill with the surface behind it: the large vertical Japanese heading, the thin orange vertical line with its dot, all Japanese paragraphs, the numbers 01–03, the Japanese step names, the small outlined tag boxes and their text, the orange check marks, and the thin grey horizontal indicator lines that run from the shaft to the right, with their round end dots.\n2. Make the shaft unlit from top to bottom: dark glass and bronze, only tiny faint downlights — no orange glow and no vertical light strip inside the shaft.\nKeep the shaft's position and width, every landing slab at the same height and the walls exactly as they are. Redraw the photographic detail sharply at full resolution.\nNo text, letters, numbers, logos, lines, dots, icons or UI of any kind. No people. The same portrait size as the input.",
+  "prompt_file": "assets/source/generated/adelva/management-operations-2026-09-24/prompts/M-process-base-1.txt",
+  "inputs": [
+    {
+      "path": "assets/source/generated/adelva/management-operations-2026-09-24/inputs/M-process-1-input.png",
+      "role": "edit input (process-joined rows 0–1844)"
+    }
+  ],
+  "generated_original_path": "/home/kokoro/.codex/generated_images/01a0cf66-12cd-7532-ad5c-868e8bc087d6/exec-d6afe541-1993-4346-a57d-9a67b644343a.png",
+  "attempts": [
+    {
+      "attempt": 1,
+      "saved": true,
+      "technically_usable": true,
+      "generated_original_path": "/home/kokoro/.codex/generated_images/01a0cf66-12cd-7532-ad5c-868e8bc087d6/exec-d6afe541-1993-4346-a57d-9a67b644343a.png"
+    }
+  ],
+  "observations": [
+    "Inspected the generated original using view_image with original detail.",
+    "No visible text, letters, numbers, logos, tag boxes, check icons, or other web UI.",
+    "The orange heading line and dot and the grey horizontal indicator overlays with round end dots are not visible.",
+    "Architectural lines remain: vertical stone-panel seams, slats, shaft mullions, horizontal rails and landing edges.",
+    "Small warm dot-like downlights, square wall lights, and elongated warm bronze reflections remain inside the shaft; it is not fully unlit.",
+    "The bright central orange vertical light strip is absent; a faint warm central reflection remains.",
+    "Portrait scene retains the shaft in the lower left; stone texture appears brighter and more pronounced than the input."
+  ],
+  "width": 853,
+  "height": 1844,
+  "bytes": 1755650,
+  "sha256": "9d61f4756fb91967674fe9bbfa3e3b3196b1b7ceed89a0779ddb2403110e450c",
+  "prompt_file_exists": true,
+  "prompt_file_matches_exact_prompt": true,
+  "selected_attempt": 1
+}

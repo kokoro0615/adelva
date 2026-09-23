@@ -1,0 +1,34 @@
+{
+  "id": "M-hero-2",
+  "tool": "built-in image_gen",
+  "prompt": "Edit this image into the next part of the same clean, text-free photographic plate. The top band of the image, from the top edge down to about 23% of the height, is already clean and final: keep it exactly as it is — the same pixels, positions, scale and colours.\nContinue the photograph downward seamlessly at exactly the same scale, horizontal position and lighting: the cutaway hotel continues floor by floor — the lobby with a pale stone desk, the restaurant, the guest rooms with white beds, the staff room with lockers — the slim orange lift core continues straight down at the same x position and width, and the granite cliff and pines continue on the left. Below the lowest floor the granite foundation fades gradually into flat deep navy-black #0e1118 — a soft vertical fade with no horizontal edge.\nRemove every non-photographic overlay: the hairline rows, all Japanese text, numbers and the orange downward arrows near the bottom. Everything below the fade must be plain, flat #0e1118.\nKeep the building, its floors and the cliff where they are in the input. Redraw the photographic detail sharply at full resolution.\nNo text, letters, numbers, logos, lines, dots, icons or UI. No people. The same portrait size as the input.",
+  "prompt_file": "assets/source/generated/adelva/management-operations-2026-09-24/prompts/M-hero-2.txt",
+  "inputs": [
+    {
+      "path": "assets/source/generated/adelva/management-operations-2026-09-24/inputs/M-hero-2-canvas.png",
+      "role": "edit canvas; top 416 rows = clean M-hero-1 rows 1428–1844; below = hero-joined rows 1844–3272"
+    }
+  ],
+  "generated_original_path": "/home/kokoro/.codex/generated_images/01a0cf68-97a6-77f0-b2fe-56521ce003db/exec-61ad8ca2-df24-4f1e-8fe9-643d486b22a1.png",
+  "width": 853,
+  "height": 1844,
+  "bytes": 2145181,
+  "sha256": "536048b51fcc100cd7c550503e157da1f8767b193d465365b775560cd942db92",
+  "attempts": [
+    {
+      "attempt": 1,
+      "generated_original_path": "/home/kokoro/.codex/generated_images/01a0cf68-97a6-77f0-b2fe-56521ce003db/exec-61ad8ca2-df24-4f1e-8fe9-643d486b22a1.png",
+      "saved": true,
+      "result": "Usable portrait image; no retry."
+    }
+  ],
+  "observations": [
+    "Inspected the generated original using view_image with original detail.",
+    "Cutaway hotel floors, orange vertical lift core, granite cliff and pines remain visible; foundation fades into a dark lower area.",
+    "No visible Japanese text, letters, numbers, logos, orange arrow icons, UI, or horizontal divider overlays.",
+    "Photographic lines remain in floor slabs, window frames, lockers, furniture and the orange lift core; small light points and locker-hardware dots remain visible.",
+    "No people visible.",
+    "Pixel-exact preservation of the top band and uniform #0e1118 below the fade were not verified.",
+    "The saved file is a byte-for-byte copy of the generated original; no image processing was performed."
+  ]
+}

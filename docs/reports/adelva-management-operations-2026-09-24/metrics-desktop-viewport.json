@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "label": "desktop-viewport",
+  "reference": "/home/kokoro/projects/clients/clonetest/artifacts/adelva-management-operations/fidelity/frames/desktop-viewport-reference.png",
+  "actual": "/home/kokoro/projects/clients/clonetest/artifacts/adelva-management-operations/fidelity/frames/desktop-viewport-actual.png",
+  "mapping": {
+    "referenceRaster": {
+      "width": 1440,
+      "height": 900
+    },
+    "implementationRaster": {
+      "width": 1440,
+      "height": 900
+    },
+    "referencePixelsPerCssPixel": {
+      "x": 1,
+      "y": 1
+    },
+    "aspectDelta": 0
+  },
+  "metrics": {
+    "mae": 0.0756112543371258,
+    "rmse": 0.1656612330240874,
+    "diffRatio": 0.13784799382716048,
+    "edgeMae": 0.023463582177652834
+  },
+  "thresholds": {
+    "pixelThreshold": 0.1
+  },
+  "status": "MEASURED",
+  "failures": [],
+  "artifacts": {
+    "overlay": "/home/kokoro/projects/clients/clonetest/artifacts/adelva-management-operations/fidelity/desktop-viewport-overlay.png",
+    "difference": "/home/kokoro/projects/clients/clonetest/artifacts/adelva-management-operations/fidelity/desktop-viewport-difference.png",
+    "sideBySide": "/home/kokoro/projects/clients/clonetest/artifacts/adelva-management-operations/fidelity/desktop-viewport-side-by-side.png"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "D-building-2",
+  "tool": "built-in image_gen",
+  "prompt": "Edit this image into the next part of the same clean, text-free photographic plate. The top band of the image, from the top edge down to about 37% of the height, is already clean and final: keep it exactly as it is — the same pixels, positions, scale and colours. Below that band the image still shows a web-page mock drawn over the photograph.\nContinue the photograph downward seamlessly from the top band, at exactly the same scale, horizontal position and lighting: the cutaway hotel on the right continues floor by floor — a reception lobby with a pale stone desk and a textured stone feature wall, then a restaurant with set tables, dark chairs, pendant lights and an open kitchen counter — each floor separated by crisp concrete slabs; the slim orange-glowing lift core continues straight down at exactly the same x position and width; the dark granite cliff with pines to the left of the building continues; the deep night-blue background at the far left continues.\nRemove every non-photographic overlay below the top band and fill it with what would be behind it: all Japanese text and numbers, every thin orange line and bracket, every round orange dot, underlines and arrows. Where text sat over the dark background on the left, continue the dark cliff, mist and night forest naturally.\nKeep the rooms, furniture, floor positions and building edges where they are in the input. Redraw the photographic detail sharply at full resolution.\nNo text, letters, numbers, logos, lines, dots, icons or UI. No people. Landscape 3:2, the same size as the input.",
+  "prompt_file": "assets/source/generated/adelva/management-operations-2026-09-24/prompts/D-building-2.txt",
+  "inputs": [
+    {
+      "path": "assets/source/generated/adelva/management-operations-2026-09-24/inputs/D-building-2-canvas.png",
+      "role": "edit canvas (top 384 rows = clean D-building-1 rows 640–1024; below = band1-1536 rows 1024–1664)"
+    }
+  ],
+  "generated_original_path": "/home/kokoro/.codex/generated_images/01a0cf69-4dfc-7480-ba59-b03c42958e94/exec-eededc78-1931-4637-a507-d421c9ec5292.png",
+  "width": 1536,
+  "height": 1024,
+  "bytes": 2254144,
+  "sha256": "665485214181210fb626f1abcf9cf0d1be57f4bec441d49535ba96e1937fb811",
+  "attempts": [
+    {
+      "attempt": 1,
+      "generated_original_path": "/home/kokoro/.codex/generated_images/01a0cf69-4dfc-7480-ba59-b03c42958e94/exec-eededc78-1931-4637-a507-d421c9ec5292.png",
+      "saved": true,
+      "technically_usable": true
+    }
+  ],
+  "observations": [
+    "Inspected at full size (1536 by 1024) using view_image with original detail.",
+    "No visible text, letters, numbers, logos, icons or UI.",
+    "No visible orange annotation brackets, arrows, underlines, connector lines or round annotation dots.",
+    "Visible lines include orange-glowing vertical lift lighting, concrete slab edges, window frames, pendant cords and furniture edges; small ceiling lights remain as bright points.",
+    "Reception lobby and restaurant remain on the right, with dark forest, mist and cliff on the left. No people visible.",
+    "Landscape 3:2; PNG decoded successfully and subject remains present.",
+    "Top 384 rows are not pixel-identical to the input; the generated edit changed pixels in the requested preserved band.",
+    "Saved by plain file copy; destination bytes exactly match the generated original."
+  ],
+  "top_384_rows_pixel_identical": false
+}

@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "label": "desktop-boundaries",
+  "reference": "/home/kokoro/projects/clients/clonetest/artifacts/adelva-management-operations/fidelity/frames/desktop-boundaries-reference.png",
+  "actual": "/home/kokoro/projects/clients/clonetest/artifacts/adelva-management-operations/fidelity/frames/desktop-boundaries-actual.png",
+  "mapping": {
+    "referenceRaster": {
+      "width": 1440,
+      "height": 692
+    },
+    "implementationRaster": {
+      "width": 1440,
+      "height": 692
+    },
+    "referencePixelsPerCssPixel": {
+      "x": 1,
+      "y": 1
+    },
+    "aspectDelta": 0
+  },
+  "metrics": {
+    "mae": 0.07675293766082755,
+    "rmse": 0.17710476891586088,
+    "diffRatio": 0.2134965077071291,
+    "edgeMae": 0.023362257706157404
+  },
+  "thresholds": {
+    "pixelThreshold": 0.1
+  },
+  "status": "MEASURED",
+  "failures": [],
+  "artifacts": {
+    "overlay": "/home/kokoro/projects/clients/clonetest/artifacts/adelva-management-operations/fidelity/desktop-boundaries-overlay.png",
+    "difference": "/home/kokoro/projects/clients/clonetest/artifacts/adelva-management-operations/fidelity/desktop-boundaries-difference.png",
+    "sideBySide": "/home/kokoro/projects/clients/clonetest/artifacts/adelva-management-operations/fidelity/desktop-boundaries-side-by-side.png"
+  }
+}

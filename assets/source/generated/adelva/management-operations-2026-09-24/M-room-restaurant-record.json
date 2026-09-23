@@ -1,0 +1,43 @@
+{
+  "id": "M-room-restaurant",
+  "tool": "built-in image_gen",
+  "prompt": "Create a new clean, final, high-resolution photographic plate for the same fictional cliffside hotel. Use the first attached image only as the style and framing reference: the same cutaway section of one floor set into a granite cliff, framed by a rough stone slab above and below, the same camera height, the same warm interior light against a dark night exterior, the same colour and photographic quality, and a slim vertical orange-glowing lift core near the right edge. Use the second and third attached images only as references for the room's contents.\nThe room is the hotel restaurant: set dining tables with white plates and dark upholstered chairs, pendant lights over the tables, an open kitchen counter with a softly lit back wall, and a window at the right onto misty blue mountains at dusk.\nIgnore and do not reproduce any orange lines or dots in the references. Landscape 3:2.\nNo text, letters, numbers, logos, lines, dots or UI. No people.",
+  "prompt_file": "assets/source/generated/adelva/management-operations-2026-09-24/prompts/M-room-restaurant.txt",
+  "inputs": [
+    {
+      "path": "assets/source/generated/adelva/management-operations-2026-09-24/M-room-lobby.png",
+      "role": "edit input; style and framing reference"
+    },
+    {
+      "path": "assets/source/generated/adelva/management-operations-2026-09-24/inputs/M-room-restaurant-partial.png",
+      "role": "content reference only"
+    },
+    {
+      "path": "assets/source/generated/adelva/management-operations-2026-09-24/inputs/ref-desktop-restaurant-floor.png",
+      "role": "content reference only"
+    }
+  ],
+  "generated_original_path": "/home/kokoro/.codex/generated_images/01a0cf6c-528a-7940-bd62-4307fbbe5bf7/exec-bc2cfc16-04a6-4471-87b1-1c3c61bfd2c1.png",
+  "attempts": [
+    {
+      "attempt": 1,
+      "saved": true,
+      "mode": "edit",
+      "prompt_identical": true,
+      "result": "Usable landscape restaurant image; no retry.",
+      "generated_original_path": "/home/kokoro/.codex/generated_images/01a0cf6c-528a-7940-bd62-4307fbbe5bf7/exec-bc2cfc16-04a6-4471-87b1-1c3c61bfd2c1.png"
+    }
+  ],
+  "observations": [
+    "Inspected generated original with view_image at original detail, 1536 x 1024.",
+    "Landscape 3:2 restaurant framed by rough stone above and below, with set tables, dark upholstered chairs, pendant lights, kitchen counter, and a right-side mountain window. No people observed.",
+    "No readable text, letters, numbers, logos, or UI observed.",
+    "Visible lines: vertical orange-and-white lift light at right, pendant cords, window and door frames, panel and floor seams, stone cracks, and horizontal counter lighting.",
+    "Visible dots: recessed ceiling lights, small highlights, and small dark or bright door/panel fastener marks, including a horizontal row near the right lift panel.",
+    "No orange diagonal annotation lines or large orange annotation dots from the content reference observed."
+  ],
+  "width": 1536,
+  "height": 1024,
+  "bytes": 2558156,
+  "sha256": "71654e5b4a2d93c400a0901377cf52798f0608b72f77a536ba7d9657b6ed3958"
+}

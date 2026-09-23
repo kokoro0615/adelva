@@ -1,0 +1,32 @@
+{
+  "id": "M-room-staff",
+  "tool": "built-in image_gen",
+  "prompt": "Redraw this photograph as a clean, final, high-resolution editorial plate with the same composition, framing and lighting: a cutaway section of a hotel staff room set into a granite cliff, framed by rough stone above and below — pale wooden lockers along the back wall, a small wooden table with dark chairs and a candle, a potted plant, a small service cart, a slim vertical orange-glowing lift core at the right, and small plants on the rock at the left. Remove the round orange dot on the table. Keep every element where it is, and fit the scene to a landscape 3:2 frame. Sharpen the wood, stone and metal detail to the finest level.\nNo text, letters, numbers, logos, lines, dots or UI. No people.",
+  "prompt_file": "assets/source/generated/adelva/management-operations-2026-09-24/prompts/M-room-staff.txt",
+  "inputs": [
+    {
+      "path": "assets/source/generated/adelva/management-operations-2026-09-24/inputs/M-room-staff-input.png",
+      "role": "edit input"
+    }
+  ],
+  "generated_original_path": "/home/kokoro/.codex/generated_images/01a0cf68-977a-7e03-8ea5-8e5864831aa1/exec-f131400c-adc9-4408-b212-f6fa7115f215.png",
+  "width": 1536,
+  "height": 1024,
+  "bytes": 3150731,
+  "sha256": "9c5da1668f51585d02fa130cdc11de8c130a52d64cea61af8708a24137dec120",
+  "attempts": [
+    {
+      "attempt": 1,
+      "saved": true,
+      "technically_usable": true,
+      "generated_original_path": "/home/kokoro/.codex/generated_images/01a0cf68-977a-7e03-8ea5-8e5864831aa1/exec-f131400c-adc9-4408-b212-f6fa7115f215.png"
+    }
+  ],
+  "observations": [
+    "Inspected the generated original at full size with view_image detail=original.",
+    "Landscape 3:2 composition shows the staff room, wooden lockers, table, dark chairs, candle, plant, service cart, orange vertical light and surrounding cliff.",
+    "The round orange overlay dot on the table is absent. No people, readable text, letters, numbers, logos or UI are visible.",
+    "Visible lines include locker and ceiling panel seams, floor tile joints, glass framing, stone cracks and the vertical orange light strip.",
+    "Visible dot-like details include ceiling light points, small dark locker holes or hardware marks, wood knots, stone speckles and small circular marks beside the orange light."
+  ]
+}

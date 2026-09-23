@@ -1,0 +1,122 @@
+[
+  {
+    "progress": 0,
+    "stage": "1",
+    "steps": [
+      "current(aria-current=step)",
+      "upcoming",
+      "upcoming",
+      "upcoming",
+      "upcoming",
+      "upcoming"
+    ],
+    "landings": ["current", "upcoming", "upcoming", "upcoming", "upcoming", "upcoming"],
+    "layers": {
+      "cabin": {
+        "transform": "translateY(-42.99px)",
+        "opacity": "1",
+        "clipPath": null
+      },
+      "shaftWindow": {
+        "transform": "translateY(-570.12px)",
+        "opacity": null,
+        "clipPath": null
+      },
+      "door": {
+        "transform": null,
+        "opacity": null,
+        "clipPath": "inset(0px 50%)"
+      },
+      "dawn": {
+        "transform": null,
+        "opacity": "0",
+        "clipPath": null
+      }
+    },
+    "visibleImageSources": [
+      "/media/adelva/management-operations/cabin.webp",
+      "/media/adelva/management-operations/process-base.webp",
+      "/media/adelva/management-operations/process-lit.webp"
+    ]
+  },
+  {
+    "progress": 0.6,
+    "stage": "4",
+    "steps": [
+      "passed",
+      "passed",
+      "passed",
+      "current(aria-current=step)",
+      "upcoming",
+      "upcoming"
+    ],
+    "landings": ["passed", "passed", "passed", "current", "upcoming", "upcoming"],
+    "layers": {
+      "cabin": {
+        "transform": "translateY(344.33px)",
+        "opacity": "1",
+        "clipPath": null
+      },
+      "shaftWindow": {
+        "transform": "translateY(-182.8px)",
+        "opacity": null,
+        "clipPath": null
+      },
+      "door": {
+        "transform": null,
+        "opacity": null,
+        "clipPath": "inset(0px 50%)"
+      },
+      "dawn": {
+        "transform": null,
+        "opacity": "0",
+        "clipPath": null
+      }
+    },
+    "visibleImageSources": [
+      "/media/adelva/management-operations/cabin.webp",
+      "/media/adelva/management-operations/process-base.webp",
+      "/media/adelva/management-operations/process-lit.webp"
+    ]
+  },
+  {
+    "progress": 1,
+    "stage": "6",
+    "steps": [
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "current(aria-current=step)"
+    ],
+    "landings": ["passed", "passed", "passed", "passed", "passed", "current"],
+    "layers": {
+      "cabin": {
+        "transform": "translateY(621.25px)",
+        "opacity": "0",
+        "clipPath": null
+      },
+      "shaftWindow": {
+        "transform": "translateY(0px)",
+        "opacity": null,
+        "clipPath": null
+      },
+      "door": {
+        "transform": null,
+        "opacity": null,
+        "clipPath": "inset(0px 0%)"
+      },
+      "dawn": {
+        "transform": null,
+        "opacity": "0.85",
+        "clipPath": null
+      }
+    },
+    "visibleImageSources": [
+      "/media/adelva/management-operations/cabin.webp",
+      "/media/adelva/management-operations/process-base.webp",
+      "/media/adelva/management-operations/process-lit.webp"
+    ]
+  }
+]

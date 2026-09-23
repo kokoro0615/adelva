@@ -1,0 +1,34 @@
+{
+  "id": "M-room-guest",
+  "tool": "built-in image_gen",
+  "prompt": "Create a new clean, final, high-resolution photographic plate for the same fictional cliffside hotel. Use the first attached image only as the style and framing reference: the same cutaway section of one floor set into a granite cliff, framed by a rough stone slab above and below, the same camera height, the same warm interior light against a dark night exterior, the same colour and photographic quality, and a slim vertical orange-glowing lift core near the right edge. Use the second attached image only as a reference for the room's contents.\nThe room is a guest room: a double bed with crisp white linen and two pillows under a softly lit upholstered headboard, bedside tables with small lamps, wood-panelled walls, and a neat linen trolley at the side.\nIgnore and do not reproduce any orange lines or dots in the references. Landscape 3:2.\nNo text, letters, numbers, logos, lines, dots or UI. No people.",
+  "prompt_file": "assets/source/generated/adelva/management-operations-2026-09-24/prompts/M-room-guest.txt",
+  "inputs": [
+    {
+      "path": "assets/source/generated/adelva/management-operations-2026-09-24/M-room-lobby.png",
+      "role": "edit input; style and framing reference"
+    },
+    {
+      "path": "assets/source/generated/adelva/management-operations-2026-09-24/inputs/ref-desktop-guest-floor.png",
+      "role": "reference only; guest-room contents"
+    }
+  ],
+  "generated_original_path": "/home/kokoro/.codex/generated_images/01a0cf6c-5281-7c70-b8c6-a805750e831b/exec-3ce2954c-ec28-4163-b329-26dc8707b5b8.png",
+  "attempts": [
+    {
+      "attempt": 1,
+      "saved": true,
+      "result": "Technically usable landscape image; guest bed and trolley fully visible; no retry."
+    }
+  ],
+  "observations": [
+    "Inspected the generated original at full size using view_image with detail original.",
+    "One double bed with white linen and two pillows, upholstered headboard, bedside tables and lamps, wood walls, and a linen trolley; stone slabs above and below; vertical orange light near the right edge.",
+    "No readable text, letters, numbers, logos, UI overlays, or people observed.",
+    "No orange annotation lines or marker dots observed. Visible scene lines include the vertical orange light, horizontal headboard light, panel and floor seams, stone fissures, and trolley rails. Small dot-like details include recessed ceiling lights, fasteners, wood knots, and furniture hardware."
+  ],
+  "width": 1536,
+  "height": 1024,
+  "bytes": 2553472,
+  "sha256": "6c236b2a53ca6cb6dd3b105ef7d6900f5eec39de64ac2f0abd487278c1d20d77"
+}
