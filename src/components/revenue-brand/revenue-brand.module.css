@@ -205,7 +205,7 @@
   stroke-linejoin: round;
 }
 .outer {
-  stroke: rgb(255 126 21 / 12%);
+  stroke: rgb(255 126 21 / 14%);
   stroke-width: var(--outer);
 }
 .middle {
@@ -232,8 +232,31 @@
   stroke-dashoffset: 0;
 }
 .branch {
+  stroke: #ff9a45;
+}
+/* Soft light under the source streams and branches (A4: they glow on the water). */
+.sourceGlow,
+.branchGlow {
+  fill: none;
+  stroke-width: var(--middle);
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  opacity: var(--branch-glow, 0.2);
+}
+@media (min-width: 1024px) {
+  .lines {
+    --branch-glow: 0.32;
+  }
+}
+.branchGlow {
   stroke: var(--flare);
-  opacity: 0.8;
+}
+/* Leaders that are drawn (pathLength=1): chips to their nodes. */
+.lines [data-leader],
+.lines [data-source-leader] {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
 }
 .node {
   fill: var(--flare);
@@ -340,7 +363,25 @@
   opacity: 0;
 }
 .loopArrow {
+  fill: none;
+  stroke: #ffb070;
+  stroke-width: calc(var(--core) * 0.9);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.revenueLeader {
+  fill: none;
+  stroke: var(--flare);
+  stroke-width: calc(var(--leader) * 1.4);
+}
+/* Chapter 1 nodes: orange with a pale rim (A4). */
+.ringedNode {
   fill: var(--flare);
+  stroke: rgb(255 244 232 / 88%);
+  stroke-width: calc(var(--leader) * 1.6);
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 180ms var(--ease-state);
 }
 .fog {
   position: absolute;
@@ -1069,12 +1110,12 @@
   }
   .lines {
     --track: 1.1;
-    --core: 2.2;
-    --middle: 5.3;
-    --outer: 11.7;
+    --core: 2.8;
+    --middle: 6.6;
+    --outer: 14;
     --leader: 1.1;
     --dot-gap: 7;
-    --middle-alpha: 45%;
+    --middle-alpha: 42%;
   }
   .title {
     line-height: 1.2;
@@ -1518,15 +1559,19 @@
     transform: scaleX(1);
   }
 }
-:global(html[data-rb-motion]) .page:not([data-motion="on"]) .sourceLine {
-  stroke-dashoffset: 1;
-  animation: rb-failsafe 0s 3s forwards;
-}
-:global(html[data-rb-motion])
-  .page:not([data-motion="on"])
-  :is(.sourceChip, [data-source-node]) {
-  opacity: 0;
-  animation: rb-failsafe 0s 3s forwards;
+/* The hero streams start undrawn from the first paint when scripts run and
+   motion is allowed (initial load and client navigation alike); the motion
+   component then draws them. Without scripts, or with reduced motion, they are
+   complete. If the motion script never starts, the failsafe completes them. */
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  .page:not([data-motion="on"]) :is(.sourceLine, .sourceGlow, [data-source-leader]) {
+    stroke-dashoffset: 1;
+    animation: rb-failsafe 0s 3s forwards;
+  }
+  .page:not([data-motion="on"]) :is(.sourceChip, [data-source-node]) {
+    opacity: 0;
+    animation: rb-failsafe 0s 3s forwards;
+  }
 }
 @keyframes rb-failsafe {
   to {
@@ -1541,6 +1586,8 @@
     animation: none !important;
     transition: none !important;
   }
+  .sourceGlow,
+  .lines [data-source-leader],
   .sourceLine {
     stroke-dashoffset: 0 !important;
   }
@@ -1584,7 +1631,7 @@
 .page[data-hover-chip="official-site"] [data-branch-node="official-site"] .leader {
   stroke: white;
 }
-.page[data-hover-chip="official-site"] [data-branch-node="official-site"] .node {
+.page[data-hover-chip="official-site"] [data-branch-node="official-site"] .ringedNode {
   transform: scale(1.4);
 }
 .page[data-acquisition="ota"] [data-selected-branch="ota"] {
@@ -1593,7 +1640,7 @@
 .page[data-hover-chip="ota"] [data-branch-node="ota"] .leader {
   stroke: white;
 }
-.page[data-hover-chip="ota"] [data-branch-node="ota"] .node {
+.page[data-hover-chip="ota"] [data-branch-node="ota"] .ringedNode {
   transform: scale(1.4);
 }
 .page[data-acquisition="search"] [data-selected-branch="search"] {
@@ -1602,7 +1649,7 @@
 .page[data-hover-chip="search"] [data-branch-node="search"] .leader {
   stroke: white;
 }
-.page[data-hover-chip="search"] [data-branch-node="search"] .node {
+.page[data-hover-chip="search"] [data-branch-node="search"] .ringedNode {
   transform: scale(1.4);
 }
 .page[data-acquisition="content"] [data-selected-branch="content"] {
@@ -1611,7 +1658,7 @@
 .page[data-hover-chip="content"] [data-branch-node="content"] .leader {
   stroke: white;
 }
-.page[data-hover-chip="content"] [data-branch-node="content"] .node {
+.page[data-hover-chip="content"] [data-branch-node="content"] .ringedNode {
   transform: scale(1.4);
 }
 .page[data-acquisition="sales-channel"] [data-selected-branch="sales-channel"] {
@@ -1620,7 +1667,7 @@
 .page[data-hover-chip="sales-channel"] [data-branch-node="sales-channel"] .leader {
   stroke: white;
 }
-.page[data-hover-chip="sales-channel"] [data-branch-node="sales-channel"] .node {
+.page[data-hover-chip="sales-channel"] [data-branch-node="sales-channel"] .ringedNode {
   transform: scale(1.4);
 }
 .page[data-acquisition="measurement"] [data-selected-branch="measurement"] {
@@ -1629,7 +1676,7 @@
 .page[data-hover-chip="measurement"] [data-branch-node="measurement"] .leader {
   stroke: white;
 }
-.page[data-hover-chip="measurement"] [data-branch-node="measurement"] .node {
+.page[data-hover-chip="measurement"] [data-branch-node="measurement"] .ringedNode {
   transform: scale(1.4);
 }
 .page[data-acquisition="corporate"] [data-selected-branch="corporate"] {
@@ -1638,7 +1685,7 @@
 .page[data-hover-chip="corporate"] [data-branch-node="corporate"] .leader {
   stroke: white;
 }
-.page[data-hover-chip="corporate"] [data-branch-node="corporate"] .node {
+.page[data-hover-chip="corporate"] [data-branch-node="corporate"] .ringedNode {
   transform: scale(1.4);
 }
 .page[data-acquisition="travel-agency"] [data-selected-branch="travel-agency"] {
@@ -1647,7 +1694,7 @@
 .page[data-hover-chip="travel-agency"] [data-branch-node="travel-agency"] .leader {
   stroke: white;
 }
-.page[data-hover-chip="travel-agency"] [data-branch-node="travel-agency"] .node {
+.page[data-hover-chip="travel-agency"] [data-branch-node="travel-agency"] .ringedNode {
   transform: scale(1.4);
 }
 .page[data-acquisition="group"] [data-selected-branch="group"] {
@@ -1656,7 +1703,7 @@
 .page[data-hover-chip="group"] [data-branch-node="group"] .leader {
   stroke: white;
 }
-.page[data-hover-chip="group"] [data-branch-node="group"] .node {
+.page[data-hover-chip="group"] [data-branch-node="group"] .ringedNode {
   transform: scale(1.4);
 }
 .page[data-acquisition="regional-business"] [data-selected-branch="regional-business"] {
@@ -1669,7 +1716,7 @@
 }
 .page[data-hover-chip="regional-business"]
   [data-branch-node="regional-business"]
-  .node {
+  .ringedNode {
   transform: scale(1.4);
 }
 

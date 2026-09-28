@@ -13,7 +13,10 @@ import { readFileSync, writeFileSync } from "node:fs";
 const cfg = JSON.parse(readFileSync(process.argv[2], "utf8"));
 const sha = (p) => createHash("sha256").update(readFileSync(p)).digest("hex");
 const load = async (p) => {
-  const { data, info } = await sharp(p).removeAlpha().raw().toBuffer({ resolveWithObject: true });
+  const { data, info } = await sharp(p)
+    .removeAlpha()
+    .raw()
+    .toBuffer({ resolveWithObject: true });
   return { path: p, data, W: info.width, H: info.height };
 };
 const slices = [];
@@ -21,7 +24,9 @@ for (const p of cfg.slices) slices.push(await load(p));
 const W = slices[0].W;
 for (const s of slices) if (s.W !== W) throw new Error(`width mismatch: ${s.path}`);
 const px = (s, x, y, c) =>
-  s.data[(Math.min(s.H - 1, Math.max(0, y)) * W + Math.min(W - 1, Math.max(0, x))) * 3 + c];
+  s.data[
+    (Math.min(s.H - 1, Math.max(0, y)) * W + Math.min(W - 1, Math.max(0, x))) * 3 + c
+  ];
 
 function measure(prev, next) {
   const { overlap } = cfg;
@@ -33,7 +38,8 @@ function measure(prev, next) {
       for (let y = 24; y < overlap - 24; y += 2)
         for (let x = 24; x < W - 24; x += 3) {
           const py = prev.H - overlap + y;
-          for (let c = 0; c < 3; c++) s += Math.abs(px(prev, x, py, c) - px(next, x + dx, y + dy, c));
+          for (let c = 0; c < 3; c++)
+            s += Math.abs(px(prev, x, py, c) - px(next, x + dx, y + dy, c));
           n += 3;
         }
       const v = s / n;
@@ -88,7 +94,9 @@ rows.forEach((r, yy) => {
         : v;
     }
 });
-await sharp(out, { raw: { width: W, height: H, channels: 3 } }).png({ compressionLevel: 9 }).toFile(cfg.out);
+await sharp(out, { raw: { width: W, height: H, channels: 3 } })
+  .png({ compressionLevel: 9 })
+  .toFile(cfg.out);
 writeFileSync(
   cfg.record,
   `${JSON.stringify(
@@ -103,4 +111,6 @@ writeFileSync(
     2,
   )}\n`,
 );
-console.log(JSON.stringify({ W, H, joins: joins.map((j) => [j.offset, j.meanAbsDiff]) }));
+console.log(
+  JSON.stringify({ W, H, joins: joins.map((j) => [j.offset, j.meanAbsDiff]) }),
+);

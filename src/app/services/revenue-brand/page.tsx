@@ -20,14 +20,5 @@ export default function RevenueBrandRoute() {
       imageSizes: "(min-width: 1920px) 1920px, 100vw",
       fetchPriority: "high",
     });
-  return (
-    <>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `if(matchMedia('(prefers-reduced-motion: no-preference)').matches)document.documentElement.dataset.rbMotion="1";`,
-        }}
-      />
-      <RevenueBrandPage />
-    </>
-  );
+  return <RevenueBrandPage />;
 }

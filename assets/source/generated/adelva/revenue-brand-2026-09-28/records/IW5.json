@@ -10,9 +10,7 @@
       "root_turn_id": "01a0e794-63d6-7110-a76b-e77959946441",
       "disabled_plugin_ids": [],
       "cwd": "/home/kokoro/projects/clients/clonetest",
-      "workspace_roots": [
-        "/home/kokoro/projects/clients/clonetest"
-      ],
+      "workspace_roots": ["/home/kokoro/projects/clients/clonetest"],
       "current_date": "2026-09-28",
       "timezone": "Asia/Tokyo",
       "approval_policy": "never",
@@ -177,9 +175,7 @@
       "root_turn_id": "01a0e78c-5cbc-7190-829c-b1c293bdbf1d",
       "disabled_plugin_ids": [],
       "cwd": "/home/kokoro/projects/clients/clonetest",
-      "workspace_roots": [
-        "/home/kokoro/projects/clients/clonetest"
-      ],
+      "workspace_roots": ["/home/kokoro/projects/clients/clonetest"],
       "current_date": "2026-09-28",
       "timezone": "Asia/Tokyo",
       "approval_policy": "never",
@@ -442,9 +438,7 @@
         ],
         "verdict": "PASS",
         "serious": [],
-        "info": [
-          "local offset up to 40 px (informational)"
-        ]
+        "info": ["local offset up to 40 px (informational)"]
       },
       "adopted": true,
       "reason": "No serious defect. Global drift 8 px passes --allow-aspect; square output explicitly allowed.",
@@ -452,12 +446,7 @@
       "informational": [
         {
           "description": "Brighter lower garden after gradient removal; fine foliage, moss and rock details differ.",
-          "coordinates": [
-            0,
-            627,
-            1254,
-            1254
-          ]
+          "coordinates": [0, 627, 1254, 1254]
         }
       ],
       "visual_check": {
@@ -466,30 +455,15 @@
         "overlay_crops_2x": [
           {
             "name": "number, heading, body and dark panel",
-            "rect": [
-              40,
-              770,
-              930,
-              440
-            ]
+            "rect": [40, 770, 930, 440]
           },
           {
             "name": "arrow",
-            "rect": [
-              1080,
-              1070,
-              140,
-              140
-            ]
+            "rect": [1080, 1070, 140, 140]
           },
           {
             "name": "orange path line",
-            "rect": [
-              650,
-              430,
-              440,
-              620
-            ]
+            "rect": [650, 430, 440, 620]
           }
         ],
         "result": "No UI, letters, glyphs, lines, arrows, bands, smears, people, border or watermark found. Buildings, tree and warm windows/lanterns retained."
@@ -606,9 +580,7 @@
         ],
         "verdict": "PASS",
         "serious": [],
-        "info": [
-          "local offset up to 40 px (informational)"
-        ]
+        "info": ["local offset up to 40 px (informational)"]
       },
       "adopted": true,
       "reason": "No serious defect; global drift 0 px, aspect retained, warm lights retained.",
@@ -616,12 +588,7 @@
       "informational": [
         {
           "description": "Brighter lower foreground after gradient removal; fine gravel, pine and basket textures reconstructed. Basket patterns inspected at 2x; interpreted as material texture, no legible glyphs or mock UI.",
-          "coordinates": [
-            590,
-            350,
-            840,
-            700
-          ]
+          "coordinates": [590, 350, 840, 700]
         }
       ],
       "visual_check": {
@@ -630,30 +597,15 @@
         "overlay_crops_2x": [
           {
             "name": "number, heading, body and gradient",
-            "rect": [
-              40,
-              780,
-              930,
-              445
-            ]
+            "rect": [40, 780, 930, 445]
           },
           {
             "name": "arrow",
-            "rect": [
-              1060,
-              1100,
-              150,
-              150
-            ]
+            "rect": [1060, 1100, 150, 150]
           },
           {
             "name": "additional basket detail",
-            "rect": [
-              590,
-              350,
-              250,
-              350
-            ]
+            "rect": [590, 350, 250, 350]
           }
         ],
         "result": "No leftover UI/text, orange/white graphics, smears, seam, frame, people or watermark. Building geometry and warm windows preserved."
@@ -694,11 +646,7 @@
       "border_measurement": {
         "border_px": 24,
         "pixels": 120576,
-        "mean_rgb": [
-          0.11602640658174097,
-          0.05661989118895966,
-          0.02156316348195329
-        ],
+        "mean_rgb": [0.11602640658174097, 0.05661989118895966, 0.02156316348195329],
         "pass": true,
         "width": 1536,
         "height": 1024,
@@ -748,11 +696,7 @@
       "border_measurement": {
         "border_px": 24,
         "pixels": 120576,
-        "mean_rgb": [
-          0.07864749203821655,
-          0.037096934713375794,
-          0.01351015127388535
-        ],
+        "mean_rgb": [0.07864749203821655, 0.037096934713375794, 0.01351015127388535],
         "pass": true,
         "width": 1536,
         "height": 1024,

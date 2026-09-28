@@ -1,7 +1,46 @@
 {
- "note": "Hover/entry trace lines on the related-card photos, in each photo's natural px (read off tools/grid-crop.mjs). Draw with an SVG whose viewBox equals the photo size and whose preserveAspectRatio matches the img object-fit/object-position (xMidYMid slice).",
- "C1": { "width": 1254, "height": 1254, "subject": "stepping-stone path through the moss garden",
-   "points": [[737,489],[713,533],[724,572],[745,603],[734,635],[768,658],[807,690],[846,713],[878,737],[901,760],[941,784],[972,807],[1003,831],[1022,862],[1019,901],[1003,940],[995,980]] },
- "C2": { "width": 1227, "height": 1281, "subject": "gravel lane from the yard back between the pines",
-   "points": [[755,1007],[692,881],[600,830],[519,787],[450,735],[409,676],[393,600],[393,519],[402,440],[412,362],[428,220],[425,149]] }
+  "note": "Hover/entry trace lines on the related-card photos, in each photo's natural px (read off tools/grid-crop.mjs). Draw with an SVG whose viewBox equals the photo size and whose preserveAspectRatio matches the img object-fit/object-position (xMidYMid slice).",
+  "C1": {
+    "width": 1254,
+    "height": 1254,
+    "subject": "stepping-stone path through the moss garden",
+    "points": [
+      [737, 489],
+      [713, 533],
+      [724, 572],
+      [745, 603],
+      [734, 635],
+      [768, 658],
+      [807, 690],
+      [846, 713],
+      [878, 737],
+      [901, 760],
+      [941, 784],
+      [972, 807],
+      [1003, 831],
+      [1022, 862],
+      [1019, 901],
+      [1003, 940],
+      [995, 980]
+    ]
+  },
+  "C2": {
+    "width": 1227,
+    "height": 1281,
+    "subject": "gravel lane from the yard back between the pines",
+    "points": [
+      [755, 1007],
+      [692, 881],
+      [600, 830],
+      [519, 787],
+      [450, 735],
+      [409, 676],
+      [393, 600],
+      [393, 519],
+      [402, 440],
+      [412, 362],
+      [428, 220],
+      [425, 149]
+    ]
+  }
 }

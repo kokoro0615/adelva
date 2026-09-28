@@ -29,7 +29,8 @@ const load = (p) =>
     .toBuffer();
 const a = await load(inputPath);
 const b = await load(outputPath);
-const at = (buf, x, y) => buf[Math.min(h - 1, Math.max(0, y)) * w + Math.min(w - 1, Math.max(0, x))];
+const at = (buf, x, y) =>
+  buf[Math.min(h - 1, Math.max(0, y)) * w + Math.min(w - 1, Math.max(0, x))];
 
 function best(x0, y0, x1, y1, range) {
   let top = null;
@@ -62,15 +63,21 @@ for (let r = 0; r < 3; r++)
 const aspectIn = inMeta.width / inMeta.height;
 const aspectOut = outMeta.width / outMeta.height;
 const sizeMatch =
-  Math.abs(outMeta.width - inMeta.width) <= 2 && Math.abs(outMeta.height - inMeta.height) <= 2;
+  Math.abs(outMeta.width - inMeta.width) <= 2 &&
+  Math.abs(outMeta.height - inMeta.height) <= 2;
 const aspectMatch = Math.abs(aspectOut / aspectIn - 1) <= 0.01;
 const worstCell = Math.max(...cells.map((c) => Math.hypot(c.dx, c.dy)));
 const serious = [];
-if (!aspectMatch && !allowAspect) serious.push(`aspect ${aspectOut.toFixed(4)} vs input ${aspectIn.toFixed(4)}`);
-if (Math.hypot(global.dx, global.dy) > 12) serious.push(`global drift ${global.dx},${global.dy}`);
+if (!aspectMatch && !allowAspect)
+  serious.push(`aspect ${aspectOut.toFixed(4)} vs input ${aspectIn.toFixed(4)}`);
+if (Math.hypot(global.dx, global.dy) > 12)
+  serious.push(`global drift ${global.dx},${global.dy}`);
 // Local offsets are informational: where a large overlay was removed (text over
 // mist) the cell has no reliable match. Opus checks local geometry at join time.
-const info = worstCell > 24 ? [`local offset up to ${worstCell.toFixed(0)} px (informational)`] : [];
+const info =
+  worstCell > 24
+    ? [`local offset up to ${worstCell.toFixed(0)} px (informational)`]
+    : [];
 console.log(
   JSON.stringify(
     {

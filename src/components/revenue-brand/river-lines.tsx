@@ -132,6 +132,19 @@ export function RiverLines({ mobile = false }: { mobile?: boolean }) {
       {sourceEntries.map(([id, s], i) => (
         <g key={id} data-source={id}>
           <path
+            d={leader(g.chips.sources[id as keyof typeof g.chips.sources], s.node)}
+            className={styles.leader}
+            pathLength="1"
+            data-source-leader
+          />
+          <path
+            d={s.d}
+            className={styles.sourceGlow}
+            pathLength="1"
+            stroke={`url(#${prefix}-source-${id})`}
+            data-source-glow
+          />
+          <path
             d={s.d}
             className={styles.sourceLine}
             pathLength="1"
@@ -148,6 +161,25 @@ export function RiverLines({ mobile = false }: { mobile?: boolean }) {
           />
         </g>
       ))}
+      {/* Each branch is a soft glow under a bright core, drawn together. */}
+      <path
+        d={g.paths.tributaryLeft.d}
+        className={styles.branchGlow}
+        data-tributary-glow
+        pathLength="1"
+      />
+      <path
+        d={g.paths.tributaryRight.d}
+        className={styles.branchGlow}
+        data-tributary-glow
+        pathLength="1"
+      />
+      <path
+        d={g.paths.loopOther.d}
+        className={styles.branchGlow}
+        data-loop-other-glow
+        pathLength="1"
+      />
       <path
         d={g.paths.tributaryLeft.d}
         className={styles.branch}
@@ -200,30 +232,36 @@ export function RiverLines({ mobile = false }: { mobile?: boolean }) {
             <circle
               cx={point[0]}
               cy={point[1]}
-              r={5 * k}
-              className={styles.node}
+              r={6.5 * k}
+              className={styles.ringedNode}
               data-ch1-node
             />
           </g>
         );
       })}
       <g data-confluence>
+        <path
+          d={`M${g.dots.confluence[0] + 20 * k} ${g.dots.confluence[1]}H${
+            g.chips.ch1.revenue[0] - (mobile ? 44 : 50) * k
+          }`}
+          className={styles.revenueLeader}
+        />
         <circle
           cx={g.dots.confluence[0]}
           cy={g.dots.confluence[1]}
-          r={30 * k}
+          r={36 * k}
           fill={`url(#${prefix}-halo)`}
         />
         <circle
           cx={g.dots.confluence[0]}
           cy={g.dots.confluence[1]}
-          r={16 * k}
+          r={19 * k}
           className={styles.haloRing}
         />
         <circle
           cx={g.dots.confluence[0]}
           cy={g.dots.confluence[1]}
-          r={9 * k}
+          r={12 * k}
           className={styles.node}
         />
         <circle
@@ -272,9 +310,11 @@ export function RiverLines({ mobile = false }: { mobile?: boolean }) {
           />
         </g>
       ))}
+      {/* Back upstream: a chevron on the ring between 改善 and ブランド方針. */}
       <path
         className={styles.loopArrow}
-        d={mobile ? "M234 7045l12 -4 -7 12" : "M335 4233l12 -4 -7 12"}
+        transform={`translate(${g.loopArrow.x} ${g.loopArrow.y}) rotate(${g.loopArrow.angle})`}
+        d={`M${-8 * k} ${-8 * k}L0 0L${-8 * k} ${8 * k}`}
         data-loop-arrow
       />
       {mobile

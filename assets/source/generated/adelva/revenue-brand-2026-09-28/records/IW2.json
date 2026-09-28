@@ -134,9 +134,7 @@
         ],
         "verdict": "PASS",
         "serious": [],
-        "info": [
-          "local offset up to 24 px (informational)"
-        ]
+        "info": ["local offset up to 24 px (informational)"]
       },
       "adopted": true,
       "reason": "No serious defects; numeric PASS; resumed attempt adopted without regeneration.",
@@ -148,36 +146,11 @@
         "whole_original": true,
         "two_x_crops": "All six half-width crops of top/middle/bottom thirds viewed at original detail; covers every overlay area.",
         "overlay_regions_input_px": [
-          [
-            120,
-            0,
-            960,
-            180
-          ],
-          [
-            550,
-            340,
-            1000,
-            430
-          ],
-          [
-            150,
-            445,
-            1345,
-            810
-          ],
-          [
-            350,
-            840,
-            1190,
-            920
-          ],
-          [
-            260,
-            0,
-            800,
-            1024
-          ]
+          [120, 0, 960, 180],
+          [550, 340, 1000, 430],
+          [150, 445, 1345, 810],
+          [350, 840, 1190, 920],
+          [260, 0, 800, 1024]
         ],
         "leftover_ui": false,
         "smears": false,
@@ -300,9 +273,7 @@
         ],
         "verdict": "PASS",
         "serious": [],
-        "info": [
-          "local offset up to 34 px (informational)"
-        ]
+        "info": ["local offset up to 34 px (informational)"]
       },
       "adopted": true,
       "reason": "Numeric PASS and no serious visual defects; adopt first attempt.",
@@ -314,42 +285,12 @@
         "whole_original": true,
         "two_x_crops": "Six half-width top/middle/bottom crops, covering entire image and all removal-list locations, viewed with detail original.",
         "overlay_regions_input_px": [
-          [
-            150,
-            0,
-            1350,
-            45
-          ],
-          [
-            350,
-            75,
-            1190,
-            150
-          ],
-          [
-            745,
-            0,
-            800,
-            780
-          ],
-          [
-            325,
-            765,
-            1230,
-            1024
-          ],
-          [
-            65,
-            900,
-            180,
-            1024
-          ],
-          [
-            1450,
-            940,
-            1536,
-            1024
-          ]
+          [150, 0, 1350, 45],
+          [350, 75, 1190, 150],
+          [745, 0, 800, 780],
+          [325, 765, 1230, 1024],
+          [65, 900, 180, 1024],
+          [1450, 940, 1536, 1024]
         ],
         "leftover_ui": false,
         "smears": false,
@@ -472,9 +413,7 @@
         ],
         "verdict": "PASS",
         "serious": [],
-        "info": [
-          "local offset up to 32 px (informational)"
-        ]
+        "info": ["local offset up to 32 px (informational)"]
       },
       "adopted": true,
       "reason": "Numeric PASS; no serious visual defect; river bends, terraced fields and drying racks preserved.",
@@ -486,54 +425,14 @@
         "whole_original": true,
         "two_x_crops": "Six half-width top/middle/bottom crops cover all pixels and removal locations; viewed at original detail.",
         "overlay_regions_input_px": [
-          [
-            325,
-            0,
-            1220,
-            260
-          ],
-          [
-            65,
-            130,
-            185,
-            595
-          ],
-          [
-            630,
-            230,
-            900,
-            1024
-          ],
-          [
-            900,
-            290,
-            1190,
-            405
-          ],
-          [
-            350,
-            470,
-            710,
-            580
-          ],
-          [
-            850,
-            680,
-            1335,
-            800
-          ],
-          [
-            370,
-            855,
-            710,
-            970
-          ],
-          [
-            1330,
-            185,
-            1505,
-            570
-          ]
+          [325, 0, 1220, 260],
+          [65, 130, 185, 595],
+          [630, 230, 900, 1024],
+          [900, 290, 1190, 405],
+          [350, 470, 710, 580],
+          [850, 680, 1335, 800],
+          [370, 855, 710, 970],
+          [1330, 185, 1505, 570]
         ],
         "leftover_ui": false,
         "smears": false,
@@ -669,42 +568,12 @@
         "whole_original": true,
         "two_x_crops": "Six half-width top/middle/bottom crops cover entire output and all overlay regions, viewed with detail original.",
         "overlay_regions_input_px": [
-          [
-            950,
-            0,
-            1340,
-            25
-          ],
-          [
-            365,
-            85,
-            720,
-            200
-          ],
-          [
-            640,
-            0,
-            940,
-            1024
-          ],
-          [
-            885,
-            315,
-            1175,
-            425
-          ],
-          [
-            685,
-            605,
-            1170,
-            725
-          ],
-          [
-            1180,
-            950,
-            1475,
-            1010
-          ]
+          [950, 0, 1340, 25],
+          [365, 85, 720, 200],
+          [640, 0, 940, 1024],
+          [885, 315, 1175, 425],
+          [685, 605, 1170, 725],
+          [1180, 950, 1475, 1010]
         ],
         "leftover_ui": false,
         "smears": false,
@@ -712,18 +581,8 @@
         "ryokan_window_light_preserved": true,
         "pier_lanterns_preserved": true,
         "light_check_regions_px": [
-          [
-            950,
-            570,
-            1500,
-            890
-          ],
-          [
-            900,
-            840,
-            1110,
-            965
-          ]
+          [950, 570, 1500, 890],
+          [900, 840, 1110, 965]
         ],
         "people": false,
         "frame_border_watermark": false,
@@ -855,24 +714,9 @@
         "whole_original": true,
         "two_x_crops": "Six half-width crops of top/middle/bottom thirds, covering all removal areas and entire bottom fade, viewed with detail original.",
         "overlay_regions_input_px": [
-          [
-            1180,
-            180,
-            1475,
-            245
-          ],
-          [
-            700,
-            0,
-            815,
-            370
-          ],
-          [
-            710,
-            320,
-            805,
-            410
-          ]
+          [1180, 180, 1475, 245],
+          [700, 0, 815, 370],
+          [710, 320, 805, 410]
         ],
         "leftover_ui": false,
         "smears": false,
@@ -880,18 +724,8 @@
         "ryokan_window_light_preserved": true,
         "pier_lanterns_preserved": true,
         "light_check_regions_px": [
-          [
-            950,
-            0,
-            1460,
-            135
-          ],
-          [
-            900,
-            75,
-            1110,
-            195
-          ]
+          [950, 0, 1460, 135],
+          [900, 75, 1110, 195]
         ],
         "bottom_fade_smooth": true,
         "hard_horizontal_edge_or_band": false,
@@ -952,13 +786,7 @@
   ],
   "completion": {
     "date_time_asia_tokyo": "2026-09-28T19:45:52.247697+09:00",
-    "items": [
-      "D06",
-      "D07",
-      "D08",
-      "D09",
-      "D10"
-    ],
+    "items": ["D06", "D07", "D08", "D09", "D10"],
     "all_prompt_checks_match": true,
     "all_saved_files_byte_identical": true,
     "all_attempts_adopted_first": true,

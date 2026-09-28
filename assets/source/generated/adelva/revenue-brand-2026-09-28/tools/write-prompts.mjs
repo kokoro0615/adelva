@@ -209,8 +209,10 @@ const mobile = {
   },
 };
 
-for (const [id, spec] of Object.entries(desktop)) edit({ id, frame: D_FRAME, size: D_SIZE, ...spec });
-for (const [id, spec] of Object.entries(mobile)) edit({ id, frame: M_FRAME, size: M_SIZE, ...spec });
+for (const [id, spec] of Object.entries(desktop))
+  edit({ id, frame: D_FRAME, size: D_SIZE, ...spec });
+for (const [id, spec] of Object.entries(mobile))
+  edit({ id, frame: M_FRAME, size: M_SIZE, ...spec });
 
 const CARD_NEG =
   "The result must contain no text, letters, numbers, logos, lines, arrows, icons, borders, frames, gradients added for text or UI of any kind — only the photograph. No people. The same aspect ratio as the input.";
@@ -230,11 +232,13 @@ const cards = {
     CARD_NEG,
   ],
 };
-for (const [id, parts] of Object.entries(cards)) writeFileSync(`prompts/${id}.txt`, `${parts.join("\n")}\n`);
+for (const [id, parts] of Object.entries(cards))
+  writeFileSync(`prompts/${id}.txt`, `${parts.join("\n")}\n`);
 
 const fog = {
   F1: "A photographic compositing element: a few large, soft wisps of low mountain fog, as seen from a drone looking down on a night forest, isolated on a pure black background (#000000). The fog is pale blue-grey and translucent, in three or four separate irregular patches of different sizes, some stretched diagonally, with thick soft centres and feathered edges that dissolve completely into the black; generous empty black space between and around them, and nothing touches the edges of the frame. Nothing else in the image: no trees, ground, water, horizon, sky, stars, light source, frame or text. Landscape 3:2.",
   F2: "A photographic compositing element: many thin, delicate strands and small torn wisps of drifting mist, as seen from a drone looking down on a night forest, isolated on a pure black background (#000000). The mist is pale blue-grey, very translucent and fibrous, scattered loosely across the frame in a gentle diagonal drift, with feathered edges that dissolve completely into the black and plenty of empty black space; nothing touches the edges of the frame. Nothing else in the image: no trees, ground, water, horizon, sky, stars, light source, frame or text. Landscape 3:2.",
 };
-for (const [id, text] of Object.entries(fog)) writeFileSync(`prompts/${id}.txt`, `${text}\n`);
+for (const [id, text] of Object.entries(fog))
+  writeFileSync(`prompts/${id}.txt`, `${text}\n`);
 console.log("prompts written");

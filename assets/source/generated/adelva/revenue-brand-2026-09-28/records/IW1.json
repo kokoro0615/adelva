@@ -139,41 +139,24 @@
         ],
         "verdict": "PASS",
         "serious": [],
-        "info": [
-          "local offset up to 36 px (informational)"
-        ]
+        "info": ["local offset up to 36 px (informational)"]
       },
       "inspection_crops": [
         {
           "path": "/tmp/IW1-D00-third0.png",
-          "source_rect": [
-            0,
-            0,
-            1536,
-            342
-          ],
+          "source_rect": [0, 0, 1536, 342],
           "magnification": 2,
           "status": "Inspected; temporary crop removed after verification"
         },
         {
           "path": "/tmp/IW1-D00-third1.png",
-          "source_rect": [
-            0,
-            342,
-            1536,
-            341
-          ],
+          "source_rect": [0, 342, 1536, 341],
           "magnification": 2,
           "status": "Inspected; temporary crop removed after verification"
         },
         {
           "path": "/tmp/IW1-D00-third2.png",
-          "source_rect": [
-            0,
-            683,
-            1536,
-            341
-          ],
+          "source_rect": [0, 683, 1536, 341],
           "magnification": 2,
           "status": "Inspected; temporary crop removed after verification"
         }
@@ -314,34 +297,19 @@
       "inspection_crops": [
         {
           "path": "/tmp/IW1-D01-1-third0.png",
-          "source_rect": [
-            0,
-            0,
-            1536,
-            341
-          ],
+          "source_rect": [0, 0, 1536, 341],
           "magnification": 2,
           "status": "Inspected; temporary crop removed after verification"
         },
         {
           "path": "/tmp/IW1-D01-1-third1.png",
-          "source_rect": [
-            0,
-            341,
-            1536,
-            341
-          ],
+          "source_rect": [0, 341, 1536, 341],
           "magnification": 2,
           "status": "Inspected; temporary crop removed after verification"
         },
         {
           "path": "/tmp/IW1-D01-1-third2.png",
-          "source_rect": [
-            0,
-            682,
-            1536,
-            342
-          ],
+          "source_rect": [0, 682, 1536, 342],
           "magnification": 2,
           "status": "Inspected; temporary crop removed after verification"
         }
@@ -461,41 +429,24 @@
         ],
         "verdict": "PASS",
         "serious": [],
-        "info": [
-          "local offset up to 32 px (informational)"
-        ]
+        "info": ["local offset up to 32 px (informational)"]
       },
       "inspection_crops": [
         {
           "path": "/tmp/IW1-D02-1-third0.png",
-          "source_rect": [
-            0,
-            0,
-            1536,
-            341
-          ],
+          "source_rect": [0, 0, 1536, 341],
           "magnification": 2,
           "status": "Inspected; temporary crop removed after verification"
         },
         {
           "path": "/tmp/IW1-D02-1-third1.png",
-          "source_rect": [
-            0,
-            341,
-            1536,
-            341
-          ],
+          "source_rect": [0, 341, 1536, 341],
           "magnification": 2,
           "status": "Inspected; temporary crop removed after verification"
         },
         {
           "path": "/tmp/IW1-D02-1-third2.png",
-          "source_rect": [
-            0,
-            682,
-            1536,
-            342
-          ],
+          "source_rect": [0, 682, 1536, 342],
           "magnification": 2,
           "status": "Inspected; temporary crop removed after verification"
         }
@@ -615,41 +566,24 @@
         ],
         "verdict": "PASS",
         "serious": [],
-        "info": [
-          "local offset up to 36 px (informational)"
-        ]
+        "info": ["local offset up to 36 px (informational)"]
       },
       "inspection_crops": [
         {
           "path": "/tmp/IW1-D03-1-third0.png",
-          "source_rect": [
-            0,
-            0,
-            1536,
-            341
-          ],
+          "source_rect": [0, 0, 1536, 341],
           "magnification": 2,
           "status": "Inspected; temporary crop removed after verification"
         },
         {
           "path": "/tmp/IW1-D03-1-third1.png",
-          "source_rect": [
-            0,
-            341,
-            1536,
-            341
-          ],
+          "source_rect": [0, 341, 1536, 341],
           "magnification": 2,
           "status": "Inspected; temporary crop removed after verification"
         },
         {
           "path": "/tmp/IW1-D03-1-third2.png",
-          "source_rect": [
-            0,
-            682,
-            1536,
-            342
-          ],
+          "source_rect": [0, 682, 1536, 342],
           "magnification": 2,
           "status": "Inspected; temporary crop removed after verification"
         }
@@ -775,34 +709,19 @@
       "inspection_crops": [
         {
           "path": "/tmp/IW1-D04-1-third0.png",
-          "source_rect": [
-            0,
-            0,
-            1536,
-            341
-          ],
+          "source_rect": [0, 0, 1536, 341],
           "magnification": 2,
           "status": "Inspected; temporary crop removed after verification"
         },
         {
           "path": "/tmp/IW1-D04-1-third1.png",
-          "source_rect": [
-            0,
-            341,
-            1536,
-            341
-          ],
+          "source_rect": [0, 341, 1536, 341],
           "magnification": 2,
           "status": "Inspected; temporary crop removed after verification"
         },
         {
           "path": "/tmp/IW1-D04-1-third2.png",
-          "source_rect": [
-            0,
-            682,
-            1536,
-            342
-          ],
+          "source_rect": [0, 682, 1536, 342],
           "magnification": 2,
           "status": "Inspected; temporary crop removed after verification"
         }
@@ -928,34 +847,19 @@
       "inspection_crops": [
         {
           "path": "/tmp/IW1-D05-1-third0.png",
-          "source_rect": [
-            0,
-            0,
-            1536,
-            341
-          ],
+          "source_rect": [0, 0, 1536, 341],
           "magnification": 2,
           "status": "Inspected; temporary crop removed after verification"
         },
         {
           "path": "/tmp/IW1-D05-1-third1.png",
-          "source_rect": [
-            0,
-            341,
-            1536,
-            341
-          ],
+          "source_rect": [0, 341, 1536, 341],
           "magnification": 2,
           "status": "Inspected; temporary crop removed after verification"
         },
         {
           "path": "/tmp/IW1-D05-1-third2.png",
-          "source_rect": [
-            0,
-            682,
-            1536,
-            342
-          ],
+          "source_rect": [0, 682, 1536, 342],
           "magnification": 2,
           "status": "Inspected; temporary crop removed after verification"
         }

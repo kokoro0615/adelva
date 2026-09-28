@@ -30,7 +30,9 @@ export const metadata: Metadata = {
  */
 export default function RootLayout({ children }: { readonly children: ReactNode }) {
   return (
-    <html lang="en">
+    // globals.css smooth-scrolls in-page anchors; this lets Next.js 16 switch it
+    // off during route transitions so a new page opens at its top instantly.
+    <html lang="en" data-scroll-behavior="smooth">
       <body>
         <RouteShell
           legacy={

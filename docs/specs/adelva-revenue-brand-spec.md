@@ -326,7 +326,7 @@ scaleX = scaleY がすべてで成立。タブレット 768×1024 は参照な�
 
 前提（AGENTS.md）：ふつうの状態変化は CSS。計測を伴うスクロール演出だけ GSAP/ScrollTrigger（`useGSAP`、スコープ付き ref、クリーンアップ）。時間とイージングは `src/lib/motion.ts` の `DURATION`・`EASE_*` と `globals.css` の `--dur-*`・`--ease-*`。自動で動き続ける要素は置かない（WCAG 2.2.2）。文字と操作部分は最初から表示し、演出の完了を待たせない。`filter: blur` をアニメーションしない。`gsap.matchMedia()` で `(prefers-reduced-motion: no-preference)` の時だけ演出を登録し、reduce では登録しない（完成状態のまま）。
 
-初期化の順序：サーバーの HTML は完成状態。クライアントで motion が有効なら、最初のフレームの前（`useGSAP` の同期部）に `data-motion="on"` を root に付け、線を未描画に戻す。**ヒーローの線は、未描画に戻す前に一瞬でも完成状態を見せないこと**（ヒーローの線・節点・チップの初期不透明度は、`<html>` に付いた `data-rb-motion` を CSS が見る方式にする：`src/app/services/revenue-brand/page.tsx` で `<script>` を 1 行、`matchMedia('(prefers-reduced-motion: no-preference)').matches` のとき `document.documentElement.dataset.rbMotion = "1"`。この属性は本ページのルートを離れたら消す）。
+初期化の順序：サーバーの HTML は完成状態。JS が有効で reduce でないときだけ、CSS の `@media (scripting: enabled) and (prefers-reduced-motion: no-preference)` がヒーローの源流・チップ・節点を最初の描画から未描画にし、モーションの部品が描く（`.page[data-motion="on"]` になるまで。3 秒のフェイルセーフで完成状態）。インラインの `<script>` は使わない（React 19 はクライアント描画で実行しないため。2026-09-29 修正）。
 
 ### 9.1 ヒーロー（読み込み時、1 回）
 

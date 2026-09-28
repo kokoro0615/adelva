@@ -170,7 +170,6 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
           const svg = el.querySelector<SVGSVGElement>(`[data-river="${mode}"]`)!;
           if (!motion) return;
           el.dataset.motion = "on";
-          document.documentElement.dataset.rbMotion = "1";
           const path = svg.querySelector<SVGPathElement>('[data-main-line="core"]')!;
           const lines = Array.from(
             svg.querySelectorAll<SVGPathElement>("[data-main-line]"),
@@ -328,13 +327,20 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
             );
             sourcePaths.forEach((line, i) => {
               const id = line.closest<SVGGElement>("[data-source]")!.dataset.source;
-              const dot = line.parentElement!.querySelector("[data-source-node]");
+              const group = line.parentElement!;
+              const dot = group.querySelector("[data-source-node]");
               const chip = el.querySelector(`[data-source-chip="${id}"]`);
               heroTl.fromTo(
-                line,
+                [line, group.querySelector("[data-source-glow]")],
                 { strokeDashoffset: 1 },
                 { strokeDashoffset: 0, duration: 1.2, ease: reveal },
                 0.25 + i * 0.08,
+              );
+              heroTl.fromTo(
+                group.querySelector("[data-source-leader]"),
+                { strokeDashoffset: 1 },
+                { strokeDashoffset: 0, duration: 0.3, ease: panel },
+                0.78 + i * 0.08,
               );
               heroTl.fromTo(
                 dot,
@@ -363,6 +369,12 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
           ch1Tl
             .fromTo(
               svg.querySelectorAll("[data-tributary]"),
+              { strokeDashoffset: 1 },
+              { strokeDashoffset: 0, duration: 1.4, stagger: 0.12, ease: reveal },
+              0,
+            )
+            .fromTo(
+              svg.querySelectorAll("[data-tributary-glow]"),
               { strokeDashoffset: 1 },
               { strokeDashoffset: 0, duration: 1.4, stagger: 0.12, ease: reveal },
               0,
@@ -500,7 +512,10 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
           });
           loopTl
             .fromTo(
-              svg.querySelector("[data-loop-other]"),
+              [
+                svg.querySelector("[data-loop-other]"),
+                svg.querySelector("[data-loop-other-glow]"),
+              ],
               { strokeDashoffset: 1 },
               { strokeDashoffset: 0, duration: 0.9, ease: reveal },
             )
@@ -631,7 +646,6 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
             delete el.dataset.motion;
             delete el.dataset.railFixed;
             delete el.dataset.railHidden;
-            delete document.documentElement.dataset.rbMotion;
             setCurrent(true);
             stepElements.forEach((item) => {
               item.dataset.state = "reached";
@@ -658,7 +672,6 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
         alive = false;
         media.revert();
         el.removeEventListener("rb:select", select);
-        delete document.documentElement.dataset.rbMotion;
       };
     },
     { scope: root },

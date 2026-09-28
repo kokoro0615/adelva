@@ -10,10 +10,12 @@ All prompts were authored by Opus 5.5 and are final. Pass each prompt file to `i
 - Everything depicted is fictional. No people.
 
 For EVERY attempt:
+
 1. Numeric check (edits only): `node A/tools/measure-drift.mjs <input> <returned original>` — record the whole JSON. PASS means same aspect ratio and the photograph still lines up with the input overall (global drift ≤ 12 px). The per-cell offsets are informational only (cells where a big overlay was removed have no reliable match); record them, never retry for them. A different pixel size with the same aspect ratio is fine; record it.
 2. Visual check at original resolution: `view_image` with detail original on the whole result, plus 2× crops (in /tmp) of the top, middle and bottom thirds and of every place where the prompt's removal list had an overlay. Look for ANY leftover of the mock's UI: letters or glyph-like marks, numbers, logo, outlined or filled labels/pills, thin orange or white lines, dotted lines, dots, rings, corner brackets, arrows, check marks, boxes, dark translucent bands or panels, and orange glow painted along the water. Also look for smudges or blurred patches where text used to be.
 
 DECIDE with this policy (Opus reviews every adopted image afterwards, so keep moving):
+
 - SERIOUS defects — the only reasons to retry:
   a. any leftover UI or text as listed in step 2 (even faint or partial), or a clearly smeared/blurred patch where an overlay was;
   b. the numeric check FAILS (edits);
@@ -31,10 +33,11 @@ Final answer: a concise Japanese summary (per item: attempts, the adopted one an
 TASK IW4 — mobile plate bands M5–M8. Worker id for the record: IW4.
 Each input is 853×1844 px: one 390×843 CSS px screen of the mobile page (1 CSS px ≈ 2.187 px). Consecutive bands overlap by 256 px vertically; Opus aligns and joins them afterwards, so each band must keep its input's geometry.
 Items, in this order:
-   - M5: EDIT of A/inputs/M5-input.png with prompt A/prompts/M5.txt → save as A/raw/M5.png
-   - M6: EDIT of A/inputs/M6-input.png with prompt A/prompts/M6.txt → save as A/raw/M6.png
-   - M7: EDIT of A/inputs/M7-input.png with prompt A/prompts/M7.txt → save as A/raw/M7.png
-   - M8: EDIT of A/inputs/M8-input.png with prompt A/prompts/M8.txt → save as A/raw/M8.png
-Extra checks: the warm amber ryokan windows and pier lanterns must survive where the input has them (D03, D04, D09, D10, M4, M8). In D10 and M8 the bottom must darken smoothly with no band.
+
+- M5: EDIT of A/inputs/M5-input.png with prompt A/prompts/M5.txt → save as A/raw/M5.png
+- M6: EDIT of A/inputs/M6-input.png with prompt A/prompts/M6.txt → save as A/raw/M6.png
+- M7: EDIT of A/inputs/M7-input.png with prompt A/prompts/M7.txt → save as A/raw/M7.png
+- M8: EDIT of A/inputs/M8-input.png with prompt A/prompts/M8.txt → save as A/raw/M8.png
+  Extra checks: the warm amber ryokan windows and pier lanterns must survive where the input has them (D03, D04, D09, D10, M4, M8). In D10 and M8 the bottom must darken smoothly with no band.
 
 RESUME NOTE: an earlier run of this exact task was interrupted right after its first image_gen call (verbatim prompt, same input). Its result is /home/kokoro/.codex/generated_images/01a0e78c-4c07-7ab0-bc82-b1295a4b0e01/exec-c0d0bea5-63a3-4553-b434-43881b06b57e.png . Treat it as attempt 1 of M5: run the numeric and visual checks on it and apply the decision policy; do NOT call image_gen for M5 again unless it has a serious defect. Opus has already looked at it at reduced size and found no leftover UI and a correct scene, so it is very likely adoptable — still do your own checks. Then continue with the remaining items. Start a fresh record file (overwrite any partial record from the interrupted run) and note the interruption in it.

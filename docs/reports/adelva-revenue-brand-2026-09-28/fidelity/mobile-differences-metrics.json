@@ -1,8 +1,8 @@
 {
   "version": 1,
   "label": "mobile-differences",
-  "reference": "/home/kokoro/projects/clients/clonetest-rb/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/frames/mobile-differences-reference.png",
-  "actual": "/home/kokoro/projects/clients/clonetest-rb/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/frames/mobile-differences-actual.png",
+  "reference": "/tmp/claude-1000/-home-kokoro-projects-clients-clonetest/f6fee504-e76d-4041-8840-78ce6fb3698b/scratchpad/fixbuild/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/frames/mobile-differences-reference.png",
+  "actual": "/tmp/claude-1000/-home-kokoro-projects-clients-clonetest/f6fee504-e76d-4041-8840-78ce6fb3698b/scratchpad/fixbuild/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/frames/mobile-differences-actual.png",
   "mapping": {
     "referenceRaster": {
       "width": 390,
@@ -19,10 +19,10 @@
     "aspectDelta": 0
   },
   "metrics": {
-    "mae": 0.10419989805038825,
-    "rmse": 0.17884717421387317,
-    "diffRatio": 0.32724358974358975,
-    "edgeMae": 0.054002754133194296
+    "mae": 0.10425008379420145,
+    "rmse": 0.1788868676523407,
+    "diffRatio": 0.32740384615384616,
+    "edgeMae": 0.05400458650171494
   },
   "thresholds": {
     "pixelThreshold": 0.1
@@ -30,8 +30,8 @@
   "status": "MEASURED",
   "failures": [],
   "artifacts": {
-    "overlay": "/home/kokoro/projects/clients/clonetest-rb/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/mobile-differences-overlay.png",
-    "difference": "/home/kokoro/projects/clients/clonetest-rb/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/mobile-differences-difference.png",
-    "sideBySide": "/home/kokoro/projects/clients/clonetest-rb/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/mobile-differences-side-by-side.png"
+    "overlay": "/tmp/claude-1000/-home-kokoro-projects-clients-clonetest/f6fee504-e76d-4041-8840-78ce6fb3698b/scratchpad/fixbuild/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/mobile-differences-overlay.png",
+    "difference": "/tmp/claude-1000/-home-kokoro-projects-clients-clonetest/f6fee504-e76d-4041-8840-78ce6fb3698b/scratchpad/fixbuild/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/mobile-differences-difference.png",
+    "sideBySide": "/tmp/claude-1000/-home-kokoro-projects-clients-clonetest/f6fee504-e76d-4041-8840-78ce6fb3698b/scratchpad/fixbuild/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/mobile-differences-side-by-side.png"
   }
 }

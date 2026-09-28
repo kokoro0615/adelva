@@ -10,10 +10,12 @@ All prompts were authored by Opus 5.5 and are final. Pass each prompt file to `i
 - Everything depicted is fictional. No people.
 
 For EVERY attempt:
+
 1. Numeric check (edits only): `node A/tools/measure-drift.mjs <input> <returned original>` — record the whole JSON. PASS means same aspect ratio and the photograph still lines up with the input overall (global drift ≤ 12 px). The per-cell offsets are informational only (cells where a big overlay was removed have no reliable match); record them, never retry for them. A different pixel size with the same aspect ratio is fine; record it.
 2. Visual check at original resolution: `view_image` with detail original on the whole result, plus 2× crops (in /tmp) of the top, middle and bottom thirds and of every place where the prompt's removal list had an overlay. Look for ANY leftover of the mock's UI: letters or glyph-like marks, numbers, logo, outlined or filled labels/pills, thin orange or white lines, dotted lines, dots, rings, corner brackets, arrows, check marks, boxes, dark translucent bands or panels, and orange glow painted along the water. Also look for smudges or blurred patches where text used to be.
 
 DECIDE with this policy (Opus reviews every adopted image afterwards, so keep moving):
+
 - SERIOUS defects — the only reasons to retry:
   a. any leftover UI or text as listed in step 2 (even faint or partial), or a clearly smeared/blurred patch where an overlay was;
   b. the numeric check FAILS (edits);
@@ -31,12 +33,13 @@ Final answer: a concise Japanese summary (per item: attempts, the adopted one an
 TASK IW1 — desktop plate tiles D00–D05. Worker id for the record: IW1.
 Each input is 1536×1024 px: one 1440×960 CSS px screen of the desktop page (a 1.5× upscale of the 1024 px wide mock, so the input itself looks soft). Consecutive tiles overlap by 256 px vertically; Opus aligns and joins them afterwards, so each tile must keep its input's geometry.
 Items, in this order:
-   - D00: EDIT of A/inputs/D00-input.png with prompt A/prompts/D00.txt → save as A/raw/D00.png
-   - D01: EDIT of A/inputs/D01-input.png with prompt A/prompts/D01.txt → save as A/raw/D01.png
-   - D02: EDIT of A/inputs/D02-input.png with prompt A/prompts/D02.txt → save as A/raw/D02.png
-   - D03: EDIT of A/inputs/D03-input.png with prompt A/prompts/D03.txt → save as A/raw/D03.png
-   - D04: EDIT of A/inputs/D04-input.png with prompt A/prompts/D04.txt → save as A/raw/D04.png
-   - D05: EDIT of A/inputs/D05-input.png with prompt A/prompts/D05.txt → save as A/raw/D05.png
-Extra checks: the warm amber ryokan windows and pier lanterns must survive where the input has them (D03, D04, D09, D10, M4, M8). In D10 and M8 the bottom must darken smoothly with no band.
+
+- D00: EDIT of A/inputs/D00-input.png with prompt A/prompts/D00.txt → save as A/raw/D00.png
+- D01: EDIT of A/inputs/D01-input.png with prompt A/prompts/D01.txt → save as A/raw/D01.png
+- D02: EDIT of A/inputs/D02-input.png with prompt A/prompts/D02.txt → save as A/raw/D02.png
+- D03: EDIT of A/inputs/D03-input.png with prompt A/prompts/D03.txt → save as A/raw/D03.png
+- D04: EDIT of A/inputs/D04-input.png with prompt A/prompts/D04.txt → save as A/raw/D04.png
+- D05: EDIT of A/inputs/D05-input.png with prompt A/prompts/D05.txt → save as A/raw/D05.png
+  Extra checks: the warm amber ryokan windows and pier lanterns must survive where the input has them (D03, D04, D09, D10, M4, M8). In D10 and M8 the bottom must darken smoothly with no band.
 
 RESUME NOTE: an earlier run of this exact task was interrupted right after its first image_gen call (verbatim prompt, same input). Its result is /home/kokoro/.codex/generated_images/01a0e78c-52dd-7e51-a477-7fe6bae5019b/exec-9aa3ca7c-21d7-4265-9050-a2eb98658c26.png . Treat it as attempt 1 of D00: run the numeric and visual checks on it and apply the decision policy; do NOT call image_gen for D00 again unless it has a serious defect. Opus has already looked at it at reduced size and found no leftover UI and a correct scene, so it is very likely adoptable — still do your own checks. Then continue with the remaining items. Start a fresh record file (overwrite any partial record from the interrupted run) and note the interruption in it.

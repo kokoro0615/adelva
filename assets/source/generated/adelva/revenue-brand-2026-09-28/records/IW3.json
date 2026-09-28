@@ -32,9 +32,7 @@
           "match": true,
           "method": "Exact equality of recovered prior cat output text and current file including final newline. Prior call uses stored M1_prompt directly.",
           "evidence": {
-            "call_ids": [
-              "call_uwn8J2vN6MjMLmmWj0BM0AnN"
-            ],
+            "call_ids": ["call_uwn8J2vN6MjMLmmWj0BM0AnN"],
             "output_type": "content text"
           },
           "prior_rollout": "/home/kokoro/.codex/sessions/2026/09/28/rollout-2026-09-28T19-25-28-01a0e78c-52dc-7a11-957d-2b52a63f704f.jsonl"
@@ -130,9 +128,7 @@
         ],
         "verdict": "PASS",
         "serious": [],
-        "info": [
-          "local offset up to 33 px (informational)"
-        ]
+        "info": ["local offset up to 33 px (informational)"]
       },
       "defects": [],
       "adopted": true,
@@ -141,36 +137,11 @@
         "whole_original": true,
         "thirds_2x": true,
         "overlay_areas_2x": [
-          [
-            20,
-            30,
-            820,
-            110
-          ],
-          [
-            70,
-            235,
-            783,
-            260
-          ],
-          [
-            30,
-            610,
-            790,
-            560
-          ],
-          [
-            30,
-            1160,
-            420,
-            245
-          ],
-          [
-            765,
-            640,
-            55,
-            365
-          ]
+          [20, 30, 820, 110],
+          [70, 235, 783, 260],
+          [30, 610, 790, 560],
+          [30, 1160, 420, 245],
+          [765, 640, 55, 365]
         ],
         "river_overlay_coverage": "All three full-width thirds",
         "remaining_ui": false,
@@ -300,30 +271,10 @@
         "whole_original": true,
         "thirds_2x": true,
         "overlay_areas_2x": [
-          [
-            40,
-            220,
-            775,
-            355
-          ],
-          [
-            135,
-            610,
-            585,
-            105
-          ],
-          [
-            35,
-            775,
-            275,
-            475
-          ],
-          [
-            625,
-            820,
-            195,
-            435
-          ]
+          [40, 220, 775, 355],
+          [135, 610, 585, 105],
+          [35, 775, 275, 475],
+          [625, 820, 195, 435]
         ],
         "river_overlay_coverage": "All full-width thirds",
         "remaining_ui": false,
@@ -444,9 +395,7 @@
         ],
         "verdict": "PASS",
         "serious": [],
-        "info": [
-          "local offset up to 45 px (informational)"
-        ]
+        "info": ["local offset up to 45 px (informational)"]
       },
       "defects": [],
       "adopted": true,
@@ -455,30 +404,10 @@
         "whole_original": true,
         "thirds_2x": true,
         "overlay_areas_2x": [
-          [
-            30,
-            365,
-            350,
-            140
-          ],
-          [
-            515,
-            525,
-            315,
-            140
-          ],
-          [
-            85,
-            1120,
-            695,
-            200
-          ],
-          [
-            410,
-            985,
-            35,
-            859
-          ]
+          [30, 365, 350, 140],
+          [515, 525, 315, 140],
+          [85, 1120, 695, 200],
+          [410, 985, 35, 859]
         ],
         "river_overlay_coverage": "All full-width thirds",
         "remaining_ui": false,
@@ -599,9 +528,7 @@
         ],
         "verdict": "PASS",
         "serious": [],
-        "info": [
-          "local offset up to 43 px (informational)"
-        ]
+        "info": ["local offset up to 43 px (informational)"]
       },
       "defects": [],
       "adopted": true,
@@ -610,37 +537,12 @@
         "whole_original": true,
         "thirds_2x": true,
         "overlay_areas_2x": [
-          [
-            410,
-            0,
-            35,
-            315
-          ],
-          [
-            115,
-            320,
-            625,
-            200
-          ],
-          [
-            180,
-            565,
-            490,
-            260
-          ],
-          [
-            375,
-            1015,
-            190,
-            150
-          ]
+          [410, 0, 35, 315],
+          [115, 320, 625, 200],
+          [180, 565, 490, 260],
+          [375, 1015, 190, 150]
         ],
-        "warm_lighting_area_2x": [
-          125,
-          1000,
-          680,
-          220
-        ],
+        "warm_lighting_area_2x": [125, 1000, 680, 220],
         "river_overlay_coverage": "All full-width thirds",
         "remaining_ui": false,
         "scene_geometry_preserved": true,

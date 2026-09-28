@@ -1,8 +1,8 @@
 {
   "version": 1,
   "label": "mobile-confluence",
-  "reference": "/home/kokoro/projects/clients/clonetest-rb/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/frames/mobile-confluence-reference.png",
-  "actual": "/home/kokoro/projects/clients/clonetest-rb/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/frames/mobile-confluence-actual.png",
+  "reference": "/tmp/claude-1000/-home-kokoro-projects-clients-clonetest/f6fee504-e76d-4041-8840-78ce6fb3698b/scratchpad/fixbuild/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/frames/mobile-confluence-reference.png",
+  "actual": "/tmp/claude-1000/-home-kokoro-projects-clients-clonetest/f6fee504-e76d-4041-8840-78ce6fb3698b/scratchpad/fixbuild/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/frames/mobile-confluence-actual.png",
   "mapping": {
     "referenceRaster": {
       "width": 390,
@@ -19,10 +19,10 @@
     "aspectDelta": 0
   },
   "metrics": {
-    "mae": 0.07816508170826068,
-    "rmse": 0.1431678466518143,
-    "diffRatio": 0.19744953627932352,
-    "edgeMae": 0.03732821991042857
+    "mae": 0.07935493084304097,
+    "rmse": 0.14611147079007153,
+    "diffRatio": 0.20009274413529732,
+    "edgeMae": 0.037652502551825666
   },
   "thresholds": {
     "pixelThreshold": 0.1
@@ -30,8 +30,8 @@
   "status": "MEASURED",
   "failures": [],
   "artifacts": {
-    "overlay": "/home/kokoro/projects/clients/clonetest-rb/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/mobile-confluence-overlay.png",
-    "difference": "/home/kokoro/projects/clients/clonetest-rb/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/mobile-confluence-difference.png",
-    "sideBySide": "/home/kokoro/projects/clients/clonetest-rb/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/mobile-confluence-side-by-side.png"
+    "overlay": "/tmp/claude-1000/-home-kokoro-projects-clients-clonetest/f6fee504-e76d-4041-8840-78ce6fb3698b/scratchpad/fixbuild/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/mobile-confluence-overlay.png",
+    "difference": "/tmp/claude-1000/-home-kokoro-projects-clients-clonetest/f6fee504-e76d-4041-8840-78ce6fb3698b/scratchpad/fixbuild/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/mobile-confluence-difference.png",
+    "sideBySide": "/tmp/claude-1000/-home-kokoro-projects-clients-clonetest/f6fee504-e76d-4041-8840-78ce6fb3698b/scratchpad/fixbuild/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/mobile-confluence-side-by-side.png"
   }
 }

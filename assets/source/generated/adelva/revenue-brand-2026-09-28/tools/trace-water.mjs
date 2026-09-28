@@ -6,7 +6,10 @@
 import sharp from "sharp";
 const [img, json] = process.argv.slice(2);
 const segs = JSON.parse(json);
-const { data, info } = await sharp(img).removeAlpha().raw().toBuffer({ resolveWithObject: true });
+const { data, info } = await sharp(img)
+  .removeAlpha()
+  .raw()
+  .toBuffer({ resolveWithObject: true });
 const W = info.width;
 const lumAt = (x, y) => {
   const i = (y * W + x) * 3;
@@ -20,10 +23,19 @@ for (const s of segs) {
   const raw = [];
   const dir = s.y1 >= s.y0 ? 1 : -1;
   for (let y = s.y0; dir > 0 ? y <= s.y1 : y >= s.y1; y += dir) {
-    let sw = 0, sx = 0;
-    for (let xx = Math.max(0, Math.round(x - half)); xx <= Math.min(W - 1, Math.round(x + half)); xx++) {
+    let sw = 0,
+      sx = 0;
+    for (
+      let xx = Math.max(0, Math.round(x - half));
+      xx <= Math.min(W - 1, Math.round(x + half));
+      xx++
+    ) {
       const l = lumAt(xx, y);
-      if (l >= thr) { const w = l - thr + 1; sw += w; sx += w * xx; }
+      if (l >= thr) {
+        const w = l - thr + 1;
+        sw += w;
+        sx += w * xx;
+      }
     }
     if (sw > 0) {
       const c = sx / sw;
@@ -34,8 +46,12 @@ for (const s of segs) {
   // moving-average smoothing over +-k rows
   const k = s.smooth ?? 12;
   const sm = raw.map((p, i) => {
-    let a = 0, n = 0;
-    for (let j = Math.max(0, i - k); j <= Math.min(raw.length - 1, i + k); j++) { a += raw[j][0]; n++; }
+    let a = 0,
+      n = 0;
+    for (let j = Math.max(0, i - k); j <= Math.min(raw.length - 1, i + k); j++) {
+      a += raw[j][0];
+      n++;
+    }
     return [a / n, p[1]];
   });
   const every = s.every ?? 24;

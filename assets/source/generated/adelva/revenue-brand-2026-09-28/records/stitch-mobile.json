@@ -60,10 +60,7 @@
       },
       "cumulativeDx": 0,
       "meanAbsDiff": 9.77,
-      "blendRows": [
-        1652,
-        1780
-      ]
+      "blendRows": [1652, 1780]
     },
     {
       "join": "raw/M2.png -> raw/M3.png",
@@ -73,10 +70,7 @@
       },
       "cumulativeDx": 0,
       "meanAbsDiff": 11.41,
-      "blendRows": [
-        3240,
-        3368
-      ]
+      "blendRows": [3240, 3368]
     },
     {
       "join": "raw/M3.png -> raw/M4.png",
@@ -86,10 +80,7 @@
       },
       "cumulativeDx": 0,
       "meanAbsDiff": 2.15,
-      "blendRows": [
-        4828,
-        4956
-      ]
+      "blendRows": [4828, 4956]
     },
     {
       "join": "raw/M4.png -> raw/M5.png",
@@ -99,10 +90,7 @@
       },
       "cumulativeDx": 0,
       "meanAbsDiff": 10.97,
-      "blendRows": [
-        6416,
-        6544
-      ]
+      "blendRows": [6416, 6544]
     },
     {
       "join": "raw/M5.png -> raw/M6.png",
@@ -112,10 +100,7 @@
       },
       "cumulativeDx": 0,
       "meanAbsDiff": 14.4,
-      "blendRows": [
-        8004,
-        8132
-      ]
+      "blendRows": [8004, 8132]
     },
     {
       "join": "raw/M6.png -> raw/M7.png",
@@ -125,10 +110,7 @@
       },
       "cumulativeDx": 0,
       "meanAbsDiff": 15.31,
-      "blendRows": [
-        9592,
-        9720
-      ]
+      "blendRows": [9592, 9720]
     },
     {
       "join": "raw/M7.png -> raw/M8.png",
@@ -138,10 +120,7 @@
       },
       "cumulativeDx": 0,
       "meanAbsDiff": 11.38,
-      "blendRows": [
-        11180,
-        11308
-      ]
+      "blendRows": [11180, 11308]
     }
   ],
   "output": {

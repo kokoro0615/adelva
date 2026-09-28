@@ -75,10 +75,7 @@
       },
       "cumulativeDx": 1,
       "meanAbsDiff": 10.91,
-      "blendRows": [
-        832,
-        960
-      ]
+      "blendRows": [832, 960]
     },
     {
       "join": "raw/D01.png -> raw/D02.png",
@@ -88,10 +85,7 @@
       },
       "cumulativeDx": -1,
       "meanAbsDiff": 10.1,
-      "blendRows": [
-        1600,
-        1728
-      ]
+      "blendRows": [1600, 1728]
     },
     {
       "join": "raw/D02.png -> raw/D03.png",
@@ -101,10 +95,7 @@
       },
       "cumulativeDx": -1,
       "meanAbsDiff": 6.69,
-      "blendRows": [
-        2368,
-        2496
-      ]
+      "blendRows": [2368, 2496]
     },
     {
       "join": "raw/D03.png -> raw/D04.png",
@@ -114,10 +105,7 @@
       },
       "cumulativeDx": 0,
       "meanAbsDiff": 6.87,
-      "blendRows": [
-        3136,
-        3264
-      ]
+      "blendRows": [3136, 3264]
     },
     {
       "join": "raw/D04.png -> raw/D05.png",
@@ -127,10 +115,7 @@
       },
       "cumulativeDx": -1,
       "meanAbsDiff": 7.34,
-      "blendRows": [
-        3904,
-        4032
-      ]
+      "blendRows": [3904, 4032]
     },
     {
       "join": "raw/D05.png -> raw/D06.png",
@@ -140,10 +125,7 @@
       },
       "cumulativeDx": -1,
       "meanAbsDiff": 9.86,
-      "blendRows": [
-        4672,
-        4800
-      ]
+      "blendRows": [4672, 4800]
     },
     {
       "join": "raw/D06.png -> raw/D07.png",
@@ -153,10 +135,7 @@
       },
       "cumulativeDx": -1,
       "meanAbsDiff": 10.4,
-      "blendRows": [
-        5440,
-        5568
-      ]
+      "blendRows": [5440, 5568]
     },
     {
       "join": "raw/D07.png -> raw/D08.png",
@@ -166,10 +145,7 @@
       },
       "cumulativeDx": 0,
       "meanAbsDiff": 21.39,
-      "blendRows": [
-        6208,
-        6336
-      ]
+      "blendRows": [6208, 6336]
     },
     {
       "join": "raw/D08.png -> raw/D09.png",
@@ -179,10 +155,7 @@
       },
       "cumulativeDx": -1,
       "meanAbsDiff": 11.92,
-      "blendRows": [
-        6976,
-        7104
-      ]
+      "blendRows": [6976, 7104]
     },
     {
       "join": "raw/D09.png -> raw/D10.png",
@@ -192,10 +165,7 @@
       },
       "cumulativeDx": -1,
       "meanAbsDiff": 8.73,
-      "blendRows": [
-        7744,
-        7872
-      ]
+      "blendRows": [7744, 7872]
     }
   ],
   "output": {

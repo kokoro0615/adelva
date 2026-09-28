@@ -1,6 +1,5 @@
 /** Generate plate geometry and preconverted CSS coordinates; never hand-copy JSON. */
 import { readFile, writeFile } from "node:fs/promises";
-import sharp from "sharp";
 import prettier from "prettier";
 const base = "assets/source/generated/adelva/revenue-brand-2026-09-28/plates";
 const data = await Promise.all(
@@ -8,59 +7,9 @@ const data = await Promise.all(
     JSON.parse(await readFile(`${base}/geometry-${n}.json`, "utf8")),
   ),
 );
-// The supplied mobile JSON omits source paths. Recover only these ornamental
-// paths from the approved mock's orange ink; no reference pixels are shipped.
-const { data: pixels, info } = await sharp(
-  "references/adelva/mockups/revenue-brand-A4-2026-09-26/A4-mobile/A4-mobile-full-390.png",
-)
-  .removeAlpha()
-  .raw()
-  .toBuffer({ resolveWithObject: true });
-const mobile = data[1];
-mobile.paths.sources = {};
-for (const [id, node] of Object.entries(mobile.dots.sources)) {
-  const k = 390 / 853,
-    ny = node[1] * k,
-    nx = node[0] * k;
-  const points = [[nx, ny]];
-  for (const direction of [-1, 1]) {
-    let x = nx;
-    let misses = 0;
-    const side = [];
-    for (
-      let y = Math.round(ny) + direction * 4;
-      y >= 70 && y <= ny + 120;
-      y += direction * 4
-    ) {
-      let best = null;
-      for (
-        let xx = Math.max(0, Math.round(x) - 14);
-        xx < Math.min(info.width, Math.round(x) + 15);
-        xx++
-      ) {
-        const i = (y * info.width + xx) * 3;
-        const [r, g, b] = pixels.subarray(i, i + 3);
-        if (r > 100 && r > g * 1.25 && r > b * 1.3) {
-          const score = Math.abs(xx - x);
-          if (!best || score < best.score) best = { x: xx, score };
-        }
-      }
-      if (best) {
-        x = best.x;
-        misses = 0;
-      } else if (++misses >= 3) break;
-      side.push([x, y]);
-    }
-    if (direction < 0) points.unshift(...side.reverse());
-    else points.push(...side);
-  }
-  mobile.paths.sources[id] = {
-    node,
-    d: points
-      .map(([x, y], i) => `${i ? "L" : "M"}${(x / k).toFixed(1)} ${(y / k).toFixed(1)}`)
-      .join(" "),
-  };
-}
+// Mobile source streams come from the plate geometry (read off the plate and
+// checked against the water; Opus review 2026-09-29).
+if (!data[1].paths.sources) throw new Error("mobile geometry lacks paths.sources");
 function coords(v, k) {
   if (Array.isArray(v)) return v.map((n) => +(n * k).toFixed(4));
   return Object.fromEntries(

@@ -1392,7 +1392,7 @@
       "text": "公式サイト",
       "fontSize": 12,
       "color": "rgb(255, 255, 255)",
-      "contrast": 13.95,
+      "contrast": 13.88,
       "target": 4.5,
       "pass": true
     },
@@ -1482,7 +1482,7 @@
       "text": "宿泊収益",
       "fontSize": 12,
       "color": "rgb(255, 126, 21)",
-      "contrast": 7.5,
+      "contrast": 7.49,
       "target": 4.5,
       "pass": true
     },
@@ -1536,7 +1536,7 @@
       "text": "法人・旅行会社・団体・地域企業への営業",
       "fontSize": 12,
       "color": "rgba(255, 255, 255, 0.88)",
-      "contrast": 4.97,
+      "contrast": 4.95,
       "target": 4.5,
       "pass": true
     },

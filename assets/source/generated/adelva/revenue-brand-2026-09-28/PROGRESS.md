@@ -3,12 +3,14 @@
 User decisions: mock copy adopted = approved (status `adopted-mock-2026-09-28`); after all gates pass → commit + push + Vercel production. Implementation → Codex `gpt-6-astra` reasoning high (Opus writes the brief); image generation → Codex high, prompts by Opus; Opus reviews and fixes.
 
 ## Done
+
 - Clean-plate edit inputs: `inputs/D00–D10` (desktop 1536×1024 tiles = A4-full rows 0–5804 ×1.5, stride 768, overlap 256), `M1–M8` (mobile bands 853×1844, stitch like `A4-mobile/tools/stitch-mobile.mjs`: overlap 256, blendStart 64, blend 128), `C1/C2` (card photos ×2).
 - Prompts (Opus): `prompts/*.txt` via `tools/write-prompts.mjs`. Worker briefs `briefs/IW1–IW5.md`. First attempts D00/D06/M1/M5/C1 reviewed by Opus: clean, correct scene.
 - Workers IW1–IW5 relaunched detached (setsid) at 19:33; outputs → `raw/`, records → `records/IW*.json`, logs → `logs/`.
 - Mock line traces: `records/trace-desktop-mock.json` (1024 raster), `records/trace-mobile-mock-2x.json` (780 @2x). Tools: `tools/trace-rows.mjs`, `tools/orange-runs.mjs`, `tools/ink-bbox.mjs`, `tools/measure-drift.mjs`.
 
 ## Desktop measurements (raster y → CSS = ×1.40625)
+
 - Margins ≈ 60 CSS left/right. Ink/end colour ≈ rgb(10,17,24). Photo fades to ink by raster ≈5800 (CSS ≈8160).
 - Hero: crumb y 257 (≈15px); "02" orange 36px serif x 59; 支援領域 19px; H1 y 330–398, x 44–616 (≈96px Mincho, width 804 CSS); EN y 412 (15px, tracking ≈0.55em, width 415); lead 2 lines Mincho ≈27px / 41px lh, y 444; CTA x 62–325 y 720–780 CSS; SCROLL centre 720 CSS, y 752; index band nodes y 858 CSS at x 276/720/1162, nums 24px orange, labels 15px, ↓ ≈939.
 - Stream nodes (raster): Web 250,103 · OTA 412,148 · 営業 583,180 · 写真 745,214 · SNS 900,223.
@@ -21,6 +23,7 @@ User decisions: mock copy adopted = approved (status `adopted-mock-2026-09-28`);
 - Audience band: ice rgb(238,236,232) y 6530–6655, links y6578–6600 (x99 / x594), centre divider x511.
 
 ## Status 22:15 JST
+
 - Images: all 23 adopted on first attempt (records/IW1–IW5.json); Opus reviewed every one (no leftover UI).
 - Plates stitched: plates/desktop-plate.png 1536×8704, plates/mobile-plate.png 853×12960 (records/stitch-*.json). Seams checked.
 - Geometry: plates/geometry-desktop.json / geometry-mobile.json / geometry-cards.json (tools/build-geometry.mjs, verified overlay with tools/render-geometry.mjs). Mobile main runs the loop counter-clockwise; `cycle` = clockwise ring for the particle.
@@ -29,16 +32,19 @@ User decisions: mock copy adopted = approved (status `adopted-mock-2026-09-28`);
 - Codex implementation worker launched 22:14 (session 01a0e828-d73c-7700-a492-0faff9c2d218), log logs/IMPL.log. git status snapshot before: logs/git-status-before-impl.txt.
 
 ## Left to do
+
 1. Wait for Codex; review UI/UX/motion/layout (Opus), fix.
 2. Gates, commit only this task's files/hunks (preserve /approach uncommitted work), push, Vercel prod, verify prod.
 
 ## 22:20 JST — moved implementation to a worktree
+
 - Another Claude session (pid 98225, started 21:49) runs a Codex worker implementing /services/dx-it-procurement in the MAIN tree (build dir, Playwright port 4173, font subsets and shared files would collide).
 - My first IMPL worker (session 01a0e828…) was stopped before writing anything (logs/IMPL.log).
 - Worktree: /home/kokoro/projects/clients/clonetest-rb, branch feat/revenue-brand from HEAD 504e173; node_modules symlinked; inputs copied. Worker session 01a0e82c-441d-7352-87b5-70493abf3f14, log clonetest-rb/assets/source/generated/adelva/revenue-brand-2026-09-28/logs/IMPL-worktree.log. Ports 4391/4392.
 - Integration later: port new files + add-only hunks into the main tree (or commit on the branch and merge), re-run the font extension on top of the main tree's fonts (approach + dx glyphs), then gates.
 
 ## 2026-09-29 — implementation reviewed and fixed by Opus
+
 - Codex (session 01a0e82c…, resumed once after it stopped to ask about reading deps via the node_modules symlink) implemented the page in the worktree; report: docs/reports/adelva-revenue-brand-2026-09-28/README.md.
 - Opus review fixes: reverted Codex's SiteHeader/next.config changes; soft glyph halos instead of blob scrims (+ soft pools for small orange numbers ≤1023); desktop main line starts at the confluence; confluence/loop/process/end markers restyled to A4; lake dots; chip sizes measured at 4×; rail label hover/focus only; card line breaks; mobile 06 lifted above the end marker. Gates re-run: lint, tsc, unit 112, Playwright 38, landmarks 24/24 within ±8, contrast 222/222.
 - Integration: commit on feat/revenue-brand (HEAD 504e173 + this page only), then bring into main without touching the other sessions' uncommitted approach/dx work.

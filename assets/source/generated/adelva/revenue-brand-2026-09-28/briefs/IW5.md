@@ -10,10 +10,12 @@ All prompts were authored by Opus 5.5 and are final. Pass each prompt file to `i
 - Everything depicted is fictional. No people.
 
 For EVERY attempt:
+
 1. Numeric check (edits only): `node A/tools/measure-drift.mjs <input> <returned original>` — record the whole JSON. PASS means same aspect ratio and the photograph still lines up with the input overall (global drift ≤ 12 px). The per-cell offsets are informational only (cells where a big overlay was removed have no reliable match); record them, never retry for them. A different pixel size with the same aspect ratio is fine; record it.
 2. Visual check at original resolution: `view_image` with detail original on the whole result, plus 2× crops (in /tmp) of the top, middle and bottom thirds and of every place where the prompt's removal list had an overlay. Look for ANY leftover of the mock's UI: letters or glyph-like marks, numbers, logo, outlined or filled labels/pills, thin orange or white lines, dotted lines, dots, rings, corner brackets, arrows, check marks, boxes, dark translucent bands or panels, and orange glow painted along the water. Also look for smudges or blurred patches where text used to be.
 
 DECIDE with this policy (Opus reviews every adopted image afterwards, so keep moving):
+
 - SERIOUS defects — the only reasons to retry:
   a. any leftover UI or text as listed in step 2 (even faint or partial), or a clearly smeared/blurred patch where an overlay was;
   b. the numeric check FAILS (edits);
@@ -30,11 +32,12 @@ Final answer: a concise Japanese summary (per item: attempts, the adopted one an
 
 TASK IW5 — related-card photos and fog sprites. Worker id for the record: IW5.
 Items, in this order:
-   - C1: EDIT of A/inputs/C1-input.png (902×874, a 2× upscale of a card photo in the mock) with prompt A/prompts/C1.txt → save as A/raw/C1.png
-   - C2: EDIT of A/inputs/C2-input.png (838×874) with prompt A/prompts/C2.txt → save as A/raw/C2.png
-   - F1: NEW GENERATION (no attachment) with prompt A/prompts/F1.txt, landscape 3:2 → save as A/raw/F1.png
-   - F2: NEW GENERATION (no attachment) with prompt A/prompts/F2.txt, landscape 3:2 → save as A/raw/F2.png
-For C1 and C2 run the numeric check with the extra flag `--allow-aspect` (append it after the two paths): the tool may return a square image for these near-square inputs, and the page crops the card photo anyway, so a square result is fine.
-For F1 and F2 there is no numeric drift check. Instead measure the background: the mean RGB of a 24 px border all around the image must be ≤ 6 on every channel (write a tiny node/sharp one-liner for this measurement only; record the numbers). SERIOUS defects for F1/F2 (instead of a–e): the background is not black; anything other than fog appears (trees, ground, water, horizon, stars, a light source, text, a frame); fog cut hard by the frame edge; the fog is opaque white rather than translucent pale blue-grey.
+
+- C1: EDIT of A/inputs/C1-input.png (902×874, a 2× upscale of a card photo in the mock) with prompt A/prompts/C1.txt → save as A/raw/C1.png
+- C2: EDIT of A/inputs/C2-input.png (838×874) with prompt A/prompts/C2.txt → save as A/raw/C2.png
+- F1: NEW GENERATION (no attachment) with prompt A/prompts/F1.txt, landscape 3:2 → save as A/raw/F1.png
+- F2: NEW GENERATION (no attachment) with prompt A/prompts/F2.txt, landscape 3:2 → save as A/raw/F2.png
+  For C1 and C2 run the numeric check with the extra flag `--allow-aspect` (append it after the two paths): the tool may return a square image for these near-square inputs, and the page crops the card photo anyway, so a square result is fine.
+  For F1 and F2 there is no numeric drift check. Instead measure the background: the mean RGB of a 24 px border all around the image must be ≤ 6 on every channel (write a tiny node/sharp one-liner for this measurement only; record the numbers). SERIOUS defects for F1/F2 (instead of a–e): the background is not black; anything other than fog appears (trees, ground, water, horizon, stars, a light source, text, a frame); fog cut hard by the frame edge; the fog is opaque white rather than translucent pale blue-grey.
 
 RESUME NOTE: an earlier run of this exact task was interrupted right after its first image_gen call (verbatim prompt, same input). Its result is /home/kokoro/.codex/generated_images/01a0e78c-5a3f-7622-b52d-b5b8b463007c/exec-3bd24fb3-a7aa-41b7-b292-6076c1c23666.png . Treat it as attempt 1 of C1: run the numeric and visual checks on it and apply the decision policy; do NOT call image_gen for C1 again unless it has a serious defect. Opus has already looked at it at reduced size and found no leftover UI and a correct scene, so it is very likely adoptable — still do your own checks. Then continue with the remaining items. Start a fresh record file (overwrite any partial record from the interrupted run) and note the interruption in it.

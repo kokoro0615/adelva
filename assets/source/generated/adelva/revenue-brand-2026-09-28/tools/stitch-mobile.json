@@ -1,3 +1,17 @@
-{ "slices": ["raw/M1.png","raw/M2.png","raw/M3.png","raw/M4.png","raw/M5.png","raw/M6.png","raw/M7.png","raw/M8.png"],
-  "overlap": 256, "blendStart": 64, "blend": 128,
-  "out": "plates/mobile-plate.png", "record": "records/stitch-mobile.json" }
+{
+  "slices": [
+    "raw/M1.png",
+    "raw/M2.png",
+    "raw/M3.png",
+    "raw/M4.png",
+    "raw/M5.png",
+    "raw/M6.png",
+    "raw/M7.png",
+    "raw/M8.png"
+  ],
+  "overlap": 256,
+  "blendStart": 64,
+  "blend": 128,
+  "out": "plates/mobile-plate.png",
+  "record": "records/stitch-mobile.json"
+}

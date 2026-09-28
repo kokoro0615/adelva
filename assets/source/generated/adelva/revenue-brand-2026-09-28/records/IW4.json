@@ -322,9 +322,7 @@
         ],
         "verdict": "PASS",
         "serious": [],
-        "info": [
-          "local offset up to 38 px (informational)"
-        ]
+        "info": ["local offset up to 38 px (informational)"]
       },
       "visual_check": {
         "status": "PASS",
