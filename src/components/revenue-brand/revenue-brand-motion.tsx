@@ -10,17 +10,128 @@ import { viewfinderTargets, type PhotoId } from "@/content/adelva-revenue-brand"
 import styles from "./revenue-brand.module.css";
 gsap.registerPlugin(useGSAP, ScrollTrigger, MotionPathPlugin, CustomEase);
 type Sample = { len: number; x: number; y: number; maxY: number };
+/*
+ * Length lookup tables for the river paths.
+ *
+ * `getPointAtLength` walks the whole path on every call, so sampling the main
+ * river (200–400 cubic segments) every 4 units took 0.5–1.4 s of main-thread
+ * time on a desktop CPU. Every path here is authored with absolute M/L/C/S/Q
+ * commands, so the table is built in one linear pass by flattening each
+ * segment, then scaled to the browser's own total length (one call) so that
+ * dash offsets still line up exactly. Tables are cached per element and `d`.
+ */
+const STEP = 4;
+const lutCache = new WeakMap<
+  SVGPathElement,
+  { d: string; total: number; lut: Sample[] }
+>();
+type Pt = { x: number; y: number };
+function flatten(d: string): Pt[] | null {
+  const tokens = d.match(/[A-Za-z]|-?\d*\.?\d+(?:e[-+]?\d+)?/g);
+  if (!tokens) return null;
+  const points: Pt[] = [];
+  let i = 0,
+    cmd = "",
+    cur: Pt = { x: 0, y: 0 },
+    lastCtrl: Pt | null = null;
+  const num = () => Number(tokens[i++]);
+  const cubic = (p1: Pt, p2: Pt, p3: Pt) => {
+    const chord =
+      Math.hypot(p1.x - cur.x, p1.y - cur.y) +
+      Math.hypot(p2.x - p1.x, p2.y - p1.y) +
+      Math.hypot(p3.x - p2.x, p3.y - p2.y);
+    const n = Math.max(2, Math.ceil(chord / 1.5));
+    for (let k = 1; k <= n; k++) {
+      const t = k / n,
+        u = 1 - t;
+      points.push({
+        x:
+          u * u * u * cur.x +
+          3 * u * u * t * p1.x +
+          3 * u * t * t * p2.x +
+          t * t * t * p3.x,
+        y:
+          u * u * u * cur.y +
+          3 * u * u * t * p1.y +
+          3 * u * t * t * p2.y +
+          t * t * t * p3.y,
+      });
+    }
+    lastCtrl = p2;
+    cur = p3;
+  };
+  while (i < tokens.length) {
+    if (/[A-Za-z]/.test(tokens[i])) cmd = tokens[i++];
+    if (cmd === "M") {
+      cur = { x: num(), y: num() };
+      points.push(cur);
+      lastCtrl = null;
+      cmd = "L";
+    } else if (cmd === "L") {
+      cur = { x: num(), y: num() };
+      points.push(cur);
+      lastCtrl = null;
+    } else if (cmd === "C") {
+      const p1 = { x: num(), y: num() },
+        p2 = { x: num(), y: num() };
+      cubic(p1, p2, { x: num(), y: num() });
+    } else if (cmd === "S") {
+      // `cubic` updates lastCtrl inside a closure, which TS cannot follow.
+      const ctrl = lastCtrl as Pt | null;
+      const p1: Pt = ctrl ? { x: 2 * cur.x - ctrl.x, y: 2 * cur.y - ctrl.y } : cur;
+      const p2 = { x: num(), y: num() };
+      cubic(p1, p2, { x: num(), y: num() });
+    } else if (cmd === "Q") {
+      const q = { x: num(), y: num() },
+        end = { x: num(), y: num() };
+      cubic(
+        { x: cur.x + (2 / 3) * (q.x - cur.x), y: cur.y + (2 / 3) * (q.y - cur.y) },
+        { x: end.x + (2 / 3) * (q.x - end.x), y: end.y + (2 / 3) * (q.y - end.y) },
+        end,
+      );
+      lastCtrl = null;
+    } else return null;
+  }
+  return points;
+}
 function sample(path: SVGPathElement) {
+  const d = path.getAttribute("d") ?? "";
+  const cached = lutCache.get(path);
+  if (cached && cached.d === d) return cached;
   const total = path.getTotalLength();
   const lut: Sample[] = [];
   let maxY = -Infinity;
-  for (let len = 0; len < total + 4; len += 4) {
-    const length = Math.min(len, total),
-      p = path.getPointAtLength(length);
-    maxY = Math.max(maxY, p.y);
-    lut.push({ len: length, x: p.x, y: p.y, maxY });
+  const points = flatten(d);
+  if (points && points.length > 1) {
+    let acc = 0;
+    const lengths = [0];
+    for (let k = 1; k < points.length; k++) {
+      acc += Math.hypot(points[k].x - points[k - 1].x, points[k].y - points[k - 1].y);
+      lengths.push(acc);
+    }
+    const scale = acc > 0 ? total / acc : 1;
+    let k = 1;
+    for (let len = 0; len < total + STEP; len += STEP) {
+      const target = Math.min(len, total) / scale;
+      while (k < lengths.length - 1 && lengths[k] < target) k++;
+      const a = lengths[k - 1],
+        f = Math.max(0, Math.min(1, (target - a) / (lengths[k] - a || 1)));
+      const x = points[k - 1].x + (points[k].x - points[k - 1].x) * f,
+        y = points[k - 1].y + (points[k].y - points[k - 1].y) * f;
+      maxY = Math.max(maxY, y);
+      lut.push({ len: Math.min(len, total), x, y, maxY });
+    }
+  } else {
+    for (let len = 0; len < total + STEP; len += STEP) {
+      const length = Math.min(len, total),
+        p = path.getPointAtLength(length);
+      maxY = Math.max(maxY, p.y);
+      lut.push({ len: length, x: p.x, y: p.y, maxY });
+    }
   }
-  return { total, lut };
+  const result = { d, total, lut };
+  lutCache.set(path, result);
+  return result;
 }
 function nearest(lut: Sample[], x: number, y: number) {
   let best = lut[0],
@@ -35,7 +146,7 @@ function nearest(lut: Sample[], x: number, y: number) {
   return best.len;
 }
 function pointAt(lut: Sample[], len: number) {
-  const i = Math.min(lut.length - 2, Math.floor(len / 4));
+  const i = Math.min(lut.length - 2, Math.floor(len / STEP));
   const a = lut[Math.max(0, i)],
     b = lut[Math.max(0, i) + 1];
   const f = Math.max(0, Math.min(1, (len - a.len) / (b.len - a.len || 1)));
@@ -344,7 +455,9 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
               );
               heroTl.fromTo(
                 dot,
-                { scale: 0, opacity: 0 },
+                // SVG transforms need an explicit bbox origin, or the node
+                // grows from the canvas corner and drifts in from off-river.
+                { scale: 0, opacity: 0, transformOrigin: "50% 50%" },
                 { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(1.6)" },
                 0.7 + i * 0.08,
               );
@@ -381,7 +494,7 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
             )
             .fromTo(
               svg.querySelectorAll("[data-ch1-node]"),
-              { scale: 0 },
+              { scale: 0, transformOrigin: "50% 50%" },
               { scale: 1, duration: 0.24, stagger: 0.06, ease: reveal },
               0.15,
             )
