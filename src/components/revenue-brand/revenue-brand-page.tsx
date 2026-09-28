@@ -213,6 +213,8 @@ export function RevenueBrandPage() {
       <main id="main-content" className={styles.main}>
         <div className={styles.stage} data-stage>
           <Plates />
+          {/* The light the river carries, cast onto the water around the head. */}
+          <div className={styles.lantern} data-lantern aria-hidden="true" />
           <RiverLines />
           <RiverLines mobile />
           <section id="rb-hero" aria-labelledby="rb-title" data-section="hero">

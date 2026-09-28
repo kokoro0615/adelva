@@ -329,11 +329,32 @@
   opacity: 0;
   transition: opacity 180ms var(--ease-state);
 }
+/* Pulse rings start hidden through their `opacity` attribute, which the
+   attribute tweens drive (no computed-style reads per ignition). */
 .pulse {
   fill: none;
   stroke: var(--flare);
-  stroke-width: var(--leader);
-  opacity: 0;
+  stroke-width: calc(var(--leader) * 2.2);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .step[data-arrive] > * {
+    animation: rb-arrive 700ms var(--ease-reveal) both;
+  }
+  .step[data-arrive] > * + * {
+    animation-delay: 70ms;
+  }
+  .step[data-arrive="left"] > * {
+    --arrive-from: 22px;
+  }
+  .step[data-arrive="right"] > * {
+    --arrive-from: -22px;
+  }
+}
+@keyframes rb-arrive {
+  from {
+    translate: var(--arrive-from, 0) 0;
+    opacity: 0.25;
+  }
 }
 .currentRing {
   fill: none;
@@ -351,8 +372,89 @@
   opacity: 1;
 }
 
+/*
+ * The signature move: the scroll carries a light down the river.
+ * All of the following exist only while motion runs (JS sets their opacity);
+ * without scripts or with reduced motion they stay invisible and the
+ * completed line tells the same story.
+ */
 .head {
   opacity: 0;
+}
+.tail,
+.flow {
+  fill: none;
+  stroke-linecap: round;
+  opacity: 0;
+}
+.tail0 {
+  stroke: #fff6ec;
+  stroke-width: calc(var(--core) * 1.35);
+}
+.tail1 {
+  stroke: #ffc58a;
+  stroke-width: calc(var(--core) * 2.4);
+}
+.tail2 {
+  stroke: #ff8a2a;
+  stroke-width: calc(var(--core) * 4.4);
+}
+.flow {
+  stroke: #fff4e6;
+  stroke-width: calc(var(--core) * 0.9);
+  stroke-dasharray: 0 var(--flow-gap, 34);
+}
+.burst {
+  pointer-events: none;
+}
+.shock {
+  fill: none;
+  stroke: #ffb070;
+  stroke-width: calc(var(--leader) * 2.6);
+}
+.shockSoft {
+  stroke: rgb(255 126 21 / 55%);
+  stroke-width: calc(var(--leader) * 6);
+}
+.spark {
+  fill: #fff1dd;
+}
+/* Out of the render tree unless motion runs, so the reduced-motion and
+   no-JS page renders exactly as before (even invisible strokes widen the
+   SVG's paint bounds and change how the text above is composited). */
+.page:not([data-motion="on"]) :is(.tail, .flow, .burst) {
+  display: none;
+}
+.lantern {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: calc(240 * var(--s));
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(
+    closest-side,
+    rgb(255 205 150 / 62%),
+    rgb(255 150 70 / 24%) 42%,
+    rgb(255 126 21 / 7%) 66%,
+    transparent
+  );
+  mix-blend-mode: screen;
+  opacity: 0;
+  pointer-events: none;
+  /* Not rendered at all without motion: a blended layer, even transparent,
+     changes how the text above it is composited. */
+  display: none;
+}
+.page[data-motion="on"] .lantern {
+  display: block;
+  will-change: transform, opacity;
+}
+@media (min-width: 1024px) {
+  .lantern {
+    width: calc(620 * var(--u));
+  }
 }
 .viewfinder {
   fill: none;
@@ -1116,6 +1218,7 @@
     --leader: 1.1;
     --dot-gap: 7;
     --middle-alpha: 42%;
+    --flow-gap: 26;
   }
   .title {
     line-height: 1.2;

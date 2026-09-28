@@ -43,6 +43,12 @@ export function RiverLines({ mobile = false }: { mobile?: boolean }) {
           <stop offset=".45" stopColor="#ff7e15" stopOpacity=".22" />
           <stop offset="1" stopColor="#ff7e15" stopOpacity="0" />
         </radialGradient>
+        <radialGradient id={`${prefix}-comet`}>
+          <stop stopColor="#fffaf2" />
+          <stop offset=".16" stopColor="#ffd9ad" stopOpacity=".85" />
+          <stop offset=".42" stopColor="#ff9a45" stopOpacity=".32" />
+          <stop offset="1" stopColor="#ff7e15" stopOpacity="0" />
+        </radialGradient>
         <radialGradient id={`${prefix}-light`}>
           <stop stopColor="#fff3e6" />
           <stop offset=".3" stopColor="#ffb070" stopOpacity=".8" />
@@ -216,6 +222,23 @@ export function RiverLines({ mobile = false }: { mobile?: boolean }) {
             <path d={g.paths.main.d} className={styles.lakeDots} />
           </g>
         </g>
+        {/* The current: fine sparks that travel downstream only while the
+            reader scrolls (scroll-driven, never autoplaying). */}
+        {/* Geometry is written per frame from the length table and only
+            spans the visible stretch behind the head. */}
+        <g mask={`url(#${prefix}-solid)`}>
+          <path d="M0 0" className={styles.flow} data-flow />
+        </g>
+        {/* Comet tail: three dashes of the main path ending at the head,
+            long and faint to short and white, stretched by scroll speed. */}
+        {[2, 1, 0].map((i) => (
+          <path
+            key={i}
+            d="M0 0"
+            className={`${styles.tail} ${styles[`tail${i}`]}`}
+            data-tail={i}
+          />
+        ))}
       </g>
       {acquisition.items.map(({ id, branch }) => {
         const point = g.dots.ch1[id as keyof typeof g.dots.ch1];
@@ -269,6 +292,7 @@ export function RiverLines({ mobile = false }: { mobile?: boolean }) {
           cy={g.dots.confluence[1]}
           r={17 * k}
           className={styles.pulse}
+          opacity={0}
           data-confluence-pulse
         />
       </g>
@@ -305,6 +329,7 @@ export function RiverLines({ mobile = false }: { mobile?: boolean }) {
             cy={point[1]}
             r={12 * k}
             className={styles.pulse}
+            opacity={0}
             data-loop-pulse={id}
             data-post-pulse={id === "posting" ? "" : undefined}
           />
@@ -325,12 +350,21 @@ export function RiverLines({ mobile = false }: { mobile?: boolean }) {
                 className={styles.leader}
                 data-difference-line
               />
-              <circle cx={p[0]} cy={p[1]} r={5 * k} className={styles.node} />
+              <circle
+                cx={p[0]}
+                cy={p[1]}
+                r={5 * k}
+                className={styles.node}
+                data-waypoint="difference"
+              />
             </g>
           ))
         : [4818, 5013].map((y) => (
             <path
               key={y}
+              data-waypoint="difference"
+              data-waypoint-x={720 * k}
+              data-waypoint-y={y * k}
               d={`M${570 * k} ${y * k}H${900 * k}m${-6 * k} ${-3 * k}l${6 * k} ${3 * k} -${6 * k} ${3 * k}M${720 * k} ${(y - 6) * k}v${12 * k}`}
               className={styles.leader}
               data-difference-line
@@ -383,13 +417,29 @@ export function RiverLines({ mobile = false }: { mobile?: boolean }) {
           cy={g.dots.process.end[1]}
           r={16 * k}
           className={styles.pulse}
+          opacity={0}
           data-end-pulse
         />
       </g>
       <g data-head className={styles.head}>
-        <circle r={7 * k} fill={`url(#${prefix}-light)`} />
-        <circle r={2.5 * k} fill="#ffb070" />
+        <circle r={54 * k} fill={`url(#${prefix}-comet)`} data-head-glow />
+        <circle r={16 * k} fill={`url(#${prefix}-comet)`} />
+        <circle r={4.6 * k} fill="#fffaf2" />
       </g>
+      {/* Ignition bursts, reused round-robin wherever the light arrives. */}
+      {[0, 1].map((i) => (
+        <g key={i} data-burst={i} className={styles.burst} opacity="0">
+          <circle r={11 * k} className={styles.shock} data-shock />
+          <circle
+            r={11 * k}
+            className={`${styles.shock} ${styles.shockSoft}`}
+            data-shock
+          />
+          {Array.from({ length: 10 }, (_, j) => (
+            <circle key={j} r={2.4 * k} className={styles.spark} data-spark />
+          ))}
+        </g>
+      ))}
       <circle r={4 * k} fill="#fff3e6" data-branch-particle opacity="0" />
       <circle r={4 * k} fill="#fff3e6" data-cycle-particle opacity="0" />
       <g data-viewfinder className={styles.viewfinder}>

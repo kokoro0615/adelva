@@ -152,6 +152,19 @@ function pointAt(lut: Sample[], len: number) {
   const f = Math.max(0, Math.min(1, (len - a.len) / (b.len - a.len || 1)));
   return { x: a.x + (b.x - a.x) * f, y: a.y + (b.y - a.y) * f };
 }
+/** Polyline of the table between two lengths, at most `budget` points.
+ *  Whole plate units are finer than a CSS pixel on every layout. */
+function subPath(lut: Sample[], from: number, to: number, budget: number) {
+  const a = Math.max(0, from),
+    b = Math.max(a, to);
+  const stride = Math.max(1, Math.ceil((b - a) / STEP / budget));
+  const start = pointAt(lut, a),
+    end = pointAt(lut, b);
+  let d = "M" + Math.round(start.x) + " " + Math.round(start.y);
+  for (let i = Math.ceil(a / STEP); i * STEP < b && i < lut.length; i += stride)
+    d += "L" + Math.round(lut[i].x) + " " + Math.round(lut[i].y);
+  return d + "L" + Math.round(end.x) + " " + Math.round(end.y);
+}
 function lengthAtY(lut: Sample[], y: number) {
   let lo = 0,
     hi = lut.length - 1;
@@ -203,13 +216,81 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
           node.querySelector("path[data-selected-branch]")!.setAttribute("d", d);
         }
       }
+      /*
+       * Ignition: two shock rings and a spray of sparks where the light
+       * arrives. Two burst groups per river are reused round-robin, so fast
+       * scrolling never piles up DOM or tweens.
+       */
+      const burstTurn = new WeakMap<SVGSVGElement, number>();
+      const burst = (svg: SVGSVGElement, x: number, y: number, strong = false) => {
+        const k =
+          svg.viewBox.baseVal.width / (svg.dataset.river === "mobile" ? 390 : 1440);
+        const turn = burstTurn.get(svg) ?? 0;
+        burstTurn.set(svg, turn + 1);
+        const group = svg.querySelectorAll<SVGGElement>("[data-burst]")[turn % 2];
+        if (!group) return;
+        const shocks = Array.from(
+          group.querySelectorAll<SVGCircleElement>("[data-shock]"),
+        );
+        const sparks = Array.from(
+          group.querySelectorAll<SVGCircleElement>("[data-spark]"),
+        );
+        gsap.killTweensOf([...shocks, ...sparks]);
+        group.setAttribute("transform", `translate(${x} ${y})`);
+        group.setAttribute("opacity", "1");
+        // Attribute tweens only: nothing here reads computed style.
+        const shockR = 11 * k;
+        shocks.forEach((shock, i) =>
+          gsap.fromTo(
+            shock,
+            { attr: { r: shockR * 0.35, opacity: 1 } },
+            {
+              attr: { r: shockR * (strong ? 4 : 2.8), opacity: 0 },
+              duration: strong ? 1.25 : 0.95,
+              delay: i * 0.12,
+              ease: "expo.out",
+            },
+          ),
+        );
+        const sparkR = 2.4 * k;
+        sparks.forEach((spark, i) => {
+          const angle =
+            (i / sparks.length) * Math.PI * 2 + gsap.utils.random(-0.25, 0.25);
+          const distance = (strong ? 40 : 26) * k * gsap.utils.random(0.7, 1.3);
+          gsap.fromTo(
+            spark,
+            { attr: { cx: 0, cy: 0, r: sparkR, opacity: 1 } },
+            {
+              attr: {
+                cx: Math.cos(angle) * distance,
+                cy: Math.sin(angle) * distance,
+                r: sparkR * 0.2,
+                opacity: 0,
+              },
+              duration: gsap.utils.random(0.7, 1.05),
+              ease: "power3.out",
+            },
+          );
+        });
+      };
+      const pulseR = new WeakMap<SVGCircleElement, number>();
       const pulse = (node: SVGElement | null, duration = 0.6) => {
-        if (!node) return;
+        if (!(node instanceof SVGCircleElement)) return;
+        if (!pulseR.has(node)) pulseR.set(node, node.r.baseVal.value);
+        const r0 = pulseR.get(node)!;
         gsap.fromTo(
           node,
-          { scale: 0.6, opacity: 0.9, transformOrigin: "50% 50%" },
-          { scale: 1.8, opacity: 0, duration, ease: reveal, overwrite: true },
+          { attr: { r: r0 * 0.6, opacity: 0.9 } },
+          {
+            attr: { r: r0 * 2.2, opacity: 0 },
+            duration: duration * 1.6,
+            ease: "expo.out",
+            overwrite: true,
+          },
         );
+        const svg = node.ownerSVGElement;
+        if (svg)
+          burst(svg, node.cx.baseVal.value, node.cy.baseVal.value, duration >= 0.6);
       };
       const select = safe((event: Event) => {
         const { kind, id } = (event as CustomEvent<{ kind: string; id: string | null }>)
@@ -287,6 +368,28 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
           );
           const clip = svg.querySelector<SVGRectElement>("[data-dotted-clip]")!;
           const head = svg.querySelector<SVGGElement>("[data-head]")!;
+          const headGlow = head.querySelector<SVGCircleElement>("[data-head-glow]")!;
+          const headGlowR = headGlow.r.baseVal.value;
+          const tails = Array.from(
+            svg.querySelectorAll<SVGPathElement>("[data-tail]"),
+          ).sort((a, b) => Number(a.dataset.tail) - Number(b.dataset.tail));
+          const flow = svg.querySelector<SVGPathElement>("[data-flow]")!;
+          const lantern = el.querySelector<HTMLElement>("[data-lantern]")!;
+          const k = svg.viewBox.baseVal.width / (desktop ? 1440 : 390);
+          /* Scroll energy (0 at rest, 1 at a brisk scroll) stretches the tail,
+             brightens the head and the water, and drives the current. */
+          const fx = { energy: 0, flare: 0 };
+          let flowOffset = 0,
+            lastScroll = scrollY;
+          type Waypoint = {
+            len: number;
+            x: number;
+            y: number;
+            kind: string;
+            step?: number;
+          };
+          let waypoints: Waypoint[] = [];
+          let passed = 0;
           let geometry = sample(path),
             ratio = 1,
             stageTop = 0,
@@ -328,29 +431,132 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
               { yPercent: 0, duration: 0.3, ease: panel, overwrite: true },
             );
           };
+          const ignite = (w: Waypoint) => {
+            const strong = w.kind === "process" || w.kind === "end";
+            burst(svg, w.x, w.y, strong);
+            gsap.fromTo(
+              fx,
+              { flare: 1 },
+              { flare: 0, duration: 1.2, ease: "power2.out", onUpdate: invalidate },
+            );
+            if (w.kind === "end") pulse(svg.querySelector("[data-end-pulse]"));
+            if (w.step) {
+              const nodeCircle = svg.querySelector(
+                `[data-process-node="${w.step}"] .${styles.stepNode}`,
+              );
+              if (nodeCircle instanceof SVGCircleElement) {
+                const r0 = Number(nodeCircle.getAttribute("r"));
+                gsap.fromTo(
+                  nodeCircle,
+                  { attr: { r: r0 * 2 } },
+                  { attr: { r: r0 }, duration: 0.8, ease: "elastic.out(1, 0.45)" },
+                );
+              }
+              // The label arrives from the river side (a CSS animation, restarted).
+              const item = el.querySelector<HTMLElement>(`li[data-step="${w.step}"]`);
+              if (item) {
+                item.removeAttribute("data-arrive");
+                requestAnimationFrame(() =>
+                  item.setAttribute("data-arrive", item.dataset.side ?? "right"),
+                );
+              }
+            }
+          };
+          /* Writes are cached so a frame only touches what actually changed;
+             render runs at most once per frame from the ticker below. */
+          const written = new WeakMap<Element, Map<string, string>>();
+          const write = (node: Element, key: string, value: string) => {
+            let last = written.get(node);
+            if (!last) written.set(node, (last = new Map()));
+            if (last.get(key) === value) return;
+            last.set(key, value);
+            if (key.startsWith("@")) node.setAttribute(key.slice(1), value);
+            else (node as HTMLElement).style.setProperty(key, value);
+          };
+          const round = (v: number, d = 2) => String(Math.round(v * 10 ** d) / 10 ** d);
           const render = () => {
             const len = Math.max(0, Math.min(geometry.total, proxy.len));
             for (const line of lines)
-              line.style.strokeDashoffset = String(geometry.total - len);
+              write(line, "stroke-dashoffset", round(geometry.total - len, 1));
             const point = pointAt(geometry.lut, len);
-            clip.setAttribute("height", String(Math.max(0, point.y)));
-            head.setAttribute("transform", `translate(${point.x} ${point.y})`);
-            head.style.opacity =
-              len > 1 && len < geometry.total - 1 && window.scrollY > 0 ? "1" : "0";
+            write(clip, "@height", round(Math.max(0, point.y), 1));
+            write(
+              head,
+              "@transform",
+              `translate(${round(point.x, 1)} ${round(point.y, 1)})`,
+            );
+            const visible = len > 1 && len < geometry.total - 1 && window.scrollY > 0;
+            const e = fx.energy;
+            write(head, "opacity", visible ? round(0.8 + e * 0.2) : "0");
+            write(headGlow, "@r", round(headGlowR * (1 + e * 0.7 + fx.flare * 0.5), 1));
+            tails.forEach((tail, i) => {
+              const length = [70, 170, 340][i] * k * (0.35 + e * 1.45);
+              if (visible)
+                write(
+                  tail,
+                  "@d",
+                  subPath(geometry.lut, len - length, len, [12, 20, 28][i]),
+                );
+              write(
+                tail,
+                "opacity",
+                visible ? round([0.95, 0.6, 0.28][i] * (0.55 + e * 0.45)) : "0",
+              );
+            });
+            const flowing = visible && e > 0.02;
+            if (flowing) {
+              // Only the stretch between the top of the viewport and the head.
+              const from = lengthAtY(geometry.lut, (window.scrollY - stageTop) * ratio);
+              write(flow, "@d", subPath(geometry.lut, from, len, 48));
+              write(flow, "stroke-dashoffset", round(from + flowOffset, 1));
+            }
+            write(flow, "opacity", flowing ? round(Math.min(1, e * 1.6) * 0.85) : "0");
+            write(
+              lantern,
+              "transform",
+              `translate3d(${round(point.x / ratio, 1)}px, ${round(point.y / ratio, 1)}px, 0) translate(-50%, -50%) scale(${round(0.8 + e * 0.35 + fx.flare * 0.25)})`,
+            );
+            write(
+              lantern,
+              "opacity",
+              visible ? round(Math.min(1, 0.38 + e * 0.5 + fx.flare * 0.35)) : "0",
+            );
+            let reached = 0;
+            while (reached < waypoints.length && len >= waypoints[reached].len - 0.5)
+              reached++;
+            if (reached > passed)
+              waypoints.slice(Math.max(passed, reached - 2), reached).forEach(ignite);
+            passed = reached;
             const count = steps.filter((step) => len >= step).length;
             setStates(count);
             const p = Math.max(
               0,
               Math.min(1, (len - steps[3]) / (geometry.total - steps[3])),
             );
-            dawn.style.opacity = String(p * 0.55);
-            windows.style.opacity = String(p * 0.35);
+            write(dawn, "opacity", round(p * 0.55));
+            write(windows, "opacity", round(p * 0.35));
           };
+          let dirty = false;
+          const invalidate = () => {
+            dirty = true;
+          };
+          const tick = () => {
+            if (!dirty) return;
+            dirty = false;
+            render();
+          };
+          gsap.ticker.add(tick);
           const follow = gsap.quickTo(proxy, "len", {
             duration: 0.6,
             ease: "power3.out",
-            onUpdate: render,
+            onUpdate: invalidate,
           });
+          const energize = gsap.quickTo(fx, "energy", {
+            duration: 0.7,
+            ease: "power3.out",
+            onUpdate: invalidate,
+          });
+          const settle = gsap.delayedCall(0.14, () => energize(0)).pause();
           const refresh = () => {
             geometry = sample(path);
             const r = stage.getBoundingClientRect();
@@ -369,6 +575,57 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
               );
             });
             endY = geometry.lut.at(-1)!.y / ratio;
+            const onRiver = (x: number, y: number) => {
+              const at = nearest(geometry.lut, x, y);
+              const p = pointAt(geometry.lut, at);
+              return Math.hypot(p.x - x, p.y - y) < 24 * k ? at : null;
+            };
+            const candidates: Omit<Waypoint, "len">[] = [];
+            svg.querySelectorAll<SVGGElement>("[data-process-node]").forEach((node) => {
+              const c = node.querySelector("circle")!;
+              candidates.push({
+                x: Number(c.getAttribute("cx")),
+                y: Number(c.getAttribute("cy")),
+                kind: "process",
+                step: Number(node.dataset.processNode),
+              });
+            });
+            svg.querySelectorAll<SVGElement>("[data-waypoint]").forEach((node) => {
+              const x =
+                node instanceof SVGCircleElement
+                  ? node.cx.baseVal.value
+                  : Number(node.dataset.waypointX);
+              const y =
+                node instanceof SVGCircleElement
+                  ? node.cy.baseVal.value
+                  : Number(node.dataset.waypointY);
+              candidates.push({ x, y, kind: node.dataset.waypoint ?? "mark" });
+            });
+            // Loop stages that sit on the river itself light up as it passes.
+            svg
+              .querySelectorAll<SVGCircleElement>(
+                `[data-loop-node] .${styles.loopNode}`,
+              )
+              .forEach((c) =>
+                candidates.push({
+                  x: c.cx.baseVal.value,
+                  y: c.cy.baseVal.value,
+                  kind: "loop",
+                }),
+              );
+            const endRect = svg.querySelector<SVGRectElement>("[data-end] rect")!;
+            candidates.push({
+              x: endRect.x.baseVal.value + endRect.width.baseVal.value / 2,
+              y: endRect.y.baseVal.value + endRect.height.baseVal.value / 2,
+              kind: "end",
+            });
+            waypoints = candidates
+              .map((c) => ({
+                ...c,
+                len: c.kind === "end" ? geometry.total - 2 : onRiver(c.x, c.y),
+              }))
+              .filter((w): w is Waypoint => w.len !== null)
+              .sort((a, b) => a.len - b.len);
             boundaries = all<HTMLElement>(
               "#rb-hero,#rb-ch1,#rb-ch2,#rb-ch3,#rb-process",
             ).map((n) => n.getBoundingClientRect().top + scrollY);
@@ -384,9 +641,17 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
                     geometry.lut,
                     (scrollY + viewHeight * 0.58 - stageTop) * ratio,
                   );
+            // A reload, resize or history return must not replay every ignition.
+            passed = waypoints.filter((w) => proxy.len >= w.len - 0.5).length;
             render();
           };
-          const update = (scroll: number) => {
+          const railLinks = all<HTMLAnchorElement>('[data-rail="desktop"] a');
+          let railIndex = -1;
+          const update = (scroll: number, velocity = 0) => {
+            flowOffset -= Math.abs(scroll - lastScroll) * ratio * 1.5;
+            lastScroll = scroll;
+            energize(Math.min(1, Math.abs(velocity) / 2200));
+            settle.restart(true);
             follow(
               scroll === 0
                 ? 0
@@ -406,19 +671,28 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
               0,
               boundaries.filter((y) => scroll + viewHeight * 0.58 >= y).length - 1,
             );
-            all<HTMLAnchorElement>('[data-rail="desktop"] a').forEach((a, i) => {
-              if (i === index) a.setAttribute("aria-current", "location");
-              else a.removeAttribute("aria-current");
-            });
-            el.dataset.railFixed = String(scroll > railThreshold);
-            el.dataset.railHidden = String(scroll + viewHeight * 0.6 >= relatedTop);
+            // Attributes on the page root restyle the whole subtree: write only
+            // when a value actually changes.
+            if (index !== railIndex) {
+              railIndex = index;
+              railLinks.forEach((a, i) => {
+                if (i === index) a.setAttribute("aria-current", "location");
+                else a.removeAttribute("aria-current");
+              });
+            }
+            write(el, "@data-rail-fixed", String(scroll > railThreshold));
+            write(
+              el,
+              "@data-rail-hidden",
+              String(scroll + viewHeight * 0.6 >= relatedTop),
+            );
           };
           refresh();
           ScrollTrigger.create({
             trigger: stage,
             start: "top bottom",
             end: "bottom top",
-            onUpdate: (self) => update(self.scroll()),
+            onUpdate: (self) => update(self.scroll(), self.getVelocity()),
             onRefresh: () => {
               refresh();
               update(scrollY);
@@ -695,12 +969,6 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
                 once: true,
               },
             });
-          ScrollTrigger.create({
-            trigger: stage,
-            start: () => stageTop + endY - innerHeight * 0.58,
-            once: true,
-            onEnter: () => pulse(svg.querySelector("[data-end-pulse]")),
-          });
           all<HTMLElement>("[data-card]").forEach((card, i) => {
             gsap.from(card, {
               y: 12,
@@ -754,6 +1022,9 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
             observer.disconnect();
             window.removeEventListener("pageshow", pageshow);
             calm.kill();
+            settle.kill();
+            gsap.ticker.remove(tick);
+            energize.tween.kill();
             follow.tween.kill();
             rippleTo.tween.kill();
             delete el.dataset.motion;
@@ -775,6 +1046,10 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
             });
             clip.setAttribute("height", String(svg.viewBox.baseVal.height));
             head.style.opacity = "0";
+            for (const node of [...tails, flow, lantern])
+              ["opacity", "transform", "stroke-dasharray", "stroke-dashoffset"].forEach(
+                (p) => node.style.removeProperty(p),
+              );
             dawn.style.removeProperty("opacity");
             windows.style.removeProperty("opacity");
             reflection.style.removeProperty("filter");
