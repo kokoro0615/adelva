@@ -197,3 +197,48 @@ test("revenue-brand has no console warnings after resource settling", async ({
   await page.waitForTimeout(7000);
   expect(errors).toEqual([]);
 });
+
+/* The light, current and ignitions only run while motion is allowed and the
+   reader scrolls, so check them there: every ignition fires on the way down. */
+for (const [width, height] of [
+  [1440, 900],
+  [390, 844],
+] as const)
+  test(`revenue-brand motion ${width}: scrolling the whole page logs no errors and ignites`, async ({
+    browser,
+  }) => {
+    const context = await browser.newContext({
+      viewport: { width, height },
+      reducedMotion: "no-preference",
+    });
+    const page = await context.newPage();
+    const errors: string[] = [];
+    page.on("console", (m) => {
+      if (!["warning", "error"].includes(m.type())) return;
+      if (/preloaded using link preload but not used/.test(m.text())) return;
+      errors.push(m.text());
+    });
+    page.on("pageerror", (e) => errors.push(e.message));
+    await ready(page);
+    await expect(page.locator('[data-motion="on"]')).toHaveCount(1);
+    const river = page.locator(
+      `svg[data-river="${width >= 1024 ? "desktop" : "mobile"}"]`,
+    );
+    const pageHeight = await page.evaluate(() => document.documentElement.scrollHeight);
+    for (let y = 0; y < pageHeight; y += 300) {
+      await page.mouse.wheel(0, 300);
+      await page.waitForTimeout(40);
+    }
+    await page.waitForTimeout(1500);
+    expect(errors).toEqual([]);
+    // The bursts were used and have faded; the head reached the end.
+    await expect(river.locator("[data-burst]").first()).toHaveAttribute(
+      "transform",
+      /translate/,
+    );
+    await expect(page.locator('li[data-step="6"]')).toHaveAttribute(
+      "data-state",
+      "current",
+    );
+    await context.close();
+  });

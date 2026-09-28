@@ -429,14 +429,23 @@ export function RiverLines({ mobile = false }: { mobile?: boolean }) {
       {/* Ignition bursts, reused round-robin wherever the light arrives. */}
       {[0, 1].map((i) => (
         <g key={i} data-burst={i} className={styles.burst} opacity="0">
-          <circle r={11 * k} className={styles.shock} data-shock />
+          <circle r={11 * k} opacity={0} className={styles.shock} data-shock />
           <circle
+            opacity={0}
             r={11 * k}
             className={`${styles.shock} ${styles.shockSoft}`}
             data-shock
           />
           {Array.from({ length: 10 }, (_, j) => (
-            <circle key={j} r={2.4 * k} className={styles.spark} data-spark />
+            <circle
+              key={j}
+              cx={0}
+              cy={0}
+              r={2.4 * k}
+              opacity={0}
+              className={styles.spark}
+              data-spark
+            />
           ))}
         </g>
       ))}
