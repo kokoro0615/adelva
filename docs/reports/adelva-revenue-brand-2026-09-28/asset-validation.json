@@ -1,0 +1,509 @@
+{
+  "files": [
+    {
+      "path": "public/media/adelva/revenue-brand/d-plate-0-1536.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/d-plate-0-1536.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/d-plate-0-1024.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/d-plate-0-1024.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/d-plate-1-1536.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/d-plate-1-1536.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/d-plate-1-1024.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/d-plate-1-1024.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/d-plate-2-1536.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/d-plate-2-1536.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/d-plate-2-1024.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/d-plate-2-1024.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/d-plate-3-1536.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/d-plate-3-1536.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/d-plate-3-1024.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/d-plate-3-1024.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/d-plate-4-1536.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/d-plate-4-1536.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/d-plate-4-1024.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/d-plate-4-1024.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/d-plate-5-1536.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/d-plate-5-1536.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/d-plate-5-1024.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/d-plate-5-1024.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/d-plate-6-1536.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/d-plate-6-1536.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/d-plate-6-1024.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/d-plate-6-1024.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/d-plate-7-1536.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/d-plate-7-1536.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/d-plate-7-1024.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/d-plate-7-1024.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-0-853.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-0-853.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-0-600.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-0-600.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-1-853.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-1-853.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-1-600.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-1-600.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-2-853.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-2-853.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-2-600.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-2-600.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-3-853.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-3-853.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-3-600.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-3-600.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-4-853.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-4-853.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-4-600.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-4-600.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-5-853.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-5-853.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-5-600.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-5-600.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-6-853.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-6-853.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-6-600.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-6-600.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-7-853.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-7-853.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-7-600.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-7-600.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-8-853.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-8-853.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-8-600.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-8-600.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-9-853.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-9-853.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-9-600.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/m-plate-9-600.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/c1-1200.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/c1-1200.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/c1-800.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/c1-800.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/c2-1200.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/c2-1200.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/c2-800.avif",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/c2-800.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/f1-1536.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/f1-768.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/f2-1536.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    },
+    {
+      "path": "public/media/adelva/revenue-brand/f2-768.webp",
+      "decodes": true,
+      "dimensions": true,
+      "sha256": true
+    }
+  ],
+  "originalDetailViewed": "All 84 files at native pixel size: 22 largest WebP images individually, 60 AVIF/smaller tile and card variants in losslessly decoded, unscaled PNG review sheets, and 2 smaller fog WebPs individually. No burned-in text, UI, paths, or markers."
+}

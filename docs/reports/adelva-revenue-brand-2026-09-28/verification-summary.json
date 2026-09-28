@@ -1,0 +1,20 @@
+{
+  "productionServerPort": 4391,
+  "productionServerStopped": true,
+  "build": "passed with CLONETEST_TURBOPACK_ROOT",
+  "lint": "passed",
+  "typecheck": "passed",
+  "unitTests": 112,
+  "playwrightSpecifiedSuite": 38,
+  "axeCriticalSerious": 0,
+  "captureConsoleErrorsWarnings": 0,
+  "captureOverflow": 0,
+  "landmarksPassed": 24,
+  "headingWidthsPassed": 4,
+  "contrastMeasurementsPassed": 222,
+  "assetVariantsVisuallyReviewed": 84,
+  "formatOwned": "passed",
+  "formatRepository": "failed: 36 unchanged supplied files",
+  "managementOperations": "16/17 passed initially; failed history case passed on retry",
+  "approach": "8/10 passed; port-corrected rerun passed no-JS case, anchor case still fails"
+}

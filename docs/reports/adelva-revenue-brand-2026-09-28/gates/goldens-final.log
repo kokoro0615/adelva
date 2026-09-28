@@ -1,0 +1,12 @@
+
+Running 3 tests using 1 worker
+
+(node:33) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/e2e/visual.spec.ts:90:3 › revenue-brand regression at desktop (1.3s)
+/home/kokoro/projects/clients/clonetest-rb/tests/e2e/visual.spec.ts-snapshots/revenue-brand-tablet-chromium-linux.png is re-generated, writing actual.
+  ✓  2 [chromium] › tests/e2e/visual.spec.ts:90:3 › revenue-brand regression at tablet (1.8s)
+/home/kokoro/projects/clients/clonetest-rb/tests/e2e/visual.spec.ts-snapshots/revenue-brand-mobile-chromium-linux.png is re-generated, writing actual.
+  ✓  3 [chromium] › tests/e2e/visual.spec.ts:90:3 › revenue-brand regression at mobile (1.4s)
+
+  3 passed (4.9s)

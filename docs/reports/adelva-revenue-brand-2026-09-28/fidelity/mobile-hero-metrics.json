@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "label": "mobile-hero",
+  "reference": "/home/kokoro/projects/clients/clonetest-rb/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/frames/mobile-hero-reference.png",
+  "actual": "/home/kokoro/projects/clients/clonetest-rb/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/frames/mobile-hero-actual.png",
+  "mapping": {
+    "referenceRaster": {
+      "width": 390,
+      "height": 830
+    },
+    "implementationRaster": {
+      "width": 390,
+      "height": 830
+    },
+    "referencePixelsPerCssPixel": {
+      "x": 1,
+      "y": 1
+    },
+    "aspectDelta": 0
+  },
+  "metrics": {
+    "mae": 0.09007843137254902,
+    "rmse": 0.17686985634798846,
+    "diffRatio": 0.23743280815569973,
+    "edgeMae": 0.03513235599896384
+  },
+  "thresholds": {
+    "pixelThreshold": 0.1
+  },
+  "status": "MEASURED",
+  "failures": [],
+  "artifacts": {
+    "overlay": "/home/kokoro/projects/clients/clonetest-rb/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/mobile-hero-overlay.png",
+    "difference": "/home/kokoro/projects/clients/clonetest-rb/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/mobile-hero-difference.png",
+    "sideBySide": "/home/kokoro/projects/clients/clonetest-rb/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/mobile-hero-side-by-side.png"
+  }
+}

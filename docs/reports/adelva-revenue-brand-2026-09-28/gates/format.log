@@ -1,0 +1,42 @@
+$ prettier --check .
+Checking formatting...
+[warn] assets/source/generated/adelva/revenue-brand-2026-09-28/briefs/_rules.md
+[warn] assets/source/generated/adelva/revenue-brand-2026-09-28/briefs/IW1.md
+[warn] assets/source/generated/adelva/revenue-brand-2026-09-28/briefs/IW2.md
+[warn] assets/source/generated/adelva/revenue-brand-2026-09-28/briefs/IW3.md
+[warn] assets/source/generated/adelva/revenue-brand-2026-09-28/briefs/IW4.md
+[warn] assets/source/generated/adelva/revenue-brand-2026-09-28/briefs/IW5.md
+[warn] assets/source/generated/adelva/revenue-brand-2026-09-28/plates/geometry-cards.json
+[warn] assets/source/generated/adelva/revenue-brand-2026-09-28/plates/geometry-desktop.json
+[warn] assets/source/generated/adelva/revenue-brand-2026-09-28/plates/geometry-mobile.json
+[warn] assets/source/generated/adelva/revenue-brand-2026-09-28/PROGRESS.md
+[warn] assets/source/generated/adelva/revenue-brand-2026-09-28/records/IW1.json
+[warn] assets/source/generated/adelva/revenue-brand-2026-09-28/records/IW2.json
+[warn] assets/source/generated/adelva/revenue-brand-2026-09-28/records/IW3.json
+[warn] assets/source/generated/adelva/revenue-brand-2026-09-28/records/IW4.json
+[warn] assets/source/generated/adelva/revenue-brand-2026-09-28/records/IW5.json
+[warn] assets/source/generated/adelva/revenue-brand-2026-09-28/records/stitch-desktop.json
+[warn] assets/source/generated/adelva/revenue-brand-2026-09-28/records/stitch-mobile.json
+[warn] assets/source/generated/adelva/revenue-brand-2026-09-28/records/trace-desktop-mock.json
+[warn] assets/source/generated/adelva/revenue-brand-2026-09-28/records/trace-desktop-white.json
+[warn] assets/source/generated/adelva/revenue-brand-2026-09-28/records/trace-mobile-mock-2x.json
+[warn] assets/source/generated/adelva/revenue-brand-2026-09-28/records/trace-mobile-plate.json
+[warn] assets/source/generated/adelva/revenue-brand-2026-09-28/tools/build-geometry.mjs
+[warn] assets/source/generated/adelva/revenue-brand-2026-09-28/tools/find-dots.mjs
+[warn] assets/source/generated/adelva/revenue-brand-2026-09-28/tools/grid-crop.mjs
+[warn] assets/source/generated/adelva/revenue-brand-2026-09-28/tools/ink-bbox.mjs
+[warn] assets/source/generated/adelva/revenue-brand-2026-09-28/tools/measure-drift.mjs
+[warn] assets/source/generated/adelva/revenue-brand-2026-09-28/tools/orange-runs.mjs
+[warn] assets/source/generated/adelva/revenue-brand-2026-09-28/tools/render-geometry.mjs
+[warn] assets/source/generated/adelva/revenue-brand-2026-09-28/tools/stitch-desktop.json
+[warn] assets/source/generated/adelva/revenue-brand-2026-09-28/tools/stitch-mobile.json
+[warn] assets/source/generated/adelva/revenue-brand-2026-09-28/tools/stitch-plate.mjs
+[warn] assets/source/generated/adelva/revenue-brand-2026-09-28/tools/trace-line.mjs
+[warn] assets/source/generated/adelva/revenue-brand-2026-09-28/tools/trace-rows.mjs
+[warn] assets/source/generated/adelva/revenue-brand-2026-09-28/tools/trace-water.mjs
+[warn] assets/source/generated/adelva/revenue-brand-2026-09-28/tools/write-prompts.mjs
+[warn] docs/reports/adelva-revenue-brand-2026-09-28/fidelity-round1/landmarks.md
+[warn] docs/reports/adelva-revenue-brand-2026-09-28/README.md
+[warn] docs/specs/adelva-revenue-brand-spec.md
+[warn] Code style issues found in 38 files. Run Prettier with --write to fix.
+[ELIFECYCLE] Command failed with exit code 1.

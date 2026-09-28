@@ -1,0 +1,10 @@
+$ vitest run --configLoader native --cache=false
+
+ RUN  v4.1.11 /home/kokoro/projects/clients/clonetest-rb
+
+
+ Test Files  13 passed (13)
+      Tests  112 passed (112)
+   Start at  23:18:22
+   Duration  2.30s (transform 2.23s, setup 3.01s, import 3.90s, tests 2.93s, environment 10.34s)
+

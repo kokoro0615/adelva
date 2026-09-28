@@ -1,0 +1,473 @@
+{
+  "method": "Identical near-neutral bright-ink scanline detector, declared §6 regions; photographs excluded from pass criterion.",
+  "report": [
+    {
+      "name": "desktop",
+      "referenceScale": 1.40625,
+      "landmarks": [
+        {
+          "id": "H1",
+          "specTop": 464,
+          "reference": {
+            "label": "H1",
+            "top": 465,
+            "left": 62,
+            "width": 806
+          },
+          "implementation": {
+            "label": "H1",
+            "top": 465,
+            "left": 62,
+            "width": 810
+          },
+          "delta": 0,
+          "tolerance": 8,
+          "pass": true
+        },
+        {
+          "id": "chapter1",
+          "specTop": 1056,
+          "reference": {
+            "label": "chapter1",
+            "top": 1057,
+            "left": 421,
+            "width": 600
+          },
+          "implementation": {
+            "label": "chapter1",
+            "top": 1061,
+            "left": 425,
+            "width": 589
+          },
+          "delta": 4,
+          "tolerance": 8,
+          "pass": true
+        },
+        {
+          "id": "service12",
+          "specTop": 1612,
+          "reference": {
+            "label": "service12",
+            "top": 1612,
+            "left": 59,
+            "width": 406
+          },
+          "implementation": {
+            "label": "service12",
+            "top": 1616,
+            "left": 60,
+            "width": 428
+          },
+          "delta": 4,
+          "tolerance": 8,
+          "pass": true
+        },
+        {
+          "id": "service16",
+          "specTop": 1612,
+          "reference": {
+            "label": "service16",
+            "top": 1612,
+            "left": 1151,
+            "width": 230
+          },
+          "implementation": {
+            "label": "service16",
+            "top": 1615,
+            "left": 1142,
+            "width": 236
+          },
+          "delta": 3,
+          "tolerance": 8,
+          "pass": true
+        },
+        {
+          "id": "chapter2",
+          "specTop": 2437,
+          "reference": {
+            "label": "chapter2",
+            "top": 2437,
+            "left": 226,
+            "width": 989
+          },
+          "implementation": {
+            "label": "chapter2",
+            "top": 2445,
+            "left": 219,
+            "width": 1002
+          },
+          "delta": 8,
+          "tolerance": 8,
+          "pass": true
+        },
+        {
+          "id": "service13",
+          "specTop": 2710,
+          "reference": {
+            "label": "service13",
+            "top": 2711,
+            "left": 349,
+            "width": 221
+          },
+          "implementation": {
+            "label": "service13",
+            "top": 2713,
+            "left": 354,
+            "width": 210
+          },
+          "delta": 2,
+          "tolerance": 8,
+          "pass": true
+        },
+        {
+          "id": "service14",
+          "specTop": 2710,
+          "reference": {
+            "label": "service14",
+            "top": 2712,
+            "left": 838,
+            "width": 327
+          },
+          "implementation": {
+            "label": "service14",
+            "top": 2714,
+            "left": 826,
+            "width": 350
+          },
+          "delta": 2,
+          "tolerance": 8,
+          "pass": true
+        },
+        {
+          "id": "chapter3",
+          "specTop": 3977,
+          "reference": {
+            "label": "chapter3",
+            "top": 3978,
+            "left": 966,
+            "width": 363
+          },
+          "implementation": {
+            "label": "chapter3",
+            "top": 3984,
+            "left": 969,
+            "width": 353
+          },
+          "delta": 6,
+          "tolerance": 8,
+          "pass": true
+        },
+        {
+          "id": "service15",
+          "specTop": 4138,
+          "reference": {
+            "label": "service15",
+            "top": 4129,
+            "left": 964,
+            "width": 397
+          },
+          "implementation": {
+            "label": "service15",
+            "top": 4135,
+            "left": 968,
+            "width": 199
+          },
+          "delta": 6,
+          "tolerance": 8,
+          "pass": true
+        },
+        {
+          "id": "differences",
+          "specTop": 4653,
+          "reference": {
+            "label": "differences",
+            "top": 4654,
+            "left": 527,
+            "width": 390
+          },
+          "implementation": {
+            "label": "differences",
+            "top": 4658,
+            "left": 528,
+            "width": 383
+          },
+          "delta": 4,
+          "tolerance": 8,
+          "pass": true
+        },
+        {
+          "id": "process",
+          "specTop": 5782,
+          "reference": {
+            "label": "process",
+            "top": 5783,
+            "left": 528,
+            "width": 384
+          },
+          "implementation": {
+            "label": "process",
+            "top": 5789,
+            "left": 543,
+            "width": 354
+          },
+          "delta": 6,
+          "tolerance": 8,
+          "pass": true
+        },
+        {
+          "id": "related",
+          "specTop": 8270,
+          "reference": {
+            "label": "related",
+            "top": 8271,
+            "left": 99,
+            "width": 253
+          },
+          "implementation": {
+            "label": "related",
+            "top": 8277,
+            "left": 101,
+            "width": 221
+          },
+          "delta": 6,
+          "tolerance": 8,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "mobile",
+      "referenceScale": 1,
+      "landmarks": [
+        {
+          "id": "H1",
+          "specTop": 340,
+          "reference": {
+            "label": "H1",
+            "top": 342,
+            "left": 22,
+            "width": 273
+          },
+          "implementation": {
+            "label": "H1",
+            "top": 342,
+            "left": 23,
+            "width": 275
+          },
+          "delta": 0,
+          "tolerance": 8,
+          "pass": true
+        },
+        {
+          "id": "chapter1",
+          "specTop": 1026,
+          "reference": {
+            "label": "chapter1",
+            "top": 1027,
+            "left": 68,
+            "width": 255
+          },
+          "implementation": {
+            "label": "chapter1",
+            "top": 1028,
+            "left": 71,
+            "width": 249
+          },
+          "delta": 1,
+          "tolerance": 8,
+          "pass": true
+        },
+        {
+          "id": "service12",
+          "specTop": 1648,
+          "reference": {
+            "label": "service12",
+            "top": 1646,
+            "left": 21,
+            "width": 236
+          },
+          "implementation": {
+            "label": "service12",
+            "top": 1645,
+            "left": 22,
+            "width": 235
+          },
+          "delta": -1,
+          "tolerance": 8,
+          "pass": true
+        },
+        {
+          "id": "service16",
+          "specTop": 1719,
+          "reference": {
+            "label": "service16",
+            "top": 1720,
+            "left": 289,
+            "width": 83
+          },
+          "implementation": {
+            "label": "service16",
+            "top": 1722,
+            "left": 276,
+            "width": 93
+          },
+          "delta": 2,
+          "tolerance": 8,
+          "pass": true
+        },
+        {
+          "id": "chapter2",
+          "specTop": 2007,
+          "reference": {
+            "label": "chapter2",
+            "top": 1996,
+            "left": 50,
+            "width": 294
+          },
+          "implementation": {
+            "label": "chapter2",
+            "top": 2003,
+            "left": 31,
+            "width": 327
+          },
+          "delta": 7,
+          "tolerance": 8,
+          "pass": true
+        },
+        {
+          "id": "service13",
+          "specTop": 2358,
+          "reference": {
+            "label": "service13",
+            "top": 2355,
+            "left": 142,
+            "width": 107
+          },
+          "implementation": {
+            "label": "service13",
+            "top": 2361,
+            "left": 144,
+            "width": 104
+          },
+          "delta": 6,
+          "tolerance": 8,
+          "pass": true
+        },
+        {
+          "id": "service14",
+          "specTop": 2470,
+          "reference": {
+            "label": "service14",
+            "top": 2468,
+            "left": 126,
+            "width": 139
+          },
+          "implementation": {
+            "label": "service14",
+            "top": 2474,
+            "left": 109,
+            "width": 171
+          },
+          "delta": 6,
+          "tolerance": 8,
+          "pass": true
+        },
+        {
+          "id": "chapter3",
+          "specTop": 3048,
+          "reference": {
+            "label": "chapter3",
+            "top": 3048,
+            "left": 23,
+            "width": 131
+          },
+          "implementation": {
+            "label": "chapter3",
+            "top": 3051,
+            "left": 24,
+            "width": 162
+          },
+          "delta": 3,
+          "tolerance": 8,
+          "pass": true
+        },
+        {
+          "id": "service15",
+          "specTop": 3101,
+          "reference": {
+            "label": "service15",
+            "top": 3102,
+            "left": 22,
+            "width": 78
+          },
+          "implementation": {
+            "label": "service15",
+            "top": 3103,
+            "left": 24,
+            "width": 89
+          },
+          "delta": 1,
+          "tolerance": 8,
+          "pass": true
+        },
+        {
+          "id": "differences",
+          "specTop": 3781,
+          "reference": {
+            "label": "differences",
+            "top": 3782,
+            "left": 101,
+            "width": 155
+          },
+          "implementation": {
+            "label": "differences",
+            "top": 3785,
+            "left": 113,
+            "width": 163
+          },
+          "delta": 3,
+          "tolerance": 8,
+          "pass": true
+        },
+        {
+          "id": "process",
+          "specTop": 4490,
+          "reference": {
+            "label": "process",
+            "top": 4493,
+            "left": 28,
+            "width": 141
+          },
+          "implementation": {
+            "label": "process",
+            "top": 4492,
+            "left": 31,
+            "width": 137
+          },
+          "delta": -1,
+          "tolerance": 8,
+          "pass": true
+        },
+        {
+          "id": "related",
+          "specTop": 5925,
+          "reference": {
+            "label": "related",
+            "top": 5919,
+            "left": 39,
+            "width": 120
+          },
+          "implementation": {
+            "label": "related",
+            "top": 5926,
+            "left": 43,
+            "width": 141
+          },
+          "delta": 7,
+          "tolerance": 8,
+          "pass": true
+        }
+      ]
+    }
+  ]
+}

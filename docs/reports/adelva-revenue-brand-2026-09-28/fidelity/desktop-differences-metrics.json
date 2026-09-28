@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "label": "desktop-differences",
+  "reference": "/home/kokoro/projects/clients/clonetest-rb/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/frames/desktop-differences-reference.png",
+  "actual": "/home/kokoro/projects/clients/clonetest-rb/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/frames/desktop-differences-actual.png",
+  "mapping": {
+    "referenceRaster": {
+      "width": 1440,
+      "height": 670
+    },
+    "implementationRaster": {
+      "width": 1440,
+      "height": 670
+    },
+    "referencePixelsPerCssPixel": {
+      "x": 1,
+      "y": 1
+    },
+    "aspectDelta": 0
+  },
+  "metrics": {
+    "mae": 0.08483235646386802,
+    "rmse": 0.16063581897349993,
+    "diffRatio": 0.23091728855721394,
+    "edgeMae": 0.028403225662307793
+  },
+  "thresholds": {
+    "pixelThreshold": 0.1
+  },
+  "status": "MEASURED",
+  "failures": [],
+  "artifacts": {
+    "overlay": "/home/kokoro/projects/clients/clonetest-rb/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/desktop-differences-overlay.png",
+    "difference": "/home/kokoro/projects/clients/clonetest-rb/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/desktop-differences-difference.png",
+    "sideBySide": "/home/kokoro/projects/clients/clonetest-rb/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/desktop-differences-side-by-side.png"
+  }
+}

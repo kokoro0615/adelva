@@ -1,0 +1,33 @@
+
+Running 2 tests using 1 worker
+
+(node:35) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 .cache/revenue-brand-verification/approach.spec.ts:217:1 › six stages and complete route remain available without JavaScript (710ms)
+  ✘  2 .cache/revenue-brand-verification/approach.spec.ts:273:1 › direct section link lands after the preceding animated layout settles (6.9s)
+
+
+  1) .cache/revenue-brand-verification/approach.spec.ts:273:1 › direct section link lands after the preceding animated layout settles 
+
+    Error: expect(received).toBeLessThan(expected)
+
+    Expected: < 100
+    Received:   157.921875
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      281 |     await expect
+      282 |       .poll(async () => (await page.locator("#approach").boundingBox())!.y)
+    > 283 |       .toBeLessThan(100);
+          |        ^
+      284 |     await expect(page.locator("#approach h2")).toBeInViewport();
+      285 |   }
+      286 | });
+        at /home/kokoro/projects/clients/clonetest-rb/.cache/revenue-brand-verification/approach.spec.ts:283:8
+
+    Error Context: test-results/approach-direct-section-li-7a242-ing-animated-layout-settles/error-context.md
+
+  1 failed
+    .cache/revenue-brand-verification/approach.spec.ts:273:1 › direct section link lands after the preceding animated layout settles 
+  1 passed (8.1s)

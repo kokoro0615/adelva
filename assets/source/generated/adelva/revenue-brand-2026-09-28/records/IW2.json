@@ -1,0 +1,971 @@
+{
+  "worker": "IW2",
+  "date_time_asia_tokyo": "2026-09-28T19:45:49.888661+09:00",
+  "session_evidence": {
+    "rollout_path": "/home/kokoro/.codex/sessions/2026/09/28/rollout-2026-09-28T19-33-42-01a0e793-df04-7821-8a49-eb3ba9688d72.jsonl",
+    "turn_context_fields": [
+      {
+        "turn_id": "01a0e793-e126-7961-be73-e9d3072b0e7f",
+        "cwd": "/home/kokoro/projects/clients/clonetest",
+        "approval_policy": "never",
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    ]
+  },
+  "prior_session_evidence": {
+    "rollout_path": "/home/kokoro/.codex/sessions/2026/09/28/rollout-2026-09-28T19-25-28-01a0e78c-53aa-7e40-bed4-dcd973c20ea6.jsonl",
+    "turn_context_fields": [
+      {
+        "turn_id": "01a0e78c-5620-7822-b9e3-10ca40c0b9f8",
+        "cwd": "/home/kokoro/projects/clients/clonetest",
+        "approval_policy": "never",
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    ]
+  },
+  "tool": "image_gen.imagegen (tools.image_gen__imagegen)",
+  "interruption": "Previous run interrupted after D06 attempt 1; reusing returned original and performing fresh checks; partial IW2 record replaced as explicitly requested.",
+  "calls": [
+    {
+      "item_id": "D06",
+      "attempt": 1,
+      "date_time_asia_tokyo": "2026-09-28T19:37:24.837840+09:00",
+      "prompt": {
+        "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/prompts/D06.txt",
+        "bytes": 2272,
+        "sha256": "0cd16d40c5b8abb11895a1ad72f49b30d5bc245b60ae914866995029d33181c6"
+      },
+      "verbatim_check": {
+        "match": true,
+        "sent_bytes": 2272,
+        "sent_sha256": "0cd16d40c5b8abb11895a1ad72f49b30d5bc245b60ae914866995029d33181c6",
+        "final_newline": true,
+        "evidence": "Recovered prior cat output from prior rollout"
+      },
+      "input": {
+        "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/inputs/D06-input.png",
+        "bytes": 3120070,
+        "sha256": "cbe69362c3516955f24be4a54f1a7a3b08f6de3a8504b8473e72a54e6ce84fca",
+        "width": 1536,
+        "height": 1024
+      },
+      "returned_original": {
+        "path": "/home/kokoro/.codex/generated_images/01a0e78c-53aa-7e40-bed4-dcd973c20ea6/exec-0e4c505d-9547-49b9-bb30-44183fb3541d.png",
+        "bytes": 2926041,
+        "sha256": "b7de99ef8ec45eb8854c2906e19ad1d2502e424d60bffbe4171a5c3c46e96221",
+        "width": 1536,
+        "height": 1024
+      },
+      "measure_drift": {
+        "input": {
+          "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/inputs/D06-input.png",
+          "width": 1536,
+          "height": 1024
+        },
+        "output": {
+          "path": "/home/kokoro/.codex/generated_images/01a0e78c-53aa-7e40-bed4-dcd973c20ea6/exec-0e4c505d-9547-49b9-bb30-44183fb3541d.png",
+          "width": 1536,
+          "height": 1024
+        },
+        "sizeMatch": true,
+        "aspectMatch": true,
+        "global": {
+          "dx": 0,
+          "dy": 0,
+          "meanAbsDiff": 17.78
+        },
+        "cells": [
+          {
+            "cell": "r0c0",
+            "dx": 0,
+            "dy": -4,
+            "meanAbsDiff": 16.1
+          },
+          {
+            "cell": "r0c1",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 17.04
+          },
+          {
+            "cell": "r0c2",
+            "dx": -4,
+            "dy": -4,
+            "meanAbsDiff": 16.73
+          },
+          {
+            "cell": "r1c0",
+            "dx": 0,
+            "dy": 16,
+            "meanAbsDiff": 13.82
+          },
+          {
+            "cell": "r1c1",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 24.88
+          },
+          {
+            "cell": "r1c2",
+            "dx": -4,
+            "dy": 24,
+            "meanAbsDiff": 13.23
+          },
+          {
+            "cell": "r2c0",
+            "dx": 16,
+            "dy": -16,
+            "meanAbsDiff": 15.37
+          },
+          {
+            "cell": "r2c1",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 22.44
+          },
+          {
+            "cell": "r2c2",
+            "dx": 4,
+            "dy": -8,
+            "meanAbsDiff": 14.35
+          }
+        ],
+        "verdict": "PASS",
+        "serious": [],
+        "info": [
+          "local offset up to 24 px (informational)"
+        ]
+      },
+      "adopted": true,
+      "reason": "No serious defects; numeric PASS; resumed attempt adopted without regeneration.",
+      "defects": [],
+      "informational": [
+        "Photographic texture sharpened; forest and water brighter after removal of dark text panels; minor mist and tree details differ."
+      ],
+      "visual_check": {
+        "whole_original": true,
+        "two_x_crops": "All six half-width crops of top/middle/bottom thirds viewed at original detail; covers every overlay area.",
+        "overlay_regions_input_px": [
+          [
+            120,
+            0,
+            960,
+            180
+          ],
+          [
+            550,
+            340,
+            1000,
+            430
+          ],
+          [
+            150,
+            445,
+            1345,
+            810
+          ],
+          [
+            350,
+            840,
+            1190,
+            920
+          ],
+          [
+            260,
+            0,
+            800,
+            1024
+          ]
+        ],
+        "leftover_ui": false,
+        "smears": false,
+        "scene_change": false,
+        "people": false,
+        "frame_border_watermark": false,
+        "dark_translucent_panels": false,
+        "hard_horizontal_seam_or_band": false
+      },
+      "call_started_asia_tokyo": "2026-09-28T19:26:36.971000+09:00",
+      "call_evidence": {
+        "rollout_path": "/home/kokoro/.codex/sessions/2026/09/28/rollout-2026-09-28T19-25-28-01a0e78c-53aa-7e40-bed4-dcd973c20ea6.jsonl",
+        "ordinal": 32,
+        "call_id": "call_9Al2uZ5ptmFcJL6rtuoftrGS"
+      }
+    },
+    {
+      "item_id": "D07",
+      "attempt": 1,
+      "date_time_asia_tokyo": "2026-09-28T19:39:05.830205+09:00",
+      "prompt": {
+        "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/prompts/D07.txt",
+        "bytes": 2276,
+        "sha256": "bc6512847b7e2c4888d1ca92441853f1fab4833c97fa21bc61dddb94e7b0abcb"
+      },
+      "verbatim_check": {
+        "match": true,
+        "sent_bytes": 2276,
+        "sent_sha256": "bc6512847b7e2c4888d1ca92441853f1fab4833c97fa21bc61dddb94e7b0abcb",
+        "final_newline": true,
+        "evidence": "Exact stored cat stdout passed as prompt; post-call byte comparison"
+      },
+      "input": {
+        "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/inputs/D07-input.png",
+        "bytes": 3179670,
+        "sha256": "8451330eec616b321e261501dbcf0bd18e232006c22fbda7e61f7d3294f42e09",
+        "width": 1536,
+        "height": 1024
+      },
+      "returned_original": {
+        "path": "/home/kokoro/.codex/generated_images/01a0e793-df04-7821-8a49-eb3ba9688d72/exec-de71d4b9-16c5-49ee-bcf0-068b7bcd3383.png",
+        "bytes": 2719878,
+        "sha256": "65a0da731be7c89ba210859ae69a37ce587ca8edf3703d13825e2f1a4bfa5a13",
+        "width": 1536,
+        "height": 1024
+      },
+      "measure_drift": {
+        "input": {
+          "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/inputs/D07-input.png",
+          "width": 1536,
+          "height": 1024
+        },
+        "output": {
+          "path": "/home/kokoro/.codex/generated_images/01a0e793-df04-7821-8a49-eb3ba9688d72/exec-de71d4b9-16c5-49ee-bcf0-068b7bcd3383.png",
+          "width": 1536,
+          "height": 1024
+        },
+        "sizeMatch": true,
+        "aspectMatch": true,
+        "global": {
+          "dx": 0,
+          "dy": 0,
+          "meanAbsDiff": 14.01
+        },
+        "cells": [
+          {
+            "cell": "r0c0",
+            "dx": 4,
+            "dy": -4,
+            "meanAbsDiff": 11.39
+          },
+          {
+            "cell": "r0c1",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 20.58
+          },
+          {
+            "cell": "r0c2",
+            "dx": 0,
+            "dy": -8,
+            "meanAbsDiff": 10.82
+          },
+          {
+            "cell": "r1c0",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 8.54
+          },
+          {
+            "cell": "r1c1",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 11.11
+          },
+          {
+            "cell": "r1c2",
+            "dx": 0,
+            "dy": 8,
+            "meanAbsDiff": 7.04
+          },
+          {
+            "cell": "r2c0",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 11.13
+          },
+          {
+            "cell": "r2c1",
+            "dx": -12,
+            "dy": 32,
+            "meanAbsDiff": 36.43
+          },
+          {
+            "cell": "r2c2",
+            "dx": 0,
+            "dy": -4,
+            "meanAbsDiff": 11.72
+          }
+        ],
+        "verdict": "PASS",
+        "serious": [],
+        "info": [
+          "local offset up to 34 px (informational)"
+        ]
+      },
+      "adopted": true,
+      "reason": "Numeric PASS and no serious visual defects; adopt first attempt.",
+      "defects": [],
+      "informational": [
+        "Sharper tree, boulder and water texture; minor mist details and brightness differ. Local cell offsets are informational only."
+      ],
+      "visual_check": {
+        "whole_original": true,
+        "two_x_crops": "Six half-width top/middle/bottom crops, covering entire image and all removal-list locations, viewed with detail original.",
+        "overlay_regions_input_px": [
+          [
+            150,
+            0,
+            1350,
+            45
+          ],
+          [
+            350,
+            75,
+            1190,
+            150
+          ],
+          [
+            745,
+            0,
+            800,
+            780
+          ],
+          [
+            325,
+            765,
+            1230,
+            1024
+          ],
+          [
+            65,
+            900,
+            180,
+            1024
+          ],
+          [
+            1450,
+            940,
+            1536,
+            1024
+          ]
+        ],
+        "leftover_ui": false,
+        "smears": false,
+        "scene_change": false,
+        "people": false,
+        "frame_border_watermark": false,
+        "dark_translucent_panels": false,
+        "hard_horizontal_seam_or_band": false
+      },
+      "call_started_asia_tokyo": "2026-09-28T19:37:33.392000+09:00",
+      "call_evidence": {
+        "rollout_path": "/home/kokoro/.codex/sessions/2026/09/28/rollout-2026-09-28T19-33-42-01a0e793-df04-7821-8a49-eb3ba9688d72.jsonl",
+        "ordinal": 93,
+        "call_id": "call_kZzkrEPFZjFDkgwQvNr2Zn6A"
+      }
+    },
+    {
+      "item_id": "D08",
+      "attempt": 1,
+      "date_time_asia_tokyo": "2026-09-28T19:41:09.359640+09:00",
+      "prompt": {
+        "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/prompts/D08.txt",
+        "bytes": 2631,
+        "sha256": "87ef8d6248490895e8010cf9b02e039db02e21e94d30260c0a4a1192d09a2f88"
+      },
+      "verbatim_check": {
+        "match": true,
+        "sent_bytes": 2631,
+        "sent_sha256": "87ef8d6248490895e8010cf9b02e039db02e21e94d30260c0a4a1192d09a2f88",
+        "final_newline": true,
+        "evidence": "Exact stored cat stdout passed as prompt; post-call byte comparison"
+      },
+      "input": {
+        "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/inputs/D08-input.png",
+        "bytes": 3334546,
+        "sha256": "6a9c2d5f368b277ab8c852fef45d424255bd57fc95c8e76bd2dc46969d439d97",
+        "width": 1536,
+        "height": 1024
+      },
+      "returned_original": {
+        "path": "/home/kokoro/.codex/generated_images/01a0e793-df04-7821-8a49-eb3ba9688d72/exec-973666a1-9c38-4b6b-8f2d-4ca77bd2080b.png",
+        "bytes": 2944341,
+        "sha256": "b3e8ebc33f10110fdbb2ce2ee7875efb5732703c7fa6bcfb22c819dc796cc1f3",
+        "width": 1536,
+        "height": 1024
+      },
+      "measure_drift": {
+        "input": {
+          "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/inputs/D08-input.png",
+          "width": 1536,
+          "height": 1024
+        },
+        "output": {
+          "path": "/home/kokoro/.codex/generated_images/01a0e793-df04-7821-8a49-eb3ba9688d72/exec-973666a1-9c38-4b6b-8f2d-4ca77bd2080b.png",
+          "width": 1536,
+          "height": 1024
+        },
+        "sizeMatch": true,
+        "aspectMatch": true,
+        "global": {
+          "dx": 0,
+          "dy": 0,
+          "meanAbsDiff": 16.02
+        },
+        "cells": [
+          {
+            "cell": "r0c0",
+            "dx": 0,
+            "dy": -4,
+            "meanAbsDiff": 12.45
+          },
+          {
+            "cell": "r0c1",
+            "dx": -4,
+            "dy": -32,
+            "meanAbsDiff": 29.23
+          },
+          {
+            "cell": "r0c2",
+            "dx": 4,
+            "dy": 28,
+            "meanAbsDiff": 20.74
+          },
+          {
+            "cell": "r1c0",
+            "dx": 0,
+            "dy": 4,
+            "meanAbsDiff": 15.8
+          },
+          {
+            "cell": "r1c1",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 13.84
+          },
+          {
+            "cell": "r1c2",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 14.67
+          },
+          {
+            "cell": "r2c0",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 9.6
+          },
+          {
+            "cell": "r2c1",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 11.98
+          },
+          {
+            "cell": "r2c2",
+            "dx": 4,
+            "dy": 0,
+            "meanAbsDiff": 10.37
+          }
+        ],
+        "verdict": "PASS",
+        "serious": [],
+        "info": [
+          "local offset up to 32 px (informational)"
+        ]
+      },
+      "adopted": true,
+      "reason": "Numeric PASS; no serious visual defect; river bends, terraced fields and drying racks preserved.",
+      "defects": [],
+      "informational": [
+        "Fine forest and mist texture differs, particularly beneath removed top heading panel. Minor brightness changes."
+      ],
+      "visual_check": {
+        "whole_original": true,
+        "two_x_crops": "Six half-width top/middle/bottom crops cover all pixels and removal locations; viewed at original detail.",
+        "overlay_regions_input_px": [
+          [
+            325,
+            0,
+            1220,
+            260
+          ],
+          [
+            65,
+            130,
+            185,
+            595
+          ],
+          [
+            630,
+            230,
+            900,
+            1024
+          ],
+          [
+            900,
+            290,
+            1190,
+            405
+          ],
+          [
+            350,
+            470,
+            710,
+            580
+          ],
+          [
+            850,
+            680,
+            1335,
+            800
+          ],
+          [
+            370,
+            855,
+            710,
+            970
+          ],
+          [
+            1330,
+            185,
+            1505,
+            570
+          ]
+        ],
+        "leftover_ui": false,
+        "smears": false,
+        "scene_change": false,
+        "orange_water_glow": false,
+        "people": false,
+        "frame_border_watermark": false,
+        "dark_translucent_panels": false,
+        "hard_horizontal_seam_or_band": false
+      },
+      "call_started_asia_tokyo": "2026-09-28T19:39:17.339000+09:00",
+      "call_evidence": {
+        "rollout_path": "/home/kokoro/.codex/sessions/2026/09/28/rollout-2026-09-28T19-33-42-01a0e793-df04-7821-8a49-eb3ba9688d72.jsonl",
+        "ordinal": 124,
+        "call_id": "call_BHbYBLqA4q0L9mAg6EUny1Vk"
+      }
+    },
+    {
+      "item_id": "D09",
+      "attempt": 1,
+      "date_time_asia_tokyo": "2026-09-28T19:43:11.229325+09:00",
+      "prompt": {
+        "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/prompts/D09.txt",
+        "bytes": 2455,
+        "sha256": "36fc9dcf7f94cee5ae697552a0a07bcd3b074c2323a2e8490cfa15e0d6053d43"
+      },
+      "verbatim_check": {
+        "match": true,
+        "sent_bytes": 2455,
+        "sent_sha256": "36fc9dcf7f94cee5ae697552a0a07bcd3b074c2323a2e8490cfa15e0d6053d43",
+        "final_newline": true,
+        "evidence": "Exact stored cat stdout passed as prompt; post-call byte comparison"
+      },
+      "input": {
+        "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/inputs/D09-input.png",
+        "bytes": 3724085,
+        "sha256": "4f41f5e816b499b043651872ff00e0b44c6039d90017a6ed0421769a0fb67b5d",
+        "width": 1536,
+        "height": 1024
+      },
+      "returned_original": {
+        "path": "/home/kokoro/.codex/generated_images/01a0e793-df04-7821-8a49-eb3ba9688d72/exec-858eabbd-fe4b-4527-a7a6-708505cc73f5.png",
+        "bytes": 3006519,
+        "sha256": "e396b4167dc56aedc05154003bf3b97bb4cbff44d2442fb1d5cd6f7eba687a9f",
+        "width": 1536,
+        "height": 1024
+      },
+      "measure_drift": {
+        "input": {
+          "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/inputs/D09-input.png",
+          "width": 1536,
+          "height": 1024
+        },
+        "output": {
+          "path": "/home/kokoro/.codex/generated_images/01a0e793-df04-7821-8a49-eb3ba9688d72/exec-858eabbd-fe4b-4527-a7a6-708505cc73f5.png",
+          "width": 1536,
+          "height": 1024
+        },
+        "sizeMatch": true,
+        "aspectMatch": true,
+        "global": {
+          "dx": 0,
+          "dy": 0,
+          "meanAbsDiff": 8.59
+        },
+        "cells": [
+          {
+            "cell": "r0c0",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 12.49
+          },
+          {
+            "cell": "r0c1",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 7.92
+          },
+          {
+            "cell": "r0c2",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 8.37
+          },
+          {
+            "cell": "r1c0",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 5.92
+          },
+          {
+            "cell": "r1c1",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 11.29
+          },
+          {
+            "cell": "r1c2",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 6.57
+          },
+          {
+            "cell": "r2c0",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 6.04
+          },
+          {
+            "cell": "r2c1",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 9.65
+          },
+          {
+            "cell": "r2c2",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 6.49
+          }
+        ],
+        "verdict": "PASS",
+        "serious": [],
+        "info": []
+      },
+      "adopted": true,
+      "reason": "Numeric PASS, no serious visual defect, warm ryokan windows and pier lanterns retained.",
+      "defects": [],
+      "informational": [
+        "Water foam and tree detail sharpened; small mist/brightness differences."
+      ],
+      "visual_check": {
+        "whole_original": true,
+        "two_x_crops": "Six half-width top/middle/bottom crops cover entire output and all overlay regions, viewed with detail original.",
+        "overlay_regions_input_px": [
+          [
+            950,
+            0,
+            1340,
+            25
+          ],
+          [
+            365,
+            85,
+            720,
+            200
+          ],
+          [
+            640,
+            0,
+            940,
+            1024
+          ],
+          [
+            885,
+            315,
+            1175,
+            425
+          ],
+          [
+            685,
+            605,
+            1170,
+            725
+          ],
+          [
+            1180,
+            950,
+            1475,
+            1010
+          ]
+        ],
+        "leftover_ui": false,
+        "smears": false,
+        "scene_change": false,
+        "ryokan_window_light_preserved": true,
+        "pier_lanterns_preserved": true,
+        "light_check_regions_px": [
+          [
+            950,
+            570,
+            1500,
+            890
+          ],
+          [
+            900,
+            840,
+            1110,
+            965
+          ]
+        ],
+        "people": false,
+        "frame_border_watermark": false,
+        "dark_translucent_panels": false,
+        "hard_horizontal_seam_or_band": false
+      },
+      "call_started_asia_tokyo": "2026-09-28T19:41:27.499000+09:00",
+      "call_evidence": {
+        "rollout_path": "/home/kokoro/.codex/sessions/2026/09/28/rollout-2026-09-28T19-33-42-01a0e793-df04-7821-8a49-eb3ba9688d72.jsonl",
+        "ordinal": 154,
+        "call_id": "call_eGb1Do8oKzCrBTMmkfx597u5"
+      }
+    },
+    {
+      "item_id": "D10",
+      "attempt": 1,
+      "date_time_asia_tokyo": "2026-09-28T19:45:49.859051+09:00",
+      "prompt": {
+        "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/prompts/D10.txt",
+        "bytes": 2432,
+        "sha256": "6fd447730ea9aff2ccfb4967776ee62a3081240ab06fea7e1e919154cea96214"
+      },
+      "verbatim_check": {
+        "match": true,
+        "sent_bytes": 2432,
+        "sent_sha256": "6fd447730ea9aff2ccfb4967776ee62a3081240ab06fea7e1e919154cea96214",
+        "final_newline": true,
+        "evidence": "Exact stored cat stdout passed as prompt; post-call byte comparison"
+      },
+      "input": {
+        "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/inputs/D10-input.png",
+        "bytes": 3273207,
+        "sha256": "517b629b91bc1909915f497144962fc405cc2870c34bb7cb4d8b7bbecf3f96b6",
+        "width": 1536,
+        "height": 1024
+      },
+      "returned_original": {
+        "path": "/home/kokoro/.codex/generated_images/01a0e793-df04-7821-8a49-eb3ba9688d72/exec-10087680-1aa3-45ae-9a1f-c97c92c6e883.png",
+        "bytes": 2668685,
+        "sha256": "ac3c323a3af2b3634d53060501b180d9e6a9954008992f9b57783bd0ece52961",
+        "width": 1536,
+        "height": 1024
+      },
+      "measure_drift": {
+        "input": {
+          "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/inputs/D10-input.png",
+          "width": 1536,
+          "height": 1024
+        },
+        "output": {
+          "path": "/home/kokoro/.codex/generated_images/01a0e793-df04-7821-8a49-eb3ba9688d72/exec-10087680-1aa3-45ae-9a1f-c97c92c6e883.png",
+          "width": 1536,
+          "height": 1024
+        },
+        "sizeMatch": true,
+        "aspectMatch": true,
+        "global": {
+          "dx": 0,
+          "dy": 0,
+          "meanAbsDiff": 6.4
+        },
+        "cells": [
+          {
+            "cell": "r0c0",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 6.79
+          },
+          {
+            "cell": "r0c1",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 7.61
+          },
+          {
+            "cell": "r0c2",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 4.39
+          },
+          {
+            "cell": "r1c0",
+            "dx": 0,
+            "dy": 4,
+            "meanAbsDiff": 7.46
+          },
+          {
+            "cell": "r1c1",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 9.82
+          },
+          {
+            "cell": "r1c2",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 5.28
+          },
+          {
+            "cell": "r2c0",
+            "dx": 0,
+            "dy": 4,
+            "meanAbsDiff": 4.93
+          },
+          {
+            "cell": "r2c1",
+            "dx": 0,
+            "dy": 4,
+            "meanAbsDiff": 4.75
+          },
+          {
+            "cell": "r2c2",
+            "dx": 0,
+            "dy": 4,
+            "meanAbsDiff": 4
+          }
+        ],
+        "verdict": "PASS",
+        "serious": [],
+        "info": []
+      },
+      "adopted": true,
+      "reason": "Numeric PASS; no serious defects; ryokan/pier lights and smooth bottom darkening preserved.",
+      "defects": [],
+      "informational": [
+        "Fine water, conifer and mist details sharper; slight brightness increase without a band."
+      ],
+      "visual_check": {
+        "whole_original": true,
+        "two_x_crops": "Six half-width crops of top/middle/bottom thirds, covering all removal areas and entire bottom fade, viewed with detail original.",
+        "overlay_regions_input_px": [
+          [
+            1180,
+            180,
+            1475,
+            245
+          ],
+          [
+            700,
+            0,
+            815,
+            370
+          ],
+          [
+            710,
+            320,
+            805,
+            410
+          ]
+        ],
+        "leftover_ui": false,
+        "smears": false,
+        "scene_change": false,
+        "ryokan_window_light_preserved": true,
+        "pier_lanterns_preserved": true,
+        "light_check_regions_px": [
+          [
+            950,
+            0,
+            1460,
+            135
+          ],
+          [
+            900,
+            75,
+            1110,
+            195
+          ]
+        ],
+        "bottom_fade_smooth": true,
+        "hard_horizontal_edge_or_band": false,
+        "people": false,
+        "frame_border_watermark": false,
+        "dark_translucent_panels": false,
+        "hard_horizontal_seam_or_band": false
+      },
+      "call_started_asia_tokyo": "2026-09-28T19:43:33.038000+09:00",
+      "call_evidence": {
+        "rollout_path": "/home/kokoro/.codex/sessions/2026/09/28/rollout-2026-09-28T19-33-42-01a0e793-df04-7821-8a49-eb3ba9688d72.jsonl",
+        "ordinal": 182,
+        "call_id": "call_0Bxnd6yr0kgjT7kAb2MqGXt0"
+      }
+    }
+  ],
+  "saved_files": [
+    {
+      "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/raw/D06.png",
+      "bytes": 2926041,
+      "sha256": "b7de99ef8ec45eb8854c2906e19ad1d2502e424d60bffbe4171a5c3c46e96221",
+      "width": 1536,
+      "height": 1024,
+      "byte_for_byte_check": true
+    },
+    {
+      "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/raw/D07.png",
+      "bytes": 2719878,
+      "sha256": "65a0da731be7c89ba210859ae69a37ce587ca8edf3703d13825e2f1a4bfa5a13",
+      "width": 1536,
+      "height": 1024,
+      "byte_for_byte_check": true
+    },
+    {
+      "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/raw/D08.png",
+      "bytes": 2944341,
+      "sha256": "b3e8ebc33f10110fdbb2ce2ee7875efb5732703c7fa6bcfb22c819dc796cc1f3",
+      "width": 1536,
+      "height": 1024,
+      "byte_for_byte_check": true
+    },
+    {
+      "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/raw/D09.png",
+      "bytes": 3006519,
+      "sha256": "e396b4167dc56aedc05154003bf3b97bb4cbff44d2442fb1d5cd6f7eba687a9f",
+      "width": 1536,
+      "height": 1024,
+      "byte_for_byte_check": true
+    },
+    {
+      "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/raw/D10.png",
+      "bytes": 2668685,
+      "sha256": "ac3c323a3af2b3634d53060501b180d9e6a9954008992f9b57783bd0ece52961",
+      "width": 1536,
+      "height": 1024,
+      "byte_for_byte_check": true
+    }
+  ],
+  "completion": {
+    "date_time_asia_tokyo": "2026-09-28T19:45:52.247697+09:00",
+    "items": [
+      "D06",
+      "D07",
+      "D08",
+      "D09",
+      "D10"
+    ],
+    "all_prompt_checks_match": true,
+    "all_saved_files_byte_identical": true,
+    "all_attempts_adopted_first": true,
+    "rejected_attempts": [],
+    "inspection_crops": "Temporary 2x inspection crops only, never used as deliverables; removed after review.",
+    "generation_route": "Subscription-backed built-in image_gen only; no prompt augmentation and no pixel edits to deliverables.",
+    "local_inspection_tool": "sharp crops/resizing in /tmp only; no original or saved deliverable modified.",
+    "scope": "raw/D06.png through raw/D10.png and records/IW2.json; no git or production changes."
+  }
+}

@@ -397,3 +397,26 @@ Same licensed full sources (google/fonts `ofl/notosansjp`, `ofl/notoserifjp`,
 revisions 2.004 / 2.003, identical to the existing subsets), fontTools + Brotli;
 all previous glyph outlines and advances verified unchanged (0 of 589 / 0 of 598
 differ). Reproduce with `scripts/adelva/extend-management-operations-fonts.py`.
+
+### ADELVA revenue / brand growth — 2026-09-28
+
+User-authorized A4 ONE RIVER implementation at `/services/revenue-brand`.
+Fictional aerial plates, courtyard/back-of-house photos and fog were created with
+built-in image_gen by Codex `gpt-6-astra` (reasoning high) as edits of the adopted
+mock slices (text and UI removed) and two new fog sprites; every prompt, the
+stitching and the line geometry are by Opus 5.5. Not evidence of any real
+property, client or case. Originals and generation records remain in
+`assets/source/generated/adelva/revenue-brand-2026-09-28/`.
+No new image generation or reference raster is shipped by this implementation.
+Delivery derivatives are deterministic sharp crops/encodes: 72 overlapping
+background tiles (desktop 1536/1024, mobile 853/600; AVIF/WebP), 8 related-card
+images (1200/800; AVIF/WebP), 4 fog images (1536/768 WebP), all with empty
+alt because DOM carries the information. Tile 0 is media-preloaded, tile 1
+eager, remaining tiles/cards/fog lazy. SHA-256, dimensions, bytes, source,
+owner, intended role and loading are recorded per file in the source-folder
+`manifest.json`; delivery directory is `public/media/adelva/revenue-brand/`.
+Noto subsets were extended from the existing OFL full fonts in
+`~/.cache/adelva-fonts/`, preserving every previous cmap entry: Sans 631→643,
+Serif 631→649. Reproduce with `scripts/adelva/extend-revenue-brand-fonts.py`.
+Implementation and verification evidence:
+`docs/reports/adelva-revenue-brand-2026-09-28/README.md`.

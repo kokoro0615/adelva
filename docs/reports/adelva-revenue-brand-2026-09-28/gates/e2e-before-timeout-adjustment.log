@@ -1,0 +1,89 @@
+
+Running 38 tests using 3 workers
+
+(node:63) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:64) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:65) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   3 [chromium] › tests/e2e/revenue-brand.spec.ts:25:5 › revenue-brand 1440 › copy, completed fallback, width, and shell (1.1s)
+  ✓   1 [chromium] › tests/e2e/visual.spec.ts:10:3 › home regression at desktop (1.3s)
+  ✓   2 [chromium] › tests/e2e/accessibility.spec.ts:18:3 › / has no automatically detectable WCAG A/AA violations (1.7s)
+  ✓   5 [chromium] › tests/e2e/visual.spec.ts:10:3 › home regression at tablet (954ms)
+  ✓   7 [chromium] › tests/e2e/visual.spec.ts:10:3 › home regression at mobile (652ms)
+  ✓   4 [chromium] › tests/e2e/revenue-brand.spec.ts:43:7 › revenue-brand 1440 › all text remains without photographs; axe (1.9s)
+  ✓   6 [chromium] › tests/e2e/accessibility.spec.ts:18:3 › /itineraries has no automatically detectable WCAG A/AA violations (1.6s)
+  ✓   8 [chromium] › tests/e2e/visual.spec.ts:27:3 › management-operations regression at desktop (1.1s)
+  ✓   9 [chromium] › tests/e2e/revenue-brand.spec.ts:25:5 › revenue-brand 768 › copy, completed fallback, width, and shell (970ms)
+  ✓  10 [chromium] › tests/e2e/accessibility.spec.ts:18:3 › /camps/echo-base has no automatically detectable WCAG A/AA violations (1.5s)
+  ✓  11 [chromium] › tests/e2e/visual.spec.ts:27:3 › management-operations regression at tablet (842ms)
+  ✓  14 [chromium] › tests/e2e/visual.spec.ts:27:3 › management-operations regression at mobile (1.0s)
+  ✓  12 [chromium] › tests/e2e/revenue-brand.spec.ts:43:7 › revenue-brand 768 › all text remains without photographs; axe (2.1s)
+  ✓  13 [chromium] › tests/e2e/accessibility.spec.ts:18:3 › /itineraries/south-pole-blue-rivers has no automatically detectable WCAG A/AA violations (1.9s)
+  ✓  16 [chromium] › tests/e2e/revenue-brand.spec.ts:25:5 › revenue-brand 390 › copy, completed fallback, width, and shell (775ms)
+  ✓  17 [chromium] › tests/e2e/accessibility.spec.ts:18:3 › /antarctica/polar-plateau has no automatically detectable WCAG A/AA violations (1.4s)
+  ✓  18 [chromium] › tests/e2e/revenue-brand.spec.ts:43:7 › revenue-brand 390 › all text remains without photographs; axe (1.7s)
+  ✓  19 [chromium] › tests/e2e/accessibility.spec.ts:18:3 › /prices has no automatically detectable WCAG A/AA violations (1.4s)
+  ✓  15 [chromium] › tests/e2e/visual.spec.ts:53:5 › management-operations pinned process › management-operations process 00 (3.5s)
+  ✓  20 [chromium] › tests/e2e/revenue-brand.spec.ts:25:5 › revenue-brand 360 › copy, completed fallback, width, and shell (715ms)
+  ✓  23 [chromium] › tests/e2e/revenue-brand.spec.ts:25:5 › revenue-brand 1024 › copy, completed fallback, width, and shell (922ms)
+  ✓  21 [chromium] › tests/e2e/accessibility.spec.ts:18:3 › /enquire has no automatically detectable WCAG A/AA violations (1.3s)
+  ✓  24 [chromium] › tests/e2e/revenue-brand.spec.ts:25:5 › revenue-brand 1920 › copy, completed fallback, width, and shell (1.6s)
+  ✓  25 [chromium] › tests/e2e/accessibility.spec.ts:18:3 › /legal/privacy-policy has no automatically detectable WCAG A/AA violations (1.6s)
+  ✓  26 [chromium] › tests/e2e/revenue-brand.spec.ts:25:5 › revenue-brand 720 › copy, completed fallback, width, and shell (611ms)
+  ✓  22 [chromium] › tests/e2e/visual.spec.ts:53:5 › management-operations pinned process › management-operations process 06 (3.4s)
+  ✓  28 [chromium] › tests/e2e/revenue-brand.spec.ts:54:1 › revenue-brand controls toggle by keyboard and anchors reach their section (941ms)
+  ✓  27 [chromium] › tests/e2e/accessibility.spec.ts:18:3 › /services/management-operations has no automatically detectable WCAG A/AA violations (1.3s)
+  ✓  30 [chromium] › tests/e2e/revenue-brand.spec.ts:87:3 › revenue-brand no JavaScript › has every string and completed process (934ms)
+  ✓  31 [chromium] › tests/e2e/accessibility.spec.ts:18:3 › /services/revenue-brand has no automatically detectable WCAG A/AA violations (2.0s)
+  ✓  29 [chromium] › tests/e2e/visual.spec.ts:53:5 › management-operations pinned process › management-operations process 10 (3.4s)
+  ✓  33 [chromium] › tests/e2e/visual.spec.ts:90:3 › revenue-brand regression at desktop (1.6s)
+  ✓  34 [chromium] › tests/e2e/visual.spec.ts:90:3 › revenue-brand regression at tablet (1.1s)
+  ✓  35 [chromium] › tests/e2e/visual.spec.ts:90:3 › revenue-brand regression at mobile (850ms)
+  ✓  32 [chromium] › tests/e2e/revenue-brand.spec.ts:102:5 › revenue-brand motion 1440 › advances all six steps, rewinds, and moves the viewfinder (9.1s)
+  ✓  36 [chromium] › tests/e2e/revenue-brand.spec.ts:102:5 › revenue-brand motion 390 › advances all six steps, rewinds, and moves the viewfinder (12.9s)
+  ✘  37 [chromium] › tests/e2e/revenue-brand.spec.ts:153:1 › revenue-brand restores its scroll position, survives resize, and keeps upcoming steps accessible (30.5s)
+(node:2006) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  38 [chromium] › tests/e2e/revenue-brand.spec.ts:183:1 › revenue-brand has no console warnings after resource settling (8.0s)
+
+
+  1) [chromium] › tests/e2e/revenue-brand.spec.ts:153:1 › revenue-brand restores its scroll position, survives resize, and keeps upcoming steps accessible 
+
+    Error: Test timeout of 30000ms exceeded
+
+      178 |   await page.reload();
+      179 |   await expect(page.locator('[data-motion="on"]')).toHaveCount(1);
+    > 180 |   await expect.poll(() => page.evaluate(() => scrollY)).toBe(0);
+          |                                                         ^
+      181 | });
+      182 |
+      183 | test("revenue-brand has no console warnings after resource settling", async ({
+        at /home/kokoro/projects/clients/clonetest-rb/tests/e2e/revenue-brand.spec.ts:180:57
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/revenue-brand-revenue-bran-1d7f9-s-upcoming-steps-accessible-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/revenue-brand-revenue-bran-1d7f9-s-upcoming-steps-accessible-chromium/video-1.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/revenue-brand-revenue-bran-1d7f9-s-upcoming-steps-accessible-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/revenue-brand-revenue-bran-1d7f9-s-upcoming-steps-accessible-chromium/error-context.md
+
+    attachment #5: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/revenue-brand-revenue-bran-1d7f9-s-upcoming-steps-accessible-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/revenue-brand-revenue-bran-1d7f9-s-upcoming-steps-accessible-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [chromium] › tests/e2e/revenue-brand.spec.ts:153:1 › revenue-brand restores its scroll position, survives resize, and keeps upcoming steps accessible 
+  37 passed (1.3m)

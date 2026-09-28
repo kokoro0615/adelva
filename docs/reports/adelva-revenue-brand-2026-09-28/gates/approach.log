@@ -1,0 +1,78 @@
+
+Running 10 tests using 1 worker
+
+(node:33) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 tests/approach/approach.spec.ts:50:3 › 1440: composition, six stages, photographic source, axe and adjacent sections (6.9s)
+  ✓   2 tests/approach/approach.spec.ts:144:3 › 1440: path follows reading position, reverses, and resets for reduced motion (2.5s)
+  ✓   3 tests/approach/approach.spec.ts:50:3 › 768: composition, six stages, photographic source, axe and adjacent sections (4.3s)
+  ✓   4 tests/approach/approach.spec.ts:144:3 › 768: path follows reading position, reverses, and resets for reduced motion (3.2s)
+  ✓   5 tests/approach/approach.spec.ts:50:3 › 390: composition, six stages, photographic source, axe and adjacent sections (3.3s)
+  ✓   6 tests/approach/approach.spec.ts:144:3 › 390: path follows reading position, reverses, and resets for reduced motion (1.6s)
+  ✓   7 tests/approach/approach.spec.ts:190:1 › resize reselects the photographic composition and path; keyboard menu still restores focus (1.5s)
+  ✘   8 tests/approach/approach.spec.ts:217:1 › six stages and complete route remain available without JavaScript (70ms)
+(node:606) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   9 tests/approach/approach.spec.ts:243:1 › 200% desktop reflow equivalent and 320px minimum width keep all labels readable (1.4s)
+  ✘  10 tests/approach/approach.spec.ts:273:1 › direct section link lands after the preceding animated layout settles (6.9s)
+
+
+  1) tests/approach/approach.spec.ts:217:1 › six stages and complete route remain available without JavaScript 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:4191/#approach
+    Call log:
+      - navigating to "http://127.0.0.1:4191/#approach", waiting until "load"
+
+
+      225 |     });
+      226 |     const page = await context.newPage();
+    > 227 |     await page.goto("http://127.0.0.1:4191/#approach");
+          |                ^
+      228 |     await expect(page.locator("#approach li")).toHaveCount(6);
+      229 |     await expect(page.locator("#approach h2")).toBeVisible();
+      230 |     await expect(page.locator("#approach")).not.toHaveAttribute(
+        at /home/kokoro/projects/clients/clonetest-rb/tests/approach/approach.spec.ts:227:16
+
+    Error Context: test-results/approach-six-stages-and-co-060ba-vailable-without-JavaScript/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/approach-six-stages-and-co-060ba-vailable-without-JavaScript/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/approach-six-stages-and-co-060ba-vailable-without-JavaScript/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) tests/approach/approach.spec.ts:273:1 › direct section link lands after the preceding animated layout settles 
+
+    Error: expect(received).toBeLessThan(expected)
+
+    Expected: < 100
+    Received:   157.921875
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      281 |     await expect
+      282 |       .poll(async () => (await page.locator("#approach").boundingBox())!.y)
+    > 283 |       .toBeLessThan(100);
+          |        ^
+      284 |     await expect(page.locator("#approach h2")).toBeInViewport();
+      285 |   }
+      286 | });
+        at /home/kokoro/projects/clients/clonetest-rb/tests/approach/approach.spec.ts:283:8
+
+    Error Context: test-results/approach-direct-section-li-7a242-ing-animated-layout-settles/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/approach-direct-section-li-7a242-ing-animated-layout-settles/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/approach-direct-section-li-7a242-ing-animated-layout-settles/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    tests/approach/approach.spec.ts:217:1 › six stages and complete route remain available without JavaScript 
+    tests/approach/approach.spec.ts:273:1 › direct section link lands after the preceding animated layout settles 
+  8 passed (33.7s)

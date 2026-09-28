@@ -1,0 +1,207 @@
+{
+  "tool": "tools/stitch-plate.mjs",
+  "config": {
+    "slices": [
+      "raw/D00.png",
+      "raw/D01.png",
+      "raw/D02.png",
+      "raw/D03.png",
+      "raw/D04.png",
+      "raw/D05.png",
+      "raw/D06.png",
+      "raw/D07.png",
+      "raw/D08.png",
+      "raw/D09.png",
+      "raw/D10.png"
+    ],
+    "overlap": 256,
+    "blendStart": 64,
+    "blend": 128,
+    "out": "plates/desktop-plate.png",
+    "record": "records/stitch-desktop.json"
+  },
+  "inputs": [
+    {
+      "path": "raw/D00.png",
+      "sha256": "ac83e850eb4db700d2f0f5a04490673b181b16d3430976a1f7050d63aa4818c0"
+    },
+    {
+      "path": "raw/D01.png",
+      "sha256": "a0cef4606cb89bc2f0e8ec17a3bdfdd9877f7790d9c9ed29c0aa890513bba400"
+    },
+    {
+      "path": "raw/D02.png",
+      "sha256": "863b03b64013a028297aea4856559e2d8ab0df024dd2f29d003108e1c607c4ca"
+    },
+    {
+      "path": "raw/D03.png",
+      "sha256": "2c61a2d6acaf69f4a13200f8f23cc98f424795d6072d47e801f53b1e352b5f06"
+    },
+    {
+      "path": "raw/D04.png",
+      "sha256": "a3abc85621ff8565339cf0de60ebdfc793764cef52317192801a01c89614ef56"
+    },
+    {
+      "path": "raw/D05.png",
+      "sha256": "6296b246fa0e2ea6be5912b876dd4ac9a6e48502f8be077ca66bb166f3bf4a13"
+    },
+    {
+      "path": "raw/D06.png",
+      "sha256": "b7de99ef8ec45eb8854c2906e19ad1d2502e424d60bffbe4171a5c3c46e96221"
+    },
+    {
+      "path": "raw/D07.png",
+      "sha256": "65a0da731be7c89ba210859ae69a37ce587ca8edf3703d13825e2f1a4bfa5a13"
+    },
+    {
+      "path": "raw/D08.png",
+      "sha256": "b3e8ebc33f10110fdbb2ce2ee7875efb5732703c7fa6bcfb22c819dc796cc1f3"
+    },
+    {
+      "path": "raw/D09.png",
+      "sha256": "e396b4167dc56aedc05154003bf3b97bb4cbff44d2442fb1d5cd6f7eba687a9f"
+    },
+    {
+      "path": "raw/D10.png",
+      "sha256": "ac3c323a3af2b3634d53060501b180d9e6a9954008992f9b57783bd0ece52961"
+    }
+  ],
+  "joins": [
+    {
+      "join": "raw/D00.png -> raw/D01.png",
+      "offset": {
+        "dx": 1,
+        "dy": 0
+      },
+      "cumulativeDx": 1,
+      "meanAbsDiff": 10.91,
+      "blendRows": [
+        832,
+        960
+      ]
+    },
+    {
+      "join": "raw/D01.png -> raw/D02.png",
+      "offset": {
+        "dx": -2,
+        "dy": 0
+      },
+      "cumulativeDx": -1,
+      "meanAbsDiff": 10.1,
+      "blendRows": [
+        1600,
+        1728
+      ]
+    },
+    {
+      "join": "raw/D02.png -> raw/D03.png",
+      "offset": {
+        "dx": 0,
+        "dy": 0
+      },
+      "cumulativeDx": -1,
+      "meanAbsDiff": 6.69,
+      "blendRows": [
+        2368,
+        2496
+      ]
+    },
+    {
+      "join": "raw/D03.png -> raw/D04.png",
+      "offset": {
+        "dx": 1,
+        "dy": 0
+      },
+      "cumulativeDx": 0,
+      "meanAbsDiff": 6.87,
+      "blendRows": [
+        3136,
+        3264
+      ]
+    },
+    {
+      "join": "raw/D04.png -> raw/D05.png",
+      "offset": {
+        "dx": -1,
+        "dy": 0
+      },
+      "cumulativeDx": -1,
+      "meanAbsDiff": 7.34,
+      "blendRows": [
+        3904,
+        4032
+      ]
+    },
+    {
+      "join": "raw/D05.png -> raw/D06.png",
+      "offset": {
+        "dx": 0,
+        "dy": 1
+      },
+      "cumulativeDx": -1,
+      "meanAbsDiff": 9.86,
+      "blendRows": [
+        4672,
+        4800
+      ]
+    },
+    {
+      "join": "raw/D06.png -> raw/D07.png",
+      "offset": {
+        "dx": 0,
+        "dy": 0
+      },
+      "cumulativeDx": -1,
+      "meanAbsDiff": 10.4,
+      "blendRows": [
+        5440,
+        5568
+      ]
+    },
+    {
+      "join": "raw/D07.png -> raw/D08.png",
+      "offset": {
+        "dx": 1,
+        "dy": 0
+      },
+      "cumulativeDx": 0,
+      "meanAbsDiff": 21.39,
+      "blendRows": [
+        6208,
+        6336
+      ]
+    },
+    {
+      "join": "raw/D08.png -> raw/D09.png",
+      "offset": {
+        "dx": -1,
+        "dy": 0
+      },
+      "cumulativeDx": -1,
+      "meanAbsDiff": 11.92,
+      "blendRows": [
+        6976,
+        7104
+      ]
+    },
+    {
+      "join": "raw/D09.png -> raw/D10.png",
+      "offset": {
+        "dx": 0,
+        "dy": 0
+      },
+      "cumulativeDx": -1,
+      "meanAbsDiff": 8.73,
+      "blendRows": [
+        7744,
+        7872
+      ]
+    }
+  ],
+  "output": {
+    "path": "plates/desktop-plate.png",
+    "width": 1536,
+    "height": 8704,
+    "sha256": "32ddc4417f5ea87dfc5f77c88461f155653b498b1f1ac26d4736449f419b7821"
+  }
+}

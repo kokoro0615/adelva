@@ -1,0 +1,3 @@
+{ "slices": ["raw/D00.png","raw/D01.png","raw/D02.png","raw/D03.png","raw/D04.png","raw/D05.png","raw/D06.png","raw/D07.png","raw/D08.png","raw/D09.png","raw/D10.png"],
+  "overlap": 256, "blendStart": 64, "blend": 128,
+  "out": "plates/desktop-plate.png", "record": "records/stitch-desktop.json" }

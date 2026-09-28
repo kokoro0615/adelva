@@ -75,6 +75,7 @@ const implementedPaths = new Set<string>([
   "/challenges/owners",
   "/challenges/general-managers",
   "/services/management-operations",
+  "/services/revenue-brand",
 ]);
 
 /** Fragment-bearing hrefs resolve against their document path. */

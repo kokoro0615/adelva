@@ -1,0 +1,33 @@
+{
+  "method": "Same white-ink threshold; expanded x bounds to avoid clipping; first heading line only, desktop1440",
+  "result": [
+    {
+      "id": "H1",
+      "reference": 806,
+      "actual": 815,
+      "percent": 1.12,
+      "pass": true
+    },
+    {
+      "id": "chapter1",
+      "reference": 600,
+      "actual": 589,
+      "percent": -1.83,
+      "pass": true
+    },
+    {
+      "id": "chapter2",
+      "reference": 989,
+      "actual": 1008,
+      "percent": 1.92,
+      "pass": true
+    },
+    {
+      "id": "chapter3",
+      "reference": 363,
+      "actual": 353,
+      "percent": -2.75,
+      "pass": true
+    }
+  ]
+}

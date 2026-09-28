@@ -1,0 +1,715 @@
+{
+  "worker": "IW3",
+  "created_at": "2026-09-28T19:36:41.050348+09:00",
+  "timezone": "Asia/Tokyo",
+  "model_evidence": {
+    "session_rollout": "/home/kokoro/.codex/sessions/2026/09/28/rollout-2026-09-28T19-33-42-01a0e793-debd-7c02-8774-6310c4fe9f13.jsonl",
+    "turn_context": {
+      "model": "gpt-6-astra",
+      "effort": "high",
+      "cwd": "/home/kokoro/projects/clients/clonetest"
+    },
+    "model": "gpt-6-astra",
+    "reasoning_effort": "high"
+  },
+  "tool": "image_gen.imagegen",
+  "interruption": {
+    "note": "Earlier run interrupted after M1 attempt 1; recovered original and independently inspected without another generation.",
+    "prior_rollout": "/home/kokoro/.codex/sessions/2026/09/28/rollout-2026-09-28T19-25-28-01a0e78c-52dc-7a11-957d-2b52a63f704f.jsonl"
+  },
+  "calls": [
+    {
+      "item_id": "M1",
+      "attempt": 1,
+      "checked_at": "2026-09-28T19:36:41.896509+09:00",
+      "tool": "image_gen.imagegen",
+      "prompt": {
+        "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/prompts/M1.txt",
+        "bytes": 2779,
+        "sha256": "9a41a540e5b04d86623c810b5e79fed326f102ff4b0f3e11fed4544132f49d35",
+        "ends_with_newline": true,
+        "verbatim_check": {
+          "match": true,
+          "method": "Exact equality of recovered prior cat output text and current file including final newline. Prior call uses stored M1_prompt directly.",
+          "evidence": {
+            "call_ids": [
+              "call_uwn8J2vN6MjMLmmWj0BM0AnN"
+            ],
+            "output_type": "content text"
+          },
+          "prior_rollout": "/home/kokoro/.codex/sessions/2026/09/28/rollout-2026-09-28T19-25-28-01a0e78c-52dc-7a11-957d-2b52a63f704f.jsonl"
+        }
+      },
+      "input": {
+        "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/inputs/M1-input.png",
+        "sha256": "900869067ae8ac040d57cd75ac2b6d13794826297f3515b9f9b6e59f4098054e",
+        "bytes": 2454266,
+        "width": 853,
+        "height": 1844
+      },
+      "returned_original": {
+        "path": "/home/kokoro/.codex/generated_images/01a0e78c-52dc-7a11-957d-2b52a63f704f/exec-6875aa62-fbc2-425b-bae3-644ae7dd609e.png",
+        "sha256": "a218201a9d490517f986d9264ed5246c1f18a7ccef845c6f459bb1bc2fac8d41",
+        "bytes": 2656130,
+        "width": 853,
+        "height": 1844
+      },
+      "measure_drift": {
+        "input": {
+          "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/inputs/M1-input.png",
+          "width": 853,
+          "height": 1844
+        },
+        "output": {
+          "path": "/home/kokoro/.codex/generated_images/01a0e78c-52dc-7a11-957d-2b52a63f704f/exec-6875aa62-fbc2-425b-bae3-644ae7dd609e.png",
+          "width": 853,
+          "height": 1844
+        },
+        "sizeMatch": true,
+        "aspectMatch": true,
+        "global": {
+          "dx": 0,
+          "dy": 0,
+          "meanAbsDiff": 14.37
+        },
+        "cells": [
+          {
+            "cell": "r0c0",
+            "dx": 4,
+            "dy": 0,
+            "meanAbsDiff": 7.71
+          },
+          {
+            "cell": "r0c1",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 5.52
+          },
+          {
+            "cell": "r0c2",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 6.88
+          },
+          {
+            "cell": "r1c0",
+            "dx": 32,
+            "dy": 8,
+            "meanAbsDiff": 32.37
+          },
+          {
+            "cell": "r1c1",
+            "dx": -8,
+            "dy": -4,
+            "meanAbsDiff": 24.76
+          },
+          {
+            "cell": "r1c2",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 13.39
+          },
+          {
+            "cell": "r2c0",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 9.13
+          },
+          {
+            "cell": "r2c1",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 9.65
+          },
+          {
+            "cell": "r2c2",
+            "dx": -4,
+            "dy": 0,
+            "meanAbsDiff": 10.48
+          }
+        ],
+        "verdict": "PASS",
+        "serious": [],
+        "info": [
+          "local offset up to 33 px (informational)"
+        ]
+      },
+      "defects": [],
+      "adopted": true,
+      "reason": "PASS; global drift 0 px; no serious visual defect after original whole, 2x thirds and overlay-area inspection.",
+      "inspection": {
+        "whole_original": true,
+        "thirds_2x": true,
+        "overlay_areas_2x": [
+          [
+            20,
+            30,
+            820,
+            110
+          ],
+          [
+            70,
+            235,
+            783,
+            260
+          ],
+          [
+            30,
+            610,
+            790,
+            560
+          ],
+          [
+            30,
+            1160,
+            420,
+            245
+          ],
+          [
+            765,
+            640,
+            55,
+            365
+          ]
+        ],
+        "river_overlay_coverage": "All three full-width thirds",
+        "remaining_ui": false,
+        "scene_geometry_preserved": true,
+        "informational": [
+          "Minor tree, boulder and mist texture differences; per-cell offsets informational."
+        ]
+      },
+      "call_timestamp_utc": "2026-09-28T10:26:28.797Z",
+      "call_timestamp_asia_tokyo": "2026-09-28T19:26:28.797000+09:00",
+      "call_evidence": {
+        "session_rollout": "/home/kokoro/.codex/sessions/2026/09/28/rollout-2026-09-28T19-25-28-01a0e78c-52dc-7a11-957d-2b52a63f704f.jsonl",
+        "call_id": "call_pHUmTeXoxby9NrHFdnXcQoVZ"
+      }
+    },
+    {
+      "item_id": "M2",
+      "attempt": 1,
+      "checked_at": "2026-09-28T19:38:16.096244+09:00",
+      "tool": "image_gen.imagegen",
+      "prompt": {
+        "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/prompts/M2.txt",
+        "bytes": 2644,
+        "sha256": "abc3f6ed5ff5181e4d575dadb2242c2e2443f565b2be6206ad6b5c0f615f924c",
+        "ends_with_newline": true,
+        "verbatim_check": {
+          "match": true,
+          "method": "Strict JS equality of sent string and fresh cat output after imagegen call; includes final newline."
+        }
+      },
+      "input": {
+        "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/inputs/M2-input.png",
+        "sha256": "ac3eea3c3b81ed3f1a34c7ae15288d25f0fef9d19c8d8bd97abf973cd0aa9592",
+        "bytes": 2571511,
+        "width": 853,
+        "height": 1844
+      },
+      "returned_original": {
+        "path": "/home/kokoro/.codex/generated_images/01a0e793-debd-7c02-8774-6310c4fe9f13/exec-e1d0c013-3922-49ee-97f9-58e283338e0a.png",
+        "sha256": "7d1731ead329d1c8f6e8cacf42aa44238e62ceee237b5eac1cff14f2832b2ab8",
+        "bytes": 2813614,
+        "width": 853,
+        "height": 1844
+      },
+      "measure_drift": {
+        "input": {
+          "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/inputs/M2-input.png",
+          "width": 853,
+          "height": 1844
+        },
+        "output": {
+          "path": "/home/kokoro/.codex/generated_images/01a0e793-debd-7c02-8774-6310c4fe9f13/exec-e1d0c013-3922-49ee-97f9-58e283338e0a.png",
+          "width": 853,
+          "height": 1844
+        },
+        "sizeMatch": true,
+        "aspectMatch": true,
+        "global": {
+          "dx": 0,
+          "dy": 0,
+          "meanAbsDiff": 16.23
+        },
+        "cells": [
+          {
+            "cell": "r0c0",
+            "dx": 4,
+            "dy": 0,
+            "meanAbsDiff": 20.35
+          },
+          {
+            "cell": "r0c1",
+            "dx": 0,
+            "dy": 4,
+            "meanAbsDiff": 25.29
+          },
+          {
+            "cell": "r0c2",
+            "dx": -8,
+            "dy": 4,
+            "meanAbsDiff": 17.34
+          },
+          {
+            "cell": "r1c0",
+            "dx": 4,
+            "dy": 4,
+            "meanAbsDiff": 17.83
+          },
+          {
+            "cell": "r1c1",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 15.95
+          },
+          {
+            "cell": "r1c2",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 13.99
+          },
+          {
+            "cell": "r2c0",
+            "dx": 0,
+            "dy": -4,
+            "meanAbsDiff": 11
+          },
+          {
+            "cell": "r2c1",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 11.57
+          },
+          {
+            "cell": "r2c2",
+            "dx": -4,
+            "dy": 0,
+            "meanAbsDiff": 10.83
+          }
+        ],
+        "verdict": "PASS",
+        "serious": [],
+        "info": []
+      },
+      "defects": [],
+      "adopted": true,
+      "reason": "PASS; 0 px global drift; all panel, text, labels, dots and orange river lines removed; tributaries and confluence preserved.",
+      "inspection": {
+        "whole_original": true,
+        "thirds_2x": true,
+        "overlay_areas_2x": [
+          [
+            40,
+            220,
+            775,
+            355
+          ],
+          [
+            135,
+            610,
+            585,
+            105
+          ],
+          [
+            35,
+            775,
+            275,
+            475
+          ],
+          [
+            625,
+            820,
+            195,
+            435
+          ]
+        ],
+        "river_overlay_coverage": "All full-width thirds",
+        "remaining_ui": false,
+        "scene_geometry_preserved": true,
+        "informational": [
+          "Minor tree, boulder and mist texture changes; no serious defect."
+        ]
+      },
+      "call_timestamp_utc": "2026-09-28T10:36:55.244Z",
+      "call_timestamp_asia_tokyo": "2026-09-28T19:36:55.244000+09:00",
+      "call_evidence": {
+        "session_rollout": "/home/kokoro/.codex/sessions/2026/09/28/rollout-2026-09-28T19-33-42-01a0e793-debd-7c02-8774-6310c4fe9f13.jsonl",
+        "call_id": "call_w8bj7L2elVNhFcTVVEQ669E4"
+      }
+    },
+    {
+      "item_id": "M3",
+      "attempt": 1,
+      "checked_at": "2026-09-28T19:40:24.141969+09:00",
+      "tool": "image_gen.imagegen",
+      "prompt": {
+        "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/prompts/M3.txt",
+        "bytes": 2333,
+        "sha256": "f8eba525a2538dfb2798fcc2a45c38a7890f48b9c8195ffc7b93d24065f538ae",
+        "ends_with_newline": true,
+        "verbatim_check": {
+          "match": true,
+          "method": "Strict JS equality of sent string and fresh cat output after imagegen call; includes final newline."
+        }
+      },
+      "input": {
+        "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/inputs/M3-input.png",
+        "sha256": "63e32424755a20e678f95ef4efbad16abddf06eda463f3b730ad1ef2d32675ba",
+        "bytes": 2368442,
+        "width": 853,
+        "height": 1844
+      },
+      "returned_original": {
+        "path": "/home/kokoro/.codex/generated_images/01a0e793-debd-7c02-8774-6310c4fe9f13/exec-fa68a687-7f15-4034-8ae9-6b01781f76a4.png",
+        "sha256": "32996f47b97c90bcc5dee1b96155be9dc6f4dacbdf20a640e7d86528f5ee9de0",
+        "bytes": 2468304,
+        "width": 853,
+        "height": 1844
+      },
+      "measure_drift": {
+        "input": {
+          "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/inputs/M3-input.png",
+          "width": 853,
+          "height": 1844
+        },
+        "output": {
+          "path": "/home/kokoro/.codex/generated_images/01a0e793-debd-7c02-8774-6310c4fe9f13/exec-fa68a687-7f15-4034-8ae9-6b01781f76a4.png",
+          "width": 853,
+          "height": 1844
+        },
+        "sizeMatch": true,
+        "aspectMatch": true,
+        "global": {
+          "dx": 0,
+          "dy": 0,
+          "meanAbsDiff": 12.09
+        },
+        "cells": [
+          {
+            "cell": "r0c0",
+            "dx": 4,
+            "dy": -4,
+            "meanAbsDiff": 15.63
+          },
+          {
+            "cell": "r0c1",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 11.55
+          },
+          {
+            "cell": "r0c2",
+            "dx": -4,
+            "dy": 4,
+            "meanAbsDiff": 15.48
+          },
+          {
+            "cell": "r1c0",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 10.64
+          },
+          {
+            "cell": "r1c1",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 11.28
+          },
+          {
+            "cell": "r1c2",
+            "dx": 0,
+            "dy": -4,
+            "meanAbsDiff": 16.39
+          },
+          {
+            "cell": "r2c0",
+            "dx": 0,
+            "dy": 4,
+            "meanAbsDiff": 7.49
+          },
+          {
+            "cell": "r2c1",
+            "dx": -32,
+            "dy": 32,
+            "meanAbsDiff": 4.27
+          },
+          {
+            "cell": "r2c2",
+            "dx": 0,
+            "dy": 4,
+            "meanAbsDiff": 12.7
+          }
+        ],
+        "verdict": "PASS",
+        "serious": [],
+        "info": [
+          "local offset up to 45 px (informational)"
+        ]
+      },
+      "defects": [],
+      "adopted": true,
+      "reason": "PASS; 0 px global drift; headings, their mirrored reflection and dotted line removed; river and lake shores preserved.",
+      "inspection": {
+        "whole_original": true,
+        "thirds_2x": true,
+        "overlay_areas_2x": [
+          [
+            30,
+            365,
+            350,
+            140
+          ],
+          [
+            515,
+            525,
+            315,
+            140
+          ],
+          [
+            85,
+            1120,
+            695,
+            200
+          ],
+          [
+            410,
+            985,
+            35,
+            859
+          ]
+        ],
+        "river_overlay_coverage": "All full-width thirds",
+        "remaining_ui": false,
+        "scene_geometry_preserved": true,
+        "informational": [
+          "Minor tree, boulder, mist and water reflection texture changes; local cell offset up to 45 px is informational."
+        ]
+      },
+      "call_timestamp_utc": "2026-09-28T10:39:26.636Z",
+      "call_timestamp_asia_tokyo": "2026-09-28T19:39:26.636000+09:00",
+      "call_evidence": {
+        "session_rollout": "/home/kokoro/.codex/sessions/2026/09/28/rollout-2026-09-28T19-33-42-01a0e793-debd-7c02-8774-6310c4fe9f13.jsonl",
+        "call_id": "call_cNrjao2Q5lmcNPBfmw4EVeFS"
+      }
+    },
+    {
+      "item_id": "M4",
+      "attempt": 1,
+      "checked_at": "2026-09-28T19:42:40.962491+09:00",
+      "tool": "image_gen.imagegen",
+      "prompt": {
+        "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/prompts/M4.txt",
+        "bytes": 2418,
+        "sha256": "c2ad4201f5a17ee441e481c9c9bd58015c0bcc7c344a001329a9dccf679a3247",
+        "ends_with_newline": true,
+        "verbatim_check": {
+          "match": true,
+          "method": "Strict JS equality of sent string and fresh cat output after imagegen call; includes final newline."
+        }
+      },
+      "input": {
+        "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/inputs/M4-input.png",
+        "sha256": "4cb7e647f99b8d0168f7e22350133aa6512811634c7bec8267c40520db4708ff",
+        "bytes": 2411298,
+        "width": 853,
+        "height": 1844
+      },
+      "returned_original": {
+        "path": "/home/kokoro/.codex/generated_images/01a0e793-debd-7c02-8774-6310c4fe9f13/exec-97d7e6e6-c559-419e-b0be-dc3cb39c4886.png",
+        "sha256": "e0e39d5c8583899f34bb173359407f68fd773c70a793f0bc2d4c5d14fc4450c3",
+        "bytes": 2430518,
+        "width": 853,
+        "height": 1844
+      },
+      "measure_drift": {
+        "input": {
+          "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/inputs/M4-input.png",
+          "width": 853,
+          "height": 1844
+        },
+        "output": {
+          "path": "/home/kokoro/.codex/generated_images/01a0e793-debd-7c02-8774-6310c4fe9f13/exec-97d7e6e6-c559-419e-b0be-dc3cb39c4886.png",
+          "width": 853,
+          "height": 1844
+        },
+        "sizeMatch": true,
+        "aspectMatch": true,
+        "global": {
+          "dx": 0,
+          "dy": 0,
+          "meanAbsDiff": 9.66
+        },
+        "cells": [
+          {
+            "cell": "r0c0",
+            "dx": 0,
+            "dy": -4,
+            "meanAbsDiff": 8.92
+          },
+          {
+            "cell": "r0c1",
+            "dx": -32,
+            "dy": 28,
+            "meanAbsDiff": 8.91
+          },
+          {
+            "cell": "r0c2",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 10.45
+          },
+          {
+            "cell": "r1c0",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 8.46
+          },
+          {
+            "cell": "r1c1",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 12.33
+          },
+          {
+            "cell": "r1c2",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 10.55
+          },
+          {
+            "cell": "r2c0",
+            "dx": 4,
+            "dy": 0,
+            "meanAbsDiff": 11.47
+          },
+          {
+            "cell": "r2c1",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 8.16
+          },
+          {
+            "cell": "r2c2",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 7.89
+          }
+        ],
+        "verdict": "PASS",
+        "serious": [],
+        "info": [
+          "local offset up to 43 px (informational)"
+        ]
+      },
+      "defects": [],
+      "adopted": true,
+      "reason": "PASS; 0 px global drift; no UI, smears or scene change; warm ryokan windows and pier lanterns preserved.",
+      "inspection": {
+        "whole_original": true,
+        "thirds_2x": true,
+        "overlay_areas_2x": [
+          [
+            410,
+            0,
+            35,
+            315
+          ],
+          [
+            115,
+            320,
+            625,
+            200
+          ],
+          [
+            180,
+            565,
+            490,
+            260
+          ],
+          [
+            375,
+            1015,
+            190,
+            150
+          ]
+        ],
+        "warm_lighting_area_2x": [
+          125,
+          1000,
+          680,
+          220
+        ],
+        "river_overlay_coverage": "All full-width thirds",
+        "remaining_ui": false,
+        "scene_geometry_preserved": true,
+        "warm_ryokan_windows_preserved": true,
+        "pier_lanterns_preserved": true,
+        "informational": [
+          "Minor texture and brightness differences; local cell offset up to 43 px is informational."
+        ]
+      },
+      "call_timestamp_utc": "2026-09-28T10:41:31.435Z",
+      "call_timestamp_asia_tokyo": "2026-09-28T19:41:31.435000+09:00",
+      "call_evidence": {
+        "session_rollout": "/home/kokoro/.codex/sessions/2026/09/28/rollout-2026-09-28T19-33-42-01a0e793-debd-7c02-8774-6310c4fe9f13.jsonl",
+        "call_id": "call_dI2hRpLk7KadSoJyGwfTlzRA"
+      }
+    }
+  ],
+  "saved_files": [
+    {
+      "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/raw/M1.png",
+      "sha256": "a218201a9d490517f986d9264ed5246c1f18a7ccef845c6f459bb1bc2fac8d41",
+      "bytes": 2656130,
+      "width": 853,
+      "height": 1844,
+      "byte_for_byte_check": true,
+      "adopted_attempt": 1,
+      "item_id": "M1"
+    },
+    {
+      "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/raw/M2.png",
+      "sha256": "7d1731ead329d1c8f6e8cacf42aa44238e62ceee237b5eac1cff14f2832b2ab8",
+      "bytes": 2813614,
+      "width": 853,
+      "height": 1844,
+      "byte_for_byte_check": true,
+      "adopted_attempt": 1,
+      "item_id": "M2"
+    },
+    {
+      "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/raw/M3.png",
+      "sha256": "32996f47b97c90bcc5dee1b96155be9dc6f4dacbdf20a640e7d86528f5ee9de0",
+      "bytes": 2468304,
+      "width": 853,
+      "height": 1844,
+      "byte_for_byte_check": true,
+      "adopted_attempt": 1,
+      "item_id": "M3"
+    },
+    {
+      "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/raw/M4.png",
+      "sha256": "e0e39d5c8583899f34bb173359407f68fd773c70a793f0bc2d4c5d14fc4450c3",
+      "bytes": 2430518,
+      "width": 853,
+      "height": 1844,
+      "byte_for_byte_check": true,
+      "adopted_attempt": 1,
+      "item_id": "M4"
+    }
+  ],
+  "updated_at": "2026-09-28T19:44:44.628551+09:00",
+  "status": "complete",
+  "remaining_defects": [],
+  "inspection_coordinate_system": "Original returned image pixels, origin top-left; crop arrays are x,y,width,height; all 853x1844.",
+  "asset_provenance": {
+    "source": "User-supplied fictional adopted mock slices M1–M4",
+    "pixel_tool": "Subscription-backed built-in image_gen.imagegen",
+    "prompt_sources": "User-supplied prompts/M1.txt through M4.txt, unchanged",
+    "saved_processing": "cp only; original generated bytes preserved",
+    "inspection_processing": "Temporary 2x crops only, never used as production output"
+  },
+  "temporary_inspection_crops_removed": 30
+}

@@ -84,3 +84,28 @@ test.describe("management-operations pinned process", () => {
     });
   }
 });
+
+/* revenue-brand: implementation regression, separate from A4 reference fidelity. */
+for (const viewport of viewports) {
+  test(`revenue-brand regression at ${viewport.name}`, async ({ page }) => {
+    await page.setViewportSize(viewport);
+    await page.goto("/services/revenue-brand");
+    await page.evaluate(async () => {
+      await document.fonts.ready;
+      await Promise.all(
+        [...document.images]
+          .filter(
+            (image) =>
+              image.getClientRects().length > 0 &&
+              image.getBoundingClientRect().top < innerHeight,
+          )
+          .map((image) => image.decode()),
+      );
+    });
+    await expect(page).toHaveScreenshot(`revenue-brand-${viewport.name}.png`, {
+      animations: "disabled",
+      caret: "hide",
+      fullPage: false,
+    });
+  });
+}

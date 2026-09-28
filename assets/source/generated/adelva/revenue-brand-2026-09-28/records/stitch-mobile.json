@@ -1,0 +1,153 @@
+{
+  "tool": "tools/stitch-plate.mjs",
+  "config": {
+    "slices": [
+      "raw/M1.png",
+      "raw/M2.png",
+      "raw/M3.png",
+      "raw/M4.png",
+      "raw/M5.png",
+      "raw/M6.png",
+      "raw/M7.png",
+      "raw/M8.png"
+    ],
+    "overlap": 256,
+    "blendStart": 64,
+    "blend": 128,
+    "out": "plates/mobile-plate.png",
+    "record": "records/stitch-mobile.json"
+  },
+  "inputs": [
+    {
+      "path": "raw/M1.png",
+      "sha256": "a218201a9d490517f986d9264ed5246c1f18a7ccef845c6f459bb1bc2fac8d41"
+    },
+    {
+      "path": "raw/M2.png",
+      "sha256": "7d1731ead329d1c8f6e8cacf42aa44238e62ceee237b5eac1cff14f2832b2ab8"
+    },
+    {
+      "path": "raw/M3.png",
+      "sha256": "32996f47b97c90bcc5dee1b96155be9dc6f4dacbdf20a640e7d86528f5ee9de0"
+    },
+    {
+      "path": "raw/M4.png",
+      "sha256": "e0e39d5c8583899f34bb173359407f68fd773c70a793f0bc2d4c5d14fc4450c3"
+    },
+    {
+      "path": "raw/M5.png",
+      "sha256": "215dfc1d4d7f20f463ba179d6c5c04bf72bc0b78cd4b644cbffae162b4c9cff1"
+    },
+    {
+      "path": "raw/M6.png",
+      "sha256": "4bba88bff92605845dd6b368a2c2f8faab65c0b1d9fb66d22476ca27d5b8c95b"
+    },
+    {
+      "path": "raw/M7.png",
+      "sha256": "11b8faa95b41349ef23dc34d01fc12b3890f25c3b0a6586e24f332eb26651cc5"
+    },
+    {
+      "path": "raw/M8.png",
+      "sha256": "82b170d1e87796921e8552cdd2995e24076d1fe15e8f35515d6cafb51f793b40"
+    }
+  ],
+  "joins": [
+    {
+      "join": "raw/M1.png -> raw/M2.png",
+      "offset": {
+        "dx": 0,
+        "dy": 0
+      },
+      "cumulativeDx": 0,
+      "meanAbsDiff": 9.77,
+      "blendRows": [
+        1652,
+        1780
+      ]
+    },
+    {
+      "join": "raw/M2.png -> raw/M3.png",
+      "offset": {
+        "dx": 0,
+        "dy": -1
+      },
+      "cumulativeDx": 0,
+      "meanAbsDiff": 11.41,
+      "blendRows": [
+        3240,
+        3368
+      ]
+    },
+    {
+      "join": "raw/M3.png -> raw/M4.png",
+      "offset": {
+        "dx": 0,
+        "dy": -1
+      },
+      "cumulativeDx": 0,
+      "meanAbsDiff": 2.15,
+      "blendRows": [
+        4828,
+        4956
+      ]
+    },
+    {
+      "join": "raw/M4.png -> raw/M5.png",
+      "offset": {
+        "dx": 0,
+        "dy": 0
+      },
+      "cumulativeDx": 0,
+      "meanAbsDiff": 10.97,
+      "blendRows": [
+        6416,
+        6544
+      ]
+    },
+    {
+      "join": "raw/M5.png -> raw/M6.png",
+      "offset": {
+        "dx": 0,
+        "dy": -1
+      },
+      "cumulativeDx": 0,
+      "meanAbsDiff": 14.4,
+      "blendRows": [
+        8004,
+        8132
+      ]
+    },
+    {
+      "join": "raw/M6.png -> raw/M7.png",
+      "offset": {
+        "dx": 0,
+        "dy": 0
+      },
+      "cumulativeDx": 0,
+      "meanAbsDiff": 15.31,
+      "blendRows": [
+        9592,
+        9720
+      ]
+    },
+    {
+      "join": "raw/M7.png -> raw/M8.png",
+      "offset": {
+        "dx": 0,
+        "dy": 0
+      },
+      "cumulativeDx": 0,
+      "meanAbsDiff": 11.38,
+      "blendRows": [
+        11180,
+        11308
+      ]
+    }
+  ],
+  "output": {
+    "path": "plates/mobile-plate.png",
+    "width": 853,
+    "height": 12960,
+    "sha256": "6ab333d60605aa8d4b32f30bd600816e29252c4139798415bba2df12d3953019"
+  }
+}

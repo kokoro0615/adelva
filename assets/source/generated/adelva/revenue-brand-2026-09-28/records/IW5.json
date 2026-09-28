@@ -1,0 +1,828 @@
+{
+  "worker": "IW5",
+  "created_at": "2026-09-28 19:38:48+09:00",
+  "timezone": "Asia/Tokyo",
+  "tool": "image_gen.imagegen (tools.image_gen__imagegen)",
+  "model_evidence": {
+    "session_rollout_path": "/home/kokoro/.codex/sessions/2026/09/28/rollout-2026-09-28T19-34-16-01a0e794-6217-7363-be78-fcb11560eda6.jsonl",
+    "turn_context": {
+      "turn_id": "01a0e794-63d6-7110-a76b-e77959946441",
+      "root_turn_id": "01a0e794-63d6-7110-a76b-e77959946441",
+      "disabled_plugin_ids": [],
+      "cwd": "/home/kokoro/projects/clients/clonetest",
+      "workspace_roots": [
+        "/home/kokoro/projects/clients/clonetest"
+      ],
+      "current_date": "2026-09-28",
+      "timezone": "Asia/Tokyo",
+      "approval_policy": "never",
+      "approvals_reviewer": "user",
+      "sandbox_policy": {
+        "type": "workspace-write",
+        "network_access": false,
+        "exclude_tmpdir_env_var": false,
+        "exclude_slash_tmp": false
+      },
+      "permission_profile": {
+        "type": "managed",
+        "file_system": {
+          "type": "restricted",
+          "entries": [
+            {
+              "path": {
+                "type": "special",
+                "value": {
+                  "kind": "root"
+                }
+              },
+              "access": "read"
+            },
+            {
+              "path": {
+                "type": "path",
+                "path": "/home/kokoro/projects/clients/clonetest"
+              },
+              "access": "write"
+            },
+            {
+              "path": {
+                "type": "special",
+                "value": {
+                  "kind": "slash_tmp"
+                }
+              },
+              "access": "write"
+            },
+            {
+              "path": {
+                "type": "special",
+                "value": {
+                  "kind": "tmpdir"
+                }
+              },
+              "access": "write"
+            },
+            {
+              "path": {
+                "type": "path",
+                "path": "/home/kokoro/projects/clients/clonetest/.git"
+              },
+              "access": "read",
+              "missing_path_behavior": "skip"
+            },
+            {
+              "path": {
+                "type": "path",
+                "path": "/home/kokoro/projects/clients/clonetest/.agents"
+              },
+              "access": "read",
+              "missing_path_behavior": "skip"
+            },
+            {
+              "path": {
+                "type": "path",
+                "path": "/home/kokoro/projects/clients/clonetest/.codex"
+              },
+              "access": "read",
+              "missing_path_behavior": "skip"
+            }
+          ]
+        },
+        "network": "restricted"
+      },
+      "file_system_sandbox_policy": {
+        "kind": "restricted",
+        "entries": [
+          {
+            "path": {
+              "type": "special",
+              "value": {
+                "kind": "root"
+              }
+            },
+            "access": "read"
+          },
+          {
+            "path": {
+              "type": "path",
+              "path": "/home/kokoro/projects/clients/clonetest"
+            },
+            "access": "write"
+          },
+          {
+            "path": {
+              "type": "special",
+              "value": {
+                "kind": "slash_tmp"
+              }
+            },
+            "access": "write"
+          },
+          {
+            "path": {
+              "type": "special",
+              "value": {
+                "kind": "tmpdir"
+              }
+            },
+            "access": "write"
+          },
+          {
+            "path": {
+              "type": "path",
+              "path": "/home/kokoro/projects/clients/clonetest/.git"
+            },
+            "access": "read",
+            "missing_path_behavior": "skip"
+          },
+          {
+            "path": {
+              "type": "path",
+              "path": "/home/kokoro/projects/clients/clonetest/.agents"
+            },
+            "access": "read",
+            "missing_path_behavior": "skip"
+          },
+          {
+            "path": {
+              "type": "path",
+              "path": "/home/kokoro/projects/clients/clonetest/.codex"
+            },
+            "access": "read",
+            "missing_path_behavior": "skip"
+          }
+        ]
+      },
+      "model": "gpt-6-astra",
+      "comp_hash": "3000",
+      "collaboration_mode": {
+        "mode": "default",
+        "settings": {
+          "model": "gpt-6-astra",
+          "reasoning_effort": "high",
+          "developer_instructions": null
+        }
+      },
+      "multi_agent_version": "v2",
+      "realtime_active": false,
+      "effort": "high",
+      "summary": "none"
+    }
+  },
+  "interruption": {
+    "note": "Prior run interrupted immediately after C1 attempt 1. Resumed its original result without regenerating.",
+    "previous_rollout_path": "/home/kokoro/.codex/sessions/2026/09/28/rollout-2026-09-28T19-25-30-01a0e78c-5a3f-7622-b52d-b5b8b463007c.jsonl",
+    "previous_turn_context": {
+      "turn_id": "01a0e78c-5cbc-7190-829c-b1c293bdbf1d",
+      "root_turn_id": "01a0e78c-5cbc-7190-829c-b1c293bdbf1d",
+      "disabled_plugin_ids": [],
+      "cwd": "/home/kokoro/projects/clients/clonetest",
+      "workspace_roots": [
+        "/home/kokoro/projects/clients/clonetest"
+      ],
+      "current_date": "2026-09-28",
+      "timezone": "Asia/Tokyo",
+      "approval_policy": "never",
+      "approvals_reviewer": "user",
+      "sandbox_policy": {
+        "type": "workspace-write",
+        "network_access": false,
+        "exclude_tmpdir_env_var": false,
+        "exclude_slash_tmp": false
+      },
+      "permission_profile": {
+        "type": "managed",
+        "file_system": {
+          "type": "restricted",
+          "entries": [
+            {
+              "path": {
+                "type": "special",
+                "value": {
+                  "kind": "root"
+                }
+              },
+              "access": "read"
+            },
+            {
+              "path": {
+                "type": "path",
+                "path": "/home/kokoro/projects/clients/clonetest"
+              },
+              "access": "write"
+            },
+            {
+              "path": {
+                "type": "special",
+                "value": {
+                  "kind": "slash_tmp"
+                }
+              },
+              "access": "write"
+            },
+            {
+              "path": {
+                "type": "special",
+                "value": {
+                  "kind": "tmpdir"
+                }
+              },
+              "access": "write"
+            },
+            {
+              "path": {
+                "type": "path",
+                "path": "/home/kokoro/projects/clients/clonetest/.git"
+              },
+              "access": "read",
+              "missing_path_behavior": "skip"
+            },
+            {
+              "path": {
+                "type": "path",
+                "path": "/home/kokoro/projects/clients/clonetest/.agents"
+              },
+              "access": "read",
+              "missing_path_behavior": "skip"
+            },
+            {
+              "path": {
+                "type": "path",
+                "path": "/home/kokoro/projects/clients/clonetest/.codex"
+              },
+              "access": "read",
+              "missing_path_behavior": "skip"
+            }
+          ]
+        },
+        "network": "restricted"
+      },
+      "file_system_sandbox_policy": {
+        "kind": "restricted",
+        "entries": [
+          {
+            "path": {
+              "type": "special",
+              "value": {
+                "kind": "root"
+              }
+            },
+            "access": "read"
+          },
+          {
+            "path": {
+              "type": "path",
+              "path": "/home/kokoro/projects/clients/clonetest"
+            },
+            "access": "write"
+          },
+          {
+            "path": {
+              "type": "special",
+              "value": {
+                "kind": "slash_tmp"
+              }
+            },
+            "access": "write"
+          },
+          {
+            "path": {
+              "type": "special",
+              "value": {
+                "kind": "tmpdir"
+              }
+            },
+            "access": "write"
+          },
+          {
+            "path": {
+              "type": "path",
+              "path": "/home/kokoro/projects/clients/clonetest/.git"
+            },
+            "access": "read",
+            "missing_path_behavior": "skip"
+          },
+          {
+            "path": {
+              "type": "path",
+              "path": "/home/kokoro/projects/clients/clonetest/.agents"
+            },
+            "access": "read",
+            "missing_path_behavior": "skip"
+          },
+          {
+            "path": {
+              "type": "path",
+              "path": "/home/kokoro/projects/clients/clonetest/.codex"
+            },
+            "access": "read",
+            "missing_path_behavior": "skip"
+          }
+        ]
+      },
+      "model": "gpt-6-astra",
+      "comp_hash": "3000",
+      "collaboration_mode": {
+        "mode": "default",
+        "settings": {
+          "model": "gpt-6-astra",
+          "reasoning_effort": "high",
+          "developer_instructions": null
+        }
+      },
+      "multi_agent_version": "v2",
+      "realtime_active": false,
+      "effort": "high",
+      "summary": "none"
+    }
+  },
+  "calls": [
+    {
+      "item_id": "C1",
+      "attempt": 1,
+      "checked_at": "2026-09-28 19:38:48+09:00",
+      "prompt": {
+        "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/prompts/C1.txt",
+        "bytes": 1429,
+        "sha256": "7dcc62b6ab9c4f11f3a9f3a437697bcc3e296e8bd8d6070937643697faf8a302",
+        "verbatim_check": {
+          "match": true,
+          "including_final_newline": true,
+          "evidence": "Prior rollout cat output equals current prompt bytes; prior call passes load(C1prompt) directly unchanged. Verified after resumption.",
+          "prior_cat_output_sha256": "7dcc62b6ab9c4f11f3a9f3a437697bcc3e296e8bd8d6070937643697faf8a302"
+        }
+      },
+      "input": {
+        "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/inputs/C1-input.png",
+        "sha256": "de13a019f3f552f61a0bb8bdd4e83ab9f3bb0ce4f1cc4681747bc49ef0509b00",
+        "bytes": 1709709,
+        "width": 902,
+        "height": 874
+      },
+      "returned_original": {
+        "path": "/home/kokoro/.codex/generated_images/01a0e78c-5a3f-7622-b52d-b5b8b463007c/exec-3bd24fb3-a7aa-41b7-b292-6076c1c23666.png",
+        "sha256": "45ee6bf725f5e129e10e0e6c7c602238df53c749947966845c92bea7ebadb314",
+        "bytes": 3146260,
+        "width": 1254,
+        "height": 1254
+      },
+      "measure_drift": {
+        "input": {
+          "path": "assets/source/generated/adelva/revenue-brand-2026-09-28/inputs/C1-input.png",
+          "width": 902,
+          "height": 874
+        },
+        "output": {
+          "path": "/home/kokoro/.codex/generated_images/01a0e78c-5a3f-7622-b52d-b5b8b463007c/exec-3bd24fb3-a7aa-41b7-b292-6076c1c23666.png",
+          "width": 1254,
+          "height": 1254
+        },
+        "sizeMatch": false,
+        "aspectMatch": false,
+        "global": {
+          "dx": 0,
+          "dy": -8,
+          "meanAbsDiff": 15.83
+        },
+        "cells": [
+          {
+            "cell": "r0c0",
+            "dx": 0,
+            "dy": -4,
+            "meanAbsDiff": 7.76
+          },
+          {
+            "cell": "r0c1",
+            "dx": 0,
+            "dy": -4,
+            "meanAbsDiff": 8.83
+          },
+          {
+            "cell": "r0c2",
+            "dx": 0,
+            "dy": -8,
+            "meanAbsDiff": 7.55
+          },
+          {
+            "cell": "r1c0",
+            "dx": 0,
+            "dy": -12,
+            "meanAbsDiff": 10.45
+          },
+          {
+            "cell": "r1c1",
+            "dx": 0,
+            "dy": -12,
+            "meanAbsDiff": 14.12
+          },
+          {
+            "cell": "r1c2",
+            "dx": 0,
+            "dy": -12,
+            "meanAbsDiff": 10.64
+          },
+          {
+            "cell": "r2c0",
+            "dx": -20,
+            "dy": 8,
+            "meanAbsDiff": 25.3
+          },
+          {
+            "cell": "r2c1",
+            "dx": 32,
+            "dy": 24,
+            "meanAbsDiff": 23.33
+          },
+          {
+            "cell": "r2c2",
+            "dx": -16,
+            "dy": 32,
+            "meanAbsDiff": 20.1
+          }
+        ],
+        "verdict": "PASS",
+        "serious": [],
+        "info": [
+          "local offset up to 40 px (informational)"
+        ]
+      },
+      "adopted": true,
+      "reason": "No serious defect. Global drift 8 px passes --allow-aspect; square output explicitly allowed.",
+      "defects": [],
+      "informational": [
+        {
+          "description": "Brighter lower garden after gradient removal; fine foliage, moss and rock details differ.",
+          "coordinates": [
+            0,
+            627,
+            1254,
+            1254
+          ]
+        }
+      ],
+      "visual_check": {
+        "whole_original": true,
+        "thirds_2x": true,
+        "overlay_crops_2x": [
+          {
+            "name": "number, heading, body and dark panel",
+            "rect": [
+              40,
+              770,
+              930,
+              440
+            ]
+          },
+          {
+            "name": "arrow",
+            "rect": [
+              1080,
+              1070,
+              140,
+              140
+            ]
+          },
+          {
+            "name": "orange path line",
+            "rect": [
+              650,
+              430,
+              440,
+              620
+            ]
+          }
+        ],
+        "result": "No UI, letters, glyphs, lines, arrows, bands, smears, people, border or watermark found. Buildings, tree and warm windows/lanterns retained."
+      },
+      "tool": "image_gen.imagegen (tools.image_gen__imagegen)",
+      "call_evidence": {
+        "rollout_path": "/home/kokoro/.codex/sessions/2026/09/28/rollout-2026-09-28T19-25-30-01a0e78c-5a3f-7622-b52d-b5b8b463007c.jsonl",
+        "timestamp_utc": "2026-09-28T10:26:50.148Z",
+        "timestamp_jst": "2026-09-28T19:26:50.148000+09:00",
+        "call_id": "call_lVT6PE4Og4MZkzyuFmFQzhOh"
+      }
+    },
+    {
+      "item_id": "C2",
+      "attempt": 1,
+      "checked_at": "2026-09-28 19:40:41+09:00",
+      "prompt": {
+        "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/prompts/C2.txt",
+        "bytes": 1310,
+        "sha256": "8749a43690c30283f0c614fc7b74a66f856a630e6f0ac348d95b0d6e9190d516",
+        "verbatim_check": {
+          "match": true,
+          "including_final_newline": true,
+          "evidence": "Sent stored unmodified cat output; cat immediately after image_gen compared equal in functions.exec."
+        }
+      },
+      "input": {
+        "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/inputs/C2-input.png",
+        "sha256": "e0609d185467b2ead87f3ebeee8b2c7d237eaf3187bfc08870323d5abd29286c",
+        "bytes": 1518630,
+        "width": 838,
+        "height": 874
+      },
+      "returned_original": {
+        "path": "/home/kokoro/.codex/generated_images/01a0e794-6217-7363-be78-fcb11560eda6/exec-84771580-0955-427a-a1ad-42fa19ade31a.png",
+        "sha256": "b2aefdd1de90b7ad355e4500d630f6764e11fa35d13f432242894eda36f3bd68",
+        "bytes": 2902731,
+        "width": 1227,
+        "height": 1281
+      },
+      "measure_drift": {
+        "input": {
+          "path": "assets/source/generated/adelva/revenue-brand-2026-09-28/inputs/C2-input.png",
+          "width": 838,
+          "height": 874
+        },
+        "output": {
+          "path": "/home/kokoro/.codex/generated_images/01a0e794-6217-7363-be78-fcb11560eda6/exec-84771580-0955-427a-a1ad-42fa19ade31a.png",
+          "width": 1227,
+          "height": 1281
+        },
+        "sizeMatch": false,
+        "aspectMatch": true,
+        "global": {
+          "dx": 0,
+          "dy": 0,
+          "meanAbsDiff": 15.94
+        },
+        "cells": [
+          {
+            "cell": "r0c0",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 6.13
+          },
+          {
+            "cell": "r0c1",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 4.7
+          },
+          {
+            "cell": "r0c2",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 6.75
+          },
+          {
+            "cell": "r1c0",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 11.42
+          },
+          {
+            "cell": "r1c1",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 15.6
+          },
+          {
+            "cell": "r1c2",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 8.44
+          },
+          {
+            "cell": "r2c0",
+            "dx": 4,
+            "dy": 32,
+            "meanAbsDiff": 26.63
+          },
+          {
+            "cell": "r2c1",
+            "dx": -24,
+            "dy": 32,
+            "meanAbsDiff": 26.98
+          },
+          {
+            "cell": "r2c2",
+            "dx": 0,
+            "dy": 4,
+            "meanAbsDiff": 17.98
+          }
+        ],
+        "verdict": "PASS",
+        "serious": [],
+        "info": [
+          "local offset up to 40 px (informational)"
+        ]
+      },
+      "adopted": true,
+      "reason": "No serious defect; global drift 0 px, aspect retained, warm lights retained.",
+      "defects": [],
+      "informational": [
+        {
+          "description": "Brighter lower foreground after gradient removal; fine gravel, pine and basket textures reconstructed. Basket patterns inspected at 2x; interpreted as material texture, no legible glyphs or mock UI.",
+          "coordinates": [
+            590,
+            350,
+            840,
+            700
+          ]
+        }
+      ],
+      "visual_check": {
+        "whole_original": true,
+        "thirds_2x": true,
+        "overlay_crops_2x": [
+          {
+            "name": "number, heading, body and gradient",
+            "rect": [
+              40,
+              780,
+              930,
+              445
+            ]
+          },
+          {
+            "name": "arrow",
+            "rect": [
+              1060,
+              1100,
+              150,
+              150
+            ]
+          },
+          {
+            "name": "additional basket detail",
+            "rect": [
+              590,
+              350,
+              250,
+              350
+            ]
+          }
+        ],
+        "result": "No leftover UI/text, orange/white graphics, smears, seam, frame, people or watermark. Building geometry and warm windows preserved."
+      },
+      "tool": "image_gen.imagegen (tools.image_gen__imagegen)",
+      "call_evidence": {
+        "rollout_path": "/home/kokoro/.codex/sessions/2026/09/28/rollout-2026-09-28T19-34-16-01a0e794-6217-7363-be78-fcb11560eda6.jsonl",
+        "timestamp_utc": "2026-09-28T10:39:00.060Z",
+        "timestamp_jst": "2026-09-28T19:39:00.060000+09:00",
+        "call_id": "call_KWdrKPiwjeimWTbkXrPFq8Bs"
+      }
+    },
+    {
+      "item_id": "F1",
+      "attempt": 1,
+      "checked_at": "2026-09-28 19:42:14+09:00",
+      "prompt": {
+        "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/prompts/F1.txt",
+        "bytes": 613,
+        "sha256": "1be34417f9a63999387cc0df1f359c4a721fa27ee17f7567eb8f016063bab13f",
+        "verbatim_check": {
+          "match": true,
+          "including_final_newline": true,
+          "evidence": "Sent unmodified cat output; cat after image_gen compared equal in functions.exec."
+        }
+      },
+      "input": null,
+      "returned_original": {
+        "path": "/home/kokoro/.codex/generated_images/01a0e794-6217-7363-be78-fcb11560eda6/exec-e8888443-0abe-43c8-9ba6-f11892b80650.png",
+        "sha256": "bb1ff78114da81585b33bb86b4b3073e2dd1ff584ff0d584395ea8a76de5dbe5",
+        "bytes": 1056092,
+        "width": 1536,
+        "height": 1024
+      },
+      "measure_drift": null,
+      "adopted": true,
+      "reason": "No serious defect; 3:2, fog only, pale blue-grey translucent appearance, edges dissolve before frame; border RGB passes.",
+      "border_measurement": {
+        "border_px": 24,
+        "pixels": 120576,
+        "mean_rgb": [
+          0.11602640658174097,
+          0.05661989118895966,
+          0.02156316348195329
+        ],
+        "pass": true,
+        "width": 1536,
+        "height": 1024,
+        "method": "node/sharp raw RGB; union of x<24, y<24, x>=width-24, y>=height-24; count corners once; arithmetic means over all border pixels; threshold <=6 each channel."
+      },
+      "defects": [],
+      "informational": [],
+      "visual_check": {
+        "whole_original": true,
+        "thirds_2x": true,
+        "overlay_crops_2x": [],
+        "result": "Four irregular fog patches on black; no foreign scenery, light source, text, frame, hard edge clipping or opaque white fog."
+      },
+      "tool": "image_gen.imagegen (tools.image_gen__imagegen)",
+      "call_evidence": {
+        "rollout_path": "/home/kokoro/.codex/sessions/2026/09/28/rollout-2026-09-28T19-34-16-01a0e794-6217-7363-be78-fcb11560eda6.jsonl",
+        "timestamp_utc": "2026-09-28T10:40:55.713Z",
+        "timestamp_jst": "2026-09-28T19:40:55.713000+09:00",
+        "call_id": "call_JQbtWm4C7eVE7davbvwFYQHk"
+      }
+    },
+    {
+      "item_id": "F2",
+      "attempt": 1,
+      "checked_at": "2026-09-28 19:44:06+09:00",
+      "prompt": {
+        "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/prompts/F2.txt",
+        "bytes": 575,
+        "sha256": "e9286509c8f357c278dbd26b15d0605f9bcaa17f94866fc95192067c39cf80c9",
+        "verbatim_check": {
+          "match": true,
+          "including_final_newline": true,
+          "evidence": "Sent unmodified cat output; cat after image_gen compared equal in functions.exec."
+        }
+      },
+      "input": null,
+      "returned_original": {
+        "path": "/home/kokoro/.codex/generated_images/01a0e794-6217-7363-be78-fcb11560eda6/exec-facd98c2-4b4b-41c4-b8ba-3fbc9590f821.png",
+        "sha256": "5f262eb807891f312666c49ab8ec940d46eec6109ef2888697a058a8a1f1d293",
+        "bytes": 876820,
+        "width": 1536,
+        "height": 1024
+      },
+      "measure_drift": null,
+      "adopted": true,
+      "reason": "No serious defect; 3:2, thin translucent pale blue-grey fog only on black; no hard edge clipping; border RGB passes.",
+      "border_measurement": {
+        "border_px": 24,
+        "pixels": 120576,
+        "mean_rgb": [
+          0.07864749203821655,
+          0.037096934713375794,
+          0.01351015127388535
+        ],
+        "pass": true,
+        "width": 1536,
+        "height": 1024,
+        "method": "node/sharp raw RGB; union of x<24, y<24, x>=width-24, y>=height-24; count corners once; arithmetic means over all border pixels; threshold <=6 each channel."
+      },
+      "defects": [],
+      "informational": [],
+      "visual_check": {
+        "whole_original": true,
+        "thirds_2x": true,
+        "overlay_crops_2x": [],
+        "result": "Thin fibrous mist; no trees, ground, water, horizon, stars, light source, text, frame, clipped fog or opaque white fog."
+      },
+      "tool": "image_gen.imagegen (tools.image_gen__imagegen)",
+      "call_evidence": {
+        "rollout_path": "/home/kokoro/.codex/sessions/2026/09/28/rollout-2026-09-28T19-34-16-01a0e794-6217-7363-be78-fcb11560eda6.jsonl",
+        "timestamp_utc": "2026-09-28T10:42:31.408Z",
+        "timestamp_jst": "2026-09-28T19:42:31.408000+09:00",
+        "call_id": "call_XdFOAVUngGIbYnvGNLDHAnqR"
+      }
+    }
+  ],
+  "saved_files": [
+    {
+      "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/raw/C1.png",
+      "sha256": "45ee6bf725f5e129e10e0e6c7c602238df53c749947966845c92bea7ebadb314",
+      "bytes": 3146260,
+      "width": 1254,
+      "height": 1254,
+      "byte_for_byte_check": true
+    },
+    {
+      "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/raw/C2.png",
+      "sha256": "b2aefdd1de90b7ad355e4500d630f6764e11fa35d13f432242894eda36f3bd68",
+      "bytes": 2902731,
+      "width": 1227,
+      "height": 1281,
+      "byte_for_byte_check": true
+    },
+    {
+      "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/raw/F1.png",
+      "sha256": "bb1ff78114da81585b33bb86b4b3073e2dd1ff584ff0d584395ea8a76de5dbe5",
+      "bytes": 1056092,
+      "width": 1536,
+      "height": 1024,
+      "byte_for_byte_check": true
+    },
+    {
+      "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/raw/F2.png",
+      "sha256": "5f262eb807891f312666c49ab8ec940d46eec6109ef2888697a058a8a1f1d293",
+      "bytes": 876820,
+      "width": 1536,
+      "height": 1024,
+      "byte_for_byte_check": true
+    }
+  ],
+  "updated_at": "2026-09-28T19:44:52.073979+09:00",
+  "verification": {
+    "status": "PASS",
+    "all_four_saved_originals_byte_identical": true,
+    "all_prompt_hashes_match": true,
+    "all_verbatim_checks_match_including_final_newline": true,
+    "no_serious_defects_found": true,
+    "rejected_attempts": [],
+    "scope": "Only raw C1/C2/F1/F2.png and records/IW5.json written in project; /tmp inspection derivatives only. No image pixel editing of saved results."
+  },
+  "execution_notes": [
+    "python command unavailable; used python3 for record inspection.",
+    "Node child_process spawnSync blocked with EPERM while preparing initial record; drift tool and cp executed directly via exec_command instead. Resolved without changing images or prompts."
+  ],
+  "status": "complete",
+  "inspection_cleanup": "Task-created 2x inspection PNGs removed after visual review; rectangles and results retained in this record. Original generated images retained."
+}

@@ -1,0 +1,2003 @@
+{
+  "method": "95th percentile background luminance inside text box; foreground hidden while scrims and surfaces remain. Fully lit reduced-motion state.",
+  "results": [
+    {
+      "viewport": 1440,
+      "text": "02支援領域",
+      "fontSize": 36,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 9.09,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "収益・ブランド成長",
+      "fontSize": 96,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 8.36,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "REVENUE & BRAND GROWTH",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 12.5,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "販売、Web集客、ブランド、SNS、営業を宿泊収益の向上へつなげます。",
+      "fontSize": 27,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 13.07,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "12・16",
+      "fontSize": 28,
+      "color": "rgb(255, 126, 21)",
+      "contrast": 5.91,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "集客・販売チャネル支援",
+      "fontSize": 56,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 12.29,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "公式サイト",
+      "fontSize": 16,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 17.34,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "OTA",
+      "fontSize": 16,
+      "color": "rgb(10, 17, 24)",
+      "contrast": 7.45,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "検索",
+      "fontSize": 16,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 16.03,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "コンテンツ",
+      "fontSize": 16,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 16.92,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "販売チャネル",
+      "fontSize": 16,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 17.3,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "計測",
+      "fontSize": 16,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 18.1,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "法人",
+      "fontSize": 16,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 16.81,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "旅行会社",
+      "fontSize": 16,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 15.9,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "団体",
+      "fontSize": 16,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 15.85,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "地域企業",
+      "fontSize": 16,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 16.71,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "宿泊収益",
+      "fontSize": 19,
+      "color": "rgb(255, 126, 21)",
+      "contrast": 7.57,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "12",
+      "fontSize": 48,
+      "color": "rgb(255, 126, 21)",
+      "contrast": 4.99,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "Web集客・チャネル収益",
+      "fontSize": 40,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 14.23,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "集客・販売チャネル・計測を宿泊収益へ",
+      "fontSize": 19,
+      "color": "rgba(255, 255, 255, 0.88)",
+      "contrast": 13.65,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "16",
+      "fontSize": 48,
+      "color": "rgb(255, 126, 21)",
+      "contrast": 3.72,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "宿泊営業支援",
+      "fontSize": 40,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 11.41,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "法人・旅行会社・団体・地域企業への営業",
+      "fontSize": 19,
+      "color": "rgba(255, 255, 255, 0.88)",
+      "contrast": 11.51,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "13・14",
+      "fontSize": 34,
+      "color": "rgb(255, 126, 21)",
+      "contrast": 3.89,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "Webサイト・ビジュアル制作",
+      "fontSize": 82,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 8.06,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "13",
+      "fontSize": 40,
+      "color": "rgb(255, 126, 21)",
+      "contrast": 5.42,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "Website制作",
+      "fontSize": 36,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 13.57,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "14",
+      "fontSize": 40,
+      "color": "rgb(255, 126, 21)",
+      "contrast": 4.73,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "Photoブランディング",
+      "fontSize": 36,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 12.75,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "施設",
+      "fontSize": 16,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 18.13,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "客室",
+      "fontSize": 16,
+      "color": "rgb(10, 17, 24)",
+      "contrast": 7.45,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "料理",
+      "fontSize": 16,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 17.66,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "スタッフ",
+      "fontSize": 16,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 17.48,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "一部のWebサイト制作は、一般事業者も対象です。",
+      "fontSize": 15,
+      "color": "rgba(255, 255, 255, 0.8)",
+      "contrast": 12.09,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "15",
+      "fontSize": 40,
+      "color": "rgb(255, 126, 21)",
+      "contrast": 4.09,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "SNS運用支援",
+      "fontSize": 60,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 11.16,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "15",
+      "fontSize": 40,
+      "color": "rgb(255, 126, 21)",
+      "contrast": 5.32,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "SNS運用代行",
+      "fontSize": 34,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 16.44,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "ブランド方針から改善まで継続し、Web・予約導線へつなぐ",
+      "fontSize": 19,
+      "color": "rgba(255, 255, 255, 0.88)",
+      "contrast": 11.94,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "Web・予約導線",
+      "fontSize": 17,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 17.16,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "サービスの違い",
+      "fontSize": 56,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 3.58,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "集客・販売チャネル・計測を宿泊収益へつなぐ",
+      "fontSize": 18,
+      "color": "rgba(255, 255, 255, 0.88)",
+      "contrast": 13.57,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "Webサイトの企画・設計・制作",
+      "fontSize": 18,
+      "color": "rgba(255, 255, 255, 0.88)",
+      "contrast": 13.65,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "写真表現の設計と素材の準備",
+      "fontSize": 18,
+      "color": "rgba(255, 255, 255, 0.88)",
+      "contrast": 14.69,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "企画・投稿・分析・改善の継続運用",
+      "fontSize": 18,
+      "color": "rgba(255, 255, 255, 0.88)",
+      "contrast": 13.75,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "Webサイト公開後の保守、撮影の権利、SNSで対応する範囲は、個別に確認します。",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 13.84,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "支援の進め方",
+      "fontSize": 60,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 5.2,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "課題把握から、判断、実行・実装、運用、検証、引継ぎまで。",
+      "fontSize": 28,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 11.9,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "分析や助言で終わらず、責任分界とKPIを明確にし、支援終了後もお客様自身が継続して改善できる状態をつくります。",
+      "fontSize": 20,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 9.38,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "課題把握",
+      "fontSize": 30,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 14.22,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "集客・販売の現状",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 18.16,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "判断",
+      "fontSize": 30,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 16.19,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "ブランド方針",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 19.54,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "ターゲット",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 15.74,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "実行・実装",
+      "fontSize": 30,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 15.34,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "Webサイト",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 19.18,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "写真",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 18.5,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "営業資料",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 15.79,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "運用",
+      "fontSize": 30,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 16.26,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "投稿",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 19.05,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "チャネル運用",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 18.63,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "検証",
+      "fontSize": 30,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 14.11,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "計測",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 18.01,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "分析",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 18.04,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "引継ぎ",
+      "fontSize": 30,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 8.37,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "改善",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 15.66,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "継続して改善できる状態",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 12.64,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "関連する支援領域",
+      "fontSize": 26,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 18.98,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "01",
+      "fontSize": 40,
+      "color": "rgb(255, 126, 21)",
+      "contrast": 4.92,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "経営・運営統括",
+      "fontSize": 38,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 12.91,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "経営判断、開業、運営、人材、現場オペレーションを横断して支援します。",
+      "fontSize": 19,
+      "color": "rgba(255, 255, 255, 0.88)",
+      "contrast": 15.14,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "03",
+      "fontSize": 40,
+      "color": "rgb(255, 126, 21)",
+      "contrast": 3.73,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "DX・IT・調達基盤",
+      "fontSize": 38,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 12.64,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "text": "事業運営を支えるデジタル、システム、IT運用、調達基盤を整備します。",
+      "fontSize": 19,
+      "color": "rgba(255, 255, 255, 0.88)",
+      "contrast": 14,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "02支援領域",
+      "fontSize": 25,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 13.59,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "収益・ブランド成長",
+      "fontSize": 57.5,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 10.67,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "REVENUE & BRAND GROWTH",
+      "fontSize": 12.5,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 14.09,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "販売、Web集客、ブランド、SNS、営業を宿泊収益の向上へつなげます。",
+      "fontSize": 18.75,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 15.68,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "12・16",
+      "fontSize": 16.25,
+      "color": "rgb(255, 126, 21)",
+      "contrast": 6.21,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "集客・販売チャネル支援",
+      "fontSize": 30,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 6.48,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "公式サイト",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 15.7,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "OTA",
+      "fontSize": 15,
+      "color": "rgb(10, 17, 24)",
+      "contrast": 7.45,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "検索",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 16.08,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "コンテンツ",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 16.69,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "販売チャネル",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 17.58,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "計測",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 15.89,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "法人",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 15.93,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "旅行会社",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 16.46,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "団体",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 16.42,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "地域企業",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 16.99,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "宿泊収益",
+      "fontSize": 15,
+      "color": "rgb(255, 126, 21)",
+      "contrast": 7.52,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "12",
+      "fontSize": 25,
+      "color": "rgb(255, 126, 21)",
+      "contrast": 7.43,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "Web集客・チャネル収益",
+      "fontSize": 20,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 14.71,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "集客・販売チャネル・計測を宿泊収益へ",
+      "fontSize": 15,
+      "color": "rgba(255, 255, 255, 0.88)",
+      "contrast": 12.18,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "16",
+      "fontSize": 25,
+      "color": "rgb(255, 126, 21)",
+      "contrast": 6.92,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "宿泊営業支援",
+      "fontSize": 20,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 13.34,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "法人・旅行会社・団体・地域企業への営業",
+      "fontSize": 15,
+      "color": "rgba(255, 255, 255, 0.88)",
+      "contrast": 10.05,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "13・14",
+      "fontSize": 16.25,
+      "color": "rgb(255, 126, 21)",
+      "contrast": 6.34,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "Webサイト・ビジュアル制作",
+      "fontSize": 32.5,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 8.63,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "13",
+      "fontSize": 22.5,
+      "color": "rgb(255, 126, 21)",
+      "contrast": 7.59,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "Website制作",
+      "fontSize": 22.5,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 12.53,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "14",
+      "fontSize": 22.5,
+      "color": "rgb(255, 126, 21)",
+      "contrast": 7.68,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "Photoブランディング",
+      "fontSize": 22.5,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 15.63,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "施設",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 18.15,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "客室",
+      "fontSize": 15,
+      "color": "rgb(10, 17, 24)",
+      "contrast": 7.45,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "料理",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 18,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "スタッフ",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 18.15,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "一部のWebサイト制作は、一般事業者も対象です。",
+      "fontSize": 15,
+      "color": "rgba(255, 255, 255, 0.8)",
+      "contrast": 11.19,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "15",
+      "fontSize": 25,
+      "color": "rgb(255, 126, 21)",
+      "contrast": 7.21,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "SNS運用支援",
+      "fontSize": 35,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 13.12,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "15",
+      "fontSize": 22.5,
+      "color": "rgb(255, 126, 21)",
+      "contrast": 7.52,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "SNS運用代行",
+      "fontSize": 20,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 14.97,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "ブランド方針から改善まで継続し、Web・予約導線へつなぐ",
+      "fontSize": 16.25,
+      "color": "rgba(255, 255, 255, 0.88)",
+      "contrast": 13.54,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "Web・予約導線",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 15.82,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "サービスの違い",
+      "fontSize": 30,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 12.6,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "集客・販売チャネル・計測を宿泊収益へつなぐ",
+      "fontSize": 15,
+      "color": "rgba(255, 255, 255, 0.88)",
+      "contrast": 13.71,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "Webサイトの企画・設計・制作",
+      "fontSize": 15,
+      "color": "rgba(255, 255, 255, 0.88)",
+      "contrast": 13.34,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "写真表現の設計と素材の準備",
+      "fontSize": 15,
+      "color": "rgba(255, 255, 255, 0.88)",
+      "contrast": 13.48,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "企画・投稿・分析・改善の継続運用",
+      "fontSize": 15,
+      "color": "rgba(255, 255, 255, 0.88)",
+      "contrast": 11.61,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "Webサイト公開後の保守、撮影の権利、SNSで対応する範囲は、個別に確認します。",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 13.06,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "支援の進め方",
+      "fontSize": 30,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 9.57,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "課題把握から、判断、実行・実装、運用、検証、引継ぎまで。",
+      "fontSize": 18.75,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 13.4,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "分析や助言で終わらず、責任分界とKPIを明確にし、支援終了後もお客様自身が継続して改善できる状態をつくります。",
+      "fontSize": 16.25,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 12.46,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "課題把握",
+      "fontSize": 20,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 13.46,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "集客・販売の現状",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 18.95,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "判断",
+      "fontSize": 20,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 11.31,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "ブランド方針",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 18.7,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "ターゲット",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 15.04,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "実行・実装",
+      "fontSize": 20,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 6.86,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "Webサイト",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 19.08,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "写真",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 18.31,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "営業資料",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 17.41,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "運用",
+      "fontSize": 20,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 14.2,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "投稿",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 18.49,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "チャネル運用",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 17.99,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "検証",
+      "fontSize": 20,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 13.78,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "計測",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 17.23,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "分析",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 18.26,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "引継ぎ",
+      "fontSize": 20,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 10.22,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "改善",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 17.36,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "継続して改善できる状態",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 14.72,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "関連する支援領域",
+      "fontSize": 22.5,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 18.98,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "01",
+      "fontSize": 25,
+      "color": "rgb(255, 126, 21)",
+      "contrast": 6.08,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "経営・運営統括",
+      "fontSize": 25,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 16.25,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "経営判断、開業、運営、人材、現場オペレーションを横断して支援します。",
+      "fontSize": 16.25,
+      "color": "rgba(255, 255, 255, 0.88)",
+      "contrast": 15.74,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "03",
+      "fontSize": 25,
+      "color": "rgb(255, 126, 21)",
+      "contrast": 6.38,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "DX・IT・調達基盤",
+      "fontSize": 25,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 15.51,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "text": "事業運営を支えるデジタル、システム、IT運用、調達基盤を整備します。",
+      "fontSize": 16.25,
+      "color": "rgba(255, 255, 255, 0.88)",
+      "contrast": 14.9,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "02支援領域",
+      "fontSize": 20,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 12.1,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "収益・ブランド成長",
+      "fontSize": 46,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 11.01,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "REVENUE & BRAND GROWTH",
+      "fontSize": 10,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 13.52,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "販売、Web集客、ブランド、SNS、営業を宿泊収益の向上へつなげます。",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 10.05,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "12・16",
+      "fontSize": 13,
+      "color": "rgb(255, 126, 21)",
+      "contrast": 5.69,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "集客・販売チャネル支援",
+      "fontSize": 24,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 10.99,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "公式サイト",
+      "fontSize": 12,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 13.95,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "OTA",
+      "fontSize": 12,
+      "color": "rgb(10, 17, 24)",
+      "contrast": 7.45,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "検索",
+      "fontSize": 12,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 16.6,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "コンテンツ",
+      "fontSize": 12,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 16.46,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "販売チャネル",
+      "fontSize": 12,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 17.58,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "計測",
+      "fontSize": 12,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 16.09,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "法人",
+      "fontSize": 12,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 16.63,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "旅行会社",
+      "fontSize": 12,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 16.82,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "団体",
+      "fontSize": 12,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 16.93,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "地域企業",
+      "fontSize": 12,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 17.35,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "宿泊収益",
+      "fontSize": 12,
+      "color": "rgb(255, 126, 21)",
+      "contrast": 7.5,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "12",
+      "fontSize": 20,
+      "color": "rgb(255, 126, 21)",
+      "contrast": 7.58,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "Web集客・チャネル収益",
+      "fontSize": 16,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 14.23,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "集客・販売チャネル・計測を宿泊収益へ",
+      "fontSize": 12,
+      "color": "rgba(255, 255, 255, 0.88)",
+      "contrast": 5.56,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "16",
+      "fontSize": 20,
+      "color": "rgb(255, 126, 21)",
+      "contrast": 7.4,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "宿泊営業支援",
+      "fontSize": 16,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 16.63,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "法人・旅行会社・団体・地域企業への営業",
+      "fontSize": 12,
+      "color": "rgba(255, 255, 255, 0.88)",
+      "contrast": 4.97,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "13・14",
+      "fontSize": 13,
+      "color": "rgb(255, 126, 21)",
+      "contrast": 6.63,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "Webサイト・ビジュアル制作",
+      "fontSize": 26,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 7.64,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "13",
+      "fontSize": 18,
+      "color": "rgb(255, 126, 21)",
+      "contrast": 7.6,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "Website制作",
+      "fontSize": 18,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 10.2,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "14",
+      "fontSize": 18,
+      "color": "rgb(255, 126, 21)",
+      "contrast": 7.57,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "Photoブランディング",
+      "fontSize": 18,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 15.41,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "施設",
+      "fontSize": 12,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 17.98,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "客室",
+      "fontSize": 12,
+      "color": "rgb(10, 17, 24)",
+      "contrast": 7.45,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "料理",
+      "fontSize": 12,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 18,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "スタッフ",
+      "fontSize": 12,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 17.83,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "一部のWebサイト制作は、一般事業者も対象です。",
+      "fontSize": 12,
+      "color": "rgba(255, 255, 255, 0.8)",
+      "contrast": 9.87,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "15",
+      "fontSize": 20,
+      "color": "rgb(255, 126, 21)",
+      "contrast": 7.21,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "SNS運用支援",
+      "fontSize": 28,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 13.58,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "15",
+      "fontSize": 18,
+      "color": "rgb(255, 126, 21)",
+      "contrast": 7.67,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "SNS運用代行",
+      "fontSize": 16,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 16.12,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "ブランド方針から改善まで継続し、Web・予約導線へつなぐ",
+      "fontSize": 13,
+      "color": "rgba(255, 255, 255, 0.88)",
+      "contrast": 12.32,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "Web・予約導線",
+      "fontSize": 12,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 14.88,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "サービスの違い",
+      "fontSize": 24,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 12.92,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "集客・販売チャネル・計測を宿泊収益へつなぐ",
+      "fontSize": 12,
+      "color": "rgba(255, 255, 255, 0.88)",
+      "contrast": 11.44,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "Webサイトの企画・設計・制作",
+      "fontSize": 12,
+      "color": "rgba(255, 255, 255, 0.88)",
+      "contrast": 13.38,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "写真表現の設計と素材の準備",
+      "fontSize": 12,
+      "color": "rgba(255, 255, 255, 0.88)",
+      "contrast": 14.12,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "企画・投稿・分析・改善の継続運用",
+      "fontSize": 12,
+      "color": "rgba(255, 255, 255, 0.88)",
+      "contrast": 10.26,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "Webサイト公開後の保守、撮影の権利、SNSで対応する範囲は、個別に確認します。",
+      "fontSize": 12,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 12.13,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "支援の進め方",
+      "fontSize": 24,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 9.81,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "課題把握から、判断、実行・実装、運用、検証、引継ぎまで。",
+      "fontSize": 15,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 13.24,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "分析や助言で終わらず、責任分界とKPIを明確にし、支援終了後もお客様自身が継続して改善できる状態をつくります。",
+      "fontSize": 13,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 9.87,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "課題把握",
+      "fontSize": 16,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 15.81,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "集客・販売の現状",
+      "fontSize": 12,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 19.04,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "判断",
+      "fontSize": 16,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 11.15,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "ブランド方針",
+      "fontSize": 12,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 18.48,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "ターゲット",
+      "fontSize": 12,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 16.22,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "実行・実装",
+      "fontSize": 16,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 7.2,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "Webサイト",
+      "fontSize": 12,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 17.47,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "写真",
+      "fontSize": 12,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 18.34,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "営業資料",
+      "fontSize": 12,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 14.91,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "運用",
+      "fontSize": 16,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 14.06,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "投稿",
+      "fontSize": 12,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 13.8,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "チャネル運用",
+      "fontSize": 12,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 17.5,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "検証",
+      "fontSize": 16,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 14.02,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "計測",
+      "fontSize": 12,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 17.08,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "分析",
+      "fontSize": 12,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 18.18,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "引継ぎ",
+      "fontSize": 16,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 10.1,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "改善",
+      "fontSize": 12,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 18.45,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "継続して改善できる状態",
+      "fontSize": 12,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 14.72,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "関連する支援領域",
+      "fontSize": 18,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 18.98,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "01",
+      "fontSize": 20,
+      "color": "rgb(255, 126, 21)",
+      "contrast": 5.87,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "経営・運営統括",
+      "fontSize": 20,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 14.52,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "経営判断、開業、運営、人材、現場オペレーションを横断して支援します。",
+      "fontSize": 13,
+      "color": "rgba(255, 255, 255, 0.88)",
+      "contrast": 15.02,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "03",
+      "fontSize": 20,
+      "color": "rgb(255, 126, 21)",
+      "contrast": 4.79,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "DX・IT・調達基盤",
+      "fontSize": 20,
+      "color": "rgb(255, 255, 255)",
+      "contrast": 13.17,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "text": "事業運営を支えるデジタル、システム、IT運用、調達基盤を整備します。",
+      "fontSize": 13,
+      "color": "rgba(255, 255, 255, 0.88)",
+      "contrast": 14.73,
+      "target": 4.5,
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "label": "mobile-related",
+  "reference": "/home/kokoro/projects/clients/clonetest-rb/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/frames/mobile-related-reference.png",
+  "actual": "/home/kokoro/projects/clients/clonetest-rb/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/frames/mobile-related-actual.png",
+  "mapping": {
+    "referenceRaster": {
+      "width": 390,
+      "height": 863
+    },
+    "implementationRaster": {
+      "width": 390,
+      "height": 863
+    },
+    "referencePixelsPerCssPixel": {
+      "x": 1,
+      "y": 1
+    },
+    "aspectDelta": 0
+  },
+  "metrics": {
+    "mae": 0.16253803023621033,
+    "rmse": 0.28944558858184155,
+    "diffRatio": 0.3938467480761803,
+    "edgeMae": 0.042090171007706144
+  },
+  "thresholds": {
+    "pixelThreshold": 0.1
+  },
+  "status": "MEASURED",
+  "failures": [],
+  "artifacts": {
+    "overlay": "/home/kokoro/projects/clients/clonetest-rb/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/mobile-related-overlay.png",
+    "difference": "/home/kokoro/projects/clients/clonetest-rb/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/mobile-related-difference.png",
+    "sideBySide": "/home/kokoro/projects/clients/clonetest-rb/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/mobile-related-side-by-side.png"
+  }
+}

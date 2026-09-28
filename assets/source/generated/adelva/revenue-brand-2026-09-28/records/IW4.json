@@ -1,0 +1,955 @@
+{
+  "worker": "IW4",
+  "created_at": "2026-09-28 19:36:19 Asia/Tokyo",
+  "session_evidence": {
+    "rollout_file": "/home/kokoro/.codex/sessions/2026/09/28/rollout-2026-09-28T19-33-43-01a0e793-e1ca-7551-881b-3030a7090b03.jsonl",
+    "turn_context": [
+      {
+        "turn_id": "01a0e793-e508-72d2-9726-a1f2ab73ebcf",
+        "model": "gpt-6-astra",
+        "effort": "high",
+        "cwd": "/home/kokoro/projects/clients/clonetest"
+      }
+    ]
+  },
+  "tool": "image_gen__imagegen",
+  "interruption": "Resumed M5 attempt 1 from interrupted prior session 01a0e78c-4c07-7ab0-bc82-b1295a4b0e01; no regeneration before required checks.",
+  "calls": [
+    {
+      "item_id": "M5",
+      "attempt": 1,
+      "at": "2026-09-28 19:37:16 Asia/Tokyo",
+      "tool": "image_gen__imagegen",
+      "prompt": {
+        "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/prompts/M5.txt",
+        "bytes": 2444,
+        "sha256": "a0b2878a1b93b0b44318bdb4b8f03e3c1f082934106b097761ee69bd19b6a4d2",
+        "verbatim_check": true,
+        "final_newline": true,
+        "evidence": "Historical cat stdout passed via store/load; historical post-call equality true; recorded sent string equals current file bytes on resumed check.",
+        "previous_session": "/home/kokoro/.codex/sessions/2026/09/28/rollout-2026-09-28T19-25-26-01a0e78c-4c07-7ab0-bc82-b1295a4b0e01.jsonl"
+      },
+      "input": {
+        "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/inputs/M5-input.png",
+        "width": 853,
+        "height": 1844,
+        "bytes": 2757464,
+        "sha256": "e50e015844a959696bddc146fe69a3789b4c7ce5b6dc67332d76b610c4dea8b2"
+      },
+      "returned_original": {
+        "path": "/home/kokoro/.codex/generated_images/01a0e78c-4c07-7ab0-bc82-b1295a4b0e01/exec-c0d0bea5-63a3-4553-b434-43881b06b57e.png",
+        "width": 853,
+        "height": 1844,
+        "bytes": 2857750,
+        "sha256": "215dfc1d4d7f20f463ba179d6c5c04bf72bc0b78cd4b644cbffae162b4c9cff1"
+      },
+      "measure_drift": {
+        "input": {
+          "path": "assets/source/generated/adelva/revenue-brand-2026-09-28/inputs/M5-input.png",
+          "width": 853,
+          "height": 1844
+        },
+        "output": {
+          "path": "/home/kokoro/.codex/generated_images/01a0e78c-4c07-7ab0-bc82-b1295a4b0e01/exec-c0d0bea5-63a3-4553-b434-43881b06b57e.png",
+          "width": 853,
+          "height": 1844
+        },
+        "sizeMatch": true,
+        "aspectMatch": true,
+        "global": {
+          "dx": 0,
+          "dy": 0,
+          "meanAbsDiff": 10.3
+        },
+        "cells": [
+          {
+            "cell": "r0c0",
+            "dx": 0,
+            "dy": -4,
+            "meanAbsDiff": 16.35
+          },
+          {
+            "cell": "r0c1",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 9.08
+          },
+          {
+            "cell": "r0c2",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 8.89
+          },
+          {
+            "cell": "r1c0",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 10.62
+          },
+          {
+            "cell": "r1c1",
+            "dx": 0,
+            "dy": 4,
+            "meanAbsDiff": 11.28
+          },
+          {
+            "cell": "r1c2",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 12.11
+          },
+          {
+            "cell": "r2c0",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 6.42
+          },
+          {
+            "cell": "r2c1",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 8.05
+          },
+          {
+            "cell": "r2c2",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 7.25
+          }
+        ],
+        "verdict": "PASS",
+        "serious": [],
+        "info": []
+      },
+      "visual_check": {
+        "status": "PASS",
+        "coordinate_system": "returned-original pixels, top-left origin",
+        "crops": [
+          {
+            "name": "top",
+            "path": "/tmp/IW4-inspection/M5-top.png",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 853,
+              "height": 615
+            },
+            "scale": 2,
+            "temporary_crop_removed_after_inspection": true
+          },
+          {
+            "name": "middle",
+            "path": "/tmp/IW4-inspection/M5-middle.png",
+            "rect": {
+              "x": 0,
+              "y": 615,
+              "width": 853,
+              "height": 615
+            },
+            "scale": 2,
+            "temporary_crop_removed_after_inspection": true
+          },
+          {
+            "name": "bottom",
+            "path": "/tmp/IW4-inspection/M5-bottom.png",
+            "rect": {
+              "x": 0,
+              "y": 1230,
+              "width": 853,
+              "height": 614
+            },
+            "scale": 2,
+            "temporary_crop_removed_after_inspection": true
+          },
+          {
+            "name": "text",
+            "path": "/tmp/IW4-resume-M5-1-2H43p5text.png",
+            "rect": {
+              "x": 25,
+              "y": 245,
+              "width": 360,
+              "height": 320
+            },
+            "scale": 2,
+            "temporary_crop_removed_after_inspection": true
+          },
+          {
+            "name": "labels-upper",
+            "path": "/tmp/IW4-resume-M5-1-2H43p5labels-upper.png",
+            "rect": {
+              "x": 70,
+              "y": 580,
+              "width": 740,
+              "height": 265
+            },
+            "scale": 2,
+            "temporary_crop_removed_after_inspection": true
+          },
+          {
+            "name": "labels-lower",
+            "path": "/tmp/IW4-resume-M5-1-2H43p5labels-lower.png",
+            "rect": {
+              "x": 35,
+              "y": 930,
+              "width": 775,
+              "height": 140
+            },
+            "scale": 2,
+            "temporary_crop_removed_after_inspection": true
+          },
+          {
+            "name": "bottom-pill",
+            "path": "/tmp/IW4-resume-M5-1-2H43p5bottom-pill.png",
+            "rect": {
+              "x": 390,
+              "y": 1170,
+              "width": 275,
+              "height": 75
+            },
+            "scale": 2,
+            "temporary_crop_removed_after_inspection": true
+          }
+        ],
+        "whole_original_resolution": true,
+        "all_crops_viewed_original": true,
+        "notes": "No UI, letters, pills, leaders, circles, orange river glow, smears, hard seams, people, frames or watermark found. River loop and island align; small mist/tree/water-detail differences are informational. All original image areas inspected at 2x via thirds plus dedicated text/label/ring crops."
+      },
+      "defects": [],
+      "adopted": true,
+      "reason": "No serious defects; numeric PASS and original-resolution / 2x visual checks passed. Adopt first acceptable attempt.",
+      "global_drift_px": 0.0
+    },
+    {
+      "item_id": "M6",
+      "attempt": 1,
+      "at": "2026-09-28 19:38:43 Asia/Tokyo",
+      "tool": "image_gen__imagegen",
+      "prompt": {
+        "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/prompts/M6.txt",
+        "bytes": 2251,
+        "sha256": "99e3bce39daf9f01b79c56ecf8b23321d240394d39f3707aca0a84a90f942356",
+        "verbatim_check": true,
+        "final_newline": true,
+        "evidence": "Exact cat stdout passed to image_gen; compared with fresh cat stdout after call; equal including final newline."
+      },
+      "input": {
+        "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/inputs/M6-input.png",
+        "width": 853,
+        "height": 1844,
+        "bytes": 2507225,
+        "sha256": "1e7e7b0f37430ff11e3a48b40e929cfa4b361532243db6dad2f1eeb85593163c"
+      },
+      "returned_original": {
+        "path": "/home/kokoro/.codex/generated_images/01a0e793-e1ca-7551-881b-3030a7090b03/exec-bcf3abc8-398b-4276-96ad-a3549cb68af0.png",
+        "width": 853,
+        "height": 1844,
+        "bytes": 2866489,
+        "sha256": "4bba88bff92605845dd6b368a2c2f8faab65c0b1d9fb66d22476ca27d5b8c95b"
+      },
+      "measure_drift": {
+        "input": {
+          "path": "assets/source/generated/adelva/revenue-brand-2026-09-28/inputs/M6-input.png",
+          "width": 853,
+          "height": 1844
+        },
+        "output": {
+          "path": "/home/kokoro/.codex/generated_images/01a0e793-e1ca-7551-881b-3030a7090b03/exec-bcf3abc8-398b-4276-96ad-a3549cb68af0.png",
+          "width": 853,
+          "height": 1844
+        },
+        "sizeMatch": true,
+        "aspectMatch": true,
+        "global": {
+          "dx": 0,
+          "dy": 0,
+          "meanAbsDiff": 17.74
+        },
+        "cells": [
+          {
+            "cell": "r0c0",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 13.24
+          },
+          {
+            "cell": "r0c1",
+            "dx": 4,
+            "dy": 0,
+            "meanAbsDiff": 16.95
+          },
+          {
+            "cell": "r0c2",
+            "dx": -32,
+            "dy": 12,
+            "meanAbsDiff": 20
+          },
+          {
+            "cell": "r1c0",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 16.27
+          },
+          {
+            "cell": "r1c1",
+            "dx": 16,
+            "dy": -32,
+            "meanAbsDiff": 19.77
+          },
+          {
+            "cell": "r1c2",
+            "dx": -32,
+            "dy": 20,
+            "meanAbsDiff": 22.43
+          },
+          {
+            "cell": "r2c0",
+            "dx": 4,
+            "dy": 0,
+            "meanAbsDiff": 21.51
+          },
+          {
+            "cell": "r2c1",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 11.11
+          },
+          {
+            "cell": "r2c2",
+            "dx": 4,
+            "dy": 0,
+            "meanAbsDiff": 11.41
+          }
+        ],
+        "verdict": "PASS",
+        "serious": [],
+        "info": [
+          "local offset up to 38 px (informational)"
+        ]
+      },
+      "visual_check": {
+        "status": "PASS",
+        "coordinate_system": "returned-original pixels, top-left origin",
+        "crops": [
+          {
+            "name": "top",
+            "path": "/tmp/IW4-resume-M6-1-CDmIVEtop.png",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 853,
+              "height": 614
+            },
+            "scale": 2,
+            "temporary_crop_removed_after_inspection": true
+          },
+          {
+            "name": "middle",
+            "path": "/tmp/IW4-resume-M6-1-CDmIVEmiddle.png",
+            "rect": {
+              "x": 0,
+              "y": 614,
+              "width": 853,
+              "height": 615
+            },
+            "scale": 2,
+            "temporary_crop_removed_after_inspection": true
+          },
+          {
+            "name": "bottom",
+            "path": "/tmp/IW4-resume-M6-1-CDmIVEbottom.png",
+            "rect": {
+              "x": 0,
+              "y": 1229,
+              "width": 853,
+              "height": 615
+            },
+            "scale": 2,
+            "temporary_crop_removed_after_inspection": true
+          },
+          {
+            "name": "heading",
+            "path": "/tmp/IW4-inspection/M6-heading.png",
+            "rect": {
+              "x": 200,
+              "y": 310,
+              "width": 400,
+              "height": 90
+            },
+            "scale": 2,
+            "temporary_crop_removed_after_inspection": true
+          },
+          {
+            "name": "row12",
+            "path": "/tmp/IW4-inspection/M6-row12.png",
+            "rect": {
+              "x": 90,
+              "y": 410,
+              "width": 680,
+              "height": 150
+            },
+            "scale": 2,
+            "temporary_crop_removed_after_inspection": true
+          },
+          {
+            "name": "row13",
+            "path": "/tmp/IW4-inspection/M6-row13.png",
+            "rect": {
+              "x": 90,
+              "y": 600,
+              "width": 600,
+              "height": 145
+            },
+            "scale": 2,
+            "temporary_crop_removed_after_inspection": true
+          },
+          {
+            "name": "row14",
+            "path": "/tmp/IW4-inspection/M6-row14.png",
+            "rect": {
+              "x": 90,
+              "y": 790,
+              "width": 600,
+              "height": 150
+            },
+            "scale": 2,
+            "temporary_crop_removed_after_inspection": true
+          },
+          {
+            "name": "row15",
+            "path": "/tmp/IW4-inspection/M6-row15.png",
+            "rect": {
+              "x": 90,
+              "y": 975,
+              "width": 620,
+              "height": 155
+            },
+            "scale": 2,
+            "temporary_crop_removed_after_inspection": true
+          },
+          {
+            "name": "box",
+            "path": "/tmp/IW4-inspection/M6-box.png",
+            "rect": {
+              "x": 85,
+              "y": 1145,
+              "width": 685,
+              "height": 145
+            },
+            "scale": 2,
+            "temporary_crop_removed_after_inspection": true
+          }
+        ],
+        "whole_original_resolution": true,
+        "all_crops_viewed_original": true,
+        "notes": "All UI and dark panels removed; no letters, leaders, dots, river orange line, boxed text, smears or seams remain. River and large mist areas preserved. Reconstructed forest and modest brightness/detail differences are informational; local offset up to 38 px informational only. Inspected all thirds and dedicated heading, four rows and bottom box at 2x."
+      },
+      "defects": [],
+      "adopted": true,
+      "reason": "No serious defects; numeric PASS and original-resolution / 2x visual checks passed. Adopt first acceptable attempt.",
+      "global_drift_px": 0.0
+    },
+    {
+      "item_id": "M7",
+      "attempt": 1,
+      "at": "2026-09-28 19:40:59 Asia/Tokyo",
+      "tool": "image_gen__imagegen",
+      "prompt": {
+        "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/prompts/M7.txt",
+        "bytes": 2257,
+        "sha256": "fdcd38dac98b7c06fdec733cc456d41567a041d9cef91fa773bee9472d2e355c",
+        "verbatim_check": true,
+        "final_newline": true,
+        "evidence": "Exact cat stdout passed to image_gen; compared with fresh cat stdout after call; equal including final newline."
+      },
+      "input": {
+        "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/inputs/M7-input.png",
+        "width": 853,
+        "height": 1844,
+        "bytes": 2697064,
+        "sha256": "b3274a1d7d2172234bcbd5606e479a3f56f8f215da85d66e42938d69e6729932"
+      },
+      "returned_original": {
+        "path": "/home/kokoro/.codex/generated_images/01a0e793-e1ca-7551-881b-3030a7090b03/exec-dbddb499-6ce4-427b-8fbc-d5f0a6c587fb.png",
+        "width": 853,
+        "height": 1844,
+        "bytes": 2908772,
+        "sha256": "11b8faa95b41349ef23dc34d01fc12b3890f25c3b0a6586e24f332eb26651cc5"
+      },
+      "measure_drift": {
+        "input": {
+          "path": "assets/source/generated/adelva/revenue-brand-2026-09-28/inputs/M7-input.png",
+          "width": 853,
+          "height": 1844
+        },
+        "output": {
+          "path": "/home/kokoro/.codex/generated_images/01a0e793-e1ca-7551-881b-3030a7090b03/exec-dbddb499-6ce4-427b-8fbc-d5f0a6c587fb.png",
+          "width": 853,
+          "height": 1844
+        },
+        "sizeMatch": true,
+        "aspectMatch": true,
+        "global": {
+          "dx": 0,
+          "dy": 0,
+          "meanAbsDiff": 9.63
+        },
+        "cells": [
+          {
+            "cell": "r0c0",
+            "dx": 4,
+            "dy": 4,
+            "meanAbsDiff": 19.33
+          },
+          {
+            "cell": "r0c1",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 12.24
+          },
+          {
+            "cell": "r0c2",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 6.46
+          },
+          {
+            "cell": "r1c0",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 7.27
+          },
+          {
+            "cell": "r1c1",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 11.56
+          },
+          {
+            "cell": "r1c2",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 9.44
+          },
+          {
+            "cell": "r2c0",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 5.56
+          },
+          {
+            "cell": "r2c1",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 6.87
+          },
+          {
+            "cell": "r2c2",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 3.79
+          }
+        ],
+        "verdict": "PASS",
+        "serious": [],
+        "info": []
+      },
+      "visual_check": {
+        "status": "PASS",
+        "coordinate_system": "returned-original pixels, top-left origin",
+        "crops": [
+          {
+            "name": "top",
+            "path": "/tmp/IW4-resume-M7-1-noZcBitop.png",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 853,
+              "height": 614
+            },
+            "scale": 2,
+            "temporary_crop_removed_after_inspection": true
+          },
+          {
+            "name": "middle",
+            "path": "/tmp/IW4-resume-M7-1-noZcBimiddle.png",
+            "rect": {
+              "x": 0,
+              "y": 614,
+              "width": 853,
+              "height": 615
+            },
+            "scale": 2,
+            "temporary_crop_removed_after_inspection": true
+          },
+          {
+            "name": "bottom",
+            "path": "/tmp/IW4-resume-M7-1-noZcBibottom.png",
+            "rect": {
+              "x": 0,
+              "y": 1229,
+              "width": 853,
+              "height": 615
+            },
+            "scale": 2,
+            "temporary_crop_removed_after_inspection": true
+          },
+          {
+            "name": "text-progress",
+            "path": "/tmp/IW4-inspection/M7-text-progress.png",
+            "rect": {
+              "x": 35,
+              "y": 285,
+              "width": 420,
+              "height": 385
+            },
+            "scale": 2,
+            "temporary_crop_removed_after_inspection": true
+          },
+          {
+            "name": "step1",
+            "path": "/tmp/IW4-inspection/M7-step1.png",
+            "rect": {
+              "x": 400,
+              "y": 670,
+              "width": 360,
+              "height": 115
+            },
+            "scale": 2,
+            "temporary_crop_removed_after_inspection": true
+          },
+          {
+            "name": "step2",
+            "path": "/tmp/IW4-inspection/M7-step2.png",
+            "rect": {
+              "x": 260,
+              "y": 940,
+              "width": 420,
+              "height": 130
+            },
+            "scale": 2,
+            "temporary_crop_removed_after_inspection": true
+          },
+          {
+            "name": "step3",
+            "path": "/tmp/IW4-inspection/M7-step3.png",
+            "rect": {
+              "x": 145,
+              "y": 1230,
+              "width": 475,
+              "height": 125
+            },
+            "scale": 2,
+            "temporary_crop_removed_after_inspection": true
+          }
+        ],
+        "whole_original_resolution": true,
+        "all_crops_viewed_original": true,
+        "notes": "No leftover text, progress dashes, checks, labels, rings, leader lines, orange river lines or panels found; no smears/seams. River bends, terraces and drying racks preserved. Minor foliage, water and mist detail differences informational. Inspected whole original, all 2x thirds, text-progress and three dedicated step crops."
+      },
+      "defects": [],
+      "adopted": true,
+      "reason": "No serious defects; numeric PASS and original-resolution / 2x visual checks passed. Adopt first acceptable attempt.",
+      "global_drift_px": 0.0
+    },
+    {
+      "item_id": "M8",
+      "attempt": 1,
+      "at": "2026-09-28 19:43:21 Asia/Tokyo",
+      "tool": "image_gen__imagegen",
+      "prompt": {
+        "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/prompts/M8.txt",
+        "bytes": 2958,
+        "sha256": "d735abb7ed7bf287ee2c6394dd08673fdf7c4ecf4a797d496caf00da8e9ce935",
+        "verbatim_check": true,
+        "final_newline": true,
+        "evidence": "Exact cat stdout passed to image_gen; compared with fresh cat stdout after call; equal including final newline."
+      },
+      "input": {
+        "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/inputs/M8-input.png",
+        "width": 853,
+        "height": 1844,
+        "bytes": 2318303,
+        "sha256": "8f65d26bbe64a674c42b008d0b6f1a1faeb2de61b8b2e78689f7afbd28ea566c"
+      },
+      "returned_original": {
+        "path": "/home/kokoro/.codex/generated_images/01a0e793-e1ca-7551-881b-3030a7090b03/exec-8e4f7290-fd9b-4624-bb23-d25443977e29.png",
+        "width": 853,
+        "height": 1844,
+        "bytes": 2463275,
+        "sha256": "82b170d1e87796921e8552cdd2995e24076d1fe15e8f35515d6cafb51f793b40"
+      },
+      "measure_drift": {
+        "input": {
+          "path": "assets/source/generated/adelva/revenue-brand-2026-09-28/inputs/M8-input.png",
+          "width": 853,
+          "height": 1844
+        },
+        "output": {
+          "path": "/home/kokoro/.codex/generated_images/01a0e793-e1ca-7551-881b-3030a7090b03/exec-8e4f7290-fd9b-4624-bb23-d25443977e29.png",
+          "width": 853,
+          "height": 1844
+        },
+        "sizeMatch": true,
+        "aspectMatch": true,
+        "global": {
+          "dx": 0,
+          "dy": 0,
+          "meanAbsDiff": 7.22
+        },
+        "cells": [
+          {
+            "cell": "r0c0",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 4.82
+          },
+          {
+            "cell": "r0c1",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 11.78
+          },
+          {
+            "cell": "r0c2",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 6.18
+          },
+          {
+            "cell": "r1c0",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 11.14
+          },
+          {
+            "cell": "r1c1",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 12.97
+          },
+          {
+            "cell": "r1c2",
+            "dx": 0,
+            "dy": 0,
+            "meanAbsDiff": 6.56
+          },
+          {
+            "cell": "r2c0",
+            "dx": 0,
+            "dy": 4,
+            "meanAbsDiff": 2.71
+          },
+          {
+            "cell": "r2c1",
+            "dx": 0,
+            "dy": 4,
+            "meanAbsDiff": 2.52
+          },
+          {
+            "cell": "r2c2",
+            "dx": 0,
+            "dy": 4,
+            "meanAbsDiff": 2.72
+          }
+        ],
+        "verdict": "PASS",
+        "serious": [],
+        "info": []
+      },
+      "visual_check": {
+        "status": "PASS",
+        "coordinate_system": "returned-original pixels, top-left origin",
+        "crops": [
+          {
+            "name": "top",
+            "path": "/tmp/IW4-resume-M8-1-wmkweUtop.png",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 853,
+              "height": 614
+            },
+            "scale": 2,
+            "temporary_crop_removed_after_inspection": true
+          },
+          {
+            "name": "middle",
+            "path": "/tmp/IW4-resume-M8-1-wmkweUmiddle.png",
+            "rect": {
+              "x": 0,
+              "y": 614,
+              "width": 853,
+              "height": 615
+            },
+            "scale": 2,
+            "temporary_crop_removed_after_inspection": true
+          },
+          {
+            "name": "bottom",
+            "path": "/tmp/IW4-resume-M8-1-wmkweUbottom.png",
+            "rect": {
+              "x": 0,
+              "y": 1229,
+              "width": 853,
+              "height": 615
+            },
+            "scale": 2,
+            "temporary_crop_removed_after_inspection": true
+          },
+          {
+            "name": "step4",
+            "path": "/tmp/IW4-inspection/M8-step4.png",
+            "rect": {
+              "x": 250,
+              "y": 485,
+              "width": 335,
+              "height": 110
+            },
+            "scale": 2,
+            "temporary_crop_removed_after_inspection": true
+          },
+          {
+            "name": "step5",
+            "path": "/tmp/IW4-inspection/M8-step5.png",
+            "rect": {
+              "x": 495,
+              "y": 655,
+              "width": 265,
+              "height": 115
+            },
+            "scale": 2,
+            "temporary_crop_removed_after_inspection": true
+          },
+          {
+            "name": "step6",
+            "path": "/tmp/IW4-inspection/M8-step6.png",
+            "rect": {
+              "x": 105,
+              "y": 850,
+              "width": 370,
+              "height": 110
+            },
+            "scale": 2,
+            "temporary_crop_removed_after_inspection": true
+          },
+          {
+            "name": "shore-square",
+            "path": "/tmp/IW4-inspection/M8-shore-square.png",
+            "rect": {
+              "x": 365,
+              "y": 1020,
+              "width": 65,
+              "height": 70
+            },
+            "scale": 2,
+            "temporary_crop_removed_after_inspection": true
+          },
+          {
+            "name": "lake-link",
+            "path": "/tmp/IW4-inspection/M8-lake-link.png",
+            "rect": {
+              "x": 35,
+              "y": 1050,
+              "width": 270,
+              "height": 75
+            },
+            "scale": 2,
+            "temporary_crop_removed_after_inspection": true
+          },
+          {
+            "name": "ryokan-pier",
+            "path": "/tmp/IW4-inspection/M8-ryokan-pier.png",
+            "rect": {
+              "x": 410,
+              "y": 905,
+              "width": 443,
+              "height": 335
+            },
+            "scale": 2,
+            "temporary_crop_removed_after_inspection": true
+          }
+        ],
+        "whole_original_resolution": true,
+        "all_crops_viewed_original": true,
+        "notes": "No remaining UI, text, step labels, checks, leader lines, river lines, rings, shore square or lake-link underline/arrow; no smears, seams or horizontal bands. Ryokan windows and pier lanterns remain warm amber. Smooth blue-black bottom fade preserved. Existing tiny lake fleck near (402,936) is warmer/brighter; input/output 2x crop confirms pre-existing photographic fleck, not UI; informational. Small foliage/water/mist/brightness differences informational.",
+        "extra_comparison": {
+          "input_crop": "/tmp/IW4-inspection/M8-lake-detail-input.png",
+          "output_crop": "/tmp/IW4-inspection/M8-lake-detail-output.png",
+          "rect": {
+            "x": 370,
+            "y": 905,
+            "width": 80,
+            "height": 75
+          },
+          "scale": 2,
+          "viewed_original": true,
+          "temporary_crops_removed_after_inspection": true
+        },
+        "warm_windows_preserved": true,
+        "pier_lanterns_preserved": true,
+        "smooth_bottom_fade_no_band": true
+      },
+      "defects": [],
+      "adopted": true,
+      "reason": "No serious defects; numeric PASS and original-resolution / 2x visual checks passed. Adopt first acceptable attempt.",
+      "informational_observations": [
+        {
+          "description": "Pre-existing small lake fleck becomes warmer/brighter; comparison confirms a photographic speck at this position in the input, not a surviving UI mark.",
+          "approx_pixel_coordinates": {
+            "x": 402,
+            "y": 936
+          },
+          "severity": "informational"
+        }
+      ],
+      "global_drift_px": 0.0
+    }
+  ],
+  "saved_files": [
+    {
+      "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/raw/M5.png",
+      "width": 853,
+      "height": 1844,
+      "bytes": 2857750,
+      "sha256": "215dfc1d4d7f20f463ba179d6c5c04bf72bc0b78cd4b644cbffae162b4c9cff1",
+      "byte_for_byte_check": true
+    },
+    {
+      "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/raw/M6.png",
+      "width": 853,
+      "height": 1844,
+      "bytes": 2866489,
+      "sha256": "4bba88bff92605845dd6b368a2c2f8faab65c0b1d9fb66d22476ca27d5b8c95b",
+      "byte_for_byte_check": true
+    },
+    {
+      "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/raw/M7.png",
+      "width": 853,
+      "height": 1844,
+      "bytes": 2908772,
+      "sha256": "11b8faa95b41349ef23dc34d01fc12b3890f25c3b0a6586e24f332eb26651cc5",
+      "byte_for_byte_check": true
+    },
+    {
+      "path": "/home/kokoro/projects/clients/clonetest/assets/source/generated/adelva/revenue-brand-2026-09-28/raw/M8.png",
+      "width": 853,
+      "height": 1844,
+      "bytes": 2463275,
+      "sha256": "82b170d1e87796921e8552cdd2995e24076d1fe15e8f35515d6cafb51f793b40",
+      "byte_for_byte_check": true
+    }
+  ],
+  "updated_at": "2026-09-28T19:45:58.402904+09:00",
+  "status": "complete",
+  "final_verification": {
+    "saved_count": 4,
+    "all_saved_byte_identical": true,
+    "all_input_and_prompt_hashes_unchanged": true,
+    "all_numeric_checks": "PASS",
+    "all_global_drift_px": 0,
+    "all_dimensions": "853x1844",
+    "retries": 0,
+    "remaining_serious_defects": []
+  },
+  "temporary_inspection_cleanup": "Removed only temporary crops, drift JSON copies and helper created by this resumed task; original generated images, inputs, prompts and adopted assets retained."
+}

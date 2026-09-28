@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "label": "desktop-confluence",
+  "reference": "/home/kokoro/projects/clients/clonetest-rb/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/frames/desktop-confluence-reference.png",
+  "actual": "/home/kokoro/projects/clients/clonetest-rb/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/frames/desktop-confluence-actual.png",
+  "mapping": {
+    "referenceRaster": {
+      "width": 1440,
+      "height": 840
+    },
+    "implementationRaster": {
+      "width": 1440,
+      "height": 840
+    },
+    "referencePixelsPerCssPixel": {
+      "x": 1,
+      "y": 1
+    },
+    "aspectDelta": 0
+  },
+  "metrics": {
+    "mae": 0.074060184104506,
+    "rmse": 0.1450549286222759,
+    "diffRatio": 0.1790914351851852,
+    "edgeMae": 0.023320016358042397
+  },
+  "thresholds": {
+    "pixelThreshold": 0.1
+  },
+  "status": "MEASURED",
+  "failures": [],
+  "artifacts": {
+    "overlay": "/home/kokoro/projects/clients/clonetest-rb/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/desktop-confluence-overlay.png",
+    "difference": "/home/kokoro/projects/clients/clonetest-rb/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/desktop-confluence-difference.png",
+    "sideBySide": "/home/kokoro/projects/clients/clonetest-rb/docs/reports/adelva-revenue-brand-2026-09-28/fidelity/desktop-confluence-side-by-side.png"
+  }
+}

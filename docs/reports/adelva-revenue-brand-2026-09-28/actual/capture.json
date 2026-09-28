@@ -1,0 +1,1000 @@
+{
+  "base": "http://127.0.0.1:4395",
+  "route": "/services/revenue-brand",
+  "results": [
+    {
+      "name": "desktop",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "errors": [
+        "The resource http://127.0.0.1:4395/_next/static/chunks/37ac9dhvi5q_k.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.",
+        "The resource http://127.0.0.1:4395/_next/static/chunks/1_q6s57hojpms.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally."
+      ],
+      "title": "収益・ブランド成長 — ADELVA",
+      "scrollWidth": 1440,
+      "width": 1440,
+      "stageHeight": 8160,
+      "landmarks": [
+        {
+          "id": "h1",
+          "x": 58.171875,
+          "y": 445.760009765625,
+          "width": 821.796875,
+          "height": 115.1875
+        },
+        {
+          "id": "ch1",
+          "x": 422.796875,
+          "y": 1045.3599853515625,
+          "width": 594.40625,
+          "height": 78.390625
+        },
+        {
+          "id": "ch2",
+          "x": 215.1875,
+          "y": 2421.419921875,
+          "width": 1009.625,
+          "height": 114.796875
+        },
+        {
+          "id": "ch3",
+          "x": 966,
+          "y": 3965.60009765625,
+          "width": 358,
+          "height": 84
+        },
+        {
+          "id": "differences",
+          "x": 524,
+          "y": 4642.35986328125,
+          "width": 392,
+          "height": 78.390625
+        },
+        {
+          "id": "process",
+          "x": 540,
+          "y": 5770.60009765625,
+          "width": 360,
+          "height": 84
+        },
+        {
+          "id": "related",
+          "x": 67,
+          "y": 8270,
+          "width": 1306,
+          "height": 41
+        }
+      ],
+      "overflow": []
+    },
+    {
+      "name": "tablet",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "errors": [],
+      "title": "収益・ブランド成長 — ADELVA",
+      "scrollWidth": 768,
+      "width": 768,
+      "stageHeight": 11667.6875,
+      "landmarks": [
+        {
+          "id": "h1",
+          "x": 41.015625,
+          "y": 658.6062622070312,
+          "width": 344.5625,
+          "height": 145
+        },
+        {
+          "id": "ch1",
+          "x": 224.75,
+          "y": 2014.721923828125,
+          "width": 318.5,
+          "height": 42
+        },
+        {
+          "id": "ch2",
+          "x": 174.6875,
+          "y": 3932.262451171875,
+          "width": 418.625,
+          "height": 45.5
+        },
+        {
+          "id": "ch3",
+          "x": 43.3125,
+          "y": 5995.55322265625,
+          "width": 208,
+          "height": 49
+        },
+        {
+          "id": "differences",
+          "x": 279,
+          "y": 7439.9560546875,
+          "width": 210,
+          "height": 42
+        },
+        {
+          "id": "process",
+          "x": 51.1875,
+          "y": 8836.1435546875,
+          "width": 180,
+          "height": 42
+        },
+        {
+          "id": "related",
+          "x": 45.28125,
+          "y": 11664.6875,
+          "width": 677.4375,
+          "height": 22
+        }
+      ],
+      "overflow": []
+    },
+    {
+      "name": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "errors": [],
+      "title": "収益・ブランド成長 — ADELVA",
+      "scrollWidth": 390,
+      "width": 390,
+      "stageHeight": 5925,
+      "landmarks": [
+        {
+          "id": "h1",
+          "x": 20.171875,
+          "y": 331.260009765625,
+          "width": 273.25,
+          "height": 116
+        },
+        {
+          "id": "ch1",
+          "x": 67.6875,
+          "y": 1021.4400024414062,
+          "width": 254.625,
+          "height": 33.59368896484375
+        },
+        {
+          "id": "ch2",
+          "x": 30.046875,
+          "y": 1995.06005859375,
+          "width": 329.90625,
+          "height": 36.390625
+        },
+        {
+          "id": "ch3",
+          "x": 22,
+          "y": 3042.679931640625,
+          "width": 166,
+          "height": 39.1875
+        },
+        {
+          "id": "differences",
+          "x": 111,
+          "y": 3776.43994140625,
+          "width": 168,
+          "height": 33.59375
+        },
+        {
+          "id": "process",
+          "x": 26,
+          "y": 4485.43994140625,
+          "width": 144,
+          "height": 33.59375
+        },
+        {
+          "id": "related",
+          "x": 23,
+          "y": 5922,
+          "width": 344,
+          "height": 22
+        }
+      ],
+      "overflow": []
+    },
+    {
+      "name": "small",
+      "viewport": {
+        "width": 360,
+        "height": 780
+      },
+      "errors": [],
+      "title": "収益・ブランド成長 — ADELVA",
+      "scrollWidth": 360,
+      "width": 360,
+      "stageHeight": 5469.21875,
+      "landmarks": [
+        {
+          "id": "h1",
+          "x": 18.46875,
+          "y": 305.103759765625,
+          "width": 273.25,
+          "height": 116
+        },
+        {
+          "id": "ch1",
+          "x": 52.6875,
+          "y": 942.5025024414062,
+          "width": 254.625,
+          "height": 33.59375
+        },
+        {
+          "id": "ch2",
+          "x": 15.046875,
+          "y": 1841.20068359375,
+          "width": 329.90625,
+          "height": 36.390625
+        },
+        {
+          "id": "ch3",
+          "x": 20.296875,
+          "y": 2808.195556640625,
+          "width": 166,
+          "height": 39.1875
+        },
+        {
+          "id": "differences",
+          "x": 96,
+          "y": 3485.58056640625,
+          "width": 168,
+          "height": 33.59375
+        },
+        {
+          "id": "process",
+          "x": 24,
+          "y": 4140.04931640625,
+          "width": 144,
+          "height": 33.59375
+        },
+        {
+          "id": "related",
+          "x": 21.21875,
+          "y": 5466.21875,
+          "width": 317.5625,
+          "height": 22
+        }
+      ],
+      "overflow": []
+    },
+    {
+      "name": "boundary",
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "errors": [],
+      "title": "収益・ブランド成長 — ADELVA",
+      "scrollWidth": 1024,
+      "width": 1024,
+      "stageHeight": 5802.65625,
+      "landmarks": [
+        {
+          "id": "h1",
+          "x": 41.359375,
+          "y": 316.9824523925781,
+          "width": 582,
+          "height": 81.90625
+        },
+        {
+          "id": "ch1",
+          "x": 299.46875,
+          "y": 743.3556518554688,
+          "width": 425.0625,
+          "height": 55.75
+        },
+        {
+          "id": "ch2",
+          "x": 153.8984375,
+          "y": 1721.8740234375,
+          "width": 716.203125,
+          "height": 81.625
+        },
+        {
+          "id": "ch3",
+          "x": 686.921875,
+          "y": 2819.971435546875,
+          "width": 256,
+          "height": 59.734375
+        },
+        {
+          "id": "differences",
+          "x": 372,
+          "y": 3301.230712890625,
+          "width": 280,
+          "height": 55.75
+        },
+        {
+          "id": "process",
+          "x": 383,
+          "y": 4103.5341796875,
+          "width": 258,
+          "height": 59.734375
+        },
+        {
+          "id": "related",
+          "x": 47.640625,
+          "y": 5880.875,
+          "width": 928.71875,
+          "height": 29.140625
+        }
+      ],
+      "overflow": []
+    },
+    {
+      "name": "wide",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "errors": [
+        "The resource http://127.0.0.1:4395/_next/static/chunks/37ac9dhvi5q_k.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.",
+        "The resource http://127.0.0.1:4395/_next/static/chunks/1_q6s57hojpms.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally."
+      ],
+      "title": "収益・ブランド成長 — ADELVA",
+      "scrollWidth": 1920,
+      "width": 1920,
+      "stageHeight": 10880,
+      "landmarks": [
+        {
+          "id": "h1",
+          "x": 77.546875,
+          "y": 594.3362426757812,
+          "width": 1095.734375,
+          "height": 153.59375
+        },
+        {
+          "id": "ch1",
+          "x": 561.5625,
+          "y": 1393.8133544921875,
+          "width": 796.875,
+          "height": 104.53125
+        },
+        {
+          "id": "ch2",
+          "x": 287.7421875,
+          "y": 3228.5390625,
+          "width": 1344.515625,
+          "height": 153.046875
+        },
+        {
+          "id": "ch3",
+          "x": 1288,
+          "y": 5287.4560546875,
+          "width": 476,
+          "height": 112
+        },
+        {
+          "id": "differences",
+          "x": 697.5,
+          "y": 6189.8134765625,
+          "width": 525,
+          "height": 104.53125
+        },
+        {
+          "id": "process",
+          "x": 720,
+          "y": 7694.1279296875,
+          "width": 480,
+          "height": 112
+        },
+        {
+          "id": "related",
+          "x": 89.328125,
+          "y": 11026.65625,
+          "width": 1741.34375,
+          "height": 54.65625
+        }
+      ],
+      "overflow": []
+    },
+    {
+      "name": "zoom-equivalent",
+      "viewport": {
+        "width": 720,
+        "height": 450
+      },
+      "errors": [],
+      "title": "収益・ブランド成長 — ADELVA",
+      "scrollWidth": 720,
+      "width": 720,
+      "stageHeight": 10938.453125,
+      "landmarks": [
+        {
+          "id": "h1",
+          "x": 38.3125,
+          "y": 616.7625122070312,
+          "width": 344.5625,
+          "height": 145
+        },
+        {
+          "id": "ch1",
+          "x": 200.75,
+          "y": 1888.440673828125,
+          "width": 318.5,
+          "height": 42
+        },
+        {
+          "id": "ch2",
+          "x": 150.6875,
+          "y": 3686.121826171875,
+          "width": 418.625,
+          "height": 45.5
+        },
+        {
+          "id": "ch3",
+          "x": 40.609375,
+          "y": 5620.41259765625,
+          "width": 208,
+          "height": 49
+        },
+        {
+          "id": "differences",
+          "x": 255,
+          "y": 6974.5966796875,
+          "width": 210,
+          "height": 42
+        },
+        {
+          "id": "process",
+          "x": 48,
+          "y": 8283.5185546875,
+          "width": 180,
+          "height": 42
+        },
+        {
+          "id": "related",
+          "x": 42.453125,
+          "y": 10935.453125,
+          "width": 635.09375,
+          "height": 22
+        }
+      ],
+      "overflow": []
+    },
+    {
+      "name": "desktop",
+      "state": "hero",
+      "scrollY": 0,
+      "steps": [
+        {
+          "step": "1",
+          "state": "upcoming"
+        },
+        {
+          "step": "2",
+          "state": "upcoming"
+        },
+        {
+          "step": "3",
+          "state": "upcoming"
+        },
+        {
+          "step": "4",
+          "state": "upcoming"
+        },
+        {
+          "step": "5",
+          "state": "upcoming"
+        },
+        {
+          "step": "6",
+          "state": "upcoming"
+        }
+      ],
+      "counter": "00",
+      "lines": [
+        {
+          "visible": true,
+          "offset": "7178.46",
+          "length": 7178.4638671875
+        },
+        {
+          "visible": false,
+          "offset": "",
+          "length": 12866.6435546875
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "desktop",
+      "state": "ch1",
+      "scrollY": 730,
+      "steps": [
+        {
+          "step": "1",
+          "state": "upcoming"
+        },
+        {
+          "step": "2",
+          "state": "upcoming"
+        },
+        {
+          "step": "3",
+          "state": "upcoming"
+        },
+        {
+          "step": "4",
+          "state": "upcoming"
+        },
+        {
+          "step": "5",
+          "state": "upcoming"
+        },
+        {
+          "step": "6",
+          "state": "upcoming"
+        }
+      ],
+      "counter": "00",
+      "lines": [
+        {
+          "visible": true,
+          "offset": "7178.46",
+          "length": 7178.4638671875
+        },
+        {
+          "visible": false,
+          "offset": "",
+          "length": 12866.6435546875
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "desktop",
+      "state": "ch2",
+      "scrollY": 2106,
+      "steps": [
+        {
+          "step": "1",
+          "state": "upcoming"
+        },
+        {
+          "step": "2",
+          "state": "upcoming"
+        },
+        {
+          "step": "3",
+          "state": "upcoming"
+        },
+        {
+          "step": "4",
+          "state": "upcoming"
+        },
+        {
+          "step": "5",
+          "state": "upcoming"
+        },
+        {
+          "step": "6",
+          "state": "upcoming"
+        }
+      ],
+      "counter": "00",
+      "lines": [
+        {
+          "visible": true,
+          "offset": "5968.29",
+          "length": 7178.4638671875
+        },
+        {
+          "visible": false,
+          "offset": "",
+          "length": 12866.6435546875
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "desktop",
+      "state": "ch3",
+      "scrollY": 3651,
+      "steps": [
+        {
+          "step": "1",
+          "state": "upcoming"
+        },
+        {
+          "step": "2",
+          "state": "upcoming"
+        },
+        {
+          "step": "3",
+          "state": "upcoming"
+        },
+        {
+          "step": "4",
+          "state": "upcoming"
+        },
+        {
+          "step": "5",
+          "state": "upcoming"
+        },
+        {
+          "step": "6",
+          "state": "upcoming"
+        }
+      ],
+      "counter": "00",
+      "lines": [
+        {
+          "visible": true,
+          "offset": "4212.98",
+          "length": 7178.4638671875
+        },
+        {
+          "visible": false,
+          "offset": "",
+          "length": 12866.6435546875
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "desktop",
+      "state": "process-04",
+      "scrollY": 6080,
+      "steps": [
+        {
+          "step": "1",
+          "state": "reached"
+        },
+        {
+          "step": "2",
+          "state": "reached"
+        },
+        {
+          "step": "3",
+          "state": "reached"
+        },
+        {
+          "step": "4",
+          "state": "current"
+        },
+        {
+          "step": "5",
+          "state": "upcoming"
+        },
+        {
+          "step": "6",
+          "state": "upcoming"
+        }
+      ],
+      "counter": "04",
+      "lines": [
+        {
+          "visible": true,
+          "offset": "1260.81",
+          "length": 7178.4638671875
+        },
+        {
+          "visible": false,
+          "offset": "",
+          "length": 12866.6435546875
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "desktop",
+      "state": "end",
+      "scrollY": 7061,
+      "steps": [
+        {
+          "step": "1",
+          "state": "reached"
+        },
+        {
+          "step": "2",
+          "state": "reached"
+        },
+        {
+          "step": "3",
+          "state": "reached"
+        },
+        {
+          "step": "4",
+          "state": "reached"
+        },
+        {
+          "step": "5",
+          "state": "reached"
+        },
+        {
+          "step": "6",
+          "state": "current"
+        }
+      ],
+      "counter": "06",
+      "lines": [
+        {
+          "visible": true,
+          "offset": "1.875e-07",
+          "length": 7178.4638671875
+        },
+        {
+          "visible": false,
+          "offset": "",
+          "length": 12866.6435546875
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "mobile",
+      "state": "hero",
+      "scrollY": 0,
+      "steps": [
+        {
+          "step": "1",
+          "state": "upcoming"
+        },
+        {
+          "step": "2",
+          "state": "upcoming"
+        },
+        {
+          "step": "3",
+          "state": "upcoming"
+        },
+        {
+          "step": "4",
+          "state": "upcoming"
+        },
+        {
+          "step": "5",
+          "state": "upcoming"
+        },
+        {
+          "step": "6",
+          "state": "upcoming"
+        }
+      ],
+      "counter": "00",
+      "lines": [
+        {
+          "visible": false,
+          "offset": "",
+          "length": 7178.4638671875
+        },
+        {
+          "visible": true,
+          "offset": "12866.6",
+          "length": 12866.6435546875
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "mobile",
+      "state": "ch1",
+      "scrollY": 726,
+      "steps": [
+        {
+          "step": "1",
+          "state": "upcoming"
+        },
+        {
+          "step": "2",
+          "state": "upcoming"
+        },
+        {
+          "step": "3",
+          "state": "upcoming"
+        },
+        {
+          "step": "4",
+          "state": "upcoming"
+        },
+        {
+          "step": "5",
+          "state": "upcoming"
+        },
+        {
+          "step": "6",
+          "state": "upcoming"
+        }
+      ],
+      "counter": "00",
+      "lines": [
+        {
+          "visible": false,
+          "offset": "",
+          "length": 7178.4638671875
+        },
+        {
+          "visible": true,
+          "offset": "11461.1",
+          "length": 12866.6435546875
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "mobile",
+      "state": "ch2",
+      "scrollY": 1700,
+      "steps": [
+        {
+          "step": "1",
+          "state": "upcoming"
+        },
+        {
+          "step": "2",
+          "state": "upcoming"
+        },
+        {
+          "step": "3",
+          "state": "upcoming"
+        },
+        {
+          "step": "4",
+          "state": "upcoming"
+        },
+        {
+          "step": "5",
+          "state": "upcoming"
+        },
+        {
+          "step": "6",
+          "state": "upcoming"
+        }
+      ],
+      "counter": "00",
+      "lines": [
+        {
+          "visible": false,
+          "offset": "",
+          "length": 7178.4638671875
+        },
+        {
+          "visible": true,
+          "offset": "9105.68",
+          "length": 12866.6435546875
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "mobile",
+      "state": "ch3",
+      "scrollY": 2747,
+      "steps": [
+        {
+          "step": "1",
+          "state": "upcoming"
+        },
+        {
+          "step": "2",
+          "state": "upcoming"
+        },
+        {
+          "step": "3",
+          "state": "upcoming"
+        },
+        {
+          "step": "4",
+          "state": "upcoming"
+        },
+        {
+          "step": "5",
+          "state": "upcoming"
+        },
+        {
+          "step": "6",
+          "state": "upcoming"
+        }
+      ],
+      "counter": "00",
+      "lines": [
+        {
+          "visible": false,
+          "offset": "",
+          "length": 7178.4638671875
+        },
+        {
+          "visible": true,
+          "offset": "6450.35",
+          "length": 12866.6435546875
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "mobile",
+      "state": "process-04",
+      "scrollY": 4846,
+      "steps": [
+        {
+          "step": "1",
+          "state": "reached"
+        },
+        {
+          "step": "2",
+          "state": "reached"
+        },
+        {
+          "step": "3",
+          "state": "reached"
+        },
+        {
+          "step": "4",
+          "state": "current"
+        },
+        {
+          "step": "5",
+          "state": "upcoming"
+        },
+        {
+          "step": "6",
+          "state": "upcoming"
+        }
+      ],
+      "counter": "04",
+      "lines": [
+        {
+          "visible": false,
+          "offset": "",
+          "length": 7178.4638671875
+        },
+        {
+          "visible": true,
+          "offset": "634.724",
+          "length": 12866.6435546875
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "mobile",
+      "state": "end",
+      "scrollY": 5272,
+      "steps": [
+        {
+          "step": "1",
+          "state": "reached"
+        },
+        {
+          "step": "2",
+          "state": "reached"
+        },
+        {
+          "step": "3",
+          "state": "reached"
+        },
+        {
+          "step": "4",
+          "state": "reached"
+        },
+        {
+          "step": "5",
+          "state": "reached"
+        },
+        {
+          "step": "6",
+          "state": "current"
+        }
+      ],
+      "counter": "06",
+      "lines": [
+        {
+          "visible": false,
+          "offset": "",
+          "length": 7178.4638671875
+        },
+        {
+          "visible": true,
+          "offset": "0",
+          "length": 12866.6435546875
+        }
+      ],
+      "errors": []
+    }
+  ]
+}

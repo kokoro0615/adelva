@@ -575,3 +575,22 @@ passages, plus resting/hover animation on both audience links. Scope and invaria
 `docs/specs/adelva-home-content-motion-2026-09-10.md`. This supersedes White Desert
 copy/photo fidelity for these regions only. Source-derived content and original
 image_gen assets; no subagents, deployment or production mutation.
+
+## ADELVA revenue / brand growth — 2026-09-28
+
+User authorizes the adopted A4 ONE RIVER mocks (desktop and 390 mobile) for route
+`/services/revenue-brand`; mock copy is approved as adopted (2026-09-28), and
+commit, push and Vercel production release are authorized after all gates pass.
+Specification: `docs/specs/adelva-revenue-brand-spec.md` (image-to-code Mode C).
+Roles: Opus 5.5 wrote the specification, the implementation brief and every image
+prompt, reviewed and fixed the result; Codex `gpt-6-astra` (reasoning high)
+generated the text-free plates with built-in image_gen and implemented the page
+in the isolated worktree `clonetest-rb` (branch `feat/revenue-brand`), because
+another session was implementing `/services/dx-it-procurement` in this tree.
+Invariants: shared `SiteHeader`, `HomeFooter`, `ScrollProvider`, navigation routes,
+approved shared copy and the contact destination are unchanged; shared files only
+gain this route's lines. All text, controls, lines and states are HTML/CSS/SVG;
+images carry photography only. Plates are fictional generated imagery edited from
+the adopted mock slices; geometry is derived from the mock's line ink and the
+plates. Evidence, gate results, deviations and reference deltas:
+`docs/reports/adelva-revenue-brand-2026-09-28/README.md`.
