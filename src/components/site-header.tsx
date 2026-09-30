@@ -625,7 +625,9 @@ export function SiteHeader() {
         data-surface={
           pathname === "/about"
             ? "paper"
-            : pathname.startsWith("/contact")
+            : pathname.startsWith("/contact") ||
+                pathname === "/approach" ||
+                pathname.startsWith("/services/")
               ? "glass"
               : undefined
         }

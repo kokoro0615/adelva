@@ -185,7 +185,10 @@ export function ManagementOperationsMotion({ children }: { children: ReactNode }
           element.dataset.motion = "on";
           const cleanups: Array<() => void> = [];
 
-          /* Hero: the floors light from the top, 80ms apart, 600ms each. */
+          /* Hero: the floors light from the top, 80ms apart, 600ms each. On
+             phones the building is a descent almost two screens tall, so each
+             floor lights as the reader reaches it instead of before the first
+             scroll, when most of them are still below the fold. */
           const veils = [
             ...element.querySelectorAll<SVGElement>(
               desktop || tablet
@@ -193,18 +196,20 @@ export function ManagementOperationsMotion({ children }: { children: ReactNode }
                 : "svg:not([data-map-overlay]) [data-floor-veil]",
             ),
           ];
-          gsap.fromTo(
-            veils,
-            { opacity: 0.72 },
-            {
-              opacity: 0,
-              duration: 0.6,
-              stagger: 0.08,
-              ease: reveal,
-              delay: 0.1,
-              clearProps: "opacity",
-            },
-          );
+          if (desktop || tablet)
+            gsap.fromTo(
+              veils,
+              { opacity: 0.72 },
+              {
+                opacity: 0,
+                duration: 0.6,
+                stagger: 0.08,
+                ease: reveal,
+                delay: 0.1,
+                clearProps: "opacity",
+              },
+            );
+          else cleanups.push(mobileFloors(element, veils, reveal));
 
           /* The process heading: one character after another, once. */
           const title = element.querySelector<HTMLElement>("[data-process-title]");
@@ -251,7 +256,15 @@ export function ManagementOperationsMotion({ children }: { children: ReactNode }
                 "[data-line], [data-floor-veil], [data-heading-rule], [data-heading-node], [data-photo], [data-process-title] span",
               )
               .forEach((target) =>
-                gsap.getTweensOf(target).forEach((tween) => tween.progress(1)),
+                gsap.getTweensOf(target).forEach((tween) => {
+                  // Finish the whole timeline a tween belongs to, so a scroll
+                  // trigger that fires later does not replay it from the start.
+                  const owner =
+                    tween.parent && tween.parent !== gsap.globalTimeline
+                      ? tween.parent
+                      : tween;
+                  owner.progress(1);
+                }),
               );
           };
           element.addEventListener("focusin", finish);
@@ -561,27 +574,95 @@ function desktopProcess(element: HTMLElement) {
   };
 }
 
-/** Mobile/tablet: chapter photographs open from the top, once. */
+/**
+ * Phone hero: each floor's lights come on as the reader descends to it — the
+ * veil lifts and a warm flash settles into a low glow. Floors already on screen
+ * at load light in sequence from the top, as they do on desktop.
+ */
+function mobileFloors(
+  element: HTMLElement,
+  veils: SVGElement[],
+  reveal: gsap.EaseFunction,
+) {
+  const glows = [...element.querySelectorAll<SVGElement>("[data-floor-glow]")];
+  const loadedAt = performance.now();
+  let queued = 0;
+  gsap.set(veils, { opacity: 0.78 });
+  const triggers = veils.map((veil, index) =>
+    ScrollTrigger.create({
+      trigger: veil,
+      start: "center 82%",
+      once: true,
+      onEnter: () => {
+        const delay = performance.now() - loadedAt < 400 ? 0.15 + 0.12 * queued++ : 0;
+        gsap.to(veil, {
+          opacity: 0,
+          duration: 0.7,
+          delay,
+          ease: reveal,
+          clearProps: "opacity",
+        });
+        const glow = glows[index];
+        if (glow)
+          gsap
+            .timeline({ delay })
+            .fromTo(
+              glow,
+              { opacity: 0 },
+              { opacity: 0.95, duration: 0.3, ease: "power2.out" },
+            )
+            .to(glow, { opacity: 0.28, duration: 1.6, ease: "power2.inOut" });
+      },
+    }),
+  );
+  return () => {
+    triggers.forEach((trigger) => trigger.kill());
+    gsap.killTweensOf([...veils, ...glows]);
+    gsap.set([...veils, ...glows], { clearProps: "opacity" });
+  };
+}
+
+/**
+ * Mobile/tablet: chapter photographs open from the top, once, while the room
+ * inside settles from a slight push-in, so the wipe reads as a door opening
+ * onto the space rather than a flat card appearing.
+ */
 function mobileChapters(element: HTMLElement, wipe: gsap.EaseFunction) {
   const photos = [
     ...element.querySelectorAll<HTMLElement>(
       "[data-chapters] [data-photo], [data-carousel]",
     ),
   ];
-  const tweens = photos.map((photo) =>
-    gsap.fromTo(
+  const timelines = photos.map((photo) => {
+    const image = photo.matches("[data-photo]") ? photo.querySelector("img") : null;
+    const timeline = gsap.timeline({
+      scrollTrigger: { trigger: photo, start: "top 88%", once: true },
+      onComplete: () => {
+        gsap.set(photo, { clearProps: "clipPath" });
+        if (image) gsap.set(image, { clearProps: "transform" });
+      },
+    });
+    timeline.fromTo(
       photo,
       { clipPath: "inset(0% 0% 100% 0%)" },
-      {
-        clipPath: "inset(0% 0% 0% 0%)",
-        duration: 0.56,
-        ease: wipe,
-        clearProps: "clipPath",
-        scrollTrigger: { trigger: photo, start: "top 88%", once: true },
-      },
-    ),
-  );
-  return () => tweens.forEach((tween) => tween.scrollTrigger?.kill());
+      { clipPath: "inset(0% 0% 0% 0%)", duration: 0.56, ease: wipe },
+      0,
+    );
+    // The clip stays at inset(0) until the image has settled, so it never overflows.
+    if (image)
+      timeline.fromTo(
+        image,
+        { scale: 1.14, transformOrigin: "50% 40%" },
+        { scale: 1, duration: 1.3, ease: "expo.out" },
+        0,
+      );
+    return timeline;
+  });
+  return () =>
+    timelines.forEach((timeline) => {
+      timeline.scrollTrigger?.kill();
+      timeline.kill();
+    });
 }
 
 /** Mobile/tablet process: the landing past the viewport centre is current. */
@@ -618,15 +699,17 @@ function mobileProcess(element: HTMLElement) {
     current = next;
     setStates(plate, "li[data-step]", next, "data-step");
     setStates(plate, "[data-landings='mobile'] [data-landing]", next, "data-landing");
-    gsap.to(ride, {
-      y: landings[next],
-      duration: DURATION.state,
-      ease: "power2.out",
-      overwrite: "auto",
-      onUpdate: apply,
-    });
   };
   setCurrent(0);
+  /* The cabin rides with the reader: it follows the reading line (the viewport
+     centre) between the first and the last landing with a short physical lag,
+     and the lit shaft grows behind it. Stepping 300ms from landing to landing
+     only once a landing had passed read as a static diagram on phones. */
+  const follow = gsap.quickTo(ride, "y", {
+    duration: 0.5,
+    ease: "power3.out",
+    onUpdate: apply,
+  });
   const tracker = ScrollTrigger.create({
     trigger: stage,
     start: "top bottom",
@@ -640,6 +723,7 @@ function mobileProcess(element: HTMLElement) {
         if (plateY >= y) passed = index;
       });
       setCurrent(passed);
+      follow(gsap.utils.clamp(landings[0], landings[landings.length - 1], plateY));
     },
     onRefresh: apply,
   });

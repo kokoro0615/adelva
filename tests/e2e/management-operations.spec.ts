@@ -213,6 +213,58 @@ test.describe("mobile interactions", () => {
   });
 });
 
+test.describe("mobile motion", () => {
+  test.use({
+    viewport: { width: 390, height: 844 },
+    contextOptions: { reducedMotion: "no-preference" },
+  });
+
+  test("floors light as the reader descends and the cabin rides the reading line", async ({
+    page,
+  }) => {
+    const errors: string[] = [];
+    page.on("pageerror", (e) => errors.push(e.message));
+    await open(page);
+    await expect(page.locator("[data-motion='ready']")).toHaveCount(1);
+    const veils = page.locator("svg:not([data-map-overlay]) [data-floor-veil]");
+    await expect(veils).toHaveCount(6);
+    const opacityOf = (index: number) =>
+      veils.nth(index).evaluate((n) => Number(getComputedStyle(n).opacity));
+    await page.waitForTimeout(1500);
+    // The lowest floor is still below the fold: its lights are not on yet.
+    expect(await opacityOf(5)).toBeGreaterThan(0.5);
+    for (let y = 0; y <= 1400; y += 200) {
+      await page.evaluate((top) => window.scrollTo({ top, behavior: "instant" }), y);
+      await page.waitForTimeout(60);
+    }
+    for (let index = 0; index < 6; index++)
+      await expect.poll(() => opacityOf(index)).toBeLessThan(0.05);
+
+    // Reading line halfway between landing 02 and 03 (plate px 1208 / 1523).
+    const target = await page.evaluate(() => {
+      const stage = document.querySelector<HTMLElement>("[data-process] [data-stage]")!;
+      const box = stage.getBoundingClientRect();
+      return Math.round(
+        box.top + scrollY + ((1208 + 1523) / 2) * (box.width / 853) - innerHeight / 2,
+      );
+    });
+    await page.evaluate((top) => window.scrollTo({ top, behavior: "instant" }), target);
+    const cabinPlateY = () =>
+      page.locator("[data-mobile-cabin]").evaluate((cabin) => {
+        const stage = cabin.closest<HTMLElement>("[data-stage]")!;
+        const ty = new DOMMatrix(getComputedStyle(cabin).transform).m42;
+        return ty / (stage.clientWidth / 853) + 171.5;
+      });
+    await expect.poll(cabinPlateY).toBeGreaterThan(1300);
+    expect(await cabinPlateY()).toBeLessThan(1430);
+    await expect(page.locator("[data-process] li[data-step='2']")).toHaveAttribute(
+      "data-state",
+      "current",
+    );
+    expect(errors).toEqual([]);
+  });
+});
+
 test.describe("desktop pinned process", () => {
   test.use({
     viewport: { width: 1440, height: 960 },

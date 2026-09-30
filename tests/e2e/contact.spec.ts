@@ -234,6 +234,60 @@ test("motion-enabled scroll through the page logs no errors", async ({ browser }
   }
 });
 
+test("touch screens scroll freely; only a fine pointer gets question snapping", async ({
+  browser,
+}) => {
+  for (const [touch, expected] of [
+    [true, /^$/],
+    // Browsers serialise the default strictness away ("y proximity" -> "y").
+    [false, /^y( proximity)?$/],
+  ] as const) {
+    const context = await browser.newContext({
+      viewport: { width: 390, height: 844 },
+      hasTouch: touch,
+      isMobile: touch,
+      reducedMotion: "no-preference",
+    });
+    const page = await context.newPage();
+    await page.goto("/contact");
+    await page.waitForLoadState("networkidle");
+    await expect
+      .poll(() => page.evaluate(() => document.documentElement.style.scrollSnapType))
+      .toMatch(expected);
+    if (touch) {
+      // A slow drag that stops near 02 stays where the reader left it.
+      const cdp = await context.newCDPSession(page);
+      const drag = async (distance: number) => {
+        await cdp.send("Input.dispatchTouchEvent", {
+          type: "touchStart",
+          touchPoints: [{ x: 200, y: 760 }],
+        });
+        for (let step = 1; step <= 8; step++) {
+          await cdp.send("Input.dispatchTouchEvent", {
+            type: "touchMove",
+            touchPoints: [{ x: 200, y: 760 - (distance * step) / 8 }],
+          });
+          await page.waitForTimeout(16);
+        }
+        await page.waitForTimeout(120);
+        await cdp.send("Input.dispatchTouchEvent", {
+          type: "touchEnd",
+          touchPoints: [],
+        });
+        await page.waitForTimeout(600);
+      };
+      const positions: number[] = [];
+      for (let i = 0; i < 10; i++) {
+        await drag(150);
+        positions.push(await page.evaluate(() => Math.round(scrollY)));
+      }
+      for (let i = 1; i < positions.length; i++)
+        expect(positions[i]).toBeGreaterThan(positions[i - 1]!);
+    }
+    await context.close();
+  }
+});
+
 test("progress labels and anchors reach each question", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await open(page);

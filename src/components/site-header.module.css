@@ -1814,12 +1814,35 @@
   color: inherit;
 }
 
-/* /contact on phones and tablets: once the page scrolls under the bar it turns
-   to smoked glass, so the sticky progress below it reads as one strip. */
+/* Dark photo pages (/approach, /services/*, /contact) on phones and tablets:
+   once the page scrolls under the bar it turns to smoked glass. With only the
+   feathered veil, headings, cards and the orange CTA slid visibly underneath
+   the logo and the menu button on every screen; the glass gives the bar its
+   own edge, and on /contact the sticky progress below it reads as one strip.
+   The veil steps aside so two backdrop filters never nest. */
 @media (max-width: 63.999rem) {
+  .header[data-surface="glass"] .bar {
+    transition:
+      height var(--dur-state) var(--ease-state),
+      color var(--nav-open) var(--ease-panel),
+      text-shadow var(--nav-open) var(--ease-panel),
+      background-color var(--dur-state) var(--ease-state),
+      box-shadow var(--dur-state) var(--ease-state);
+  }
   .header[data-surface="glass"][data-compact="true"]:not([data-menu-open="true"]) .bar {
-    background-color: rgb(12 15 21 / 55%);
-    -webkit-backdrop-filter: blur(14px);
-    backdrop-filter: blur(14px);
+    background-color: rgb(12 15 21 / 62%);
+    -webkit-backdrop-filter: blur(14px) saturate(1.15);
+    backdrop-filter: blur(14px) saturate(1.15);
+    box-shadow: 0 1px 0 0 oklch(1 0 0 / 10%);
+  }
+  .header[data-surface="glass"][data-compact="true"]:not([data-menu-open="true"])
+    .veil {
+    opacity: 0;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    transition:
+      opacity var(--dur-state) var(--ease-state),
+      -webkit-backdrop-filter 0s linear var(--dur-state),
+      backdrop-filter 0s linear var(--dur-state);
   }
 }

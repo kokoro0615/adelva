@@ -450,13 +450,23 @@ export function ContactExperience({
     return () => observer.disconnect();
   }, []);
 
-  // Gentle proximity snapping to the questions, only when motion is welcome.
+  /* Gentle proximity snapping to the questions, only when motion is welcome and
+     only for a mouse or trackpad. On touch screens the question cards are
+     nearly a screen tall, so a slow drag that stopped anywhere near 02 or 03
+     was pulled back to it (measured: a 150px drag at 390×844 returned to the
+     same offset every time) and the form could not be read past 02. */
   useEffect(() => {
-    if (!prefersMotion()) return;
+    const query = window.matchMedia("(hover: hover) and (pointer: fine)");
     const root = document.documentElement;
     const previous = root.style.scrollSnapType;
-    root.style.scrollSnapType = "y proximity";
+    const sync = () => {
+      root.style.scrollSnapType =
+        query.matches && prefersMotion() ? "y proximity" : previous;
+    };
+    sync();
+    query.addEventListener("change", sync);
     return () => {
+      query.removeEventListener("change", sync);
       root.style.scrollSnapType = previous;
     };
   }, []);

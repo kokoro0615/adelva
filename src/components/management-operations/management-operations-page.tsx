@@ -232,16 +232,33 @@ function MobileFloorOverlay() {
       aria-hidden="true"
       focusable="false"
     >
+      <defs>
+        <radialGradient id="mo-room-glow-m">
+          <stop offset="0" stopColor="#ffd9a3" stopOpacity="0.6" />
+          <stop offset="1" stopColor="#ffb566" stopOpacity="0" />
+        </radialGradient>
+      </defs>
       {floorOrder.map((floor) => (
-        <rect
-          key={floor}
-          className={styles.floorVeil}
-          x={340}
-          y={mobileFloorsPx[floor][0]}
-          width={513}
-          height={mobileFloorsPx[floor][1] - mobileFloorsPx[floor][0]}
-          data-floor-veil
-        />
+        <g key={floor}>
+          <rect
+            className={styles.floorVeil}
+            x={340}
+            y={mobileFloorsPx[floor][0]}
+            width={513}
+            height={mobileFloorsPx[floor][1] - mobileFloorsPx[floor][0]}
+            data-floor-veil
+          />
+          {/* The warm flash a floor gives as its lights come on (motion only). */}
+          <ellipse
+            className={`${styles.floorGlow} ${styles.mobileGlow}`}
+            cx={596}
+            cy={(mobileFloorsPx[floor][0] + mobileFloorsPx[floor][1]) / 2}
+            rx={300}
+            ry={(mobileFloorsPx[floor][1] - mobileFloorsPx[floor][0]) / 1.4}
+            fill="url(#mo-room-glow-m)"
+            data-floor-glow
+          />
+        </g>
       ))}
     </svg>
   );

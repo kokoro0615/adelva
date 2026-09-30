@@ -159,6 +159,18 @@
   mix-blend-mode: screen;
   transition: opacity 180ms ease;
 }
+/* Painted only while scripted motion runs, so static renders stay identical. */
+.mobileGlow {
+  display: none;
+  transition: none;
+}
+[data-motion] .mobileGlow {
+  display: inline;
+}
+/* The phone floors are tweened directly; a CSS transition would trail them. */
+.mobileFloors .floorVeil {
+  transition: none;
+}
 [data-floor][data-dim="true"] .floorVeil {
   opacity: 0.6;
 }

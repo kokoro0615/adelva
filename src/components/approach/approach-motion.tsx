@@ -468,9 +468,11 @@ export function ApproachMotion({ children }: { children: ReactNode }) {
             ScrollTrigger.removeEventListener("refreshInit", onRefreshInit),
           );
 
-          // Address-bar resizes on touch devices must not re-measure the pinned dive.
+          /* Address-bar resizes on touch devices must not re-measure the pinned
+             dive. This is also GSAP's own touch default, so it is never switched
+             back off on cleanup: doing that left every page visited after this
+             one re-measuring its pins whenever the iOS toolbar collapsed. */
           ScrollTrigger.config({ ignoreMobileResize: true });
-          cleanups.push(() => ScrollTrigger.config({ ignoreMobileResize: false }));
 
           measure();
 

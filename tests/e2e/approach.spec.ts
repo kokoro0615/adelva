@@ -177,6 +177,31 @@ for (const viewport of viewports) {
   });
 }
 
+test.describe("phone header", () => {
+  test.use({ viewport: { width: 390, height: 844 } });
+
+  test("turns to smoked glass once the page scrolls under it", async ({ page }) => {
+    for (const path of [route, "/services/revenue-brand"]) {
+      await page.goto(path);
+      await expect(page.locator("header[data-surface='glass']")).toHaveCount(1);
+      // The bar is the menu button's own row.
+      const bar = page.getByRole("button", { name: "メニューを開く" }).locator("..");
+      const alpha = () =>
+        bar.evaluate((n) => {
+          const match = getComputedStyle(n).backgroundColor.match(/[\d.]+/g) ?? [];
+          return match.length === 4 ? Number(match[3]) : match.length ? 1 : 0;
+        });
+      expect(await alpha()).toBe(0);
+      await page.evaluate(() => window.scrollTo({ top: 600, behavior: "instant" }));
+      await expect(page.locator("header[data-compact='true']")).toHaveCount(1);
+      await expect.poll(alpha).toBeGreaterThan(0.5);
+      expect(await bar.evaluate((n) => getComputedStyle(n).backdropFilter)).toContain(
+        "blur",
+      );
+    }
+  });
+});
+
 test.describe("keyboard", () => {
   test.use({ viewport: { width: 1440, height: 900 } });
 

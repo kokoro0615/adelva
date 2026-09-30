@@ -19,10 +19,24 @@ void main() {
 const FRONT_FROM = -0.15;
 const FRONT_TO = 1.1;
 
+/*
+ * Precision: the noise hashes lattice points in the thousands (texture pixels
+ * scaled up to 2.03^4 per octave). Phone GPUs run `mediump` as 16-bit floats,
+ * whose range ends at 65504, so the hash overflowed to Inf/NaN and Safari on
+ * iOS drew the whole front black. `highp` is available in every iOS fragment
+ * shader and matches what desktop GPUs already did; the rare device without it
+ * wraps the lattice so the hash stays finite.
+ */
 const FRAGMENT = `
 #define FRONT_FROM ${FRONT_FROM.toFixed(3)}
 #define FRONT_TO ${FRONT_TO.toFixed(3)}
+#ifdef GL_FRAGMENT_PRECISION_HIGH
+precision highp float;
+#define LATTICE(p) (p)
+#else
 precision mediump float;
+#define LATTICE(p) mod(p, 256.0)
+#endif
 uniform sampler2D uBefore;
 uniform sampler2D uAfter;
 uniform float uFront;
@@ -32,7 +46,7 @@ uniform vec2 uTexel;    // texture size in px
 varying vec2 vUv;
 
 float hash(vec2 p) {
-  p = fract(p * vec2(123.34, 456.21));
+  p = fract(LATTICE(p) * vec2(123.34, 456.21));
   p += dot(p, p + 45.32);
   return fract(p.x * p.y);
 }
@@ -114,7 +128,9 @@ export class FrontRenderer {
       depth: false,
       stencil: false,
       premultipliedAlpha: false,
-      preserveDrawingBuffer: false,
+      // Frames are drawn only on demand. WebKit can recomposite a canvas whose
+      // buffer was not preserved as black between draws; one quad is cheap to keep.
+      preserveDrawingBuffer: true,
       powerPreference: "low-power",
     });
     if (!gl) return null;

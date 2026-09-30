@@ -136,6 +136,8 @@ for (const [width, height] of [
     test("holds the domains while the front runs, then hands over and rewinds", async ({
       page,
     }) => {
+      // Four settled scroll stops plus a full-page walk: 28–37s before any change.
+      test.setTimeout(90000);
       const errors: string[] = [];
       page.on("pageerror", (e) => errors.push(e.message));
       page.on("console", (m) => {
