@@ -36,7 +36,7 @@
     "fidelity:adelva-about": "node scripts/morght/verify-adelva.mjs",
     "test:adelva-about": "playwright test --config playwright.morght.config.ts",
     "test:revision": "playwright test --config playwright.revision.config.ts",
-    "fidelity:contact": "node scripts/contact/verify.mjs"
+    "fidelity:contact": "node scripts/adelva/capture-contact.mjs && node scripts/adelva/compare-contact.mjs"
   },
   "dependencies": {
     "@gsap/react": "2.1.2",

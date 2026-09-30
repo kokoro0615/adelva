@@ -378,13 +378,80 @@
  * without scripts or with reduced motion they stay invisible and the
  * completed line tells the same story.
  */
-.head {
+/* Moving layers of the river (see river-lines.tsx). A window clips a
+   stage-sized layer; moving the window and counter-moving its content by the
+   same amount slides the clip edge without repainting anything. */
+.river {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+.window,
+.windowContent {
+  position: absolute;
+  inset: 0;
+}
+.window {
+  overflow: hidden;
+}
+.tailWindow {
   opacity: 0;
+}
+/* Ignitions and chapter draws repaint their own layers, never the photo. */
+.page[data-motion="on"] :is(.window, .windowContent, .flowLayer, .river > svg) {
+  will-change: transform;
+}
+.head {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.head > span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  translate: -50% -50%;
+  background: radial-gradient(
+    closest-side,
+    #fffaf2,
+    rgb(255 217 173 / 85%) 16%,
+    rgb(255 154 69 / 32%) 42%,
+    rgb(255 126 21 / 0%)
+  );
+}
+.headGlow {
+  width: calc(108 * var(--s));
+  will-change: transform;
+}
+.headHalo {
+  width: calc(32 * var(--s));
+}
+.head > .headCore {
+  width: calc(9.2 * var(--s));
+  background: #fffaf2;
+}
+@media (min-width: 1024px) {
+  .headGlow {
+    width: calc(108 * var(--u));
+  }
+  .headHalo {
+    width: calc(32 * var(--u));
+  }
+  .head > .headCore {
+    width: calc(9.2 * var(--u));
+  }
 }
 .tail,
 .flow {
   fill: none;
   stroke-linecap: round;
+}
+.flow {
   opacity: 0;
 }
 .tail0 {
@@ -422,8 +489,22 @@
 /* Out of the render tree unless motion runs, so the reduced-motion and
    no-JS page renders exactly as before (even invisible strokes widen the
    SVG's paint bounds and change how the text above is composited). */
-.page:not([data-motion="on"]) :is(.tail, .flow, .burst) {
+.page:not([data-motion="on"]) :is(.tailWindow, .flowLayer, .burst, .head) {
   display: none;
+}
+/* Below 1024 the per-frame current is the one layer that still repaints. */
+@media (max-width: 1023px) {
+  .flowLayer {
+    display: none;
+  }
+}
+/* On a phone the 13 and 14 titles sit close above their brackets: the stem
+   only bridges the gap and never runs into the lettering. */
+@media (max-width: 599px) {
+  .bracketTags::after {
+    top: -14px;
+    height: 4px;
+  }
 }
 .lantern {
   position: absolute;
@@ -623,6 +704,16 @@
   .tags li {
     background: rgb(8 12 18 / 55%);
     backdrop-filter: blur(4px);
+  }
+}
+/* Below 1024 chips keep the solid backing: forty backdrop blurs over the
+   moving lantern would be recomposited on every scrolled frame. */
+@media (max-width: 1023px) {
+  .chip,
+  .chipButton > span,
+  .tags li {
+    background: rgb(8 12 18 / 70%);
+    backdrop-filter: none;
   }
 }
 .placedChip {
@@ -850,6 +941,9 @@
 .differenceDescription {
   max-width: calc(245 * var(--s));
   white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
 }
 .boundaryNote {
   display: flex;
@@ -1115,10 +1209,8 @@
   translate: -50% 0;
   z-index: 6;
   pointer-events: none;
-  transition:
-    width 300ms var(--ease-panel),
-    height 300ms var(--ease-panel),
-    opacity 300ms var(--ease-state);
+  transition: opacity 300ms var(--ease-state);
+  animation: rb-rail-in-hero 300ms var(--ease-panel) both;
 }
 .mobileRail svg {
   width: 100%;
@@ -1147,6 +1239,19 @@
   height: 40svh;
   width: 8px;
   translate: -4px 0;
+  /* It changes place without travelling: it fades in at the edge. */
+  animation-name: rb-rail-in-edge;
+}
+@keyframes rb-rail-in-hero {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes rb-rail-in-edge {
+  from {
+    opacity: 0;
+    transform: translateX(6px);
+  }
 }
 .page[data-rail-hidden="true"] :is(.rail, .mobileRail) {
   opacity: 0;

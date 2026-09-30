@@ -196,8 +196,9 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
       const branchPaths = new Map<string, string>();
       for (const svg of all<SVGSVGElement>("[data-river]")) {
         const mode = svg.dataset.river!;
+        const layer = svg.closest<HTMLElement>("[data-river-layer]")!;
         for (const node of svg.querySelectorAll<SVGGElement>("[data-branch-node]")) {
-          const branch = svg.querySelector<SVGPathElement>(
+          const branch = layer.querySelector<SVGPathElement>(
             `[data-tributary="${node.dataset.branchSide}"]`,
           )!;
           const dot = node.querySelector<SVGCircleElement>("circle")!;
@@ -362,18 +363,30 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
           const svg = el.querySelector<SVGSVGElement>(`[data-river="${mode}"]`)!;
           if (!motion) return;
           el.dataset.motion = "on";
-          const path = svg.querySelector<SVGPathElement>('[data-main-line="core"]')!;
-          const lines = Array.from(
-            svg.querySelectorAll<SVGPathElement>("[data-main-line]"),
-          );
-          const clip = svg.querySelector<SVGRectElement>("[data-dotted-clip]")!;
-          const head = svg.querySelector<SVGGElement>("[data-head]")!;
-          const headGlow = head.querySelector<SVGCircleElement>("[data-head-glow]")!;
-          const headGlowR = headGlow.r.baseVal.value;
-          const tails = Array.from(
-            svg.querySelectorAll<SVGPathElement>("[data-tail]"),
-          ).sort((a, b) => Number(a.dataset.tail) - Number(b.dataset.tail));
-          const flow = svg.querySelector<SVGPathElement>("[data-flow]")!;
+          const layer = svg.closest<HTMLElement>("[data-river-layer]")!;
+          const path = layer.querySelector<SVGPathElement>('[data-main-line="core"]')!;
+          /* Moving layers: only their transforms and opacity change per frame. */
+          const revealWindow = layer.querySelector<HTMLElement>("[data-reveal]")!;
+          const revealContent = layer.querySelector<HTMLElement>(
+            "[data-reveal-content]",
+          )!;
+          const head = layer.querySelector<HTMLElement>("[data-head]")!;
+          const headGlow = head.querySelector<HTMLElement>("[data-head-glow]")!;
+          const tails = Array.from(layer.querySelectorAll<HTMLElement>("[data-tail]"))
+            .sort((a, b) => Number(a.dataset.tail) - Number(b.dataset.tail))
+            .map((window) => ({
+              window,
+              clip: window.querySelector<HTMLElement>("[data-tail-clip]")!,
+              content: window.querySelector<HTMLElement>("[data-tail-content]")!,
+            }));
+          const moving = [
+            revealWindow,
+            revealContent,
+            head,
+            headGlow,
+            ...tails.flatMap((t) => [t.window, t.clip, t.content]),
+          ];
+          const flow = layer.querySelector<SVGPathElement>("[data-flow]")!;
           const lantern = el.querySelector<HTMLElement>("[data-lantern]")!;
           const k = svg.viewBox.baseVal.width / (desktop ? 1440 : 390);
           /* Scroll energy (0 at rest, 1 at a brisk scroll) stretches the tail,
@@ -393,6 +406,7 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
           let geometry = sample(path),
             ratio = 1,
             stageTop = 0,
+            stageHeight = 1,
             viewHeight = innerHeight,
             endY = 1;
           let steps: number[] = [];
@@ -439,9 +453,9 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
               { flare: 1 },
               { flare: 0, duration: 1.2, ease: "power2.out", onUpdate: invalidate },
             );
-            if (w.kind === "end") pulse(svg.querySelector("[data-end-pulse]"));
+            if (w.kind === "end") pulse(layer.querySelector("[data-end-pulse]"));
             if (w.step) {
-              const nodeCircle = svg.querySelector(
+              const nodeCircle = layer.querySelector(
                 `[data-process-node="${w.step}"] .${styles.stepNode}`,
               );
               if (nodeCircle instanceof SVGCircleElement) {
@@ -474,36 +488,48 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
             else (node as HTMLElement).style.setProperty(key, value);
           };
           const round = (v: number, d = 2) => String(Math.round(v * 10 ** d) / 10 ** d);
+          const px = (v: number) => v.toFixed(2);
+          const shift = (node: HTMLElement, y: number) =>
+            write(node, "transform", `translate3d(0, ${px(y)}px, 0)`);
           const render = () => {
             const len = Math.max(0, Math.min(geometry.total, proxy.len));
-            for (const line of lines)
-              write(line, "stroke-dashoffset", round(geometry.total - len, 1));
             const point = pointAt(geometry.lut, len);
-            write(clip, "@height", round(Math.max(0, point.y), 1));
+            // The lower edge of every window is the head (CSS px in the stage).
+            const edge = Math.round((point.y / ratio) * 100) / 100;
+            const down = Math.round((edge - stageHeight) * 100) / 100;
+            shift(revealWindow, down);
+            shift(revealContent, -down);
             write(
               head,
-              "@transform",
-              `translate(${round(point.x, 1)} ${round(point.y, 1)})`,
+              "transform",
+              `translate3d(${px(point.x / ratio)}px, ${px(edge)}px, 0)`,
             );
             const visible = len > 1 && len < geometry.total - 1 && window.scrollY > 0;
             const e = fx.energy;
             write(head, "opacity", visible ? round(0.8 + e * 0.2) : "0");
-            write(headGlow, "@r", round(headGlowR * (1 + e * 0.7 + fx.flare * 0.5), 1));
-            tails.forEach((tail, i) => {
-              const length = [70, 170, 340][i] * k * (0.35 + e * 1.45);
-              if (visible)
-                write(
-                  tail,
-                  "@d",
-                  subPath(geometry.lut, len - length, len, [12, 20, 28][i]),
-                );
+            write(
+              headGlow,
+              "transform",
+              `scale(${round(1 + e * 0.7 + fx.flare * 0.5)})`,
+            );
+            tails.forEach(({ window: tail, clip, content }, i) => {
+              const length =
+                Math.round(
+                  Math.min(edge, ([70, 170, 340][i] * k * (0.35 + e * 1.45)) / ratio) *
+                    100,
+                ) / 100;
+              const up = Math.round((stageHeight - length) * 100) / 100;
+              shift(tail, down);
+              shift(clip, up);
+              shift(content, -(down + up));
               write(
                 tail,
                 "opacity",
                 visible ? round([0.95, 0.6, 0.28][i] * (0.55 + e * 0.45)) : "0",
               );
             });
-            const flowing = visible && e > 0.02;
+            // The current repaints per frame, so it only runs on desktop.
+            const flowing = desktop && visible && e > 0.02;
             if (flowing) {
               // Only the stretch between the top of the viewport and the head.
               const from = lengthAtY(geometry.lut, (window.scrollY - stageTop) * ratio);
@@ -547,7 +573,7 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
           };
           gsap.ticker.add(tick);
           const follow = gsap.quickTo(proxy, "len", {
-            duration: 0.6,
+            duration: 0.35,
             ease: "power3.out",
             onUpdate: invalidate,
           });
@@ -561,11 +587,12 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
             geometry = sample(path);
             const r = stage.getBoundingClientRect();
             ratio = svg.viewBox.baseVal.height / r.height;
+            stageHeight = r.height;
             railThreshold = 700 * (r.width / 390);
             stageTop = r.top + scrollY;
             viewHeight = innerHeight;
             steps = Array.from(
-              svg.querySelectorAll<SVGGElement>("[data-process-node]"),
+              layer.querySelectorAll<SVGGElement>("[data-process-node]"),
             ).map((node) => {
               const dot = node.querySelector("circle")!;
               return nearest(
@@ -581,16 +608,18 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
               return Math.hypot(p.x - x, p.y - y) < 24 * k ? at : null;
             };
             const candidates: Omit<Waypoint, "len">[] = [];
-            svg.querySelectorAll<SVGGElement>("[data-process-node]").forEach((node) => {
-              const c = node.querySelector("circle")!;
-              candidates.push({
-                x: Number(c.getAttribute("cx")),
-                y: Number(c.getAttribute("cy")),
-                kind: "process",
-                step: Number(node.dataset.processNode),
+            layer
+              .querySelectorAll<SVGGElement>("[data-process-node]")
+              .forEach((node) => {
+                const c = node.querySelector("circle")!;
+                candidates.push({
+                  x: Number(c.getAttribute("cx")),
+                  y: Number(c.getAttribute("cy")),
+                  kind: "process",
+                  step: Number(node.dataset.processNode),
+                });
               });
-            });
-            svg.querySelectorAll<SVGElement>("[data-waypoint]").forEach((node) => {
+            layer.querySelectorAll<SVGElement>("[data-waypoint]").forEach((node) => {
               const x =
                 node instanceof SVGCircleElement
                   ? node.cx.baseVal.value
@@ -613,7 +642,7 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
                   kind: "loop",
                 }),
               );
-            const endRect = svg.querySelector<SVGRectElement>("[data-end] rect")!;
+            const endRect = layer.querySelector<SVGRectElement>("[data-end] rect")!;
             candidates.push({
               x: endRect.x.baseVal.value + endRect.width.baseVal.value / 2,
               y: endRect.y.baseVal.value + endRect.height.baseVal.value / 2,
@@ -632,8 +661,6 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
             relatedTop =
               el.querySelector<HTMLElement>("[data-related]")!.getBoundingClientRect()
                 .top + scrollY;
-            for (const line of lines)
-              line.style.strokeDasharray = String(geometry.total);
             proxy.len =
               scrollY === 0
                 ? 0
@@ -708,7 +735,7 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
               0,
             );
             const sourcePaths = Array.from(
-              svg.querySelectorAll<SVGPathElement>("[data-source-line]"),
+              layer.querySelectorAll<SVGPathElement>("[data-source-line]"),
             );
             sourcePaths.forEach((line, i) => {
               const id = line.closest<SVGGElement>("[data-source]")!.dataset.source;
@@ -729,10 +756,15 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
               );
               heroTl.fromTo(
                 dot,
-                // SVG transforms need an explicit bbox origin, or the node
-                // grows from the canvas corner and drifts in from off-river.
-                { scale: 0, opacity: 0, transformOrigin: "50% 50%" },
-                { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(1.6)" },
+                // Grow the radius, not a transform: the node's CSS
+                // `transform-box: fill-box` breaks GSAP's SVG origin math.
+                { attr: { r: 0 }, opacity: 0 },
+                {
+                  attr: { r: Number(dot?.getAttribute("r")) },
+                  opacity: 1,
+                  duration: 0.3,
+                  ease: "back.out(1.6)",
+                },
                 0.7 + i * 0.08,
               );
               heroTl.fromTo(
@@ -755,30 +787,32 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
           });
           ch1Tl
             .fromTo(
-              svg.querySelectorAll("[data-tributary]"),
+              layer.querySelectorAll("[data-tributary]"),
               { strokeDashoffset: 1 },
               { strokeDashoffset: 0, duration: 1.4, stagger: 0.12, ease: reveal },
               0,
             )
             .fromTo(
-              svg.querySelectorAll("[data-tributary-glow]"),
+              layer.querySelectorAll("[data-tributary-glow]"),
               { strokeDashoffset: 1 },
               { strokeDashoffset: 0, duration: 1.4, stagger: 0.12, ease: reveal },
               0,
             )
-            .fromTo(
-              svg.querySelectorAll("[data-ch1-node]"),
-              { scale: 0, transformOrigin: "50% 50%" },
-              { scale: 1, duration: 0.24, stagger: 0.06, ease: reveal },
+            // Grow the radius, not a transform: these nodes carry CSS
+            // `transform-box: fill-box` for the hover scale, which GSAP's SVG
+            // origin math does not expect (they flew in from far off-river).
+            .from(
+              layer.querySelectorAll("[data-ch1-node]"),
+              { attr: { r: 0 }, duration: 0.24, stagger: 0.06, ease: reveal },
               0.15,
             )
             .fromTo(
-              svg.querySelectorAll("[data-leader]"),
+              layer.querySelectorAll("[data-leader]"),
               { strokeDashoffset: 1 },
               { strokeDashoffset: 0, duration: 0.3, stagger: 0.06, ease: panel },
               0.15,
             )
-            .add(() => pulse(svg.querySelector("[data-confluence-pulse]")), 1.5)
+            .add(() => pulse(layer.querySelector("[data-confluence-pulse]")), 1.5)
             .fromTo(
               el.querySelector("[data-revenue-chip]"),
               { opacity: 0, y: 6 },
@@ -814,7 +848,7 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
               }
             },
           });
-          const frame = svg.querySelector<SVGGElement>("[data-viewfinder]")!;
+          const frame = layer.querySelector<SVGGElement>("[data-viewfinder]")!;
           const initialTarget = viewfinderTargets[mode].room;
           const center = [
             (initialTarget[0] + initialTarget[2]) / 2,
@@ -856,9 +890,9 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
               },
             },
           );
-          const cycle = svg.querySelector<SVGPathElement>("[data-cycle]")!,
+          const cycle = layer.querySelector<SVGPathElement>("[data-cycle]")!,
             cycleGeo = sample(cycle),
-            posting = svg.querySelector<SVGCircleElement>(
+            posting = layer.querySelector<SVGCircleElement>(
               '[data-loop-node="posting"] circle',
             )!;
           const postLength = nearest(
@@ -868,7 +902,7 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
           );
           const cycleProxy = { value: 0 };
           const cycleNodes = Array.from(
-            svg.querySelectorAll<SVGGElement>("[data-loop-node]"),
+            layer.querySelectorAll<SVGGElement>("[data-loop-node]"),
           ).filter((n) => n.dataset.loopNode !== "web-booking");
           // The ring starts at ブランド方針, so its own stop is 0 (not the ring's end).
           const cycleStops = cycleNodes.map((node) =>
@@ -889,7 +923,7 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
               node.setAttribute("data-loop-current", String(on)),
             );
           setCurrent(false);
-          const cycleParticle = svg.querySelector("[data-cycle-particle]");
+          const cycleParticle = layer.querySelector("[data-cycle-particle]");
           const loopTl = gsap.timeline({
             scrollTrigger: {
               trigger: el.querySelector("#rb-ch3-title"),
@@ -900,8 +934,8 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
           loopTl
             .fromTo(
               [
-                svg.querySelector("[data-loop-other]"),
-                svg.querySelector("[data-loop-other-glow]"),
+                layer.querySelector("[data-loop-other]"),
+                layer.querySelector("[data-loop-other-glow]"),
               ],
               { strokeDashoffset: 1 },
               { strokeDashoffset: 0, duration: 0.9, ease: reveal },
@@ -934,11 +968,11 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
             )
             .add(() => {
               setCurrent(true);
-              pulse(svg.querySelector("[data-post-pulse]"));
+              pulse(layer.querySelector("[data-post-pulse]"));
             })
             .to(cycleParticle, { opacity: 0, duration: 0.3 })
             .fromTo(
-              svg.querySelector("[data-loop-arrow]"),
+              layer.querySelector("[data-loop-arrow]"),
               { opacity: 0 },
               { opacity: 1, duration: 0.3 },
               "<",
@@ -957,7 +991,7 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
               },
             }),
           );
-          for (const line of svg.querySelectorAll("[data-difference-line]"))
+          for (const line of layer.querySelectorAll("[data-difference-line]"))
             gsap.from(line, {
               scaleX: 0,
               transformOrigin: desktop ? "center" : "left",
@@ -1040,15 +1074,9 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
             );
             bars.forEach((b) => (b.dataset.reached = "true"));
             counter.textContent = "06";
-            lines.forEach((line) => {
-              line.style.removeProperty("stroke-dasharray");
-              line.style.removeProperty("stroke-dashoffset");
-            });
-            clip.setAttribute("height", String(svg.viewBox.baseVal.height));
-            head.style.opacity = "0";
-            for (const node of [...tails, flow, lantern])
-              ["opacity", "transform", "stroke-dasharray", "stroke-dashoffset"].forEach(
-                (p) => node.style.removeProperty(p),
+            for (const node of [...moving, flow, lantern])
+              ["opacity", "transform", "stroke-dashoffset"].forEach((p) =>
+                node.style.removeProperty(p),
               );
             dawn.style.removeProperty("opacity");
             windows.style.removeProperty("opacity");

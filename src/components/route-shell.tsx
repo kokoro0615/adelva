@@ -19,7 +19,10 @@ export function RouteShell({
     pathname === "/about" ||
     pathname === "/services/management-operations" ||
     pathname === "/services/revenue-brand" ||
-    pathname === "/contact"
+    pathname === "/services/dx-it-procurement" ||
+    pathname === "/approach" ||
+    pathname === "/contact" ||
+    pathname === "/contact/thanks"
     ? children
     : legacy;
 }

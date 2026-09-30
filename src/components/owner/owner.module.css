@@ -1,0 +1,2324 @@
+/* /challenges/owner — B2「囲炉裏」. docs/specs/adelva-owner-spec.md.
+   Units: --k = CSS px per mock px for positions on the photograph (desktop mock
+   1440 wide, mobile mock 390 wide); --z = CSS px per mock px for small type and
+   components (never below the spec's floors); --zd = the same for display type
+   that must stay left of the hook's pole (never larger than the photograph).
+   Scenes flow with min-heights taken from the mock, so text that grows pushes
+   the next scene down instead of overlapping it. */
+@font-face {
+  font-family: "ADELVA Owner Serif";
+  src: url("/fonts/adelva-noto-serif-jp.woff2") format("woff2");
+  font-weight: 200 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "ADELVA Owner Sans";
+  src: url("/fonts/adelva-noto-sans-jp.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+/* Anything the compositor has not painted yet during a fast scroll shows the
+   root's colour; keep it the hearth's dark rather than the site's paper. */
+:global(html):has(.page) {
+  background-color: #0c0b0a;
+  color-scheme: dark;
+}
+.page {
+  --serif: "ADELVA Owner Serif", "Noto Serif JP", serif;
+  --sans: "ADELVA Owner Sans", "Noto Sans JP", sans-serif;
+  --narrow: var(--font-narrow, "Oswald", "Arial Narrow", sans-serif);
+  --ink: #0e1118;
+  --ink-page: #0c0b0a;
+  --ivory: #f1efea;
+  --ivory-90: rgb(241 239 234 / 90%);
+  --ivory-78: rgb(241 239 234 / 78%);
+  --ivory-62: rgb(241 239 234 / 62%);
+  --ivory-40: rgb(241 239 234 / 40%);
+  --hair: rgb(241 239 234 / 26%);
+  --flare: #ff7e15;
+  /* Orange that clears 4.5:1 as small text on the shaded photograph. */
+  --flare-soft: #ffac66;
+  --flare-bright: #ffc08a;
+  --shadow: 0 1px 2px rgb(6 8 12 / 45%), 0 0 28px rgb(6 8 12 / 55%);
+  /* small type over the light: a closer, deeper halo */
+  --shadow-small:
+    0 0 3px rgb(6 8 12 / 70%), 0 1px 2px rgb(6 8 12 / 60%), 0 0 16px rgb(6 8 12 / 70%);
+  position: relative;
+  overflow: clip;
+  background: var(--ink-page);
+  color: var(--ivory);
+  font: 400 16px/1.6 var(--sans);
+  font-feature-settings: "palt" 1;
+  line-break: strict;
+  -webkit-font-smoothing: antialiased;
+}
+@media (max-width: 1023.98px) {
+  .page {
+    --shadow: 0 1px 2px rgb(6 8 12 / 50%), 0 0 18px rgb(6 8 12 / 60%);
+  }
+}
+.page
+  :is(
+    .crumb,
+    .eyebrow,
+    .scroll,
+    .chapterName,
+    .note,
+    .bayText,
+    .cardList,
+    .stepNo,
+    .stepName,
+    .table td,
+    .table thead th
+  ) {
+  text-shadow: var(--shadow-small);
+}
+/* 1024–1439: type (z) outgrows the photograph (k); the hero column and the
+   chapter labels read on their own shade. */
+@media (min-width: 1024px) and (max-width: 1439.98px) {
+  .chapter {
+    position: relative;
+  }
+  .chapter::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: calc(-22 * var(--z)) calc(-60 * var(--z)) calc(-22 * var(--z))
+      calc(-40 * var(--z));
+    width: calc(360 * var(--z));
+    border-radius: 50%;
+    background: radial-gradient(
+      closest-side,
+      rgb(7 8 11 / 52%),
+      rgb(7 8 11 / 30%) 60%,
+      rgb(7 8 11 / 0%)
+    );
+    pointer-events: none;
+  }
+  .hero .col::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: calc(-60 * var(--z)) calc(-80 * var(--z)) calc(-40 * var(--z))
+      calc(-120 * var(--z));
+    border-radius: 50%;
+    background: radial-gradient(
+      closest-side,
+      rgb(7 8 11 / 50%),
+      rgb(7 8 11 / 32%) 60%,
+      rgb(7 8 11 / 0%)
+    );
+    pointer-events: none;
+  }
+}
+:where(.page) *,
+:where(.page) *::before,
+:where(.page) *::after {
+  box-sizing: border-box;
+}
+:where(.page) :where(h1, h2, h3, p, ol, ul, dl, dd, table) {
+  margin: 0;
+  padding: 0;
+  letter-spacing: normal;
+}
+:where(.page) :where(ol, ul) {
+  list-style: none;
+}
+:where(.page) a {
+  color: inherit;
+  text-decoration: none;
+}
+.page :is(a, button):focus-visible {
+  outline: 2px solid var(--ivory);
+  outline-offset: 3px;
+}
+.skip {
+  position: absolute;
+  top: 12px;
+  left: 24px;
+  z-index: 100;
+  padding: 12px 24px;
+  background: var(--ivory);
+  color: var(--ink) !important;
+  transform: translateY(-200%);
+}
+.skip:focus {
+  transform: none;
+}
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip-path: inset(50%);
+  overflow: hidden;
+  white-space: nowrap;
+}
+.dOnly {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .dOnly {
+    display: inline;
+  }
+  .mOnly {
+    display: none;
+  }
+}
+/* The mocks set the serif without proportional kana and the sans with it. */
+.title,
+.h2,
+.bayName,
+.pointName,
+.rowHead,
+.cardTitle,
+.role,
+.agree,
+.stepName,
+.check {
+  font-feature-settings: normal;
+}
+
+/* ------------------------------------------------------------ stage */
+.main {
+  position: relative;
+  container-type: inline-size;
+}
+/* The photograph sinks into the dark, then the shared footer's sky rises out of
+   it (the mock masks the footer's top edge). Drawn over the footer's first rows. */
+.main::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: calc(140 * var(--k));
+  background: linear-gradient(var(--ink-page), rgb(12 11 10 / 0%));
+  pointer-events: none;
+}
+@media (max-width: 1023.98px) {
+  .main::after {
+    height: calc(90 * var(--k));
+  }
+}
+.stage {
+  --W: 1440;
+  --H: 10266;
+  --k: calc(min(100cqw, 1920px) / 1440);
+  --z: clamp(0.92px, calc(100cqw / 1440), 1.15px);
+  --zd: clamp(0.72px, calc(100cqw / 1440), 1.15px);
+  --col: 80;
+  --colW: 620;
+  /* the four points of judgement on the pole, from the scale's top */
+  --p0: 60;
+  --p1: 260;
+  --p2: 460;
+  --p3: 660;
+  position: relative;
+  isolation: isolate;
+  width: calc(var(--W) * var(--k));
+  min-height: calc(var(--H) * var(--k));
+  margin-inline: auto;
+  margin-bottom: calc(60 * var(--k));
+}
+@media (max-width: 1023.98px) {
+  .stage {
+    --W: 390;
+    --H: 8104;
+    --k: calc(100cqw / 390);
+    --z: 1.4px;
+    --zd: var(--z);
+    --col: 20;
+    --colW: 228;
+    --p0: 60;
+    --p1: 190;
+    --p2: 320;
+    --p3: 450;
+    margin-bottom: calc(20 * var(--k));
+  }
+}
+@media (max-width: 839.98px) {
+  .stage {
+    --z: 1.25px;
+  }
+}
+@media (max-width: 599.98px) {
+  .stage {
+    --z: clamp(0.92px, calc(100cqw / 390), 1px);
+  }
+}
+/* The chosen phase, as numbers the light and the hook can use. */
+.stage:has(.bayInput[value="management"]:checked) {
+  --sel: 0;
+  --pt: var(--p0);
+}
+.stage:has(.bayInput[value="opening"]:checked) {
+  --sel: 1;
+  --pt: var(--p1);
+}
+.stage:has(.bayInput[value="gm"]:checked) {
+  --sel: 2;
+  --pt: var(--p3);
+}
+.stage:has(.bayInput[value="investment"]:checked) {
+  --sel: 3;
+  --pt: var(--p2);
+}
+@media (hover: hover) and (min-width: 1024px) {
+  .stage:has(.bay[data-phase="management"]:hover) {
+    --hov: 0;
+  }
+  .stage:has(.bay[data-phase="opening"]:hover) {
+    --hov: 1;
+  }
+  .stage:has(.bay[data-phase="gm"]:hover) {
+    --hov: 2;
+  }
+  .stage:has(.bay[data-phase="investment"]:hover) {
+    --hov: 3;
+  }
+}
+.desktop {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .desktop {
+    display: block;
+  }
+  .mobile {
+    display: none;
+  }
+}
+
+/* ------------------------------------------------------------ photograph */
+.photo {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: -2;
+  height: calc(var(--H) * var(--k));
+  overflow: hidden;
+  pointer-events: none;
+}
+/* Past 1920 px the stage stops growing; its edges melt into the dark. */
+@media (min-width: 1921px) {
+  .photo {
+    mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  }
+}
+.tiles,
+.layer {
+  position: absolute;
+  inset: 0;
+}
+.tiles picture {
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+.tiles img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.veil {
+  position: absolute;
+  inset: 0 0 auto;
+  height: calc(150 * var(--k));
+  background: linear-gradient(
+    rgb(8 9 12 / 66%),
+    rgb(8 9 12 / 20%) 60%,
+    rgb(8 9 12 / 0%)
+  );
+}
+.footFade {
+  position: absolute;
+  inset: auto 0 0;
+  height: calc(220 * var(--k));
+  background: linear-gradient(rgb(12 11 10 / 0%), var(--ink-page));
+}
+@media (max-width: 1023.98px) {
+  .veil {
+    height: calc(120 * var(--k));
+    background: linear-gradient(
+      rgb(8 9 12 / 70%),
+      rgb(8 9 12 / 18%) 65%,
+      rgb(8 9 12 / 0%)
+    );
+  }
+  .footFade {
+    height: calc(160 * var(--k));
+  }
+}
+/* Soft darkness behind the text. Sized by the larger of the two scales so it
+   still covers type that outgrows the photograph at 1024–1439 px. */
+.pool {
+  position: absolute;
+  left: calc(var(--x) * var(--k));
+  top: calc(var(--y) * var(--k));
+  width: calc(var(--w) * max(var(--k), var(--z)));
+  height: calc(var(--h) * max(var(--k), var(--z)));
+  background: radial-gradient(
+    closest-side,
+    rgb(7 8 11 / 62%),
+    rgb(7 8 11 / 28%) 62%,
+    rgb(7 8 11 / 0%)
+  );
+}
+@media (max-width: 1023.98px) {
+  .pool {
+    background: radial-gradient(
+      closest-side,
+      rgb(7 8 11 / 66%),
+      rgb(7 8 11 / 30%) 62%,
+      rgb(7 8 11 / 0%)
+    );
+  }
+}
+
+/* The light that falls on the chosen bay: a shaft from the high window and a
+   warm pool, sliding to the phase that is chosen (or hovered). */
+.beam {
+  --at: var(--hov, var(--sel, 0));
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity var(--dur-panel) var(--ease-panel);
+}
+.stage:has(.bayInput:checked) .beam {
+  opacity: 1;
+}
+@media (hover: hover) and (min-width: 1024px) {
+  .stage:has(.bay:hover) .beam {
+    opacity: 1;
+  }
+}
+.shaft,
+.beamPool {
+  position: absolute;
+  mix-blend-mode: screen;
+  transition: transform 700ms var(--ease-panel);
+}
+.shaft {
+  left: calc(130 * var(--k));
+  top: calc(260 * var(--k));
+  width: calc(220 * var(--k));
+  height: calc(1120 * var(--k));
+  transform-origin: 50% 100%;
+  transform: translateX(calc(var(--at) * 320 * var(--k))) rotate(24deg);
+  background: linear-gradient(
+    90deg,
+    rgb(255 200 140 / 0%),
+    rgb(255 204 148 / 30%) 22%,
+    rgb(255 222 176 / 62%) 50%,
+    rgb(255 204 148 / 30%) 78%,
+    rgb(255 200 140 / 0%)
+  );
+  mask-image: linear-gradient(transparent 30%, #000 56%, #000 86%, transparent);
+  filter: blur(calc(10 * var(--k)));
+}
+/* where the shaft lands: above the bay's words, fading before them */
+.beamPool {
+  left: calc(50 * var(--k));
+  top: calc(1190 * var(--k));
+  width: calc(380 * var(--k));
+  height: calc(260 * var(--k));
+  transform: translateX(calc(var(--at) * 320 * var(--k)));
+  background: radial-gradient(
+    closest-side,
+    rgb(255 206 150 / 66%),
+    rgb(255 176 112 / 22%) 58%,
+    rgb(255 170 110 / 0%)
+  );
+}
+@media (max-width: 1023.98px) {
+  /* Rows of 01 are 87 z tall from y 942.3 (k); the light slides down to them. */
+  .shaft {
+    left: calc(222 * var(--k));
+    top: calc(112.3 * var(--k));
+    width: calc(120 * var(--k));
+    height: calc(900 * var(--k));
+    transform: translateY(calc(var(--at) * 87 * var(--z))) rotate(14deg);
+    background: linear-gradient(
+      90deg,
+      rgb(255 200 140 / 0%),
+      rgb(255 204 148 / 28%) 24%,
+      rgb(255 222 176 / 56%) 50%,
+      rgb(255 204 148 / 28%) 76%,
+      rgb(255 200 140 / 0%)
+    );
+    filter: blur(calc(6 * var(--k)));
+  }
+  .beamPool {
+    left: calc(196 * var(--k));
+    top: calc(935 * var(--k));
+    width: calc(220 * var(--k));
+    height: calc(110 * var(--k));
+    transform: translateY(calc(var(--at) * 87 * var(--z)));
+    background: radial-gradient(
+      closest-side,
+      rgb(255 200 140 / 46%),
+      rgb(255 170 110 / 14%) 60%,
+      rgb(255 170 110 / 0%)
+    );
+  }
+}
+
+/* The charcoal's breath and the kettle's steam (motion only; spec §9). */
+.emberBreath {
+  display: none;
+  position: absolute;
+  left: calc(var(--x) * var(--k));
+  top: calc(var(--y) * var(--k));
+  width: calc(var(--w) * var(--k));
+  height: calc(var(--h) * var(--k));
+  mix-blend-mode: screen;
+  opacity: 0;
+}
+.emberBreath img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.steam {
+  display: none;
+  position: absolute;
+  left: calc(var(--x) * var(--k));
+  top: calc(var(--y) * var(--k));
+  width: 0;
+  height: 0;
+}
+.steam i {
+  position: absolute;
+  left: calc(-30 * var(--k));
+  bottom: 0;
+  width: calc(60 * var(--k));
+  height: calc(150 * var(--k));
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse 50% 50% at 50% 60%,
+    rgb(236 232 226 / 30%),
+    rgb(236 232 226 / 0%)
+  );
+  filter: blur(calc(7 * var(--k)));
+  transform-origin: 50% 100%;
+  opacity: 0;
+}
+@media (max-width: 1023.98px) {
+  .steam i {
+    left: calc(-18 * var(--k));
+    width: calc(36 * var(--k));
+    height: calc(84 * var(--k));
+    filter: blur(calc(4 * var(--k)));
+  }
+}
+.page[data-motion="on"] :is(.emberBreath, .steam) {
+  display: block;
+}
+.page[data-motion="on"] .emberBreath[data-run] {
+  animation: breathe 4200ms ease-in-out both;
+}
+.page[data-motion="on"] .steam[data-run] i {
+  animation: steam 3600ms cubic-bezier(0.25, 0.6, 0.35, 1) both;
+}
+.page[data-motion="on"] .steam[data-run] i:nth-child(2) {
+  animation-delay: 500ms;
+}
+.page[data-motion="on"] .steam[data-run] i:nth-child(3) {
+  animation-delay: 1000ms;
+}
+@keyframes breathe {
+  0% {
+    opacity: 0;
+  }
+  46% {
+    opacity: 0.72;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes steam {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.45, 0.4);
+  }
+  30% {
+    opacity: 0.55;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(var(--dir) * 26 * var(--k)), calc(-150 * var(--k)))
+      scale(1.35, 1.2);
+  }
+}
+
+/* ------------------------------------------------------------ load: first light */
+/* The pre-dawn roof void gives way to the morning plate along the light's own
+   direction (217deg, from the high window to the floor). A wide wipe box with a
+   soft edge moves diagonally while its content moves back, so only transforms
+   animate. Reduced motion never paints it. */
+.dawn {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: calc(var(--dh) * var(--k));
+  overflow: hidden;
+  /* before the variant has loaded, the room is already the colour of dawn */
+  --dx: 649.2;
+  --dy: 861.6;
+  --Wd: 1440;
+  --win-x: 1255;
+  --win-y: 300;
+}
+.dawnWipe {
+  position: absolute;
+  left: calc(var(--Wd) * var(--k) * -1);
+  top: calc(var(--dh) * var(--k) * -1);
+  width: calc(var(--Wd) * var(--k) * 3);
+  height: calc(var(--dh) * var(--k) * 3);
+  mask-image: linear-gradient(217deg, transparent 45%, #000 55%);
+  transform: translate(calc(var(--dx) * var(--k) * -1), calc(var(--dy) * var(--k)));
+}
+.dawnInner {
+  position: absolute;
+  left: calc(var(--Wd) * var(--k));
+  top: calc(var(--dh) * var(--k));
+  width: calc(var(--Wd) * var(--k));
+  height: calc(var(--dh) * var(--k));
+  background: #121824;
+  transform: translate(calc(var(--dx) * var(--k)), calc(var(--dy) * var(--k) * -1));
+}
+.dawnInner img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.dawnBloom {
+  position: absolute;
+  left: calc((var(--win-x) - 520) * var(--k));
+  top: calc((var(--win-y) - 380) * var(--k));
+  width: calc(1040 * var(--k));
+  height: calc(900 * var(--k));
+  background: radial-gradient(
+    closest-side,
+    rgb(255 214 160 / 55%),
+    rgb(255 190 120 / 16%) 55%,
+    rgb(255 190 120 / 0%)
+  );
+  mix-blend-mode: screen;
+  opacity: 0;
+}
+.dawn.mobile {
+  --dx: 360.9;
+  --dy: 479;
+  --Wd: 390;
+  --win-x: 345;
+  --win-y: 125;
+}
+.dawn.mobile .dawnBloom {
+  left: calc((var(--win-x) - 260) * var(--k));
+  top: calc((var(--win-y) - 200) * var(--k));
+  width: calc(520 * var(--k));
+  height: calc(560 * var(--k));
+}
+@media (prefers-reduced-motion: no-preference) {
+  @media (min-width: 1024px) {
+    .dawn.desktop {
+      display: block;
+    }
+  }
+  @media (max-width: 1023.98px) {
+    .dawn.mobile {
+      display: block;
+    }
+  }
+  .dawn {
+    animation: dawn-done 1ms linear 2600ms forwards;
+  }
+  .dawnWipe {
+    animation: dawn-wipe 1900ms cubic-bezier(0.45, 0.05, 0.2, 1) 250ms both;
+  }
+  .dawnInner {
+    animation: dawn-hold 1900ms cubic-bezier(0.45, 0.05, 0.2, 1) 250ms both;
+  }
+  .dawnBloom {
+    animation: dawn-bloom 2200ms ease-out 250ms both;
+  }
+  .titleLine {
+    animation: rise var(--dur-reveal) var(--ease-reveal) both;
+    animation-delay: calc(300ms + var(--line, 0) * 120ms);
+  }
+  .titleLine:nth-child(2) {
+    --line: 1;
+  }
+  .titleLine:nth-child(3) {
+    --line: 2;
+  }
+  .hero [data-hero-after] {
+    animation: rise var(--dur-reveal) var(--ease-reveal) 720ms both;
+  }
+  .hero .eyebrow {
+    animation-delay: 180ms;
+  }
+}
+@keyframes dawn-wipe {
+  from {
+    transform: translate(calc(var(--dx) * var(--k)), calc(var(--dy) * var(--k) * -1));
+  }
+}
+@keyframes dawn-hold {
+  from {
+    transform: translate(calc(var(--dx) * var(--k) * -1), calc(var(--dy) * var(--k)));
+  }
+}
+@keyframes dawn-bloom {
+  0% {
+    opacity: 0;
+  }
+  45% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* both ends hidden: a 1 ms animation ends at progress 0.99999…, where a
+   visible→hidden interpolation would still be visible */
+@keyframes dawn-done {
+  from,
+  to {
+    visibility: hidden;
+  }
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(calc(12 * var(--z)));
+  }
+}
+
+/* ------------------------------------------------------------ scenes */
+.section {
+  --h: var(--hd);
+  position: static;
+  min-height: calc(var(--h) * var(--k));
+  scroll-margin-top: calc(72px + 24 * var(--z));
+}
+@media (max-width: 1023.98px) {
+  .section {
+    --h: var(--hm);
+  }
+}
+.hero {
+  padding-top: calc(166 * var(--k));
+}
+@media (max-width: 1023.98px) {
+  .hero {
+    padding-top: calc(96 * var(--k));
+  }
+}
+.col {
+  position: relative;
+  margin-left: calc(var(--col) * var(--k));
+  width: calc(var(--colW) * var(--k));
+}
+/* Photo-anchored parts start where the mock put them unless the text above has grown past. */
+.intro01 {
+  min-height: calc(270 * var(--k));
+}
+.intro02 {
+  min-height: calc(440 * var(--k));
+}
+.intro05 {
+  min-height: calc(330 * var(--k));
+}
+@media (max-width: 1023.98px) {
+  .intro01 {
+    min-height: calc(182.3 * var(--k));
+  }
+  .intro02 {
+    min-height: calc(400 * var(--k));
+  }
+  .intro04 {
+    min-height: calc(1520 * var(--k));
+  }
+  .intro05 {
+    min-height: 0;
+  }
+}
+
+/* ------------------------------------------------------------ shared type */
+.chapter {
+  display: flex;
+  align-items: center;
+  gap: calc(16 * var(--z));
+  text-shadow: var(--shadow);
+}
+.chapterNo {
+  font: 300 calc(26 * var(--z)) / 1 var(--narrow);
+  letter-spacing: 0.06em;
+  color: var(--flare-soft);
+}
+.chapterRule {
+  width: 1px;
+  height: calc(20 * var(--z));
+  background: var(--flare);
+  opacity: 0.9;
+}
+.chapterName {
+  font-size: calc(14 * var(--z));
+  letter-spacing: 0.14em;
+  color: var(--ivory-90);
+}
+.h2 {
+  margin-top: calc(26 * var(--z));
+  font: 300 calc(52 * var(--zd)) / 1.36 var(--serif);
+  letter-spacing: 0.05em;
+  color: var(--ivory);
+  text-shadow: var(--shadow);
+  white-space: nowrap;
+}
+.body {
+  margin-top: calc(26 * var(--z));
+  font-size: calc(17 * var(--z));
+  line-height: 2;
+  letter-spacing: 0.06em;
+  color: var(--ivory-90);
+  text-shadow: var(--shadow);
+}
+.note {
+  font-size: calc(14.5 * var(--z));
+  line-height: 2;
+  letter-spacing: 0.05em;
+  color: var(--ivory-78);
+  text-shadow: var(--shadow);
+}
+.arrow {
+  display: inline-block;
+  margin-left: calc(14 * var(--z));
+  transition: transform var(--dur-state) var(--ease-panel);
+}
+@media (max-width: 1023.98px) {
+  .chapter {
+    gap: calc(12 * var(--z));
+  }
+  .chapterNo {
+    font-size: calc(20 * var(--z));
+  }
+  .chapterRule {
+    height: calc(16 * var(--z));
+  }
+  .chapterName {
+    font-size: calc(12.5 * var(--z));
+  }
+  .h2 {
+    margin-top: calc(16 * var(--z));
+    font-size: calc(28 * var(--z));
+    line-height: 1.42;
+  }
+  .body {
+    margin-top: calc(16 * var(--z));
+    font-size: calc(14.5 * var(--z));
+    line-height: 1.95;
+    letter-spacing: 0.04em;
+  }
+  .note {
+    font-size: calc(13 * var(--z));
+    line-height: 1.95;
+    letter-spacing: 0.04em;
+  }
+  .arrow {
+    margin-left: calc(12 * var(--z));
+  }
+}
+
+/* The call to action: flare ground, ink text (the mock's white failed AA). */
+.action {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: calc(280 * var(--z));
+  min-height: calc(62 * var(--z));
+  margin-top: calc(40 * var(--z));
+  padding: calc(12 * var(--z)) calc(24 * var(--z));
+  border-radius: 2px;
+  background: var(--flare);
+  color: var(--ink) !important;
+  font: 500 calc(18 * var(--z)) / calc(28 * var(--z)) var(--sans);
+  letter-spacing: 0.06em;
+  box-shadow: 0 10px 30px rgb(255 126 21 / 18%);
+  transition: transform var(--dur-press, 120ms) var(--ease-panel);
+}
+/* An ember's glow around the edge on hover and focus. */
+.action::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -1px;
+  border-radius: inherit;
+  box-shadow:
+    0 0 0 1px rgb(255 214 170 / 70%),
+    0 0 26px 4px rgb(255 126 21 / 55%),
+    0 14px 40px rgb(255 126 21 / 28%);
+  opacity: 0;
+  transition: opacity var(--dur-state) var(--ease-panel);
+}
+.action:is(:hover, :focus-visible)::before {
+  opacity: 1;
+}
+.action:is(:hover, :focus-visible) .arrow,
+.cross:is(:hover, :focus-visible) .arrow {
+  transform: translateX(6px);
+}
+.action:active {
+  transform: scale(0.98);
+}
+@media (max-width: 1023.98px) {
+  .action {
+    width: calc(var(--colW) * var(--k));
+    min-width: 0;
+    min-height: calc(56 * var(--z));
+    margin-top: calc(26 * var(--z));
+    padding: calc(10 * var(--z)) calc(18 * var(--z));
+    font-size: calc(16 * var(--z));
+    line-height: calc(24 * var(--z));
+    box-shadow: 0 8px 24px rgb(255 126 21 / 18%);
+  }
+}
+
+/* ------------------------------------------------------------ hero */
+.crumb {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: calc(13 * var(--z));
+  letter-spacing: 0.12em;
+  color: var(--ivory-90);
+  text-shadow: var(--shadow);
+}
+.crumb li {
+  display: inline-flex;
+  align-items: center;
+}
+.crumb span {
+  margin: 0 calc(12 * var(--z));
+}
+.crumb a {
+  display: inline-flex;
+  align-items: center;
+  /* a 24 px target that does not grow the mock's line (normal line height ≈ 1.448em) */
+  min-height: 24px;
+  margin-block: calc((1.448em - 24px) / 2);
+}
+.crumb a:hover {
+  color: var(--ivory);
+}
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: calc(14 * var(--z));
+  margin-top: calc(30 * var(--z));
+  font-size: calc(15 * var(--z));
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--flare-soft);
+  text-shadow: var(--shadow);
+}
+.eyebrow::before {
+  content: "";
+  width: calc(28 * var(--z));
+  height: 1px;
+  background: var(--flare);
+}
+.title {
+  margin-top: calc(26 * var(--z));
+  font: 300 calc(84 * var(--zd)) / 1.28 var(--serif);
+  letter-spacing: 0.04em;
+  text-shadow: var(--shadow);
+}
+.titleLine {
+  display: block;
+  white-space: nowrap;
+}
+.lead {
+  margin-top: calc(30 * var(--z));
+  font-size: calc(18 * var(--z));
+  line-height: 2;
+  letter-spacing: 0.06em;
+  color: var(--ivory-90);
+  text-shadow: var(--shadow);
+}
+.scroll {
+  display: grid;
+  justify-items: start;
+  gap: calc(14 * var(--z));
+  width: max-content;
+  margin-top: calc(37.5 * var(--z));
+  font: 400 calc(12 * var(--z)) / 1 var(--narrow);
+  letter-spacing: 0.36em;
+  color: var(--ivory-90);
+}
+.scroll i {
+  display: block;
+  width: 1px;
+  height: calc(76 * var(--z));
+  margin-left: 3px;
+  background: linear-gradient(var(--ivory-78), rgb(241 239 234 / 0%));
+}
+@media (max-width: 1023.98px) {
+  .crumb {
+    font-size: calc(12 * var(--z));
+    letter-spacing: 0.1em;
+  }
+  .crumb span {
+    margin: 0 calc(9 * var(--z));
+  }
+  .eyebrow {
+    gap: calc(10 * var(--z));
+    margin-top: calc(20 * var(--z));
+    font-size: calc(13.5 * var(--z));
+    letter-spacing: 0.1em;
+  }
+  .eyebrow::before {
+    width: calc(20 * var(--z));
+  }
+  .title {
+    margin-top: calc(16 * var(--z));
+    font-size: calc(36 * var(--z));
+    line-height: 1.34;
+  }
+  .lead {
+    margin-top: calc(18 * var(--z));
+    font-size: calc(15 * var(--z));
+    line-height: 1.9;
+    letter-spacing: 0.04em;
+  }
+  .scroll {
+    gap: calc(10 * var(--z));
+    margin-top: calc(129 * var(--k));
+    font-size: calc(11 * var(--z));
+    letter-spacing: 0.34em;
+  }
+  .scroll i {
+    height: calc(56 * var(--z));
+    margin-left: 2px;
+  }
+}
+
+/* ------------------------------------------------------------ 01 bays: the pole divides them */
+.bays {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-left: calc(80 * var(--k));
+  width: calc(1280 * var(--k));
+  min-height: calc(390 * var(--k));
+}
+@property --dim {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
+}
+.bay {
+  --dim: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 calc(28 * var(--k)) calc(34 * var(--z)) calc(33 * var(--k));
+  border-left: 1px solid var(--hair);
+  background-image: linear-gradient(
+    rgb(6 7 10 / calc(var(--dim) * 0.1)),
+    rgb(6 7 10 / calc(var(--dim) * 0.32))
+  );
+  text-shadow: var(--shadow);
+  cursor: pointer;
+  transition: --dim var(--dur-panel) var(--ease-panel);
+}
+/* the real pole of the hook is the divider between 02 and 03 */
+.bay:nth-child(3) {
+  border-left: 0;
+}
+.bay:nth-child(4) {
+  border-right: 1px solid var(--hair);
+}
+.bay::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: auto 0 0;
+  height: calc(250 * var(--k));
+  background: linear-gradient(
+    rgb(6 7 10 / 0%),
+    rgb(6 7 10 / 62%) 55%,
+    rgb(6 7 10 / 70%)
+  );
+  pointer-events: none;
+}
+.bay::after {
+  content: "";
+  position: absolute;
+  left: calc(32 * var(--k));
+  bottom: calc(22 * var(--z));
+  width: calc(64 * var(--z));
+  height: 2px;
+  background: var(--flare);
+  box-shadow: 0 0 12px rgb(255 126 21 / 60%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-panel) var(--ease-panel);
+}
+.bayInput {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.bay:has(.bayInput:focus-visible) {
+  outline: 2px solid var(--ivory);
+  outline-offset: -6px;
+}
+.bayNo,
+.bayBody,
+.bayGo {
+  position: relative;
+  pointer-events: none;
+  transition:
+    opacity var(--dur-panel) var(--ease-panel),
+    color var(--dur-state) var(--ease-panel),
+    transform var(--dur-state) var(--ease-panel);
+}
+.bayNo {
+  font: 300 calc(20 * var(--z)) / 1 var(--narrow);
+  letter-spacing: 0.08em;
+  color: var(--ivory-90);
+}
+.bayBody {
+  display: grid;
+}
+.bayName {
+  margin-top: calc(18 * var(--z));
+  font: 400 calc(32 * var(--z)) / 1.3 var(--serif);
+  letter-spacing: 0.05em;
+}
+.bayText {
+  margin-top: calc(14 * var(--z));
+  font-size: calc(15 * var(--z));
+  line-height: 1.85;
+  letter-spacing: 0.05em;
+  color: var(--ivory-90);
+}
+.bayGo {
+  margin-top: calc(20 * var(--z));
+  font-size: calc(20 * var(--z));
+  line-height: 1.45;
+  color: var(--ivory-90);
+}
+/* Chosen: the light is on it; the others step back into the dark. */
+.bay:has(.bayInput:checked) :is(.bayNo, .bayGo) {
+  color: var(--flare-soft);
+}
+.bay:has(.bayInput:checked) .bayGo {
+  transform: translateX(6px);
+}
+.bay:has(.bayInput:checked)::after {
+  transform: scaleX(1);
+}
+.bays:has(.bayInput:checked) .bay:not(:has(.bayInput:checked)) {
+  --dim: 1;
+}
+.bays:has(.bayInput:checked)
+  .bay:not(:has(.bayInput:checked))
+  :is(.bayNo, .bayBody, .bayGo) {
+  opacity: 0.82;
+}
+@media (hover: hover) {
+  .bay:hover .bayGo {
+    transform: translateX(6px);
+  }
+  .bays:has(.bayInput:checked)
+    .bay:not(:has(.bayInput:checked)):hover
+    :is(.bayNo, .bayBody, .bayGo) {
+    opacity: 1;
+  }
+}
+@media (max-width: 1023.98px) {
+  .bays {
+    display: block;
+    margin-left: calc(20 * var(--k));
+    width: calc(228 * var(--k));
+    min-height: 0;
+    border-top: 1px solid var(--hair);
+  }
+  .bay {
+    display: grid;
+    grid-template-columns: calc(26 * var(--z)) 1fr calc(16 * var(--z));
+    align-items: center;
+    gap: calc(6 * var(--z));
+    min-height: calc(87 * var(--z));
+    padding: calc(12 * var(--z)) 0;
+    border: 0;
+    border-bottom: 1px solid var(--hair);
+    text-shadow: var(--shadow);
+  }
+  .bay:nth-child(4) {
+    border-right: 0;
+  }
+  /* the chosen row's own warm pool (the shaft lands on it) */
+  .bay::before {
+    inset: 0 calc(-20 * var(--k));
+    height: auto;
+    background: radial-gradient(
+      ellipse 45% 80% at 92% 50%,
+      rgb(255 170 100 / 16%),
+      rgb(255 170 100 / 0%) 72%
+    );
+    opacity: 0;
+    transition: opacity var(--dur-panel) var(--ease-panel);
+  }
+  .bay::after {
+    display: none;
+  }
+  .bay:has(.bayInput:checked) {
+    border-bottom-color: rgb(255 126 21 / 80%);
+  }
+  .bay:has(.bayInput:checked)::before {
+    opacity: 1;
+  }
+  .bays:has(.bayInput:checked) .bay:not(:has(.bayInput:checked)) {
+    --dim: 0;
+  }
+  .bay:has(.bayInput:focus-visible) {
+    outline-offset: 2px;
+  }
+  .bayNo {
+    align-self: start;
+    padding-top: calc(6 * var(--z));
+    font-size: calc(15 * var(--z));
+    letter-spacing: 0.06em;
+  }
+  .bayBody {
+    gap: calc(6 * var(--z));
+  }
+  .bayName {
+    margin-top: 0;
+    font-size: calc(20 * var(--z));
+  }
+  .bayText {
+    margin-top: 0;
+    font-size: calc(12.5 * var(--z));
+    line-height: 1.7;
+    letter-spacing: 0.03em;
+  }
+  .bayGo {
+    margin-top: 0;
+    font-size: calc(17 * var(--z));
+  }
+  .bay:has(.bayInput:checked) .bayGo {
+    color: var(--flare-bright);
+    transform: translateX(4px);
+  }
+  .bays:has(.bayInput:checked)
+    .bay:not(:has(.bayInput:checked))
+    :is(.bayNo, .bayBody, .bayGo) {
+    opacity: 0.86;
+  }
+}
+
+/* ------------------------------------------------------------ 02 the hook as a scale */
+.scale {
+  position: relative;
+  margin-left: calc(80 * var(--k));
+  width: calc(1280 * var(--k));
+  height: calc(720 * var(--k));
+}
+.grad {
+  position: absolute;
+  left: calc(632 * var(--k));
+  top: 0;
+  width: calc(16 * var(--k));
+  height: 100%;
+  opacity: 0.9;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--ivory-62) 0 1px,
+    rgb(0 0 0 / 0%) 1px calc(40 * var(--k))
+  );
+}
+.point {
+  position: absolute;
+  left: 0;
+  top: calc(var(--yd) * var(--k));
+  width: calc(606 * var(--k));
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  gap: calc(18 * var(--z));
+  transform: translateY(-50%);
+  text-shadow: var(--shadow);
+}
+.point::after {
+  content: "";
+  position: absolute;
+  left: calc(622 * var(--k));
+  top: 50%;
+  width: calc(36 * var(--k));
+  height: 1px;
+  background: var(--ivory-78);
+  transition: opacity var(--dur-state) var(--ease-panel);
+}
+.pointNo {
+  font: 300 calc(18 * var(--z)) / 1 var(--narrow);
+  letter-spacing: 0.08em;
+  transition: color var(--dur-state) var(--ease-panel);
+}
+.pointName {
+  font: 400 calc(28 * var(--z)) / 1.2 var(--serif);
+  letter-spacing: 0.06em;
+  transform-origin: right center;
+  transition:
+    color var(--dur-state) var(--ease-panel),
+    transform var(--dur-panel) var(--ease-panel);
+}
+/* the crossbar (the hook's fish) sits at the chosen point, or rests at the top */
+.setbar {
+  position: absolute;
+  left: calc(612 * var(--k));
+  top: 0;
+  width: calc(56 * var(--k));
+  height: calc(4 * var(--z));
+  border-radius: 2px;
+  background: var(--ivory-78);
+  transform: translateY(calc(var(--pt, 0) * var(--k) - 50%));
+  transition:
+    transform 700ms var(--ease-panel),
+    background-color var(--dur-panel) var(--ease-panel),
+    box-shadow var(--dur-panel) var(--ease-panel);
+}
+.stage:has(.bayInput:checked) .setbar {
+  background: var(--flare);
+  box-shadow:
+    0 0 14px rgb(255 126 21 / 70%),
+    0 0 34px rgb(255 126 21 / 30%);
+}
+.trail {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(4 * var(--z));
+  height: 0;
+  margin-left: calc(-2 * var(--z));
+  border-radius: 2px;
+  background: linear-gradient(rgb(255 126 21 / 0%), rgb(255 150 70 / 60%));
+  opacity: 0;
+  pointer-events: none;
+}
+.ghost {
+  position: absolute;
+  left: calc(612 * var(--k));
+  top: 0;
+  width: calc(56 * var(--k));
+  height: 1.5px;
+  background: var(--ivory);
+  opacity: 0;
+  transition: opacity var(--dur-state) var(--ease-panel);
+}
+/* The point that answers the chosen phase (--on: 0 or 1). */
+.point {
+  --on: 0;
+}
+.stage:has(.bayInput[value="management"]:checked) .point[data-point="0"],
+.stage:has(.bayInput[value="opening"]:checked) .point[data-point="1"],
+.stage:has(.bayInput[value="gm"]:checked) .point[data-point="3"],
+.stage:has(.bayInput[value="investment"]:checked) .point[data-point="2"] {
+  --on: 1;
+}
+.pointNo {
+  color: color-mix(in srgb, var(--flare-soft) calc(var(--on) * 100%), var(--ivory-78));
+  /* the name grows leftwards (scale from its right edge); keep the gap */
+  transform: translateX(calc(var(--on) * var(--len) * -2.1 * var(--z)));
+}
+.pointName {
+  color: color-mix(in srgb, var(--ivory) calc(var(--on) * 100%), var(--ivory-78));
+  transform: scale(calc(1 + var(--on) * 0.0714));
+}
+.point::after {
+  opacity: calc(1 - var(--on));
+}
+@media (hover: hover) and (min-width: 1024px) {
+  .point:hover .pointName {
+    color: var(--ivory);
+  }
+  .scale:has(.point:hover) .ghost {
+    opacity: 0.7;
+  }
+  .scale:has(.point[data-point="0"]:hover) .ghost {
+    transform: translateY(calc(var(--p0) * var(--k)));
+  }
+  .scale:has(.point[data-point="1"]:hover) .ghost {
+    transform: translateY(calc(var(--p1) * var(--k)));
+  }
+  .scale:has(.point[data-point="2"]:hover) .ghost {
+    transform: translateY(calc(var(--p2) * var(--k)));
+  }
+  .scale:has(.point[data-point="3"]:hover) .ghost {
+    transform: translateY(calc(var(--p3) * var(--k)));
+  }
+}
+@media (max-width: 1023.98px) {
+  .scale {
+    margin-left: calc(20 * var(--k));
+    width: calc(350 * var(--k));
+    height: calc(510 * var(--k));
+  }
+  .grad {
+    left: calc(242 * var(--k));
+    width: calc(12 * var(--k));
+    background: repeating-linear-gradient(
+      to bottom,
+      var(--ivory-62) 0 1px,
+      rgb(0 0 0 / 0%) 1px calc(28 * var(--k))
+    );
+  }
+  .point {
+    top: calc(var(--ym) * var(--k));
+    width: calc(226 * var(--k));
+    gap: calc(10 * var(--z));
+  }
+  .point::after {
+    left: calc(238 * var(--k));
+    width: calc(20 * var(--k));
+  }
+  .pointNo {
+    font-size: calc(14 * var(--z));
+    letter-spacing: 0.06em;
+  }
+  .pointName {
+    font-size: calc(20 * var(--z));
+    letter-spacing: 0.05em;
+  }
+  .pointNo {
+    color: color-mix(
+      in srgb,
+      var(--flare-soft) calc(var(--on) * 100%),
+      var(--ivory-78)
+    );
+    transform: translateX(calc(var(--on) * var(--len) * -2.1 * var(--z)));
+  }
+  .pointName {
+    color: var(--ivory);
+    transform: scale(calc(1 + var(--on) * 0.1));
+  }
+  .setbar {
+    left: calc(231 * var(--k));
+    width: calc(34 * var(--k));
+    height: calc(3.5 * var(--z));
+  }
+  .trail {
+    width: calc(3 * var(--z));
+    margin-left: calc(-1.5 * var(--z));
+  }
+  .ghost {
+    display: none;
+  }
+}
+
+/* ------------------------------------------------------------ 03 table (left of the pole) */
+.table {
+  display: none;
+  margin-top: calc(56 * var(--z));
+  width: calc(600 * var(--k));
+  border-collapse: collapse;
+  text-shadow: var(--shadow);
+}
+@media (min-width: 1024px) {
+  .table {
+    display: table;
+  }
+}
+.table thead th {
+  padding: 0 0 calc(14 * var(--z));
+  text-align: left;
+  font-size: calc(12.5 * var(--z));
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: var(--ivory-78);
+  border-bottom: 1px solid var(--ivory-40);
+}
+.table tbody :is(th, td) {
+  height: calc(66 * var(--z));
+  padding: calc(6 * var(--z)) calc(8 * var(--z)) calc(6 * var(--z)) 0;
+  border-bottom: 1px solid var(--hair);
+  text-align: left;
+  vertical-align: middle;
+  transition:
+    opacity var(--dur-state) var(--ease-panel),
+    border-color var(--dur-panel) var(--ease-panel);
+}
+.table thead th:first-child {
+  width: 28%;
+}
+.table thead th:nth-child(2) {
+  width: 39.33%;
+}
+.rowHead {
+  position: relative;
+  font: 400 calc(23 * var(--z)) / 1.2 var(--serif);
+  letter-spacing: 0.05em;
+  transition:
+    color var(--dur-state) var(--ease-panel),
+    padding-left var(--dur-panel) var(--ease-panel);
+}
+.rowHead::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: calc(20 * var(--z));
+  bottom: calc(20 * var(--z));
+  width: 3px;
+  background: var(--flare);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform var(--dur-panel) var(--ease-panel);
+}
+.table td {
+  font-size: calc(15.5 * var(--z));
+  letter-spacing: 0.05em;
+  color: var(--ivory-90);
+}
+@property --glow {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+/* The row that answers the chosen phase (--chosen: 0 or 1) is lit by the hearth. */
+.row {
+  --chosen: 0;
+  --glow: 0%;
+  background: radial-gradient(
+    ellipse 70% 120% at 20% 50%,
+    rgb(255 150 70 / var(--glow)),
+    rgb(255 150 70 / 0%) 70%
+  );
+  transition: --glow var(--dur-panel) var(--ease-panel);
+}
+.stage:has(.bayInput[value="management"]:checked) .row[data-phase="management"],
+.stage:has(.bayInput[value="opening"]:checked) .row[data-phase="opening"],
+.stage:has(.bayInput[value="gm"]:checked) .row[data-phase="gm"],
+.stage:has(.bayInput[value="investment"]:checked) .row[data-phase="investment"] {
+  --chosen: 1;
+  --glow: 16%;
+}
+.table .rowHead {
+  color: color-mix(in srgb, var(--flare-soft) calc(var(--chosen) * 100%), var(--ivory));
+  padding-left: calc(var(--chosen) * 18 * var(--z));
+}
+.rowHead::before {
+  transform: scaleY(var(--chosen));
+}
+.table .row > * {
+  border-bottom-color: color-mix(
+    in srgb,
+    rgb(255 126 21 / 75%) calc(var(--chosen) * 100%),
+    var(--hair)
+  );
+}
+.stage:has(.bayInput:checked) .row > * {
+  opacity: calc(0.84 + var(--chosen) * 0.16);
+}
+@media (hover: hover) {
+  .stage .row:hover {
+    --glow: 10%;
+  }
+  .stage:has(.bayInput:checked) .row:hover {
+    --glow: 16%;
+  }
+  .stage:has(.bayInput:checked) .row:hover > * {
+    opacity: 1;
+  }
+}
+
+/* 03 on phones: one card per phase */
+.cards {
+  display: grid;
+  margin-top: calc(24 * var(--z));
+  border-top: 1px solid var(--ivory-40);
+}
+@media (min-width: 1024px) {
+  .cards {
+    display: none;
+  }
+}
+.card {
+  --chosen: 0;
+  position: relative;
+  padding: calc(16 * var(--z)) 0;
+  border-bottom: 1px solid
+    color-mix(in srgb, rgb(255 126 21 / 80%) calc(var(--chosen) * 100%), var(--hair));
+  text-shadow: var(--shadow);
+}
+.stage:has(.bayInput[value="management"]:checked) .card[data-phase="management"],
+.stage:has(.bayInput[value="opening"]:checked) .card[data-phase="opening"],
+.stage:has(.bayInput[value="gm"]:checked) .card[data-phase="gm"],
+.stage:has(.bayInput[value="investment"]:checked) .card[data-phase="investment"] {
+  --chosen: 1;
+}
+.stage:has(.bayInput:checked) .card .cardTitle {
+  opacity: calc(0.8 + var(--chosen) * 0.2);
+}
+.card::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0 calc(-20 * var(--k));
+  background: radial-gradient(
+    ellipse 70% 100% at 30% 50%,
+    rgb(255 150 70 / 16%),
+    rgb(255 150 70 / 0%) 72%
+  );
+  opacity: var(--chosen);
+  transition: opacity var(--dur-panel) var(--ease-panel);
+}
+.cardTitle {
+  position: relative;
+  padding-left: calc(var(--chosen) * 14 * var(--z));
+  font: 400 calc(20 * var(--z)) / 1.3 var(--serif);
+  letter-spacing: 0.05em;
+  color: color-mix(in srgb, var(--flare-soft) calc(var(--chosen) * 100%), var(--ivory));
+  transition: opacity var(--dur-state) var(--ease-panel);
+}
+.cardTitle::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: calc(3 * var(--z));
+  height: calc(20 * var(--z));
+  width: 3px;
+  background: var(--flare);
+  transform: scaleY(var(--chosen));
+  transform-origin: top;
+  transition: transform var(--dur-panel) var(--ease-panel);
+}
+.cardList {
+  display: grid;
+  grid-template-columns: calc(96 * var(--z)) 1fr;
+  row-gap: calc(5 * var(--z));
+  align-items: baseline;
+  margin-top: calc(8 * var(--z));
+}
+.cardList dt {
+  font-size: calc(11 * var(--z));
+  letter-spacing: 0.04em;
+  color: var(--ivory-90);
+  white-space: nowrap;
+}
+.cardList dd {
+  font-size: calc(12.5 * var(--z));
+  letter-spacing: 0.03em;
+  color: var(--ivory-90);
+}
+.cards + .note {
+  margin-top: calc(30 * var(--z));
+}
+@media (max-width: 1023.98px) {
+  .cards + .note {
+    margin-top: calc(18 * var(--z));
+  }
+}
+
+/* ------------------------------------------------------------ 04 the four sides of one fire */
+.hearth {
+  position: relative;
+  width: calc(300 * var(--zd));
+  height: calc(300 * var(--zd));
+  margin: calc(118 * var(--zd)) 0 0 calc(170 * var(--zd));
+}
+.frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.frameOuter,
+.frameInner,
+.side {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+.frameOuter {
+  stroke: var(--ivory-78);
+  stroke-width: 1;
+}
+.frameInner {
+  stroke: var(--ivory-40);
+  stroke-width: 1;
+}
+.side {
+  stroke: transparent;
+  stroke-width: 2.5;
+  transition:
+    stroke var(--dur-panel) var(--ease-panel),
+    stroke-width var(--dur-panel) var(--ease-panel);
+}
+.side[data-side="bottom"] {
+  stroke: var(--flare);
+}
+.ember {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(120 * var(--zd));
+  height: calc(120 * var(--zd));
+  margin: calc(-60 * var(--zd)) 0 0 calc(-60 * var(--zd));
+  border-radius: 50%;
+  background: radial-gradient(
+    closest-side,
+    #ffd9a8 0 6%,
+    #ff9a3c 12%,
+    rgb(255 126 21 / 45%) 30%,
+    rgb(255 110 20 / 12%) 60%,
+    rgb(255 110 20 / 0%)
+  );
+  transition: transform var(--dur-panel) var(--ease-panel);
+}
+.roles {
+  position: absolute;
+  inset: 0;
+}
+.role {
+  position: absolute;
+  font: 400 calc(21 * var(--zd)) / 1.2 var(--serif);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  text-shadow: var(--shadow);
+  transition: color var(--dur-panel) var(--ease-panel);
+}
+.role[data-side="top"] {
+  left: 50%;
+  top: calc(-48 * var(--zd));
+  transform: translateX(-50%);
+}
+.role[data-side="bottom"] {
+  left: 50%;
+  bottom: calc(-50 * var(--zd));
+  transform: translateX(-50%);
+  font: 400 calc(20 * var(--zd)) / 1.2 var(--narrow);
+  letter-spacing: 0.22em;
+  color: var(--flare-soft);
+}
+.role[data-side="left"] {
+  right: calc(100% + 26 * var(--zd));
+  top: 50%;
+  transform: translateY(-50%);
+}
+.role[data-side="right"] {
+  left: calc(100% + 26 * var(--zd));
+  top: 50%;
+  transform: translateY(-50%);
+}
+@media (hover: hover) and (min-width: 1024px) {
+  .hearth:has(.role[data-side="top"]:hover) .side[data-side="top"],
+  .hearth:has(.role[data-side="right"]:hover) .side[data-side="right"],
+  .hearth:has(.role[data-side="left"]:hover) .side[data-side="left"],
+  .hearth:has(.role[data-side="bottom"]:hover) .side[data-side="bottom"] {
+    stroke: #ffb070;
+    stroke-width: 4;
+    filter: drop-shadow(0 0 8px rgb(255 126 21 / 95%))
+      drop-shadow(0 0 22px rgb(255 126 21 / 60%));
+  }
+  .role:not([data-side="bottom"]):hover {
+    color: #ffd2a6;
+  }
+  .hearth:has(.role:hover) .ember {
+    transform: scale(1.25);
+  }
+}
+.agreeBlock {
+  margin-top: calc(98 * var(--z));
+}
+.agree {
+  font: 400 calc(26 * var(--zd)) / 1.5 var(--serif);
+  letter-spacing: 0.05em;
+  text-shadow: var(--shadow);
+  white-space: nowrap;
+}
+.agreeNote {
+  margin-top: calc(14 * var(--z));
+}
+.cross {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: calc(18 * var(--z));
+  padding-bottom: calc(4 * var(--z));
+  border-bottom: 1px solid var(--ivory-62);
+  font-size: calc(15 * var(--z));
+  letter-spacing: 0.06em;
+  text-shadow: var(--shadow);
+  transition: border-color var(--dur-state) var(--ease-panel);
+}
+.cross:hover {
+  border-bottom-color: var(--ivory);
+}
+@media (max-width: 1023.98px) {
+  .hearth {
+    width: calc(132 * var(--z));
+    height: calc(132 * var(--z));
+    margin: calc(62 * var(--z)) 0 0 calc(254 * var(--k) - 66 * var(--z));
+  }
+  .hearth::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgb(8 8 10 / 34%);
+  }
+  .frameInner {
+    transform: scale(1.02);
+    transform-origin: center;
+  }
+  .ember {
+    width: calc(76 * var(--z));
+    height: calc(76 * var(--z));
+    margin: calc(-38 * var(--z)) 0 0 calc(-38 * var(--z));
+  }
+  .role {
+    font-size: calc(15 * var(--z));
+    letter-spacing: 0.05em;
+  }
+  .role[data-side="top"] {
+    top: calc(-30 * var(--z));
+  }
+  .role[data-side="bottom"] {
+    bottom: calc(-32 * var(--z));
+    font-size: calc(14 * var(--z));
+  }
+  .role:is([data-side="left"], [data-side="right"]) {
+    writing-mode: vertical-rl;
+    letter-spacing: 0.12em;
+  }
+  .role[data-side="left"] {
+    right: calc(100% + 8 * var(--z));
+  }
+  .role[data-side="right"] {
+    left: calc(100% + 8 * var(--z));
+  }
+  .tcy {
+    text-combine-upright: all;
+  }
+  .agreeBlock {
+    margin-top: 0;
+  }
+  .agree {
+    font-size: calc(19 * var(--z));
+    line-height: 1.6;
+    letter-spacing: 0.04em;
+  }
+  .agreeNote {
+    margin-top: calc(10 * var(--z));
+  }
+  .cross {
+    margin-top: calc(18 * var(--z));
+    padding-bottom: 0;
+    font-size: calc(14 * var(--z));
+    letter-spacing: 0.05em;
+  }
+}
+/* The seating as the diagram comes into view (motion only). */
+.page[data-motion="on"] .hearth[data-seat="wait"] .side[data-side="bottom"] {
+  stroke: transparent;
+}
+.page[data-motion="on"] .hearth[data-seat="run"] .side:not([data-side="bottom"]) {
+  animation: side-flash 900ms var(--ease-panel) both;
+}
+.page[data-motion="on"] .hearth[data-seat="run"] .side[data-side="right"] {
+  animation-delay: 220ms;
+}
+.page[data-motion="on"] .hearth[data-seat="run"] .side[data-side="left"] {
+  animation-delay: 440ms;
+}
+.page[data-motion="on"] .hearth[data-seat="run"] .side[data-side="bottom"] {
+  animation: side-light 700ms var(--ease-panel) 700ms both;
+}
+.page[data-motion="on"] .hearth[data-seat="run"] .ember {
+  animation: ember-pulse 1400ms var(--ease-panel) 200ms both;
+}
+@keyframes side-flash {
+  0%,
+  100% {
+    stroke: transparent;
+  }
+  35% {
+    stroke: #ffb070;
+    stroke-width: 3.5;
+  }
+}
+@keyframes side-light {
+  from {
+    stroke: transparent;
+  }
+  to {
+    stroke: var(--flare);
+  }
+}
+@keyframes ember-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+}
+
+/* ------------------------------------------------------------ 05 embers */
+.emberRow {
+  position: relative;
+  margin-left: calc(100 * var(--k));
+  width: calc(1240 * var(--k));
+}
+.steps {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+.step {
+  --fill: 1;
+  position: relative;
+  display: grid;
+  justify-items: center;
+  grid-template-rows: auto calc(22 * var(--z)) auto;
+  row-gap: calc(14 * var(--z));
+  text-shadow: var(--shadow);
+}
+/* the track from the previous ember, and its orange fill */
+.step + .step::before,
+.step + .step::after {
+  content: "";
+  position: absolute;
+  top: calc(16 * var(--z) + 14 * var(--z) + 11 * var(--z) - 0.75px);
+  right: 50%;
+  width: 100%;
+  height: 1.5px;
+  background: var(--ivory-40);
+}
+.step + .step::after {
+  background: linear-gradient(90deg, #ff8a2a, var(--flare));
+  box-shadow: 0 0 8px rgb(255 126 21 / 50%);
+  transform: scaleX(var(--fill));
+  transform-origin: left;
+}
+.step[data-handover]::after {
+  background: linear-gradient(90deg, var(--flare), var(--ivory-40));
+}
+.stepNo {
+  font: 300 calc(16 * var(--z)) / 1 var(--narrow);
+  letter-spacing: 0.1em;
+  color: var(--flare-soft);
+}
+.stepRing {
+  position: relative;
+  z-index: 1;
+  align-self: center;
+  width: calc(22 * var(--z));
+  height: calc(22 * var(--z));
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 42% 38%,
+    #ffe0b8,
+    #ff9a3c 38%,
+    var(--flare) 62%,
+    #c2540a
+  );
+  box-shadow:
+    0 0 0 5px rgb(255 126 21 / 14%),
+    0 0 22px rgb(255 126 21 / 75%);
+  transition:
+    background var(--dur-state) var(--ease-panel),
+    box-shadow var(--dur-panel) var(--ease-panel);
+}
+.stepBurst {
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  border: 1.5px solid var(--flare-soft);
+  opacity: 0;
+}
+.stepName {
+  font-size: calc(17 * var(--z));
+  letter-spacing: 0.08em;
+  color: var(--ivory-90);
+}
+.step[data-handover] .stepNo {
+  color: var(--ivory-78);
+}
+.step[data-handover] .stepRing {
+  width: calc(26 * var(--z));
+  height: calc(26 * var(--z));
+  border: 1.5px solid var(--ivory);
+  background: rgb(10 10 12 / 60%);
+  box-shadow: none;
+}
+.step[data-handover] .stepName {
+  color: var(--ivory);
+}
+.spark {
+  display: none;
+  position: absolute;
+  left: calc(-6 * var(--z));
+  top: calc(-6 * var(--z));
+  width: calc(12 * var(--z));
+  height: calc(12 * var(--z));
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff3dc, #ffb56b 45%, rgb(255 126 21 / 0%) 72%);
+  box-shadow: 0 0 18px 6px rgb(255 140 40 / 55%);
+  pointer-events: none;
+}
+/* Before the spark arrives (motion only): unlit rings and empty tracks. */
+.page[data-motion="on"] .emberRow:is([data-ignite="wait"], [data-ignite="run"]) .step {
+  --fill: 0;
+}
+.page[data-motion="on"]
+  .emberRow:is([data-ignite="wait"], [data-ignite="run"])
+  .step:not([data-lit], [data-handover])
+  .stepRing {
+  background: rgb(10 10 12 / 60%);
+  box-shadow: inset 0 0 0 1.5px var(--ivory-78);
+}
+.page[data-motion="on"]
+  .emberRow:is([data-ignite="wait"], [data-ignite="run"])
+  .step:not([data-lit], [data-handover])
+  .stepNo {
+  color: var(--ivory-62);
+}
+.page[data-motion="on"] .emberRow[data-ignite="run"] .spark {
+  display: block;
+}
+.page[data-motion="on"] .step[data-lit] .stepBurst {
+  animation: burst 900ms ease-out both;
+}
+@keyframes burst {
+  from {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(2.8);
+  }
+}
+@media (max-width: 1023.98px) {
+  .emberRow {
+    margin-left: calc(20 * var(--k));
+    margin-top: calc(30 * var(--z));
+    width: calc(330 * var(--k));
+  }
+  .steps {
+    display: block;
+  }
+  .emberRow::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: calc(-24 * var(--z)) auto calc(-24 * var(--z)) calc(-40 * var(--z));
+    width: calc(250 * var(--z));
+    border-radius: 50%;
+    background: radial-gradient(
+      closest-side,
+      rgb(7 8 11 / 60%),
+      rgb(7 8 11 / 34%) 60%,
+      rgb(7 8 11 / 0%)
+    );
+    pointer-events: none;
+  }
+  .step {
+    display: grid;
+    grid-template-columns: calc(26 * var(--z)) calc(34 * var(--z)) 1fr;
+    grid-template-rows: none;
+    grid-template-areas: "ring no name";
+    justify-items: start;
+    align-items: center;
+    row-gap: 0;
+    min-height: calc(50 * var(--z));
+  }
+  .step + .step::before,
+  .step + .step::after {
+    top: auto;
+    right: auto;
+    left: calc(13 * var(--z) - 0.75px);
+    bottom: 50%;
+    width: 1.5px;
+    height: 100%;
+  }
+  .step + .step::after {
+    background: linear-gradient(#ff8a2a, var(--flare));
+    box-shadow: 0 0 6px rgb(255 126 21 / 50%);
+    transform: scaleY(var(--fill));
+    transform-origin: top;
+  }
+  .step[data-handover]::after {
+    background: linear-gradient(var(--flare), var(--ivory-40));
+  }
+  .stepRing {
+    grid-area: ring;
+    justify-self: center;
+    width: calc(16 * var(--z));
+    height: calc(16 * var(--z));
+    box-shadow:
+      0 0 0 4px rgb(255 126 21 / 14%),
+      0 0 18px rgb(255 126 21 / 75%);
+  }
+  .stepNo {
+    grid-area: no;
+    font: 400 calc(14 * var(--z)) / 1 var(--narrow);
+    letter-spacing: 0.08em;
+    color: var(--flare-bright);
+  }
+  .stepName {
+    grid-area: name;
+    font: 400 calc(18 * var(--z)) / 1.2 var(--serif);
+    letter-spacing: 0.06em;
+  }
+  .step[data-handover] .stepRing {
+    width: calc(19 * var(--z));
+    height: calc(19 * var(--z));
+  }
+  .spark {
+    left: calc(-5 * var(--z));
+    top: calc(-5 * var(--z));
+    width: calc(10 * var(--z));
+    height: calc(10 * var(--z));
+  }
+}
+
+/* ------------------------------------------------------------ 06 */
+.checks {
+  display: grid;
+  grid-template-columns: repeat(4, calc(260 * var(--k)));
+  margin-top: calc(48 * var(--z));
+}
+.check {
+  display: flex;
+  align-items: center;
+  gap: calc(16 * var(--z));
+  min-height: calc(64 * var(--z));
+  padding-inline: calc(26 * var(--k));
+  border-left: 1px solid var(--hair);
+  font: 400 calc(22 * var(--zd)) / 1.2 var(--serif);
+  letter-spacing: 0.05em;
+  text-shadow: var(--shadow);
+  white-space: nowrap;
+}
+.check:first-child {
+  border-left: 0;
+  padding-left: 0;
+}
+.tick {
+  flex: none;
+  width: calc(20 * var(--z));
+  height: calc(20 * var(--z));
+  fill: none;
+  stroke: var(--ivory);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.tick path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+@media (max-width: 1023.98px) {
+  .checks {
+    grid-template-columns: 1fr 1.15fr;
+    width: calc(330 * var(--k));
+    margin-top: calc(24 * var(--z));
+    border-top: 1px solid var(--hair);
+  }
+  .check {
+    gap: calc(10 * var(--z));
+    min-height: calc(58 * var(--z));
+    padding-inline: 0 calc(8 * var(--z));
+    border-left: 0;
+    border-bottom: 1px solid var(--hair);
+    font-size: calc(16 * var(--z));
+    line-height: 1.3;
+    letter-spacing: 0.04em;
+  }
+  .check:nth-child(even) {
+    padding-left: calc(14 * var(--z));
+    border-left: 1px solid var(--hair);
+  }
+  .tick {
+    width: calc(16 * var(--z));
+    height: calc(16 * var(--z));
+    stroke-width: 1.7;
+  }
+}
+
+/* ------------------------------------------------------------ contact */
+.contactTitle {
+  margin-top: 0;
+  font-size: calc(44 * var(--zd));
+  line-height: 1.55;
+}
+.contactAction {
+  margin-top: calc(44 * var(--z));
+}
+@media (max-width: 1023.98px) {
+  .contact .col {
+    width: calc(350 * var(--k));
+  }
+  .contactTitle {
+    font-size: calc(23 * var(--z));
+    line-height: 1.6;
+  }
+  .contactAction {
+    width: calc(330 * var(--k));
+    margin-top: calc(26 * var(--z));
+  }
+}
+/* Scenes 05 and 06 use the full width on phones (the hearth is behind them). */
+@media (max-width: 1023.98px) {
+  .section:is([data-chapter="5"], [data-chapter="6"]) .col {
+    width: calc(330 * var(--k));
+  }
+  .agreeBlock,
+  .intro04 {
+    width: calc(228 * var(--k));
+  }
+}
+
+/* ------------------------------------------------------------ chapter index */
+/* A slim line like the hook's bamboo pole; the orange crossbar slides to the
+   current chapter. It carries its own dark so it reads over the light shafts. */
+.index {
+  position: fixed;
+  z-index: 30;
+  top: 150px;
+  right: 34px;
+  width: 44px;
+  transition:
+    opacity var(--dur-panel) var(--ease-panel),
+    visibility 0s linear;
+}
+.index::before {
+  content: "";
+  position: absolute;
+  inset: -18px -14px -18px -10px;
+  border-radius: 28px;
+  background: linear-gradient(to left, rgb(7 8 11 / 55%), rgb(7 8 11 / 30%));
+  box-shadow: 0 0 22px 10px rgb(7 8 11 / 28%);
+}
+.index::after {
+  content: "";
+  position: absolute;
+  right: 30px;
+  top: -10px;
+  bottom: -10px;
+  width: 1px;
+  background: var(--ivory-40);
+}
+.index ol {
+  position: relative;
+  display: grid;
+  grid-template-rows: repeat(6, 62px);
+  justify-items: end;
+  align-items: center;
+}
+.index[data-hidden] {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--dur-panel) var(--ease-panel),
+    visibility 0s linear var(--dur-panel);
+}
+.indexLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 44px;
+  min-height: 24px;
+  font: 400 13px/1 var(--narrow);
+  letter-spacing: 0.08em;
+  color: var(--ivory-78);
+  transition: color var(--dur-state) var(--ease-panel);
+}
+.indexLink::before {
+  content: "";
+  position: absolute;
+  right: 26px;
+  top: 50%;
+  width: 9px;
+  height: 1px;
+  background: var(--ivory-40);
+}
+.indexLink:hover {
+  color: var(--ivory);
+}
+.indexLink[aria-current="location"] {
+  color: var(--flare-soft);
+}
+.crossbar {
+  position: absolute;
+  right: 21px;
+  top: 29.5px;
+  width: 19px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--flare);
+  box-shadow: 0 0 10px rgb(255 126 21 / 55%);
+  transform: translateY(calc(var(--idx, 0) * 62px));
+  transition: transform var(--dur-panel) var(--ease-panel);
+}
+@media (max-width: 1023.98px) {
+  .index {
+    top: 330px;
+    right: 6px;
+    width: 34px;
+  }
+  .index::before {
+    inset: 0;
+    border-radius: 17px;
+    background: linear-gradient(to left, rgb(7 8 11 / 72%), rgb(7 8 11 / 50%));
+    box-shadow: 0 0 16px 6px rgb(7 8 11 / 35%);
+  }
+  .index::after {
+    right: 7px;
+    top: -6px;
+    bottom: -6px;
+  }
+  .index ol {
+    grid-template-rows: repeat(6, 41.67px);
+  }
+  .indexLink {
+    min-width: 24px;
+    padding-right: 12px;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-shadow: var(--shadow);
+  }
+  .indexLink::before {
+    display: none;
+  }
+  .crossbar {
+    right: 2px;
+    top: 19.6px;
+    width: 11px;
+    height: 2.5px;
+    box-shadow: 0 0 8px rgb(255 126 21 / 55%);
+    transform: translateY(calc(var(--idx, 0) * 41.67px));
+  }
+}
+@media (max-height: 560px) and (max-width: 1023.98px) {
+  .index {
+    top: auto;
+    bottom: 16px;
+  }
+}

@@ -77,6 +77,13 @@ function BrokenText({
   }
   return <>{parts}</>;
 }
+/* A line may only break after a phrase-ending particle (with CSS keep-all),
+   so a narrow screen wraps by phrase instead of stranding the last glyph. */
+function Phrased({ children }: { children: string }) {
+  return children
+    .split(/(?<=を)/)
+    .flatMap((part, i) => (i ? [<wbr key={i} />, part] : [part]));
+}
 function Arrow() {
   return (
     <span className={styles.arrow} aria-hidden="true">
@@ -603,7 +610,7 @@ export function RevenueBrandPage() {
                       className={`${styles.position} ${styles.description} ${styles.differenceDescription} ${styles.scrim}`}
                       style={pos(x, y + 106, 128, ym + 41, 18, 12)}
                     >
-                      {item.description}
+                      <Phrased>{item.description}</Phrased>
                     </dd>
                   </div>
                 );

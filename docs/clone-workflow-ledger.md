@@ -1,5 +1,25 @@
 # White Desert Clone Workflow Ledger
 
+## Release of local ADELVA pages — 2026-09-30
+
+The user asks to deploy the locally implemented work to Vercel. This authorizes
+commit, fast-forward push to `main` and the connected Vercel production for the
+pages recorded below as "no commit, deployment or production mutation":
+`/about` (A2), `/approach`, `/contact` and `/contact/thanks`,
+`/services/dx-it-procurement`, `/challenges/general-managers`,
+`/challenges/owner`, and the revenue-brand compositing rework (spec §9.2c).
+The commit carries runtime code, public media, fonts, tests, scripts and specs;
+evidence reports, generated sources and mock plates stay local. The DX unit and
+E2E tests now expect `/services/revenue-brand` to be available and linked from
+card 02, since that page shipped after the tests were written. The committed
+serif subset lacked 向, so the revenue-brand desktop hero drew it in a fallback
+font; the extended subset fixes it and that golden is regenerated. Gates:
+typecheck, lint, 162 unit tests, production build and Prettier on the staged
+files pass; E2E 408/413 passed in the full run, and the five failures (the three
+DX, the golden and a 30 s timeout in the about 1440 motion walk under full-suite
+load) passed on rerun of those files (61/61). Contact delivery is unchanged: without
+`CONTACT_WEBHOOK_URL` production shows the not-ready notice. No subagents.
+
 ## HOME hero video v3 — 2026-09-30
 
 The user directs replacing the HOME hero video with the v3 lab encodes and
@@ -607,3 +627,60 @@ images carry photography only. Plates are fictional generated imagery edited fro
 the adopted mock slices; geometry is derived from the mock's line ink and the
 plates. Evidence, gate results, deviations and reference deltas:
 `docs/reports/adelva-revenue-brand-2026-09-28/README.md`.
+
+## ADELVA 支援の進め方 — 2026-09-26
+
+User adopted `references/adelva/mockups/approach-page-2026-09-25/A-full.png`
+and `A-mobile/A-mobile-full-390.png` and asked for a faithful implementation of
+`/approach` with the specified motion. Mode C. Copy is the mocks' adopted
+wording with recorded sources; shared `SiteHeader`, `HomeFooter` and
+`ScrollProvider` are reused unchanged; `RouteShell` and the navigation's
+implemented paths each gain `/approach`. Measured specification, declared
+thresholds and intentional deviations: `docs/specs/adelva-approach-spec.md`.
+Evidence and gate results: `docs/reports/adelva-approach-2026-09-26/`.
+Text-free plates generated through Codex (Opus-authored prompts);
+provenance in `docs/asset-provenance.md`. No commit, deployment or production
+mutation.
+
+## ADELVA DX・IT・調達基盤 — 2026-09-28
+
+User authorizes `/services/dx-it-procurement` from the complete
+`references/adelva/mockups/dx-it-procurement-2026-09-24/IMPLEMENTATION-PROMPT.md`
+with A desktop/mobile references, supplied immutable plates, and DOM/CSS/SVG UI.
+Production owner: image-to-code Mode C. Existing header, footer, scroll provider,
+shared process copy and route contracts are retained. RouteShell, navigation and
+shared test lists receive additions only. Owning specification:
+`docs/specs/adelva-dx-it-procurement-spec.md`; final evidence, gate results and
+remaining repository blockers: `docs/reports/adelva-dx-it-procurement-2026-09-28/`.
+No image generation or asset processing, commit, push, deployment, upload or
+production mutation is authorized or performed by this implementation task.
+
+## ADELVA 総支配人・現場責任者の方へ — 2026-09-30
+
+User adopted `references/adelva/mockups/general-managers-2026-09-29/A2/A2-full.png`
+and `A2-mobile/A2-mobile-full-390.png` and asked for a faithful implementation of
+`/challenges/general-managers` by Opus 5.5 alone, replacing the previous page.
+Mode C (image-to-code). The route now renders `GeneralManagersPage`; the shared
+`AudiencePage` stays unchanged for `/challenges/owner`. Shared `SiteHeader` and
+`HomeFooter` are reused unchanged. Copy is the previous GM page's approved
+wording plus the mocks' recorded new strings (spec §5). Specification:
+`docs/specs/adelva-general-managers-spec.md`; evidence and gate results:
+`docs/reports/adelva-general-managers-2026-09-30/`. Deterministic asset
+derivatives only (provenance above). No commit, deployment or production
+mutation.
+
+## ADELVA オーナー・経営者の方へ — 2026-09-30
+
+User adopted `references/adelva/mockups/owner-2026-09-29/B2/B2-full.png` and
+`B2-mobile/B2-mobile-full-390.png` and asked for a faithful implementation of
+`/challenges/owner` by Opus 5.5, allowing the existing implementation to be
+deleted. Mode C (image-to-code). The route now renders `OwnerPage`; the previous
+`AudiencePage` (`src/components/audience/`), its photographs
+(`public/media/adelva/audience-v4/`), its suite (`tests/audience/`,
+`playwright.audience.config.ts`) and its v4 scripts were removed (no other route
+used them). Shared `SiteHeader` and `HomeFooter` are reused unchanged. Copy is the
+previous owner page's approved wording plus the contact line from
+`home-copy.md` §7 (spec §5). Specification: `docs/specs/adelva-owner-spec.md`;
+evidence and gate results: `docs/reports/adelva-owner-2026-09-30/`. Deterministic
+asset derivatives only (provenance above); no new image generation was needed. No
+commit, deployment or production mutation.

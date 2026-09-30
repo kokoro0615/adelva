@@ -1,0 +1,1831 @@
+/*
+ * ADELVA 支援の進め方 — /approach.
+ *
+ * Specification: docs/specs/adelva-approach-spec.md.
+ * Geometry comes from the adopted A mocks. Desktop (≥1024px) values use `--u`
+ * (1px on a 1440px-wide canvas, capped at 1920px); below 1024px values use
+ * `--m` (1px on a 390px-wide canvas). Mobile type uses `--t`, which grows
+ * more slowly than `--m` so tablet copy stays at a reading size. Vertical
+ * offsets are derived from measured glyph tops (see the spec §5): each text
+ * block's margin places its first glyph where the mock has it.
+ * Every state that scripts change starts from the finished, readable state.
+ */
+
+@font-face {
+  font-family: "AP Serif";
+  src: url("/fonts/adelva-noto-serif-jp.woff2") format("woff2");
+  font-weight: 200 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "AP Sans";
+  src: url("/fonts/adelva-noto-sans-jp.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+.page {
+  --serif: "AP Serif", "Noto Serif JP", serif;
+  --sans: "AP Sans", "Noto Sans JP", sans-serif;
+  --night: #0c1018;
+  --paper: #f1efea;
+  --ink: #0e1118;
+  --ivory: #f1ecdf;
+  --flare: #ff7e15;
+  --rule: rgb(255 255 255 / 42%);
+  --rule-soft: rgb(255 255 255 / 26%);
+  position: relative;
+  background: var(--night);
+  color: #fff;
+  font: 400 16px/1.6 var(--sans);
+  overflow: clip;
+}
+/* Zero-specificity resets, so every component rule below wins over them. */
+:where(.page) *,
+:where(.page) *::before,
+:where(.page) *::after {
+  box-sizing: border-box;
+}
+:where(.page) :where(h1, h2, h3, p, ul, ol, dl, dd, dt, figure) {
+  margin: 0;
+  padding: 0;
+  text-wrap: initial;
+  letter-spacing: normal;
+  font-weight: 400;
+}
+:where(.page) :where(ul, ol) {
+  list-style: none;
+}
+:where(.page) :where(a) {
+  color: inherit;
+  text-decoration: none;
+}
+:where(.page) :where(i) {
+  font-style: normal;
+}
+/* Two-tone ring: holds 3:1 on night, paper and photographs alike. */
+.page a:focus-visible,
+.page [tabindex]:focus-visible {
+  outline: 2px solid #0b1620;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px #fff;
+  border-radius: 1px;
+}
+.page [id] {
+  scroll-margin-top: 72px;
+}
+.skip {
+  position: absolute;
+  left: 24px;
+  top: 12px;
+  z-index: 100;
+  background: #fff;
+  color: var(--night);
+  padding: 12px 24px;
+  transform: translateY(-200%);
+}
+.skip:focus {
+  transform: none;
+}
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.main {
+  display: block;
+}
+.desktopBreak {
+  display: none;
+}
+.nakaguro {
+  margin-inline: -0.2em;
+}
+.arrow {
+  display: inline-block;
+  transition: transform var(--dur-release, 200ms) var(--ease-state, ease);
+}
+
+/*
+ * The proportional canvas every measured value lives on. Units derive from
+ * the viewport rather than container queries: a size container applies layout
+ * containment, which would make it the containing block of the pinned (fixed)
+ * hero. The canvas takes exactly the width its unit implies and centres
+ * itself, so a classic scrollbar trims both edges equally instead of skewing
+ * the geometry.
+ */
+.canvas {
+  --m: calc(100vw / 390);
+  --t: calc(0.4px + 100vw * 0.6 / 390);
+  position: relative;
+  width: calc(390 * var(--m));
+  margin-left: calc((100% - 390 * var(--m)) / 2);
+}
+.canvas > :not(.ridge) {
+  position: relative;
+  z-index: 1;
+}
+
+/* ================================================================ hero */
+
+.descentFrame {
+  position: relative;
+  min-height: calc(4648 * var(--t));
+}
+.hero {
+  position: relative;
+  z-index: 0;
+  height: calc(750 * var(--m));
+  isolation: isolate;
+}
+.heroMedia {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+.heroZoom {
+  position: absolute;
+  inset: 0;
+  transform-origin: 0 0;
+}
+.heroPhoto,
+.heroPhoto img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.heroScrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgb(8 12 18 / 48%) 0%, rgb(8 12 18 / 0%) 14%),
+    linear-gradient(
+      180deg,
+      rgb(8 12 18 / 0%) 14%,
+      rgb(8 12 18 / 34%) 32%,
+      rgb(8 12 18 / 30%) 56%,
+      rgb(8 12 18 / 0%) 72%
+    ),
+    linear-gradient(180deg, rgb(12 16 24 / 0%) 86%, rgb(12 16 24 / 55%) 100%);
+}
+.heroNight {
+  position: absolute;
+  inset: 0;
+  background: var(--night);
+  opacity: 0;
+  pointer-events: none;
+}
+.heroBody {
+  position: relative;
+  padding-top: calc(132.4 * var(--m));
+  padding-left: calc(25 * var(--m));
+}
+.breadcrumb ol {
+  display: flex;
+  gap: 0.6em;
+  font-size: calc(11 * var(--t));
+  line-height: calc(16 * var(--t));
+  color: rgb(255 255 255 / 92%);
+}
+.breadcrumb li + li::before {
+  content: "/";
+  margin-right: 0.6em;
+}
+.breadcrumb a {
+  display: inline-block;
+  text-underline-offset: 3px;
+}
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+.roman {
+  margin-top: calc(15.4 * var(--t));
+  font-size: calc(7.6 * var(--t));
+  line-height: calc(10 * var(--t));
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: rgb(255 255 255 / 92%);
+}
+.title {
+  margin-top: calc(4.6 * var(--t));
+  font-family: var(--serif);
+  font-size: calc(48 * var(--t));
+  line-height: calc(54 * var(--t));
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 24px rgb(8 12 18 / 30%);
+}
+.lead {
+  margin-top: calc(13.4 * var(--t));
+  font-family: var(--serif);
+  font-size: calc(17.5 * var(--t));
+  line-height: calc(26.5 * var(--t));
+  letter-spacing: 0.01em;
+}
+.body {
+  margin-top: calc(15.8 * var(--t));
+  font-size: calc(13.5 * var(--t));
+  line-height: calc(22.7 * var(--t));
+  letter-spacing: 0.02em;
+}
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75em;
+  margin-top: calc(12.85 * var(--t));
+  min-width: calc(176 * var(--t));
+  min-height: 44px;
+  padding: 0 calc(16 * var(--t));
+  background: var(--flare);
+  color: var(--ink);
+  font-size: calc(14 * var(--t));
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition:
+    background-color var(--dur-state, 300ms) var(--ease-state, ease),
+    transform var(--dur-press, 90ms) var(--ease-state, ease);
+}
+@media (hover: hover) and (pointer: fine) {
+  .cta:hover {
+    background: #ff9540;
+  }
+  .cta:hover .arrow,
+  .audienceLink:hover .arrow,
+  .domain:hover .domainArrow {
+    transform: translateX(4px);
+  }
+}
+.cta:active {
+  transform: translateY(1px);
+}
+
+/* ------------------------------------------------------------- descent rail */
+
+.rail {
+  --rail-x: 351;
+  --rail-top: 150;
+  --rail-pitch: 53.6;
+  --rail-first: 187;
+  --rail-bottom: 488;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  font-size: calc(10.5 * var(--t));
+  line-height: 1;
+  color: rgb(255 255 255 / 94%);
+}
+/* A soft night ground under the scale keeps its numerals legible over the
+   brightest cloud (spec §8); it fades out well before the photograph's centre. */
+.rail::before {
+  content: "";
+  position: absolute;
+  left: calc((var(--rail-x) - 46) * var(--m));
+  width: calc(96 * var(--m));
+  top: calc((var(--rail-top) - 34) * var(--m));
+  height: calc((var(--rail-bottom) - var(--rail-top) + 60) * var(--m));
+  background: linear-gradient(
+    180deg,
+    rgb(6 9 14 / 0%) 0%,
+    rgb(6 9 14 / 70%) 12%,
+    rgb(6 9 14 / 52%) 45%,
+    rgb(6 9 14 / 48%) 88%,
+    rgb(6 9 14 / 0%) 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 30%,
+    #000 70%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 30%,
+    #000 70%,
+    transparent 100%
+  );
+  filter: blur(6px);
+}
+.railEnd {
+  position: absolute;
+  left: calc(var(--rail-x) * var(--m));
+  top: calc(var(--rail-top) * var(--m));
+  transform: translate(-50%, -100%);
+  white-space: nowrap;
+}
+.railEndBottom {
+  top: calc(var(--rail-bottom) * var(--m));
+  transform: translate(-50%, 0);
+}
+.railLine {
+  position: absolute;
+  left: calc(var(--rail-x) * var(--m) - 0.5px);
+  top: calc((var(--rail-top) + 5) * var(--m));
+  height: calc((var(--rail-bottom) - var(--rail-top) - 10) * var(--m));
+  width: 1px;
+  background: rgb(255 255 255 / 85%);
+}
+.railProgress {
+  position: absolute;
+  inset: 0 -0.5px auto;
+  height: calc((var(--rail-first) - var(--rail-top) - 5) * var(--m));
+  background: var(--flare);
+  transform-origin: 0 0;
+}
+.railStops li {
+  position: absolute;
+  left: calc(var(--rail-x) * var(--m));
+  top: calc((var(--rail-first) + var(--i) * var(--rail-pitch)) * var(--m));
+  transform: translate(-22px, -50%);
+}
+.railStops a {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: calc(6 * var(--t));
+  min-width: 44px;
+  min-height: 44px;
+  padding-left: 18px;
+}
+.railTick {
+  position: absolute;
+  left: 18px;
+  width: calc(8 * var(--m));
+  height: 1px;
+  background: currentcolor;
+}
+.railStops a span {
+  margin-left: calc(10 * var(--m));
+}
+.railStops a[data-current] {
+  color: var(--flare);
+}
+@media (hover: hover) and (pointer: fine) {
+  .railStops a:hover span {
+    color: var(--flare);
+  }
+}
+
+/* ------------------------------------------------------------------- finder */
+
+.finder {
+  position: absolute;
+  left: var(--f-mx);
+  top: var(--f-my);
+  width: var(--f-mw);
+  height: var(--f-mh);
+  color: var(--flare);
+  z-index: 3;
+}
+.finder[data-tone="client"] {
+  color: var(--ivory);
+}
+.finderMarks {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.finderRect {
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 1.4px;
+  vector-effect: non-scaling-stroke;
+}
+.corner {
+  position: absolute;
+  width: calc(7 * var(--m));
+  height: calc(7 * var(--m));
+  border: 0 solid currentcolor;
+}
+.corner[data-corner="tl"] {
+  left: 1px;
+  top: 1px;
+  border-width: 2px 0 0 2px;
+}
+.corner[data-corner="tr"] {
+  right: 1px;
+  top: 1px;
+  border-width: 2px 2px 0 0;
+}
+.corner[data-corner="bl"] {
+  left: 1px;
+  bottom: 1px;
+  border-width: 0 0 2px 2px;
+}
+.corner[data-corner="br"] {
+  right: 1px;
+  bottom: 1px;
+  border-width: 0 2px 2px 0;
+}
+.finderNumber {
+  position: absolute;
+  left: calc(100% + 2 * var(--m));
+  bottom: calc(100% + 1 * var(--m));
+  /* A specimen-label tab: the photograph behind a finder can be as bright as
+     a lamp, so the number carries its own night ground (spec §8). */
+  padding: 0.26em 0.24em 0.22em;
+  background: var(--night);
+  font-size: calc(15 * var(--t));
+  line-height: 1;
+  font-weight: 400;
+  color: var(--flare);
+}
+/* The link carries a 44px target even where the drawn frame is smaller. */
+a.finder::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: max(100%, 44px);
+  height: max(100%, 44px);
+  transform: translate(-50%, -50%);
+}
+a.finder:focus-visible {
+  outline-offset: 4px;
+}
+@media (hover: hover) and (pointer: fine) {
+  a.finder:hover .finderRect {
+    stroke-width: 2.2px;
+  }
+}
+/* The hero's drawn finder lives inside the zooming photograph; this link sits
+   on the same rectangle outside it, so keyboard focus is never scaled. */
+.heroFinderLink {
+  z-index: 2;
+}
+
+/* ================================================================ descent */
+
+.descent {
+  position: relative;
+  z-index: 1;
+}
+.stages {
+  display: block;
+}
+.stage {
+  position: relative;
+  margin-top: calc(var(--m-gap) * var(--m));
+  margin-left: calc(var(--m-left) * var(--m));
+  width: calc(var(--m-width) * var(--m));
+  outline: none;
+}
+.frame {
+  position: relative;
+  aspect-ratio: var(--m-width) / var(--m-height);
+  isolation: isolate;
+  background: #141a22;
+}
+.stagePhoto,
+.stagePhoto img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.stagePhoto {
+  overflow: hidden;
+  z-index: -1;
+}
+.stageScrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(
+    120% 70% at 0% 0%,
+    rgb(6 9 14 / 62%) 0%,
+    rgb(6 9 14 / 30%) 42%,
+    rgb(6 9 14 / 0%) 70%
+  );
+  pointer-events: none;
+}
+.stageText {
+  position: relative;
+  padding-top: calc(14.4 * var(--m));
+  padding-left: calc(16 * var(--m));
+  padding-bottom: calc(12 * var(--m));
+  text-shadow: 0 1px 14px rgb(6 9 14 / 45%);
+}
+.stageNumber {
+  display: flex;
+  align-items: flex-start;
+  font-size: calc(30 * var(--t));
+  line-height: calc(30 * var(--t));
+  font-weight: 300;
+  color: var(--flare);
+  letter-spacing: 0.01em;
+}
+.stageTick {
+  display: block;
+  width: 1.5px;
+  height: calc(17 * var(--t));
+  margin-top: calc(8 * var(--t));
+  margin-left: calc(9 * var(--t));
+  background: currentcolor;
+}
+.stageName {
+  margin-top: calc(2.7 * var(--t));
+  font-family: var(--serif);
+  font-size: calc(30 * var(--t));
+  line-height: calc(36 * var(--t));
+  letter-spacing: 0.02em;
+}
+.stageDescription {
+  margin-top: calc(6.65 * var(--t));
+  font-size: calc(13 * var(--t));
+  line-height: calc(19 * var(--t));
+  letter-spacing: 0.02em;
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(7 * var(--t));
+  margin-top: calc(8.25 * var(--t));
+}
+.tags li {
+  display: inline-flex;
+  align-items: center;
+  min-height: calc(23.5 * var(--t));
+  padding: 0 calc(8 * var(--t));
+  border: 1px solid rgb(255 255 255 / 88%);
+  background: rgb(8 12 18 / 18%);
+  font-size: calc(11.5 * var(--t));
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+}
+
+.dots {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.dot {
+  position: absolute;
+  left: var(--dot-mx);
+  top: var(--dot-my);
+  width: calc(8.6 * var(--m));
+  height: calc(8.6 * var(--m));
+  border-radius: 50%;
+  background: var(--flare);
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 calc(3 * var(--m)) rgb(255 126 21 / 22%);
+}
+
+/* The magnification lines: one overlay per viewport family. */
+.linesDesktop,
+.linesMobile {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 2;
+  overflow: visible;
+}
+.linesMobile {
+  height: calc(4648 * var(--m));
+}
+.linesDesktop {
+  display: none;
+  width: calc(1440 * var(--u, 1px));
+  height: calc(5540 * var(--u, 1px));
+}
+.magLine {
+  stroke: var(--flare);
+  stroke-width: 1.2px;
+  stroke-opacity: 0.95;
+}
+
+/* ------------------------------------------------------------ 06 引継ぎ */
+
+.stageFinal .frame {
+  background: #1a140e;
+}
+.handoverRule {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: calc(24.5 * var(--m));
+  height: 2px;
+}
+.handoverRule [data-rule-adelva] {
+  display: block;
+  width: 41.6%;
+  height: 2px;
+  background: var(--flare);
+  transform-origin: 0 50%;
+}
+.handoverRule [data-rule-client] {
+  display: block;
+  flex: 1;
+  height: 1px;
+  background: var(--ivory);
+  transform-origin: 0 50%;
+}
+.finalText {
+  padding-left: calc(4.5 * var(--m));
+}
+.finalText .stageNumber {
+  margin-top: calc(13.5 * var(--t));
+  font-size: calc(37 * var(--t));
+  line-height: calc(37 * var(--t));
+}
+.finalText .stageTick {
+  height: calc(16 * var(--t));
+  margin-top: calc(12 * var(--t));
+  margin-left: calc(11 * var(--t));
+}
+.finalText .stageName {
+  margin-top: calc(7 * var(--t));
+  font-size: calc(42 * var(--t));
+  line-height: calc(48 * var(--t));
+}
+.finalText .stageDescription {
+  margin-top: calc(12.7 * var(--t));
+  font-family: var(--serif);
+  font-size: calc(16 * var(--t));
+  line-height: calc(25.5 * var(--t));
+  letter-spacing: 0.05em;
+}
+.finalText .tags {
+  margin-top: calc(12 * var(--t));
+}
+.finalText .tags li {
+  min-height: calc(34 * var(--t));
+  padding: 0 calc(15 * var(--t));
+  border-color: rgb(241 236 223 / 90%);
+  background: none;
+  font-size: calc(13 * var(--t));
+}
+
+/* ===================================================== responsibilities */
+
+.ridge {
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  right: 0;
+  top: calc(4600 * var(--m));
+  height: calc(760 * var(--m));
+  pointer-events: none;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    #000 22%,
+    #000 62%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    #000 22%,
+    #000 62%,
+    transparent 100%
+  );
+}
+.ridge img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 82% 20%;
+}
+.label {
+  font-size: calc(12 * var(--t));
+  line-height: calc(16 * var(--t));
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--flare);
+}
+.responsibilities {
+  min-height: calc(760.5 * var(--t));
+  padding-top: calc(66.85 * var(--t));
+  padding-inline: calc(20.5 * var(--m));
+}
+.responsibilities > .label,
+.rolesTitle,
+.rolesNote {
+  padding-left: calc(3.5 * var(--m));
+}
+.rolesTitle {
+  /* May run to the canvas edge: the mock sets each line across the full width. */
+  margin-right: calc(-20.5 * var(--m));
+  margin-top: calc(4.25 * var(--t));
+  font-family: var(--serif);
+  font-size: calc(32.5 * var(--t));
+  line-height: calc(45 * var(--t));
+  letter-spacing: 0.01em;
+}
+.axis {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin: calc(31.9 * var(--t)) calc(5.5 * var(--m)) 0;
+  padding-bottom: calc(19 * var(--t));
+  font-size: calc(10.5 * var(--t));
+  line-height: calc(14 * var(--t));
+  color: rgb(255 255 255 / 86%);
+}
+.axisLine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(6 * var(--t));
+  height: 1px;
+  background: rgb(255 255 255 / 55%);
+}
+.axisLine::before,
+.axisLine::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  width: 1px;
+  height: 9px;
+  background: inherit;
+}
+.axisLine::before {
+  left: 0;
+}
+.axisLine::after {
+  right: 0;
+}
+.roles {
+  display: block;
+}
+.role {
+  position: relative;
+  min-height: calc(92.5 * var(--t));
+  padding-left: calc(4 * var(--m));
+  border-top: 1px solid var(--rule);
+}
+.role:last-child {
+  min-height: calc(89.5 * var(--t));
+  border-bottom: 1px solid var(--rule);
+}
+.role dt {
+  padding-top: calc(12.4 * var(--t));
+  font-family: var(--serif);
+  font-size: calc(19.5 * var(--t));
+  line-height: calc(24 * var(--t));
+  letter-spacing: 0.02em;
+}
+.role[data-role="adelva"] dt {
+  color: var(--flare);
+  letter-spacing: 0.06em;
+}
+.role dd {
+  margin-top: calc(2.95 * var(--t));
+  font-size: calc(12 * var(--t));
+  line-height: calc(16 * var(--t));
+  color: rgb(255 255 255 / 88%);
+}
+.track {
+  position: absolute;
+  left: calc(5.5 * var(--m));
+  right: calc(5.5 * var(--m));
+  top: calc(71 * var(--t));
+  height: 1px;
+  background: var(--rule-soft);
+}
+.track::before,
+.track::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  width: 1px;
+  height: 9px;
+  background: rgb(255 255 255 / 55%);
+}
+.track::before {
+  left: 0;
+}
+.track::after {
+  right: 0;
+}
+.bar {
+  position: absolute;
+  left: calc(var(--from) * 100%);
+  width: calc((var(--to) - var(--from)) * 100%);
+  top: 50%;
+  height: calc(5 * var(--t));
+  background: var(--ivory);
+  transform: translateY(-50%);
+  transform-origin: 0 50%;
+}
+.role[data-role="adelva"] .bar {
+  background: var(--flare);
+  height: calc(5.5 * var(--t));
+}
+.rolesNote {
+  margin-top: calc(17.6 * var(--t));
+  font-size: calc(12 * var(--t));
+  line-height: calc(20.5 * var(--t));
+  color: rgb(255 255 255 / 90%);
+}
+
+/* ========================================================== integrated */
+
+.integrated {
+  min-height: calc(991.5 * var(--t));
+  outline: none;
+}
+.integratedMedia {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: calc(461.5 * var(--m));
+  overflow: hidden;
+  pointer-events: none;
+}
+.integratedMedia::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, var(--night) 0%, rgb(12 16 24 / 0%) 12%),
+    linear-gradient(
+      180deg,
+      rgb(12 16 24 / 0%) 44%,
+      rgb(12 16 24 / 70%) 72%,
+      var(--night) 100%
+    );
+}
+.integratedPhoto,
+.integratedPhoto img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.integratedBody {
+  position: relative;
+  padding-top: calc(331.5 * var(--m));
+  padding-inline: calc(22 * var(--m)) calc(21.5 * var(--m));
+}
+.integratedBody > .label,
+.integratedTitle,
+.exampleLabel {
+  padding-left: calc(1 * var(--m));
+}
+.integratedTitle {
+  margin-top: calc(8.5 * var(--t));
+  font-family: var(--serif);
+  font-size: calc(33.5 * var(--t));
+  line-height: calc(42 * var(--t));
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 20px rgb(8 12 18 / 50%);
+}
+.domains {
+  margin-top: calc(28.5 * var(--t));
+}
+.domains li {
+  border-top: 1px solid var(--rule);
+}
+.domains li:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+.domain {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: calc(117 * var(--t));
+  padding: calc(12.25 * var(--t)) calc(34 * var(--m)) calc(13 * var(--t))
+    calc(2.5 * var(--m));
+  transition: background-color var(--dur-release, 200ms) var(--ease-state, ease);
+}
+.domain:active {
+  background: rgb(241 239 234 / 6%);
+  transition-duration: var(--dur-press, 90ms);
+}
+.domainNumber {
+  font-size: calc(16 * var(--t));
+  line-height: calc(16 * var(--t));
+  color: var(--flare);
+}
+.domainName {
+  margin-top: calc(2.45 * var(--t));
+  font-family: var(--serif);
+  font-size: calc(24 * var(--t));
+  line-height: calc(28 * var(--t));
+}
+.domainDescription {
+  margin-top: calc(6.85 * var(--t));
+  font-size: calc(12.5 * var(--t));
+  line-height: calc(19 * var(--t));
+  color: rgb(255 255 255 / 90%);
+}
+.domainArrow {
+  position: absolute;
+  right: calc(3.5 * var(--m));
+  top: calc(58.5 * var(--t));
+  transform: translateY(-50%);
+  font-size: calc(17 * var(--t));
+  line-height: 1;
+  color: var(--flare);
+}
+@media (hover: hover) and (pointer: fine) {
+  .domain:hover .domainArrow {
+    transform: translate(4px, -50%);
+  }
+  .domain:hover {
+    background: rgb(241 239 234 / 4%);
+  }
+}
+.example {
+  margin-top: calc(93.85 * var(--t));
+}
+.exampleLabel {
+  font-size: calc(12 * var(--t));
+  line-height: calc(16 * var(--t));
+  color: rgb(255 255 255 / 90%);
+}
+.exampleTrack {
+  position: relative;
+  height: calc(30 * var(--t));
+  margin-top: calc(12.65 * var(--t));
+}
+.exampleLine {
+  position: absolute;
+  left: calc(-22 * var(--m));
+  width: calc(390 * var(--m));
+  top: 50%;
+  height: 1.5px;
+  background: var(--flare);
+  transform: translateY(-50%);
+  transform-origin: 0 50%;
+}
+.exampleItem {
+  --x: 23.5;
+  --w: 93;
+  position: absolute;
+  top: 0;
+  left: calc((var(--x) - 22) * var(--m));
+  width: calc(var(--w) * var(--m));
+  height: 100%;
+  display: grid;
+  place-items: center;
+  background: var(--night);
+  font-size: calc(12 * var(--t));
+  line-height: 1;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+.exampleItem:nth-child(2) {
+  --x: 142.5;
+  --w: 73;
+}
+.exampleItem:nth-child(3) {
+  --x: 256.5;
+  --w: 110;
+}
+/* Top and bottom hairlines in ivory; the four corners in ADELVA orange. */
+.exampleItem::before {
+  content: "";
+  position: absolute;
+  inset: 0 calc(10 * var(--m));
+  border-block: 1px solid rgb(241 236 223 / 75%);
+}
+.bracket,
+.bracket::before,
+.bracket::after,
+.exampleItem::after {
+  position: absolute;
+}
+.bracket {
+  inset: 0;
+  background:
+    linear-gradient(var(--flare), var(--flare)) 0 0 / calc(8 * var(--m)) 2px,
+    linear-gradient(var(--flare), var(--flare)) 0 0 / 2px calc(8 * var(--m)),
+    linear-gradient(var(--flare), var(--flare)) 100% 0 / calc(8 * var(--m)) 2px,
+    linear-gradient(var(--flare), var(--flare)) 100% 0 / 2px calc(8 * var(--m)),
+    linear-gradient(var(--flare), var(--flare)) 0 100% / calc(8 * var(--m)) 2px,
+    linear-gradient(var(--flare), var(--flare)) 0 100% / 2px calc(8 * var(--m)),
+    linear-gradient(var(--flare), var(--flare)) 100% 100% / calc(8 * var(--m)) 2px,
+    linear-gradient(var(--flare), var(--flare)) 100% 100% / 2px calc(8 * var(--m));
+  background-repeat: no-repeat;
+}
+
+/* ======================================================== verification */
+
+.verification {
+  min-height: calc(510 * var(--t));
+  padding-top: calc(20.4 * var(--t));
+  padding-inline: calc(19 * var(--m));
+}
+.verificationTitle {
+  margin-right: calc(-19 * var(--m));
+  padding-left: calc(5.5 * var(--m));
+  font-family: var(--serif);
+  font-size: calc(40 * var(--t));
+  line-height: calc(55.5 * var(--t));
+  letter-spacing: 0.01em;
+}
+.checks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: calc(26.1 * var(--t));
+}
+.check {
+  position: relative;
+  padding: calc(14.5 * var(--t)) 0 calc(18 * var(--t)) calc(9 * var(--m));
+}
+.check:nth-child(even) {
+  padding-left: calc(18.25 * var(--m));
+  border-left: 1px solid var(--rule);
+}
+.check:nth-child(n + 3) {
+  padding-top: calc(21.25 * var(--t));
+  border-top: 1px solid var(--rule);
+}
+.checkMark {
+  --arm: calc(7.5 * var(--t));
+  display: block;
+  width: calc(24.5 * var(--t));
+  height: calc(24.5 * var(--t));
+  background:
+    linear-gradient(#fff, #fff) 0 0 / var(--arm) 1.5px,
+    linear-gradient(#fff, #fff) 0 0 / 1.5px var(--arm),
+    linear-gradient(#fff, #fff) 100% 0 / var(--arm) 1.5px,
+    linear-gradient(#fff, #fff) 100% 0 / 1.5px var(--arm),
+    linear-gradient(#fff, #fff) 0 100% / var(--arm) 1.5px,
+    linear-gradient(#fff, #fff) 0 100% / 1.5px var(--arm),
+    linear-gradient(#fff, #fff) 100% 100% / var(--arm) 1.5px,
+    linear-gradient(#fff, #fff) 100% 100% / 1.5px var(--arm);
+  background-repeat: no-repeat;
+}
+.checkName {
+  margin-top: calc(16 * var(--t));
+  font-family: var(--serif);
+  font-size: calc(23.5 * var(--t));
+  line-height: calc(28 * var(--t));
+  letter-spacing: 0.02em;
+}
+/* The mock squeezes this title's glyphs into its cell; the page keeps their
+   proportions and sets it smaller instead (spec §8). */
+.check:nth-child(4) .checkName {
+  font-size: calc(20 * var(--t));
+  padding-top: calc(2.5 * var(--t));
+  margin-bottom: calc(-2.5 * var(--t));
+  letter-spacing: 0;
+}
+.checkLines {
+  margin-top: calc(9.2 * var(--t));
+  font-size: calc(14 * var(--t));
+  line-height: calc(24 * var(--t));
+  color: rgb(255 255 255 / 90%);
+}
+
+/* =========================================================== audiences */
+
+.audiences {
+  background: var(--paper);
+  color: var(--ink);
+}
+.audiences ul {
+  display: grid;
+}
+.audiences li + li {
+  border-top: 1px solid rgb(14 17 24 / 22%);
+}
+.audienceLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  min-height: calc(89 * var(--t));
+  padding-left: calc(26 * var(--m));
+  font-family: var(--serif);
+  font-size: calc(23.5 * var(--t));
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  transition: background-color var(--dur-release, 200ms) var(--ease-state, ease);
+}
+.audienceLink:active {
+  background: rgb(14 17 24 / 6%);
+  transition-duration: var(--dur-press, 90ms);
+}
+.audienceLink:focus-visible {
+  outline-offset: -4px;
+}
+
+/* ========================================== fixed descent rail and dive */
+
+.descentRail {
+  position: fixed;
+  right: calc(9px - 0.5px);
+  top: 16svh;
+  bottom: 22svh;
+  width: 1px;
+  z-index: 20;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  background: rgb(255 255 255 / 34%);
+}
+.descentRailFill {
+  position: absolute;
+  inset: 0;
+  background: var(--flare);
+  transform: scaleY(0);
+  transform-origin: 0 0;
+}
+.descentRailDot {
+  position: absolute;
+  left: 50%;
+  top: calc(var(--i) * 20%);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 1px solid rgb(255 255 255 / 70%);
+  background: var(--night);
+  transform: translate(-50%, -50%);
+  transition:
+    background-color var(--dur-state, 300ms) var(--ease-state, ease),
+    border-color var(--dur-state, 300ms) var(--ease-state, ease),
+    transform var(--dur-state, 300ms) var(--ease-state, ease);
+}
+.descentRailDot[data-state="passed"] {
+  background: var(--ivory);
+  border-color: var(--ivory);
+}
+.descentRailDot[data-state="current"] {
+  background: var(--flare);
+  border-color: var(--flare);
+  transform: translate(-50%, -50%) scale(1.3);
+}
+.descentRail[data-client] .descentRailFill,
+.descentRail[data-client] .descentRailDot[data-state="current"] {
+  background: var(--ivory);
+  border-color: var(--ivory);
+}
+.diveFrame {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  z-index: 15;
+  border: 1.5px solid var(--flare);
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* ============================================================ tablet type */
+
+@media (min-width: 600px) and (max-width: 1023.98px) {
+  .railStops a,
+  .railEnd {
+    font-size: calc(10.5 * var(--t));
+  }
+}
+
+/* ============================================================== desktop */
+
+@media (min-width: 1024px) {
+  .canvas {
+    --u: calc(min(100vw, 1920px) / 1440);
+    width: calc(1440 * var(--u));
+    margin-left: calc((100% - 1440 * var(--u)) / 2);
+  }
+  .desktopBreak {
+    display: inline;
+  }
+  .mobileBreak {
+    display: none;
+  }
+  .descentFrame {
+    min-height: calc(5540 * var(--u));
+  }
+  .hero {
+    height: calc(929 * var(--u));
+  }
+  .heroScrim {
+    background:
+      linear-gradient(180deg, rgb(8 12 18 / 50%) 0%, rgb(8 12 18 / 0%) 13%),
+      linear-gradient(
+        90deg,
+        rgb(8 12 18 / 52%) 0%,
+        rgb(8 12 18 / 30%) 32%,
+        rgb(8 12 18 / 0%) 55%
+      ),
+      linear-gradient(180deg, rgb(12 16 24 / 0%) 84%, rgb(12 16 24 / 45%) 100%);
+  }
+  .heroBody {
+    padding-top: calc(211.5 * var(--u));
+    padding-left: calc(55 * var(--u));
+  }
+  .breadcrumb ol {
+    font-size: max(calc(19 * var(--u)), 12px);
+    line-height: calc(24 * var(--u));
+  }
+  .roman {
+    margin-top: calc(37.4 * var(--u));
+    font-size: max(calc(15 * var(--u)), 11px);
+    line-height: calc(20 * var(--u));
+    letter-spacing: 0.51em;
+  }
+  .title {
+    margin-top: calc(13.5 * var(--u));
+    font-size: calc(110 * var(--u));
+    line-height: calc(120 * var(--u));
+    letter-spacing: 0.025em;
+  }
+  .lead {
+    margin-top: calc(18.4 * var(--u));
+    font-size: calc(37 * var(--u));
+    line-height: calc(56.3 * var(--u));
+    letter-spacing: 0;
+  }
+  .body {
+    margin-top: calc(31.9 * var(--u));
+    font-size: max(calc(23.5 * var(--u)), 15px);
+    line-height: calc(39.3 * var(--u));
+    letter-spacing: 0.03em;
+  }
+  .cta {
+    margin-top: calc(30.3 * var(--u));
+    min-width: calc(270 * var(--u));
+    min-height: max(calc(65 * var(--u)), 44px);
+    padding: 0 calc(24 * var(--u));
+    font-size: max(calc(22 * var(--u)), 15px);
+  }
+
+  .rail {
+    --rail-x: 1364.5;
+    --rail-top: 219.5;
+    --rail-pitch: 81.1;
+    --rail-first: 292;
+    --rail-bottom: 794;
+    font-size: max(calc(20 * var(--u)), 13px);
+  }
+  .rail::before {
+    left: calc((var(--rail-x) - 58) * var(--u));
+    width: calc(120 * var(--u));
+    top: calc((var(--rail-top) - 40) * var(--u));
+    height: calc((var(--rail-bottom) - var(--rail-top) + 74) * var(--u));
+  }
+  .railEnd {
+    left: calc(var(--rail-x) * var(--u));
+    top: calc(var(--rail-top) * var(--u));
+  }
+  .railEndBottom {
+    top: calc(var(--rail-bottom) * var(--u));
+  }
+  .railLine {
+    left: calc(var(--rail-x) * var(--u) - 0.75px);
+    top: calc(233.5 * var(--u));
+    height: calc(544.5 * var(--u));
+    width: 1.5px;
+  }
+  .railProgress {
+    height: calc(94.5 * var(--u));
+  }
+  .railStops li {
+    left: calc(var(--rail-x) * var(--u));
+    top: calc((var(--rail-first) + var(--i) * var(--rail-pitch)) * var(--u));
+  }
+  .railTick {
+    width: calc(12 * var(--u));
+    left: calc(22px - 6 * var(--u));
+    height: 1.5px;
+  }
+  .railStops a {
+    padding-left: 22px;
+  }
+  .railStops a span {
+    margin-left: calc(13.5 * var(--u));
+  }
+
+  .finder {
+    left: var(--f-dx);
+    top: var(--f-dy);
+    width: var(--f-dw);
+    height: var(--f-dh);
+  }
+  .finderRect {
+    stroke-width: 2px;
+  }
+  .corner {
+    width: calc(14 * var(--u));
+    height: calc(14 * var(--u));
+  }
+  .corner[data-corner="tl"] {
+    border-width: 3px 0 0 3px;
+  }
+  .corner[data-corner="tr"] {
+    border-width: 3px 3px 0 0;
+  }
+  .corner[data-corner="bl"] {
+    border-width: 0 0 3px 3px;
+  }
+  .corner[data-corner="br"] {
+    border-width: 0 3px 3px 0;
+  }
+  .finderNumber {
+    left: calc(100% + 4 * var(--u));
+    bottom: calc(100% + 1 * var(--u));
+    font-size: calc(27 * var(--u));
+    font-weight: 300;
+  }
+
+  .stage {
+    margin-top: calc(var(--d-gap) * var(--u));
+    margin-left: calc(var(--d-left) * var(--u));
+    width: calc(var(--d-width) * var(--u));
+  }
+  .frame {
+    aspect-ratio: var(--d-width) / var(--d-height);
+  }
+  .stageScrim {
+    background: radial-gradient(
+      70% 90% at 0% 0%,
+      rgb(6 9 14 / 60%) 0%,
+      rgb(6 9 14 / 30%) 45%,
+      rgb(6 9 14 / 0%) 75%
+    );
+  }
+  .stageText {
+    padding-top: calc(36.4 * var(--u));
+    padding-left: calc(38 * var(--u));
+    padding-bottom: calc(24 * var(--u));
+  }
+  .stageNumber {
+    font-size: calc(58 * var(--u));
+    line-height: calc(58 * var(--u));
+  }
+  .stageTick {
+    width: 2px;
+    height: calc(36.6 * var(--u));
+    margin-top: calc(18.2 * var(--u));
+    margin-left: calc(35.5 * var(--u));
+  }
+  .stageName {
+    margin-top: calc(12.8 * var(--u));
+    font-size: calc(68 * var(--u));
+    line-height: calc(76 * var(--u));
+  }
+  .stageDescription {
+    margin-top: calc(10.6 * var(--u));
+    font-size: max(calc(25 * var(--u)), 15px);
+    line-height: calc(42 * var(--u));
+    letter-spacing: 0.02em;
+  }
+  .tags {
+    gap: calc(23 * var(--u));
+    margin-top: calc(24 * var(--u));
+  }
+  .tags li {
+    min-height: calc(50 * var(--u));
+    padding: 0 calc(24 * var(--u));
+    border-width: 1.5px;
+    font-size: max(calc(18.5 * var(--u)), 13px);
+  }
+  .dot {
+    left: var(--dot-dx);
+    top: var(--dot-dy);
+    width: calc(17.6 * var(--u));
+    height: calc(17.6 * var(--u));
+    box-shadow: 0 0 0 calc(5 * var(--u)) rgb(255 126 21 / 22%);
+  }
+  .linesMobile {
+    display: none;
+  }
+  .linesDesktop {
+    display: block;
+  }
+  .magLine {
+    stroke-width: 1.4px;
+  }
+
+  .handoverRule {
+    margin-top: calc(19.9 * var(--u));
+    height: 3px;
+  }
+  .handoverRule [data-rule-adelva] {
+    height: 2.8px;
+  }
+  .handoverRule [data-rule-client] {
+    height: 1.4px;
+  }
+  .finalText {
+    padding-left: calc(24 * var(--u));
+  }
+  .finalText .stageNumber {
+    margin-top: calc(20 * var(--u));
+    font-size: calc(80 * var(--u));
+    line-height: calc(80 * var(--u));
+  }
+  .finalText .stageTick {
+    height: calc(25 * var(--u));
+    margin-top: calc(38 * var(--u));
+    margin-left: calc(32 * var(--u));
+  }
+  .finalText .stageName {
+    margin-top: calc(15.4 * var(--u));
+    font-size: calc(90 * var(--u));
+    line-height: calc(100 * var(--u));
+  }
+  .finalText .stageDescription {
+    margin-top: calc(15.6 * var(--u));
+    font-size: calc(36 * var(--u));
+    line-height: calc(50 * var(--u));
+    letter-spacing: 0.085em;
+  }
+  .finalText .tags {
+    margin-top: calc(28 * var(--u));
+  }
+  .finalText .tags li {
+    min-height: calc(66 * var(--u));
+    padding: 0 calc(31 * var(--u));
+    font-size: max(calc(27 * var(--u)), 15px);
+  }
+
+  .ridge {
+    top: calc(5119 * var(--u));
+    height: calc(1237.5 * var(--u));
+    -webkit-mask-image: linear-gradient(
+      180deg,
+      transparent 0%,
+      #000 12%,
+      #000 76%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      180deg,
+      transparent 0%,
+      #000 12%,
+      #000 76%,
+      transparent 100%
+    );
+  }
+  .ridge img {
+    object-position: 50% 50%;
+  }
+  .label {
+    font-size: max(calc(28 * var(--u)), 14px);
+    line-height: calc(32 * var(--u));
+    letter-spacing: 0.14em;
+  }
+  .responsibilities {
+    min-height: calc(872 * var(--u));
+    padding-top: calc(49.4 * var(--u));
+    padding-inline: calc(59 * var(--u));
+  }
+  .responsibilities > .label,
+  .rolesTitle,
+  .rolesNote {
+    padding-left: calc(17 * var(--u));
+  }
+  .rolesTitle {
+    margin-right: 0;
+    margin-top: calc(15.9 * var(--u));
+    font-size: calc(75 * var(--u));
+    line-height: calc(84 * var(--u));
+    letter-spacing: 0.022em;
+  }
+  .axis {
+    display: grid;
+    grid-template-columns: calc(422 * var(--u)) 1fr calc(24 * var(--u));
+    align-items: center;
+    margin: calc(39 * var(--u)) 0 0;
+    padding-bottom: 0;
+    height: calc(24 * var(--u));
+    font-size: max(calc(20 * var(--u)), 12px);
+    line-height: calc(24 * var(--u));
+  }
+  .axis > span:first-child {
+    justify-self: end;
+    padding-right: calc(12 * var(--u));
+  }
+  .axis > span:last-child {
+    padding-left: calc(10 * var(--u));
+    white-space: nowrap;
+  }
+  .axisLine {
+    position: relative;
+    bottom: auto;
+    height: 1.2px;
+    margin-top: calc(8 * var(--u));
+  }
+  .role {
+    min-height: calc(103 * var(--u));
+    padding-left: calc(20 * var(--u));
+  }
+  .role:first-child {
+    margin-top: calc(28.7 * var(--u));
+  }
+  .role:last-child {
+    min-height: calc(108.4 * var(--u));
+  }
+  .role dt {
+    padding-top: calc(14.1 * var(--u));
+    font-size: calc(35 * var(--u));
+    line-height: calc(40 * var(--u));
+  }
+  .role dd {
+    margin-top: calc(6 * var(--u));
+    font-size: max(calc(22.5 * var(--u)), 13px);
+    line-height: calc(28 * var(--u));
+  }
+  .track {
+    left: calc(422 * var(--u));
+    right: calc(24 * var(--u));
+    top: calc(52 * var(--u));
+    height: 0;
+    background: none;
+  }
+  .track::before,
+  .track::after {
+    content: none;
+  }
+  .bar {
+    height: calc(15 * var(--u));
+  }
+  .role[data-role="adelva"] .bar {
+    height: calc(15.5 * var(--u));
+  }
+  .rolesNote {
+    margin-top: calc(31.2 * var(--u));
+    font-size: max(calc(26 * var(--u)), 14px);
+    line-height: calc(43.6 * var(--u));
+    letter-spacing: 0.02em;
+  }
+
+  .integrated {
+    min-height: calc(1328 * var(--u));
+  }
+  .integratedMedia {
+    height: calc(1209 * var(--u));
+  }
+  .integratedMedia::after {
+    background:
+      linear-gradient(180deg, var(--night) 0%, rgb(12 16 24 / 0%) 7%),
+      linear-gradient(
+        90deg,
+        rgb(8 12 18 / 62%) 0%,
+        rgb(8 12 18 / 34%) 40%,
+        rgb(8 12 18 / 0%) 68%
+      ),
+      linear-gradient(
+        180deg,
+        rgb(12 16 24 / 0%) 48%,
+        rgb(12 16 24 / 72%) 72%,
+        var(--night) 100%
+      );
+  }
+  .integratedBody {
+    padding-top: calc(427.9 * var(--u));
+    padding-inline: calc(67.5 * var(--u)) calc(59 * var(--u));
+  }
+  .integratedBody > .label,
+  .integratedTitle,
+  .exampleLabel {
+    padding-left: 0;
+  }
+  .integratedTitle {
+    margin-top: calc(26.5 * var(--u));
+    font-size: calc(100 * var(--u));
+    line-height: calc(118 * var(--u));
+    letter-spacing: 0.07em;
+  }
+  .domains {
+    display: grid;
+    grid-template-columns: calc(426.8 * var(--u)) calc(467.6 * var(--u)) 1fr;
+    margin-top: calc(36.6 * var(--u));
+  }
+  .domains li,
+  .domains li:last-child {
+    border: 0;
+  }
+  .domains li + li {
+    border-left: 1px solid var(--rule);
+  }
+  .domain {
+    min-height: calc(360 * var(--u));
+    padding: calc(10.5 * var(--u)) 0 calc(24 * var(--u));
+  }
+  .domains li + li .domain {
+    padding-left: calc(42.6 * var(--u));
+  }
+  .domainNumber {
+    font-size: max(calc(32 * var(--u)), 16px);
+    line-height: calc(32 * var(--u));
+  }
+  .domainName {
+    margin-top: calc(23.6 * var(--u));
+    font-size: calc(47 * var(--u));
+    line-height: calc(56 * var(--u));
+    white-space: nowrap;
+  }
+  .domainDescription {
+    margin-top: calc(20.2 * var(--u));
+    font-size: max(calc(26.5 * var(--u)), 15px);
+    line-height: calc(45.7 * var(--u));
+  }
+  .domainArrow {
+    position: static;
+    margin-top: calc(20.65 * var(--u));
+    transform: none;
+    font-size: calc(36 * var(--u));
+    line-height: calc(36 * var(--u));
+  }
+  .domain:active {
+    background: rgb(241 239 234 / 4%);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .domain:hover {
+      background: none;
+    }
+    .domain:hover .domainArrow {
+      transform: translateX(6px);
+    }
+    .domains li:has(.domain:hover) {
+      border-color: rgb(255 255 255 / 70%);
+    }
+    .domains li:has(.domain:hover) + li {
+      border-left-color: rgb(255 255 255 / 70%);
+    }
+  }
+  .example {
+    margin-top: calc(25.9 * var(--u));
+  }
+  .exampleLabel {
+    font-size: max(calc(22 * var(--u)), 13px);
+    line-height: calc(28 * var(--u));
+  }
+  .exampleTrack {
+    height: calc(74.6 * var(--u));
+    margin-top: calc(27.7 * var(--u));
+  }
+  .exampleLine {
+    left: calc(-67.5 * var(--u));
+    width: calc(1440 * var(--u));
+    height: 2.5px;
+  }
+  .exampleItem {
+    --x: 68;
+    --w: 211;
+    left: calc((var(--x) - 67.5) * var(--u));
+    width: calc(var(--w) * var(--u));
+    font-size: max(calc(26 * var(--u)), 15px);
+  }
+  .exampleItem:nth-child(2) {
+    --x: 342;
+    --w: 183;
+  }
+  .exampleItem:nth-child(3) {
+    --x: 1091;
+    --w: 281;
+  }
+  .exampleItem::before {
+    inset: 0 calc(18 * var(--u));
+    border-block-width: 1.2px;
+  }
+  .bracket {
+    background:
+      linear-gradient(var(--flare), var(--flare)) 0 0 / calc(18 * var(--u)) 3px,
+      linear-gradient(var(--flare), var(--flare)) 0 0 / 3px calc(18 * var(--u)),
+      linear-gradient(var(--flare), var(--flare)) 100% 0 / calc(18 * var(--u)) 3px,
+      linear-gradient(var(--flare), var(--flare)) 100% 0 / 3px calc(18 * var(--u)),
+      linear-gradient(var(--flare), var(--flare)) 0 100% / calc(18 * var(--u)) 3px,
+      linear-gradient(var(--flare), var(--flare)) 0 100% / 3px calc(18 * var(--u)),
+      linear-gradient(var(--flare), var(--flare)) 100% 100% / calc(18 * var(--u)) 3px,
+      linear-gradient(var(--flare), var(--flare)) 100% 100% / 3px calc(18 * var(--u));
+    background-repeat: no-repeat;
+  }
+
+  .verification {
+    min-height: calc(573.5 * var(--u));
+    padding-top: calc(73.8 * var(--u));
+    padding-inline: calc(67.5 * var(--u)) calc(59 * var(--u));
+  }
+  .verificationTitle {
+    margin-right: calc(-40 * var(--u));
+    padding-left: calc(38 * var(--u));
+    font-size: calc(97 * var(--u));
+    line-height: calc(108 * var(--u));
+    letter-spacing: 0.013em;
+  }
+  .checks {
+    grid-template-columns:
+      calc(300.2 * var(--u)) calc(351.6 * var(--u)) calc(351.6 * var(--u))
+      1fr;
+    margin-top: calc(55.2 * var(--u));
+  }
+  .check,
+  .check:nth-child(even),
+  .check:nth-child(n + 3) {
+    min-height: calc(265 * var(--u));
+    padding: calc(3.5 * var(--u)) 0 0;
+    border-top: 0;
+    border-left: 0;
+  }
+  .check + .check {
+    padding-left: calc(52.8 * var(--u));
+    border-left: 1px solid var(--rule);
+  }
+  .checkMark {
+    --arm: calc(18.3 * var(--u));
+    width: calc(59 * var(--u));
+    height: calc(59 * var(--u));
+    background:
+      linear-gradient(#fff, #fff) 0 0 / var(--arm) 3px,
+      linear-gradient(#fff, #fff) 0 0 / 3px var(--arm),
+      linear-gradient(#fff, #fff) 100% 0 / var(--arm) 3px,
+      linear-gradient(#fff, #fff) 100% 0 / 3px var(--arm),
+      linear-gradient(#fff, #fff) 0 100% / var(--arm) 3px,
+      linear-gradient(#fff, #fff) 0 100% / 3px var(--arm),
+      linear-gradient(#fff, #fff) 100% 100% / var(--arm) 3px,
+      linear-gradient(#fff, #fff) 100% 100% / 3px var(--arm);
+    background-repeat: no-repeat;
+  }
+  .checkName {
+    margin-top: calc(26 * var(--u));
+    font-size: calc(45 * var(--u));
+    line-height: calc(52 * var(--u));
+    white-space: nowrap;
+  }
+  /* The mock squeezes this title's glyphs to fit its column; the page keeps
+     the glyphs' proportions and sets it smaller instead (spec §8). */
+  .check:nth-child(4) .checkName {
+    font-size: calc(33.5 * var(--u));
+    line-height: calc(52 * var(--u));
+    padding-top: calc(5 * var(--u));
+    margin-bottom: calc(-5 * var(--u));
+  }
+  .checkLines {
+    margin-top: calc(19.7 * var(--u));
+    font-size: max(calc(26 * var(--u)), 15px);
+    line-height: calc(47.8 * var(--u));
+  }
+
+  .audiences ul {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    min-height: calc(250.7 * var(--u));
+    padding-bottom: calc(25 * var(--u));
+  }
+  .audiences li + li {
+    border-top: 0;
+    border-left: 1px solid rgb(14 17 24 / 30%);
+  }
+  .audiences li {
+    display: flex;
+    align-items: center;
+    height: calc(146 * var(--u));
+  }
+  .audiences li + li {
+    justify-content: flex-end;
+  }
+  .audienceLink {
+    min-height: 100%;
+    padding: 0 calc(60 * var(--u)) 0 calc(67.5 * var(--u));
+    font-size: calc(45 * var(--u));
+    white-space: nowrap;
+  }
+  .audiences li + li .audienceLink {
+    padding: 0 calc(60.5 * var(--u)) 0 calc(60 * var(--u));
+  }
+
+  .descentRail {
+    right: calc(11.5px - 0.5px);
+  }
+  .diveFrame {
+    border-width: 2px;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279.98px) {
+  .finderNumber {
+    font-size: 18px;
+  }
+}
+
+/* ================================================== reduced / no motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .arrow,
+  .cta,
+  .domain,
+  .audienceLink,
+  .descentRailDot {
+    transition: none;
+  }
+}

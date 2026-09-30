@@ -1,0 +1,148 @@
+{
+  "source": "assets/source/generated/adelva/dx-it-procurement-2026-09-28",
+  "files": [
+    {
+      "path": "public/media/adelva/dx-it-procurement/d-map.webp",
+      "width": 1536,
+      "height": 2304,
+      "bytes": 425552
+    },
+    {
+      "path": "public/media/adelva/dx-it-procurement/d-map-1024.webp",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 241772
+    },
+    {
+      "path": "public/media/adelva/dx-it-procurement/d-map-off.webp",
+      "width": 756,
+      "height": 1960,
+      "bytes": 109078
+    },
+    {
+      "path": "public/media/adelva/dx-it-procurement/d-diff.webp",
+      "width": 768,
+      "height": 1152,
+      "bytes": 158854
+    },
+    {
+      "path": "public/media/adelva/dx-it-procurement/d-process.webp",
+      "width": 1536,
+      "height": 1664,
+      "bytes": 337450
+    },
+    {
+      "path": "public/media/adelva/dx-it-procurement/d-process-off.webp",
+      "width": 340,
+      "height": 1330,
+      "bytes": 43558
+    },
+    {
+      "path": "public/media/adelva/dx-it-procurement/card-01.webp",
+      "width": 960,
+      "height": 960,
+      "bytes": 135264
+    },
+    {
+      "path": "public/media/adelva/dx-it-procurement/card-01-560.webp",
+      "width": 560,
+      "height": 560,
+      "bytes": 57422
+    },
+    {
+      "path": "public/media/adelva/dx-it-procurement/card-02.webp",
+      "width": 960,
+      "height": 960,
+      "bytes": 122336
+    },
+    {
+      "path": "public/media/adelva/dx-it-procurement/card-02-560.webp",
+      "width": 560,
+      "height": 560,
+      "bytes": 54500
+    },
+    {
+      "path": "public/media/adelva/dx-it-procurement/m-body-0.webp",
+      "width": 780,
+      "height": 1375,
+      "bytes": 66568
+    },
+    {
+      "path": "public/media/adelva/dx-it-procurement/m-body-1.webp",
+      "width": 780,
+      "height": 1375,
+      "bytes": 99470
+    },
+    {
+      "path": "public/media/adelva/dx-it-procurement/m-body-2.webp",
+      "width": 780,
+      "height": 1375,
+      "bytes": 87304
+    },
+    {
+      "path": "public/media/adelva/dx-it-procurement/m-body-3.webp",
+      "width": 780,
+      "height": 1375,
+      "bytes": 87106
+    },
+    {
+      "path": "public/media/adelva/dx-it-procurement/m-body-4.webp",
+      "width": 780,
+      "height": 1375,
+      "bytes": 83088
+    },
+    {
+      "path": "public/media/adelva/dx-it-procurement/m-body-5.webp",
+      "width": 780,
+      "height": 1375,
+      "bytes": 117616
+    },
+    {
+      "path": "public/media/adelva/dx-it-procurement/m-body-6.webp",
+      "width": 780,
+      "height": 1375,
+      "bytes": 106240
+    },
+    {
+      "path": "public/media/adelva/dx-it-procurement/m-body-7.webp",
+      "width": 780,
+      "height": 1375,
+      "bytes": 107770
+    },
+    {
+      "path": "public/media/adelva/dx-it-procurement/m-core-off-0.webp",
+      "width": 220,
+      "height": 1926,
+      "bytes": 38154
+    },
+    {
+      "path": "public/media/adelva/dx-it-procurement/m-core-off-1.webp",
+      "width": 220,
+      "height": 1926,
+      "bytes": 32298
+    },
+    {
+      "path": "public/media/adelva/dx-it-procurement/m-core-off-2.webp",
+      "width": 220,
+      "height": 1926,
+      "bytes": 25494
+    },
+    {
+      "path": "public/media/adelva/dx-it-procurement/m-core-off-3.webp",
+      "width": 220,
+      "height": 1926,
+      "bytes": 32938
+    },
+    {
+      "path": "public/media/adelva/dx-it-procurement/m-core-off-4.webp",
+      "width": 220,
+      "height": 1926,
+      "bytes": 40750
+    }
+  ],
+  "mobileTile": 1375,
+  "coreOff": {
+    "top": 440,
+    "tile": 1926
+  }
+}

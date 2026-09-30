@@ -91,6 +91,7 @@ describe("management-operations content", () => {
   it("reports the new route as implemented to the shared navigation", () => {
     expect(routeStatusOf("/services/management-operations")).toBe("available");
     expect(routeStatusOf("/services")).toBe("pending");
-    expect(routeStatusOf("/approach")).toBe("pending");
+    // Implemented on 2026-09-26; the process link now resolves.
+    expect(routeStatusOf("/approach")).toBe("available");
   });
 });

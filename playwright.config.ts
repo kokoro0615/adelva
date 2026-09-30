@@ -27,7 +27,9 @@ export default defineConfig({
   webServer: process.env.PLAYWRIGHT_TEST_BASE_URL
     ? undefined
     : {
-        command: `pnpm start --port ${port}`,
+        // /contact accepts submissions without delivering them (never in Vercel
+        // production); see src/lib/contact-delivery.ts.
+        command: `CONTACT_DELIVERY=accept pnpm start --port ${port}`,
         url: `http://127.0.0.1:${port}`,
         reuseExistingServer: false,
         timeout: 120_000,

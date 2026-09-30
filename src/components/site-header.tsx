@@ -622,7 +622,13 @@ export function SiteHeader() {
         className={styles.header}
         lang="ja"
         data-fidelity-landmark="header-nav"
-        data-surface={pathname === "/contact" ? "light" : undefined}
+        data-surface={
+          pathname === "/about"
+            ? "paper"
+            : pathname.startsWith("/contact")
+              ? "glass"
+              : undefined
+        }
         data-compact={compact}
         data-menu-open={openMenu !== null}
         style={

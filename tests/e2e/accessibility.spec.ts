@@ -12,6 +12,8 @@ const representativeRoutes = [
   "/legal/privacy-policy",
   "/services/management-operations",
   "/services/revenue-brand",
+  "/services/dx-it-procurement",
+  "/approach",
 ];
 
 for (const route of representativeRoutes) {
