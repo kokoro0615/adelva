@@ -1,5 +1,18 @@
 # White Desert Clone Workflow Ledger
 
+## HOME hero video v3 — 2026-09-30
+
+The user directs replacing the HOME hero video with the v3 lab encodes and
+deploying to the connected Vercel production, and states that permission for
+the footage is held. Four encodes (landscape and portrait, each H.264 and AV1)
+are chosen by `<source media type>`, with a matching first-frame poster. DOM,
+copy, cover framing CSS, scroll motion, muted/loop/inline playback, metadata
+preload, offscreen pause and the reduced-motion poster fallback are preserved.
+Footage lineage (iStock preview files and one Pexels clip) and the user's
+permission statement are recorded in `docs/asset-provenance.md`; the licence was
+not independently verified. HOME visual goldens change only through the new
+poster. Evidence: `docs/reports/home-hero-v3-2026-09-30.md`. No subagents.
+
 ## ADELVA 経営・運営統括 (/services/management-operations) — 2026-09-24
 
 User adopted the A2 desktop mock (`A2/A2-full.png`) and the A2 mobile mock

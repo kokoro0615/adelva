@@ -171,7 +171,16 @@ export function HeroStage() {
               aria-hidden="true"
               tabIndex={-1}
             >
-              <source src={video.src} type="video/mp4" />
+              {(video.sources ?? [{ src: video.src, type: "video/mp4" }]).map(
+                (source) => (
+                  <source
+                    key={source.src}
+                    src={source.src}
+                    type={source.type}
+                    media={source.media}
+                  />
+                ),
+              )}
             </video>
           </div>
 

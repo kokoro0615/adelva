@@ -379,13 +379,28 @@ export function getAsset(id: AssetId): AssetRecord {
   return assets[id];
 }
 
+export interface VideoSourceRecord {
+  readonly src: string;
+  /** MIME type with codecs, so browsers skip files they cannot decode. */
+  readonly type: string;
+  /** Media query the viewport must match for this file to be chosen. */
+  readonly media?: string;
+}
+
 export interface VideoAssetRecord {
   readonly id: string;
+  /** Universal H.264 landscape file; also the last `<source>` candidate. */
   readonly src: string;
   readonly width: number;
   readonly height: number;
   readonly durationSeconds: number;
+  /** Ordered `<source>` candidates; the browser plays the first match. */
+  readonly sources?: readonly VideoSourceRecord[];
 }
+
+const AV1_10BIT = 'video/mp4; codecs="av01.0.08M.10"';
+const H264_HIGH_41 = 'video/mp4; codecs="avc1.640029"';
+const PORTRAIT = "(orientation: portrait)";
 
 /**
  * Motion sources. Local files only — a remote origin here would breach the
@@ -398,6 +413,22 @@ export const videoAssets = {
     width: 1920,
     height: 1080,
     durationSeconds: 32,
+    // Portrait screens get a 9:16 edit framed per shot instead of a centre
+    // crop of the 16:9 file; AV1 is offered first where it decodes.
+    sources: [
+      {
+        src: "/media/video/hero-antarctica-portrait-av1.mp4",
+        type: AV1_10BIT,
+        media: PORTRAIT,
+      },
+      {
+        src: "/media/video/hero-antarctica-portrait.mp4",
+        type: H264_HIGH_41,
+        media: PORTRAIT,
+      },
+      { src: "/media/video/hero-antarctica-av1.mp4", type: AV1_10BIT },
+      { src: "/media/video/hero-antarctica.mp4", type: H264_HIGH_41 },
+    ],
   },
   "white-desert-film": {
     id: "white-desert-film",
