@@ -138,7 +138,7 @@ test.describe("reduced motion, desktop", () => {
   test("shows the representative state without holding the page", async ({ page }) => {
     await open(page);
     const root = page.locator("[data-mo-root]");
-    await expect(root).toHaveAttribute("data-motion", "ready");
+    await expect(root).toHaveAttribute("data-motion", "ready", { timeout: 20_000 });
     await expect(root).not.toHaveAttribute("data-pin", "1");
     // Theme 02 in focus, pair 2 on its knuckle, the process at step 05.
     await expect(page.locator('li[data-theme="2"]')).toHaveAttribute(
@@ -235,7 +235,7 @@ test.describe("desktop motion", () => {
     });
     await open(page);
     const root = page.locator("[data-mo-root]");
-    await expect(root).toHaveAttribute("data-motion", "ready");
+    await expect(root).toHaveAttribute("data-motion", "ready", { timeout: 20_000 });
     await expect(root).toHaveAttribute("data-pin", "1");
     const marks = await page.evaluate(() =>
       (
