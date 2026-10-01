@@ -389,6 +389,31 @@ Delivered WebP (20 files, no upscale beyond the native generation size):
 `scripts/adelva/prepare-management-operations-assets.mjs`. Decorative empty alt;
 LCP plates preloaded per media; everything else lazy with reserved dimensions.
 
+## ADELVA 経営・運営統括 B 台杉 plates — 2026-10-01 (supersede the above)
+
+The user adopted the B-hq desktop and B-hq-mobile prototypes and authorized a
+faithful production implementation; the A2 plates above were removed from
+`public/media/adelva/management-operations/` with the A2 page (their originals
+stay in `assets/source/generated/…-2026-09-24/`). The 25 delivered WebP files are
+copied byte-for-byte from the prototypes' own `build/assets/` (no re-encode, no
+new generation): the plate base/dim/lit/blur slices, fog, text pool and the
+warm-knuckle/old-trunk/young-tree light layers from
+`references/adelva/mockups/management-operations-B-hq-2026-10-01/`, and the 2×
+grove, 2× lit grove and sky from
+`references/adelva/mockups/management-operations-B-hq-mobile-2026-10-01/`. Their
+lineage is recorded in those folders (`README.md`, `records/`, `prompts/`): the
+photograph is the adopted B-full mock's own image, redrawn tile by tile and
+outpainted by Codex `gpt-6.1-sol` (reasoning `high`, built-in `image_gen`) from
+Opus 5.5 prompts sent verbatim (SHA-256 recorded), then tone-matched and stitched
+by deterministic scripts. Generated imagery of a fictional place; no people; not
+evidence of a real client or property. No text, UI, lines or state is baked into
+any file: every string, ring, thread, rail and comet is HTML/CSS/SVG/canvas.
+Decorative empty alt; desktop tiles load only under `(min-width: 1024px)`
+(`<picture>`), narrow viewports draw the same files into a canvas in stages.
+Photograph geometry (trunks, comet paths, knuckles, index columns) is generated
+from the prototypes by `scripts/adelva/build-management-operations-geometry.mjs`.
+No font change was needed: every rendered glyph is already in the subsets.
+
 ### Japanese font coverage extension — 2026-09-24
 
 `adelva-noto-sans-jp.woff2` 589→631 cmap entries (249,636 bytes) and

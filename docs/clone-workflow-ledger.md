@@ -1,5 +1,21 @@
 # White Desert Clone Workflow Ledger
 
+## ADELVA 経営・運営統括 B 台杉「降りてくる朝」 — 2026-10-01
+
+The user adopted the B-hq desktop and B-hq-mobile prototypes
+(`references/adelva/mockups/management-operations-B-hq-2026-10-01/`,
+`…-B-hq-mobile-2026-10-01/`) and asks for a faithful, thoroughly researched
+production implementation of `/services/management-operations` from their motion
+videos; the existing A2 implementation may be deleted. image-to-code Mode C.
+Decisions (2026-10-01): the labels 「4つの支援テーマ・11のサービス」 and the visible
+heading 「対象者から探す」 are approved; 600–1023 px extends the mobile camera
+version; after every gate passes, commit to `main` only (no push, no deployment).
+No new image generation: the prototypes' plates and light layers are reused.
+Shared `SiteHeader`, `HomeFooter` and `ScrollProvider` are unchanged; `processCopy`
+stays as other pages import it. Implemented by Opus 5.5 alone, no subagents.
+Specification: `docs/specs/adelva-management-operations-spec.md` (replaces the A2
+spec); evidence: `docs/reports/adelva-management-operations-2026-10-01/`.
+
 ## Release of local ADELVA pages — 2026-09-30
 
 The user asks to deploy the locally implemented work to Vercel. This authorizes

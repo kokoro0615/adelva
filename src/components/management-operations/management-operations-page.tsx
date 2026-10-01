@@ -1,6 +1,6 @@
-/* eslint-disable @next/next/no-img-element -- pre-optimized WebP plates with
-   reserved dimensions; the process layers must share one natural-pixel plane
-   with their SVG lines, which next/image's wrapper sizing would break. */
+/* The photograph is pre-optimised WebP layers in <picture> (desktop only);
+   every layer shares the plate's coordinate plane, which next/image's wrapper
+   sizing would break. */
 import Link from "next/link";
 import type { CSSProperties, ReactNode } from "react";
 
@@ -11,57 +11,38 @@ import {
   audienceLinks,
   boundaries,
   breadcrumb,
-  buildingPlate,
-  chapterIndex,
   chapters,
+  contact,
   hero,
-  mobileProcessStage,
+  knuckleLabels,
   processCopy,
-  processStage,
-  type Chapter,
-  type FloorId,
-  type Service,
+  serviceIndex,
+  ui,
+  type Lines,
 } from "@/content/adelva-management-operations";
+import { moGeometry as G } from "@/content/adelva-management-operations-geometry";
 
 import { ManagementOperationsMotion } from "./management-operations-motion";
-import { RoomCarousel } from "./room-carousel";
 import styles from "./management-operations.module.css";
 
-const media = "/media/adelva/management-operations/";
+export const moMedia = "/media/adelva/management-operations/";
 
-/** Plate px per u (CSS px at a 1440px-wide section). */
-const PLATE_PER_U = buildingPlate.widthPx / 1440;
+/** CSS px per plate px on the 1440-wide desktop stage. */
+const S = G.plate.cssScale;
 
-/** Mobile hero plate: floors lit one after another on first paint. */
-const mobileFloorsPx: Record<FloorId, readonly [number, number]> = {
-  meeting: [1095, 1303],
-  office: [1340, 1540],
-  lobby: [1580, 1804],
-  restaurant: [1848, 2077],
-  guest: [2118, 2323],
-  staff: [2360, 2535],
-};
-const floorOrder: readonly FloorId[] = [
-  "meeting",
-  "office",
-  "lobby",
-  "restaurant",
-  "guest",
-  "staff",
-];
+/** Transparent 1×1 image that narrow viewports load instead of a plate tile. */
+const BLANK =
+  "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
+const DESKTOP = "(min-width: 1024px)";
 
 type Vars = CSSProperties & Record<`--${string}`, string | number>;
 
 /**
- * Renders one approved string with the line breaks of both adopted mocks.
- * The text is emitted once; `<br>` elements carry the breakpoint they belong
- * to, so the copy never duplicates for assistive technology.
+ * One approved string with the line breaks of both prototypes. The text is
+ * emitted once; each `<br>` carries the regime it belongs to, so nothing
+ * duplicates for assistive technology.
  */
-function BrokenText({
-  lines,
-}: {
-  lines: { readonly desktop: readonly string[]; readonly mobile: readonly string[] };
-}) {
+function Broken({ lines }: { lines: Lines }) {
   const cuts = (parts: readonly string[]) => {
     const result = new Set<number>();
     let offset = 0;
@@ -99,210 +80,164 @@ function BrokenText({
   return <>{nodes}</>;
 }
 
-/**
- * Sets 中黒 at about two-thirds of a full width, as the adopted mocks do in
- * their Mincho headings. The text node stays the approved string.
- */
-function Tight({ children }: { children: string }) {
-  return children.split("・").map((part, index) => (
-    <span key={index}>
-      {index > 0 && <span className={styles.nakaguro}>・</span>}
-      {part}
-    </span>
-  ));
-}
-
 function Arrow() {
+  return <span className={styles.arrow} aria-hidden="true" />;
+}
+
+/** A plate tile that only desktop viewports download. */
+function Tile({ name, y, height }: { name: string; y: number; height: number }) {
   return (
-    <span className={styles.arrow} aria-hidden="true">
-      →
-    </span>
-  );
-}
-
-/** Estimated advance of a row label: full-width glyphs are 1em, ASCII ~0.53em. */
-function labelEm(text: string) {
-  return Array.from(text).reduce(
-    (sum, char) => sum + (char.charCodeAt(0) < 0x2000 ? 0.53 : 1),
-    0,
-  );
-}
-
-const ROW_FONT_U = 26;
-const ROW_NAME_X_U = 158;
-const LINE_GAP_U = 18;
-
-/** Leader line, in plate px. JS re-measures the start on font load/resize. */
-function leaderPath(service: Service) {
-  const y = (service.top + 13) * PLATE_PER_U;
-  const start =
-    (ROW_NAME_X_U + labelEm(service.name) * ROW_FONT_U + LINE_GAP_U) * PLATE_PER_U;
-  if (service.target === "bracket") {
-    return `M${start.toFixed(1)} ${y.toFixed(1)}H${buildingPlate.bracketPx.x}`;
-  }
-  const { x, y: ty } = service.target;
-  const kink = Math.max(buildingPlate.kinkPx, start + 20);
-  return ty === y
-    ? `M${start.toFixed(1)} ${y.toFixed(1)}H${x}`
-    : `M${start.toFixed(1)} ${y.toFixed(1)}H${kink}L${x} ${ty}`;
-}
-
-function SectionMapOverlay() {
-  const { floorsPx, facadePx, bracketPx, widthPx, heightPx } = buildingPlate;
-  return (
-    <svg
-      className={styles.mapOverlay}
-      viewBox={`0 0 ${widthPx} ${heightPx}`}
-      aria-hidden="true"
-      focusable="false"
-      data-map-overlay
-    >
-      <defs>
-        <radialGradient id="mo-room-glow">
-          <stop offset="0" stopColor="#ffd9a3" stopOpacity="0.55" />
-          <stop offset="1" stopColor="#ffb566" stopOpacity="0" />
-        </radialGradient>
-      </defs>
-      {floorOrder.map((floor) => (
-        <g key={floor} data-floor={floor}>
-          <rect
-            className={styles.floorVeil}
-            x={facadePx.left}
-            y={floorsPx[floor][0]}
-            width={facadePx.right - facadePx.left}
-            height={floorsPx[floor][1] - floorsPx[floor][0]}
-            data-floor-veil
-          />
-          <ellipse
-            className={styles.floorGlow}
-            cx={(facadePx.left + facadePx.right) / 2}
-            cy={(floorsPx[floor][0] + floorsPx[floor][1]) / 2}
-            rx={(facadePx.right - facadePx.left) / 2}
-            ry={(floorsPx[floor][1] - floorsPx[floor][0]) / 1.6}
-            fill="url(#mo-room-glow)"
-          />
-        </g>
-      ))}
-      <path
-        className={styles.bracket}
-        d={`M${bracketPx.x + bracketPx.tick} ${bracketPx.top}H${bracketPx.x}V${bracketPx.bottom}H${bracketPx.x + bracketPx.tick}`}
-        pathLength={1}
-        data-line="bracket"
-        data-chapter-line="opening-operations"
+    <picture>
+      <source media={DESKTOP} srcSet={`${moMedia}${name}`} />
+      <img
+        src={BLANK}
+        alt=""
+        width={G.plate.width}
+        height={height}
+        decoding="async"
+        style={{ "--y": y, "--h": height } as Vars}
       />
-      {chapters.flatMap((chapter) =>
-        chapter.services.map((service) => (
-          <g key={service.number} data-leader={service.number}>
-            <path
-              className={styles.leader}
-              d={leaderPath(service)}
-              pathLength={1}
-              data-line={service.number}
-              data-chapter-line={chapter.id}
-            />
-            {service.target !== "bracket" && (
-              <>
-                <circle
-                  className={styles.dotHalo}
-                  cx={service.target.x}
-                  cy={service.target.y}
-                  r={16}
-                />
-                <circle
-                  className={styles.dot}
-                  cx={service.target.x}
-                  cy={service.target.y}
-                  r={8}
-                  data-dot={service.number}
-                />
-              </>
-            )}
-          </g>
-        )),
-      )}
-    </svg>
+    </picture>
   );
 }
 
-function MobileFloorOverlay() {
+function Slices({
+  kind,
+  className,
+  rows,
+}: {
+  kind: keyof typeof G.slices;
+  className?: string;
+  rows?: number;
+}) {
+  const list = rows === undefined ? G.slices[kind] : G.slices[kind].slice(0, rows);
   return (
-    <svg
-      className={styles.mobileFloors}
-      viewBox="0 0 853 3272"
-      aria-hidden="true"
-      focusable="false"
-    >
-      <defs>
-        <radialGradient id="mo-room-glow-m">
-          <stop offset="0" stopColor="#ffd9a3" stopOpacity="0.6" />
-          <stop offset="1" stopColor="#ffb566" stopOpacity="0" />
-        </radialGradient>
-      </defs>
-      {floorOrder.map((floor) => (
-        <g key={floor}>
-          <rect
-            className={styles.floorVeil}
-            x={340}
-            y={mobileFloorsPx[floor][0]}
-            width={513}
-            height={mobileFloorsPx[floor][1] - mobileFloorsPx[floor][0]}
-            data-floor-veil
-          />
-          {/* The warm flash a floor gives as its lights come on (motion only). */}
-          <ellipse
-            className={`${styles.floorGlow} ${styles.mobileGlow}`}
-            cx={596}
-            cy={(mobileFloorsPx[floor][0] + mobileFloorsPx[floor][1]) / 2}
-            rx={300}
-            ry={(mobileFloorsPx[floor][1] - mobileFloorsPx[floor][0]) / 1.4}
-            fill="url(#mo-room-glow-m)"
-            data-floor-glow
-          />
-        </g>
+    <div className={`${styles.slices} ${className ?? ""}`} aria-hidden="true">
+      {list.map((slice) => (
+        <Tile key={slice.name} {...slice} />
       ))}
-    </svg>
+    </div>
   );
 }
 
-function Scene() {
+function Layer({
+  name,
+  x,
+  y,
+  width,
+  height,
+}: {
+  name: string;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+}) {
   return (
-    <div className={styles.scene} aria-hidden="true" data-scene>
-      <picture className={styles.scenePicture}>
-        <source media="(max-width: 599.98px)" srcSet={`${media}m-hero.webp`} />
+    <picture>
+      <source media={DESKTOP} srcSet={`${moMedia}${name}`} />
+      <img
+        src={BLANK}
+        alt=""
+        width={width}
+        height={height}
+        loading="lazy"
+        decoding="async"
+        style={{ "--x": x, "--y": y, "--w": width, "--h": height } as Vars}
+      />
+    </picture>
+  );
+}
+
+/**
+ * The desktop photograph: the B-hq plate and its light layers, stacked in the
+ * prototype's paint order. Narrow viewports draw the same plate into a canvas
+ * instead and never download these tiles.
+ */
+function DesktopPhoto() {
+  return (
+    <div className={styles.photo} aria-hidden="true">
+      <Slices kind="base" className={styles.base} />
+      <Slices kind="dim" className={styles.dimTop} />
+      <Slices kind="blur" className={styles.blurTop} />
+      <div className={`${styles.lightWindow} ${styles.sharpWindow}`} data-light-window>
+        <Slices kind="dim" className={styles.counter} />
+      </div>
+      <div className={`${styles.lightWindow} ${styles.litWindow}`} data-light-window>
+        <Slices kind="lit" className={styles.counter} />
+      </div>
+      <div className={styles.dawn} data-dawn>
+        <Slices kind="base" className={styles.counter} rows={2} />
+      </div>
+      <div className={styles.indexUnlit}>
+        <Slices kind="dim" />
+      </div>
+      <picture>
+        <source media={DESKTOP} srcSet={`${moMedia}fog.webp`} />
         <img
-          src={buildingPlate.src}
-          srcSet={`${buildingPlate.srcSmall} 1024w, ${buildingPlate.src} 1536w`}
-          sizes="(min-width: 1920px) 1920px, 100vw"
-          width={buildingPlate.widthPx}
-          height={buildingPlate.heightPx}
+          className={styles.fog}
+          src={BLANK}
           alt=""
-          loading="eager"
-          fetchPriority="high"
+          width={920}
+          height={700}
           decoding="async"
         />
       </picture>
-      <SectionMapOverlay />
-      <MobileFloorOverlay />
-      <div className={styles.sceneFade} />
-      <div className={styles.tickRail}>
-        <ol className={styles.ticks} data-ticks>
-          {chapters.map((chapter, index) => (
-            <li
-              key={chapter.id}
-              data-tick={chapter.id}
-              data-current={index === 0 || undefined}
-            />
+      {G.warm.knuckles.map((layer, index) => (
+        <div
+          key={layer.name}
+          className={styles.warmKnuckle}
+          data-warm-knuckle={index + 1}
+        >
+          <Layer {...layer} />
+        </div>
+      ))}
+      <div className={styles.oldWindow} data-old-window>
+        <div className={styles.oldCounter} data-old-counter>
+          {G.warm.old.map((layer) => (
+            <Layer key={layer.name} {...layer} />
           ))}
-        </ol>
+        </div>
       </div>
+      <div className={styles.young} data-young>
+        <Layer {...G.warm.young} />
+      </div>
+    </div>
+  );
+}
+
+/** Narrow viewports: the knuckle rings, their labels and the fork threads ride on the canvas. */
+function CameraOverlay() {
+  return (
+    <div className={styles.cameraUi} aria-hidden="true" data-camera-ui>
+      {knuckleLabels.map((label, index) => (
+        <div key={label.title} className={styles.cameraRing} data-ring={index + 1}>
+          <i />
+        </div>
+      ))}
+      {knuckleLabels.map((label, index) => (
+        <p
+          key={label.title}
+          className={styles.cameraRingLabel}
+          data-ring-label={index + 1}
+        >
+          <span className={styles.num}>{label.numbers}</span>
+          <span>{label.title}</span>
+        </p>
+      ))}
+      <svg className={styles.stems} data-stems>
+        {boundaries.pairs.map((_, index) => (
+          <path key={index} data-stem={index + 1} pathLength={1} />
+        ))}
+      </svg>
     </div>
   );
 }
 
 function Hero() {
   return (
-    <section className={styles.hero} aria-labelledby="mo-title" data-section="hero">
-      <nav className={styles.breadcrumb} aria-label="パンくず">
+    <section className={styles.hero} aria-labelledby="mo-title" data-hero>
+      <nav className={styles.crumb} aria-label={breadcrumb.label}>
         <ol>
           {breadcrumb.items.map((item) => (
             <li key={item.label}>
@@ -311,9 +246,7 @@ function Hero() {
                   {item.label}
                 </Link>
               ) : (
-                <span
-                  aria-current={"current" in item && item.current ? "page" : undefined}
-                >
+                <span aria-current={"current" in item ? "page" : undefined}>
                   {item.label}
                 </span>
               )}
@@ -321,144 +254,125 @@ function Hero() {
           ))}
         </ol>
       </nav>
-      <p className={styles.eyebrow}>
-        <span className={styles.eyebrowIndex}>{hero.index}</span>
-        <span className={styles.eyebrowRule} aria-hidden="true" />
-        <span>{hero.indexLabel}</span>
+      <p className={styles.domain}>
+        <span className={styles.num}>{hero.index}</span>
+        <i aria-hidden="true" />
+        {hero.indexLabel}
       </p>
       <h1 id="mo-title" className={styles.title}>
-        <Tight>{hero.title}</Tight>
-      </h1>
-      <p className={styles.roman} lang="en">
-        {hero.roman}
-      </p>
-      <p className={styles.lead}>
-        {hero.lead.map((line) => (
-          <span key={line} className={styles.leadLine}>
-            {line}
+        {hero.titleLines.map((line) => (
+          <span key={line} className={styles.titleLine}>
+            <span>{line}</span>
           </span>
         ))}
+      </h1>
+      <p className={styles.roman}>{hero.roman}</p>
+      <p className={styles.lead}>
+        <Broken lines={hero.leadLines} />
       </p>
-      <Link prefetch={false} href={hero.cta.href} className={styles.cta}>
+      <Link prefetch={false} className={styles.flare} href={hero.cta.href}>
         {hero.cta.label}
         <Arrow />
       </Link>
-      <nav className={styles.chapterIndex} aria-label={chapterIndex.label}>
-        <ul>
-          {chapterIndex.items.map((item) => (
-            <li key={item.id}>
-              <a href={`#${item.id}`} data-index-link={item.id}>
-                <span className={styles.indexTitle}>
-                  <Tight>{item.title}</Tight>
-                </span>
-                <span className={styles.indexNumbers}>{item.numbers}</span>
-                <span className={styles.indexArrow} aria-hidden="true">
-                  ↓
-                </span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <div className={styles.scrollCue} aria-hidden="true">
+        SCROLL
+        <span className={styles.scrollTrack}>
+          <i />
+        </span>
+      </div>
     </section>
   );
 }
 
-function Photo({
-  name,
-  className,
-  width = 1280,
-  height = 853,
-  small = true,
-  sizes = "(min-width: 600px) 640px, 100vw",
-}: {
-  name: string;
-  className?: string;
-  width?: number;
-  height?: number;
-  small?: boolean;
-  sizes?: string;
-}) {
+function ServiceIndex() {
   return (
-    <div className={`${styles.photo} ${className ?? ""}`} data-photo aria-hidden="true">
-      <img
-        src={`${media}${name}.webp`}
-        srcSet={
-          small
-            ? `${media}${name}-720.webp 720w, ${media}${name}.webp 1280w`
-            : undefined
-        }
-        sizes={small ? sizes : undefined}
-        width={width}
-        height={height}
-        alt=""
-        loading="lazy"
-        decoding="async"
-      />
-    </div>
+    <section className={styles.index} aria-labelledby="mo-index-title" data-index>
+      <div className={styles.indexStage} data-index-stage>
+        <div className={styles.indexHead} data-index-head>
+          <h2 id="mo-index-title">{serviceIndex.title}</h2>
+          <ol className={styles.ticks} aria-hidden="true">
+            {chapters.map((chapter, index) => (
+              <li key={chapter.id} data-tick={index + 1} />
+            ))}
+          </ol>
+        </div>
+        <ul className={styles.themes} data-themes>
+          {chapters.map((chapter, index) => {
+            const layout = G.desktopIndex.themes[index]!;
+            return (
+              <li
+                key={chapter.id}
+                className={styles.theme}
+                data-theme={index + 1}
+                data-current={index === 1 ? 1 : 0}
+                style={
+                  {
+                    "--line-left": layout.lineLeft,
+                    "--line-width": layout.lineWidth,
+                  } as Vars
+                }
+              >
+                <span className={styles.hairline} aria-hidden="true" data-hairline>
+                  <i />
+                </span>
+                <h3
+                  style={
+                    { "--x": layout.titleX, "--title-size": layout.titleSize } as Vars
+                  }
+                  data-column
+                >
+                  {chapter.title}
+                </h3>
+                <ul>
+                  {chapter.services.map((service) => (
+                    <li
+                      key={service.number}
+                      className={styles.service}
+                      data-service={service.number}
+                      data-column
+                      style={{ "--x": layout.services[service.number] } as Vars}
+                    >
+                      <span className={styles.num}>{service.number}</span>
+                      <span className={styles.visuallyHidden}>{service.name}</span>
+                      <span className={styles.serviceName} aria-hidden="true">
+                        {Array.from(service.name, (char, charIndex) => (
+                          <span key={charIndex}>{char}</span>
+                        ))}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </section>
   );
 }
 
-function ChapterPhoto({ chapter }: { chapter: Chapter }) {
-  switch (chapter.photo) {
-    case "meeting":
-      return <Photo name="room-meeting" className={styles.photoMeeting} />;
-    case "building-thumb":
-      return (
-        <Photo
-          name="building-thumb"
-          className={styles.photoThumb}
-          width={384}
-          height={1040}
-          small={false}
-        />
-      );
-    case "rooms":
-      return <RoomCarousel media={media} />;
-    case "staff":
-      return <Photo name="room-staff" className={styles.photoStaff} />;
-    default:
-      return null;
-  }
-}
-
-function Chapters() {
+/** Desktop: rings and labels on the four knuckles of the platform. */
+function Knuckles() {
   return (
-    <div className={styles.chapters} data-chapters>
-      {chapters.map((chapter, chapterIndexNumber) => (
-        <section
-          key={chapter.id}
-          id={chapter.id}
-          tabIndex={-1}
-          className={styles.chapter}
-          aria-labelledby={`${chapter.id}-title`}
-          data-chapter={chapter.id}
-          data-chapter-style={chapterIndexNumber < 2 ? "index" : "plain"}
-          data-active-room={chapter.photo === "rooms" ? "lobby" : undefined}
-          data-floors={chapter.floors.join(" ")}
-          style={{ "--top": chapter.top } as Vars}
+    <div className={styles.knuckles} aria-hidden="true">
+      {G.knuckles.map((knuckle, index) => (
+        <div
+          key={knuckle.group}
+          className={styles.knuckle}
+          data-knuckle={index + 1}
+          data-active={index === 1 ? 1 : 0}
+          style={{ "--x": knuckle.center[0] * S, "--y": knuckle.center[1] * S } as Vars}
         >
-          <ChapterPhoto chapter={chapter} />
-          <h2 id={`${chapter.id}-title`} className={styles.chapterTitle}>
-            <Tight>{chapter.title}</Tight>
-          </h2>
-          <ul className={styles.rows}>
-            {chapter.services.map((service) => (
-              <li
-                key={service.number}
-                className={styles.row}
-                data-row={service.number}
-                style={{ "--row-top": service.top - chapter.top } as Vars}
-              >
-                <span className={styles.rowNumber}>{service.number}</span>
-                <span className={styles.rowName} data-row-name>
-                  {service.name}
-                </span>
-                <i className={styles.rowRule} aria-hidden="true" />
-              </li>
-            ))}
-          </ul>
-        </section>
+          <svg className={styles.ring} viewBox="0 0 24 24">
+            <circle className={styles.ringOutline} cx="12" cy="12" r="9" />
+            <circle className={styles.ringCore} cx="12" cy="12" r="2" />
+          </svg>
+          <span className={styles.halo} />
+          <div className={styles.knuckleLabel}>
+            <p className={styles.num}>{knuckleLabels[index]!.numbers}</p>
+            <p>{knuckleLabels[index]!.title}</p>
+          </div>
+        </div>
       ))}
     </div>
   );
@@ -467,346 +381,192 @@ function Chapters() {
 function Boundaries() {
   return (
     <section
-      className={styles.boundaries}
+      className={`${styles.boundaries} ${styles.pooled}`}
       aria-labelledby="mo-boundaries-title"
-      data-section="boundaries"
+      data-boundaries
     >
-      <div className={styles.boundariesInner}>
-        <Photo
-          name="limestone"
-          className={styles.limestone}
-          width={840}
-          height={1260}
-          small={false}
-        />
-        <div className={styles.boundariesBody}>
-          <h2 id="mo-boundaries-title" className={styles.boundariesTitle}>
-            {boundaries.title}
-          </h2>
-          <div className={styles.pairs}>
-            {boundaries.pairs.map((pair) => (
-              <dl key={pair[0].number} className={styles.pair}>
+      <div className={styles.boundariesStage} data-boundaries-stage>
+        <h2 id="mo-boundaries-title">{boundaries.title}</h2>
+        <ol className={styles.forks}>
+          {boundaries.pairs.map((pair, index) => (
+            <li
+              key={pair[0].number}
+              className={styles.fork}
+              data-fork={index + 1}
+              data-active={index === 1 ? 1 : 0}
+            >
+              <svg
+                className={styles.forkMark}
+                viewBox="0 0 70 150"
+                aria-hidden="true"
+                data-fork-mark
+              >
+                <path d="M8 75 C28 75 33 16 68 16 M8 75 C28 75 33 92 68 92" />
+                <circle cx="8" cy="75" r="3.5" />
+              </svg>
+              <svg
+                className={styles.forkMarkMobile}
+                viewBox="0 0 44 112"
+                aria-hidden="true"
+              >
+                <path d="M6 56 C20 56 22 12 42 12 M6 56 C20 56 22 76 42 76" />
+                <circle cx="6" cy="56" r="3.5" />
+              </svg>
+              <ul>
                 {pair.map((item) => (
-                  <div key={item.number} className={styles.pairItem}>
-                    <dt>
-                      <span className={styles.pairNumber}>{item.number}</span>
-                      <span>{item.name}</span>
-                    </dt>
-                    <dd>{item.scope}</dd>
-                  </div>
+                  <li key={item.number}>
+                    <p className={styles.entry}>
+                      <span className={styles.num}>{item.number}</span>
+                      <span className={styles.entryName} data-entry-name>
+                        {item.name}
+                      </span>
+                    </p>
+                    <p className={styles.scope}>
+                      {"scopeLines" in item ? (
+                        <Broken lines={item.scopeLines} />
+                      ) : (
+                        item.scope
+                      )}
+                    </p>
+                  </li>
                 ))}
-              </dl>
-            ))}
-          </div>
-          <p className={styles.note}>{boundaries.note}</p>
-        </div>
+              </ul>
+            </li>
+          ))}
+        </ol>
+        <p className={styles.note}>
+          <Broken lines={boundaries.noteLines} />
+        </p>
       </div>
     </section>
-  );
-}
-
-function Check() {
-  return (
-    <svg
-      className={styles.check}
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-      focusable="false"
-    >
-      <circle cx="12" cy="12" r="12" />
-      <path d="M6.6 12.4 10.3 16 17.4 8.6" pathLength={1} />
-    </svg>
-  );
-}
-
-function ProcessLines({
-  landings,
-  from,
-  to,
-  width,
-  height,
-  className,
-  variant,
-}: {
-  landings: readonly number[];
-  from: number;
-  to: number;
-  width: number;
-  height: number;
-  className: string;
-  variant: "desktop" | "mobile";
-}) {
-  return (
-    <svg
-      className={className}
-      viewBox={`0 0 ${width} ${height}`}
-      aria-hidden="true"
-      focusable="false"
-      data-landings={variant}
-    >
-      <defs>
-        <radialGradient id={`mo-halo-${variant}`}>
-          <stop offset="0" stopColor="#ffb05c" stopOpacity="0.7" />
-          <stop offset="1" stopColor="#ff7e15" stopOpacity="0" />
-        </radialGradient>
-      </defs>
-      {landings.map((y, index) => (
-        <g
-          key={y}
-          className={styles.landing}
-          data-landing={index + 1}
-          data-state="passed"
-        >
-          <ellipse
-            className={styles.landingHalo}
-            cx={(from + to) / 2 - (variant === "desktop" ? 20 : 0)}
-            cy={y + 4}
-            rx={variant === "desktop" ? 170 : 190}
-            ry={variant === "desktop" ? 20 : 26}
-            fill={`url(#mo-halo-${variant})`}
-          />
-          <line className={styles.landingGlow} x1={from} x2={to} y1={y} y2={y} />
-          <line className={styles.landingLine} x1={from} x2={to} y1={y} y2={y} />
-          <circle
-            className={styles.landingDot}
-            cx={to}
-            cy={y}
-            r={variant === "desktop" ? 5.5 : 9}
-          />
-        </g>
-      ))}
-    </svg>
-  );
-}
-
-function Steps() {
-  return (
-    <ol className={styles.steps} aria-label={processCopy.stepsLabel} data-steps>
-      {processCopy.steps.map((step, index) => (
-        <li
-          key={step.number}
-          className={styles.step}
-          data-step={index + 1}
-          data-state="passed"
-          style={
-            {
-              "--landing": processStage.landingsPx[index],
-              "--m-landing": mobileProcessStage.landingsPx[index],
-            } as Vars
-          }
-        >
-          <span className={styles.stepNumber}>{step.number}</span>
-          <div className={styles.stepHead}>
-            <h3 className={styles.stepName}>{step.name}</h3>
-            <Check />
-          </div>
-          <ul className={styles.tags}>
-            {step.tags.map((tag) => (
-              <li key={tag}>{tag}</li>
-            ))}
-          </ul>
-        </li>
-      ))}
-    </ol>
   );
 }
 
 function Process() {
-  const { base, lit, cabin } = processStage;
   return (
     <section
-      className={styles.process}
+      className={`${styles.process} ${styles.pooled}`}
       aria-labelledby="mo-process-title"
-      data-section="process"
       data-process
     >
-      <div className={styles.stage} data-stage data-progress="complete">
-        <div className={styles.plate} data-plate>
-          <div className={styles.layers} aria-hidden="true">
-            <img
-              className={styles.layerBase}
-              src={base}
-              width={2048}
-              height={1286}
-              alt=""
-              loading="lazy"
-              decoding="async"
-            />
-            <div className={styles.dawn} data-dawn>
-              <img
-                src={lit}
-                width={2048}
-                height={1286}
-                alt=""
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div className={styles.shaft} data-shaft>
-              <div className={styles.shaftWindow} data-shaft-window>
-                <img
-                  src={lit}
-                  width={2048}
-                  height={1286}
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                />
+      <h2 id="mo-process-title">{processCopy.title}</h2>
+      <p className={styles.processLead}>
+        <Broken lines={processCopy.leadLines} />
+      </p>
+      <p className={styles.processBody}>
+        <Broken lines={processCopy.bodyLines} />
+      </p>
+      <div className={styles.stepsWrap}>
+        <span className={styles.rail} aria-hidden="true">
+          <i data-rail />
+        </span>
+        <ol className={styles.steps} aria-label={processCopy.stepsLabel}>
+          {processCopy.steps.map((step, index) => (
+            <li
+              key={step.number}
+              className={styles.step}
+              data-step={index + 1}
+              data-state={index < 4 ? "reached" : index === 4 ? "current" : "pending"}
+            >
+              <i className={styles.stepDot} aria-hidden="true" />
+              <span className={styles.num}>{step.number}</span>
+              <div>
+                <h3>{step.name}</h3>
+                <p className={styles.tags}>
+                  {step.tags.map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </p>
               </div>
-            </div>
-            <div className={styles.door} data-door>
-              <img
-                src={lit}
-                width={2048}
-                height={1286}
-                alt=""
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <img
-              className={styles.cabin}
-              src={cabin}
-              width={480}
-              height={480}
-              alt=""
-              loading="lazy"
-              decoding="async"
-              data-cabin
-            />
-            <ProcessLines
-              className={styles.landings}
-              landings={processStage.landingsPx}
-              from={processStage.lineFromPx}
-              to={processStage.lineToPx}
-              width={processStage.widthPx}
-              height={processStage.heightPx}
-              variant="desktop"
-            />
-          </div>
-          <div className={styles.mobileLayers} aria-hidden="true">
-            <img
-              className={styles.mobileBase}
-              src={mobileProcessStage.base}
-              width={mobileProcessStage.widthPx}
-              height={mobileProcessStage.heightPx}
-              alt=""
-              loading="lazy"
-              decoding="async"
-            />
-            <div className={styles.mobileShaft} data-mobile-shaft>
-              <div className={styles.mobileShaftWindow} data-shaft-window>
-                <img
-                  src={mobileProcessStage.lit}
-                  width={420}
-                  height={2020}
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-            </div>
-            <div className={styles.mobileDawn} data-mobile-dawn />
-            <img
-              className={styles.mobileCabin}
-              src={cabin}
-              width={480}
-              height={480}
-              alt=""
-              loading="lazy"
-              decoding="async"
-              data-mobile-cabin
-            />
-            <ProcessLines
-              className={styles.mobileLandings}
-              landings={mobileProcessStage.landingsPx}
-              from={mobileProcessStage.lineFromPx}
-              to={mobileProcessStage.lineToPx}
-              width={mobileProcessStage.widthPx}
-              height={mobileProcessStage.heightPx}
-              variant="mobile"
-            />
-          </div>
-          <div className={styles.processIntro}>
-            <div className={styles.processHeading}>
-              <h2
-                id="mo-process-title"
-                className={styles.processTitle}
-                data-process-title
-              >
-                {processCopy.title}
-              </h2>
-              <span className={styles.headingRule} aria-hidden="true" data-heading-rule>
-                <i data-heading-node />
-              </span>
-            </div>
-            <p className={styles.processLead}>
-              <BrokenText lines={processCopy.leadLines} />
-            </p>
-            <p className={styles.processBody}>
-              <BrokenText lines={processCopy.bodyLines} />
-            </p>
-          </div>
-          <Steps />
+            </li>
+          ))}
+        </ol>
+      </div>
+      <Link prefetch={false} className={styles.textLink} href={processCopy.link.href}>
+        {processCopy.link.label}
+        <Arrow />
+      </Link>
+    </section>
+  );
+}
+
+function Audience() {
+  return (
+    <section
+      className={`${styles.audience} ${styles.pooled}`}
+      aria-labelledby="mo-audience-title"
+      data-audience
+    >
+      <h2 id="mo-audience-title">{audienceLinks.title}</h2>
+      <div className={styles.routes} data-routes>
+        {audienceLinks.items.map((item) => (
           <Link
             prefetch={false}
-            href={processCopy.link.href}
-            className={styles.processLink}
+            key={item.href}
+            className={styles.route}
+            href={item.href}
           >
-            {processCopy.link.label}
+            {item.label}
             <Arrow />
           </Link>
-        </div>
+        ))}
       </div>
     </section>
   );
 }
 
-function Audiences() {
+function Contact() {
   return (
     <section
-      className={styles.audiences}
-      aria-labelledby="mo-audience-title"
-      data-section="audiences"
+      className={`${styles.contact} ${styles.pooled}`}
+      aria-labelledby="mo-contact-title"
+      data-contact
     >
-      <h2 id="mo-audience-title" className={styles.visuallyHidden}>
-        {audienceLinks.title}
+      <h2 id="mo-contact-title">
+        <Broken lines={contact.titleLines} />
       </h2>
-      <ul>
-        {audienceLinks.items.map((item) => (
-          <li key={item.href}>
-            <Link prefetch={false} href={item.href} className={styles.audienceLink}>
-              {item.label}
-              <Arrow />
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <Link
+        prefetch={false}
+        className={`${styles.flare} ${styles.flareWide}`}
+        href={contact.cta.href}
+      >
+        {contact.cta.label}
+        <Arrow />
+      </Link>
     </section>
   );
 }
 
-export function ManagementOperationsPage(): ReactNode {
+/** /services/management-operations — B 台杉「降りてくる朝」 (spec 2026-10-01). */
+export function ManagementOperationsPage() {
   return (
-    <div lang="ja" className={styles.page} data-management-operations>
+    <>
       <a className={styles.skip} href="#main-content">
-        本文へ移動
+        {ui.skip}
       </a>
       <SiteHeader />
-      <ScrollProvider />
-      <ManagementOperationsMotion>
-        <main id="main-content" className={styles.main}>
-          <div className={styles.map} data-map>
-            <Scene />
+      <main id="main-content" className={styles.main} data-mo-root>
+        <canvas className={styles.camera} aria-hidden="true" data-camera />
+        <CameraOverlay />
+        <div className={styles.track} data-track>
+          <div className={styles.stage} data-stage>
+            <DesktopPhoto />
+            <canvas className={styles.comets} aria-hidden="true" data-comets />
             <Hero />
-            <Chapters />
+            <ServiceIndex />
+            <Knuckles />
+            <Boundaries />
+            <Process />
+            <Audience />
+            <Contact />
           </div>
-          <Boundaries />
-          <Process />
-          <Audiences />
-        </main>
-      </ManagementOperationsMotion>
-      <HomeFooter />
-    </div>
+        </div>
+      </main>
+      <div className={styles.footerLayer}>
+        <HomeFooter />
+      </div>
+      <ScrollProvider />
+      <ManagementOperationsMotion />
+    </>
   );
 }
