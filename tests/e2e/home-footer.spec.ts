@@ -82,7 +82,7 @@ for (const viewport of viewports) {
       expect(axe.violations).toEqual([]);
       expect(errors).toEqual([]);
     });
-    test("contact stays clickable, utility restores focus, reduced motion and top anchor", async ({
+    test("contact stays clickable, no inherited utility tab, reduced motion and top anchor", async ({
       page,
     }) => {
       await page.goto("/");
@@ -99,11 +99,9 @@ for (const viewport of viewports) {
           { x: box!.x + box!.width / 2, y: box!.y + box!.height / 2 },
         ),
       ).toBe(true);
-      const utility = page.getByRole("button", { name: "How it works", exact: true });
-      await utility.click();
-      await expect(page.getByRole("dialog", { name: "How it works" })).toBeVisible();
-      await page.keyboard.press("Escape");
-      await expect(utility).toBeFocused();
+      // The inherited White Desert "How it works" flyout carried the source
+      // operator's copy and booking link; it must not return.
+      await expect(page.getByRole("button", { name: "How it works" })).toHaveCount(0);
       await page.emulateMedia({ reducedMotion: "reduce" });
       await contact.hover();
       expect(await circle.evaluate((n) => getComputedStyle(n).transform)).toBe("none");

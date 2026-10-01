@@ -81,10 +81,10 @@
 }
 
 /*
- * An open shelf has to clear the persistent "How it works" edge tab, which sits
- * at z-index 10000 on every route. A child cannot escape its own stacking
- * context, so the header itself is raised — but only while a panel is open, and
- * only to just under the drawer scrim, so the modal surfaces still win.
+ * An open shelf has to clear the fixed page layers below it (the HOME colophon
+ * sits at z-index 10001). A child cannot escape its own stacking context, so the
+ * header itself is raised — but only while a panel is open, and only to just
+ * under the drawer scrim, so the modal surfaces still win.
  */
 .header[data-menu-open="true"] {
   z-index: 10010;

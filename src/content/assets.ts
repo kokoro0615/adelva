@@ -398,7 +398,6 @@ export interface VideoAssetRecord {
   readonly sources?: readonly VideoSourceRecord[];
 }
 
-const AV1_10BIT = 'video/mp4; codecs="av01.0.08M.10"';
 const H264_HIGH_41 = 'video/mp4; codecs="avc1.640029"';
 const PORTRAIT = "(orientation: portrait)";
 
@@ -414,19 +413,15 @@ export const videoAssets = {
     height: 1080,
     durationSeconds: 32,
     // Portrait screens get a 9:16 edit framed per shot instead of a centre
-    // crop of the 16:9 file; AV1 is offered first where it decodes.
+    // crop of the 16:9 file. Only the reviewed H.264 CRF18 encodes are served:
+    // the AV1 CRF28 encodes lost ~10% fine detail and jumped texture at every
+    // 2 s keyframe, which read as breakage in production.
     sources: [
-      {
-        src: "/media/video/hero-antarctica-portrait-av1.mp4",
-        type: AV1_10BIT,
-        media: PORTRAIT,
-      },
       {
         src: "/media/video/hero-antarctica-portrait.mp4",
         type: H264_HIGH_41,
         media: PORTRAIT,
       },
-      { src: "/media/video/hero-antarctica-av1.mp4", type: AV1_10BIT },
       { src: "/media/video/hero-antarctica.mp4", type: H264_HIGH_41 },
     ],
   },

@@ -5,7 +5,6 @@ import "@/app/globals.css";
 
 import { FilmExperience } from "@/components/home/film-experience";
 import { HomeFooter } from "@/components/home/home-footer";
-import { HowItWorks } from "@/components/how-it-works";
 import { RouteShell } from "@/components/route-shell";
 import { RouteFooter } from "@/components/route-footer";
 import { RouteTransition } from "@/components/route-transition";
@@ -62,7 +61,6 @@ export default function RootLayout({ children }: { readonly children: ReactNode 
                 <SiteHeader />
                 <main id="main-content">{children}</main>
                 <RouteFooter home={<HomeFooter />} legacy={<SiteFooter />} />
-                <HowItWorks />
               </FilmExperience>
             </>
           }

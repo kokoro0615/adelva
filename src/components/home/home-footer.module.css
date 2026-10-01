@@ -295,27 +295,3 @@
   inset: 0;
   background: linear-gradient(transparent 15%, rgb(0 0 0 / 28%) 40%, transparent 70%);
 }
-
-/* Keep the inherited utility reachable without covering the new contact link. */
-:global(.how-it-works[data-footer-visible][data-open="false"] .how-it-works__trigger) {
-  top: auto;
-  right: 76px;
-  bottom: 16px;
-  width: 44px;
-  height: 44px;
-  transform: none;
-  transition: background-color 180ms ease;
-}
-
-:global(
-  .how-it-works[data-footer-visible][data-open="false"]
-    .how-it-works__trigger
-    > span:first-child
-) {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
-}
