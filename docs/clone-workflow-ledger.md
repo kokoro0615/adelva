@@ -10,6 +10,9 @@ videos; the existing A2 implementation may be deleted. image-to-code Mode C.
 Decisions (2026-10-01): the labels 「4つの支援テーマ・11のサービス」 and the visible
 heading 「対象者から探す」 are approved; 600–1023 px extends the mobile camera
 version; after every gate passes, commit to `main` only (no push, no deployment).
+After reviewing the result the user authorized publication the same day
+(「本番に公開お願いします」): fast-forward push of `main` and the connected Vercel
+production; the release is verified on https://www.adelva.jp/.
 No new image generation: the prototypes' plates and light layers are reused.
 Shared `SiteHeader`, `HomeFooter` and `ScrollProvider` are unchanged; `processCopy`
 stays as other pages import it. Implemented by Opus 5.5 alone, no subagents.
