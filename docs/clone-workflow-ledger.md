@@ -729,3 +729,17 @@ previous owner page's approved wording plus the contact line from
 evidence and gate results: `docs/reports/adelva-owner-2026-09-30/`. Deterministic
 asset derivatives only (provenance above); no new image generation was needed. No
 commit, deployment or production mutation.
+
+## ADELVA HOME A2r3 — 2026-10-02
+
+User adopted `references/adelva/mockups/home-r3-2026-10-02/A2r3-motion.mp4` (desktop) and
+`home-r3-mobile-2026-10-02/A2r3-mobile-motion.mp4` (phone) and asked for a faithful production HOME,
+allowing the previous HOME to be deleted provided it can be restored (git tag
+`backup/home-before-a2r3-2026-10-02` → 3954d89, and `references/adelva/backups/home-2026-10-02/`).
+Mode C (image-to-code from adopted, precise motion prototypes). `/` now renders `HomePage`
+(`src/components/home-a2/`); the old HOME components and their suites (`home-scroll`, `who-we-support`,
+`tests/home-refresh`, `tests/approach`, the hero block of `global-shell-clone`) were removed. Shared
+`SiteHeader` gains HOME-only hooks (brand hand-over, load intro, page-driven surface) and `HomeFooter`
+is reused unchanged. User decisions: 2× redraw of the high-magnification plates by Codex
+`gpt-6.1-sol`/`high` with Opus prompts; < 1024 px uses the phone composition; publish after the gates.
+Specification: `docs/specs/adelva-home-spec.md`; evidence: `docs/reports/adelva-home-2026-10-02/`.

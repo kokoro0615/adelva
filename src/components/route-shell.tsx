@@ -12,7 +12,8 @@ export function RouteShell({
   legacy: ReactNode;
 }) {
   const pathname = usePathname();
-  return pathname === "/challenges" ||
+  return pathname === "/" ||
+    pathname === "/challenges" ||
     pathname === "/challenges/owner" ||
     pathname === "/challenges/owners" ||
     pathname === "/challenges/general-managers" ||

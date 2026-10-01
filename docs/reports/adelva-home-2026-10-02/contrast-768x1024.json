@@ -1,0 +1,180 @@
+{
+  "viewport": [768, 1024],
+  "report": [
+    {
+      "mark": "hero:0.05",
+      "runs": 1,
+      "min": 8.64,
+      "fails": []
+    },
+    {
+      "mark": "hero:0.8",
+      "runs": 5,
+      "min": 5.38,
+      "fails": []
+    },
+    {
+      "mark": "who:0.05",
+      "runs": 6,
+      "min": 5.38,
+      "fails": []
+    },
+    {
+      "mark": "who:0.32",
+      "runs": 1,
+      "min": 13.47,
+      "fails": []
+    },
+    {
+      "mark": "who:0.55",
+      "runs": 11,
+      "min": 5.93,
+      "fails": []
+    },
+    {
+      "mark": "who:0.78",
+      "runs": 11,
+      "min": 5.64,
+      "fails": []
+    },
+    {
+      "mark": "who:0.95",
+      "runs": 10,
+      "min": 10.83,
+      "fails": []
+    },
+    {
+      "mark": "challenges:0.03",
+      "runs": 5,
+      "min": 10.87,
+      "fails": []
+    },
+    {
+      "mark": "challenges:0.2",
+      "runs": 13,
+      "min": 6.18,
+      "fails": []
+    },
+    {
+      "mark": "challenges:0.37",
+      "runs": 13,
+      "min": 6.4,
+      "fails": []
+    },
+    {
+      "mark": "challenges:0.54",
+      "runs": 13,
+      "min": 6.26,
+      "fails": []
+    },
+    {
+      "mark": "challenges:0.71",
+      "runs": 13,
+      "min": 4.89,
+      "fails": []
+    },
+    {
+      "mark": "challenges:0.88",
+      "runs": 13,
+      "min": 6.27,
+      "fails": []
+    },
+    {
+      "mark": "founder:0.95",
+      "runs": 8,
+      "min": 5.38,
+      "fails": []
+    },
+    {
+      "mark": "expertise:0.15",
+      "runs": 8,
+      "min": 5.38,
+      "fails": []
+    },
+    {
+      "mark": "expertise:0.25",
+      "runs": 8,
+      "min": 5.38,
+      "fails": []
+    },
+    {
+      "mark": "expertise:0.5",
+      "runs": 0,
+      "min": null,
+      "fails": []
+    },
+    {
+      "mark": "expertise:0.92",
+      "runs": 9,
+      "min": 6.47,
+      "fails": []
+    },
+    {
+      "mark": "approach:0.02",
+      "runs": 14,
+      "min": 5.33,
+      "fails": []
+    },
+    {
+      "mark": "approach:0.3",
+      "runs": 7,
+      "min": 4.76,
+      "fails": []
+    },
+    {
+      "mark": "approach:0.4",
+      "runs": 7,
+      "min": 6.84,
+      "fails": []
+    },
+    {
+      "mark": "approach:0.5",
+      "runs": 6,
+      "min": 5.98,
+      "fails": []
+    },
+    {
+      "mark": "approach:0.61",
+      "runs": 7,
+      "min": 5.2,
+      "fails": []
+    },
+    {
+      "mark": "approach:0.71",
+      "runs": 6,
+      "min": 6.71,
+      "fails": []
+    },
+    {
+      "mark": "approach:0.82",
+      "runs": 6,
+      "min": 6.81,
+      "fails": []
+    },
+    {
+      "mark": "approach:0.86",
+      "runs": 6,
+      "min": 6.79,
+      "fails": []
+    },
+    {
+      "mark": "approach:0.93",
+      "runs": 2,
+      "min": 8.36,
+      "fails": []
+    },
+    {
+      "mark": "approach:0.97",
+      "runs": 4,
+      "min": 7.33,
+      "fails": []
+    },
+    {
+      "mark": "approach:1",
+      "runs": 4,
+      "min": 7.33,
+      "fails": []
+    }
+  ],
+  "errors": []
+}

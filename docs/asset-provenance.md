@@ -630,3 +630,39 @@ Manifest with source hashes, crops, byte sizes and hashes:
 same licensed Noto sources without removing entries (Sans 779→785: 不区局炉独裏;
 Serif 757→759: 炉裏). The previous owner page's photographs
 (`public/media/adelva/audience-v4/`) were removed with that page.
+
+## 2026-10-02 HOME A2r3「二つの視点 — 一本の線」
+
+Source: the user-adopted HOME round-3 plates (`references/adelva/mockups/home-r3-2026-10-02/plates/`,
+`home-r3-mobile-2026-10-02/plates/`), all generated with the built-in `image_gen` by Codex
+`gpt-6.1-sol` (reasoning `high`) workers from Opus-written prompts: a fictional ryokan on a fictional
+lake in the Japanese Alps; no real property, person or client. The hero film and its poster are the
+existing `hero-antarctica*` / `hero-poster` assets (provenance above), unchanged.
+
+Production 2× redraw (user decision 2026-10-02: `gpt-6.1-sol` / `high`, only the plates shown above
+1.5 device px per plate px): C-pano, P-1, P-2, P-3 and E-l were cut into 72 overlapping 768×512
+sections, each enlarged 2× (Lanczos) and redrawn by `image_gen` as an edit with an Opus-written
+detail-only prompt (`references/adelva/mockups/home-r3-2x-2026-10-02/prompts/`, records `records/W2X-*.json`,
+CLI headers `records/worker-*.log`). Opus then registered every section on its canvas (phase
+correlation + smoothed DIS optical flow), kept the adopted plate's colour and tone below σ 3 px,
+fell back to the canvas only where the redraw changed structure (band-pass correlation), and joined the
+sections along minimum-difference seams (`tools/merge-tiles.py`; mean |merged↓1× − adopted| 3.9–6.8
+of 255). Derived by pixels only (`tools/build-assets.py`, no model): the light variants P-1g, P-1s, P-3L
+(adopted 1× variant/base ratio carried onto the 2× base, residual restored), the front mattes (adopted
+alpha enlarged), the 1.5× phone files and the still frames. W-1, W-2 and E-m are the adopted plates,
+re-encoded. All images are decorative (`alt=""`; WebGL canvases `aria-hidden`).
+
+| Files (public/media/adelva/home/)        | Source                                       | Role / loading                                               |
+| ---------------------------------------- | -------------------------------------------- | ------------------------------------------------------------ |
+| path-{0,1}.webp, path-m-{0,1,2}.webp     | C-pano 2× redraw (12288×2048 / 9216×1536)    | 課題から探す panorama (WebGL), loaded as the reader nears it |
+| path-depth.webp                          | C-pano depth (Depth Anything V2), 3072×512   | Parallax                                                     |
+| path-still-{0..4}.webp                   | crops of the 2× panorama                     | Still layout only (lazy, not painted while moving)           |
+| lake-{1,2,3,3-sun}[-m].webp RGBA         | P-1/P-2/P-3 2× redraws, P-3L derived, mattes | 支援の進め方 front plates (WebGL)                            |
+| lake-{sky,glow,sun}[-m].webp             | P-1 2× and derived P-1g/P-1s, top 576 rows   | Back layer (sky, the great peak)                             |
+| lake-3-depth.webp, lake-still.webp       | P-3 depth; P-3L 2×                           | Sunrise reveal; still layout                                 |
+| expertise-wide.webp, expertise-tall.webp | E-l 2× redraw; E-m as adopted                | 3つの支援領域 (desktop strips / phone tiers)                 |
+| who-owner.webp, who-field.webp           | W-1, W-2 as adopted (1254×1254)              | 支援対象                                                     |
+
+Byte sizes: `references/adelva/mockups/home-r3-2x-2026-10-02/records/assets.json`. Font coverage:
+`scripts/adelva/extend-home-fonts.py` extended the subsets from the same licensed Noto sources without
+removing entries (Sans 785→790: ±“二署背; Serif 759→767: °±“二停映結署).

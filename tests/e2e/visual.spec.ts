@@ -7,8 +7,12 @@ const viewports = [
 ];
 
 for (const viewport of viewports) {
+  /* HOME (A2r3): the first viewport in the still (reduced-motion) state, which
+     is deterministic; the moving page is measured against the adopted
+     prototypes (docs/reports/adelva-home-2026-10-02/). */
   test(`home regression at ${viewport.name}`, async ({ page }) => {
     await page.setViewportSize(viewport);
+    await page.emulateMedia({ reducedMotion: "reduce" });
     await page.goto("/");
     await page.evaluate(async () => document.fonts.ready);
     await expect(page).toHaveScreenshot(`home-${viewport.name}.png`, {

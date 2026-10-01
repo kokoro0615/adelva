@@ -20,7 +20,8 @@ for (const viewport of viewports) {
       await footer.locator("img").evaluate((i) => (i as HTMLImageElement).decode());
       await expect(page.locator("footer")).toHaveCount(1);
       await expect(page.locator(".colophon")).toHaveCount(0);
-      await expect(page.locator("[data-page-content] > *")).toHaveCount(7);
+      // HOME A2r3 owns its scenes; the footer follows the one main landmark
+      await expect(page.locator("main")).toHaveCount(1);
       await expect(
         footer.getByRole("heading", { name: "Start with a conversation" }),
       ).toBeVisible();
@@ -109,12 +110,43 @@ for (const viewport of viewports) {
       // Restoring the pinned sections changes document height. Scroll anchoring
       // may move the footer after hover() returns; reacquire the target while
       // that layout settles, then verify the same actual hover transform.
+      // HOME's scroll scenes come back with motion (the page grows about threefold)
+      // and desktop smoothing restarts: bring the link to the middle and let the
+      // scroll settle before the pointer moves onto it.
+      await page.waitForFunction(
+        () =>
+          document.querySelector("[data-home-root]")?.getAttribute("data-motion") !==
+          "still",
+      );
+      await contact.evaluate(async (a) => {
+        // the footer at the top of the screen: HOME's last WebGL scene is then fully gone
+        // (headless software rendering draws it at a few frames per second). Instant:
+        // with motion allowed the document scrolls smoothly (globals.css).
+        // (scrollIntoView would honour the header's scroll-padding and leave the scene's last rows on screen)
+        const footerEl = a.closest("footer")!;
+        const lift = Math.min(
+          120,
+          a.getBoundingClientRect().top - footerEl.getBoundingClientRect().top - 160,
+        );
+        window.scrollTo({
+          top: footerEl.getBoundingClientRect().top + window.scrollY + lift,
+          behavior: "instant",
+        });
+        for (let i = 0; i < 40; i++) {
+          if (!document.documentElement.classList.contains("lenis-scrolling")) break;
+          await new Promise((r) => setTimeout(r, 50));
+        }
+        await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+      });
       await expect(async () => {
         await contact.hover();
-        expect(await circle.evaluate((n) => getComputedStyle(n).transform)).not.toBe(
-          "none",
-        );
-      }).toPass({ timeout: 5000 });
+        // the 180 ms hover transition starts from none
+        await expect
+          .poll(() => circle.evaluate((n) => getComputedStyle(n).transform), {
+            timeout: 1500,
+          })
+          .not.toBe("none");
+      }).toPass({ timeout: 15000 });
       await footer.getByRole("link", { name: "ページの先頭へ戻る" }).click();
       await expect.poll(() => page.evaluate(() => scrollY)).toBeLessThan(5);
     });

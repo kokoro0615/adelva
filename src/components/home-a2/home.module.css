@@ -1,0 +1,2397 @@
+/*
+ * HOME — A2r3「二つの視点 — 一本の線」.
+ *
+ * Three layouts share one DOM (spec §8):
+ *   default        a still document — no script, reduced motion, or a browser
+ *                  that cannot answer `(scripting: enabled)`;
+ *   motion ≥1024   the desktop prototype (home-r3-2026-10-02/build/A2.html);
+ *   motion <1024   the phone prototype (home-r3-mobile-2026-10-02/build/A2m.html).
+ * Desktop lengths are the prototype's CSS px at 1440 × 900 times --k; phone
+ * lengths are its CSS px at 390 × 844 times --m. Small text uses --kt / --mt,
+ * which never shrink below a readable floor. Comments name the prototype rule.
+ */
+
+@font-face {
+  font-family: "HM Serif";
+  src: url("/fonts/adelva-noto-serif-jp.woff2") format("woff2");
+  font-weight: 200 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "HM Sans";
+  src: url("/fonts/adelva-noto-sans-jp.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+.root {
+  --ink: #1f2a44;
+  --ink-deep: #0e1118;
+  --ice: #f1efea;
+  --paper: #f1efea;
+  --ice-86: rgb(241 239 234 / 86%);
+  --ice-70: rgb(241 239 234 / 72%);
+  --ice-50: rgb(241 239 234 / 50%);
+  --ice-30: rgb(241 239 234 / 30%);
+  --ink-70: rgb(31 42 68 / 72%);
+  --flare: #ff7e15;
+  --serif: "HM Serif", "Noto Serif JP", serif;
+  --sans: "HM Sans", "Noto Sans JP", sans-serif;
+  --narrow: "Oswald", "Arial Narrow", var(--sans);
+  --k: 1px;
+  --kt: 1px;
+  --m: 1px;
+  --mt: 1px;
+  --gutter: 64px;
+  /* phones: the part of a one-viewport stage hidden under the browser's toolbar */
+  --gap-b: 0px;
+
+  background: var(--paper);
+  color: var(--ink);
+  /* the prototypes ran on browser defaults, not the site's body metrics */
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: normal;
+  font-feature-settings: "palt" 1;
+  -webkit-font-smoothing: antialiased;
+}
+@media (min-width: 1024px) {
+  .root {
+    --k: min(calc(100vw / 1440), calc(100vh / 900), 1.4px);
+    --kt: max(var(--k), 0.9px);
+    --gutter: calc(64 * var(--k));
+  }
+}
+@media (max-width: 1023.98px) {
+  .root {
+    --m: clamp(0.86px, min(calc(100vw / 390), calc(100vh / 844)), 1.5px);
+    --mt: max(var(--m), 0.95px);
+    --gutter: calc(22 * var(--m));
+    --gap-b: max(0px, calc(100lvh - 100dvh));
+  }
+}
+
+.main {
+  position: relative;
+}
+/* resets at zero specificity, so every component rule below wins over them */
+:where(.root) :where(h1, h2, h3, p) {
+  margin: 0;
+  text-wrap: wrap;
+}
+:where(.root) :where(ol, ul) {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+:where(.root) :where(a) {
+  color: inherit;
+  text-decoration: none;
+}
+:where(.root) :where(img) {
+  display: block;
+}
+:where(.root) :where(em) {
+  font-style: normal;
+}
+
+/* ===================================================================== atoms */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: calc(14 * var(--k));
+  font-size: calc(13 * var(--kt));
+  letter-spacing: 0.14em;
+}
+.en {
+  font-family: var(--narrow);
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+.rule {
+  display: block;
+  width: calc(28 * var(--k));
+  height: 1px;
+  background: var(--flare);
+  flex: none;
+}
+.num {
+  font-family: var(--narrow);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  font-feature-settings: "tnum" 1;
+}
+.cue {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(14 * var(--k));
+  font-size: calc(14.5 * var(--kt));
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+.arrow {
+  position: relative;
+  display: inline-block;
+  width: 16px;
+  height: 1.2px;
+  background: currentColor;
+  flex: none;
+}
+.arrow::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -3.4px;
+  width: 7px;
+  height: 7px;
+  border-top: 1.2px solid currentColor;
+  border-right: 1.2px solid currentColor;
+  transform: rotate(45deg);
+}
+.cue .arrow {
+  width: calc(28 * var(--k));
+}
+.circle {
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--ice-70);
+  border-radius: 50%;
+  flex: none;
+}
+.circle .arrow {
+  width: 16px;
+}
+.mask {
+  display: block;
+  overflow: clip;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+.mask > span {
+  display: inline-block;
+}
+.ch {
+  display: inline-block;
+}
+.desktopBreak,
+.mobileBreak {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .desktopBreak {
+    display: inline;
+  }
+}
+@media (max-width: 1023.98px) {
+  .mobileBreak {
+    display: inline;
+  }
+  .eyebrow {
+    gap: calc(12 * var(--m));
+    font-size: calc(11 * var(--mt));
+  }
+  .rule {
+    width: calc(22 * var(--m));
+  }
+  .cue {
+    gap: calc(14 * var(--m));
+    font-size: calc(13.5 * var(--mt));
+  }
+  .cue .arrow {
+    width: calc(28 * var(--m));
+  }
+  .mask {
+    padding-bottom: 0.1em;
+    margin-bottom: -0.1em;
+  }
+}
+
+/* text for assistive technology only (the visible copy is split into characters) */
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip {
+  position: absolute;
+  top: 12px;
+  left: 24px;
+  z-index: 10020;
+  padding: 12px 24px;
+  background: var(--ice);
+  color: var(--ink-deep);
+  transform: translateY(-200%);
+}
+.skip:focus {
+  transform: none;
+}
+
+:where(.root) a:focus-visible {
+  outline: 2px solid var(--flare);
+  outline-offset: 4px;
+}
+
+/* ============================================================ typography
+   Type sizes and colours are shared by the still and the moving layouts. */
+
+/* —— 1 hero / purpose */
+.giant {
+  font-family: var(--narrow);
+  font-weight: 400;
+  font-size: calc(256 * var(--k));
+  line-height: 1;
+  letter-spacing: 0.18em;
+  text-indent: 0.18em;
+  color: #fff;
+  white-space: nowrap;
+  text-align: center;
+  font-feature-settings: normal;
+}
+.word {
+  display: inline-block;
+  transform-origin: 0 50%;
+  text-indent: 0;
+}
+.lt {
+  display: inline-block;
+  overflow: clip;
+  vertical-align: bottom;
+  text-indent: 0;
+}
+.lt > span {
+  display: inline-block;
+  text-indent: 0;
+}
+.purposeEyebrow {
+  justify-content: center;
+  color: var(--ink-70);
+  margin-bottom: calc(44 * var(--k));
+}
+.statement {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: calc(84 * var(--k));
+  line-height: 1.34;
+  letter-spacing: 0.04em;
+}
+.line {
+  display: block;
+}
+.statement em {
+  background: linear-gradient(var(--flare), var(--flare)) 0 94% /
+    calc(var(--u, 1) * 100%) 3px no-repeat;
+}
+.purposeBody {
+  margin-top: calc(40 * var(--k));
+  font-size: calc(19 * var(--kt));
+  line-height: 2;
+  letter-spacing: 0.08em;
+  color: var(--ink-70);
+}
+
+/* —— 2 who */
+.whoEyebrow {
+  color: var(--ink-70);
+}
+.whoOwner,
+.whoField {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: calc(60 * var(--k));
+  line-height: 1.4;
+  letter-spacing: 0.03em;
+}
+.whoIntro {
+  font-size: calc(18 * var(--kt));
+  line-height: 2.1;
+  letter-spacing: 0.08em;
+  color: var(--ink-70);
+}
+.card {
+  display: block;
+  color: var(--ice);
+}
+.cardKey {
+  display: flex;
+  gap: calc(14 * var(--k));
+  align-items: center;
+  font-size: calc(13 * var(--kt));
+  letter-spacing: 0.14em;
+  color: var(--ice-86);
+}
+.cardTitle {
+  margin-top: calc(22 * var(--k));
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: calc(46 * var(--k));
+  line-height: 1.3;
+  letter-spacing: 0.03em;
+}
+.cardTitle span {
+  display: inline-block;
+}
+.more {
+  display: block;
+}
+.cardBody {
+  display: block;
+  margin-top: calc(20 * var(--k));
+  font-size: calc(17 * var(--kt));
+  line-height: 1.95;
+  letter-spacing: 0.06em;
+  color: var(--ice-86);
+}
+.cardCue {
+  margin-top: calc(30 * var(--k));
+}
+.cardCue .circle {
+  width: calc(56 * var(--k));
+  height: calc(56 * var(--k));
+}
+
+/* —— 3 challenges */
+.challenges {
+  color: var(--ice);
+}
+.chHead .eyebrow {
+  color: var(--ice);
+}
+.chTitle {
+  margin-top: calc(26 * var(--k));
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: calc(88 * var(--k));
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 40px rgb(14 17 24 / 35%);
+}
+.itemNo {
+  display: flex;
+  align-items: center;
+  gap: calc(10 * var(--k));
+  font-size: calc(14 * var(--kt));
+  letter-spacing: 0.16em;
+  color: var(--ice-86);
+}
+.itemNo b {
+  font-weight: 500;
+  font-size: calc(15 * var(--kt));
+  letter-spacing: 0.16em;
+  color: var(--flare);
+}
+.itemRule {
+  display: block;
+  width: calc(36 * var(--k));
+  height: 1px;
+  background: var(--ice-50);
+  margin: 0 4px;
+}
+.itemTitle {
+  margin-top: calc(10 * var(--k));
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: calc(62 * var(--k));
+  line-height: 1.24;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  text-shadow: 0 2px 30px rgb(9 12 9 / 35%);
+}
+.itemTitle .mask {
+  display: inline-block;
+  vertical-align: top;
+}
+.itemRow {
+  display: flex;
+  align-items: center;
+  gap: calc(44 * var(--k));
+  margin-top: calc(12 * var(--k));
+}
+.itemBody {
+  font-size: calc(16.5 * var(--kt));
+  line-height: 1.8;
+  letter-spacing: 0.07em;
+  color: var(--ice-86);
+}
+.itemRow .cue .circle {
+  width: calc(46 * var(--k));
+  height: calc(46 * var(--k));
+}
+
+/* —— 4 founder */
+.quoteMark {
+  display: block;
+  font-family: var(--serif);
+  font-size: calc(128 * var(--k));
+  line-height: 0.6;
+  color: var(--flare);
+  height: calc(52 * var(--k));
+}
+.founderLead {
+  margin-top: calc(30 * var(--k));
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: calc(56 * var(--k));
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+}
+.letterRest p {
+  font-size: calc(19 * var(--kt));
+  line-height: 2.1;
+  letter-spacing: 0.06em;
+  margin-bottom: calc(22 * var(--k));
+}
+.sign svg path {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.sign svg path.flourish {
+  stroke: var(--flare);
+  stroke-width: 1.6;
+}
+.signer {
+  text-align: right;
+  font-size: calc(14 * var(--kt));
+  line-height: 1.8;
+  letter-spacing: 0.1em;
+  color: var(--ink-70);
+}
+.signer b {
+  display: block;
+  font-weight: 500;
+  font-size: calc(15 * var(--kt));
+  letter-spacing: 0.12em;
+  color: var(--ink);
+}
+
+/* —— 5 expertise */
+.exEyebrow {
+  color: var(--ink-70);
+}
+.domain {
+  display: block;
+  color: var(--dc, var(--ink));
+}
+/* AA (verify-390x844 / axe): small orange numerals on paper are 2.2:1, so on paper the numeral is
+   ink with a short orange rule before it (the adopted phone fix, carried to desktop as planned);
+   over the photograph (desktop, full view) the motion sets it back to orange */
+.domainNum {
+  display: flex;
+  align-items: center;
+  gap: calc(10 * var(--k));
+  font-size: calc(15 * var(--kt));
+  color: var(--nc, var(--ink-70));
+}
+.domainNum::before {
+  content: "";
+  width: calc(18 * var(--k));
+  height: 1px;
+  background: var(--flare);
+}
+.domainTitle {
+  margin-top: calc(10 * var(--k));
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: calc(32 * var(--k));
+  line-height: 1.35;
+  letter-spacing: 0.03em;
+}
+.domainBody {
+  display: block;
+  margin-top: calc(12 * var(--k));
+  font-size: calc(15.5 * var(--kt));
+  line-height: 1.9;
+  letter-spacing: 0.05em;
+  opacity: 0.86;
+}
+.domainCue {
+  margin-top: calc(16 * var(--k));
+  font-size: calc(14 * var(--kt));
+}
+.planTitle {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: calc(64 * var(--k));
+  line-height: 1.35;
+  letter-spacing: 0.03em;
+}
+.planBody {
+  margin-top: calc(22 * var(--k));
+  max-width: calc(640 * var(--k));
+  font-size: calc(17 * var(--kt));
+  line-height: 2;
+  letter-spacing: 0.06em;
+}
+
+/* —— 6 approach */
+.leadEyebrow {
+  justify-content: center;
+  color: var(--ink-70);
+}
+.leadTitle {
+  margin-top: calc(40 * var(--k));
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: calc(64 * var(--k));
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+.st {
+  display: inline-block;
+}
+.glue {
+  opacity: var(--go, 1);
+}
+.stepNo {
+  display: flex;
+  align-items: center;
+  gap: calc(12 * var(--k));
+  font-size: calc(14 * var(--kt));
+  letter-spacing: 0.16em;
+  color: var(--ice-86);
+}
+.stepNo b {
+  font-weight: 500;
+  font-size: calc(15 * var(--kt));
+  color: var(--sc, var(--flare));
+}
+.stepName {
+  margin-top: calc(14 * var(--k));
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: calc(40 * var(--k));
+  line-height: 1.3;
+  letter-spacing: 0.06em;
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(10 * var(--k));
+  margin-top: calc(20 * var(--k));
+}
+.tags li {
+  display: inline-flex;
+  align-items: center;
+  height: calc(34 * var(--k));
+  padding: 0 calc(15 * var(--k));
+  border: 1px solid var(--ice-50);
+  border-radius: calc(17 * var(--k));
+  font-size: calc(14 * var(--kt));
+  letter-spacing: 0.08em;
+  color: var(--ice);
+  background: rgb(14 17 24 / 20%);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+.finalBody {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: calc(40 * var(--k));
+  line-height: 1.7;
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 30px rgb(40 24 8 / 35%);
+}
+.finalCue {
+  margin-top: calc(44 * var(--k));
+  justify-content: center;
+  font-size: calc(15 * var(--kt));
+}
+.finalCue .circle {
+  width: calc(54 * var(--k));
+  height: calc(54 * var(--k));
+}
+
+/* phone type (A2m.html) */
+@media (max-width: 1023.98px) {
+  .giant {
+    font-size: 21.6vw;
+  }
+  .purposeEyebrow {
+    margin-bottom: calc(30 * var(--m));
+  }
+  .statement {
+    font-size: calc(34 * var(--m));
+    line-height: 1.52;
+  }
+  .seg {
+    display: block;
+  }
+  .statement em {
+    background-position: 0 96%;
+    background-size: calc(var(--u, 1) * 100%) 2px;
+  }
+  .purposeBody {
+    margin-top: calc(30 * var(--m));
+    font-size: calc(14.5 * var(--mt));
+    letter-spacing: 0.06em;
+  }
+  .whoOwner,
+  .whoField {
+    font-size: calc(30 * var(--m));
+    line-height: 1.46;
+  }
+  .whoIntro {
+    font-size: calc(13.5 * var(--mt));
+    line-height: 2;
+    letter-spacing: 0.05em;
+  }
+  .cardKey {
+    gap: calc(12 * var(--m));
+    font-size: calc(11.5 * var(--mt));
+    color: var(--ice);
+  }
+  .cardKey .rule {
+    width: calc(22 * var(--m));
+  }
+  .cardTitle {
+    margin-top: calc(14 * var(--m));
+    font-size: calc(29 * var(--m));
+  }
+  .cardTitle span {
+    display: block;
+  }
+  .cardBody {
+    margin-top: calc(14 * var(--m));
+    font-size: calc(13.5 * var(--mt));
+    line-height: 1.9;
+    letter-spacing: 0.05em;
+  }
+  .cardCue {
+    margin-top: calc(18 * var(--m));
+  }
+  .cardCue .circle,
+  .itemRow .cue .circle,
+  .finalCue .circle {
+    width: calc(44 * var(--m));
+    height: calc(44 * var(--m));
+  }
+  .circle .arrow {
+    width: calc(14 * var(--m));
+  }
+  .chTitle {
+    margin-top: calc(18 * var(--m));
+    font-size: calc(46 * var(--m));
+    text-shadow: 0 2px 30px rgb(14 17 24 / 40%);
+  }
+  .itemNo {
+    gap: calc(9 * var(--m));
+    font-size: calc(12.5 * var(--mt));
+  }
+  .itemNo b {
+    font-size: calc(13.5 * var(--mt));
+  }
+  .itemRule {
+    width: calc(28 * var(--m));
+  }
+  .itemTitle {
+    margin-top: calc(12 * var(--m));
+    font-size: calc(33 * var(--m));
+    line-height: 1.3;
+    white-space: normal;
+    text-shadow: 0 2px 24px rgb(9 12 9 / 40%);
+  }
+  .itemTitle .mask {
+    display: block;
+  }
+  .itemRow {
+    display: block;
+    margin-top: 0;
+  }
+  .itemBody {
+    display: block;
+    margin-top: calc(12 * var(--m));
+    font-size: calc(13.5 * var(--mt));
+    line-height: 1.85;
+    letter-spacing: 0.05em;
+  }
+  .itemRow .cue {
+    margin-top: calc(16 * var(--m));
+  }
+  .quoteMark {
+    font-size: calc(92 * var(--m));
+    height: calc(34 * var(--m));
+  }
+  .founderLead {
+    margin-top: calc(22 * var(--m));
+    font-size: calc(31 * var(--m));
+    line-height: 1.56;
+  }
+  .letterRest p {
+    font-size: calc(14.5 * var(--mt));
+    line-height: 2;
+    letter-spacing: 0.05em;
+    margin-bottom: calc(12 * var(--m));
+  }
+  .sign svg path {
+    stroke-width: 2.2;
+  }
+  .sign svg path.flourish {
+    stroke-width: 1.8;
+  }
+  .signer {
+    font-size: calc(12.5 * var(--mt));
+  }
+  .signer b {
+    font-size: calc(13.5 * var(--mt));
+  }
+  .domainNum {
+    display: flex;
+    align-items: center;
+    gap: calc(10 * var(--m));
+    font-size: calc(13.5 * var(--mt));
+    color: var(--ink-70);
+  }
+  .domainNum::before {
+    content: "";
+    width: calc(18 * var(--m));
+    height: 1px;
+    background: var(--flare);
+  }
+  .domainTitle {
+    margin-top: calc(6 * var(--m));
+    font-size: calc(23 * var(--m));
+  }
+  .domainBody {
+    margin-top: calc(8 * var(--m));
+    font-size: calc(13.5 * var(--mt));
+    line-height: 1.85;
+    letter-spacing: 0.04em;
+    color: var(--ink-70);
+    opacity: 1;
+  }
+  .domainCue {
+    margin-top: calc(10 * var(--m));
+    font-size: calc(13 * var(--mt));
+    color: var(--ink);
+  }
+  .domainCue .arrow {
+    width: calc(22 * var(--m));
+  }
+  .planTitle {
+    font-size: calc(30 * var(--m));
+    line-height: 1.45;
+  }
+  .planBody {
+    margin-top: calc(16 * var(--m));
+    max-width: none;
+    font-size: calc(13.5 * var(--mt));
+    line-height: 1.95;
+    letter-spacing: 0.04em;
+  }
+  .leadTitle {
+    margin-top: calc(30 * var(--m));
+    font-size: calc(27 * var(--m));
+    line-height: 1.62;
+  }
+  .stepNo {
+    gap: calc(9 * var(--m));
+    font-size: calc(12.5 * var(--mt));
+  }
+  .stepNo b {
+    font-size: calc(13.5 * var(--mt));
+  }
+  .stepNo .itemRule {
+    display: none;
+  }
+  .stepName {
+    margin-top: calc(8 * var(--m));
+    font-size: calc(25 * var(--m));
+  }
+  .tags {
+    gap: calc(8 * var(--m));
+    margin-top: calc(10 * var(--m));
+  }
+  .tags li {
+    height: calc(28 * var(--m));
+    padding: 0 calc(12 * var(--m));
+    border-radius: calc(14 * var(--m));
+    font-size: calc(12.5 * var(--mt));
+    letter-spacing: 0.06em;
+    background: rgb(14 17 24 / 28%);
+  }
+  .finalBody {
+    font-size: calc(21 * var(--m));
+    line-height: 1.85;
+    text-shadow: 0 2px 24px rgb(40 24 8 / 40%);
+  }
+  .finalCue {
+    margin-top: calc(30 * var(--m));
+    font-size: calc(13.5 * var(--mt));
+  }
+}
+
+/* ===================================================== the still document
+   No script, reduced motion, or no support for (scripting): every scene is
+   read in normal flow, in its finished state. */
+.spine,
+.half,
+.centerSeam,
+.scrollSeam,
+.filmToggle,
+.whoSeam,
+.gl,
+.chShade,
+.rail,
+.nib,
+.hair,
+.veil,
+.index,
+.apShade,
+.ticks,
+.rail6,
+.apCardEyebrow,
+.video {
+  display: none;
+}
+.hero .stage {
+  display: flex;
+  flex-direction: column;
+}
+.film {
+  position: relative;
+  order: -1;
+  height: 100svh;
+  min-height: 560px;
+  overflow: hidden;
+  background: var(--ink-deep);
+}
+.filmWhole,
+.poster,
+.video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgb(14 17 24 / 18%),
+    rgb(14 17 24 / 0%) 30%,
+    rgb(14 17 24 / 24%)
+  );
+  pointer-events: none;
+}
+.giant {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(24 * var(--k));
+}
+.purpose {
+  padding: calc(160 * var(--k)) var(--gutter);
+  text-align: center;
+}
+.purposeEyebrow {
+  justify-content: center;
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: calc(96 * var(--k));
+  padding: calc(150 * var(--k)) var(--gutter) calc(96 * var(--k));
+}
+.intro .whoEyebrow {
+  grid-column: 1 / -1;
+  margin-bottom: calc(64 * var(--k));
+}
+.whoField {
+  text-align: right;
+}
+.intro .whoIntro {
+  grid-column: 1 / -1;
+  margin-top: calc(64 * var(--k));
+  text-align: center;
+}
+.who .stage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.who .intro {
+  grid-column: 1 / -1;
+}
+.side {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: var(--ink-deep);
+}
+.sideImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.side::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgb(14 17 24 / 30%) 0%,
+    rgb(14 17 24 / 0%) 26%,
+    rgb(14 17 24 / 0%) 44%,
+    rgb(14 17 24 / 66%) 100%
+  );
+  pointer-events: none;
+}
+.card {
+  position: absolute;
+  z-index: 2;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: calc(64 * var(--k));
+}
+
+.challenges {
+  background: #11140f;
+}
+.chHead {
+  padding: calc(128 * var(--k)) var(--gutter) calc(64 * var(--k));
+}
+.slot {
+  display: grid;
+  gap: calc(72 * var(--k));
+  padding: 0 var(--gutter) calc(128 * var(--k));
+}
+.item {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: calc(48 * var(--k));
+  align-items: end;
+}
+.itemStill {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+.itemTitle {
+  white-space: normal;
+}
+.itemRow {
+  flex-wrap: wrap;
+  gap: calc(20 * var(--k)) calc(44 * var(--k));
+}
+
+.letter {
+  display: grid;
+  grid-template-columns: calc(600 * var(--k)) 1fr;
+  column-gap: calc(96 * var(--k));
+  padding: calc(150 * var(--k)) var(--gutter) 0;
+}
+.letterRest {
+  padding-top: calc(88 * var(--k));
+  max-width: calc(640 * var(--k));
+}
+.sign {
+  position: relative;
+  margin: calc(48 * var(--k)) var(--gutter) 0
+    calc(600 * var(--k) + var(--gutter) + 96 * var(--k));
+  padding-bottom: calc(120 * var(--k));
+}
+.sign svg {
+  display: block;
+  width: min(100%, calc(760 * var(--k)));
+  height: auto;
+  overflow: visible;
+}
+.signer {
+  margin-top: calc(12 * var(--k));
+}
+
+.expertise {
+  padding: calc(128 * var(--k)) var(--gutter);
+}
+.strips {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: calc(48 * var(--k));
+  margin-top: calc(48 * var(--k));
+}
+.strip {
+  grid-column: 1 / -1;
+  aspect-ratio: 3 / 1.4;
+  overflow: hidden;
+}
+.strip + .strip {
+  display: none;
+}
+.strip img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.plan {
+  margin-top: calc(96 * var(--k));
+}
+
+.approach {
+  padding: calc(128 * var(--k)) 0 calc(144 * var(--k));
+}
+.approach .stage {
+  display: flex;
+  flex-direction: column;
+}
+.lead {
+  order: -1;
+  padding: 0 var(--gutter);
+  text-align: center;
+}
+.lakeStill {
+  width: 100%;
+  height: auto;
+  margin-top: calc(64 * var(--k));
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+.apCard {
+  margin-top: calc(-220 * var(--k));
+  padding: 0 var(--gutter);
+  position: relative;
+  color: var(--ice);
+}
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: calc(40 * var(--k)) calc(32 * var(--k));
+  padding: calc(40 * var(--k));
+  background: #141922;
+}
+.final {
+  margin: calc(96 * var(--k)) var(--gutter) 0;
+  text-align: center;
+}
+.final .finalBody {
+  color: var(--ink);
+  text-shadow: none;
+}
+
+@media (max-width: 1023.98px) {
+  .giant {
+    bottom: calc(58 * var(--m) + var(--gap-b));
+  }
+  .purpose {
+    padding: calc(120 * var(--m)) var(--gutter);
+  }
+  .intro,
+  .who .stage {
+    grid-template-columns: 1fr;
+  }
+  .intro {
+    padding: calc(96 * var(--m)) var(--gutter) calc(56 * var(--m));
+  }
+  .intro .whoEyebrow {
+    margin-bottom: calc(40 * var(--m));
+  }
+  .intro .whoField {
+    margin-top: calc(28 * var(--m));
+  }
+  .intro .whoIntro {
+    margin-top: calc(32 * var(--m));
+    text-align: left;
+  }
+  .card {
+    bottom: calc(24 * var(--m));
+  }
+  .chHead {
+    padding: calc(96 * var(--m)) var(--gutter) calc(40 * var(--m));
+  }
+  .slot {
+    gap: calc(56 * var(--m));
+    padding-bottom: calc(96 * var(--m));
+  }
+  .item {
+    grid-template-columns: 1fr;
+    gap: calc(20 * var(--m));
+  }
+  .letter {
+    grid-template-columns: 1fr;
+    padding: calc(96 * var(--m)) var(--gutter) 0;
+  }
+  .letterRest {
+    padding-top: calc(26 * var(--m));
+  }
+  .sign {
+    margin: calc(32 * var(--m)) var(--gutter) 0;
+    padding-bottom: calc(80 * var(--m));
+  }
+  .expertise {
+    padding: calc(96 * var(--m)) var(--gutter);
+  }
+  .strips {
+    grid-template-columns: 1fr;
+    gap: calc(36 * var(--m));
+  }
+  .strip {
+    aspect-ratio: 2 / 3;
+  }
+  .plan {
+    margin-top: calc(56 * var(--m));
+  }
+  .approach {
+    padding: calc(96 * var(--m)) 0 calc(112 * var(--m));
+  }
+  .apCard {
+    margin-top: calc(-120 * var(--m));
+  }
+  .steps {
+    grid-template-columns: 1fr;
+    padding: calc(24 * var(--m));
+  }
+  .final {
+    margin-top: calc(64 * var(--m));
+  }
+}
+
+/* ======================================================= the moving page */
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  .scene,
+  .hero,
+  .who,
+  .challenges,
+  .founder,
+  .expertise,
+  .approach {
+    position: relative;
+    padding: 0;
+  }
+  .stage {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: clip;
+  }
+  .hero .stage,
+  .who .stage,
+  .approach .stage {
+    display: block;
+  }
+  .itemStill,
+  .lakeStill {
+    display: none;
+  }
+  .gl {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* ---------- 1 hero (load) → purpose */
+  .hero {
+    height: 270vh;
+  }
+  .hero .stage {
+    background: var(--paper);
+  }
+  .film {
+    position: absolute;
+    inset: 0;
+    order: 0;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+    background: none;
+    transform-origin: 50% 50%;
+    /* load: the film opens from the seam (0.75–2.0 s, expo) and settles from 1.16× (0.75–2.9 s) */
+    animation:
+      film-open 1.25s cubic-bezier(0.16, 1, 0.3, 1) 0.75s backwards,
+      film-settle 2.15s cubic-bezier(0.16, 1, 0.3, 1) 0.75s backwards;
+  }
+  .filmWhole {
+    transform-origin: 50% 50%;
+    will-change: transform;
+  }
+  .video {
+    display: block;
+  }
+  .half {
+    position: absolute;
+    top: 0;
+    display: block;
+    height: 100%;
+    width: 50%;
+    overflow: hidden;
+    visibility: hidden;
+    will-change: transform;
+  }
+  .half[data-half="l"] {
+    left: 0;
+    transform-origin: 100% 50%;
+  }
+  .half[data-half="r"] {
+    right: 0;
+    transform-origin: 0 50%;
+  }
+  .media {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 200%;
+    max-width: none;
+  }
+  .half[data-half="l"] .media {
+    left: 0;
+  }
+  .half[data-half="r"] .media {
+    right: 0;
+  }
+  .lt > span {
+    animation: letter-rise 0.9s cubic-bezier(0.33, 1, 0.68, 1)
+      calc(1.3s + var(--i) * 0.075s) backwards;
+  }
+  .centerSeam {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    display: block;
+    width: 1px;
+    height: 100%;
+    background: var(--flare);
+    transform-origin: 50% 0;
+    opacity: 0;
+    pointer-events: none;
+    /* load: the orange seam is drawn (0.15–0.85 s), waits under the film and fades (1.7–2.3 s) */
+    animation:
+      seam-draw 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.15s backwards,
+      seam-hold 2.3s linear both;
+  }
+  .scrollSeam {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    display: block;
+    width: 1px;
+    height: 100%;
+    background: var(--flare);
+    transform-origin: 50% 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .purpose {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-content: center;
+    padding: 0;
+    opacity: var(--po, 0);
+  }
+  .statement .ch {
+    opacity: var(--o, 1);
+    transform: translateY(calc((1 - var(--o, 1)) * 0.12em));
+  }
+  .purposeEyebrow,
+  .purposeBody {
+    opacity: 0;
+  }
+  .filmToggle {
+    position: absolute;
+    right: calc(40 * var(--k));
+    bottom: calc(40 * var(--k));
+    z-index: 3;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid var(--ice-50);
+    border-radius: 50%;
+    background: rgb(14 17 24 / 28%);
+    color: var(--ice);
+    cursor: pointer;
+    animation: header-fade 0.6s ease 2s backwards;
+  }
+  .filmToggle span {
+    width: 10px;
+    height: 12px;
+    border-left: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+  }
+  .filmToggle[aria-pressed="true"] span {
+    width: 0;
+    height: 0;
+    border: 0;
+    border-left: 10px solid currentColor;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    margin-left: 3px;
+  }
+  .filmToggle:focus-visible {
+    outline: 2px solid var(--flare);
+    outline-offset: 3px;
+  }
+
+  /* ---------- 2 who we support */
+  .who {
+    height: 420vh;
+  }
+  .who .stage {
+    background: var(--paper);
+  }
+  .intro {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    padding: calc(150 * var(--k)) var(--gutter) 0;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto 1fr;
+    column-gap: calc(96 * var(--k));
+  }
+  .intro .whoIntro {
+    align-self: start;
+  }
+  .side {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    aspect-ratio: auto;
+    background: none;
+    will-change: transform, clip-path;
+    clip-path: inset(100% 0 0 0);
+  }
+  .side[data-side="t"] {
+    left: 0;
+    width: var(--s, 50%);
+  }
+  .side[data-side="b"] {
+    right: 0;
+    width: calc(100% - var(--s, 50%));
+  }
+  /* square plates shown one stage tall, centred on their panel (round 3) */
+  .sideImage {
+    inset: auto;
+    top: 0;
+    left: calc(50% - 50vh);
+    width: 100vh;
+    height: 100vh;
+    max-width: none;
+    object-fit: fill;
+    will-change: transform;
+    transform-origin: 50% 40%;
+  }
+  .card {
+    left: var(--gutter);
+    right: auto;
+    width: calc(100% - 2 * var(--gutter));
+    bottom: calc(88 * var(--k));
+    opacity: 0;
+  }
+  .whoSeam {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: var(--s, 50%);
+    z-index: 3;
+    display: block;
+    width: 1px;
+    background: var(--flare);
+    transform-origin: 50% 0;
+    transform: scaleY(0);
+  }
+
+  /* ---------- 3 your challenges — along the lakeside path */
+  .challenges {
+    height: 760vh;
+    background: none;
+  }
+  .challenges .stage {
+    background: #11140f;
+  }
+  .chHead {
+    position: absolute;
+    left: var(--gutter);
+    top: calc(128 * var(--k));
+    z-index: 3;
+    padding: 0;
+    opacity: 0;
+  }
+  /* AA: the title sits on the snow line of the massif (measured 2.4:1 without it) */
+  .chHead::before {
+    content: "";
+    position: absolute;
+    left: calc(-200 * var(--k));
+    right: calc(-180 * var(--k));
+    top: calc(-90 * var(--k));
+    bottom: calc(-80 * var(--k));
+    z-index: -1;
+    background: radial-gradient(
+      52% 56% at 36% 36%,
+      rgb(9 12 9 / 84%),
+      rgb(9 12 9 / 0%) 100%
+    );
+    pointer-events: none;
+  }
+  .slot {
+    position: absolute;
+    left: var(--gutter);
+    bottom: calc(44 * var(--k));
+    z-index: 3;
+    display: block;
+    width: calc(980 * var(--k));
+    height: calc(200 * var(--k));
+    padding: 0;
+  }
+  .slot::before {
+    content: "";
+    position: absolute;
+    left: calc(-220 * var(--k));
+    right: calc(-120 * var(--k));
+    top: calc(-60 * var(--k));
+    bottom: calc(-60 * var(--k));
+    z-index: -1;
+    /* the item number sits at the slot's top-left, over the brightest stones and mist: a second, tighter pool */
+    background:
+      radial-gradient(22% 36% at 16% 30%, rgb(9 12 9 / 55%), rgb(9 12 9 / 0%) 100%),
+      radial-gradient(58% 72% at 32% 48%, rgb(9 12 9 / 82%), rgb(9 12 9 / 0%) 100%);
+    pointer-events: none;
+  }
+  .item {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+  }
+  .itemTitle {
+    white-space: nowrap;
+  }
+  .itemRow {
+    flex-wrap: nowrap;
+    gap: calc(44 * var(--k));
+  }
+  .rail {
+    position: absolute;
+    right: var(--gutter);
+    bottom: calc(64 * var(--k));
+    z-index: 3;
+    display: block;
+    width: calc(300 * var(--k));
+    height: 40px;
+    color: var(--ice);
+    opacity: 0;
+  }
+  /* round 3: the path stones under the rail are bright */
+  .rail::before {
+    content: "";
+    position: absolute;
+    left: calc(-90 * var(--k));
+    right: calc(-130 * var(--k));
+    top: -56px;
+    bottom: -44px;
+    background: radial-gradient(
+      54% 54% at 52% 55%,
+      rgb(9 12 9 / 86%),
+      rgb(9 12 9 / 0%) 100%
+    );
+    pointer-events: none;
+  }
+  .track {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 19px;
+    height: 1px;
+    background: var(--ice-30);
+  }
+  .fill {
+    position: absolute;
+    left: 0;
+    top: 19px;
+    height: 1px;
+    width: 100%;
+    background: var(--flare);
+    transform-origin: 0 50%;
+    transform: scaleX(var(--f, 0));
+  }
+  .node {
+    position: absolute;
+    top: 0;
+    display: grid;
+    justify-items: center;
+    gap: 8px;
+    transform: translateX(-50%);
+    font-size: calc(13 * var(--kt));
+    letter-spacing: 0.12em;
+    color: var(--ice);
+  }
+  .node i {
+    order: -1;
+    width: 9px;
+    height: 9px;
+    margin-top: 15px;
+    border-radius: 50%;
+    background: #11140f;
+    border: 1px solid var(--ice-70);
+  }
+  .node[data-on] {
+    color: var(--ice);
+  }
+  .node[data-on] i {
+    background: var(--flare);
+    border-color: var(--flare);
+  }
+  .node[data-done] i {
+    background: var(--ice);
+    border-color: var(--ice);
+  }
+
+  /* ---------- 4 the founder's letter */
+  .founder {
+    height: 360vh;
+  }
+  .founder .stage {
+    background: var(--paper);
+  }
+  .letter {
+    position: absolute;
+    inset: 0;
+    align-content: start;
+  }
+  .quoteMark {
+    opacity: 0;
+  }
+  .founderLead .ch {
+    opacity: var(--o, 1);
+  }
+  .letterRest p {
+    opacity: var(--o, 0.22);
+  }
+  .sign {
+    position: absolute;
+    left: calc(600 * var(--k));
+    right: var(--gutter);
+    bottom: calc(86 * var(--k));
+    height: calc(210 * var(--k));
+    margin: 0;
+    padding: 0;
+  }
+  .sign svg {
+    position: absolute;
+    left: 0;
+    bottom: calc(30 * var(--k));
+    width: calc(760 * var(--k));
+  }
+  .nib {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    width: calc(120 * var(--k));
+    height: calc(120 * var(--k));
+    margin: calc(-60 * var(--k)) 0 0 calc(-60 * var(--k));
+    border-radius: 50%;
+    background: radial-gradient(
+      circle,
+      rgb(255 126 21 / 55%) 0,
+      rgb(255 126 21 / 16%) 22%,
+      rgb(255 126 21 / 0%) 60%
+    );
+    pointer-events: none;
+    opacity: 0;
+  }
+  .nib::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    margin: -3px 0 0 -3px;
+    border-radius: 50%;
+    background: #fff3e6;
+    box-shadow: 0 0 10px 2px rgb(255 126 21 / 90%);
+  }
+  .signer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    opacity: 0;
+  }
+
+  /* ---------- 5 our expertise */
+  .expertise {
+    height: 330vh;
+  }
+  .expertise .stage {
+    background: var(--paper);
+  }
+  .exEyebrow {
+    position: absolute;
+    left: var(--gutter);
+    top: calc(128 * var(--k));
+    z-index: 5;
+    opacity: var(--eo, 1);
+  }
+  .strips {
+    position: absolute;
+    inset: 0;
+    display: block;
+    margin: 0;
+  }
+  .strip,
+  .strip + .strip {
+    position: absolute;
+    display: block;
+    aspect-ratio: auto;
+    overflow: hidden;
+    will-change: transform;
+  }
+  .strip img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    will-change: transform;
+  }
+  .strip[data-strip="1"] img {
+    left: -100%;
+  }
+  .strip[data-strip="2"] img {
+    left: -200%;
+  }
+  .veil {
+    position: absolute;
+    inset: 0;
+    display: block;
+    background:
+      radial-gradient(70% 62% at 18% 22%, rgb(14 17 24 / 62%), rgb(14 17 24 / 0%) 100%),
+      linear-gradient(
+        180deg,
+        rgb(14 17 24 / 42%),
+        rgb(14 17 24 / 0%) 40%,
+        rgb(14 17 24 / 0%) 58%,
+        rgb(14 17 24 / 72%)
+      );
+    opacity: var(--vo, 0);
+    pointer-events: none;
+  }
+  .domain {
+    position: absolute;
+    z-index: 6;
+    width: calc(380 * var(--k));
+  }
+  .plan {
+    position: absolute;
+    left: var(--gutter);
+    top: calc(150 * var(--k));
+    z-index: 6;
+    margin: 0;
+    color: var(--ice);
+    opacity: var(--po, 0);
+  }
+  .planBody {
+    color: var(--ice-86);
+  }
+  .hair {
+    position: absolute;
+    top: 0;
+    display: block;
+    width: 1px;
+    background: var(--flare);
+    opacity: var(--ho, 0);
+    z-index: 4;
+  }
+
+  /* ---------- 6 from strategy to action — across the lake */
+  .approach {
+    height: 1180vh;
+  }
+  .approach .stage {
+    background: var(--paper);
+  }
+  .lead {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(150 * var(--k));
+    z-index: 3;
+    padding: 0;
+    color: var(--ink);
+  }
+  .st {
+    opacity: var(--so, 1);
+  }
+  .apCard {
+    position: absolute;
+    left: var(--gutter);
+    top: 50%;
+    z-index: 3;
+    width: calc(560 * var(--k));
+    height: calc(230 * var(--k));
+    margin: 0;
+    padding: 0;
+    transform: translateY(-58%);
+  }
+  .apCard::before {
+    content: "";
+    position: absolute;
+    left: calc(-240 * var(--k));
+    right: calc(-200 * var(--k));
+    top: calc(-170 * var(--k));
+    bottom: calc(-150 * var(--k));
+    z-index: -1;
+    background: radial-gradient(
+      52% 54% at 34% 50%,
+      rgb(10 14 22 / 84%),
+      rgb(10 14 22 / 0%) 100%
+    );
+    pointer-events: none;
+    opacity: var(--co, 0);
+  }
+  .apCardEyebrow {
+    display: flex;
+    color: var(--ice-86);
+    opacity: var(--co, 0);
+  }
+  .steps {
+    display: block;
+    padding: 0;
+    background: none;
+  }
+  .step {
+    position: absolute;
+    left: 0;
+    top: calc(52 * var(--k));
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+  }
+  .rail6 {
+    position: absolute;
+    right: var(--gutter);
+    top: 50%;
+    z-index: 3;
+    display: grid;
+    gap: calc(22 * var(--k));
+    justify-items: end;
+    color: var(--ice);
+    opacity: var(--ro, 0);
+    transform: translateY(-50%);
+  }
+  .rail6::before {
+    content: "";
+    position: absolute;
+    left: calc(-160 * var(--k));
+    right: calc(-90 * var(--k));
+    top: calc(-120 * var(--k));
+    bottom: calc(-120 * var(--k));
+    z-index: -1;
+    background: radial-gradient(
+      50% 50% at 62% 50%,
+      rgb(10 14 22 / 82%),
+      rgb(10 14 22 / 0%) 100%
+    );
+  }
+  .rail6 li {
+    display: flex;
+    align-items: center;
+    gap: calc(14 * var(--k));
+    font-size: calc(14 * var(--kt));
+    letter-spacing: 0.1em;
+    color: var(--ice-86);
+  }
+  .rail6 .n {
+    font-family: var(--narrow);
+    font-size: calc(13 * var(--kt));
+    letter-spacing: 0.14em;
+  }
+  .rail6 i {
+    width: calc(22 * var(--k));
+    height: 1px;
+    background: var(--ice-50);
+  }
+  .rail6 li[data-on] {
+    color: var(--ice);
+  }
+  .rail6 li[data-on] i {
+    width: calc(44 * var(--k));
+    background: var(--rc, var(--flare));
+  }
+  .rail6 li[data-done] i {
+    background: var(--rc, var(--flare));
+  }
+  .final {
+    position: absolute;
+    left: var(--gutter);
+    right: var(--gutter);
+    top: 50%;
+    z-index: 4;
+    margin: 0;
+    color: var(--ice);
+    text-align: center;
+    opacity: var(--fo, 0);
+    visibility: hidden;
+    transform: translateY(-50%);
+  }
+  .final .finalBody {
+    color: var(--ice);
+    text-shadow: 0 2px 30px rgb(40 24 8 / 35%);
+  }
+  /* AA: the link lands on the sunlit water and windows while the sun reaches them; it carries its own
+     smoked pill (the tags' material), so it stays above 4.5:1 at every moment of the sunrise */
+  .finalCue {
+    padding: calc(8 * var(--k)) calc(8 * var(--k)) calc(8 * var(--k))
+      calc(22 * var(--k));
+    border-radius: 999px;
+    background: rgb(22 16 10 / 62%);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+  .final::before {
+    content: "";
+    position: absolute;
+    left: 4%;
+    right: 4%;
+    top: calc(-170 * var(--k));
+    bottom: calc(-150 * var(--k));
+    z-index: -1;
+    background: radial-gradient(
+      54% 58% at 50% 60%,
+      rgb(22 16 10 / 80%),
+      rgb(22 16 10 / 0%) 100%
+    );
+  }
+}
+
+/* —— phones and tablets while moving (A2m.html) */
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) and (max-width: 1023.98px) {
+  /* the one line (fixed, drawn by the motion): its visible part is a mask along its length */
+  .spine {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 80;
+    display: block;
+    width: 1px;
+    height: 100px;
+    background: var(--flare);
+    pointer-events: none;
+    opacity: 0;
+    transform-origin: 50% 50%;
+    will-change: transform, opacity;
+  }
+  .hero {
+    height: 280vh;
+  }
+  .scrollSeam {
+    display: none;
+  }
+  .shade {
+    background: linear-gradient(
+      180deg,
+      rgb(14 17 24 / 62%),
+      rgb(14 17 24 / 30%) 9%,
+      rgb(14 17 24 / 0%) 24%,
+      rgb(14 17 24 / 0%) 62%,
+      rgb(14 17 24 / 34%)
+    );
+  }
+  .purpose {
+    padding: 0 var(--gutter);
+  }
+  .purposeBlock {
+    padding: 6px 0;
+  }
+  .filmToggle {
+    right: calc(16 * var(--m));
+    top: calc(76 * var(--m));
+    bottom: auto;
+    width: 40px;
+    height: 40px;
+  }
+
+  /* ---------- 2 who: the line becomes the horizon between the two viewpoints */
+  .who {
+    height: 490vh;
+  }
+  .who .stage {
+    --s: 50vh;
+  }
+  .intro {
+    display: block;
+    padding: 0;
+  }
+  .intro .whoEyebrow {
+    position: absolute;
+    left: var(--gutter);
+    top: calc(96 * var(--m));
+    margin: 0;
+  }
+  .whoOwner,
+  .whoField {
+    position: absolute;
+    left: var(--gutter);
+    right: var(--gutter);
+    will-change: transform;
+  }
+  .whoOwner {
+    bottom: calc(50vh + 26 * var(--m));
+  }
+  .whoField {
+    top: calc(50vh + 26 * var(--m));
+    text-align: right;
+  }
+  .intro .whoIntro {
+    position: absolute;
+    left: var(--gutter);
+    right: var(--gutter);
+    bottom: calc(54 * var(--m) + var(--gap-b));
+    margin: 0;
+    text-align: left;
+  }
+  .side {
+    left: 0;
+    right: 0;
+    width: auto;
+    will-change: clip-path;
+  }
+  .side[data-side="t"] {
+    top: 0;
+    bottom: auto;
+    width: auto;
+    height: var(--s);
+  }
+  .side[data-side="b"] {
+    top: var(--s);
+    bottom: 0;
+    width: auto;
+    clip-path: inset(0 0 100% 0);
+  }
+  .sideImage {
+    left: 50%;
+    width: var(--im, 100vw);
+    height: var(--im, 100vw);
+    margin-left: calc(var(--im, 100vw) / -2);
+  }
+  .side[data-side="t"] .sideImage {
+    transform-origin: 50% 36%;
+  }
+  .side[data-side="b"] .sideImage {
+    transform-origin: 50% 30%;
+  }
+  .side[data-side="t"]::after {
+    background: linear-gradient(
+      180deg,
+      rgb(14 17 24 / 38%) 0,
+      rgb(14 17 24 / 0%) calc(96 * var(--m)),
+      rgb(14 17 24 / 0%) 40%,
+      rgb(14 17 24 / 52%) 64%,
+      rgb(14 17 24 / 78%) 100%
+    );
+  }
+  .side[data-side="b"]::after {
+    background: linear-gradient(
+      180deg,
+      rgb(14 17 24 / 10%) 0,
+      rgb(14 17 24 / 0%) 30%,
+      rgb(14 17 24 / 55%) 62%,
+      rgb(14 17 24 / 78%) 100%
+    );
+  }
+  .card {
+    left: var(--gutter);
+    right: var(--gutter);
+    width: auto;
+    bottom: calc(24 * var(--m));
+    will-change: transform, opacity;
+  }
+  .side[data-side="b"] .card {
+    bottom: calc(24 * var(--m) + var(--gap-b));
+  }
+  .more {
+    will-change: opacity;
+  }
+  .whoSeam {
+    display: none;
+  }
+
+  /* ---------- 3 challenges, in portrait */
+  .challenges {
+    height: 820vh;
+  }
+  .chHead {
+    top: auto;
+    bottom: calc(104 * var(--m) + var(--gap-b));
+  }
+  .chShade {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    display: block;
+    height: 56%;
+    background: linear-gradient(
+      180deg,
+      rgb(9 12 9 / 0%),
+      rgb(9 12 9 / 68%) 30%,
+      rgb(9 12 9 / 84%)
+    );
+    pointer-events: none;
+    opacity: var(--so, 0);
+  }
+  .chShadeTop {
+    top: 0;
+    bottom: auto;
+    height: 34%;
+    background: linear-gradient(0deg, rgb(14 17 24 / 0%), rgb(14 17 24 / 42%));
+    opacity: var(--ho, 0);
+  }
+  .slot {
+    left: var(--gutter);
+    right: var(--gutter);
+    bottom: calc(92 * var(--m) + var(--gap-b));
+    width: auto;
+    height: calc(240 * var(--m));
+  }
+  .slot::before {
+    display: none;
+  }
+  .itemTitle {
+    white-space: normal;
+  }
+  .rail {
+    left: var(--gutter);
+    right: var(--gutter);
+    bottom: calc(30 * var(--m) + var(--gap-b));
+    width: auto;
+    opacity: 1;
+  }
+  .rail::before {
+    display: none;
+  }
+  .track,
+  .fill {
+    top: 4px;
+    opacity: var(--to, 0);
+  }
+  .node {
+    gap: 8px;
+    font-size: calc(11.5 * var(--mt));
+    opacity: var(--to, 0);
+  }
+  .node i {
+    margin-top: 0;
+  }
+  .node[data-on] i {
+    box-shadow: 0 0 0 4px rgb(255 126 21 / 18%);
+  }
+
+  /* ---------- 4 the founder's letter */
+  .founder {
+    height: 400vh;
+  }
+  .letter {
+    display: block;
+    inset: auto;
+    left: var(--gutter);
+    right: var(--gutter);
+    top: calc(92 * var(--m));
+    padding: 0;
+  }
+  .founderLead {
+    transform-origin: 0 0;
+  }
+  .letterRest {
+    padding: 0;
+    margin-top: calc(26 * var(--m));
+    max-width: none;
+  }
+  .letterRest p {
+    opacity: var(--o, 0.2);
+  }
+  .sign {
+    left: var(--gutter);
+    right: var(--gutter);
+    bottom: calc(36 * var(--m) + var(--gap-b));
+    height: calc(132 * var(--m));
+  }
+  .sign svg {
+    left: -4px;
+    top: 0;
+    bottom: auto;
+    width: calc(100% + 4px);
+  }
+  .nib {
+    width: calc(96 * var(--m));
+    height: calc(96 * var(--m));
+    margin: calc(-48 * var(--m)) 0 0 calc(-48 * var(--m));
+  }
+
+  /* ---------- 5 our expertise — three tiers close into one mountain */
+  .expertise {
+    height: 420vh;
+  }
+  .exEyebrow {
+    top: calc(92 * var(--m));
+    opacity: 1;
+  }
+  .strip,
+  .strip + .strip {
+    background: #1b2230;
+  }
+  .strip img {
+    width: auto;
+    height: auto;
+    left: 0;
+    object-fit: fill;
+    transform-origin: 0 0;
+  }
+  .strip[data-strip="1"] img,
+  .strip[data-strip="2"] img {
+    left: 0;
+  }
+  .domain {
+    left: var(--gutter);
+    right: var(--gutter);
+    z-index: 4;
+    width: auto;
+    will-change: transform, opacity;
+  }
+  .hair {
+    left: 0;
+    top: auto;
+    width: auto;
+    height: 1px;
+    opacity: 0;
+  }
+  .veil {
+    z-index: 3;
+    background: linear-gradient(
+      180deg,
+      rgb(14 17 24 / 76%) 0,
+      rgb(14 17 24 / 62%) 27%,
+      rgb(14 17 24 / 0%) 46%,
+      rgb(14 17 24 / 0%) 52%,
+      rgb(14 17 24 / 55%) 70%,
+      rgb(14 17 24 / 80%) 100%
+    );
+  }
+  .plan {
+    left: var(--gutter);
+    right: var(--gutter);
+    top: calc(92 * var(--m));
+  }
+  .index {
+    position: absolute;
+    left: var(--gutter);
+    right: var(--gutter);
+    bottom: calc(34 * var(--m) + var(--gap-b));
+    z-index: 6;
+    display: block;
+    color: var(--ice);
+    opacity: var(--io, 0);
+    visibility: hidden;
+  }
+  .indexLink {
+    display: flex;
+    align-items: center;
+    gap: calc(14 * var(--m));
+    height: calc(58 * var(--m));
+    border-top: 1px solid rgb(241 239 234 / 24%);
+  }
+  .indexLink:last-child {
+    border-bottom: 1px solid rgb(241 239 234 / 24%);
+  }
+  .indexLink .num {
+    width: calc(22 * var(--m));
+    font-size: calc(13 * var(--mt));
+    color: var(--flare);
+  }
+  .indexLink b {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: calc(19 * var(--m));
+    letter-spacing: 0.04em;
+  }
+  .indexLink .arrow {
+    margin-left: auto;
+    width: calc(20 * var(--m));
+  }
+
+  /* ---------- 6 from strategy to action, in portrait */
+  .approach {
+    height: 1220vh;
+  }
+  .lead {
+    top: calc(118 * var(--m));
+  }
+  .apShade {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    display: block;
+    height: 34%;
+    background: linear-gradient(
+      180deg,
+      rgb(8 11 18 / 0%),
+      rgb(8 11 18 / 62%) 40%,
+      rgb(8 11 18 / 80%)
+    );
+    opacity: var(--co, 0);
+    pointer-events: none;
+  }
+  .apCard {
+    left: var(--gutter);
+    right: var(--gutter);
+    top: auto;
+    bottom: calc(26 * var(--m) + var(--gap-b));
+    width: auto;
+    height: calc(112 * var(--m));
+    transform: none;
+  }
+  .apCard::before,
+  .apCardEyebrow,
+  .rail6 {
+    display: none;
+  }
+  .ticks {
+    position: absolute;
+    right: 0;
+    top: calc(22 * var(--m));
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    opacity: var(--co, 0);
+  }
+  .ticks i {
+    display: block;
+    width: 14px;
+    height: 1px;
+    background: var(--ice-50);
+  }
+  .ticks i[data-done] {
+    background: var(--rc, var(--flare));
+  }
+  .ticks i[data-on] {
+    width: 30px;
+    background: var(--rc, var(--flare));
+  }
+  .step {
+    left: 0;
+    right: 0;
+    top: calc(16 * var(--m));
+  }
+  .final {
+    left: var(--gutter);
+    right: var(--gutter);
+    transform: translateY(-62%);
+  }
+  .final::before {
+    left: -40px;
+    right: -40px;
+    top: calc(-110 * var(--m));
+    bottom: calc(-120 * var(--m));
+    background: radial-gradient(
+      58% 64% at 50% 70%,
+      rgb(22 16 10 / 92%),
+      rgb(22 16 10 / 0%) 100%
+    );
+  }
+  .final .finalBody {
+    text-shadow: 0 2px 24px rgb(40 24 8 / 40%);
+  }
+}
+
+@keyframes film-open {
+  from {
+    clip-path: inset(0 50% 0 50%);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes film-settle {
+  from {
+    transform: scale(1.16);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes letter-rise {
+  from {
+    transform: translateY(105%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes seam-draw {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+/* opacity 1 from 0.15 s, held, then fading 1.7–2.3 s */
+@keyframes seam-hold {
+  0% {
+    opacity: 0;
+  }
+  6.5% {
+    opacity: 1;
+  }
+  74% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes header-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Tablets (the phone composition at 600–1023 px): the squares are wider than on a phone, so the bright
+   window and cloud tops reach the card's first line; a soft shade of the card's own keeps it at 4.5:1 */
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) and (min-width: 600px) and (max-width: 1023.98px) {
+  .card::before {
+    content: "";
+    position: absolute;
+    left: calc(-1 * var(--gutter));
+    right: calc(-1 * var(--gutter));
+    top: calc(-30 * var(--m));
+    bottom: calc(-24 * var(--m));
+    z-index: -1;
+    background: linear-gradient(
+      180deg,
+      rgb(14 17 24 / 0%),
+      rgb(14 17 24 / 68%) 22%,
+      rgb(14 17 24 / 78%)
+    );
+    pointer-events: none;
+  }
+}

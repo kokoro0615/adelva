@@ -28,6 +28,7 @@ import {
   type AdelvaMenuId,
   type AdelvaMenuIntro,
 } from "@/content/adelva-navigation";
+import { useHeaderOverride } from "@/lib/header-state";
 import { lockScroll, prefersMotion } from "@/lib/motion";
 
 const DRAWER_ID = "site-menu";
@@ -183,7 +184,7 @@ function BrandLink({
       onClick={onNavigate}
     >
       <span className={styles.brandMark} aria-hidden="true" />
-      <span className={styles.brandWord} aria-hidden="true">
+      <span className={styles.brandWord} aria-hidden="true" data-brand-word="">
         {adelvaBrand.name}
       </span>
     </Link>
@@ -207,6 +208,7 @@ function BrandLink({
  */
 export function SiteHeader() {
   const pathname = usePathname();
+  const override = useHeaderOverride();
 
   const [compact, setCompact] = useState(false);
   const [openMenu, setOpenMenu] = useState<AdelvaMenuId | null>(null);
@@ -623,14 +625,23 @@ export function SiteHeader() {
         lang="ja"
         data-fidelity-landmark="header-nav"
         data-surface={
-          pathname === "/about"
-            ? "paper"
-            : pathname.startsWith("/contact") ||
-                pathname === "/approach" ||
-                pathname.startsWith("/services/")
-              ? "glass"
-              : undefined
+          override.surface !== null
+            ? override.surface === "film"
+              ? undefined
+              : override.surface
+            : pathname === "/about"
+              ? "paper"
+              : pathname.startsWith("/contact") ||
+                  pathname === "/approach" ||
+                  pathname.startsWith("/services/")
+                ? "glass"
+                : undefined
         }
+        /* HOME keeps the brand out of the bar until its giant ADELVA flies in,
+           and fades the bar in with its load intro (both only while motion is
+           allowed; see the module CSS). */
+        data-brand={override.brand ?? (pathname === "/" ? "hidden" : null) ?? undefined}
+        data-intro={(override.intro ?? pathname === "/") || undefined}
         data-compact={compact}
         data-menu-open={openMenu !== null}
         style={
