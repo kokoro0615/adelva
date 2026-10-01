@@ -102,17 +102,19 @@ test("llms.txt restates the company and every indexable page", async ({ request 
 });
 
 test("icons, manifest and previews are served", async ({ request }) => {
-  for (const [path, type] of [
-    ["/favicon.ico", "image/x-icon"],
-    ["/icon.png", "image/png"],
-    ["/apple-icon.png", "image/png"],
-    ["/icons/icon-192.png", "image/png"],
-    ["/manifest.webmanifest", "application/manifest+json"],
-    ...indexablePages.map((entry) => [entry.ogImage, "image/jpeg"]),
-  ]) {
+  const served: readonly (readonly [string, RegExp])[] = [
+    // Next serves image/x-icon; Vercel serves the registered image/vnd.microsoft.icon.
+    ["/favicon.ico", /^image\/(x-icon|vnd\.microsoft\.icon)/],
+    ["/icon.png", /^image\/png/],
+    ["/apple-icon.png", /^image\/png/],
+    ["/icons/icon-192.png", /^image\/png/],
+    ["/manifest.webmanifest", /^application\/manifest\+json/],
+    ...indexablePages.map((entry) => [entry.ogImage, /^image\/jpeg/] as const),
+  ];
+  for (const [path, type] of served) {
     const response = await request.get(path);
     expect(response.status(), path).toBe(200);
-    expect(response.headers()["content-type"], path).toContain(type);
+    expect(response.headers()["content-type"], path).toMatch(type);
   }
 });
 
