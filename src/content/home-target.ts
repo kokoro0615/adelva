@@ -35,11 +35,6 @@ export interface HomeCampPanel {
   readonly assetId: AssetId;
 }
 
-export interface HomeRouteStat {
-  readonly label: string;
-  readonly value: string;
-}
-
 /** HOME shares ADELVA's authoritative navigation taxonomy. */
 const challengeAssets: readonly AssetId[] = [
   "adelva-home-challenge-management",
@@ -76,8 +71,6 @@ export const homeTarget = {
   hero: {
     title: "ADELVA",
     videoId: "hero-antarctica" as VideoAssetId,
-    watchFilmLabel: "Watch Film",
-    watchFilmPosterId: "watch-film-preview" as AssetId,
   },
   lastContinent: {
     label: "Our Purpose",
@@ -121,36 +114,13 @@ export const homeTarget = {
     quote: {
       text: "課題把握から、判断、実行・実装、運用、検証、引継ぎまで。お客様自身が継続して改善できる状態をつくります。",
       author: "ADELVA",
-      markAssetId: "quote-mark" as AssetId,
     },
-  },
-  cptWfr: {
-    routeCode: "CPT – WFR",
-    origin: "33º 58' 17\" S 18º 36' 13\" E\nCape Town",
-    destination: "71° 31' S, 08° 48' E\nWolf’s Fang Runway",
-    title: "From Strategy to Action",
-    titleJa: "支援の進め方",
-    body: "Soaring over an endless array of icebergs, you'll fly business class aboard an Airbus aircraft and land at our blue ice runway in 24-hours of continuous sunshine.",
-    assetId: "flight-path" as AssetId,
-    posterId: "route-film-poster" as AssetId,
-    mapLabels: {
-      origin: { eyebrow: "Starting point", name: "Cape Town, South Africa" },
-      midOcean: "South\nAtlantic\nOcean",
-      ocean: "Indian Ocean",
-      destination: { eyebrow: "Wolf\u2019s Fang Runway", name: "Antarctica" },
-    },
-    watchFilmLabel: "Watch Film",
-    stats: [
-      { label: "Flying time", value: "05:30 hrs" },
-      { label: "Distance", value: "4,220 km / 2,610 mi" },
-      { label: "Average summer temp. on ice", value: "-5°C / 23° F" },
-    ] as readonly HomeRouteStat[],
   },
   planningCta: {
     title: "Start with a conversation",
     titleJa: "お問い合わせ",
     label: "Get in touch",
-    href: "/enquire",
-    assetId: "planning-banner" as AssetId,
+    href: "/contact",
+    assetId: "adelva-home-expertise-intro" as AssetId,
   },
 } as const;

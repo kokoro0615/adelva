@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
 import { preload } from "react-dom";
 import { AboutPage } from "@/components/about/about-page";
-import { meta } from "@/content/adelva-about";
+import { JsonLd } from "@/components/json-ld";
+import { pageGraph, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: { absolute: meta.title },
-  description: meta.description,
-  robots: { index: false, follow: false },
-};
+export const metadata: Metadata = pageMetadata("/about");
 
 export default function AboutRoute() {
   // The first plate tile is the hero drawing: fetch it with the document.
@@ -23,5 +20,10 @@ export default function AboutRoute() {
       imageSizes: key === "d" ? "(min-width: 1920px) 1920px, 100vw" : "100vw",
       fetchPriority: "high",
     });
-  return <AboutPage />;
+  return (
+    <>
+      <JsonLd data={pageGraph("/about")} />
+      <AboutPage />
+    </>
+  );
 }

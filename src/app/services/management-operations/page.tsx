@@ -2,13 +2,10 @@ import type { Metadata } from "next";
 import { preload } from "react-dom";
 
 import { ManagementOperationsPage } from "@/components/management-operations/management-operations-page";
-import { meta } from "@/content/adelva-management-operations";
+import { JsonLd } from "@/components/json-ld";
+import { pageGraph, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: { absolute: meta.title },
-  description: meta.description,
-  robots: { index: false, follow: false },
-};
+export const metadata: Metadata = pageMetadata("/services/management-operations");
 
 const dir = "/media/adelva/management-operations/";
 
@@ -23,5 +20,10 @@ export default function ManagementOperationsRoute() {
     media: "(max-width: 1023.98px)",
     fetchPriority: "high",
   });
-  return <ManagementOperationsPage />;
+  return (
+    <>
+      <JsonLd data={pageGraph("/services/management-operations")} />
+      <ManagementOperationsPage />
+    </>
+  );
 }

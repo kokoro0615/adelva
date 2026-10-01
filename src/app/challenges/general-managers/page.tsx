@@ -2,13 +2,10 @@ import type { Metadata } from "next";
 import { preload } from "react-dom";
 
 import { GeneralManagersPage } from "@/components/general-managers/general-managers-page";
-import { meta } from "@/content/adelva-general-managers";
+import { JsonLd } from "@/components/json-ld";
+import { pageGraph, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: { absolute: meta.title },
-  description: meta.description,
-  robots: { index: false, follow: false },
-};
+export const metadata: Metadata = pageMetadata("/challenges/general-managers");
 
 export default function GeneralManagersRoute() {
   // The first tile of the photograph is the LCP; preload only the one the
@@ -25,5 +22,10 @@ export default function GeneralManagersRoute() {
       imageSizes: sizes,
       fetchPriority: "high",
     });
-  return <GeneralManagersPage />;
+  return (
+    <>
+      <JsonLd data={pageGraph("/challenges/general-managers")} />
+      <GeneralManagersPage />
+    </>
+  );
 }

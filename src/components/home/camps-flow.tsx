@@ -202,7 +202,6 @@ export function CampsFlow() {
   const finalBackground = getAsset(camps.finalAssetId);
   const introPrimary = getAsset(camps.introPrimaryAssetId);
   const introSecondary = getAsset(camps.introSecondaryAssetId);
-  const markAsset = getAsset(camps.quote.markAssetId);
 
   return (
     <div
@@ -331,13 +330,6 @@ export function CampsFlow() {
             data-fidelity-parent="our-camps"
           >
             <figure className="camps__quote">
-              <Image
-                src={markAsset.src}
-                alt=""
-                width={markAsset.width}
-                height={markAsset.height}
-                className="camps__quote-mark"
-              />
               <span className="camps__quotation" aria-hidden="true">
                 “
               </span>

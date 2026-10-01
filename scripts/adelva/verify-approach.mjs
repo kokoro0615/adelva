@@ -1,7 +1,7 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import sharp from "sharp";
 import { chromium } from "@playwright/test";
-import { compareImagePair } from "../fidelity/compare-reference.mjs";
+import { compareImagePair } from "../lib/compare-image-pair.mjs";
 
 const root = "docs/reports/adelva-approach-implementation-2026-09-10";
 const output = `${root}/fidelity`;

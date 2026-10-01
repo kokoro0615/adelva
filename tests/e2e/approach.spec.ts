@@ -9,6 +9,7 @@ import {
   stages,
   verification,
 } from "../../src/content/adelva-approach-page";
+import { sitePage } from "../../src/content/site-pages";
 
 const viewports = [
   { name: "desktop", width: 1440, height: 900 },
@@ -40,7 +41,7 @@ for (const viewport of viewports) {
       page,
     }) => {
       await open(page);
-      await expect(page).toHaveTitle("支援の進め方 — ADELVA");
+      await expect(page).toHaveTitle(`${sitePage("/approach").title}｜ADELVA`);
       await expect(page.locator("h1")).toHaveCount(1);
       await expect(page.getByRole("heading", { level: 1 })).toHaveText("支援の進め方");
       await expectAllStrings(page);

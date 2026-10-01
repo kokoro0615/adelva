@@ -3,9 +3,9 @@ import { expect, test, type Page } from "@playwright/test";
 /**
  * Global-shell acceptance contract for the HOME rebuild.
  *
- * The shell is deliberately tested separately from page-content.  The menu,
- * footer, and film portal are shared by every route, while the HOME hero is
- * the only place where the video/cloud/mist choreography lives.  All waits in
+ * The shell is deliberately tested separately from page-content.  The menu
+ * and footer are shared by every route, while the HOME hero is the only place
+ * where the video/content/mist choreography lives.  All waits in
  * this file observe a state or a geometry boundary; none depend on an
  * arbitrary sleep.
  */
@@ -32,8 +32,7 @@ interface LayerState {
 
 interface HeroState {
   readonly scrollY: number;
-  readonly near: LayerState;
-  readonly far: LayerState;
+  readonly content: LayerState;
   readonly mist: LayerState;
 }
 
@@ -132,8 +131,7 @@ async function readHeroState(page: Page): Promise<HeroState> {
 
     return {
       scrollY: window.scrollY,
-      near: read("cloud-near"),
-      far: read("cloud-far"),
+      content: read("hero-content"),
       mist: read("mist-plane"),
     };
   });
@@ -156,9 +154,9 @@ async function waitForHeroState(
   return readHeroState(page);
 }
 
-test.describe("HOME hero media, cloud/mist scroll state, and film dialog", () => {
+test.describe("HOME hero media and content/mist scroll state", () => {
   for (const viewport of viewports) {
-    test(`${viewport.name}: video plays and cloud/mist state reverses deterministically`, async ({
+    test(`${viewport.name}: video plays and content/mist state reverses deterministically`, async ({
       page,
     }) => {
       const errors = collectBrowserErrors(page);
@@ -193,25 +191,20 @@ test.describe("HOME hero media, cloud/mist scroll state, and film dialog", () =>
       const direct = await waitForHeroState(
         page,
         halfwayTop,
-        (state) =>
-          Math.abs(state.near.y - start.near.y) > 1 &&
-          Math.abs(state.far.y - start.far.y) > 1,
+        (state) => Math.abs(state.content.y - start.content.y) > 1,
       );
       await scrollInstant(page, viewport.height);
       const middle = await waitForHeroState(
         page,
         viewport.height,
         (state) =>
-          Math.abs(state.near.y - start.near.y) > 1 &&
-          Math.abs(state.far.y - start.far.y) > 1 &&
+          Math.abs(state.content.y - start.content.y) > 1 &&
           Math.abs(state.mist.m23 - start.mist.m23) > 0.03,
       );
 
-      expect(Math.abs(middle.near.y - start.near.y)).toBeGreaterThan(1);
-      expect(Math.abs(middle.far.y - start.far.y)).toBeGreaterThan(1);
+      expect(Math.abs(middle.content.y - start.content.y)).toBeGreaterThan(1);
       expect(Math.abs(middle.mist.m23 - start.mist.m23)).toBeGreaterThan(0.03);
-      expect(middle.near.transform).not.toBe(start.near.transform);
-      expect(middle.far.transform).not.toBe(start.far.transform);
+      expect(middle.content.transform).not.toBe(start.content.transform);
       expect(middle.mist.transform).not.toBe(start.mist.transform);
 
       await scrollInstant(page, halfwayTop);
@@ -219,97 +212,12 @@ test.describe("HOME hero media, cloud/mist scroll state, and film dialog", () =>
         page,
         halfwayTop,
         (state) =>
-          Math.abs(state.near.y - direct.near.y) <= 1.5 &&
-          Math.abs(state.far.y - direct.far.y) <= 1.5 &&
+          Math.abs(state.content.y - direct.content.y) <= 1.5 &&
           Math.abs(state.mist.m23 - direct.mist.m23) <= 0.02,
       );
 
-      expect(Math.abs(reversed.near.y - direct.near.y)).toBeLessThanOrEqual(1.5);
-      expect(Math.abs(reversed.far.y - direct.far.y)).toBeLessThanOrEqual(1.5);
+      expect(Math.abs(reversed.content.y - direct.content.y)).toBeLessThanOrEqual(1.5);
       expect(Math.abs(reversed.mist.m23 - direct.mist.m23)).toBeLessThanOrEqual(0.02);
-      expectNoBrowserErrors(errors);
-    });
-  }
-
-  for (const viewport of viewports) {
-    test(`${viewport.name}: Watch Film opens a local video dialog and restores focus`, async ({
-      page,
-    }) => {
-      const errors = collectBrowserErrors(page);
-      await loadHome(page, viewport, "no-preference");
-
-      const trigger = page.locator('[data-fidelity-section="hero"] [data-watch-film]');
-      const dialog = page.locator("dialog.film-dialog");
-      const dialogVideo = dialog.locator("video");
-      await expect(trigger).toHaveCount(1);
-      await trigger.click();
-      await expect
-        .poll(() => dialog.evaluate((element) => (element as HTMLDialogElement).open))
-        .toBe(true);
-      await expect(dialog).toBeVisible();
-      await expect(
-        dialog.getByRole("button", { name: "Close", exact: true }),
-      ).toBeFocused();
-      await expect(dialogVideo).toHaveCount(1);
-      await expect(dialogVideo).toHaveAttribute("controls", "");
-      const source = await dialogVideo.evaluate(
-        (element) =>
-          (element as HTMLVideoElement).currentSrc ||
-          element.querySelector("source")?.getAttribute("src") ||
-          "",
-      );
-      expect(new URL(source, page.url()).pathname).toMatch(/^\/media\/video\/.*\.mp4$/);
-      await expect(page.locator("html")).toHaveAttribute("data-scroll-locked", "true");
-
-      await dialog.getByRole("button", { name: "Close", exact: true }).click();
-      await expect
-        .poll(() => dialog.evaluate((element) => (element as HTMLDialogElement).open))
-        .toBe(false);
-      await expect(dialog).not.toBeVisible();
-      await expect(trigger).toBeFocused();
-      await expect(page.locator("html")).not.toHaveAttribute(
-        "data-scroll-locked",
-        "true",
-      );
-      expectNoBrowserErrors(errors);
-    });
-  }
-
-  for (const viewport of viewports) {
-    test(`${viewport.name}: legacy Newsletter Signup toggles and returns focus`, async ({
-      page,
-    }) => {
-      const errors = collectBrowserErrors(page);
-      await loadHome(page, viewport, "no-preference");
-
-      await page.goto("/prices");
-      const footer = page.locator("[data-site-footer]");
-      const trigger = footer.getByRole("button", {
-        name: "Newsletter Signup",
-        exact: true,
-      });
-      const panel = footer.locator("#newsletter-panel");
-      await expect(trigger).toHaveAttribute("aria-expanded", "false");
-      await expect(panel).toBeHidden();
-      await trigger.click();
-      await expect(trigger).toHaveAttribute("aria-expanded", "true");
-      await expect(panel).toHaveAttribute("data-open", "true");
-      await expect(panel).toBeVisible();
-      await expect(panel).not.toHaveAttribute("inert");
-      await expect(
-        panel.getByRole("heading", { name: "Newsletter Signup" }),
-      ).toBeVisible();
-      await expect(panel.getByPlaceholder("Name & Surname")).toBeVisible();
-      await expect(panel.getByPlaceholder("Email Address")).toBeVisible();
-
-      const close = panel.getByRole("button", {
-        name: "Close newsletter signup",
-        exact: true,
-      });
-      await close.click();
-      await expect(panel).toBeHidden();
-      await expect(trigger).toBeFocused();
-      await expect(trigger).toHaveAttribute("aria-expanded", "false");
       expectNoBrowserErrors(errors);
     });
   }

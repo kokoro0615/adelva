@@ -2,13 +2,11 @@ import type { Metadata } from "next";
 import { preload } from "react-dom";
 
 import { ApproachPage } from "@/components/approach/approach-page";
-import { meta, plates } from "@/content/adelva-approach-page";
+import { plates } from "@/content/adelva-approach-page";
+import { JsonLd } from "@/components/json-ld";
+import { pageGraph, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: { absolute: meta.title },
-  description: meta.description,
-  robots: { index: false, follow: false },
-};
+export const metadata: Metadata = pageMetadata("/approach");
 
 export default function ApproachRoute() {
   /* The LCP photograph differs by viewport (art direction), so each candidate
@@ -27,5 +25,10 @@ export default function ApproachRoute() {
     media: "(max-width: 1023.98px)",
     fetchPriority: "high",
   });
-  return <ApproachPage />;
+  return (
+    <>
+      <JsonLd data={pageGraph("/approach")} />
+      <ApproachPage />
+    </>
+  );
 }

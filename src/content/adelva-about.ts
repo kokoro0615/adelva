@@ -11,12 +11,6 @@ import { audiences as navAudiences, serviceDomains } from "@/content/adelva-navi
 
 export const route = "/about";
 
-export const meta = {
-  title: "ADELVAについて — ADELVA",
-  description:
-    "ADELVAは、ホテル・旅館の経営、現場運営、収益成長、ブランド、DX・ITを一つの改善計画につなぐ経営実装パートナーです。",
-} as const;
-
 /** A string with its line breaks for each composition (breaks are indices into `text`). */
 export interface Broken {
   readonly text: string;
@@ -151,7 +145,7 @@ export const company = {
   name: { label: "社名", value: "ADELVA 合同会社" },
   founded: { label: "設立年月日", value: "2026年07月28日" },
   capital: { label: "資本金", value: "100万円" },
-  representative: { label: "代表取締役", value: "中川　心" },
+  representative: { label: "代表", value: "中川　心" },
   address: {
     label: "所在地（本社）",
     postal: "〒666-0145",

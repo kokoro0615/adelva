@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
 import { preload } from "react-dom";
 import { RevenueBrandPage } from "@/components/revenue-brand/revenue-brand-page";
-import { meta } from "@/content/adelva-revenue-brand";
-export const metadata: Metadata = {
-  title: { absolute: meta.title },
-  description: meta.description,
-  robots: { index: false, follow: false },
-};
+import { JsonLd } from "@/components/json-ld";
+import { pageGraph, pageMetadata } from "@/lib/seo";
+export const metadata: Metadata = pageMetadata("/services/revenue-brand");
 export default function RevenueBrandRoute() {
   for (const [key, width, small, media] of [
     ["d", 1536, 1024, "(min-width: 1024px)"],
@@ -20,5 +17,10 @@ export default function RevenueBrandRoute() {
       imageSizes: "(min-width: 1920px) 1920px, 100vw",
       fetchPriority: "high",
     });
-  return <RevenueBrandPage />;
+  return (
+    <>
+      <JsonLd data={pageGraph("/services/revenue-brand")} />
+      <RevenueBrandPage />
+    </>
+  );
 }

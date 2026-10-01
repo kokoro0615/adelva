@@ -5,6 +5,7 @@ import {
   challengeBands,
   supportBands,
 } from "../../src/content/adelva-challenges";
+import { sitePage } from "../../src/content/site-pages";
 
 const viewports = [
   { width: 1440, height: 900 },
@@ -59,7 +60,7 @@ for (const viewport of viewports) {
     await page.goto("/challenges");
     await expect(page.locator('[data-ns-ready="true"]')).toBeVisible();
     await page.evaluate(() => document.fonts.ready);
-    await expect(page).toHaveTitle("課題から探す — ADELVA");
+    await expect(page).toHaveTitle(`${sitePage("/challenges").title}｜ADELVA`);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(
       "経営判断を、現場で動く仕組みと成果へ。",
     );

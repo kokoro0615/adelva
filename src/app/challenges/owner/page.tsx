@@ -2,13 +2,10 @@ import type { Metadata } from "next";
 import { preload } from "react-dom";
 
 import { OwnerPage } from "@/components/owner/owner-page";
-import { meta } from "@/content/adelva-owner";
+import { JsonLd } from "@/components/json-ld";
+import { pageGraph, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: { absolute: meta.title },
-  description: meta.description,
-  robots: { index: false, follow: false },
-};
+export const metadata: Metadata = pageMetadata("/challenges/owner");
 
 const dir = "/media/adelva/owner/";
 const regimes = [
@@ -35,5 +32,10 @@ export default function OwnerRoute() {
       });
     }
   }
-  return <OwnerPage />;
+  return (
+    <>
+      <JsonLd data={pageGraph("/challenges/owner")} />
+      <OwnerPage />
+    </>
+  );
 }

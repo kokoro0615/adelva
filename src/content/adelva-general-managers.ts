@@ -9,12 +9,6 @@
  * tablets). Geometry is in mock px: desktop 1440 wide, mobile 390 wide.
  */
 
-export const meta = {
-  title: "総支配人・現場責任者の方へ — ADELVA",
-  description:
-    "現場の課題を、続けられる改善へ。現場運営・人材・販売・ITを、一つの改善計画につなぎます。",
-} as const;
-
 export const hero = {
   crumbs: [
     { label: "HOME", href: "/" },

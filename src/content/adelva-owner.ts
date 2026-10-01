@@ -10,12 +10,6 @@
  * tablets). Geometry is in mock px: desktop 1440 wide, mobile 390 wide.
  */
 
-export const meta = {
-  title: "オーナー・経営者の方へ — ADELVA",
-  description:
-    "ホテル・旅館の経営と現場を、一つの改善計画につなぐ。経営判断を、実行可能な改善計画へ。",
-} as const;
-
 export const ui = {
   skip: "本文へ移動",
   crumbsLabel: "パンくず",

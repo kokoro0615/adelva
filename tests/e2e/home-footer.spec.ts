@@ -134,13 +134,9 @@ test("320px and enlarged footer text stay readable without horizontal overflow",
   expect(await footer.evaluate((n) => n.scrollWidth <= n.clientWidth)).toBe(true);
   for (const a of await footer.locator("nav a").all()) await expect(a).toBeVisible();
 });
-test("legacy routes keep their footer on navigation and return to HOME correctly", async ({
-  page,
-}) => {
-  await page.goto("/prices");
-  await expect(page.locator(".colophon")).toHaveCount(1);
-  await expect(page.locator("[data-home-footer]")).toHaveCount(0);
-  await page.goto("/");
+test("the not-found page carries the ADELVA footer", async ({ page }) => {
+  const response = await page.goto("/no-such-page");
+  expect(response?.status()).toBe(404);
   await expect(page.locator("[data-home-footer]")).toHaveCount(1);
   await expect(page.locator(".colophon")).toHaveCount(0);
 });

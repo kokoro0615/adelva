@@ -1,4 +1,30 @@
-# White Desert Clone Workflow Ledger
+# Clone Workflow Ledger
+
+## SEO / AEO setup and White Desert removal — 2026-10-02
+
+The user asked for thorough SEO, MEO and AEO research and configuration of
+ADELVA, then publication to production. Audit of www.adelva.jp found the HOME
+title and application name still White Desert's, about 20 White Desert routes
+public and indexable (with its emails and phone numbers in the 404 footer), a
+visible Condé Nast Traveler logo and a White Desert photograph and film on HOME,
+`noindex, nofollow` on eight ADELVA pages, `lang="en"`, no robots.txt, sitemap,
+icons, previews, canonical URLs or structured data, and 404s behind the header's
+/services links. User decisions (2026-10-02): remove White Desert from the
+repository entirely; no MEO (no Google Business Profile); allow every AI
+crawler; representative label 「代表取締役」 → 「代表」; titles as brand +
+positioning; previews rendered from each page's hero; planned /services URLs
+redirect temporarily to the nearest published page; privacy policy reported as
+a recommendation only. Publication to production is authorized.
+Removed: the White Desert routes, components, content, page registry, footer,
+film dialog, media (`public/media/target/*` except the ADELVA-derived
+`hero-poster.webp`, top-level polar stills, the film, the WD lockups), the
+fidelity harness (`scripts/fidelity`), its unit tests, WD e2e and historical
+specs, the WD design-system note and the WD design-extract output, and 2,700
+lines of `globals.css` that only those styled. `compareImagePair` moved to
+`scripts/lib/compare-image-pair.mjs` for the ADELVA scripts that use it.
+HOME keeps its layout until the A2r3 rebuild (another session) replaces it; the
+hero mist plate became a CSS gradient restating the retired plate's alpha.
+Setup: `docs/seo.md`. Implemented by Opus 5.5 in a separate worktree.
 
 ## ADELVA 経営・運営統括 B 台杉「降りてくる朝」 — 2026-10-01
 

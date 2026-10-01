@@ -7,19 +7,16 @@
  * ordering, the two index links, and the primary call to action. Nothing here
  * is authored copy: every label and description is carried over verbatim.
  *
- * This module is deliberately separate from `src/lib/navigation.ts`, which
- * still owns the White Desert route groups the global footer renders.
- *
  * See `docs/specs/adelva-navigation-spec.md`.
  */
 
-import { routeManifest } from "@/content/route-manifest";
+import { sitePages } from "@/content/site-pages";
 
 /**
  * Whether a destination resolves in *this* repository.
  *
- * Derived from the route manifest rather than asserted by hand, so a route
- * that is later implemented reports itself as available without an edit here.
+ * Derived from the site page registry rather than asserted by hand, so a route
+ * that is later registered reports itself as available without an edit here.
  * The ADELVA source project implements only `/` as well, so these routes are
  * planned in both projects; see the specification for the recorded list.
  */
@@ -68,16 +65,9 @@ export type AdelvaPrimaryItem =
   | { readonly kind: "link"; readonly label: string; readonly href: string };
 
 const implementedPaths = new Set<string>([
-  ...routeManifest.map((route) => route.path),
-  "/contact",
-  "/challenges",
-  "/challenges/owner",
+  ...sitePages.map((page) => page.path),
+  // Permanent redirect to /challenges/owner (next.config.ts).
   "/challenges/owners",
-  "/challenges/general-managers",
-  "/services/management-operations",
-  "/services/revenue-brand",
-  "/services/dx-it-procurement",
-  "/approach",
 ]);
 
 /** Fragment-bearing hrefs resolve against their document path. */

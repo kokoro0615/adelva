@@ -3,17 +3,12 @@ import { expect, test } from "@playwright/test";
 
 const representativeRoutes = [
   "/",
-  "/itineraries",
-  "/camps/echo-base",
-  "/itineraries/south-pole-blue-rivers",
-  "/antarctica/polar-plateau",
-  "/prices",
-  "/enquire",
-  "/legal/privacy-policy",
   "/services/management-operations",
   "/services/revenue-brand",
   "/services/dx-it-procurement",
   "/approach",
+  // The not-found document (Japanese ADELVA 404).
+  "/this-page-does-not-exist",
 ];
 
 for (const route of representativeRoutes) {

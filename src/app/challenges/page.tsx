@@ -2,17 +2,15 @@ import type { Metadata } from "next";
 import { NosignerHome } from "@/components/nosigner/home";
 import { SiteHeader } from "@/components/site-header";
 import "./nosigner.css";
+import { JsonLd } from "@/components/json-ld";
+import { pageGraph, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: { absolute: "課題から探す — ADELVA" },
-  description:
-    "ADELVAは、ホテル・旅館の経営、現場運営、収益成長、ブランド、DX・ITを一つの改善計画につなぐ経営実装パートナーです。",
-  robots: { index: false, follow: false },
-};
+export const metadata: Metadata = pageMetadata("/challenges");
 
 export default function ChallengesPage() {
   return (
     <>
+      <JsonLd data={pageGraph("/challenges")} />
       <SiteHeader />
       <NosignerHome />
     </>

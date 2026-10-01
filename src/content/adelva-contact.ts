@@ -7,12 +7,6 @@
  */
 import { serviceDomains } from "@/content/adelva-navigation";
 
-export const meta = {
-  title: "お問い合わせ — ADELVA",
-  thanksTitle: "お問い合わせを受け付けました — ADELVA",
-  description: "ホテル・旅館の経営・運営、収益・ブランド、DX・ITに関するお問い合わせ。",
-} as const;
-
 export const hero = {
   eyebrow: "お問い合わせ",
   eyebrowEn: "CONTACT",

@@ -19,10 +19,6 @@ const adopted = <T extends object>(value: T) => ({
 });
 export const route = "/services/revenue-brand";
 const domain = serviceDomains[1];
-export const meta = approved({
-  title: `${domain.label} — ADELVA`,
-  description: domain.description!,
-});
 export const hero = approved({
   number: domain.number,
   title: domain.label,

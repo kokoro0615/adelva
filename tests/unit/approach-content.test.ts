@@ -9,7 +9,6 @@ import {
   hero,
   integrated,
   magnificationLines,
-  meta,
   mobileGeometry,
   plates,
   rail,
@@ -76,7 +75,6 @@ describe("approach content", () => {
 
   it("records source and adoption status on every copy block", () => {
     for (const block of [
-      meta,
       breadcrumb,
       hero,
       rail,

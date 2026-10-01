@@ -50,11 +50,6 @@ export interface Lines {
 
 export const route = "/services/management-operations" as const;
 
-export const meta = adopted("home-copy.md §4", {
-  title: "経営・運営統括 — ADELVA",
-  description: "経営判断、開業、運営、人材、現場オペレーションを横断して支援します。",
-});
-
 export const ui = {
   skip: "本文へ移動",
 } as const;

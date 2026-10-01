@@ -170,8 +170,13 @@ test("revenue-brand restores its scroll position, survives resize, and keeps upc
   ).toEqual([]);
   await page.goto("/contact");
   await page.goBack();
+  await page.waitForURL(/\/services\/revenue-brand$/);
+  // A history traversal can replace the document while the poll evaluates;
+  // treat that as "not restored yet" and poll again.
   await expect
-    .poll(() => page.evaluate((y) => Math.abs(scrollY - y), before))
+    .poll(() =>
+      page.evaluate((y) => Math.abs(scrollY - y), before).catch(() => Infinity),
+    )
     .toBeLessThan(4);
   await page.setViewportSize({ width: 390, height: 844 });
   await expect(page.locator('[data-river="mobile"]')).toBeVisible();

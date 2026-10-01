@@ -27,10 +27,6 @@ export const hero = adopted(source, {
   lead: ["事業運営を支えるデジタル、システム、", "IT運用、調達基盤を整備します。"],
   cta: { label: "問い合わせを送信", href: "/contact" },
 });
-export const meta = adopted(source, {
-  title: `${hero.title} — ADELVA`,
-  description: hero.lead.join(""),
-});
 export const breadcrumb = adopted(source, {
   items: [
     { label: "HOME", href: "/" },

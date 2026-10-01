@@ -50,11 +50,6 @@ export interface Lines {
 
 export const route = "/approach" as const;
 
-export const meta = adopted(["adelva-approach.ts", "home-copy.md §5"], {
-  title: "支援の進め方 — ADELVA",
-  description: `${adelvaApproach.lead}${adelvaApproach.body}`,
-});
-
 export const breadcrumb = adopted("adopted-mock A", {
   items: [
     { label: "HOME", href: "/" },

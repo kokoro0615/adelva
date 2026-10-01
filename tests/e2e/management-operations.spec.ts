@@ -11,6 +11,7 @@ import {
   route,
   serviceIndex,
 } from "../../src/content/adelva-management-operations";
+import { sitePage } from "../../src/content/site-pages";
 
 /* /services/management-operations — B 台杉「降りてくる朝」.
    Spec: docs/specs/adelva-management-operations-spec.md. */
@@ -50,7 +51,9 @@ for (const viewport of viewports) {
       page,
     }) => {
       await open(page);
-      await expect(page).toHaveTitle("経営・運営統括 — ADELVA");
+      await expect(page).toHaveTitle(
+        `${sitePage("/services/management-operations").title}｜ADELVA`,
+      );
       await expect(page.getByRole("heading", { level: 1 })).toHaveText(
         "経営・運営統括",
       );

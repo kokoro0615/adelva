@@ -1,6 +1,6 @@
 import sharp from "sharp";
 import { writeFile } from "node:fs/promises";
-import { compareImagePair } from "../fidelity/compare-reference.mjs";
+import { compareImagePair } from "../lib/compare-image-pair.mjs";
 const out = "artifacts/adelva-home-footer";
 const mappings = [];
 for (const [width, name] of [

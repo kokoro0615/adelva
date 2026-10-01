@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
 import { preload } from "react-dom";
 import { DxItProcurementPage } from "@/components/dx-it-procurement/dx-it-procurement-page";
-import { media, meta } from "@/content/adelva-dx-it-procurement";
+import { media } from "@/content/adelva-dx-it-procurement";
+import { JsonLd } from "@/components/json-ld";
+import { pageGraph, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: { absolute: meta.title },
-  description: meta.description,
-  robots: { index: false, follow: false },
-};
+export const metadata: Metadata = pageMetadata("/services/dx-it-procurement");
 export default function DxItProcurementRoute() {
   for (const family of ["sans", "serif"]) {
     preload(`/fonts/adelva-noto-${family}-jp.woff2`, {
@@ -33,5 +31,10 @@ export default function DxItProcurementRoute() {
     media: "(max-width: 1023.98px)",
     fetchPriority: "high",
   });
-  return <DxItProcurementPage />;
+  return (
+    <>
+      <JsonLd data={pageGraph("/services/dx-it-procurement")} />
+      <DxItProcurementPage />
+    </>
+  );
 }

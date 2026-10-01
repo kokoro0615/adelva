@@ -6,6 +6,7 @@ import {
   requiredStrings,
   route,
 } from "../../src/content/adelva-dx-it-procurement";
+import { sitePage } from "../../src/content/site-pages";
 const viewports = [
   { name: "desktop", width: 1440, height: 900 },
   { name: "tablet", width: 768, height: 1024 },
@@ -37,7 +38,9 @@ for (const viewport of viewports) {
       page,
     }) => {
       await open(page);
-      await expect(page).toHaveTitle("DX・IT・調達基盤 — ADELVA");
+      await expect(page).toHaveTitle(
+        `${sitePage("/services/dx-it-procurement").title}｜ADELVA`,
+      );
       await expect(page.locator("h1")).toHaveCount(1);
       await expect(page.locator("h1")).toHaveText("DX・IT・調達基盤");
       await strings(page);
@@ -104,9 +107,10 @@ for (const viewport of viewports) {
             ),
           ),
       ).toBe(true);
-      expect(
-        await page.locator('meta[name="robots"]').getAttribute("content"),
-      ).toContain("noindex");
+      // Indexable since the 2026-10-02 SEO release.
+      expect(await page.locator('meta[name="robots"]').getAttribute("content")).toBe(
+        "index, follow",
+      );
     });
     test("reduce has full light, drawn UI, all checks and no hidden copy", async ({
       page,

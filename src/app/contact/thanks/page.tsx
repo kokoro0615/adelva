@@ -4,14 +4,10 @@ import { redirect } from "next/navigation";
 import { preload } from "react-dom";
 
 import { ContactThanksPage } from "@/components/contact/contact-page";
-import { meta } from "@/content/adelva-contact";
 import { CONTACT_SENT_COOKIE } from "@/lib/contact-delivery";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: { absolute: meta.thanksTitle },
-  description: meta.description,
-  robots: { index: false, follow: false },
-};
+export const metadata: Metadata = pageMetadata("/contact/thanks");
 
 export default async function ContactThanksRoute() {
   // Only reachable right after an accepted submission (the action sets it).

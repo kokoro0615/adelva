@@ -1,5 +1,23 @@
 # Asset Provenance Manifest
 
+## Search and sharing derivatives, White Desert removal — 2026-10-02
+
+- `public/og/*.jpg` (1200×630): renders of each ADELVA page's own hero by
+  `scripts/seo/build-og-images.mjs`; they contain only the page's existing
+  imagery, copy and the ADELVA lockup. Regenerate after a hero or logo change.
+- `src/app/favicon.ico`, `src/app/icon.png`, `src/app/apple-icon.png`,
+  `public/icons/icon-{192,512}.png`: the provisional ADELVA mark
+  (`public/brand/adelva-logo.png`) recoloured on #0e1118 by
+  `scripts/seo/build-icons.mjs`. Rerun when the final logo replaces the file.
+- Removed from the repository with the rest of White Desert: every
+  `public/media/target/*` file except `hero-poster.webp` (a frame of the
+  licensed ADELVA hero video), the top-level polar stills in `public/media/`,
+  `public/media/video/white-desert-film-web.mp4` and
+  `public/brand/white-desert-{header,footer}.svg`, and the HOME
+  `last-continent-scribble` SVG copied from white-desert.com. The sections below that list
+  those files are historical. The hero video keeps its `hero-antarctica*`
+  filenames because the HOME rebuild references them.
+
 Last updated: 2026-08-31 JST
 Operating mode: **authorized client rebuild**
 

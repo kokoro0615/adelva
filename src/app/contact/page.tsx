@@ -3,14 +3,12 @@ import { connection } from "next/server";
 import { preload } from "react-dom";
 
 import { ContactPage } from "@/components/contact/contact-page";
-import { meta } from "@/content/adelva-contact";
 import { challengeOptions } from "@/content/adelva-contact-options";
 import { deliveryMode } from "@/lib/contact-delivery";
+import { JsonLd } from "@/components/json-ld";
+import { pageGraph, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: { absolute: meta.title },
-  description: meta.description,
-};
+export const metadata: Metadata = pageMetadata("/contact");
 
 export default async function ContactRoute() {
   // Whether a destination is configured is read per request, so a deployment
@@ -35,9 +33,12 @@ export default async function ContactRoute() {
       fetchPriority: "high",
     });
   return (
-    <ContactPage
-      options={challengeOptions}
-      deliveryReady={deliveryMode() !== "unavailable"}
-    />
+    <>
+      <JsonLd data={pageGraph("/contact")} />
+      <ContactPage
+        options={challengeOptions}
+        deliveryReady={deliveryMode() !== "unavailable"}
+      />
+    </>
   );
 }
