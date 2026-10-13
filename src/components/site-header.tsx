@@ -217,6 +217,7 @@ export function SiteHeader() {
   const override = useHeaderOverride();
 
   const [compact, setCompact] = useState(false);
+  const [overFooter, setOverFooter] = useState(false);
   const [openMenu, setOpenMenu] = useState<AdelvaMenuId | null>(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [expanded, setExpanded] = useState<ReadonlySet<string>>(() => new Set());
@@ -365,6 +366,25 @@ export function SiteHeader() {
       sentinel.remove();
     };
   }, []);
+
+  /*
+   * Over the footer the bar stands on the footer's near-black, whatever the
+   * page above it is made of: a paper bar (/about) would otherwise hang as a
+   * pale strip over the dark call and wordmark. The footer passing under the
+   * bar's band is again answered by an observer, not by reading positions.
+   */
+  useEffect(() => {
+    const footer = document.querySelector("[data-site-footer]");
+    if (!footer || typeof IntersectionObserver === "undefined") {
+      return;
+    }
+    const observer = new IntersectionObserver(
+      ([entry]) => setOverFooter(Boolean(entry?.isIntersecting)),
+      { rootMargin: "0px 0px -92% 0px" },
+    );
+    observer.observe(footer);
+    return () => observer.disconnect();
+  }, [pathname]);
 
   /* Any scroll dismisses an open mega panel: a surface anchored to a fixed bar
    * must never float over content the reader has already moved past. The
@@ -705,11 +725,13 @@ export function SiteHeader() {
             ? override.surface === "film"
               ? undefined
               : override.surface
-            : pathname === "/about"
-              ? "paper"
-              : pathname === adelvaBrand.homeHref
-                ? undefined
-                : "glass"
+            : overFooter
+              ? "glass"
+              : pathname === "/about"
+                ? "paper"
+                : pathname === adelvaBrand.homeHref
+                  ? undefined
+                  : "glass"
         }
         /* HOME keeps the brand out of the bar until its giant ADELVA flies in,
            and fades the bar in with its load intro (both only while motion is
