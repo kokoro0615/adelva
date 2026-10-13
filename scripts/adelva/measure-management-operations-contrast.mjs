@@ -222,6 +222,8 @@ for (const [width, height] of only === "desktop"
   const states = [
     ["hero", 0],
     ...M.st.map(([a, b], i) => [`station ${i + 1}`, Math.round((a + b) / 2)]),
+    ["pull-back", Math.round((M.pullStart + M.pullEnd) / 2)],
+    ["descent", Math.round((M.pullEnd + M.descentEnd) / 2)],
     ["full view", Math.round(M.descentEnd)],
     ...M.forks.map((y, i) => [`fork ${i + 1}`, Math.round(y)]),
     ...M.steps.map((y, i) => [`step ${i + 1}`, Math.round(y)]),
@@ -234,7 +236,15 @@ for (const [width, height] of only === "desktop"
   const lines = [];
   for (const [label, y] of states) {
     await page.evaluate((y) => window.scrollTo({ top: y, behavior: "instant" }), y);
-    await page.waitForTimeout(450);
+    // The camera follows a damped scroll and streams its tiles: measure once
+    // it has settled and everything it shows is drawn.
+    await page
+      .waitForFunction(() => window.__mo?.idle?.() ?? true, null, {
+        timeout: 15000,
+        polling: 100,
+      })
+      .catch(() => {});
+    await page.waitForTimeout(350);
     lines.push(...(await measure(page, label, 72)));
   }
   report.push({ viewport: `${width}x${height}`, lines });
