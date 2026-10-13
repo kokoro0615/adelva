@@ -387,22 +387,24 @@ test.describe("phone motion", () => {
     };
 
     // During the dive the stage holds still under the finger.
-    const end = await page.evaluate(
-      () =>
-        document.querySelector("[data-dive-probe]")!.getBoundingClientRect().bottom +
-        window.scrollY,
-    );
+    const { begin, end } = await page.evaluate(() => {
+      const probe = document
+        .querySelector("[data-dive-probe]")!
+        .getBoundingClientRect();
+      return { begin: probe.top + window.scrollY, end: probe.bottom + window.scrollY };
+    });
     const stageTops: number[] = [];
     while ((await page.evaluate(() => window.scrollY)) < end - 120) {
       await drag(160);
-      stageTops.push(
-        await page.evaluate(() => {
-          const stage = document.querySelector("[data-dive-stage]")!;
-          return (
-            stage.getBoundingClientRect().top - parseFloat(getComputedStyle(stage).top)
-          );
-        }),
-      );
+      const sample = await page.evaluate(() => {
+        const stage = document.querySelector("[data-dive-stage]")!;
+        return {
+          y: window.scrollY,
+          offset:
+            stage.getBoundingClientRect().top - parseFloat(getComputedStyle(stage).top),
+        };
+      });
+      if (sample.y > begin + 1 && sample.y < end - 1) stageTops.push(sample.offset);
     }
     expect(stageTops.length).toBeGreaterThan(1);
     expect(stageTops.every((offset) => Math.abs(offset) < 1)).toBe(true);

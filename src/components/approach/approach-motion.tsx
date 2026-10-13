@@ -363,6 +363,41 @@ function setup(root: HTMLElement): () => void {
       });
     };
 
+    const stageOneTarget = () =>
+      diveOn
+        ? probe.getBoundingClientRect().bottom + window.scrollY
+        : frames[0]!.getBoundingClientRect().top + window.scrollY - 72;
+    /* Links to #stage-01 (the hero finder, the scale's 01) glide through the
+       dive to the landing (or to frame 01 when there is no dive): the item
+       itself starts at the top of the page, where a native or smoothed jump
+       would stop. */
+    const onStageLink = (event: MouseEvent) => {
+      if (
+        event.defaultPrevented ||
+        event.button !== 0 ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey
+      )
+        return;
+      const link = (event.target as Element | null)?.closest?.(
+        `a[href="#${items[0]!.id}"]`,
+      );
+      if (!link) return;
+      event.preventDefault();
+      history.pushState(null, "", `#${items[0]!.id}`);
+      items[0]!.focus({ preventScroll: true });
+      // After the shared scroller has adopted the focus change.
+      requestAnimationFrame(() =>
+        requestAnimationFrame(() =>
+          window.scrollTo({ top: stageOneTarget(), behavior: "smooth" }),
+        ),
+      );
+    };
+    root.addEventListener("click", onStageLink);
+    buildCleanups.push(() => root.removeEventListener("click", onStageLink));
+
     /* --- 1. the dive --- */
 
     let diveTimeline: AnimationTimeline | null = null;
@@ -565,9 +600,11 @@ function setup(root: HTMLElement): () => void {
         text.removeAttribute("data-reveal-pending");
       });
 
+      const landingY = () => probe.getBoundingClientRect().bottom + window.scrollY;
       /* A keyboard user reaching frame 01's links mid-dive lands it first. */
-      const onFrameFocus = () => {
-        const end = probe.getBoundingClientRect().bottom + window.scrollY;
+      const onFrameFocus = (event: FocusEvent) => {
+        if (event.target === items[0]) return;
+        const end = landingY();
         if (window.scrollY < end - 1)
           window.scrollTo({ top: end, behavior: "instant" });
       };
