@@ -1,0 +1,101 @@
+{
+  "route": "/services/revenue-brand",
+  "cpu": 6,
+  "viewport": "390x844",
+  "loadMs": 724,
+  "docH": 7795,
+  "drags": 17,
+  "reachedEnd": 6951,
+  "frames": 825,
+  "p50": 17,
+  "p90": 50,
+  "p99": 167,
+  "max": 350,
+  "over33": 148,
+  "over50": 80,
+  "over100": 28,
+  "loafCount": 65,
+  "loafTotal": 6413,
+  "loafRenderTotal": 1301,
+  "loafScriptTotal": 503,
+  "cls": 0.0004,
+  "shifts": [
+    {
+      "t": 4917.299999999814,
+      "v": 0.0003692671824705023,
+      "src": [
+        "site-header-module__wBaYfG__ctaCompact",
+        "site-header-module__wBaYfG__brand",
+        "site-header-module__wBaYfG__burger"
+      ]
+    }
+  ],
+  "jumps": [],
+  "backJumps": 0,
+  "topScripts": [
+    [
+      ":?:FrameRequestCallback",
+      {
+        "n": 13,
+        "dur": 129,
+        "fl": 110
+      }
+    ],
+    [
+      "0ajhkh51131f3.js:?:FrameRequestCallback",
+      {
+        "n": 7,
+        "dur": 114,
+        "fl": 105
+      }
+    ],
+    [
+      "3et6nkzvmz3m3.js:eX:FrameRequestCallback",
+      {
+        "n": 10,
+        "dur": 99,
+        "fl": 0
+      }
+    ],
+    [
+      "1r_46y6m9o4_n.js:t:FrameRequestCallback",
+      {
+        "n": 5,
+        "dur": 78,
+        "fl": 46
+      }
+    ],
+    [
+      "3et6nkzvmz3m3.js:eQ:DOMWindow.onscroll",
+      {
+        "n": 8,
+        "dur": 70,
+        "fl": 62
+      }
+    ],
+    [
+      "14ipzm1hy3ipv.js:O:MessagePort.onmessage",
+      {
+        "n": 1,
+        "dur": 8,
+        "fl": 0
+      }
+    ],
+    [
+      "14ipzm1hy3ipv.js:fF:#document.ontransitionrun",
+      {
+        "n": 1,
+        "dur": 5,
+        "fl": 0
+      }
+    ]
+  ],
+  "console": [
+    "warning: The resource http://127.0.0.1:4890/media/target/hero-poster.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate",
+    "warning: The resource http://127.0.0.1:4890/media/adelva/about-a2/m-plate-0-853.avif was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an ",
+    "warning: The resource http://127.0.0.1:4890/_next/static/chunks/2_b3uk9vfc9-j.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an app",
+    "warning: The resource http://127.0.0.1:4890/_next/static/chunks/2_g1grp0y7nm_.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an app",
+    "warning: The resource http://127.0.0.1:4890/media/adelva/approach/m-hero.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropr",
+    "warning: The resource http://127.0.0.1:4890/_next/static/chunks/2yke4zoh-22ce.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an app"
+  ]
+}

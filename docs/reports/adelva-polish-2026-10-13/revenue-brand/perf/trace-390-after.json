@@ -1,0 +1,293 @@
+{
+  "route": "/services/revenue-brand",
+  "viewport": "390x844",
+  "drags": 17,
+  "scrolled": 6951,
+  "secs": 28.3,
+  "sum": {
+    "FireAnimationFrame": {
+      "n": 5785,
+      "ms": 750.2
+    },
+    "FunctionCall": {
+      "n": 8149,
+      "ms": 841.6
+    },
+    "UpdateLayoutTree": {
+      "n": 900,
+      "ms": 474.1
+    },
+    "PrePaint": {
+      "n": 1106,
+      "ms": 206.5
+    },
+    "IntersectionObserverController::computeIntersections": {
+      "n": 1730,
+      "ms": 116.6
+    },
+    "Paint": {
+      "n": 886,
+      "ms": 136
+    },
+    "raster:RendererRasterWorker": {
+      "n": 904,
+      "ms": 908.5
+    },
+    "decode:RasterDecoderImpl::DoBeginRasterCHROMIUM": {
+      "n": 1021,
+      "ms": 46.1
+    },
+    "raster:RasterDecoderImpl::DoBeginRasterCHROMIUM": {
+      "n": 1021,
+      "ms": 46.1
+    },
+    "decode:RasterDecoderImpl::DoRasterCHROMIUM": {
+      "n": 1021,
+      "ms": 186.4
+    },
+    "raster:RasterDecoderImpl::DoRasterCHROMIUM": {
+      "n": 1021,
+      "ms": 186.4
+    },
+    "decode:RasterDecoderImpl::DoRasterCHROMIUM::Deserializing": {
+      "n": 1021,
+      "ms": 176.1
+    },
+    "raster:RasterDecoderImpl::DoRasterCHROMIUM::Deserializing": {
+      "n": 1021,
+      "ms": 176.1
+    },
+    "decode:RasterDecoderImpl::DoEndRasterCHROMIUM": {
+      "n": 1021,
+      "ms": 614.1
+    },
+    "raster:RasterDecoderImpl::DoEndRasterCHROMIUM": {
+      "n": 1021,
+      "ms": 614.1
+    },
+    "decode:RasterDecoderImpl::DoEndRasterCHROMIUM::Flush": {
+      "n": 1021,
+      "ms": 587.1
+    },
+    "raster:RasterDecoderImpl::DoEndRasterCHROMIUM::Flush": {
+      "n": 1021,
+      "ms": 587.1
+    },
+    "Layerize": {
+      "n": 865,
+      "ms": 694.8
+    },
+    "Commit": {
+      "n": 865,
+      "ms": 613.6
+    },
+    "UpdateLayer": {
+      "n": 28350,
+      "ms": 51.5
+    },
+    "EvaluateScript": {
+      "n": 1,
+      "ms": 1.1
+    },
+    "raster:RasterSource::PerformSolidColorAnalysis": {
+      "n": 1043,
+      "ms": 7.5
+    },
+    "raster:RasterizerTaskImpl::RunOnWorkerThread": {
+      "n": 1007,
+      "ms": 300.9
+    },
+    "raster:RasterTask": {
+      "n": 1007,
+      "ms": 293.4
+    },
+    "raster:GpuRasterBuffer::Playback": {
+      "n": 1007,
+      "ms": 287.7
+    },
+    "raster:RasterImplementation::RasterCHROMIUM": {
+      "n": 1007,
+      "ms": 259.9
+    },
+    "HitTest": {
+      "n": 282,
+      "ms": 140.3
+    },
+    "EventDispatch": {
+      "n": 876,
+      "ms": 220.6
+    },
+    "ScrollLayer": {
+      "n": 250,
+      "ms": 25.2
+    },
+    "Layout": {
+      "n": 119,
+      "ms": 54.2
+    },
+    "decode:ResourceLoadPriorityOptimizer::UpdateImagePrioritiesAndSpeculativeDecodes": {
+      "n": 119,
+      "ms": 0.5
+    },
+    "decode:ImageController::ProcessNextImageDecodeOnWorkerThread": {
+      "n": 12,
+      "ms": 610.6
+    },
+    "decode:GpuImageDecodeTaskImpl::RunOnWorkerThread": {
+      "n": 18,
+      "ms": 663
+    },
+    "decode:ImageDecodeTask": {
+      "n": 18,
+      "ms": 662.6
+    },
+    "decode:GpuImageDecodeCache::DecodeImage": {
+      "n": 14,
+      "ms": 662.3
+    },
+    "decode:Decode LazyPixelRef": {
+      "n": 14,
+      "ms": 543.6
+    },
+    "decode:GpuImageDecodeCache::UploadImage": {
+      "n": 14,
+      "ms": 9.2
+    },
+    "decode:ImageDecoder::DecodeFrameBufferAtIndex": {
+      "n": 1,
+      "ms": 5.7
+    },
+    "decode:Decode Image": {
+      "n": 1,
+      "ms": 5.7
+    },
+    "MajorGC": {
+      "n": 4,
+      "ms": 20.6
+    },
+    "MinorGC": {
+      "n": 17,
+      "ms": 14.1
+    }
+  },
+  "forcedTop": [
+    ["0ajhkh51131f3.js:?:1:17482", 37, 17.8],
+    ["0wy4463-jsri9.js:e0:1:16743", 8, 3.4],
+    ["1r_46y6m9o4_n.js:t:1:54017", 10, 3.2]
+  ],
+  "forcedTotal": 55,
+  "decodes": [
+    {
+      "name": "ImageController::ProcessNextImageDecodeOnWorkerThread",
+      "ms": 96.8,
+      "url": ""
+    },
+    {
+      "name": "GpuImageDecodeTaskImpl::RunOnWorkerThread",
+      "ms": 96.7,
+      "url": ""
+    },
+    {
+      "name": "ImageDecodeTask",
+      "ms": 96.7,
+      "url": ""
+    },
+    {
+      "name": "GpuImageDecodeCache::DecodeImage",
+      "ms": 96.6,
+      "url": ""
+    },
+    {
+      "name": "ImageController::ProcessNextImageDecodeOnWorkerThread",
+      "ms": 89.9,
+      "url": ""
+    },
+    {
+      "name": "GpuImageDecodeTaskImpl::RunOnWorkerThread",
+      "ms": 89.8,
+      "url": ""
+    },
+    {
+      "name": "ImageDecodeTask",
+      "ms": 89.8,
+      "url": ""
+    },
+    {
+      "name": "GpuImageDecodeCache::DecodeImage",
+      "ms": 89.8,
+      "url": ""
+    },
+    {
+      "name": "Decode LazyPixelRef",
+      "ms": 75.5,
+      "url": ""
+    },
+    {
+      "name": "ImageController::ProcessNextImageDecodeOnWorkerThread",
+      "ms": 75.1,
+      "url": ""
+    },
+    {
+      "name": "GpuImageDecodeTaskImpl::RunOnWorkerThread",
+      "ms": 75,
+      "url": ""
+    },
+    {
+      "name": "ImageDecodeTask",
+      "ms": 75,
+      "url": ""
+    },
+    {
+      "name": "GpuImageDecodeCache::DecodeImage",
+      "ms": 75,
+      "url": ""
+    },
+    {
+      "name": "ImageController::ProcessNextImageDecodeOnWorkerThread",
+      "ms": 62.1,
+      "url": ""
+    },
+    {
+      "name": "GpuImageDecodeTaskImpl::RunOnWorkerThread",
+      "ms": 62.1,
+      "url": ""
+    },
+    {
+      "name": "ImageDecodeTask",
+      "ms": 62,
+      "url": ""
+    },
+    {
+      "name": "GpuImageDecodeCache::DecodeImage",
+      "ms": 62,
+      "url": ""
+    },
+    {
+      "name": "Decode LazyPixelRef",
+      "ms": 61.7,
+      "url": ""
+    },
+    {
+      "name": "ImageController::ProcessNextImageDecodeOnWorkerThread",
+      "ms": 59.7,
+      "url": ""
+    },
+    {
+      "name": "GpuImageDecodeTaskImpl::RunOnWorkerThread",
+      "ms": 59.7,
+      "url": ""
+    }
+  ],
+  "paintsBy": [
+    ["16777215x16777215", 366],
+    ["390x7795", 275],
+    ["35851x52049", 96],
+    ["1254x1126", 46],
+    ["1227x1103", 45],
+    ["390x5925", 17],
+    ["16390x21926", 6],
+    ["391x7795", 6],
+    ["342x307", 6],
+    ["390x844", 5]
+  ]
+}

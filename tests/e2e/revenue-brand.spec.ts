@@ -226,8 +226,8 @@ for (const [width, height] of [
     page.on("pageerror", (e) => errors.push(e.message));
     await ready(page);
     await expect(page.locator('[data-motion="on"]')).toHaveCount(1);
-    const river = page.locator(
-      `svg[data-river="${width >= 1024 ? "desktop" : "mobile"}"]`,
+    const layer = page.locator(
+      `[data-river-layer="${width >= 1024 ? "desktop" : "mobile"}"]`,
     );
     const pageHeight = await page.evaluate(() => document.documentElement.scrollHeight);
     for (let y = 0; y < pageHeight; y += 300) {
@@ -236,14 +236,78 @@ for (const [width, height] of [
     }
     await page.waitForTimeout(1500);
     expect(errors).toEqual([]);
-    // The bursts were used and have faded; the head reached the end.
-    await expect(river.locator("[data-burst]").first()).toHaveAttribute(
-      "transform",
-      /translate/,
+    // The bursts (HTML, compositor-animated) were placed on the river and
+    // have faded; the head reached the end. No SVG filter runs on the page.
+    await expect(layer.locator("[data-burst]").first()).toHaveAttribute(
+      "style",
+      /translate3d/,
     );
+    expect(
+      await page.evaluate(() =>
+        [...document.querySelectorAll("[data-revenue-brand] *")].some((n) =>
+          getComputedStyle(n).filter.includes("url("),
+        ),
+      ),
+    ).toBe(false);
     await expect(page.locator('li[data-step="6"]')).toHaveAttribute(
       "data-state",
       "current",
     );
     await context.close();
   });
+
+/* Below the 390px design width the phone composition scales as one piece:
+   hero lines keep their order, and no heading, chip row or placed chip
+   leaves a 320px screen. */
+test("revenue-brand phone composition holds at 320px", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 640 });
+  await ready(page);
+  const box = (selector: string) =>
+    page
+      .locator(selector)
+      .first()
+      .evaluate((n) => {
+        const range = document.createRange();
+        range.selectNodeContents(n);
+        const r = range.getBoundingClientRect();
+        return { top: r.top, bottom: r.bottom, left: r.left, right: r.right };
+      });
+  const title = await box("#rb-title");
+  const roman = await box('#rb-hero p[lang="en"]');
+  const cta = await box('#rb-hero a[href="/contact"]');
+  expect(roman.top).toBeGreaterThanOrEqual(title.bottom - 2);
+  expect(cta.top).toBeGreaterThan(roman.bottom);
+  const outside = await page.evaluate(
+    () =>
+      [
+        ...document.querySelectorAll(
+          "#rb-ch2-title, [data-chip-group] button, #rb-ch2 ul li, [data-source-chip], [data-loop-chip], [data-revenue-chip]",
+        ),
+      ]
+        .map((n) => n.getBoundingClientRect())
+        .filter((r) => r.width > 0 && (r.left < 0 || r.right > innerWidth)).length,
+  );
+  expect(outside).toBe(0);
+});
+
+/* The fixed desktop rail never sits on copy: it steps aside while
+   right-aligned text (16 宿泊営業支援) passes beneath it. */
+test("revenue-brand rail steps aside from copy at 1024px", async ({ page }) => {
+  await page.setViewportSize({ width: 1024, height: 768 });
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await ready(page);
+  await expect(page.locator('[data-motion="on"]')).toHaveCount(1);
+  await page.locator("#rb-ch1 article:nth-of-type(2) h3").evaluate((n) => {
+    const r = n.getBoundingClientRect();
+    window.scrollTo({ top: r.top + scrollY - innerHeight / 2, behavior: "instant" });
+  });
+  await expect(page.locator("[data-revenue-brand]")).toHaveAttribute(
+    "data-rail-clash",
+    "true",
+  );
+  await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
+  await expect(page.locator("[data-revenue-brand]")).toHaveAttribute(
+    "data-rail-clash",
+    "false",
+  );
+});

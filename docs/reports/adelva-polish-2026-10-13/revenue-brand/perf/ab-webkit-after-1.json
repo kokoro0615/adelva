@@ -1,0 +1,9 @@
+{
+  "route": "/services/revenue-brand",
+  "frames": 1020,
+  "p50": 42,
+  "p90": 111,
+  "p99": 858,
+  "over50": 405,
+  "errors": []
+}
