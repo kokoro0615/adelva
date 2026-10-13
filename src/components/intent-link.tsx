@@ -22,7 +22,12 @@ type IntentLinkProps = Omit<ComponentProps<typeof Link>, "prefetch" | "href"> & 
  *
  * A drop-in replacement: `import { IntentLink as Link } from "@/components/intent-link"`.
  */
-export function IntentLink({ href, onPointerEnter, onFocus, ...props }: IntentLinkProps) {
+export function IntentLink({
+  href,
+  onPointerEnter,
+  onFocus,
+  ...props
+}: IntentLinkProps) {
   const router = useRouter();
   return (
     <Link
