@@ -468,7 +468,7 @@ export function HomePage() {
           aria-labelledby="home-founder"
         >
           <div className={styles.stage} data-stage="">
-            <div className={styles.letter}>
+            <div className={styles.letter} data-letter="">
               <div className={styles.letterLead}>
                 <span
                   className={styles.quoteMark}

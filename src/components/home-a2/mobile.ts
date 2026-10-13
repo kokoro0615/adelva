@@ -665,14 +665,39 @@ export function startMobile(root: HTMLElement): Controller {
   const founderPs = qa(founder, "[data-founder-p]");
   const signer = q(founder, "[data-signer]");
   const signature = createSignature(founder);
-  measures.push(() => signature.measure());
+  const letter = q(founder, "[data-letter]");
+  const sign = q(founder, "[data-sign]");
+  // Short screens (an iPhone SE: 667 or 568 px tall) cannot hold the letter above the signature: the
+  // letter then moves up by the overlap while its last paragraphs are read, before the pen starts.
+  let letterOverlap = 0;
+  // ...and if that carries the opening lines under the bar, they fade as they go (they have been read)
+  let leadFades = false;
+  const lead0 = q(founder, "[data-founder-lead]");
+  measures.push(() => {
+    letter.style.transform = "";
+    set.forget(letter, "transform");
+    const last = founderPs[founderPs.length - 1]!.getBoundingClientRect();
+    const pen = sign.getBoundingClientRect();
+    letterOverlap = Math.max(0, last.bottom + 18 * m - pen.top);
+    const bar = document
+      .querySelector("[data-fidelity-landmark='header-nav']")
+      ?.getBoundingClientRect().bottom;
+    // (in the stage's coordinates: the stage is pinned while the letter is read)
+    const stageTop = q(founder, "[data-stage]").getBoundingClientRect().top;
+    leadFades =
+      letterOverlap > 0 &&
+      quoteMark.getBoundingClientRect().top - stageTop - letterOverlap < (bar ?? 64);
+    signature.measure();
+  });
   disposers.push(() => signature.reset());
   engine.register(
     founder,
     ({ p, enter, visible, moved }) => {
       if (!visible || !moved) return;
       // the letter is written as it arrives (it starts while the path's haze is still leaving)
-      set(quoteMark, "opacity", smooth(0.12, 0.36, enter).toFixed(3));
+      const leadOut = leadFades ? 1 - smooth(0.2, 0.31, p) : 1;
+      set(quoteMark, "opacity", (smooth(0.12, 0.36, enter) * leadOut).toFixed(3));
+      set(lead0, "opacity", leadOut.toFixed(3));
       const n = founderChars.length;
       founderChars.forEach((c, i) =>
         set(
@@ -692,6 +717,13 @@ export function startMobile(root: HTMLElement): Controller {
           lerp(0.2, 1, smooth(0.02 + i * 0.09, 0.1 + i * 0.09, p)).toFixed(3),
         ),
       );
+      if (letterOverlap > 0)
+        set(
+          letter,
+          "transform",
+          `translate3d(0, ${px(-letterOverlap * ease(smooth(0.18, 0.33, p)))}px, 0)`,
+        );
+
       signature.draw(Math.round(lin(0.34, 0.86, p) * 2000) / 2000, true);
       set(signer, "opacity", smooth(0.84, 0.92, p).toFixed(3));
     },
