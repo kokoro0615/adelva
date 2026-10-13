@@ -17,7 +17,12 @@
  *   GPUs), sampled with explicit gradients so the split never shows;
  * - the lake's back layer (P-1 and its two light variants) is cropped to the
  *   sky and the peak — rows the front plates never cover;
- * - the drawing buffer follows the device pixel ratio up to `dprCap`.
+ * - the drawing buffer follows the device pixel ratio up to `dprCap`;
+ * - (2026-10-13) plates are decoded off the main thread (`createImageBitmap`),
+ *   uploaded one texture per frame, and their decoded copies are closed once
+ *   on the GPU; a renderer can `release()` its textures while the reader is
+ *   far away and `restore()` them on the way back, so a phone never holds the
+ *   panorama and the lake at once.
  */
 
 const VS = `#version 300 es
@@ -117,10 +122,84 @@ export function loadImage(src: string): Promise<HTMLImageElement> {
   });
 }
 
+/** A decoded plate, ready to upload; `close()` frees the decoded copy. */
+interface Plate {
+  readonly source: Source;
+  close(): void;
+}
+
+/**
+ * Decode a plate off the main thread where the browser can (ImageBitmap from
+ * a Blob); otherwise an image element decoded before use. The pixels are not
+ * premultiplied, as the image-element upload never was.
+ */
+async function loadPlate(src: string): Promise<Plate> {
+  if (typeof createImageBitmap === "function") {
+    try {
+      const response = await fetch(src);
+      if (!response.ok) throw new Error(`load ${src}`);
+      const bitmap = await createImageBitmap(await response.blob(), {
+        premultiplyAlpha: "none",
+        colorSpaceConversion: "default",
+      });
+      return { source: bitmap, close: () => bitmap.close() };
+    } catch {
+      // fall through to the image element (older engines reject the options)
+    }
+  }
+  const image = await loadImage(src);
+  await image.decode().catch(() => undefined);
+  return { source: image, close: () => undefined };
+}
+
+/** Wait for the next animation frame (uploads are spread one per frame). */
+const nextFrame = () => new Promise<void>((r) => requestAnimationFrame(() => r()));
+
+/** Upload decoded plates as textures, one per frame, closing each decoded copy. */
+async function upload(
+  gl: WebGL2RenderingContext,
+  plates: readonly Plate[],
+  mip: (i: number) => boolean,
+): Promise<WebGLTexture[]> {
+  const out: WebGLTexture[] = [];
+  for (let i = 0; i < plates.length; i++) {
+    if (i > 0) await nextFrame();
+    out.push(texture(gl, plates[i]!.source, { mip: mip(i) }));
+    plates[i]!.close();
+  }
+  return out;
+}
+
+/** The canvas's CSS size, kept by a ResizeObserver so drawing never reads layout. */
+const cssSize = new WeakMap<HTMLCanvasElement, { w: number; h: number }>();
+const sizer =
+  typeof ResizeObserver === "undefined"
+    ? null
+    : new ResizeObserver((entries) => {
+        for (const e of entries) {
+          const box = e.contentBoxSize?.[0];
+          cssSize.set(e.target as HTMLCanvasElement, {
+            w: box ? box.inlineSize : e.contentRect.width,
+            h: box ? box.blockSize : e.contentRect.height,
+          });
+        }
+      });
+
+function sizeOf(canvas: HTMLCanvasElement) {
+  let size = cssSize.get(canvas);
+  if (!size) {
+    size = { w: canvas.clientWidth, h: canvas.clientHeight };
+    cssSize.set(canvas, size);
+    sizer?.observe(canvas);
+  }
+  return size;
+}
+
 function fit(canvas: HTMLCanvasElement, gl: WebGL2RenderingContext, dprCap: number) {
   const dpr = Math.min(window.devicePixelRatio || 1, dprCap);
-  const w = Math.max(1, Math.round(canvas.clientWidth * dpr));
-  const h = Math.max(1, Math.round(canvas.clientHeight * dpr));
+  const size = sizeOf(canvas);
+  const w = Math.max(1, Math.round(size.w * dpr));
+  const h = Math.max(1, Math.round(size.h * dpr));
   if (canvas.width !== w || canvas.height !== h) {
     canvas.width = w;
     canvas.height = h;
@@ -223,6 +302,12 @@ export interface PanoramaState {
 
 export interface Renderer<S> {
   render(state: S): void;
+  /** Whether the textures are on the GPU (false after `release()`). */
+  readonly live: boolean;
+  /** Free the textures and the drawing buffer (the context stays). */
+  release(): void;
+  /** Load the textures again after `release()`. */
+  restore(): Promise<void>;
   dispose(): void;
 }
 
@@ -239,26 +324,45 @@ export async function createPanorama(
 ): Promise<Renderer<PanoramaState>> {
   const gl = createContext(canvas);
   const prog = program(gl, PANO_FS);
-  const images = await Promise.all([
-    ...options.tiles.map((t) => loadImage(t.src)),
-    loadImage(options.depth),
-  ]);
-  const colours = images
-    .slice(0, options.tiles.length)
-    .map((im) => texture(gl, im, { mip: options.mip }));
-  const depth = texture(gl, images[options.tiles.length]!, { mip: false });
-  const mask = texture(gl, options.mask, { mip: false });
   const spans = options.tiles.flatMap((t) => [t.x0, t.x1, t.use0, t.use1]);
   while (spans.length < 12) spans.push(0, 1, 1e9, 1e9);
+  let colours: WebGLTexture[] = [];
+  let depth: WebGLTexture | null = null;
+  let mask: WebGLTexture | null = null;
+  let live = false;
+  let loading: Promise<void> | null = null;
+  const load = async () => {
+    const plates = await Promise.all([
+      ...options.tiles.map((t) => loadPlate(t.src)),
+      loadPlate(options.depth),
+    ]);
+    const n = options.tiles.length;
+    const textures = await upload(gl, plates, (i) => i < n && options.mip);
+    colours = textures.slice(0, n);
+    depth = textures[n]!;
+    mask = texture(gl, options.mask, { mip: false });
+    live = true;
+  };
+  const free = () => {
+    [...colours, depth, mask].forEach((t) => t && gl.deleteTexture(t));
+    colours = [];
+    depth = mask = null;
+    live = false;
+  };
+  await load();
   return {
+    get live() {
+      return live;
+    },
     render(st) {
+      if (!live) return;
       const { w, h, dpr } = fit(canvas, gl, options.dprCap);
       gl.useProgram(prog.p);
       [prog.u.uC0, prog.u.uC1, prog.u.uC2].forEach((loc, i) =>
         bind(gl, i, colours[Math.min(i, colours.length - 1)]!, loc),
       );
-      bind(gl, 3, depth, prog.u.uDepth);
-      bind(gl, 4, mask, prog.u.uMask);
+      bind(gl, 3, depth!, prog.u.uDepth);
+      bind(gl, 4, mask!, prog.u.uMask);
       gl.uniform4fv(prog.u.uSpan!, spans);
       gl.uniform2f(prog.u.uRes!, w, h);
       gl.uniform2f(prog.u.uPano!, options.size[0], options.size[1]);
@@ -272,8 +376,18 @@ export async function createPanorama(
       gl.uniform1f(prog.u.uDim!, st.dim);
       draw(gl);
     },
+    release() {
+      if (!live || loading) return;
+      free();
+      canvas.width = canvas.height = 1;
+    },
+    restore() {
+      if (live) return Promise.resolve();
+      loading ??= load().finally(() => (loading = null));
+      return loading;
+    },
     dispose() {
-      [...colours, depth, mask].forEach((t) => gl.deleteTexture(t));
+      free();
       gl.deleteProgram(prog.p);
       gl.getExtension("WEBGL_lose_context")?.loseContext();
     },
@@ -512,17 +626,42 @@ export async function createLake(
 ): Promise<Renderer<LakeState>> {
   const gl = createContext(canvas);
   const prog = program(gl, LAKE_FS);
-  const images = await Promise.all(
-    [...options.back, ...options.front, options.depth].map(loadImage),
-  );
-  const tb = images.slice(0, 3).map((im) => texture(gl, im, { mip: options.mip }));
-  const tp = images.slice(3, 7).map((im) => texture(gl, im, { mip: options.mip }));
-  const td = texture(gl, images[7]!, { mip: false });
-  const atlas = wordAtlas(options.words, options.font);
-  const tw = texture(gl, atlas.canvas);
-  const atlasRects = atlas.rects.flatMap((r) => [r.u0, r.v0, r.u1, r.v1]);
+  let tb: WebGLTexture[] = [];
+  let tp: WebGLTexture[] = [];
+  let td: WebGLTexture | null = null;
+  let tw: WebGLTexture | null = null;
+  let atlasRects: number[] = [];
+  let live = false;
+  let loading: Promise<void> | null = null;
+  const load = async () => {
+    const plates = await Promise.all(
+      [...options.back, ...options.front, options.depth].map(loadPlate),
+    );
+    const textures = await upload(gl, plates, (i) => i < 7 && options.mip);
+    tb = textures.slice(0, 3);
+    tp = textures.slice(3, 7);
+    td = textures[7]!;
+    await nextFrame();
+    const atlas = wordAtlas(options.words, options.font);
+    tw = texture(gl, atlas.canvas);
+    atlas.canvas.width = atlas.canvas.height = 0;
+    atlasRects = atlas.rects.flatMap((r) => [r.u0, r.v0, r.u1, r.v1]);
+    live = true;
+  };
+  const free = () => {
+    [...tb, ...tp, td, tw].forEach((t) => t && gl.deleteTexture(t));
+    tb = [];
+    tp = [];
+    td = tw = null;
+    live = false;
+  };
+  await load();
   return {
+    get live() {
+      return live;
+    },
     render(st) {
+      if (!live) return;
       const { w, h, dpr } = fit(canvas, gl, options.dprCap);
       gl.useProgram(prog.p);
       [prog.u.uB0, prog.u.uB1, prog.u.uB2].forEach((loc, i) =>
@@ -531,8 +670,8 @@ export async function createLake(
       [prog.u.uP0, prog.u.uP1, prog.u.uP2, prog.u.uP3].forEach((loc, i) =>
         bind(gl, 3 + i, tp[i]!, loc!),
       );
-      bind(gl, 7, tw, prog.u.uWords!);
-      bind(gl, 8, td, prog.u.uDepth3!);
+      bind(gl, 7, tw!, prog.u.uWords!);
+      bind(gl, 8, td!, prog.u.uDepth3!);
       gl.uniform1f(prog.u.uBackRows!, options.backRows);
       gl.uniform2f(prog.u.uRes!, w, h);
       gl.uniform1f(prog.u.uDpr!, dpr);
@@ -561,8 +700,18 @@ export async function createLake(
       gl.uniform4fv(prog.u.uRouteX!, st.routeX);
       draw(gl);
     },
+    release() {
+      if (!live || loading) return;
+      free();
+      canvas.width = canvas.height = 1;
+    },
+    restore() {
+      if (live) return Promise.resolve();
+      loading ??= load().finally(() => (loading = null));
+      return loading;
+    },
     dispose() {
-      [...tb, ...tp, td, tw].forEach((t) => gl.deleteTexture(t));
+      free();
       gl.deleteProgram(prog.p);
       gl.getExtension("WEBGL_lose_context")?.loseContext();
     },

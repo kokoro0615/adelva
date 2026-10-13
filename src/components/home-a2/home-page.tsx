@@ -26,7 +26,7 @@ import {
   type Lines,
 } from "@/content/adelva-home";
 import { homeGeometry as G } from "@/content/adelva-home-geometry";
-import { getAsset, getVideoAsset } from "@/content/assets";
+import { getAsset, getVideoAsset, PHONE_PORTRAIT_MEDIA } from "@/content/assets";
 import { routeStatusOf } from "@/content/adelva-navigation";
 
 import { HomeMotion } from "./home-motion";
@@ -156,6 +156,7 @@ function Link({
 
 export function HomePage() {
   const poster = getAsset("hero-poster");
+  const posterPortrait = getAsset("hero-poster-portrait");
   const film = getVideoAsset("hero-antarctica");
   const statementCut = purpose.statementLines.mobile; // 経営判断を、｜現場で動く｜仕組みと成果へ。
   const leadBreak = (i: number) => {
@@ -184,7 +185,10 @@ export function HomePage() {
       <SiteHeader />
       <main id="main-content" className={styles.main}>
         {/* the one line on phones (fixed; drawn by the motion) */}
-        <span className={styles.spine} data-spine="" aria-hidden="true" />
+        <span className={styles.spine} data-spine="" aria-hidden="true">
+          <i data-spine-seg="" />
+          <i data-spine-seg="" />
+        </span>
 
         {/* 1 — the film opens from an orange seam; ADELVA rises; the film parts and leaves the seam */}
         <section
@@ -232,24 +236,35 @@ export function HomePage() {
 
             <div className={styles.film} data-film="" aria-hidden="true">
               <div className={styles.filmWhole} data-film-whole="">
-                {/* LCP and the still/no-script frame; the film replaces it once it plays */}
-                <img
-                  className={styles.poster}
-                  src={poster.src}
-                  width={poster.width}
-                  height={poster.height}
-                  alt=""
-                  fetchPriority="high"
-                  decoding="async"
-                />
+                {/* LCP and the still/no-script frame; the film replaces it once it plays. Phones held
+                    upright paint the first frame of their portrait film, so playback starts without a
+                    jump. The video carries no poster of its own (one attribute cannot follow the
+                    viewport): until its first frame it is transparent over this picture. */}
+                <picture>
+                  <source
+                    media={PHONE_PORTRAIT_MEDIA}
+                    srcSet={posterPortrait.src}
+                    width={posterPortrait.width}
+                    height={posterPortrait.height}
+                  />
+                  <img
+                    className={styles.poster}
+                    src={poster.src}
+                    width={poster.width}
+                    height={poster.height}
+                    alt=""
+                    fetchPriority="high"
+                    decoding="async"
+                  />
+                </picture>
+                {/* metadata only until the motion starts it: a phone never buffers a film it does not show */}
                 <video
                   className={styles.video}
                   data-film-video=""
                   muted
                   loop
                   playsInline
-                  preload="auto"
-                  poster={poster.src}
+                  preload="metadata"
                   tabIndex={-1}
                 >
                   {(film.sources ?? [{ src: film.src, type: "video/mp4" }]).map(
@@ -327,37 +342,48 @@ export function HomePage() {
                 className={styles.side}
                 data-side={i === 0 ? "t" : "b"}
               >
-                <img
-                  className={styles.sideImage}
-                  src={i === 0 ? G.who.owner : G.who.field}
-                  width={1254}
-                  height={1254}
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                  data-side-img=""
-                />
-                <Link href={card.href} className={styles.card} data-card="">
-                  <span className={styles.cardKey}>
-                    <span className={styles.num}>{card.number}</span>
-                    <span className={styles.rule} aria-hidden="true" />
-                    <span>{card.viewpoint}</span>
-                  </span>
-                  <h3 className={styles.cardTitle}>
-                    <span>{card.title[0]}</span>
-                    <span>{card.title[1]}</span>
-                  </h3>
-                  <span className={styles.more} data-more="">
-                    <span className={styles.cardBody}>
-                      {card.body[0]}
-                      <br />
-                      {card.body[1]}
-                    </span>
-                    <span className={`${styles.cue} ${styles.cardCue}`}>
-                      <Circle />
-                    </span>
-                  </span>
-                </Link>
+                {/* phones: a window of the stage (outer box: its top edge, inner box: its bottom
+                    edge, frame: back in the stage's coordinates); elsewhere all three are the panel */}
+                <div className={styles.sideClip} data-side-clip="">
+                  <div className={styles.sideFrame} data-side-frame="">
+                    <img
+                      className={styles.sideImage}
+                      src={i === 0 ? G.who.owner : G.who.field}
+                      width={1254}
+                      height={1254}
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                      data-side-img=""
+                    />
+                    <span
+                      className={styles.sideShade}
+                      data-side-shade=""
+                      aria-hidden="true"
+                    />
+                    <Link href={card.href} className={styles.card} data-card="">
+                      <span className={styles.cardKey}>
+                        <span className={styles.num}>{card.number}</span>
+                        <span className={styles.rule} aria-hidden="true" />
+                        <span>{card.viewpoint}</span>
+                      </span>
+                      <h3 className={styles.cardTitle}>
+                        <span>{card.title[0]}</span>
+                        <span>{card.title[1]}</span>
+                      </h3>
+                      <span className={styles.more} data-more="">
+                        <span className={styles.cardBody}>
+                          {card.body[0]}
+                          <br />
+                          {card.body[1]}
+                        </span>
+                        <span className={`${styles.cue} ${styles.cardCue}`}>
+                          <Circle />
+                        </span>
+                      </span>
+                    </Link>
+                  </div>
+                </div>
               </div>
             ))}
             <span className={styles.whoSeam} data-who-seam="" aria-hidden="true" />
@@ -374,9 +400,10 @@ export function HomePage() {
             <canvas className={styles.gl} data-pano="" aria-hidden="true" />
             <span
               className={`${styles.chShade} ${styles.chShadeTop}`}
+              data-ch-shade=""
               aria-hidden="true"
             />
-            <span className={styles.chShade} aria-hidden="true" />
+            <span className={styles.chShade} data-ch-shade="" aria-hidden="true" />
             <div className={styles.chHead} data-ch-head="">
               <Eyebrow en={yourChallenges.eyebrow.en} ja={yourChallenges.eyebrow.ja} />
               <h2 className={styles.chTitle} id="home-challenges">
@@ -441,7 +468,7 @@ export function HomePage() {
           aria-labelledby="home-founder"
         >
           <div className={styles.stage} data-stage="">
-            <div className={styles.letter}>
+            <div className={styles.letter} data-letter="">
               <div className={styles.letterLead}>
                 <span
                   className={styles.quoteMark}
@@ -519,15 +546,20 @@ export function HomePage() {
             <div className={styles.strips}>
               {[0, 1, 2].map((i) => (
                 <div key={i} className={styles.strip} data-strip={i} aria-hidden="true">
-                  <picture>
-                    <source media="(max-width: 1023.98px)" srcSet={G.expertise.tall} />
-                    <img
-                      src={G.expertise.wide}
-                      alt=""
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </picture>
+                  <div className={styles.stripClip} data-strip-clip="">
+                    <picture>
+                      <source
+                        media="(max-width: 1023.98px)"
+                        srcSet={G.expertise.tall}
+                      />
+                      <img
+                        src={G.expertise.wide}
+                        alt=""
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </picture>
+                  </div>
                 </div>
               ))}
               {expertise.domains.map((domain, i) => (
@@ -551,7 +583,7 @@ export function HomePage() {
             </div>
             <span className={styles.hair} data-hair="" aria-hidden="true" />
             <span className={styles.hair} data-hair="" aria-hidden="true" />
-            <span className={styles.veil} aria-hidden="true" />
+            <span className={styles.veil} data-veil="" aria-hidden="true" />
             <div className={styles.plan} data-plan="">
               <h2 className={styles.planTitle}>
                 {expertise.plan[0]}
@@ -610,20 +642,22 @@ export function HomePage() {
                     <span className={styles.st} data-st="">
                       {approach.steps[step]!.name}
                     </span>
-                    <span className={styles.glue}>{glue}</span>
+                    <span className={styles.glue} data-glue="">
+                      {glue}
+                    </span>
                     {leadBreak(step)}
                   </span>
                 ))}
               </h2>
             </div>
-            <span className={styles.apShade} aria-hidden="true" />
+            <span className={styles.apShade} data-ap-shade="" aria-hidden="true" />
             <div className={styles.apCard} data-ap-card="">
               <Eyebrow
                 en={approach.eyebrow.en}
                 ja={approach.eyebrow.ja}
                 className={styles.apCardEyebrow}
               />
-              <span className={styles.ticks} aria-hidden="true">
+              <span className={styles.ticks} data-ticks="" aria-hidden="true">
                 {approach.steps.map((s) => (
                   <i key={s.number} data-tick="" />
                 ))}

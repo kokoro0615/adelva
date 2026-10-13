@@ -1,0 +1,356 @@
+{
+ "route": "/",
+ "viewport": "390x844",
+ "drags": 75,
+ "scrolled": 30892,
+ "secs": 1245.9,
+ "sum": {
+  "EvaluateScript": {
+   "n": 1,
+   "ms": 1.1
+  },
+  "FireAnimationFrame": {
+   "n": 8352,
+   "ms": 2934
+  },
+  "FunctionCall": {
+   "n": 22519,
+   "ms": 3299.6
+  },
+  "PrePaint": {
+   "n": 4265,
+   "ms": 658.1
+  },
+  "IntersectionObserverController::computeIntersections": {
+   "n": 6108,
+   "ms": 415
+  },
+  "Layerize": {
+   "n": 3053,
+   "ms": 869.6
+  },
+  "Commit": {
+   "n": 3053,
+   "ms": 8683.8
+  },
+  "HitTest": {
+   "n": 2545,
+   "ms": 331.6
+  },
+  "EventDispatch": {
+   "n": 3593,
+   "ms": 708.4
+  },
+  "ScrollLayer": {
+   "n": 1108,
+   "ms": 133
+  },
+  "UpdateLayer": {
+   "n": 33796,
+   "ms": 85
+  },
+  "UpdateLayoutTree": {
+   "n": 2116,
+   "ms": 1183.7
+  },
+  "Paint": {
+   "n": 1816,
+   "ms": 255
+  },
+  "raster:RasterizerTaskImpl::RunOnWorkerThread": {
+   "n": 2576,
+   "ms": 840.3
+  },
+  "raster:RasterTask": {
+   "n": 2576,
+   "ms": 813
+  },
+  "raster:GpuRasterBuffer::Playback": {
+   "n": 2576,
+   "ms": 788.4
+  },
+  "raster:RasterImplementation::RasterCHROMIUM": {
+   "n": 2614,
+   "ms": 648.3
+  },
+  "raster:RendererRasterWorker": {
+   "n": 2826,
+   "ms": 2310.1
+  },
+  "decode:RasterDecoderImpl::DoBeginRasterCHROMIUM": {
+   "n": 2614,
+   "ms": 63.1
+  },
+  "raster:RasterDecoderImpl::DoBeginRasterCHROMIUM": {
+   "n": 2614,
+   "ms": 63.1
+  },
+  "decode:RasterDecoderImpl::DoRasterCHROMIUM": {
+   "n": 2614,
+   "ms": 470.6
+  },
+  "raster:RasterDecoderImpl::DoRasterCHROMIUM": {
+   "n": 2614,
+   "ms": 470.6
+  },
+  "decode:RasterDecoderImpl::DoRasterCHROMIUM::Deserializing": {
+   "n": 2614,
+   "ms": 391
+  },
+  "raster:RasterDecoderImpl::DoRasterCHROMIUM::Deserializing": {
+   "n": 2614,
+   "ms": 391
+  },
+  "decode:RasterDecoderImpl::DoEndRasterCHROMIUM": {
+   "n": 2614,
+   "ms": 1557.1
+  },
+  "raster:RasterDecoderImpl::DoEndRasterCHROMIUM": {
+   "n": 2614,
+   "ms": 1557.1
+  },
+  "decode:RasterDecoderImpl::DoEndRasterCHROMIUM::Flush": {
+   "n": 2614,
+   "ms": 1349.2
+  },
+  "raster:RasterDecoderImpl::DoEndRasterCHROMIUM::Flush": {
+   "n": 2614,
+   "ms": 1349.2
+  },
+  "Layout": {
+   "n": 148,
+   "ms": 87.5
+  },
+  "decode:ResourceLoadPriorityOptimizer::UpdateImagePrioritiesAndSpeculativeDecodes": {
+   "n": 148,
+   "ms": 0.7
+  },
+  "raster:RasterSource::PerformSolidColorAnalysis": {
+   "n": 2603,
+   "ms": 19.8
+  },
+  "MinorGC": {
+   "n": 33,
+   "ms": 47.7
+  },
+  "decode:GpuImageDecodeTaskImpl::RunOnWorkerThread": {
+   "n": 10,
+   "ms": 314.2
+  },
+  "decode:ImageDecodeTask": {
+   "n": 10,
+   "ms": 313.7
+  },
+  "decode:GpuImageDecodeCache::DecodeImage": {
+   "n": 9,
+   "ms": 313.4
+  },
+  "decode:Decode LazyPixelRef": {
+   "n": 9,
+   "ms": 306.4
+  },
+  "decode:ImageDecoder::DecodeFrameBufferAtIndex": {
+   "n": 12,
+   "ms": 1061.9
+  },
+  "decode:Decode Image": {
+   "n": 12,
+   "ms": 1061.3
+  },
+  "decode:GpuImageDecodeCache::UploadImage": {
+   "n": 9,
+   "ms": 65
+  },
+  "decode:ImageController::ProcessNextImageDecodeOnWorkerThread": {
+   "n": 4,
+   "ms": 143.1
+  },
+  "MajorGC": {
+   "n": 14,
+   "ms": 102.7
+  },
+  "raster:RasterImplementation::SetAggressivelyFreeResources": {
+   "n": 290,
+   "ms": 43.4
+  },
+  "raster:BrowserRasterWorker": {
+   "n": 1,
+   "ms": 0.1
+  },
+  "decode:GLES2DecoderPassthroughImpl::Initialize": {
+   "n": 1,
+   "ms": 3.9
+  },
+  "decode:GLES2DecoderPassthroughImpl::DoLinkProgram": {
+   "n": 1,
+   "ms": 0.8
+  }
+ },
+ "forcedTop": [
+  [
+   "2bjva2x7stm4u.js:?:1:17482",
+   42,
+   30.7
+  ],
+  [
+   "42gj416zeh0h-.js:M:1:4868",
+   28,
+   15.9
+  ],
+  [
+   "42gj416zeh0h-.js:H:8:2525",
+   1,
+   0.6
+  ],
+  [
+   "42gj416zeh0h-.js:draw:206:5896",
+   1,
+   0.5
+  ]
+ ],
+ "forcedTotal": 72,
+ "decodes": [
+  {
+   "name": "ImageDecoder::DecodeFrameBufferAtIndex",
+   "ms": 199,
+   "url": ""
+  },
+  {
+   "name": "Decode Image",
+   "ms": 198.9,
+   "url": ""
+  },
+  {
+   "name": "ImageDecoder::DecodeFrameBufferAtIndex",
+   "ms": 187.9,
+   "url": ""
+  },
+  {
+   "name": "Decode Image",
+   "ms": 187.9,
+   "url": ""
+  },
+  {
+   "name": "ImageDecoder::DecodeFrameBufferAtIndex",
+   "ms": 179.9,
+   "url": ""
+  },
+  {
+   "name": "Decode Image",
+   "ms": 179.9,
+   "url": ""
+  },
+  {
+   "name": "ImageDecoder::DecodeFrameBufferAtIndex",
+   "ms": 178.6,
+   "url": ""
+  },
+  {
+   "name": "Decode Image",
+   "ms": 178.5,
+   "url": ""
+  },
+  {
+   "name": "RasterDecoderImpl::DoEndRasterCHROMIUM",
+   "ms": 121.6,
+   "url": ""
+  },
+  {
+   "name": "RasterDecoderImpl::DoEndRasterCHROMIUM::Flush",
+   "ms": 121.5,
+   "url": ""
+  },
+  {
+   "name": "GpuImageDecodeTaskImpl::RunOnWorkerThread",
+   "ms": 92.4,
+   "url": ""
+  },
+  {
+   "name": "ImageDecodeTask",
+   "ms": 92.3,
+   "url": ""
+  },
+  {
+   "name": "GpuImageDecodeCache::DecodeImage",
+   "ms": 92.3,
+   "url": ""
+  },
+  {
+   "name": "Decode LazyPixelRef",
+   "ms": 91.2,
+   "url": ""
+  },
+  {
+   "name": "ImageDecoder::DecodeFrameBufferAtIndex",
+   "ms": 79.9,
+   "url": ""
+  },
+  {
+   "name": "Decode Image",
+   "ms": 79.8,
+   "url": ""
+  },
+  {
+   "name": "ImageController::ProcessNextImageDecodeOnWorkerThread",
+   "ms": 77,
+   "url": ""
+  },
+  {
+   "name": "GpuImageDecodeTaskImpl::RunOnWorkerThread",
+   "ms": 76.9,
+   "url": ""
+  },
+  {
+   "name": "ImageDecodeTask",
+   "ms": 76.9,
+   "url": ""
+  },
+  {
+   "name": "GpuImageDecodeCache::DecodeImage",
+   "ms": 76.9,
+   "url": ""
+  }
+ ],
+ "paintsBy": [
+  [
+   "390x845",
+   437
+  ],
+  [
+   "390x16844",
+   316
+  ],
+  [
+   "390x844",
+   178
+  ],
+  [
+   "346x48",
+   144
+  ],
+  [
+   "733x1585",
+   72
+  ],
+  [
+   "16390x16844",
+   53
+  ],
+  [
+   "346x36",
+   47
+  ],
+  [
+   "16390x16845",
+   45
+  ],
+  [
+   "16777215x16777215",
+   31
+  ],
+  [
+   "195x844",
+   30
+  ]
+ ]
+}
