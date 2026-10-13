@@ -252,11 +252,18 @@
   height: var(--nav-brand-mark);
   flex: 0 0 auto;
   background-color: currentColor;
-  /* The symbol's own 29x44 optical window, cut from the 1024px master
-     (`/brand/adelva-logo.png`, 133 KB) at 99x150 so a 44px mark stays sharp at
-     3x and every page stops downloading the full master for a 32px glyph. */
-  -webkit-mask: url("/brand/adelva-mark-mask.png") 0 0 / 100% 100% no-repeat;
-  mask: url("/brand/adelva-mark-mask.png") 0 0 / 100% 100% no-repeat;
+  /* The symbol's 29x44 optical window, scaled with the mark. The mask is the
+     master's own pixels around the symbol (344x520 from x340 y240 of
+     `/brand/adelva-logo.png`, palette PNG, 24 KB instead of 133 KB), placed so
+     every master pixel lands exactly where the full-size mask put it: the
+     rendering is pixel-identical, only the download changed. */
+  -webkit-mask: url("/brand/adelva-mark-mask.png")
+    calc(var(--nav-brand-mark) * -0.002575) calc(var(--nav-brand-mark) * -0.002487) /
+    calc(var(--nav-brand-mark) * 0.664239) calc(var(--nav-brand-mark) * 1.004082)
+    no-repeat;
+  mask: url("/brand/adelva-mark-mask.png") calc(var(--nav-brand-mark) * -0.002575)
+    calc(var(--nav-brand-mark) * -0.002487) / calc(var(--nav-brand-mark) * 0.664239)
+    calc(var(--nav-brand-mark) * 1.004082) no-repeat;
 }
 
 .brandWord {
