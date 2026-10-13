@@ -1036,6 +1036,7 @@
   margin-top: calc(48 * var(--k));
 }
 .strip {
+  position: relative;
   grid-column: 1 / -1;
   aspect-ratio: 3 / 1.4;
   overflow: hidden;
