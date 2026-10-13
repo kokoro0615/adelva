@@ -2,10 +2,10 @@
    plates with reserved dimensions. Each photograph shares its box with an
    overlay (finder, dots) positioned in the same proportional plane, which
    next/image's wrapper sizing would break. */
-import Link from "next/link";
 import type { CSSProperties, ReactNode } from "react";
 
 import { HomeFooter } from "@/components/home/home-footer";
+import { IntentLink as Link } from "@/components/intent-link";
 import { ScrollProvider } from "@/components/scroll-provider";
 import { SiteHeader } from "@/components/site-header";
 import {
@@ -107,7 +107,7 @@ function SmartLink({
   children: ReactNode;
 } & Record<`data-${string}`, string>) {
   return routeStatusOf(href) === "available" ? (
-    <Link prefetch={false} href={href} className={className} {...rest}>
+    <Link href={href} className={className} {...rest}>
       {children}
     </Link>
   ) : (
@@ -318,9 +318,7 @@ function Hero() {
             {breadcrumb.items.map((item) => (
               <li key={item.label}>
                 {item.href ? (
-                  <Link prefetch={false} href={item.href}>
-                    {item.label}
-                  </Link>
+                  <Link href={item.href}>{item.label}</Link>
                 ) : (
                   <span aria-current="page">{item.label}</span>
                 )}
@@ -340,7 +338,7 @@ function Hero() {
         <p className={styles.body}>
           <Broken lines={hero.body} />
         </p>
-        <Link prefetch={false} href={hero.cta.href} className={styles.cta}>
+        <Link href={hero.cta.href} className={styles.cta}>
           {hero.cta.label}
           <Arrow />
         </Link>
@@ -548,7 +546,9 @@ function MagLines({
   variant: "desktop" | "mobile";
   pairs: readonly number[];
 }) {
-  const lines = magnificationLines(geometry).filter((line) => pairs.includes(line.photo));
+  const lines = magnificationLines(geometry).filter((line) =>
+    pairs.includes(line.photo),
+  );
   return (
     <span
       className={variant === "desktop" ? styles.linesDesktop : styles.linesMobile}
@@ -567,7 +567,10 @@ function MagLines({
                     "--x1": x1,
                     "--y1": y1,
                     "--len": +Math.hypot(x2 - x1, y2 - y1).toFixed(3),
-                    "--angle": +((Math.atan2(y2 - y1, x2 - x1) * 180) / Math.PI).toFixed(4),
+                    "--angle": +(
+                      (Math.atan2(y2 - y1, x2 - x1) * 180) /
+                      Math.PI
+                    ).toFixed(4),
                   } as Vars
                 }
                 data-line
@@ -654,11 +657,19 @@ function Descent() {
                 data-stage={index + 1}
               >
                 <div className={styles.diveTrack} data-dive-track>
-                  <span className={styles.diveProbe} aria-hidden="true" data-dive-probe />
+                  <span
+                    className={styles.diveProbe}
+                    aria-hidden="true"
+                    data-dive-probe
+                  />
                   <span className={styles.svhProbe} aria-hidden="true" data-svh-probe />
                   <div className={styles.diveStage} data-dive-stage>
                     <HeroMedia />
-                    <div className={styles.diveNight} aria-hidden="true" data-dive-night />
+                    <div
+                      className={styles.diveNight}
+                      aria-hidden="true"
+                      data-dive-night
+                    />
                     <Frame index={index} final={false} />
                     <DiveWindow />
                   </div>
@@ -877,8 +888,16 @@ export function ApproachPage(): ReactNode {
               <Hero />
               <Descent />
               <span className={styles.lines} aria-hidden="true" data-lines-overlay>
-                <MagLines geometry={mobileGeometry} variant="mobile" pairs={linePairs} />
-                <MagLines geometry={desktopGeometry} variant="desktop" pairs={linePairs} />
+                <MagLines
+                  geometry={mobileGeometry}
+                  variant="mobile"
+                  pairs={linePairs}
+                />
+                <MagLines
+                  geometry={desktopGeometry}
+                  variant="desktop"
+                  pairs={linePairs}
+                />
               </span>
             </div>
             <div className={styles.ridge} aria-hidden="true">

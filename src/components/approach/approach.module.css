@@ -609,22 +609,22 @@ a.finder:focus-visible {
 .diveEdge[data-edge="right"] {
   right: 0;
 }
-[data-dive="on"] .diveTrack {
+.page [data-dive="on"] .diveTrack {
   height: calc(var(--dive) + var(--hs));
 }
-[data-dive="on"] .diveStage {
+.page [data-dive="on"] .diveStage {
   position: sticky;
   top: var(--dive-top);
   height: var(--hs);
   overflow: clip;
 }
-[data-dive="on"] .diveWindow {
+.page [data-dive="on"] .diveWindow {
   visibility: visible;
 }
 .page [data-dive="on"] .stageDive {
   scroll-margin-top: calc(var(--dive-top) - var(--dive));
 }
-[data-motion="on"] .frame {
+.page [data-motion="on"] .frame {
   overflow: clip;
 }
 .stagePhoto,
@@ -1332,6 +1332,40 @@ a.finder:focus-visible {
   background: var(--ivory);
   border-color: var(--ivory);
 }
+/* Shown from the landing until 06 has been read; it cross-fades (R3). */
+.descentRail {
+  transition:
+    opacity var(--dur-state, 300ms) var(--ease-state, ease),
+    visibility 0s linear var(--dur-state, 300ms);
+}
+.descentRail[data-shown] {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity var(--dur-state, 300ms) var(--ease-state, ease),
+    visibility 0s;
+}
+.descentRailFill {
+  transition:
+    transform var(--dur-panel, 400ms) var(--ease-state, ease),
+    background-color var(--dur-state, 300ms) var(--ease-state, ease);
+}
+.page [data-timeline="scroll"] .descentRailFill {
+  transition: background-color var(--dur-state, 300ms) var(--ease-state, ease);
+}
+/* Phones: the photographs reach 20px from the edge, so the rail becomes a
+   quiet hairline cue in the margin: no dots competing with the frames. */
+@media (max-width: 599.98px) {
+  .descentRail {
+    right: 7px;
+    top: 30svh;
+    bottom: 30svh;
+    background: rgb(255 255 255 / 18%);
+  }
+  .descentRailDot {
+    display: none;
+  }
+}
 
 /* ============================================================ tablet type */
 
@@ -1989,5 +2023,196 @@ a.finder:focus-visible {
   .audienceLink,
   .descentRailDot {
     transition: none;
+  }
+}
+
+/* ======================================================== motion states */
+
+/*
+ * The hero's one-time settle runs in CSS from the first paint (R8): the
+ * finder draws, its corners set, the photograph eases toward it, the scale's
+ * orange segment reaches 01 and the first magnification lines appear.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  .finder[data-finder="0"] .finderRect {
+    animation: ap-draw var(--dur-reveal, 1200ms) var(--ease-reveal, ease) 150ms both;
+  }
+  .finder[data-finder="0"] .corner {
+    animation: ap-corner var(--dur-state, 300ms) var(--ease-reveal, ease) 750ms both;
+  }
+  .finder[data-finder="0"] .corner[data-corner="tr"] {
+    animation-delay: 800ms;
+  }
+  .finder[data-finder="0"] .corner[data-corner="bl"] {
+    animation-delay: 850ms;
+  }
+  .finder[data-finder="0"] .corner[data-corner="br"] {
+    animation-delay: 900ms;
+  }
+  .heroPush {
+    animation: ap-push var(--dur-ambient, 2000ms) cubic-bezier(0.25, 0.46, 0.45, 0.94)
+      both;
+  }
+  .railProgress {
+    animation: ap-rail calc(var(--dur-panel, 400ms) * 2) var(--ease-state, ease) 350ms
+      both;
+  }
+  .heroLines {
+    animation: ap-fade var(--dur-panel, 400ms) var(--ease-reveal, ease) 1050ms both;
+  }
+}
+@keyframes ap-draw {
+  from {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes ap-corner {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+}
+@keyframes ap-push {
+  to {
+    transform: scale(1.04);
+  }
+}
+@keyframes ap-rail {
+  from {
+    transform: scaleY(0);
+  }
+}
+@keyframes ap-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+/*
+ * One-time reveals. The motion layer marks content wholly below the fold as
+ * pending and clears the mark at the reading line; the transitions below
+ * carry it in. Nothing visible at setup is ever hidden (R8).
+ */
+.page [data-motion="on"] [data-reveal] {
+  transition:
+    opacity var(--dur-state, 300ms) var(--ease-state, ease),
+    transform var(--dur-state, 300ms) var(--ease-state, ease);
+}
+.page [data-motion="on"] [data-reveal]:nth-child(2) {
+  transition-delay: 60ms;
+}
+.page [data-motion="on"] [data-reveal]:nth-child(3) {
+  transition-delay: 120ms;
+}
+.page [data-motion="on"] [data-reveal]:nth-child(4) {
+  transition-delay: 180ms;
+}
+.page [data-motion="on"] [data-reveal-pending] [data-reveal] {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: none;
+}
+
+/* 06: the ivory finder draws, the rule runs orange then ivory. */
+.page [data-motion="on"] .stageFinal .finderRect {
+  transition: stroke-dashoffset var(--dur-reveal, 1200ms) var(--ease-reveal, ease);
+  stroke-dasharray: 1;
+}
+.page [data-motion="on"] .stageFinal .corner {
+  transition: opacity var(--dur-state, 300ms) var(--ease-reveal, ease) 700ms;
+}
+.page [data-motion="on"] .handoverRule [data-rule-adelva] {
+  transition: transform 600ms var(--ease-wipe, ease) 200ms;
+}
+.page [data-motion="on"] .handoverRule [data-rule-client] {
+  transition: transform 600ms var(--ease-panel, ease) 800ms;
+}
+.page [data-motion="on"] [data-handover-pending] .finderRect {
+  stroke-dashoffset: 1;
+  transition: none;
+}
+.page [data-motion="on"] [data-handover-pending] .corner {
+  opacity: 0;
+  transition: none;
+}
+.page [data-motion="on"] [data-handover-pending] .handoverRule i {
+  transform: scaleX(0);
+  transition: none;
+}
+
+/* Role bars run from 俯瞰 along the axis; ADELVA's runs last and longest. */
+.page [data-motion="on"] .bar {
+  transition: transform var(--dur-panel, 400ms) var(--ease-reveal, ease)
+    calc(var(--bar-order, 0) * 80ms);
+}
+.role[data-role="manager"] {
+  --bar-order: 0;
+}
+.role[data-role="owner"] {
+  --bar-order: 1;
+}
+.role[data-role="partners"] {
+  --bar-order: 2;
+}
+.role[data-role="partners"] .bar + .bar {
+  --bar-order: 3;
+}
+.page [data-motion="on"] .role[data-role="adelva"] .bar {
+  transition: transform 600ms var(--ease-wipe, ease) 480ms;
+}
+.page [data-motion="on"] [data-bars-pending] .bar {
+  transform: translateY(-50%) scaleX(0);
+  transition: none;
+}
+
+/* The example line runs edge to edge; each tag's corners set as it passes. */
+.page [data-motion="on"] .exampleLine {
+  transition: transform 900ms var(--ease-wipe, ease);
+}
+.page [data-motion="on"] .bracket {
+  transition:
+    transform var(--dur-fast, 160ms) var(--ease-state, ease),
+    opacity var(--dur-fast, 160ms) var(--ease-state, ease);
+  transition-delay: calc(900ms * (var(--x) + var(--w) / 2) / 390);
+}
+.page [data-motion="on"] [data-example-pending] .exampleLine {
+  transform: translateY(-50%) scaleX(0);
+  transition: none;
+}
+.page [data-motion="on"] [data-example-pending] .bracket {
+  opacity: 0;
+  transform: scale(0.6);
+  transition: none;
+}
+
+/* Check marks set one after another. */
+.page [data-motion="on"] .checkMark {
+  transition:
+    opacity var(--dur-state, 300ms) var(--ease-reveal, ease),
+    transform var(--dur-state, 300ms) var(--ease-reveal, ease);
+}
+.page [data-motion="on"] .check:nth-child(2) .checkMark {
+  transition-delay: 80ms;
+}
+.page [data-motion="on"] .check:nth-child(3) .checkMark {
+  transition-delay: 160ms;
+}
+.page [data-motion="on"] .check:nth-child(4) .checkMark {
+  transition-delay: 240ms;
+}
+.page [data-motion="on"] [data-checks-pending] .checkMark {
+  opacity: 0;
+  transform: scale(0.72);
+  transition: none;
+}
+
+@media (min-width: 1024px) {
+  .page [data-motion="on"] .bracket {
+    transition-delay: calc(900ms * (var(--x) + var(--w) / 2) / 1440);
   }
 }

@@ -124,7 +124,9 @@ function setup(root: HTMLElement): () => void {
   const descentFrame = q("[data-descent-frame]")!;
   const items = qa("[data-stage]");
   const frames = items.map((item) => item.querySelector<HTMLElement>("[data-frame]")!);
-  const lenses = frames.map((frame) => frame.querySelector<HTMLElement>("[data-lens]")!);
+  const lenses = frames.map((frame) =>
+    frame.querySelector<HTMLElement>("[data-lens]")!,
+  );
   const track = q("[data-dive-track]")!;
   const probe = q("[data-dive-probe]")!;
   const svhProbe = q("[data-svh-probe]")!;
@@ -188,13 +190,18 @@ function setup(root: HTMLElement): () => void {
     });
   };
 
-  const stageTexts = items.map(
-    (item) => item.querySelector<HTMLElement>("[data-stage-text]")!,
+  const stageTexts = items.map((item) =>
+    item.querySelector<HTMLElement>("[data-stage-text]")!,
   );
   stageTexts.forEach((text, index) => {
     if (index === 0) return; // stage 01's copy follows the landing (see build)
     const final = index === stageTexts.length - 1;
-    revealOnce(final ? text : frames[index]!, text, "data-reveal-pending", final ? "-12%" : "-45%");
+    revealOnce(
+      final ? text : frames[index]!,
+      text,
+      "data-reveal-pending",
+      final ? "-12%" : "-45%",
+    );
   });
 
   const final = items[items.length - 1]!;
@@ -341,9 +348,7 @@ function setup(root: HTMLElement): () => void {
       return { node, box: { ...box, x: host.x + box.x, y: host.y + box.y } };
     });
     const pairGroup = (pair: number) =>
-      q(
-        `[data-lines-overlay] [data-lines="${variant}"] [data-line-pair="${pair}"]`,
-      );
+      q(`[data-lines-overlay] [data-lines="${variant}"] [data-line-pair="${pair}"]`);
     const lineBases = (pair: number) => {
       const group = pairGroup(pair);
       if (!group) return null;
@@ -437,13 +442,17 @@ function setup(root: HTMLElement): () => void {
           const sy = num(W.h / L.h);
           switch (side) {
             case "top":
-              return { transform: `translate(${px(W.x - L.x)}, ${px(W.y - L.y)}) scaleX(${sx})` };
+              return {
+                transform: `translate(${px(W.x - L.x)}, ${px(W.y - L.y)}) scaleX(${sx})`,
+              };
             case "bottom":
               return {
                 transform: `translate(${px(W.x - L.x)}, ${px(W.y + W.h - L.y - L.h)}) scaleX(${sx})`,
               };
             case "left":
-              return { transform: `translate(${px(W.x - L.x)}, ${px(W.y - L.y)}) scaleY(${sy})` };
+              return {
+                transform: `translate(${px(W.x - L.x)}, ${px(W.y - L.y)}) scaleY(${sy})`,
+              };
             case "right":
               return {
                 transform: `translate(${px(W.x + W.w - L.x - L.w)}, ${px(W.y - L.y)}) scaleY(${sy})`,
@@ -559,7 +568,8 @@ function setup(root: HTMLElement): () => void {
       /* A keyboard user reaching frame 01's links mid-dive lands it first. */
       const onFrameFocus = () => {
         const end = probe.getBoundingClientRect().bottom + window.scrollY;
-        if (window.scrollY < end - 1) window.scrollTo({ top: end, behavior: "instant" });
+        if (window.scrollY < end - 1)
+          window.scrollTo({ top: end, behavior: "instant" });
       };
       items[0]!.addEventListener("focusin", onFrameFocus);
       buildCleanups.push(() => items[0]!.removeEventListener("focusin", onFrameFocus));
