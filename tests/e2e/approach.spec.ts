@@ -161,8 +161,36 @@ for (const viewport of viewports) {
       expect(bars.every((width) => width > 20)).toBe(true);
       // Every magnification line is drawn and lands on a photograph's corner.
       const variant = viewport.width >= 1024 ? "desktop" : "mobile";
-      await expect(page.locator(`[data-lines="${variant}"] line`)).toHaveCount(12);
-      await expect(page.locator(`[data-lines="${variant}"]`)).toBeVisible();
+      const lines = page.locator(`[data-lines="${variant}"] [data-line]`);
+      await expect(lines).toHaveCount(12);
+      const misses = await page.evaluate((variant) => {
+        const frames = [...document.querySelectorAll("[data-frame]")].map((frame) =>
+          frame.getBoundingClientRect(),
+        );
+        const out: number[] = [];
+        for (const line of document.querySelectorAll<HTMLElement>(
+          `[data-lines="${variant}"] [data-line]`,
+        )) {
+          const box = line.getBoundingClientRect();
+          if (!box.width) out.push(-1);
+          const pair = Number(
+            line.closest<HTMLElement>("[data-line-pair]")!.dataset.linePair,
+          );
+          const frame = frames[pair]!;
+          const end = {
+            x: line.dataset.side === "left" ? frame.left : frame.right,
+            y: frame.top,
+          };
+          // The far end of a rotated box is its lowest corner on that side.
+          const tip = {
+            x: line.dataset.side === "left" ? box.left : box.right,
+            y: box.bottom,
+          };
+          out.push(Math.hypot(tip.x - end.x, tip.y - end.y));
+        }
+        return out;
+      }, variant);
+      expect(misses.every((miss) => miss >= 0 && miss < 4)).toBe(true);
     });
 
     test("images hidden: text and controls remain", async ({ page }) => {
@@ -226,7 +254,7 @@ test.describe("motion", () => {
     contextOptions: { reducedMotion: "no-preference" },
   });
 
-  test("the dive lands stage 01 where it rests and hands the page back", async ({
+  test("the dive sticks, lands frame 01 where it rests and hands the page back", async ({
     page,
   }) => {
     const errors: string[] = [];
@@ -235,27 +263,57 @@ test.describe("motion", () => {
       if (message.type() === "error") errors.push(message.text());
     });
     await open(page);
-    await expect(page.locator("[data-motion='on']")).toHaveCount(1);
-    await expect(page.locator(".pin-spacer")).toHaveCount(1);
+    await expect(page.locator("[data-motion='on'][data-dive='on']")).toHaveCount(1);
+    // A sticky stage, not a pin: no spacer, no fixed swap.
+    await expect(page.locator(".pin-spacer")).toHaveCount(0);
+    const geometry = () =>
+      page.evaluate(() => {
+        const frame = document.querySelector("[data-stage='1'] [data-frame]")!;
+        const box = frame.getBoundingClientRect();
+        const probe = document.querySelector("[data-dive-probe]")!;
+        const stage = document.querySelector("[data-dive-stage]")!;
+        return {
+          top: box.top + window.scrollY,
+          width: box.width,
+          stageTop: stage.getBoundingClientRect().top,
+          stickyTop: parseFloat(getComputedStyle(stage).top),
+          end: probe.getBoundingClientRect().bottom + window.scrollY,
+        };
+      });
+    const rest = await page.evaluate(() => {
+      const frame = document.querySelector<HTMLElement>(
+        "[data-stage='1'] [data-frame]",
+      )!;
+      return { width: frame.offsetWidth };
+    });
 
-    // Mid-dive: stage 01 is scaled into the window and clipped to it.
-    await page.evaluate(() => window.scrollTo({ top: 360, behavior: "instant" }));
+    // Mid-dive: the stage holds its sticky offset and frame 01 is a small window.
+    const start = await geometry();
+    await page.evaluate(
+      (y) => window.scrollTo({ top: y, behavior: "instant" }),
+      start.end / 2,
+    );
     await expect
-      .poll(() =>
-        page.locator("[data-stage='1']").evaluate((node) => node.style.transform),
-      )
-      .toContain("scale");
+      .poll(async () => (await geometry()).width)
+      .toBeLessThan(rest.width * 0.8);
+    const mid = await geometry();
+    expect(Math.abs(mid.stageTop - mid.stickyTop)).toBeLessThan(1);
 
-    // After the dive: no transform, the hero steps out, stage copy is revealed.
-    await page.evaluate(() => window.scrollTo({ top: 1100, behavior: "instant" }));
+    // Landed: frame 01 rests at full size where the static page has it.
+    await page.evaluate(
+      (y) => window.scrollTo({ top: y + 40, behavior: "instant" }),
+      start.end,
+    );
     await expect
-      .poll(() =>
-        page.locator("[data-stage='1']").evaluate((node) => node.style.transform),
-      )
-      .toBe("");
-    await expect
-      .poll(() => page.locator("[data-hero]").evaluate((node) => node.style.opacity))
-      .toBe("0");
+      .poll(async () => (await geometry()).width)
+      .toBeGreaterThan(rest.width - 1);
+    const landed = await geometry();
+    const staticTop = await page.evaluate(() => {
+      // 985.8 design units at 1440 (spec §5.1).
+      const unit = Math.min(window.innerWidth, 1920) / 1440;
+      return 985.8 * unit;
+    });
+    expect(Math.abs(landed.top - staticTop)).toBeLessThan(1.5);
     await expect
       .poll(() =>
         page
@@ -272,6 +330,104 @@ test.describe("motion", () => {
       .getByRole("link", { name: "HOME" })
       .focus();
     await expect.poll(() => page.evaluate(() => window.scrollY)).toBeLessThan(2);
+    expect(errors).toEqual([]);
+  });
+});
+
+test.describe("phone motion", () => {
+  test.use({
+    viewport: { width: 390, height: 664 },
+    isMobile: true,
+    hasTouch: true,
+    deviceScaleFactor: 2,
+    contextOptions: { reducedMotion: "no-preference" },
+  });
+
+  test("touch scrolling runs the whole page without pins, shifts or hidden copy", async ({
+    page,
+  }) => {
+    test.setTimeout(90_000);
+    const errors: string[] = [];
+    page.on("pageerror", (error) => errors.push(String(error)));
+    page.on("console", (message) => {
+      if (message.type() === "error") errors.push(message.text());
+    });
+    await page.addInitScript(() => {
+      (window as unknown as { __cls: number }).__cls = 0;
+      new PerformanceObserver((list) => {
+        for (const entry of list.getEntries() as unknown as Array<{
+          value: number;
+          hadRecentInput: boolean;
+        }>)
+          if (!entry.hadRecentInput)
+            (window as unknown as { __cls: number }).__cls += entry.value;
+      }).observe({ type: "layout-shift", buffered: true });
+    });
+    await open(page);
+    await expect(page.locator("[data-motion='on'][data-dive='on']")).toHaveCount(1);
+    await expect(page.locator(".pin-spacer")).toHaveCount(0);
+
+    const cdp = await page.context().newCDPSession(page);
+    const drag = async (distance: number) => {
+      const x = 195;
+      const y0 = 520;
+      await cdp.send("Input.dispatchTouchEvent", {
+        type: "touchStart",
+        touchPoints: [{ x, y: y0 }],
+      });
+      for (let step = 1; step <= 10; step++) {
+        await cdp.send("Input.dispatchTouchEvent", {
+          type: "touchMove",
+          touchPoints: [{ x, y: y0 - (distance * step) / 10 }],
+        });
+        await page.waitForTimeout(16);
+      }
+      await cdp.send("Input.dispatchTouchEvent", { type: "touchEnd", touchPoints: [] });
+      await page.waitForTimeout(220);
+    };
+
+    // During the dive the stage holds still under the finger.
+    const end = await page.evaluate(
+      () =>
+        document.querySelector("[data-dive-probe]")!.getBoundingClientRect().bottom +
+        window.scrollY,
+    );
+    const stageTops: number[] = [];
+    while ((await page.evaluate(() => window.scrollY)) < end - 120) {
+      await drag(160);
+      stageTops.push(
+        await page.evaluate(() => {
+          const stage = document.querySelector("[data-dive-stage]")!;
+          return (
+            stage.getBoundingClientRect().top - parseFloat(getComputedStyle(stage).top)
+          );
+        }),
+      );
+    }
+    expect(stageTops.length).toBeGreaterThan(1);
+    expect(stageTops.every((offset) => Math.abs(offset) < 1)).toBe(true);
+
+    // Then all the way down.
+    let last = -1;
+    for (let guard = 0; guard < 80; guard++) {
+      const y = await page.evaluate(() => window.scrollY);
+      if (y === last) break;
+      last = y;
+      await drag(420);
+    }
+    const max = await page.evaluate(
+      () => document.documentElement.scrollHeight - window.innerHeight,
+    );
+    expect(last).toBeGreaterThan(max - 4);
+    await page.waitForTimeout(600);
+    await expect(
+      page.locator(
+        "[data-reveal-pending], [data-bars-pending], [data-example-pending], [data-checks-pending], [data-handover-pending]",
+      ),
+    ).toHaveCount(0);
+    expect(
+      await page.evaluate(() => (window as unknown as { __cls: number }).__cls),
+    ).toBe(0);
     expect(errors).toEqual([]);
   });
 });

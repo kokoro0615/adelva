@@ -46,6 +46,11 @@ const adopted = <T extends object>(source: Sourced["source"], value: T) =>
 export interface Lines {
   readonly desktop: readonly string[];
   readonly mobile: readonly string[];
+  /**
+   * Phrases (文節) that may start a new line where a narrower phone cannot
+   * hold a mobile line. Joins to the same text; adds break opportunities only.
+   */
+  readonly phrases?: readonly string[];
 }
 
 export const route = "/approach" as const;
@@ -188,6 +193,7 @@ export const responsibilities = adopted(["audience-page.tsx", "adopted-mock A"],
   title: {
     desktop: ["誰が決め、誰が実行し、何を残すか。"],
     mobile: ["誰が決め、誰が実行し、", "何を残すか。"],
+    phrases: ["誰が決め、", "誰が実行し、", "何を残すか。"],
   } satisfies Lines,
   axis: { start: rail.top, end: rail.bottom },
   roles: [
@@ -298,6 +304,7 @@ export const verification = adopted(["audience-page.tsx", "adopted-mock A"], {
   title: {
     desktop: ["確認し、引き継げる状態へ。"],
     mobile: ["確認し、", "引き継げる状態へ。"],
+    phrases: ["確認し、", "引き継げる", "状態へ。"],
   } satisfies Lines,
   items: [
     { name: "担当範囲", lines: ["誰が、どこまで担うか"] },

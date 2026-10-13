@@ -52,25 +52,32 @@ function Broken({ lines }: { lines: Lines }) {
   const text = lines.desktop.join("");
   const desktop = cuts(lines.desktop);
   const mobile = cuts(lines.mobile);
-  const points = [...new Set([...desktop, ...mobile])].sort((a, b) => a - b);
+  const phrases = cuts(lines.phrases ?? []);
+  const points = [...new Set([...desktop, ...mobile, ...phrases])].sort(
+    (a, b) => a - b,
+  );
   const nodes: ReactNode[] = [];
   let start = 0;
   for (const point of [...points, text.length]) {
     nodes.push(text.slice(start, point));
     if (point < text.length) {
-      const both = desktop.has(point) && mobile.has(point);
-      nodes.push(
-        <br
-          key={point}
-          className={
-            both
-              ? undefined
-              : desktop.has(point)
-                ? styles.desktopBreak
-                : styles.mobileBreak
-          }
-        />,
-      );
+      if (!desktop.has(point) && !mobile.has(point)) {
+        nodes.push(<wbr key={point} />);
+      } else {
+        const both = desktop.has(point) && mobile.has(point);
+        nodes.push(
+          <br
+            key={point}
+            className={
+              both
+                ? undefined
+                : desktop.has(point)
+                  ? styles.desktopBreak
+                  : styles.mobileBreak
+            }
+          />,
+        );
+      }
     }
     start = point;
   }
