@@ -626,6 +626,21 @@ a.finder:focus-visible {
 .page [data-dive="on"] .diveWindow {
   visibility: visible;
 }
+/* Parked away from the dive: the same place sticky would hold the stage. */
+.page [data-dive="on"][data-dive-park="before"] .diveStage {
+  position: relative;
+  top: 0;
+}
+.page [data-dive="on"][data-dive-park="after"] .diveStage {
+  position: relative;
+  top: var(--dive);
+}
+/* Frame 01 waits in the stage where it lands, so the end of the dive is the
+   plain layout (no transform held while the page scrolls on). */
+.page [data-dive="on"] .stageDive .frame,
+.page [data-dive="on"] .diveWindow {
+  top: calc(var(--f1y) - var(--dive));
+}
 .page [data-dive="on"] .stageDive {
   scroll-margin-top: calc(var(--dive-top) - var(--dive));
 }

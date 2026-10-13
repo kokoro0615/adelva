@@ -316,9 +316,11 @@ function setup(root: HTMLElement): () => void {
     root.dataset.dive = "on";
     const dive = probe.offsetHeight;
     const svh = svhProbe.offsetHeight;
-    const L = offsetBox(frames[0]!, stage);
-    const diveOn = dive >= 160 && L.h <= svh + 0.5;
+    const landing = offsetBox(frames[0]!, stage);
+    const diveOn = dive >= 160 && landing.h <= svh + 0.5;
     if (!diveOn) delete root.dataset.dive;
+    /** Frame 01's layout box in the stage (at its landing when diving). */
+    const L = diveOn ? landing : offsetBox(frames[0]!, stage);
     lastWidth = descentFrame.offsetWidth;
     lastDive = dive;
 
@@ -335,7 +337,11 @@ function setup(root: HTMLElement): () => void {
     /* Frame boxes in descent coordinates, where the static page has them. */
     const item0 = local(items[0]!);
     const frameBoxes = frames.map((frame, index) =>
-      index === 0 ? { ...L, x: item0.x + L.x, y: item0.y + L.y } : local(items[index]!),
+      index === 0
+        ? // With the dive on, frame 01 is laid out at its landing inside the
+          // stage, `dive` px above where it rests once the stage releases.
+          { ...L, x: item0.x + L.x, y: item0.y + L.y + (diveOn ? dive : 0) }
+        : local(items[index]!),
     );
     /* Finder i frames photograph i: 0 is the hero's, i ≥ 1 sits in frame i−1. */
     const finders = frames.map((_, index) => {
@@ -404,7 +410,9 @@ function setup(root: HTMLElement): () => void {
     let diveRange: Partial<KeyframeAnimationOptions> = {};
     if (diveOn) {
       const F0 = offsetBox(heroFinder, zoom);
-      const N: Box = { ...L, y: L.y - dive };
+      /* Frame 01 is laid out at its landing (CSS), so the dive ends on no
+         transform at all: the landed page is the plain layout. */
+      const N: Box = L;
       const [f0x, f0y] = center(F0);
       const [nx, ny] = center(N);
       const [lx, ly] = center(L);
@@ -540,6 +548,19 @@ function setup(root: HTMLElement): () => void {
             0.46 * smooth(span(p, 0.04, 0.5)) + 0.54 * smooth(span(p, 0.72, 0.98)),
         })),
       );
+      // Landed, the camera is wholly under the night: it leaves the stage, so
+      // the stage scrolls on as frame 01 alone (a hidden, huge zoomed layer
+      // is not composited every frame).
+      const gone: Keyframe[] = [
+        { offset: 0, visibility: "visible" },
+        { offset: 0.999, visibility: "visible" },
+        { offset: 1, visibility: "hidden" },
+      ];
+      add(q("[data-hero-media]")!, gone);
+      add(
+        night,
+        gone.map((frame) => ({ ...frame })),
+      );
       // Lines from frame 01's finder exist only where frame 01 rests.
       const pair1 = pairGroup(1);
       if (pair1)
@@ -583,6 +604,35 @@ function setup(root: HTMLElement): () => void {
           cancelAnimationFrame(frame);
         });
       }
+
+      /* The stage is sticky only around the dive. Well before it, and once it
+         has released and scrolled on, it is parked as a plain relative box at
+         the very place sticky positioning would hold it, so engines that
+         repaint viewport-constrained boxes while scrolling do no extra work
+         for the rest of the page. The switch happens 200px of scroll away
+         from either end, where both positions coincide. */
+      const band = 200;
+      const park = (state: "before" | "after" | null) => {
+        if (state) root.dataset.divePark = state;
+        else delete root.dataset.divePark;
+      };
+      const probeBox = probe.getBoundingClientRect();
+      park(probeBox.top > band ? "before" : probeBox.bottom < -band ? "after" : null);
+      const parking = new IntersectionObserver(
+        ([entry]) => {
+          if (!entry) return;
+          if (entry.isIntersecting) park(null);
+          else park(entry.boundingClientRect.top > 0 ? "before" : "after");
+        },
+        {
+          rootMargin: `${band}px 0px ${Math.round(band - window.innerHeight)}px 0px`,
+        },
+      );
+      parking.observe(probe);
+      buildCleanups.push(() => {
+        parking.disconnect();
+        park(null);
+      });
 
       /* Stage 01's copy follows the landing; the rail appears with it. */
       const text = stageTexts[0]!;
@@ -826,6 +876,7 @@ function setup(root: HTMLElement): () => void {
     reveals.forEach((observer) => observer.disconnect());
     delete root.dataset.motion;
     delete root.dataset.dive;
+    delete root.dataset.divePark;
     delete root.dataset.timeline;
   };
 }
