@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element -- pre-encoded, art-directed decorative plates share SVG coordinates. */
 import Link from "next/link";
 import type { CSSProperties, ReactNode } from "react";
 import { HomeFooter } from "@/components/home/home-footer";
@@ -133,27 +132,39 @@ function Plates() {
           </div>
         );
       })}
-      {Array.from({ length: 6 }, (_, i) => (
-        <img
-          key={i}
-          className={styles.fog}
-          data-fog={i % 2}
-          src={`${media}f${(i % 2) + 1}-1536.webp`}
-          srcSet={`${media}f${(i % 2) + 1}-768.webp 768w, ${media}f${(i % 2) + 1}-1536.webp 1536w`}
-          sizes="100vw"
-          width="1536"
-          height="1024"
-          loading="lazy"
-          decoding="async"
-          alt=""
-          style={pos(
-            0,
-            [1300, 2300, 3500, 4600, 5600, 6900][i],
-            0,
-            [700, 1400, 2200, 3300, 4300, 5200][i],
-          )}
-        />
-      ))}
+      {Array.from({ length: 6 }, (_, i) => {
+        // Mist on transparency (screen-equivalent, no blend mode). Soft and
+        // featureless: half resolution on phones looks the same and halves
+        // its decoded memory (R4, R5).
+        const fog = `${media}f${(i % 2) + 1}a`;
+        return (
+          <picture key={i} className={styles.fogPicture}>
+            <source
+              type="image/avif"
+              srcSet={`${fog}-768.avif 768w, ${fog}-1536.avif 1536w`}
+              sizes="(max-width: 1023px) 50vw, 100vw"
+            />
+            <img
+              className={styles.fog}
+              data-fog={i % 2}
+              src={`${fog}-1536.webp`}
+              srcSet={`${fog}-768.webp 768w, ${fog}-1536.webp 1536w`}
+              sizes="(max-width: 1023px) 50vw, 100vw"
+              width="1536"
+              height="1024"
+              loading="lazy"
+              decoding="async"
+              alt=""
+              style={pos(
+                0,
+                [1300, 2300, 3500, 4600, 5600, 6900][i],
+                0,
+                [700, 1400, 2200, 3300, 4300, 5200][i],
+              )}
+            />
+          </picture>
+        );
+      })}
       <div className={styles.dawn} data-dawn />
       <div className={styles.windows} data-windows />
       <div className={styles.endFade} />
@@ -424,7 +435,19 @@ export function RevenueBrandPage() {
                           12,
                         )}
                       >
-                        {index === 0 ? copy.detail.acquisition : copy.detail.sales}
+                        {/* Below 1024 the 12px lines would run across the
+                            river (A4 drew them at ~8px); two phrase lines keep
+                            each block on its own bank. */}
+                        <BrokenText
+                          text={
+                            index === 0 ? copy.detail.acquisition : copy.detail.sales
+                          }
+                          mobile={[
+                            index === 0
+                              ? copy.detail.acquisition.indexOf("宿泊")
+                              : copy.detail.sales.indexOf("地域"),
+                          ]}
+                        />
                       </p>
                     </article>
                   ))}
@@ -432,32 +455,25 @@ export function RevenueBrandPage() {
               )}
               {i === 1 && (
                 <>
-                  <svg width="0" height="0" aria-hidden="true">
-                    <defs>
-                      <filter id="rb-ripple">
-                        <feTurbulence
-                          type="fractalNoise"
-                          baseFrequency="0.012 0.06"
-                          numOctaves="2"
-                          seed="7"
-                        />
-                        <feDisplacementMap
-                          in="SourceGraphic"
-                          scale="0"
-                          xChannelSelector="R"
-                          yChannelSelector="G"
-                          data-ripple
-                        />
-                      </filter>
-                    </defs>
-                  </svg>
+                  {/* The reflection ripples as three interleaved bands that
+                      slide sideways (transform only; no SVG filter). At rest
+                      the bands line up into one still mirror image. */}
                   <p
                     className={`${styles.position} ${styles.reflection} ${styles.center}`}
                     style={pos(720, 2531, 195, 2036, 82, 26)}
                     aria-hidden="true"
                     data-reflection
                   >
-                    <Tight>{chapter.title}</Tight>
+                    {[0, 1, 2].map((band) => (
+                      <span
+                        key={band}
+                        className={styles.rippleBand}
+                        style={{ "--band-index": band } as Vars}
+                        data-ripple-band={band}
+                      >
+                        <Tight>{chapter.title}</Tight>
+                      </span>
+                    ))}
                   </p>
                   {[2, 3].map((index) => (
                     <article key={index}>

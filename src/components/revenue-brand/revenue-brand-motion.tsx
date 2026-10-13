@@ -3,12 +3,11 @@ import { useRef, type ReactNode } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import { CustomEase } from "gsap/CustomEase";
-import { EASE_REVEAL, EASE_STATE, DURATION } from "@/lib/motion";
+import { EASE_REVEAL, EASE_STATE, DURATION, cubicBezier } from "@/lib/motion";
 import { viewfinderTargets, type PhotoId } from "@/content/adelva-revenue-brand";
 import styles from "./revenue-brand.module.css";
-gsap.registerPlugin(useGSAP, ScrollTrigger, MotionPathPlugin, CustomEase);
+gsap.registerPlugin(useGSAP, ScrollTrigger, CustomEase);
 type Sample = { len: number; x: number; y: number; maxY: number };
 /*
  * Length lookup tables for the river paths.
@@ -178,6 +177,31 @@ function lengthAtY(lut: Sample[], y: number) {
   const f = Math.max(0, Math.min(1, (y - a.maxY) / (p.maxY - a.maxY || 1)));
   return a.len + (p.len - a.len) * f;
 }
+/** Share of a point hidden beneath text blocks (plate px rectangles), with a
+ *  soft edge of `fade` units: the light dims as it slips under copy. */
+function coverAt(
+  rects: readonly (readonly number[])[],
+  x: number,
+  y: number,
+  fade: number,
+) {
+  let cover = 0;
+  for (const [rx, ry, rw, rh] of rects) {
+    const dx = x < rx ? rx - x : x > rx + rw ? x - (rx + rw) : 0;
+    const dy = y < ry ? ry - y : y > ry + rh ? y - (ry + rh) : 0;
+    cover = Math.max(cover, 1 - Math.min(1, Math.max(dx, dy) / fade));
+  }
+  return cover;
+}
+/* WAAPI easings matching the GSAP ones used before (expo.out, power3.out). */
+const EXPO_OUT = "cubic-bezier(0.16, 1, 0.3, 1)";
+const POWER3_OUT = "cubic-bezier(0.215, 0.61, 0.355, 1)";
+/** Time constant (s) of the light following the reading line: an exponential,
+ *  frame-rate independent follow that settles in about 0.2 s (R3). */
+const FOLLOW_TAU = 0.065;
+/** Lag behind the reading line (CSS px) that counts as full scroll energy;
+ *  with FOLLOW_TAU this is reached at about 2200 px/s. */
+const FULL_LAG = 150;
 export function RevenueBrandMotion({ children }: { children: ReactNode }) {
   const root = useRef<HTMLDivElement>(null);
   useGSAP(
@@ -193,7 +217,7 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
       const media = gsap.matchMedia();
       let alive = true;
       // Compact runtime geometry is sampled once; SVG paths are server-rendered.
-      const branchPaths = new Map<string, string>();
+      const branchLuts = new Map<string, Sample[]>();
       for (const svg of all<SVGSVGElement>("[data-river]")) {
         const mode = svg.dataset.river!;
         const layer = svg.closest<HTMLElement>("[data-river-layer]")!;
@@ -213,93 +237,18 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
               .filter((p) => p.len > at)
               .map((p) => `L${p.x} ${p.y}`)
               .join(" ");
-          branchPaths.set(`${mode}:${node.dataset.branchNode}`, d);
-          node.querySelector("path[data-selected-branch]")!.setAttribute("d", d);
+          const selected = node.querySelector<SVGPathElement>(
+            "path[data-selected-branch]",
+          )!;
+          selected.setAttribute("d", d);
+          branchLuts.set(`${mode}:${node.dataset.branchNode}`, sample(selected).lut);
         }
       }
-      /*
-       * Ignition: two shock rings and a spray of sparks where the light
-       * arrives. Two burst groups per river are reused round-robin, so fast
-       * scrolling never piles up DOM or tweens.
-       */
-      const burstTurn = new WeakMap<SVGSVGElement, number>();
-      const burst = (svg: SVGSVGElement, x: number, y: number, strong = false) => {
-        const k =
-          svg.viewBox.baseVal.width / (svg.dataset.river === "mobile" ? 390 : 1440);
-        const turn = burstTurn.get(svg) ?? 0;
-        burstTurn.set(svg, turn + 1);
-        const group = svg.querySelectorAll<SVGGElement>("[data-burst]")[turn % 2];
-        if (!group) return;
-        const shocks = Array.from(
-          group.querySelectorAll<SVGCircleElement>("[data-shock]"),
-        );
-        const sparks = Array.from(
-          group.querySelectorAll<SVGCircleElement>("[data-spark]"),
-        );
-        gsap.killTweensOf([...shocks, ...sparks]);
-        group.setAttribute("transform", `translate(${x} ${y})`);
-        group.setAttribute("opacity", "1");
-        // Attribute tweens only: nothing here reads computed style.
-        const shockR = 11 * k;
-        shocks.forEach((shock, i) =>
-          gsap.fromTo(
-            shock,
-            { attr: { r: shockR * 0.35, opacity: 1 } },
-            {
-              attr: { r: shockR * (strong ? 4 : 2.8), opacity: 0 },
-              duration: strong ? 1.25 : 0.95,
-              delay: i * 0.12,
-              ease: "expo.out",
-            },
-          ),
-        );
-        const sparkR = 2.4 * k;
-        sparks.forEach((spark, i) => {
-          const angle =
-            (i / sparks.length) * Math.PI * 2 + gsap.utils.random(-0.25, 0.25);
-          const distance = (strong ? 40 : 26) * k * gsap.utils.random(0.7, 1.3);
-          gsap.fromTo(
-            spark,
-            { attr: { cx: 0, cy: 0, r: sparkR, opacity: 1 } },
-            {
-              attr: {
-                cx: Math.cos(angle) * distance,
-                cy: Math.sin(angle) * distance,
-                r: sparkR * 0.2,
-                opacity: 0,
-              },
-              duration: gsap.utils.random(0.7, 1.05),
-              ease: "power3.out",
-            },
-          );
-        });
-      };
-      const pulseR = new WeakMap<SVGCircleElement, number>();
-      const pulse = (node: SVGElement | null, duration = 0.6) => {
-        if (!(node instanceof SVGCircleElement)) return;
-        if (!pulseR.has(node)) pulseR.set(node, node.r.baseVal.value);
-        const r0 = pulseR.get(node)!;
-        gsap.fromTo(
-          node,
-          { attr: { r: r0 * 0.6, opacity: 0.9 } },
-          {
-            attr: { r: r0 * 2.2, opacity: 0 },
-            duration: duration * 1.6,
-            ease: "expo.out",
-            overwrite: true,
-          },
-        );
-        const svg = node.ownerSVGElement;
-        if (svg)
-          burst(svg, node.cx.baseVal.value, node.cy.baseVal.value, duration >= 0.6);
-      };
+      // Set by the active layout while motion runs: sends a light from a chip.
+      let sendBranchLight: ((id: string) => void) | null = null;
       const select = safe((event: Event) => {
         const { kind, id } = (event as CustomEvent<{ kind: string; id: string | null }>)
           .detail;
-        const mobile = matchMedia("(max-width:1023px)").matches;
-        const svg = el.querySelector<SVGSVGElement>(
-          `[data-river="${mobile ? "mobile" : "desktop"}"]`,
-        )!;
         const motion = matchMedia("(prefers-reduced-motion:no-preference)").matches;
         if (kind === "photo") {
           // Update both coordinate planes, so resizing preserves the selected building.
@@ -333,22 +282,7 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
                 else corner.setAttribute("transform", `translate(${x} ${y})`);
               });
           }
-        } else if (motion && id) {
-          const particle = svg.querySelector<SVGCircleElement>(
-            "[data-branch-particle]",
-          )!;
-          gsap.killTweensOf(particle);
-          gsap.set(particle, { opacity: 1 });
-          gsap.to(particle, {
-            motionPath: { path: branchPaths.get(`${svg.dataset.river}:${id}`)! },
-            duration: 1.1,
-            ease: "power2.inOut",
-            onComplete: () => {
-              gsap.set(particle, { opacity: 0 });
-              pulse(svg.querySelector("[data-confluence-pulse]"));
-            },
-          });
-        }
+        } else if (motion && id) sendBranchLight?.(id);
       });
       el.addEventListener("rb:select", select);
       media.add(
@@ -362,9 +296,34 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
           const mode = desktop ? "desktop" : "mobile";
           const svg = el.querySelector<SVGSVGElement>(`[data-river="${mode}"]`)!;
           if (!motion) return;
+          // Read once before anything is written: which one-shot chapter
+          // moments a restored or deep-linked reading position has passed.
+          const viewAtStart = innerHeight;
+          const pastAtStart = (node: Element | null, at: number) =>
+            !!node && node.getBoundingClientRect().top < viewAtStart * at;
+          const ch1 = el.querySelector("#rb-ch1-title")!;
+          const ch3 = el.querySelector("#rb-ch3-title")!;
+          const photoGroup = el.querySelector('[data-chip-group="photo"]')!;
+          const diffTitle = el.querySelector("#rb-diff-title")!;
+          const past = {
+            ch1: pastAtStart(ch1, 0.7),
+            ch3: pastAtStart(ch3, 0.7),
+            photo: pastAtStart(photoGroup, 0.7),
+            differences: pastAtStart(diffTitle, 0.7),
+            items: all<HTMLElement>("[data-difference-item]").map((item) =>
+              pastAtStart(item.querySelector("dt span"), 0.7),
+            ),
+            cards: all<HTMLElement>("[data-card]").map((card) =>
+              pastAtStart(card, 0.9),
+            ),
+          };
           el.dataset.motion = "on";
           const layer = svg.closest<HTMLElement>("[data-river-layer]")!;
           const path = layer.querySelector<SVGPathElement>('[data-main-line="core"]')!;
+          const textRects = JSON.parse(layer.dataset.masks ?? "[]") as number[][];
+          const [lakeTop, lakeBottom] = JSON.parse(
+            layer.dataset.lake ?? "[0,0]",
+          ) as number[];
           /* Moving layers: only their transforms and opacity change per frame. */
           const revealWindow = layer.querySelector<HTMLElement>("[data-reveal]")!;
           const revealContent = layer.querySelector<HTMLElement>(
@@ -379,21 +338,22 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
               clip: window.querySelector<HTMLElement>("[data-tail-clip]")!,
               content: window.querySelector<HTMLElement>("[data-tail-content]")!,
             }));
+          const flow = layer.querySelector<SVGPathElement>("[data-flow]")!;
+          const lantern = el.querySelector<HTMLElement>("[data-lantern]")!;
+          const bands = all<HTMLElement>("[data-ripple-band]");
+          const reflection = el.querySelector<HTMLElement>("[data-reflection]")!;
           const moving = [
             revealWindow,
             revealContent,
             head,
             headGlow,
+            lantern,
+            ...bands,
             ...tails.flatMap((t) => [t.window, t.clip, t.content]),
           ];
-          const flow = layer.querySelector<SVGPathElement>("[data-flow]")!;
-          const lantern = el.querySelector<HTMLElement>("[data-lantern]")!;
           const k = svg.viewBox.baseVal.width / (desktop ? 1440 : 390);
-          /* Scroll energy (0 at rest, 1 at a brisk scroll) stretches the tail,
-             brightens the head and the water, and drives the current. */
-          const fx = { energy: 0, flare: 0 };
-          let flowOffset = 0,
-            lastScroll = scrollY;
+          const fx = { flare: 0 };
+          let flowOffset = 0;
           type Waypoint = {
             len: number;
             x: number;
@@ -413,7 +373,11 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
           let boundaries: number[] = [];
           let relatedTop = Infinity;
           let railThreshold = 700;
-          const proxy = { len: 0 };
+          let railAllowed = true;
+          let cover = new Float32Array(1);
+          let rippleFrom = 0,
+            rippleTo = 0,
+            rippleAmp = 0;
           let previousCount = -1;
           const stepElements = all<HTMLElement>("li[data-step]");
           const counter = el.querySelector<HTMLElement>("[data-counter]")!;
@@ -424,6 +388,150 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
           const railDot = rail.querySelector<SVGCircleElement>("[data-rail-dot]")!;
           const railPath = rail.querySelector<SVGPathElement>("path")!;
           const railLut = sample(railPath);
+          const railLinks = all<HTMLAnchorElement>('[data-rail="desktop"] a');
+          let railIndex = -1;
+          /* Effects: HTML placed at stage points, animated with WAAPI. */
+          const fxLayer = layer.querySelector<HTMLElement>("[data-fx]")!;
+          const place = (node: HTMLElement, x: number, y: number) => {
+            node.style.transform = `translate3d(${(x / ratio).toFixed(2)}px, ${(y / ratio).toFixed(2)}px, 0)`;
+          };
+          const burstSlots = Array.from(
+            fxLayer.querySelectorAll<HTMLElement>("[data-burst]"),
+          );
+          const ringSlots = Array.from(
+            fxLayer.querySelectorAll<HTMLElement>("[data-ring-slot]"),
+          );
+          let burstTurn = 0,
+            ringTurn = 0;
+          // Running effect animations per slot, cancelled on reuse. Kept here
+          // because `getAnimations()` would force a style recalculation.
+          const running = new Map<HTMLElement, Animation[]>();
+          const restart = (slot: HTMLElement) => {
+            for (const a of running.get(slot) ?? []) a.cancel();
+            const list: Animation[] = [];
+            running.set(slot, list);
+            return list;
+          };
+          /* Ignition: two shock rings and a spray of sparks where the light
+             arrives. Two burst groups are reused round-robin, so fast
+             scrolling never piles up DOM or animations. */
+          const burst = (x: number, y: number, strong = false) => {
+            const group = burstSlots[burstTurn++ % burstSlots.length];
+            const list = restart(group);
+            place(group, x, y);
+            const reach = strong ? 4 : 2.8;
+            group.style.setProperty("--shock", String(11 * reach));
+            group.querySelectorAll<HTMLElement>("[data-shock]").forEach((shock, i) =>
+              list.push(
+                shock.animate(
+                  [
+                    { transform: `scale(${(0.35 / reach).toFixed(3)})`, opacity: 1 },
+                    { transform: "scale(1)", opacity: 0 },
+                  ],
+                  {
+                    duration: strong ? 1250 : 950,
+                    delay: i * 120,
+                    easing: EXPO_OUT,
+                    fill: "backwards",
+                  },
+                ),
+              ),
+            );
+            const unit = k / ratio;
+            const sparks = group.querySelectorAll<HTMLElement>("[data-spark]");
+            sparks.forEach((spark, i) => {
+              const angle =
+                (i / sparks.length) * Math.PI * 2 + gsap.utils.random(-0.25, 0.25);
+              const distance = (strong ? 40 : 26) * unit * gsap.utils.random(0.7, 1.3);
+              list.push(
+                spark.animate(
+                  [
+                    { transform: "translate(0, 0) scale(1)", opacity: 1 },
+                    {
+                      transform: `translate(${(Math.cos(angle) * distance).toFixed(1)}px, ${(Math.sin(angle) * distance).toFixed(1)}px) scale(0.2)`,
+                      opacity: 0,
+                    },
+                  ],
+                  { duration: gsap.utils.random(700, 1050), easing: POWER3_OUT },
+                ),
+              );
+            });
+          };
+          /* A ring that widens once around an SVG node (its anchor circle). */
+          const ring = (node: Element | null, duration = 0.6) => {
+            if (!(node instanceof SVGCircleElement)) return null;
+            const x = node.cx.baseVal.value,
+              y = node.cy.baseVal.value;
+            const slot = ringSlots[ringTurn++ % ringSlots.length];
+            const disc = slot.firstElementChild as HTMLElement;
+            const list = restart(slot);
+            place(slot, x, y);
+            slot.style.setProperty("--ring", String((node.r.baseVal.value * 2.2) / k));
+            list.push(
+              disc.animate(
+                [
+                  { transform: `scale(${(0.6 / 2.2).toFixed(3)})`, opacity: 0.9 },
+                  { transform: "scale(1)", opacity: 0 },
+                ],
+                { duration: duration * 1600, easing: EXPO_OUT },
+              ),
+            );
+            return { x, y };
+          };
+          const pulse = (node: Element | null, duration = 0.6) => {
+            const at = ring(node, duration);
+            if (at) burst(at.x, at.y, duration >= 0.6);
+          };
+          /* A small light travelling along a sampled path (transform only). */
+          const particle = (
+            kind: "branch" | "cycle",
+            lut: Sample[],
+            to: number,
+            duration: number,
+            ease: string,
+            onStep?: (len: number) => void,
+          ) => {
+            const slot = fxLayer.querySelector<HTMLElement>(
+              `[data-particle="${kind}"]`,
+            )!;
+            const dot = slot.firstElementChild as HTMLElement;
+            const travel = { len: 0 };
+            return gsap.to(travel, {
+              len: to,
+              duration,
+              ease,
+              onStart: () => {
+                dot.style.opacity = "1";
+              },
+              onUpdate: () => {
+                const p = pointAt(lut, travel.len);
+                place(slot, p.x, p.y);
+                onStep?.(travel.len);
+              },
+              onComplete: () => {
+                dot.style.opacity = "0";
+              },
+            });
+          };
+          let branchRun: gsap.core.Tween | null = null;
+          sendBranchLight = (id) => {
+            const lut = branchLuts.get(`${mode}:${id}`);
+            if (!lut) return;
+            branchRun?.kill();
+            const run = (branchRun = particle(
+              "branch",
+              lut,
+              lut.at(-1)!.len,
+              1.1,
+              "power2.inOut",
+            ));
+            run.eventCallback("onComplete", () => {
+              (
+                fxLayer.querySelector('[data-particle="branch"] i') as HTMLElement
+              ).style.opacity = "0";
+              pulse(svg.querySelector("[data-confluence-pulse]"));
+            });
+          };
           const setStates = (count: number) => {
             if (count === previousCount) return;
             previousCount = count;
@@ -439,33 +547,31 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
               bars[i].dataset.reached = String(i < count);
             });
             counter.textContent = String(count).padStart(2, "0");
-            gsap.fromTo(
-              counter,
-              { yPercent: 100 },
-              { yPercent: 0, duration: 0.3, ease: panel, overwrite: true },
+            counter.animate(
+              [{ transform: "translateY(100%)" }, { transform: "none" }],
+              {
+                duration: 300,
+                easing: cubicBezier(EASE_STATE),
+              },
             );
           };
           const ignite = (w: Waypoint) => {
             const strong = w.kind === "process" || w.kind === "end";
-            burst(svg, w.x, w.y, strong);
+            burst(w.x, w.y, strong);
             gsap.fromTo(
               fx,
               { flare: 1 },
-              { flare: 0, duration: 1.2, ease: "power2.out", onUpdate: invalidate },
+              { flare: 0, duration: 1.2, ease: "power2.out", onUpdate: wake },
             );
-            if (w.kind === "end") pulse(layer.querySelector("[data-end-pulse]"));
+            if (w.kind === "end") ring(layer.querySelector("[data-end-pulse]"));
             if (w.step) {
-              const nodeCircle = layer.querySelector(
-                `[data-process-node="${w.step}"] .${styles.stepNode}`,
+              // The node answers with a ring of its own (no SVG repaint).
+              ring(
+                layer.querySelector(
+                  `[data-process-node="${w.step}"] .${styles.stepNode}`,
+                ),
+                0.5,
               );
-              if (nodeCircle instanceof SVGCircleElement) {
-                const r0 = Number(nodeCircle.getAttribute("r"));
-                gsap.fromTo(
-                  nodeCircle,
-                  { attr: { r: r0 * 2 } },
-                  { attr: { r: r0 }, duration: 0.8, ease: "elastic.out(1, 0.45)" },
-                );
-              }
               // The label arrives from the river side (a CSS animation, restarted).
               const item = el.querySelector<HTMLElement>(`li[data-step="${w.step}"]`);
               if (item) {
@@ -476,8 +582,7 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
               }
             }
           };
-          /* Writes are cached so a frame only touches what actually changed;
-             render runs at most once per frame from the ticker below. */
+          /* Writes are cached so a frame only touches what actually changed. */
           const written = new WeakMap<Element, Map<string, string>>();
           const write = (node: Element, key: string, value: string) => {
             let last = written.get(node);
@@ -491,9 +596,23 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
           const px = (v: number) => v.toFixed(2);
           const shift = (node: HTMLElement, y: number) =>
             write(node, "transform", `translate3d(0, ${px(y)}px, 0)`);
+          /* The scroll position is cached from the scroll event: nothing in
+             the frame loop reads layout (R2). */
+          let scrollTop = window.scrollY;
+          let phaseScroll = scrollTop;
+          let len = 0,
+            energy = 0,
+            ripplePhase = 0;
+          const goal = () =>
+            scrollTop <= 0
+              ? 0
+              : lengthAtY(
+                  geometry.lut,
+                  (scrollTop + viewHeight * 0.58 - stageTop) * ratio,
+                );
           const render = () => {
-            const len = Math.max(0, Math.min(geometry.total, proxy.len));
-            const point = pointAt(geometry.lut, len);
+            const at = Math.max(0, Math.min(geometry.total, len));
+            const point = pointAt(geometry.lut, at);
             // The lower edge of every window is the head (CSS px in the stage).
             const edge = Math.round((point.y / ratio) * 100) / 100;
             const down = Math.round((edge - stageHeight) * 100) / 100;
@@ -504,9 +623,12 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
               "transform",
               `translate3d(${px(point.x / ratio)}px, ${px(edge)}px, 0)`,
             );
-            const visible = len > 1 && len < geometry.total - 1 && window.scrollY > 0;
-            const e = fx.energy;
-            write(head, "opacity", visible ? round(0.8 + e * 0.2) : "0");
+            const visible = at > 1 && at < geometry.total - 1 && scrollTop > 0;
+            const e = energy;
+            // The light slips beneath copy instead of glowing through it.
+            const clear =
+              1 - (cover[Math.min(cover.length - 1, Math.round(at / STEP))] ?? 0);
+            write(head, "opacity", visible ? round((0.8 + e * 0.2) * clear) : "0");
             write(
               headGlow,
               "transform",
@@ -532,8 +654,8 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
             const flowing = desktop && visible && e > 0.02;
             if (flowing) {
               // Only the stretch between the top of the viewport and the head.
-              const from = lengthAtY(geometry.lut, (window.scrollY - stageTop) * ratio);
-              write(flow, "@d", subPath(geometry.lut, from, len, 48));
+              const from = lengthAtY(geometry.lut, (scrollTop - stageTop) * ratio);
+              write(flow, "@d", subPath(geometry.lut, from, at, 48));
               write(flow, "stroke-dashoffset", round(from + flowOffset, 1));
             }
             write(flow, "opacity", flowing ? round(Math.min(1, e * 1.6) * 0.85) : "0");
@@ -545,52 +667,131 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
             write(
               lantern,
               "opacity",
-              visible ? round(Math.min(1, 0.38 + e * 0.5 + fx.flare * 0.35)) : "0",
+              visible
+                ? round(Math.min(1, 0.38 + e * 0.5 + fx.flare * 0.35) * clear)
+                : "0",
             );
             let reached = 0;
-            while (reached < waypoints.length && len >= waypoints[reached].len - 0.5)
+            while (reached < waypoints.length && at >= waypoints[reached].len - 0.5)
               reached++;
             if (reached > passed)
               waypoints.slice(Math.max(passed, reached - 2), reached).forEach(ignite);
             passed = reached;
-            const count = steps.filter((step) => len >= step).length;
-            setStates(count);
+            setStates(steps.filter((step) => at >= step).length);
             const p = Math.max(
               0,
-              Math.min(1, (len - steps[3]) / (geometry.total - steps[3])),
+              Math.min(1, (at - steps[3]) / (geometry.total - steps[3])),
             );
             write(dawn, "opacity", round(p * 0.55));
             write(windows, "opacity", round(p * 0.35));
+            // The reflection ripples with the scroll's energy while in view.
+            if (scrollTop > rippleFrom && scrollTop < rippleTo) {
+              const amplitude = e * rippleAmp;
+              bands.forEach((band, i) =>
+                write(
+                  band,
+                  "transform",
+                  `translate3d(${px(amplitude * Math.sin(ripplePhase + i * 2.094))}px, 0, 0)`,
+                ),
+              );
+            }
+            // Page position: the rail's dot, its chapter, and its visibility.
+            if (railAllowed || scrollTop < railThreshold) {
+              const progress = Math.max(
+                0,
+                Math.min(1, (scrollTop - stageTop) / (endY - viewHeight * 0.58)),
+              );
+              const dot = pointAt(railLut.lut, railLut.total * progress);
+              write(railDot, "@cx", round(dot.x, 1));
+              write(railDot, "@cy", round(dot.y, 1));
+            }
+            const index = Math.max(
+              0,
+              boundaries.filter((y) => scrollTop + viewHeight * 0.58 >= y).length - 1,
+            );
+            if (index !== railIndex) {
+              railIndex = index;
+              railLinks.forEach((a, i) => {
+                if (i === index) a.setAttribute("aria-current", "location");
+                else a.removeAttribute("aria-current");
+              });
+            }
+            // Attributes on the page root restyle the whole subtree: write
+            // only when a value actually changes.
+            write(
+              el,
+              "@data-rail-fixed",
+              String(railAllowed && scrollTop > railThreshold),
+            );
+            write(
+              el,
+              "@data-rail-hidden",
+              String(scrollTop + viewHeight * 0.6 >= relatedTop),
+            );
           };
-          let dirty = false;
-          const invalidate = () => {
-            dirty = true;
-          };
-          const tick = () => {
-            if (!dirty) return;
-            dirty = false;
+          /* One frame loop, awake only while something is still moving. */
+          let raf = 0,
+            last = 0;
+          const frame = (time: number) => {
+            raf = 0;
+            const dt = last ? Math.min(0.1, (time - last) / 1000) : 1 / 60;
+            last = time;
+            const target = goal();
+            len += (target - len) * (1 - Math.exp(-dt / FOLLOW_TAU));
+            // Energy is the light's lag behind the reader: it rises with
+            // speed and fades as the light catches up (no velocity spikes
+            // from irregular scroll sampling).
+            const wanted = Math.min(1, Math.abs(target - len) / ratio / FULL_LAG);
+            energy +=
+              (wanted - energy) * (1 - Math.exp(-dt / (wanted > energy ? 0.06 : 0.28)));
+            const moved = Math.abs(scrollTop - phaseScroll);
+            phaseScroll = scrollTop;
+            ripplePhase += moved * 0.045;
+            flowOffset -= moved * ratio * 1.5;
+            const settled =
+              Math.abs(target - len) < 0.3 && energy < 0.004 && fx.flare <= 0;
+            if (settled) {
+              len = target;
+              energy = 0;
+              last = 0;
+            }
             render();
+            if (!settled) raf = requestAnimationFrame(frame);
           };
-          gsap.ticker.add(tick);
-          const follow = gsap.quickTo(proxy, "len", {
-            duration: 0.35,
-            ease: "power3.out",
-            onUpdate: invalidate,
-          });
-          const energize = gsap.quickTo(fx, "energy", {
-            duration: 0.7,
-            ease: "power3.out",
-            onUpdate: invalidate,
-          });
-          const settle = gsap.delayedCall(0.14, () => energize(0)).pause();
+          function wake() {
+            if (!raf) raf = requestAnimationFrame(frame);
+          }
+          const onScroll = () => {
+            scrollTop = window.scrollY;
+            wake();
+          };
           const refresh = () => {
             geometry = sample(path);
             const r = stage.getBoundingClientRect();
+            scrollTop = window.scrollY;
+            phaseScroll = scrollTop;
             ratio = svg.viewBox.baseVal.height / r.height;
             stageHeight = r.height;
             railThreshold = 700 * (r.width / 390);
-            stageTop = r.top + scrollY;
+            railAllowed = desktop || innerWidth >= 600;
+            stageTop = r.top + scrollTop;
             viewHeight = innerHeight;
+            // Over the lake the river is a row of fine dots on still water:
+            // the light glides there at 40% instead of burning like an orb.
+            const lake = [[0, lakeTop, Infinity, lakeBottom - lakeTop]];
+            cover = Float32Array.from(geometry.lut, (p) =>
+              Math.max(
+                coverAt(textRects, p.x, p.y, 60 * k),
+                0.6 * coverAt(lake, p.x, p.y, 60 * k),
+              ),
+            );
+            const reflected = reflection.getBoundingClientRect();
+            rippleFrom = reflected.top + scrollTop - viewHeight;
+            rippleTo = reflected.bottom + scrollTop;
+            rippleAmp = Math.min(
+              6,
+              parseFloat(getComputedStyle(reflection).fontSize) * 0.11,
+            );
             steps = Array.from(
               layer.querySelectorAll<SVGGElement>("[data-process-node]"),
             ).map((node) => {
@@ -657,83 +858,42 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
               .sort((a, b) => a.len - b.len);
             boundaries = all<HTMLElement>(
               "#rb-hero,#rb-ch1,#rb-ch2,#rb-ch3,#rb-process",
-            ).map((n) => n.getBoundingClientRect().top + scrollY);
+            ).map((n) => n.getBoundingClientRect().top + scrollTop);
             relatedTop =
               el.querySelector<HTMLElement>("[data-related]")!.getBoundingClientRect()
-                .top + scrollY;
-            proxy.len =
-              scrollY === 0
-                ? 0
-                : lengthAtY(
-                    geometry.lut,
-                    (scrollY + viewHeight * 0.58 - stageTop) * ratio,
-                  );
-            // A reload, resize or history return must not replay every ignition.
-            passed = waypoints.filter((w) => proxy.len >= w.len - 0.5).length;
+                .top + scrollTop;
+            // A reload, resize or history return lands on the reading line at
+            // once and must not replay every ignition.
+            len = goal();
+            energy = 0;
+            passed = waypoints.filter((w) => len >= w.len - 0.5).length;
             render();
           };
-          const railLinks = all<HTMLAnchorElement>('[data-rail="desktop"] a');
-          let railIndex = -1;
-          const update = (scroll: number, velocity = 0) => {
-            flowOffset -= Math.abs(scroll - lastScroll) * ratio * 1.5;
-            lastScroll = scroll;
-            energize(Math.min(1, Math.abs(velocity) / 2200));
-            settle.restart(true);
-            follow(
-              scroll === 0
-                ? 0
-                : lengthAtY(
-                    geometry.lut,
-                    (scroll + viewHeight * 0.58 - stageTop) * ratio,
-                  ),
-            );
-            const progress = Math.max(
-              0,
-              Math.min(1, (scroll - stageTop) / (endY - viewHeight * 0.58)),
-            );
-            const point = pointAt(railLut.lut, railLut.total * progress);
-            railDot.setAttribute("cx", String(point.x));
-            railDot.setAttribute("cy", String(point.y));
-            const index = Math.max(
-              0,
-              boundaries.filter((y) => scroll + viewHeight * 0.58 >= y).length - 1,
-            );
-            // Attributes on the page root restyle the whole subtree: write only
-            // when a value actually changes.
-            if (index !== railIndex) {
-              railIndex = index;
-              railLinks.forEach((a, i) => {
-                if (i === index) a.setAttribute("aria-current", "location");
-                else a.removeAttribute("aria-current");
-              });
-            }
-            write(el, "@data-rail-fixed", String(scroll > railThreshold));
-            write(
-              el,
-              "@data-rail-hidden",
-              String(scroll + viewHeight * 0.6 >= relatedTop),
-            );
-          };
           refresh();
-          ScrollTrigger.create({
-            trigger: stage,
-            start: "top bottom",
-            end: "bottom top",
-            onUpdate: (self) => update(self.scroll(), self.getVelocity()),
-            onRefresh: () => {
-              refresh();
-              update(scrollY);
-            },
-          });
-          const heroTl = gsap.timeline();
-          const restored = scrollY > 100;
-          if (!restored) {
-            heroTl.fromTo(
-              el.querySelector("[data-hero-veil]"),
-              { opacity: 0.55 },
-              { opacity: 0, duration: 0.9, ease: reveal },
-              0,
-            );
+          window.addEventListener("scroll", onScroll, { passive: true });
+          ScrollTrigger.addEventListener("refresh", refresh);
+          /* One-shot chapter moments: played once when their trigger enters,
+             or shown finished when the page opens past them. */
+          const once = (
+            timeline: gsap.core.Timeline,
+            trigger: Element,
+            wasPast: boolean,
+            finish?: () => void,
+          ) => {
+            if (wasPast) {
+              timeline.progress(1, true);
+              finish?.();
+              return;
+            }
+            ScrollTrigger.create({
+              trigger,
+              start: "top 70%",
+              once: true,
+              onEnter: () => void timeline.play(),
+            });
+          };
+          if (scrollY <= 100) {
+            const heroTl = gsap.timeline();
             const sourcePaths = Array.from(
               layer.querySelectorAll<SVGPathElement>("[data-source-line]"),
             );
@@ -774,17 +934,8 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
                 0.85 + i * 0.08,
               );
             });
-            heroTl.fromTo(
-              el.querySelector("[data-scroll-cue]"),
-              { scaleY: 0 },
-              { scaleY: 1, duration: 1.2, ease: reveal },
-              0.6,
-            );
           }
-          const ch1 = el.querySelector("#rb-ch1-title")!;
-          const ch1Tl = gsap.timeline({
-            scrollTrigger: { trigger: ch1, start: "top 70%", once: true },
-          });
+          const ch1Tl = gsap.timeline({ paused: true });
           ch1Tl
             .fromTo(
               layer.querySelectorAll("[data-tributary]"),
@@ -819,77 +970,35 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
               { opacity: 1, y: 0, duration: 0.3, ease: panel },
               1.6,
             );
-          // Ripple is local to the reflected title and only enabled while visible.
-          const reflection = el.querySelector<HTMLElement>("[data-reflection]")!;
-          const displacement =
-            el.querySelector<SVGFEDisplacementMapElement>("[data-ripple]")!;
-          const ripple = { value: 0 };
-          let inView = false;
-          const rippleTo = gsap.quickTo(ripple, "value", {
-            duration: 0.7,
-            ease: "power3.out",
-            onUpdate: () => displacement.setAttribute("scale", String(ripple.value)),
-          });
-          const calm = gsap.delayedCall(0.12, () => rippleTo(0)).pause();
-          const observer = new IntersectionObserver((entries) => {
-            inView = entries[0].isIntersecting && !matchMedia("(update:slow)").matches;
-            reflection.style.filter = inView ? "url(#rb-ripple)" : "none";
-            if (!inView) rippleTo(0);
-          });
-          observer.observe(reflection);
-          ScrollTrigger.create({
-            trigger: reflection,
-            start: "top bottom",
-            end: "bottom top",
-            onUpdate: (self) => {
-              if (inView) {
-                rippleTo(Math.min(6, Math.abs(self.getVelocity()) / 700));
-                calm.restart(true);
-              }
-            },
-          });
-          const frame = layer.querySelector<SVGGElement>("[data-viewfinder]")!;
+          once(ch1Tl, ch1, past.ch1);
+          const frame0 = layer.querySelector<SVGGElement>("[data-viewfinder]")!;
           const initialTarget = viewfinderTargets[mode].room;
           const center = [
             (initialTarget[0] + initialTarget[2]) / 2,
             (initialTarget[1] + initialTarget[3]) / 2,
           ];
-          frame.querySelectorAll<SVGPathElement>("[data-corner]").forEach((corner) => {
+          const finderTl = gsap.timeline({ paused: true });
+          frame0.querySelectorAll<SVGPathElement>("[data-corner]").forEach((corner) => {
             const end = corner.getAttribute("transform")!;
             const [x, y] = end.match(/[-\d.]+/g)!.map(Number);
-            gsap.fromTo(
+            finderTl.fromTo(
               corner,
               {
                 attr: {
                   transform: `translate(${center[0] + (x - center[0]) * 1.15} ${center[1] + (y - center[1]) * 1.15})`,
                 },
               },
-              {
-                attr: { transform: end },
-                duration: 0.4,
-                ease: panel,
-                scrollTrigger: {
-                  trigger: el.querySelector('[data-chip-group="photo"]'),
-                  start: "top 70%",
-                  once: true,
-                },
-              },
+              { attr: { transform: end }, duration: 0.4, ease: panel },
+              0,
             );
           });
-          gsap.fromTo(
-            frame,
+          finderTl.fromTo(
+            frame0,
             { opacity: 0 },
-            {
-              opacity: 1,
-              duration: 0.4,
-              ease: panel,
-              scrollTrigger: {
-                trigger: el.querySelector('[data-chip-group="photo"]'),
-                start: "top 70%",
-                once: true,
-              },
-            },
+            { opacity: 1, duration: 0.4, ease: panel },
+            0,
           );
+          once(finderTl, photoGroup, past.photo);
           const cycle = layer.querySelector<SVGPathElement>("[data-cycle]")!,
             cycleGeo = sample(cycle),
             posting = layer.querySelector<SVGCircleElement>(
@@ -900,7 +1009,6 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
             posting.cx.baseVal.value,
             posting.cy.baseVal.value,
           );
-          const cycleProxy = { value: 0 };
           const cycleNodes = Array.from(
             layer.querySelectorAll<SVGGElement>("[data-loop-node]"),
           ).filter((n) => n.dataset.loopNode !== "web-booking");
@@ -922,15 +1030,8 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
             currentMarks.forEach((node) =>
               node.setAttribute("data-loop-current", String(on)),
             );
-          setCurrent(false);
-          const cycleParticle = layer.querySelector("[data-cycle-particle]");
-          const loopTl = gsap.timeline({
-            scrollTrigger: {
-              trigger: el.querySelector("#rb-ch3-title"),
-              start: "top 70%",
-              once: true,
-            },
-          });
+          if (!past.ch3) setCurrent(false);
+          const loopTl = gsap.timeline({ paused: true });
           loopTl
             .fromTo(
               [
@@ -940,44 +1041,28 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
               { strokeDashoffset: 1 },
               { strokeDashoffset: 0, duration: 0.9, ease: reveal },
             )
-            .set(cycleParticle, { opacity: 1 })
-            .to(cycleParticle, {
-              motionPath: {
-                path: cycle.getAttribute("d")!,
-                start: 0,
-                end: postLength / cycleGeo.total,
-              },
-              duration: 1.6,
-              ease: "power1.inOut",
-            })
-            .to(
-              cycleProxy,
-              {
-                value: postLength,
-                duration: 1.6,
-                ease: "power1.inOut",
-                onUpdate: () =>
-                  cycleNodes.forEach((node, i) => {
-                    if (pulsed.has(i) || cycleProxy.value < cycleStops[i]) return;
-                    pulsed.add(i);
-                    if (node.dataset.loopNode !== "posting")
-                      pulse(node.querySelector("[data-loop-pulse]"), 0.5);
-                  }),
-              },
-              "<",
+            .add(
+              particle("cycle", cycleGeo.lut, postLength, 1.6, "power1.inOut", (at) =>
+                cycleNodes.forEach((node, i) => {
+                  if (pulsed.has(i) || at < cycleStops[i]) return;
+                  pulsed.add(i);
+                  if (node.dataset.loopNode !== "posting")
+                    pulse(node.querySelector("[data-loop-pulse]"), 0.5);
+                }),
+              ),
             )
             .add(() => {
               setCurrent(true);
               pulse(layer.querySelector("[data-post-pulse]"));
             })
-            .to(cycleParticle, { opacity: 0, duration: 0.3 })
             .fromTo(
               layer.querySelector("[data-loop-arrow]"),
               { opacity: 0 },
               { opacity: 1, duration: 0.3 },
-              "<",
             );
-          all<HTMLElement>("[data-difference-item]").forEach((item, i) =>
+          once(loopTl, ch3, past.ch3, () => setCurrent(true));
+          all<HTMLElement>("[data-difference-item]").forEach((item, i) => {
+            if (past.items[i]) return;
             gsap.from(item.children, {
               opacity: 0,
               x: i % 2 === 0 ? -12 : 12,
@@ -989,21 +1074,19 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
                 start: "top 70%",
                 once: true,
               },
-            }),
-          );
-          for (const line of layer.querySelectorAll("[data-difference-line]"))
-            gsap.from(line, {
-              scaleX: 0,
-              transformOrigin: desktop ? "center" : "left",
-              duration: 0.4,
-              ease: panel,
-              scrollTrigger: {
-                trigger: el.querySelector("#rb-diff-title"),
-                start: "top 70%",
-                once: true,
-              },
             });
+          });
+          if (!past.differences)
+            for (const line of layer.querySelectorAll("[data-difference-line]"))
+              gsap.from(line, {
+                scaleX: 0,
+                transformOrigin: desktop ? "center" : "left",
+                duration: 0.4,
+                ease: panel,
+                scrollTrigger: { trigger: diffTitle, start: "top 70%", once: true },
+              });
           all<HTMLElement>("[data-card]").forEach((card, i) => {
+            if (past.cards[i]) return;
             gsap.from(card, {
               y: 12,
               opacity: 0,
@@ -1024,43 +1107,41 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
                 },
               );
           });
-          all<HTMLImageElement>("[data-fog]").forEach((fog) =>
-            gsap.fromTo(
-              fog,
-              { yPercent: fog.dataset.fog === "0" ? -15 : 15 },
-              {
-                yPercent: fog.dataset.fog === "0" ? 15 : -15,
-                ease: "none",
-                scrollTrigger: {
-                  trigger: fog,
-                  start: "top bottom",
-                  end: "bottom top",
-                  scrub: true,
-                  onToggle: (self) => {
-                    fog.style.willChange = self.isActive ? "transform" : "auto";
+          // Mist parallax only where blending and layer moves are cheap (R4):
+          // on phones and tablets the mist stays still.
+          if (desktop)
+            all<HTMLImageElement>("[data-fog]").forEach((fog) =>
+              gsap.fromTo(
+                fog,
+                { yPercent: fog.dataset.fog === "0" ? -15 : 15 },
+                {
+                  yPercent: fog.dataset.fog === "0" ? 15 : -15,
+                  ease: "none",
+                  scrollTrigger: {
+                    trigger: fog,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true,
+                    onToggle: (self) => {
+                      fog.style.willChange = self.isActive ? "transform" : "auto";
+                    },
                   },
                 },
-              },
-            ),
-          );
-          const pageshow = () => {
-            ScrollTrigger.refresh();
-            refresh();
-            update(scrollY);
-          };
+              ),
+            );
+          const pageshow = () => ScrollTrigger.refresh();
           window.addEventListener("pageshow", pageshow);
           void document.fonts.ready.then(() => {
             if (alive) ScrollTrigger.refresh();
           });
           return () => {
-            observer.disconnect();
             window.removeEventListener("pageshow", pageshow);
-            calm.kill();
-            settle.kill();
-            gsap.ticker.remove(tick);
-            energize.tween.kill();
-            follow.tween.kill();
-            rippleTo.tween.kill();
+            window.removeEventListener("scroll", onScroll);
+            ScrollTrigger.removeEventListener("refresh", refresh);
+            cancelAnimationFrame(raf);
+            raf = 0;
+            sendBranchLight = null;
+            for (const list of running.values()) for (const a of list) a.cancel();
             delete el.dataset.motion;
             delete el.dataset.railFixed;
             delete el.dataset.railHidden;
@@ -1074,13 +1155,12 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
             );
             bars.forEach((b) => (b.dataset.reached = "true"));
             counter.textContent = "06";
-            for (const node of [...moving, flow, lantern])
+            for (const node of [...moving, flow])
               ["opacity", "transform", "stroke-dashoffset"].forEach((p) =>
                 node.style.removeProperty(p),
               );
             dawn.style.removeProperty("opacity");
             windows.style.removeProperty("opacity");
-            reflection.style.removeProperty("filter");
           };
         },
       );

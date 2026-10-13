@@ -166,13 +166,14 @@
   pointer-events: none;
   overflow: hidden;
 }
-.plate picture {
+.desktopPlate > picture,
+.mobilePlate > picture {
   position: absolute;
   left: 0;
   width: 100%;
   display: block;
 }
-.plate picture img {
+:is(.desktopPlate, .mobilePlate) > picture img {
   display: block;
   width: 100%;
   height: 100%;
@@ -471,25 +472,62 @@
   stroke-width: calc(var(--core) * 0.9);
   stroke-dasharray: 0 var(--flow-gap, 34);
 }
-.burst {
+/* Ignitions, pulses and particles: HTML discs and rings animated with WAAPI
+   on transform and opacity, so they run on the compositor and never repaint
+   the river's SVG layers. `.fxAt` is placed at a stage point (CSS px); its
+   children are centred on it. Sizes are in reference px (--s / --u). */
+.fx {
+  position: absolute;
+  inset: 0;
   pointer-events: none;
+  --unit: var(--s);
+}
+.fxAt {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.fxAt > i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  translate: -50% -50%;
+  border-radius: 50%;
+  opacity: 0;
 }
 .shock {
-  fill: none;
-  stroke: #ffb070;
-  stroke-width: calc(var(--leader) * 2.6);
+  width: calc(var(--shock, 31) * 2 * var(--unit));
+  aspect-ratio: 1;
+  border: 2px solid #ffb070;
 }
 .shockSoft {
-  stroke: rgb(255 126 21 / 55%);
-  stroke-width: calc(var(--leader) * 6);
+  border: 5px solid rgb(255 126 21 / 55%);
 }
 .spark {
-  fill: #fff1dd;
+  width: calc(4.8 * var(--unit));
+  aspect-ratio: 1;
+  background: #fff1dd;
+}
+.ring {
+  width: calc(var(--ring, 26) * 2 * var(--unit));
+  aspect-ratio: 1;
+  border: 2px solid var(--flare);
+}
+.particle {
+  width: calc(8 * var(--unit));
+  aspect-ratio: 1;
+  background: #fff3e6;
+  box-shadow: 0 0 calc(6 * var(--unit)) calc(2 * var(--unit)) rgb(255 190 120 / 70%);
+}
+@media (min-width: 1024px) {
+  .fx {
+    --unit: var(--u);
+  }
 }
 /* Out of the render tree unless motion runs, so the reduced-motion and
    no-JS page renders exactly as before (even invisible strokes widen the
    SVG's paint bounds and change how the text above is composited). */
-.page:not([data-motion="on"]) :is(.tailWindow, .flowLayer, .burst, .head) {
+.page:not([data-motion="on"]) :is(.tailWindow, .flowLayer, .fx, .head) {
   display: none;
 }
 /* Below 1024 the per-frame current is the one layer that still repaints. */
@@ -574,8 +612,10 @@
   height: calc(280 * var(--s));
   object-fit: cover;
   opacity: 0.35;
-  mix-blend-mode: screen;
   mask-image: linear-gradient(transparent, #000 35%, #000 65%, transparent);
+}
+.fogPicture {
+  display: contents;
 }
 .dawn,
 .windows {
@@ -882,8 +922,31 @@
   font-weight: 500;
   transform: scaleY(-1);
   opacity: 0.36;
-  mask-image: linear-gradient(#000, transparent 85%);
   line-height: 1;
+}
+/* Three copies, each showing every third thin band of the mirror image; at
+   rest they line up exactly. Motion slides them sideways out of phase. The
+   masks are static (only the bands' transforms change). */
+.rippleBand {
+  --band: 0.09em;
+  display: block;
+  /* Opaque at the glyphs' feet, which the flip puts against the title (the
+     shore), fading away from it as in A4. */
+  mask-image:
+    linear-gradient(transparent 15%, #000),
+    repeating-linear-gradient(
+      #000 0 var(--band),
+      transparent var(--band) calc(var(--band) * 3)
+    );
+  mask-position:
+    0 0,
+    0 calc(var(--band-index) * var(--band));
+  mask-repeat: no-repeat, repeat;
+  mask-composite: intersect;
+}
+.rippleBand + .rippleBand {
+  position: absolute;
+  inset: 0;
 }
 .bracketTags {
   transform: none;
@@ -1231,16 +1294,21 @@
   fill: var(--flare);
   stroke: var(--flare);
 }
-.page[data-rail-fixed="true"] .mobileRail {
-  position: fixed;
-  left: auto;
-  right: 0;
-  top: 30svh;
-  height: 40svh;
-  width: 8px;
-  translate: -4px 0;
-  /* It changes place without travelling: it fades in at the edge. */
-  animation-name: rb-rail-in-edge;
+/* Below 600 the right margin (14px) cannot hold a fixed rail without it
+   touching right-aligned copy and chips, and iOS draws its own scroll
+   indicator there: the rail stays a decoration of the hero only. */
+@media (min-width: 600px) {
+  .page[data-rail-fixed="true"] .mobileRail {
+    position: fixed;
+    left: auto;
+    right: 0;
+    top: 30svh;
+    height: 40svh;
+    width: 8px;
+    translate: -4px 0;
+    /* It changes place without travelling: it fades in at the edge. */
+    animation-name: rb-rail-in-edge;
+  }
 }
 @keyframes rb-rail-in-hero {
   from {
@@ -1785,6 +1853,71 @@
   to {
     stroke-dashoffset: 0;
     opacity: 1;
+  }
+}
+/* Load reveals that start before hydration run in CSS from the first paint
+   (R8): the hero veil lifts and the scroll cue draws. The server HTML is the
+   finished state, so nothing flashes when scripts arrive. */
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  .heroVeil {
+    animation: rb-veil 900ms var(--ease-reveal) both;
+  }
+  .scroll span {
+    animation: rb-cue 1200ms 600ms var(--ease-reveal) both;
+  }
+}
+@keyframes rb-veil {
+  from {
+    opacity: 0.55;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes rb-cue {
+  from {
+    transform: scaleY(0);
+  }
+}
+/* Phones and tablets (R4): no blending, blur or backdrop filters on layers
+   that move or change every frame. The lantern and the dawn are drawn with
+   plain alpha in colours tuned to match their blended look on this photo,
+   and get their own compositor layers so their opacity changes repaint
+   nothing. The chapter index gets a denser fill instead of a backdrop blur
+   (the river's head passes beneath it). */
+@media (max-width: 1023px) {
+  .lantern {
+    mix-blend-mode: normal;
+    background: radial-gradient(
+      closest-side,
+      rgb(255 216 170 / 46%),
+      rgb(255 164 88 / 18%) 42%,
+      rgb(255 126 21 / 5%) 66%,
+      transparent
+    );
+  }
+  .dawn,
+  .windows {
+    mix-blend-mode: normal;
+    will-change: opacity;
+  }
+  .dawn {
+    background: radial-gradient(
+      ellipse at 75% 48%,
+      rgb(255 168 92 / 34%),
+      transparent 65%
+    );
+  }
+  .windows {
+    background: radial-gradient(
+      ellipse at 75% 48%,
+      rgb(255 214 150 / 62%),
+      transparent 38%
+    );
+  }
+  .chapterIndex {
+    backdrop-filter: none;
+    background: rgb(8 12 18 / 74%);
   }
 }
 @media (prefers-reduced-motion: reduce) {

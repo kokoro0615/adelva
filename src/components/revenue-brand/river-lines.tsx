@@ -18,7 +18,8 @@ type Point = readonly number[];
  *            edge moves with compositor-only transforms (see motion)
  *   tails    the same trick with a window of two moving edges, three times
  *   flow     sparks that are rewritten per frame (desktop only), own layer
- *   over     nodes, confluence, loop, process, end, bursts, viewfinder
+ *   over     nodes, confluence, loop, process, end, viewfinder
+ *   fx       ignitions, pulses and particles (HTML, compositor animations)
  *   head     the comet, an HTML element moved by transform
  *
  * The main river is monotonic in y on both plates, so "everything above y"
@@ -116,6 +117,10 @@ export function RiverLines({ mobile = false }: { mobile?: boolean }) {
     <div
       className={`${styles.river} ${mobile ? styles.mobileLines : styles.desktopLines}`}
       data-river-layer={mode}
+      // Text-block rectangles (plate px): the motion fades the river's head
+      // beneath copy the same way the masks fade the lines.
+      data-masks={JSON.stringify(g.lineMasks.map(({ rect }) => rect))}
+      data-lake={JSON.stringify(g.lakeDottedRangeY)}
       aria-hidden="true"
     >
       <svg {...svgProps} data-river-under>
@@ -462,31 +467,6 @@ export function RiverLines({ mobile = false }: { mobile?: boolean }) {
             data-end-pulse
           />
         </g>
-        {/* Ignition bursts, reused round-robin wherever the light arrives. */}
-        {[0, 1].map((i) => (
-          <g key={i} data-burst={i} className={styles.burst} opacity="0">
-            <circle r={11 * k} opacity={0} className={styles.shock} data-shock />
-            <circle
-              opacity={0}
-              r={11 * k}
-              className={`${styles.shock} ${styles.shockSoft}`}
-              data-shock
-            />
-            {Array.from({ length: 10 }, (_, j) => (
-              <circle
-                key={j}
-                cx={0}
-                cy={0}
-                r={2.4 * k}
-                opacity={0}
-                className={styles.spark}
-                data-spark
-              />
-            ))}
-          </g>
-        ))}
-        <circle r={4 * k} fill="#fff3e6" data-branch-particle opacity="0" />
-        <circle r={4 * k} fill="#fff3e6" data-cycle-particle opacity="0" />
         <g data-viewfinder className={styles.viewfinder}>
           {corners.map(([x, y], i) => (
             <path
@@ -498,6 +478,31 @@ export function RiverLines({ mobile = false }: { mobile?: boolean }) {
           ))}
         </g>
       </svg>
+      {/* Ignitions, pulses and travelling particles. They are HTML so that
+          they animate on the compositor (transform and opacity only) and never
+          repaint the river's SVG layers. Positioned in stage CSS px by motion. */}
+      <div className={styles.fx} data-fx>
+        {[0, 1].map((i) => (
+          <span key={i} className={styles.fxAt} data-burst={i}>
+            <i className={styles.shock} data-shock />
+            <i className={`${styles.shock} ${styles.shockSoft}`} data-shock />
+            {Array.from({ length: 10 }, (_, j) => (
+              <i key={j} className={styles.spark} data-spark />
+            ))}
+          </span>
+        ))}
+        {[0, 1, 2].map((i) => (
+          <span key={i} className={styles.fxAt} data-ring-slot={i}>
+            <i className={styles.ring} />
+          </span>
+        ))}
+        <span className={styles.fxAt} data-particle="branch">
+          <i className={styles.particle} />
+        </span>
+        <span className={styles.fxAt} data-particle="cycle">
+          <i className={styles.particle} />
+        </span>
+      </div>
       {/* The comet: a glow that swells with scroll speed, a halo and a core. */}
       <div className={styles.head} data-head>
         <span className={styles.headGlow} data-head-glow />
