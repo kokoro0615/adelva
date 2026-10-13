@@ -1,0 +1,151 @@
+{
+  "route": "/services/revenue-brand",
+  "cpu": 4,
+  "viewport": "390x844",
+  "loadMs": 778,
+  "docH": 7795,
+  "drags": 17,
+  "reachedEnd": 6951,
+  "frames": 816,
+  "p50": 17,
+  "p90": 83,
+  "p99": 283,
+  "max": 567,
+  "over33": 189,
+  "over50": 124,
+  "over100": 55,
+  "loafCount": 119,
+  "loafTotal": 13604,
+  "loafRenderTotal": 1467,
+  "loafScriptTotal": 545,
+  "cls": 0.0014,
+  "shifts": [
+    {
+      "t": 5866.700000000186,
+      "v": 0.0003692671824705023,
+      "src": [
+        "site-header-module__wBaYfG__ctaCompact",
+        "site-header-module__wBaYfG__brand",
+        "site-header-module__wBaYfG__burger"
+      ]
+    },
+    {
+      "t": 20499,
+      "v": 0.00015056265852501758,
+      "src": ["#text", "#text"]
+    },
+    {
+      "t": 21645.700000000186,
+      "v": 0.00007556935102363103,
+      "src": ["#text", "#text"]
+    },
+    {
+      "t": 22107.5,
+      "v": 0.00005823742641761105,
+      "src": ["#text", "#text"]
+    },
+    {
+      "t": 31458.200000000186,
+      "v": 0.0003932457111855598,
+      "src": ["#text", "#text", "#text", "#text"]
+    },
+    {
+      "t": 33112.60000000056,
+      "v": 0.0003097933041105926,
+      "src": ["#text", "#text", "#text"]
+    }
+  ],
+  "jumps": [],
+  "backJumps": 0,
+  "topScripts": [
+    [
+      "1r_46y6m9o4_n.js:t:FrameRequestCallback",
+      {
+        "n": 11,
+        "dur": 134,
+        "fl": 44
+      }
+    ],
+    [
+      "3et6nkzvmz3m3.js:eX:FrameRequestCallback",
+      {
+        "n": 13,
+        "dur": 111,
+        "fl": 0
+      }
+    ],
+    [
+      ":?:FrameRequestCallback",
+      {
+        "n": 11,
+        "dur": 96,
+        "fl": 91
+      }
+    ],
+    [
+      "0ajhkh51131f3.js:?:FrameRequestCallback",
+      {
+        "n": 8,
+        "dur": 85,
+        "fl": 80
+      }
+    ],
+    [
+      "3et6nkzvmz3m3.js:eQ:DOMWindow.onscroll",
+      {
+        "n": 8,
+        "dur": 77,
+        "fl": 71
+      }
+    ],
+    [
+      "1yjlmb_3lmb7c.js:ty:TimerHandler:setInterval",
+      {
+        "n": 2,
+        "dur": 16,
+        "fl": 0
+      }
+    ],
+    [
+      "14ipzm1hy3ipv.js:fD:#document.ontouchmove",
+      {
+        "n": 1,
+        "dur": 11,
+        "fl": 0
+      }
+    ],
+    [
+      "1yjlmb_3lmb7c.js:tX:FrameRequestCallback",
+      {
+        "n": 1,
+        "dur": 9,
+        "fl": 0
+      }
+    ],
+    [
+      "14ipzm1hy3ipv.js:fF:#document.ontransitionrun",
+      {
+        "n": 1,
+        "dur": 6,
+        "fl": 0
+      }
+    ]
+  ],
+  "console": [
+    "warning: The resource http://127.0.0.1:4890/media/target/hero-poster.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate",
+    "warning: The resource http://127.0.0.1:4890/media/adelva/about-a2/m-plate-0-853.avif was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an ",
+    "warning: The resource http://127.0.0.1:4890/_next/static/chunks/2yke4zoh-22ce.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an app",
+    "warning: The resource http://127.0.0.1:4890/_next/static/chunks/2_g1grp0y7nm_.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an app",
+    "warning: The resource http://127.0.0.1:4890/_next/static/chunks/2_b3uk9vfc9-j.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an app",
+    "warning: The resource http://127.0.0.1:4890/media/adelva/approach/m-hero.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropr",
+    "warning: The resource http://127.0.0.1:4890/media/target/hero-poster.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate",
+    "warning: The resource http://127.0.0.1:4890/media/adelva/about-a2/m-plate-0-853.avif was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an ",
+    "warning: The resource http://127.0.0.1:4890/_next/static/chunks/2yke4zoh-22ce.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an app",
+    "warning: The resource http://127.0.0.1:4890/_next/static/chunks/2_g1grp0y7nm_.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an app",
+    "warning: The resource http://127.0.0.1:4890/_next/static/chunks/2_b3uk9vfc9-j.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an app",
+    "warning: The resource http://127.0.0.1:4890/media/adelva/approach/m-hero.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropr",
+    "warning: The resource http://127.0.0.1:4890/media/target/hero-poster.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate",
+    "warning: The resource http://127.0.0.1:4890/media/adelva/about-a2/m-plate-0-853.avif was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an ",
+    "warning: The resource http://127.0.0.1:4890/_next/static/chunks/2yke4zoh-22ce.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an app"
+  ]
+}

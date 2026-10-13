@@ -1,0 +1,117 @@
+{
+  "route": "/services/revenue-brand",
+  "cpu": 4,
+  "viewport": "390x844",
+  "loadMs": 588,
+  "docH": 7795,
+  "drags": 17,
+  "reachedEnd": 6951,
+  "frames": 857,
+  "p50": 17,
+  "p90": 50,
+  "p99": 183,
+  "max": 333,
+  "over33": 119,
+  "over50": 77,
+  "over100": 26,
+  "loafCount": 67,
+  "loafTotal": 7007,
+  "loafRenderTotal": 719,
+  "loafScriptTotal": 221,
+  "cls": 0.0003,
+  "shifts": [
+    {
+      "t": 4851.5,
+      "v": 0.0003077631472097005,
+      "src": [
+        "site-header-module__wBaYfG__ctaCompact",
+        "site-header-module__wBaYfG__brand",
+        "site-header-module__wBaYfG__burger"
+      ]
+    }
+  ],
+  "jumps": [],
+  "backJumps": 0,
+  "topScripts": [
+    [
+      "0ajhkh51131f3.js:?:FrameRequestCallback",
+      {
+        "n": 5,
+        "dur": 58,
+        "fl": 47
+      }
+    ],
+    [
+      "1r_46y6m9o4_n.js:t:FrameRequestCallback",
+      {
+        "n": 4,
+        "dur": 42,
+        "fl": 15
+      }
+    ],
+    [
+      "3et6nkzvmz3m3.js:eX:FrameRequestCallback",
+      {
+        "n": 6,
+        "dur": 42,
+        "fl": 0
+      }
+    ],
+    [
+      "3et6nkzvmz3m3.js:eQ:DOMWindow.onscroll",
+      {
+        "n": 5,
+        "dur": 31,
+        "fl": 29
+      }
+    ],
+    [
+      ":?:FrameRequestCallback",
+      {
+        "n": 3,
+        "dur": 21,
+        "fl": 17
+      }
+    ],
+    [
+      "14ipzm1hy3ipv.js:fF:IMG[src=\"/media/adelva/revenue-brand/m-plate-9-853",
+      {
+        "n": 1,
+        "dur": 8,
+        "fl": 0
+      }
+    ],
+    [
+      "3et6nkzvmz3m3.js:?:FrameRequestCallback",
+      {
+        "n": 1,
+        "dur": 7,
+        "fl": 0
+      }
+    ],
+    [
+      "14ipzm1hy3ipv.js:fD:#document.onpointerover",
+      {
+        "n": 1,
+        "dur": 6,
+        "fl": 0
+      }
+    ],
+    [
+      "14ipzm1hy3ipv.js:fF:#document.ontransitionrun",
+      {
+        "n": 1,
+        "dur": 6,
+        "fl": 0
+      }
+    ]
+  ],
+  "console": [
+    "warning: The resource http://127.0.0.1:4890/media/target/hero-poster.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate",
+    "warning: The resource http://127.0.0.1:4890/media/adelva/about-a2/m-plate-0-853.avif was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an ",
+    "warning: The resource http://127.0.0.1:4890/_next/static/chunks/2yke4zoh-22ce.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an app",
+    "warning: The resource http://127.0.0.1:4890/_next/static/chunks/2_g1grp0y7nm_.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an app",
+    "warning: The resource http://127.0.0.1:4890/_next/static/chunks/2_b3uk9vfc9-j.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an app",
+    "warning: The resource http://127.0.0.1:4890/media/adelva/approach/m-hero.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropr"
+  ]
+}
