@@ -226,8 +226,8 @@ for (const [width, height] of [
     page.on("pageerror", (e) => errors.push(e.message));
     await ready(page);
     await expect(page.locator('[data-motion="on"]')).toHaveCount(1);
-    const river = page.locator(
-      `svg[data-river="${width >= 1024 ? "desktop" : "mobile"}"]`,
+    const layer = page.locator(
+      `[data-river-layer="${width >= 1024 ? "desktop" : "mobile"}"]`,
     );
     const pageHeight = await page.evaluate(() => document.documentElement.scrollHeight);
     for (let y = 0; y < pageHeight; y += 300) {
@@ -236,11 +236,19 @@ for (const [width, height] of [
     }
     await page.waitForTimeout(1500);
     expect(errors).toEqual([]);
-    // The bursts were used and have faded; the head reached the end.
-    await expect(river.locator("[data-burst]").first()).toHaveAttribute(
-      "transform",
-      /translate/,
+    // The bursts (HTML, compositor-animated) were placed on the river and
+    // have faded; the head reached the end. No SVG filter runs on the page.
+    await expect(layer.locator("[data-burst]").first()).toHaveAttribute(
+      "style",
+      /translate3d/,
     );
+    expect(
+      await page.evaluate(() =>
+        [...document.querySelectorAll("[data-revenue-brand] *")].some((n) =>
+          getComputedStyle(n).filter.includes("url("),
+        ),
+      ),
+    ).toBe(false);
     await expect(page.locator('li[data-step="6"]')).toHaveAttribute(
       "data-state",
       "current",
