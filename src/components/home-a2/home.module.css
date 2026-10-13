@@ -937,6 +937,16 @@
   height: 100%;
   object-fit: cover;
 }
+.sideClip,
+.sideFrame,
+.stripClip {
+  position: absolute;
+  inset: 0;
+}
+/* the phone's moving layout draws its own shades inside the view windows */
+.sideShade {
+  display: none;
+}
 .side::after {
   content: "";
   position: absolute;
@@ -1879,7 +1889,8 @@
 
 /* —— phones and tablets while moving (A2m.html) */
 @media (scripting: enabled) and (prefers-reduced-motion: no-preference) and (max-width: 1023.98px) {
-  /* the one line (fixed, drawn by the motion): its visible part is a mask along its length */
+  /* the one line (fixed, drawn by the motion): a container placed and turned by one transform,
+     whose two segments are scaled along it (the gap around the purpose opens between them) */
   .spine {
     position: fixed;
     left: 0;
@@ -1887,12 +1898,23 @@
     z-index: 80;
     display: block;
     width: 1px;
-    height: 100px;
-    background: var(--flare);
+    height: 0;
     pointer-events: none;
     opacity: 0;
-    transform-origin: 50% 50%;
+    visibility: hidden;
+    transform-origin: 0.5px 0;
     will-change: transform, opacity;
+  }
+  .spine i {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 100px;
+    background: var(--flare);
+    transform-origin: 0 0;
+    transform: scaleY(0);
+    will-change: transform;
   }
   .hero {
     height: 280vh;
@@ -1920,8 +1942,6 @@
     right: calc(16 * var(--m));
     top: calc(76 * var(--m));
     bottom: auto;
-    width: 40px;
-    height: 40px;
   }
 
   /* ---------- 2 who: the line becomes the horizon between the two viewpoints */
@@ -1963,23 +1983,40 @@
     margin: 0;
     text-align: left;
   }
-  .side {
+  /* each view is a window of the stage: the side's top edge and its clip's bottom edge are moved by
+     transforms only; the frame inside puts the photograph, its shade and its card back in the stage */
+  .side,
+  .side[data-side="t"],
+  .side[data-side="b"] {
     left: 0;
     right: 0;
-    width: auto;
-    will-change: clip-path;
-  }
-  .side[data-side="t"] {
     top: 0;
     bottom: auto;
     width: auto;
-    height: var(--s);
+    height: 100%;
+    overflow: hidden;
+    clip-path: none;
+    visibility: hidden;
+    will-change: transform;
   }
-  .side[data-side="b"] {
-    top: var(--s);
-    bottom: 0;
-    width: auto;
-    clip-path: inset(0 0 100% 0);
+  .sideClip {
+    overflow: hidden;
+    will-change: transform;
+  }
+  .sideFrame {
+    will-change: transform;
+  }
+  .side::after {
+    content: none;
+  }
+  .sideShade {
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: block;
+    height: 100%;
+    pointer-events: none;
+    will-change: transform;
   }
   .sideImage {
     left: 50%;
@@ -1993,17 +2030,24 @@
   .side[data-side="b"] .sideImage {
     transform-origin: 50% 30%;
   }
-  .side[data-side="t"]::after {
+  /* the upper view's shade spans the stage's top to the line (scaled from a full stage: the 96 px
+     header fade is drawn at 192 px of the unscaled box, its length when the line is at the middle) */
+  .side[data-side="t"] .sideShade {
+    top: 0;
+    transform-origin: 50% 0;
     background: linear-gradient(
       180deg,
       rgb(14 17 24 / 38%) 0,
-      rgb(14 17 24 / 0%) calc(96 * var(--m)),
+      rgb(14 17 24 / 0%) calc(192 * var(--m)),
       rgb(14 17 24 / 0%) 40%,
       rgb(14 17 24 / 52%) 64%,
       rgb(14 17 24 / 78%) 100%
     );
   }
-  .side[data-side="b"]::after {
+  /* the lower view's shade spans the line to the stage's foot */
+  .side[data-side="b"] .sideShade {
+    bottom: 0;
+    transform-origin: 50% 100%;
     background: linear-gradient(
       180deg,
       rgb(14 17 24 / 10%) 0,
@@ -2100,6 +2144,13 @@
   .node[data-on] i {
     box-shadow: 0 0 0 4px rgb(255 126 21 / 18%);
   }
+  /* R3: the route's state changes cross-fade instead of snapping */
+  .node i {
+    transition:
+      background-color 0.28s var(--ease-state, ease),
+      border-color 0.28s var(--ease-state, ease),
+      box-shadow 0.28s var(--ease-state, ease);
+  }
 
   /* ---------- 4 the founder's letter */
   .founder {
@@ -2150,9 +2201,21 @@
     top: calc(92 * var(--m));
     opacity: 1;
   }
+  /* each band is a window of the stage (the strip's top-left corner, its clip's bottom-right corner,
+     both moved by transforms); the photograph keeps one size and is placed by its transform */
   .strip,
   .strip + .strip {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: none;
+    visibility: hidden;
+  }
+  .stripClip {
+    overflow: hidden;
     background: #1b2230;
+    will-change: transform;
   }
   .strip img {
     width: auto;
@@ -2168,16 +2231,19 @@
   .domain {
     left: var(--gutter);
     right: var(--gutter);
+    top: 0;
     z-index: 4;
     width: auto;
     will-change: transform, opacity;
   }
   .hair {
     left: 0;
-    top: auto;
-    width: auto;
+    top: 0;
+    width: 100%;
     height: 1px;
     opacity: 0;
+    transform-origin: 0 0;
+    will-change: transform, opacity;
   }
   .veil {
     z-index: 3;
@@ -2293,6 +2359,11 @@
     width: 30px;
     background: var(--rc, var(--flare));
   }
+  .ticks i {
+    transition:
+      width 0.32s var(--ease-state, ease),
+      background-color 0.32s var(--ease-state, ease);
+  }
   .step {
     left: 0;
     right: 0;
@@ -2316,6 +2387,17 @@
   }
   .final .finalBody {
     text-shadow: 0 2px 24px rgb(40 24 8 / 40%);
+  }
+  /* R4: no backdrop blur over the moving lake on phones; the smoked fills carry the contrast */
+  .tags li {
+    background: rgb(14 17 24 / 46%);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  .finalCue {
+    background: rgb(22 16 10 / 74%);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
   }
 }
 

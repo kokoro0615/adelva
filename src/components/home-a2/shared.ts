@@ -1,12 +1,12 @@
 /**
  * Pieces both regimes of HOME share: the film, the signature, the breathing
  * mask of the panorama, the lake's zoom schedule, lazy renderer loading and
- * the header's surface. Ported from the adopted prototypes (A2.js / A2m.js).
+ * residency. Ported from the adopted prototypes (A2.js / A2m.js).
  */
 import { homeGeometry as G } from "@/content/adelva-home-geometry";
-import { setHeaderOverride, type HeaderSurface } from "@/lib/header-state";
 
-import { clamp, lerp, smooth } from "./engine";
+import { CAPTURE, clamp, lerp, smooth, type Engine } from "./engine";
+import type { Renderer } from "./gl";
 import { signatureGaps, signatureSpeed, signatureWidth } from "./signature";
 
 export const q = <T extends Element = HTMLElement>(
@@ -22,6 +22,8 @@ export interface Setter {
   (el: HTMLElement | SVGElement, prop: string, value: string): void;
   /** Remove every inline property this setter wrote (a regime change starts clean). */
   clear(): void;
+  /** Forget one cached value (the property was written by other code). */
+  forget(el: HTMLElement | SVGElement, prop: string): void;
 }
 
 /** Write a style property only when it changes (cheap per-frame writes). */
@@ -45,6 +47,9 @@ export function setter(): Setter {
       );
       cache.clear();
     },
+    forget(el: HTMLElement | SVGElement, prop: string) {
+      cache.get(el)?.delete(prop);
+    },
   });
 }
 
@@ -54,10 +59,16 @@ export function attr(el: Element, name: string, on: boolean) {
 
 // ————————————————————————————————————————————————————————————— the film
 export interface Film {
-  /** Draw the current video frame into the two halves (only while they part). */
-  draw(dprCap: number): void;
+  /**
+   * Draw the current video frame into the two halves (only while they part).
+   * Draws only when the film shows a new frame; returns whether the film is
+   * playing (the caller keeps its loop running for the next frame).
+   */
+  draw(dprCap: number): boolean;
   /** Play while the film can be seen and the reader has not paused it. */
   visible(on: boolean): void;
+  /** Cache the halves' canvas sizes (call on start and resize, outside the frame). */
+  measure(): void;
   dispose(): void;
 }
 
@@ -68,6 +79,9 @@ export function createFilm(root: HTMLElement): Film {
   const canvases = qa<HTMLCanvasElement>(root, "[data-half] canvas");
   let paused = false;
   let shown = true;
+  let sizes: (readonly [number, number])[] | null = null;
+  // the frame the halves last drew: the source and its media time
+  let drawn: { src: unknown; time: number; w: number } | null = null;
   const sync = () => {
     if (shown && !paused && !document.hidden) void video.play().catch(() => {});
     else video.pause();
@@ -81,19 +95,35 @@ export function createFilm(root: HTMLElement): Film {
   toggle.addEventListener("click", onToggle);
   document.addEventListener("visibilitychange", sync);
   sync();
+  const measure = () => {
+    sizes = canvases.map((cv) => [cv.clientWidth, cv.clientHeight] as const);
+    drawn = null;
+  };
   return {
     draw(dprCap) {
       // the production poster stands in until the film can play (headless WebKit cannot play H.264)
       const src: HTMLVideoElement | HTMLImageElement =
         video.readyState >= 2 ? video : poster;
+      const playing = src === video && !video.paused;
+      const time = src === video ? video.currentTime : -1;
+      const dpr = Math.min(window.devicePixelRatio || 1, dprCap);
+      // a new picture: another source, a new frame of the film (24 fps), or a new size
+      if (
+        drawn &&
+        drawn.src === src &&
+        drawn.w === dpr &&
+        Math.abs(time - drawn.time) < 1 / 30
+      )
+        return playing;
       const sw = src instanceof HTMLVideoElement ? src.videoWidth : src.naturalWidth;
       const sh = src instanceof HTMLVideoElement ? src.videoHeight : src.naturalHeight;
-      if (!sw) return;
-      const dpr = Math.min(window.devicePixelRatio || 1, dprCap);
-      for (const cv of canvases) {
-        const w = Math.round(cv.clientWidth * dpr);
-        const h = Math.round(cv.clientHeight * dpr);
-        if (!w || !h) continue;
+      if (!sw) return playing;
+      if (!sizes) measure();
+      canvases.forEach((cv, i) => {
+        const [cw, ch] = sizes![i]!;
+        const w = Math.round(cw * dpr);
+        const h = Math.round(ch * dpr);
+        if (!w || !h) return;
         if (cv.width !== w || cv.height !== h) {
           cv.width = w;
           cv.height = h;
@@ -106,13 +136,16 @@ export function createFilm(root: HTMLElement): Film {
           sw * k,
           sh * k,
         );
-      }
+      });
+      drawn = { src, time, w: dpr };
+      return playing;
     },
     visible(on) {
       if (on === shown) return;
       shown = on;
       sync();
     },
+    measure,
     dispose() {
       toggle.removeEventListener("click", onToggle);
       document.removeEventListener("visibilitychange", sync);
@@ -141,7 +174,17 @@ export function createSignature(root: HTMLElement) {
     p.style.strokeDashoffset = String(lengths[i]);
   });
   let last = -1;
+  // the signature's box in its host's coordinates (both sit in the sticky stage)
+  let box: { x: number; y: number; k: number } | null = null;
+  const measure = () => {
+    const b = svg.getBoundingClientRect();
+    const host = svg.parentElement!.getBoundingClientRect();
+    box = { x: b.left - host.left, y: b.top - host.top, k: b.width / signatureWidth };
+    last = -1;
+  };
   return {
+    /** Cache the signature's box (call on start and resize, outside the frame). */
+    measure,
     /** Write the signature up to fraction f; `hideNibAtEnd` (phone) lifts the pen once written. */
     draw(f: number, hideNibAtEnd: boolean) {
       if (f === last) return;
@@ -160,10 +203,9 @@ export function createSignature(root: HTMLElement) {
       if (at && !(hideNibAtEnd && f >= 0.995)) {
         const pt = paths[at.i]!.getPointAtLength(at.len);
         const [ox, oy] = offsets[at.i]!;
-        const box = svg.getBoundingClientRect();
-        const host = svg.parentElement!.getBoundingClientRect();
-        const k = box.width / signatureWidth;
-        nib.style.transform = `translate(${box.left - host.left + (pt.x + ox!) * k}px, ${box.top - host.top + (pt.y + oy!) * k}px)`;
+        if (!box) measure();
+        const { x, y, k } = box!;
+        nib.style.transform = `translate(${x + (pt.x + ox!) * k}px, ${y + (pt.y + oy!) * k}px)`;
         nib.style.opacity = "1";
       } else nib.style.opacity = "0";
     },
@@ -267,19 +309,29 @@ export function plateMix(z: number): [number, number, number] {
 }
 
 // ———————————————————————————————————————————————————————————— lazy work
-/** Run `fn` once, when the browser is idle after load or when `when()` turns true. */
-export function whenNeeded(fn: () => void, when: () => boolean, idleDelay: number) {
+/**
+ * Run `fn` once, when `when()` turns true or (with an `idleDelay`) when the
+ * browser is idle after load. `idleDelay: null` waits for `when()` only.
+ */
+export function whenNeeded(
+  fn: () => void,
+  when: () => boolean,
+  idleDelay: number | null,
+) {
   let done = false;
   const go = () => {
     if (done) return;
     done = true;
     fn();
   };
-  const timer = window.setTimeout(() => {
-    if ("requestIdleCallback" in window)
-      window.requestIdleCallback(go, { timeout: 2000 });
-    else go();
-  }, idleDelay);
+  const timer =
+    idleDelay === null
+      ? 0
+      : window.setTimeout(() => {
+          if ("requestIdleCallback" in window)
+            window.requestIdleCallback(go, { timeout: 2000 });
+          else go();
+        }, idleDelay);
   return {
     check() {
       if (!done && when()) go();
@@ -291,25 +343,34 @@ export function whenNeeded(fn: () => void, when: () => boolean, idleDelay: numbe
   };
 }
 
-// ———————————————————————————————————————————————————————————— the header
-export interface SurfaceRule {
-  readonly el: HTMLElement;
-  readonly kind: (p: number) => HeaderSurface;
+/**
+ * Residency of a photograph renderer (R5): its textures stay on the GPU only
+ * while the reader is within `[from, to]` (document px, with a hysteresis of
+ * one screen); elsewhere they are released and restored on the way back.
+ * Verification (`?capture`) keeps everything resident.
+ */
+export function residency(
+  engine: Engine,
+  renderer: () => Renderer<unknown> | null,
+  range: () => readonly [number, number],
+) {
+  return (vh: number) => {
+    const r = renderer();
+    if (!r || CAPTURE) return;
+    const [from, to] = range();
+    const y = engine.y;
+    if (r.live && (y < from - vh || y > to + vh)) r.release();
+    else if (!r.live && y >= from && y <= to)
+      void r.restore().then(() => engine.invalidate());
+  };
 }
 
-/** The scene under the header's middle decides its surface (the footer: glass). */
-export function headerSurface(
-  rules: readonly SurfaceRule[],
-  probe: number,
-  stageHeight: number,
-) {
-  for (const s of rules) {
-    const r = s.el.getBoundingClientRect();
-    if (r.top <= probe && r.bottom > probe) {
-      const p = clamp(-r.top / Math.max(1, s.el.offsetHeight - stageHeight));
-      setHeaderOverride({ surface: s.kind(p) });
-      return;
-    }
-  }
-  setHeaderOverride({ surface: "glass" });
+/** Ambient drawing at a film's cadence once the scroll has settled. */
+export function ambient(fps = 24) {
+  let last = -Infinity;
+  return (t: number, moved: boolean) => {
+    if (!moved && t - last < 1 / fps - 0.002) return false;
+    last = t;
+    return true;
+  };
 }
