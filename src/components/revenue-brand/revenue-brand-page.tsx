@@ -26,8 +26,17 @@ function pos(xd: number, yd: number, xm: number, ym: number, fd = 15, fm = 12): 
     "--font-m": fm,
   };
 }
-function chipPos(a: readonly number[], b: readonly number[]): Vars {
-  return pos(a[0], a[1], b[0], b[1]);
+/* Half a chip's width at 12px type (CSS px): full-width glyphs ~12.5px with
+   the chip's tracking, Latin ~7.6px, plus padding and border. Phones keep
+   every chip inside the screen with it (a 320px screen is narrower than the
+   390px plate the chips were placed on). */
+function chipHalf(label: string) {
+  let width = 0;
+  for (const ch of label) width += ch.charCodeAt(0) > 0x2e80 ? 12.5 : 7.6;
+  return Math.ceil(width / 2 + 13);
+}
+function chipPos(a: readonly number[], b: readonly number[], label: string): Vars {
+  return { ...pos(a[0], a[1], b[0], b[1]), "--half": chipHalf(label) };
 }
 function Tight({ children }: { children: string }) {
   return children.split("・").map((s, i) => (
@@ -44,21 +53,41 @@ function cardBreaks(text: string): number[] {
   }
   return [];
 }
+/* Break opportunities after phrase ends only (、 を して, plus any extra
+   phrase ends given); used with CSS `word-break: keep-all`, so narrow
+   screens wrap by phrase, never inside a word or before a lone ます。 */
+const phraseEnds = ["、", "を", "して"];
+function phrases(text: string, key: number, ends: readonly string[] = phraseEnds) {
+  const parts: ReactNode[] = [];
+  let start = 0;
+  for (let i = 1; i < text.length; i++)
+    if (ends.some((end) => text.slice(start, i).endsWith(end))) {
+      parts.push(text.slice(start, i), <wbr key={`${key}-${i}`} />);
+      start = i;
+    }
+  parts.push(text.slice(start));
+  return parts;
+}
 function BrokenText({
   text,
   desktop = [],
   mobile = [],
+  phrased = false,
+  ends,
 }: {
   text: string;
   desktop?: readonly number[];
   mobile?: readonly number[];
+  phrased?: boolean;
+  ends?: readonly string[];
 }) {
   const parts: ReactNode[] = [];
   let start = 0;
   for (const end of [...new Set([...desktop, ...mobile, text.length])].sort(
     (a, b) => a - b,
   )) {
-    parts.push(text.slice(start, end));
+    const segment = text.slice(start, end);
+    parts.push(...(phrased ? phrases(segment, start, ends) : [segment]));
     if (end < text.length)
       parts.push(
         <br
@@ -305,6 +334,7 @@ export function RevenueBrandPage() {
                   style={chipPos(
                     d.css.chips.sources[id as keyof typeof d.css.chips.sources],
                     m.css.chips.sources[id as keyof typeof m.css.chips.sources],
+                    label,
                   )}
                 >
                   {label}
@@ -383,12 +413,17 @@ export function RevenueBrandPage() {
                       style: chipPos(
                         d.css.chips.ch1[item.id as keyof typeof d.css.chips.ch1],
                         m.css.chips.ch1[item.id as keyof typeof m.css.chips.ch1],
+                        item.label,
                       ),
                     }))}
                   />
                   <p
                     className={`${styles.chip} ${styles.placedChip} ${styles.revenue}`}
-                    style={chipPos(d.css.chips.ch1.revenue, m.css.chips.ch1.revenue)}
+                    style={chipPos(
+                      d.css.chips.ch1.revenue,
+                      m.css.chips.ch1.revenue,
+                      copy.detail.revenue,
+                    )}
                     data-revenue-chip
                   >
                     {copy.detail.revenue}
@@ -569,6 +604,7 @@ export function RevenueBrandPage() {
                         style={chipPos(
                           d.css.chips.loop[id as keyof typeof d.css.chips.loop],
                           m.css.chips.loop[id as keyof typeof m.css.chips.loop],
+                          label,
                         )}
                       >
                         {label}
@@ -581,6 +617,7 @@ export function RevenueBrandPage() {
                     style={chipPos(
                       d.css.chips.loop["web-booking"],
                       m.css.chips.loop["web-booking"],
+                      copy.loop.exit.label,
                     )}
                   >
                     {copy.loop.exit.label}
@@ -636,7 +673,7 @@ export function RevenueBrandPage() {
               className={`${styles.position} ${styles.boundaryNote}`}
               style={pos(339, 5119, 47, 4164, 15, 12)}
             >
-              {copy.differences.note}
+              {phrases(copy.differences.note, 0)}
             </p>
           </section>
           <section
@@ -671,6 +708,8 @@ export function RevenueBrandPage() {
                 text={copy.processCopy.body}
                 desktop={[copy.processCopy.body.indexOf("支援終了")]}
                 mobile={[]}
+                phrased
+                ends={[...phraseEnds, "後も", "自身が", "改善できる"]}
               />
             </p>
             <div
@@ -805,6 +844,7 @@ export function RevenueBrandPage() {
                           text={item.description ?? ""}
                           desktop={cardBreaks(item.description ?? "")}
                           mobile={cardBreaks(item.description ?? "")}
+                          phrased
                         />
                       </p>
                       <Arrow />

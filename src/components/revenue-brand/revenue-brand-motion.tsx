@@ -296,27 +296,32 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
           const mode = desktop ? "desktop" : "mobile";
           const svg = el.querySelector<SVGSVGElement>(`[data-river="${mode}"]`)!;
           if (!motion) return;
-          // Read once before anything is written: which one-shot chapter
-          // moments a restored or deep-linked reading position has passed.
-          const viewAtStart = innerHeight;
-          const pastAtStart = (node: Element | null, at: number) =>
-            !!node && node.getBoundingClientRect().top < viewAtStart * at;
           const ch1 = el.querySelector("#rb-ch1-title")!;
           const ch3 = el.querySelector("#rb-ch3-title")!;
           const photoGroup = el.querySelector('[data-chip-group="photo"]')!;
           const diffTitle = el.querySelector("#rb-diff-title")!;
-          const past = {
-            ch1: pastAtStart(ch1, 0.7),
-            ch3: pastAtStart(ch3, 0.7),
-            photo: pastAtStart(photoGroup, 0.7),
-            differences: pastAtStart(diffTitle, 0.7),
-            items: all<HTMLElement>("[data-difference-item]").map((item) =>
-              pastAtStart(item.querySelector("dt span"), 0.7),
-            ),
-            cards: all<HTMLElement>("[data-card]").map((card) =>
-              pastAtStart(card, 0.9),
-            ),
+          /* One-shot chapter moments ("cues") fire when their element reaches
+             a line of the viewport. They are checked in the frame loop from
+             cached page positions, so no scroll observer reads layout; a cue
+             already passed when the page opens shows its finished state. */
+          type Cue = {
+            node: Element;
+            at: number;
+            y: number;
+            fired: boolean;
+            play: () => void;
+            finish: () => void;
           };
+          const cues: Cue[] = [];
+          const cue = (
+            node: Element | null,
+            at: number,
+            play: () => void,
+            finish: () => void = () => {},
+          ) => {
+            if (node) cues.push({ node, at, y: Infinity, fired: false, play, finish });
+          };
+          let opening = true;
           el.dataset.motion = "on";
           const layer = svg.closest<HTMLElement>("[data-river-layer]")!;
           const path = layer.querySelector<SVGPathElement>('[data-main-line="core"]')!;
@@ -728,6 +733,12 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
               "@data-rail-hidden",
               String(scrollTop + viewHeight * 0.6 >= relatedTop),
             );
+            for (const c of cues)
+              if (!c.fired && scrollTop + viewHeight * c.at >= c.y) {
+                c.fired = true;
+                if (opening) c.finish();
+                else c.play();
+              }
           };
           /* One frame loop, awake only while something is still moving. */
           let raf = 0,
@@ -862,35 +873,13 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
             relatedTop =
               el.querySelector<HTMLElement>("[data-related]")!.getBoundingClientRect()
                 .top + scrollTop;
+            for (const c of cues) c.y = c.node.getBoundingClientRect().top + scrollTop;
             // A reload, resize or history return lands on the reading line at
             // once and must not replay every ignition.
             len = goal();
             energy = 0;
             passed = waypoints.filter((w) => len >= w.len - 0.5).length;
             render();
-          };
-          refresh();
-          window.addEventListener("scroll", onScroll, { passive: true });
-          ScrollTrigger.addEventListener("refresh", refresh);
-          /* One-shot chapter moments: played once when their trigger enters,
-             or shown finished when the page opens past them. */
-          const once = (
-            timeline: gsap.core.Timeline,
-            trigger: Element,
-            wasPast: boolean,
-            finish?: () => void,
-          ) => {
-            if (wasPast) {
-              timeline.progress(1, true);
-              finish?.();
-              return;
-            }
-            ScrollTrigger.create({
-              trigger,
-              start: "top 70%",
-              once: true,
-              onEnter: () => void timeline.play(),
-            });
           };
           if (scrollY <= 100) {
             const heroTl = gsap.timeline();
@@ -970,7 +959,12 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
               { opacity: 1, y: 0, duration: 0.3, ease: panel },
               1.6,
             );
-          once(ch1Tl, ch1, past.ch1);
+          cue(
+            ch1,
+            0.7,
+            () => void ch1Tl.play(),
+            () => void ch1Tl.progress(1, true),
+          );
           const frame0 = layer.querySelector<SVGGElement>("[data-viewfinder]")!;
           const initialTarget = viewfinderTargets[mode].room;
           const center = [
@@ -998,7 +992,12 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
             { opacity: 1, duration: 0.4, ease: panel },
             0,
           );
-          once(finderTl, photoGroup, past.photo);
+          cue(
+            photoGroup,
+            0.7,
+            () => void finderTl.play(),
+            () => void finderTl.progress(1, true),
+          );
           const cycle = layer.querySelector<SVGPathElement>("[data-cycle]")!,
             cycleGeo = sample(cycle),
             posting = layer.querySelector<SVGCircleElement>(
@@ -1030,7 +1029,7 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
             currentMarks.forEach((node) =>
               node.setAttribute("data-loop-current", String(on)),
             );
-          if (!past.ch3) setCurrent(false);
+          setCurrent(false);
           const loopTl = gsap.timeline({ paused: true });
           loopTl
             .fromTo(
@@ -1060,52 +1059,94 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
               { opacity: 0 },
               { opacity: 1, duration: 0.3 },
             );
-          once(loopTl, ch3, past.ch3, () => setCurrent(true));
-          all<HTMLElement>("[data-difference-item]").forEach((item, i) => {
-            if (past.items[i]) return;
-            gsap.from(item.children, {
-              opacity: 0,
-              x: i % 2 === 0 ? -12 : 12,
-              duration: 0.4,
-              delay: (i % 2) * 0.08,
-              ease: panel,
-              scrollTrigger: {
-                trigger: item.querySelector("dt span"),
-                start: "top 70%",
-                once: true,
+          cue(
+            ch3,
+            0.7,
+            () => void loopTl.play(),
+            () => {
+              loopTl.progress(1, true);
+              setCurrent(true);
+            },
+          );
+          /* Reveals of HTML blocks run as WAAPI on transform and opacity (on
+             the compositor). Blocks wait hidden until their cue; the server
+             HTML, reduced motion and no-JS keep them visible. */
+          const enter = (
+            node: HTMLElement,
+            from: string,
+            options: KeyframeAnimationOptions,
+          ) => {
+            node.style.opacity = "0";
+            return {
+              play: () => {
+                node.animate(
+                  [
+                    { opacity: 0, transform: from },
+                    { opacity: 1, transform: "none" },
+                  ],
+                  {
+                    fill: "backwards",
+                    ...options,
+                  },
+                );
+                node.style.removeProperty("opacity");
               },
-            });
+              finish: () => node.style.removeProperty("opacity"),
+            };
+          };
+          all<HTMLElement>("[data-difference-item]").forEach((item, i) => {
+            const parts = Array.from(
+              item.children as HTMLCollectionOf<HTMLElement>,
+            ).map((child) =>
+              enter(child, `translateX(${i % 2 === 0 ? -12 : 12}px)`, {
+                duration: 400,
+                delay: (i % 2) * 80,
+                easing: cubicBezier(EASE_STATE),
+              }),
+            );
+            // As soon as the row is comfortably on screen: its dot and pier
+            // line are already there, so a later cue reads as missing text.
+            cue(
+              item.querySelector("dt span"),
+              0.88,
+              () => parts.forEach((part) => part.play()),
+              () => parts.forEach((part) => part.finish()),
+            );
           });
-          if (!past.differences)
-            for (const line of layer.querySelectorAll("[data-difference-line]"))
-              gsap.from(line, {
-                scaleX: 0,
-                transformOrigin: desktop ? "center" : "left",
-                duration: 0.4,
-                ease: panel,
-                scrollTrigger: { trigger: diffTitle, start: "top 70%", once: true },
-              });
+          const differenceLines = layer.querySelectorAll("[data-difference-line]");
+          gsap.set(differenceLines, {
+            scaleX: 0,
+            transformOrigin: desktop ? "center" : "left",
+          });
+          cue(
+            diffTitle,
+            0.7,
+            () =>
+              void gsap.to(differenceLines, { scaleX: 1, duration: 0.4, ease: panel }),
+            () => void gsap.set(differenceLines, { scaleX: 1 }),
+          );
           all<HTMLElement>("[data-card]").forEach((card, i) => {
-            if (past.cards[i]) return;
-            gsap.from(card, {
-              y: 12,
-              opacity: 0,
-              duration: DURATION.reveal,
-              delay: i * 0.12,
-              ease: reveal,
-              scrollTrigger: { trigger: card, start: "top 90%", once: true },
+            const shown = enter(card, "translateY(12px)", {
+              duration: DURATION.reveal * 1000,
+              delay: i * 120,
+              easing: cubicBezier(EASE_REVEAL),
             });
-            if (!desktop)
-              gsap.fromTo(
-                card.querySelector("[data-card-line]"),
-                { strokeDashoffset: 1 },
-                {
+            cue(card, 0.9, shown.play, shown.finish);
+            if (desktop) return;
+            // Phones have no hover: the card's path is drawn once instead.
+            const path = card.querySelector("[data-card-line]");
+            gsap.set(path, { strokeDashoffset: 1 });
+            cue(
+              card,
+              0.8,
+              () =>
+                void gsap.to(path, {
                   strokeDashoffset: 0,
                   duration: 0.9,
                   ease: reveal,
-                  scrollTrigger: { trigger: card, start: "top 80%", once: true },
-                },
-              );
+                }),
+              () => void gsap.set(path, { strokeDashoffset: 0 }),
+            );
           });
           // Mist parallax only where blending and layer moves are cheap (R4):
           // on phones and tablets the mist stays still.
@@ -1129,15 +1170,42 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
                 },
               ),
             );
-          const pageshow = () => ScrollTrigger.refresh();
-          window.addEventListener("pageshow", pageshow);
+          /* Geometry is measured here, never in the frame loop: on load, on a
+             width change or a height change of 160px or more (iOS toolbars
+             only change the height a little), on font load and on history
+             return (R7). */
+          refresh();
+          opening = false;
+          window.addEventListener("scroll", onScroll, { passive: true });
+          let lastWidth = innerWidth,
+            lastHeight = innerHeight,
+            measure = 0;
+          const remeasure = () => {
+            cancelAnimationFrame(measure);
+            measure = requestAnimationFrame(() => {
+              refresh();
+              wake();
+            });
+          };
+          const onResize = () => {
+            if (innerWidth === lastWidth && Math.abs(innerHeight - lastHeight) < 160)
+              return;
+            lastWidth = innerWidth;
+            lastHeight = innerHeight;
+            remeasure();
+          };
+          window.addEventListener("resize", onResize);
+          window.addEventListener("pageshow", remeasure);
           void document.fonts.ready.then(() => {
-            if (alive) ScrollTrigger.refresh();
+            if (!alive) return;
+            remeasure();
+            if (desktop) ScrollTrigger.refresh();
           });
           return () => {
-            window.removeEventListener("pageshow", pageshow);
+            window.removeEventListener("pageshow", remeasure);
+            window.removeEventListener("resize", onResize);
             window.removeEventListener("scroll", onScroll);
-            ScrollTrigger.removeEventListener("refresh", refresh);
+            cancelAnimationFrame(measure);
             cancelAnimationFrame(raf);
             raf = 0;
             sendBranchLight = null;
@@ -1161,6 +1229,10 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
               );
             dawn.style.removeProperty("opacity");
             windows.style.removeProperty("opacity");
+            for (const node of all<HTMLElement>(
+              "[data-card], [data-difference-item] > *",
+            ))
+              node.style.removeProperty("opacity");
           };
         },
       );

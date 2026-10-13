@@ -1025,6 +1025,11 @@
   font-family: var(--serif);
   line-height: calc(21px * var(--t));
 }
+.processBody,
+.boundaryNote {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
 .processBody {
   width: calc(290 * var(--s));
   line-height: calc(24px * var(--t));
@@ -1232,6 +1237,8 @@
   margin-top: 10px;
   max-width: 88%;
   color: rgb(255 255 255 / 88%);
+  word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 .cardCopy > .arrow {
   position: absolute;
@@ -2061,9 +2068,64 @@
   transform: scale(1.4);
 }
 
+/* Chips sit on their river nodes, but never past the screen edge (a 320px
+   screen is narrower than the 390px plate they were placed on). */
 @media (max-width: 1023px) {
-  .sourceChip {
-    left: clamp(28px, calc(var(--x-m) * var(--s)), calc(100% - 28px));
+  .placedChip {
+    left: clamp(
+      calc(var(--half, 28) * var(--t) * 1px + 4px),
+      calc(var(--x-m) * var(--s)),
+      calc(100% - var(--half, 28) * var(--t) * 1px - 4px)
+    );
+  }
+}
+/* Below the 390px design width the phone composition scales as one piece:
+   positions already follow --s, and so does the type here (small text keeps
+   its 12px floor), so lines and labels keep their spacing on 320-389px. */
+@media (max-width: 389px) {
+  .position {
+    font-size: max(12px, calc(var(--font-m, 12) * var(--s)));
+  }
+  .title {
+    line-height: calc(58 * var(--s));
+  }
+  .heroLead {
+    line-height: max(17px, calc(22 * var(--s)));
+  }
+  .socialDescription {
+    line-height: max(18px, calc(22 * var(--s)));
+  }
+  .processLead {
+    line-height: max(17px, calc(21 * var(--s)));
+  }
+  .processBody {
+    line-height: max(19px, calc(24 * var(--s)));
+  }
+  .step {
+    font-size: max(13px, calc(16 * var(--s)));
+  }
+  .stepNumber {
+    font-size: calc(18 * var(--s));
+  }
+  .progressBar {
+    gap: calc(4 * var(--s));
+    margin-left: calc(12 * var(--s));
+  }
+  .progressBar > span {
+    width: calc(16 * var(--s));
+  }
+  /* The 13 and 14 rows must hold five and four chips on one line. */
+  .bracketTags .tags,
+  .bracketTags [role="group"] {
+    gap: clamp(3px, calc(3px + (100cqw - 320px) * 0.043), 6px);
+  }
+  .bracketTags li,
+  .bracketTags .chipButton > span {
+    padding-inline: clamp(6px, calc(6px + (100cqw - 320px) * 0.086), 12px);
+    letter-spacing: 0.02em;
+  }
+  .cardCopy > p:nth-of-type(2) {
+    font-size: 12px;
   }
 }
 
