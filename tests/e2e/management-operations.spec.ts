@@ -412,4 +412,47 @@ test.describe("narrow motion", () => {
     ).toBeInViewport();
     expect(errors).toEqual([]);
   });
+
+  test("scrolls the whole page with motion, within the phone image budget", async ({
+    page,
+  }) => {
+    test.setTimeout(120_000);
+    const errors: string[] = [];
+    page.on("pageerror", (error) => errors.push(error.message));
+    page.on("console", (message) => {
+      // The shared header's prefetch warnings are outside this page (see the
+      // polish report); everything else counts.
+      if (message.type() === "error") errors.push(message.text());
+      else if (
+        message.type() === "warning" &&
+        !/preloaded using link preload/.test(message.text())
+      )
+        errors.push(message.text());
+    });
+    await open(page);
+    const root = page.locator("[data-mo-root]");
+    await expect(root).toHaveAttribute("data-motion", "ready", { timeout: 20_000 });
+    const end = await page.evaluate(
+      () => document.documentElement.scrollHeight - window.innerHeight,
+    );
+    let peak = 0;
+    for (let y = 0; y <= end + 600; y += 600) {
+      await scrollTo(page, Math.min(y, end));
+      await page.waitForFunction(
+        () => (window as unknown as { __mo: { idle: () => boolean } }).__mo.idle(),
+        null,
+        { timeout: 15_000 },
+      );
+      const bytes = await page.evaluate(
+        () =>
+          (
+            window as unknown as { __mo: { stats: () => { bytes: number } } }
+          ).__mo.stats().bytes,
+      );
+      peak = Math.max(peak, bytes);
+    }
+    // R5: at most 64 MB of decoded image data alive at once on a phone.
+    expect(peak).toBeLessThanOrEqual(64 * 1024 * 1024);
+    expect(errors).toEqual([]);
+  });
 });
