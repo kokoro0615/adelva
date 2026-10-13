@@ -1,3 +1,17 @@
+/*
+ * The wordmark's five letters, cut from Inter Tight at weight 500 (1 KB). The
+ * full variable face (234 KB) was downloaded on every page for these six
+ * glyphs alone — nothing else on eight of the ten routes is set in it. Block
+ * display: the file is tiny and the footer is never the first screen.
+ */
+@font-face {
+  font-family: "ADELVA Wordmark";
+  src: url("/fonts/adelva-wordmark.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+}
+
 .footer {
   position: relative;
   z-index: 2;
@@ -27,9 +41,64 @@
 }
 
 .contact {
+  position: relative;
   min-height: 35.6794vw;
   border-bottom: 1px solid var(--footer-rule);
   padding: 13.23vw 2.9965vw 4.78vw;
+}
+
+/*
+ * The site's one orange line, lying on the rule under the call. It is drawn
+ * from the leading edge when the rule arrives (footer-arrival.tsx) and stays:
+ * the line every page follows ends here, under the way into a conversation.
+ * The element itself is the observed marker; only its ::before moves, so the
+ * observer never measures a collapsed box.
+ */
+.arrival {
+  position: absolute;
+  inset-inline: 0;
+  bottom: -1px;
+  height: 1.5px;
+  pointer-events: none;
+}
+
+.arrival::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--flare, #ff7e15);
+  transform-origin: 0 50%;
+}
+
+.headingLine {
+  display: block;
+  overflow: clip;
+  /* Room above and below the glyphs inside the clip; the negative margins
+     keep the measured line pitch. */
+  padding-block: 0.1em;
+  margin-block: -0.1em;
+}
+
+.headingLine > span {
+  display: block;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .heading[data-arrive="armed"] .headingLine > span {
+    transform: translate3d(0, 120%, 0);
+  }
+  .arrival[data-arrive="armed"]::before {
+    transform: scaleX(0);
+  }
+  .heading[data-arrive="arrived"] .headingLine > span {
+    transition: transform 900ms var(--ease-reveal, cubic-bezier(0.16, 1, 0.3, 1));
+  }
+  .heading[data-arrive="arrived"] .headingLine + .headingLine > span {
+    transition-delay: 90ms;
+  }
+  .arrival[data-arrive="arrived"]::before {
+    transition: transform 1150ms var(--ease-wipe, cubic-bezier(0.76, 0, 0.24, 1));
+  }
 }
 
 .contactLink {
@@ -40,16 +109,16 @@
 }
 
 .heading {
+  /* A column, so each line's negative margins stay its own (block margins
+     would collapse between the lines and push the second one down). */
+  display: flex;
+  flex-direction: column;
   margin: 0;
   font-family: var(--font-narrow);
   font-weight: 300;
   font-size: 6.7vw;
   line-height: 1.03;
   letter-spacing: 0.09em;
-}
-
-.heading span {
-  display: block;
 }
 
 .contactLabel {
@@ -114,7 +183,7 @@
   display: flex;
   justify-content: space-between;
   margin: 2.5vw 2.1vw 0 1.05vw;
-  font-family: var(--font-sans);
+  font-family: "ADELVA Wordmark", ui-sans-serif, system-ui, sans-serif;
   font-size: 17.2vw;
   font-weight: 500;
   line-height: 1;
@@ -132,12 +201,14 @@
   min-height: 6.34vw;
 }
 
-.bottom > span {
+.legal {
   padding-top: 0.55vw;
-  font-family: var(--font-sans);
-  font-size: max(9px, 0.97vw);
+  color: #a29f98;
+  font-size: max(12px, 0.9vw);
   line-height: 1.5;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.08em;
+  font-feature-settings: "palt" 0;
+  font-variant-numeric: lining-nums;
 }
 
 .bottom a {
@@ -270,12 +341,23 @@
     padding-top: 2.5vw;
     padding-bottom: 6vw;
   }
-  .bottom > span {
-    padding-top: 2vw;
-    font-size: 9px;
+  .legal {
+    padding-top: 2.4vw;
+    font-size: 12px;
   }
   .bottom a {
     margin-right: -4px;
+  }
+}
+
+/* Touch: every directory row is a full-width 44px target. The measured
+   33px pitch of the mock is kept for fine pointers. */
+@media (pointer: coarse) {
+  .directory a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    line-height: 1.6;
   }
 }
 

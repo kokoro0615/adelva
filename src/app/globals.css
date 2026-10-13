@@ -213,6 +213,38 @@ html {
   scroll-padding-top: calc(var(--header-height) + 1.5rem);
 }
 
+/*
+ * In-page targets land just under the compact bar, not 5rem + 1.5rem below the
+ * top on every width: on a phone the bar is 54px, and the desktop figure left
+ * a 50px dead band above every anchored heading.
+ */
+@media (max-width: 47.999rem) {
+  :root {
+    --header-height: 3.375rem;
+  }
+
+  html {
+    scroll-padding-top: calc(var(--header-height) + 1rem);
+  }
+}
+
+@media (min-width: 48rem) and (max-width: 63.999rem) {
+  :root {
+    --header-height: 3.5rem;
+  }
+}
+
+/*
+ * The canvas beyond the end of the document. Pages that do not colour the root
+ * leave it to the body's paper, and iOS bounced that pale band out from under
+ * the near-black footer on every flick to the end. The footer marks the root
+ * while its last row is on screen (src/components/home/footer-arrival.tsx).
+ * `:root` outranks the pages' own `html:has(.page)` colours, which are dark.
+ */
+:root[data-footer-end] {
+  background-color: #050908;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;

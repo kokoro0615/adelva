@@ -26,7 +26,8 @@ for (const viewport of viewports) {
         footer.getByRole("heading", { name: "Start with a conversation" }),
       ).toBeVisible();
       const links = footer.locator("nav a");
-      await expect(links).toHaveCount(6);
+      // 2 audiences, 3 domains, 支援の進め方 + ADELVAについて (会社情報)
+      await expect(links).toHaveCount(7);
       await expect(
         footer.getByRole("link", { name: "お問い合わせ", exact: true }),
       ).toHaveAttribute("href", "/contact");
