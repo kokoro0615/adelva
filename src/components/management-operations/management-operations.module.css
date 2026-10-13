@@ -1529,7 +1529,8 @@
     letter-spacing: 0.06em;
     text-align: center;
     color: var(--ice);
-    text-shadow: var(--shadow);
+    /* small type on the sharp, lit knuckle: the tighter, denser shade */
+    text-shadow: var(--shadow-small);
   }
   .cameraRingLabel .num {
     font-size: 11px;
