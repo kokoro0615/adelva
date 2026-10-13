@@ -2,8 +2,9 @@
  * Every visible text run is compared with its own text-free background (text made
  * transparent; pools, grades and halos kept). Light text is judged against the
  * p95 background luminance, dark (ink) text against the p5, so the worst side of
- * the photograph behind each run decides. States: nothing selected, the mock's
- * reference state, and every terrace lit with each point of judgement.
+ * the photograph behind each run decides. States: nothing selected, every terrace
+ * in the reading light (spec §13), the mock's reference state, and every terrace
+ * lit with each point of judgement.
  *   PLAYWRIGHT_TEST_BASE_URL=http://127.0.0.1:4481 node scripts/adelva/measure-general-managers-contrast.mjs [out.json]
  */
 import { mkdir, writeFile } from "node:fs/promises";
@@ -87,7 +88,7 @@ async function measure(p, label, viewport) {
     .toBuffer({ resolveWithObject: true });
   const style = await p.addStyleTag({
     content:
-      "main [data-contrast-id]{color:transparent!important;-webkit-text-fill-color:transparent!important;fill:transparent!important;text-decoration-color:transparent!important}",
+      "main [data-contrast-id]{color:transparent!important;-webkit-text-fill-color:transparent!important;fill:transparent!important;text-decoration-color:transparent!important;transition:none!important}",
   });
   const shot = await p.screenshot({ fullPage: true });
   await style.evaluate((n) => n.remove());
@@ -167,6 +168,19 @@ for (const [width, height] of [
   await p.goto(`${base}/challenges/general-managers`, { waitUntil: "networkidle" });
   await settle(p);
   results.push(...(await measure(p, "rest", width)));
+  // 01 as the reader passes: the light on each terrace without a selection
+  await p.evaluate(() =>
+    document
+      .querySelectorAll("label[data-issue], [data-lit]")
+      .forEach((n) => n.setAttribute("data-dawn", "")),
+  );
+  await settle(p);
+  results.push(...(await measure(p, "reading-light", width)));
+  await p.evaluate(() =>
+    document
+      .querySelectorAll("[data-dawn]")
+      .forEach((n) => n.removeAttribute("data-dawn")),
+  );
   const check = (id) =>
     p.locator(`input[name="issue"][value="${id}"]`).check({ force: true });
   await check("quality");
@@ -188,7 +202,23 @@ for (const [width, height] of [
       .forEach((g) => g.removeAttribute("data-state")),
   );
   for (const point of ["priority", "authority"]) {
-    await p.locator(`input[name="point"][value="${point}"]`).check({ force: true });
+    // 02 follows the reading position; hold the point while the full-page
+    // capture resizes the viewport
+    await p.evaluate((point) => {
+      const section = document.querySelector("section[data-point]");
+      const hold = () => {
+        if (section.dataset.point !== point) section.dataset.point = point;
+        document
+          .querySelectorAll("[data-points] > li")
+          .forEach((li) =>
+            li.toggleAttribute("data-active", li.dataset.step === point),
+          );
+      };
+      window.__gmHold?.disconnect();
+      window.__gmHold = new MutationObserver(hold);
+      window.__gmHold.observe(section, { attributes: true });
+      hold();
+    }, point);
     await settle(p);
     results.push(...(await measure(p, `all-lit+${point}`, width)));
   }

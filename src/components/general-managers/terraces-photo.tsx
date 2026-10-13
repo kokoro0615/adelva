@@ -56,35 +56,31 @@ function Tiles() {
 }
 
 /**
- * The five selectable terraces in their lit state. Each is revealed by a circle
- * growing from its ring when the matching checkbox is checked (pure CSS).
+ * The five selectable terraces in their lit state. Each fades in while the reader
+ * is at it (spec §13) or while its checkbox is checked (pure CSS).
  */
 function LitFields() {
   return regimes.map(({ key, g, className }) => (
     <div key={key} className={`${styles.layer} ${className}`}>
-      {issues.map((issue, i) => {
+      {issues.map((issue) => {
         const box = g.lit[issue.id];
         const k = g.width / g.plate.width;
         const x = box.left * k;
         const y = box.top * k;
         const w = box.width * k;
         const h = box.height * k;
-        // the ring the light spreads from, in the overlay's own box
-        const [rx, ry] =
-          key === "d" ? geometry.desktop.rings[i] : [36, geometry.mobile.rows[i] + 30];
         return (
           <div
             key={issue.id}
             className={styles.lit}
             data-issue={issue.id}
+            data-lit
             style={
               {
                 "--x": x.toFixed(2),
                 "--y": y.toFixed(2),
                 "--w": w.toFixed(2),
                 "--h": h.toFixed(2),
-                "--ox": `${(((rx - x) / w) * 100).toFixed(1)}%`,
-                "--oy": `${(((ry - y) / h) * 100).toFixed(1)}%`,
               } as Vars
             }
           >
@@ -122,6 +118,31 @@ const desktopPools = [
   [640, 6380, 780, 250, 0.36],
 ] as const;
 
+/**
+ * Light that exists only for motion (spec §13.3): the first sun on the upper
+ * mirror at load, and the inn's windows when the reader arrives at 07.
+ * [x, y, rx, ry] in mock px.
+ */
+const light = {
+  d: { sun: [1150, 440, 420, 120], inn: [1000, 7190, 330, 170] },
+  m: { sun: [322, 338, 120, 46], inn: [262, 7156, 150, 90] },
+} as const;
+
+function Light() {
+  return regimes.map(({ key, className }) => {
+    const { sun, inn } = light[key];
+    const at = ([cx, cy, rx, ry]: readonly number[]) =>
+      ({ "--cx": cx, "--cy": cy, "--rx": rx, "--ry": ry }) as Vars;
+    return (
+      <div key={key} className={`${styles.layer} ${styles.dawn} ${className}`}>
+        <i className={styles.dusk} />
+        <i className={styles.sun} style={at(sun)} />
+        <i className={styles.inn} style={at(inn)} data-inn />
+      </div>
+    );
+  });
+}
+
 export function TerracesPhoto() {
   return (
     <div className={styles.photo} aria-hidden="true" data-photo>
@@ -147,7 +168,8 @@ export function TerracesPhoto() {
         </div>
       ))}
       <div className={styles.headShade} />
-      <div className={styles.sweep} data-sweep />
+      <Light />
+      <i className={styles.drop} data-drop />
       <div className={styles.footFade} />
     </div>
   );

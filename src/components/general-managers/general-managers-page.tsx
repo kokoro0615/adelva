@@ -21,7 +21,7 @@ import {
 import { GmExperience } from "./gm-experience";
 import { GmGauge } from "./gm-gauge";
 import { GmTray } from "./gm-tray";
-import { Lines } from "./lines";
+import { Lines, MaskLines } from "./lines";
 import { DecisionMarks, GateMarks } from "./terrace-marks";
 import { TerracesPhoto } from "./terraces-photo";
 import styles from "./general-managers.module.css";
@@ -44,10 +44,13 @@ function Arrow() {
 function Section({
   index,
   className = "",
+  point,
   children,
 }: {
   index: number;
   className?: string;
+  /** 02 only: the point of judgement the marks show (the motion layer follows the reader). */
+  point?: string;
   children: ReactNode;
 }) {
   const chapter = index > 0 ? chapters[index - 1] : null;
@@ -57,6 +60,7 @@ function Section({
       className={`${styles.section} ${className}`}
       aria-labelledby={chapter ? `${chapter.id}-title` : "gm-title"}
       data-chapter={index}
+      data-point={point}
       style={
         {
           "--hd": span(d.tops, d.height, index),
@@ -100,7 +104,7 @@ function H2({
       data-pool={pool ? "m" : undefined}
       data-reveal
     >
-      <Lines text={text} />
+      <MaskLines text={text} />
     </h2>
   );
 }
@@ -169,10 +173,12 @@ function Challenges() {
       <div className={styles.col}>
         <Chapter index={1} />
         <H2 index={1} text={challengesCopy.title} />
-        <p className={`${styles.body} ${styles.pooled}`} data-pool="m">
+        <p className={`${styles.body} ${styles.pooled}`} data-pool="m" data-reveal-soft>
           <Lines text={challengesCopy.body} />
         </p>
-        <p className={`${styles.helper} ${styles.desktop}`}>{challengesCopy.helper}</p>
+        <p className={styles.helper} data-reveal-soft>
+          {challengesCopy.helper}
+        </p>
       </div>
       <fieldset className={styles.issues} data-issues>
         <legend className={styles.visuallyHidden}>{challengesCopy.legend}</legend>
@@ -195,7 +201,7 @@ function Challenges() {
               name="issue"
               value={issue.id}
             />
-            <span className={styles.ring} aria-hidden="true">
+            <span className={styles.ring} aria-hidden="true" data-ring>
               <i className={styles.ripple} />
               <i className={styles.ripple} />
             </span>
@@ -212,29 +218,24 @@ function Challenges() {
 
 function Decision() {
   return (
-    <Section index={2}>
+    <Section index={2} point="cause">
       <div className={styles.col}>
         <div className={styles.decisionIntro}>
           <Chapter index={2} />
           <H2 index={2} text={decision.title} />
-          <p className={styles.body}>
+          <p className={styles.body} data-reveal-soft>
             <Lines text={decision.body} />
           </p>
         </div>
-        <div
-          className={styles.points}
-          role="radiogroup"
-          aria-label={decision.groupLabel}
-        >
+        {/* The marks follow the point being read (spec §13.3); the list is plain text. */}
+        <ol className={styles.points} aria-label={decision.groupLabel} data-points>
           {decision.points.map((point, i) => (
-            <label key={point.id} className={styles.point}>
-              <input
-                className={styles.pointInput}
-                type="radio"
-                name="point"
-                value={point.id}
-                defaultChecked={i === 0}
-              />
+            <li
+              key={point.id}
+              className={styles.point}
+              data-step={point.id}
+              data-active={i === 0 ? "" : undefined}
+            >
               <span className={styles.radio} aria-hidden="true" />
               <span className={styles.pointTitle}>
                 <Lines text={point.title} />
@@ -242,9 +243,9 @@ function Decision() {
               <span className={styles.pointText}>
                 <Lines text={point.text} />
               </span>
-            </label>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
       <DecisionMarks />
     </Section>
@@ -254,24 +255,24 @@ function Decision() {
 const glyphs = {
   one: (
     <svg viewBox="0 0 56 20">
-      <circle cx="10" cy="10" r="7" />
+      <circle cx="10" cy="10" r="7" pathLength={1} />
     </svg>
   ),
   three: (
     <svg viewBox="0 0 56 20">
-      <circle cx="8" cy="10" r="6" />
-      <circle cx="28" cy="10" r="6" />
-      <circle cx="48" cy="10" r="6" />
-      <path d="M14 10h8M34 10h8" />
+      <circle cx="8" cy="10" r="6" pathLength={1} />
+      <circle cx="28" cy="10" r="6" pathLength={1} />
+      <circle cx="48" cy="10" r="6" pathLength={1} />
+      <path d="M14 10h8M34 10h8" pathLength={1} />
     </svg>
   ),
   rise: (
     <svg viewBox="0 -4 56 34">
-      <circle cx="8" cy="22" r="6" />
-      <circle cx="28" cy="22" r="6" />
-      <circle cx="48" cy="22" r="6" />
-      <path d="M14 22h8M34 22h8M28 16V9.5" />
-      <circle cx="28" cy="5" r="4.5" />
+      <circle cx="8" cy="22" r="6" pathLength={1} />
+      <circle cx="28" cy="22" r="6" pathLength={1} />
+      <circle cx="48" cy="22" r="6" pathLength={1} />
+      <path d="M14 22h8M34 22h8M28 16V9.5" pathLength={1} />
+      <circle cx="28" cy="5" r="4.5" pathLength={1} />
     </svg>
   ),
 };
@@ -360,7 +361,7 @@ function Roles() {
       <div className={styles.col}>
         <Chapter index={4} />
         <H2 index={4} text={roles.title} />
-        <p className={styles.body}>
+        <p className={styles.body} data-reveal-soft>
           <Lines text={roles.body} />
         </p>
         <dl className={styles.roles} aria-label={roles.listLabel}>
@@ -405,7 +406,7 @@ function Execution() {
         <div className={styles.execIntro}>
           <Chapter index={5} />
           <H2 index={5} text={execution.title} className={styles.execTitle} />
-          <p className={styles.body}>
+          <p className={styles.body} data-reveal-soft>
             <Lines text={execution.body} />
           </p>
         </div>
