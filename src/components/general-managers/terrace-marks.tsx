@@ -110,43 +110,22 @@ function DecisionSvg({ regime }: { regime: "d" | "m" }) {
   const down: Point = desk ? [1160, 2414] : [226, 2120];
   const chevron = ([x, y]: Point, dir: 1 | -1) =>
     `M${x - 7},${y + 4 * dir} l7,${-7 * dir} l7,${7 * dir}`;
-  const id = (mode: string) => `gm-${regime}-${mode}-draw`;
+  const id = `gm-${regime}-cause-draw`;
   const box: Box = desk ? [600, 2150, 840, 800] : [0, 1960, 390, 360];
-  const ellipse = desk
-    ? { cx: 985, cy: 2627, rx: 318, ry: 64 }
-    : { cx: 215, cy: 2168, rx: 172, ry: 66 };
-  /** A wide white stroke along each line, drawn by CSS when its point is read. */
-  const drawn = (mode: string, d: string) => (
-    <path
-      d={d}
-      fill="none"
-      stroke="#fff"
-      strokeWidth={14}
-      pathLength={1}
-      strokeDasharray="1 1"
-      data-draw={mode}
-    />
-  );
   return (
     <Svg box={box} regime={regime} name="decision">
       <defs>
-        <mask id={id("cause")} maskUnits="userSpaceOnUse" {...region(box)}>
-          {drawn("cause", causePath)}
-        </mask>
-        <mask id={id("priority")} maskUnits="userSpaceOnUse" {...region(box)}>
-          {drawn("priority", flow)}
-          <ellipse
-            {...ellipse}
+        <mask id={id} maskUnits="userSpaceOnUse" {...region(box)}>
+          <path
+            d={causePath}
             fill="none"
             stroke="#fff"
-            strokeWidth={14}
+            strokeWidth={12}
             pathLength={1}
             strokeDasharray="1 1"
-            data-draw="priority"
+            strokeDashoffset={0}
+            data-draw="cause"
           />
-        </mask>
-        <mask id={id("authority")} maskUnits="userSpaceOnUse" {...region(box)}>
-          {drawn("authority", boundary)}
         </mask>
       </defs>
       <g className={styles.mode} data-mode="cause">
@@ -155,26 +134,40 @@ function DecisionSvg({ regime }: { regime: "d" | "m" }) {
           d={causePath}
           strokeWidth={2}
           strokeDasharray={desk ? "2 7" : "2 6"}
-          mask={`url(#${id("cause")})`}
+          mask={`url(#${id})`}
           vectorEffect="non-scaling-stroke"
         />
         <Ring at={[cx, cy]} r={r} width={2.2} />
         <Ring at={[sx, sy]} r={r} width={1.8} />
       </g>
       <g className={styles.mode} data-mode="priority">
-        <ellipse
-          className={styles.markHair}
-          {...ellipse}
-          strokeWidth={1.4}
-          strokeDasharray="4 6"
-          mask={`url(#${id("priority")})`}
-          vectorEffect="non-scaling-stroke"
-        />
+        {desk ? (
+          <ellipse
+            className={styles.markHair}
+            cx={985}
+            cy={2627}
+            rx={318}
+            ry={64}
+            strokeWidth={1.4}
+            strokeDasharray="4 6"
+            vectorEffect="non-scaling-stroke"
+          />
+        ) : (
+          <ellipse
+            className={styles.markHair}
+            cx={215}
+            cy={2168}
+            rx={172}
+            ry={66}
+            strokeWidth={1.4}
+            strokeDasharray="4 6"
+            vectorEffect="non-scaling-stroke"
+          />
+        )}
         <path
           className={styles.markLine}
           d={flow}
           strokeWidth={1.6}
-          mask={`url(#${id("priority")})`}
           vectorEffect="non-scaling-stroke"
         />
         <Ring at={[cx, cy]} r={r} width={2.2} no="01" />
@@ -187,7 +180,6 @@ function DecisionSvg({ regime }: { regime: "d" | "m" }) {
           d={boundary}
           strokeWidth={1.6}
           strokeDasharray="7 7"
-          mask={`url(#${id("authority")})`}
           vectorEffect="non-scaling-stroke"
         />
         <path
@@ -286,9 +278,8 @@ function GateSvg({ regime }: { regime: "d" | "m" }) {
     <Svg box={box} regime={regime} name="gates">
       <defs>
         <radialGradient id={glow}>
-          <stop offset="0" stopColor="#ffe2bd" stopOpacity="0.8" />
-          <stop offset="0.3" stopColor="#ffb068" stopOpacity="0.38" />
-          <stop offset="0.6" stopColor="#ff9a4a" stopOpacity="0.12" />
+          <stop offset="0" stopColor="#ffd7a8" stopOpacity="0.55" />
+          <stop offset="0.45" stopColor="#ff9a4a" stopOpacity="0.22" />
           <stop offset="1" stopColor="#ff7e15" stopOpacity="0" />
         </radialGradient>
         <mask id={draw} maskUnits="userSpaceOnUse" {...region(box)}>
@@ -306,7 +297,7 @@ function GateSvg({ regime }: { regime: "d" | "m" }) {
       </defs>
       <circle
         className={styles.gateGlow}
-        r={desk ? 110 : 72}
+        r={desk ? 70 : 46}
         cx={gates[0][0]}
         cy={gates[0][1]}
         fill={`url(#${glow})`}

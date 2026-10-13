@@ -16,6 +16,11 @@
   font-weight: 100 900;
   font-display: swap;
 }
+@property --reach {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
 
 /* Anything the compositor has not painted yet during a fast scroll shows the
    root's colour; keep it the page's ink rather than the site's paper. */
@@ -174,9 +179,6 @@
     background: rgb(8 10 18 / 36%);
     filter: blur(calc(36 * var(--z)));
   }
-  .flow .flowLabel {
-    color: var(--ivory);
-  }
   /* The index keeps only its staff; hover or focus opens it. */
   .gauge:not(:hover, :focus-within) {
     background: none;
@@ -240,17 +242,23 @@
   width: 100%;
   height: 100%;
 }
-/* Lit water, faded on its own compositor layer: the light arrives with the drop
-   and the ring's ripples, so no per-frame mask is repainted while scrolling. */
 .lit {
+  --ox: 50%;
+  --oy: 50%;
   position: absolute;
   left: calc(var(--x) * var(--k));
   top: calc(var(--y) * var(--k));
   width: calc(var(--w) * var(--k));
   height: calc(var(--h) * var(--k));
   opacity: 0;
-  transition: opacity 700ms var(--ease-panel);
-  will-change: opacity;
+  mask-image: radial-gradient(
+    circle farthest-corner at var(--ox) var(--oy),
+    #000 calc(var(--reach) - 18%),
+    transparent var(--reach)
+  );
+  transition:
+    opacity var(--dur-panel) var(--ease-panel),
+    --reach 0s linear var(--dur-panel);
 }
 .lit img {
   display: block;
@@ -350,143 +358,10 @@
     height: calc(120 * var(--k));
   }
 }
-/* Motion-only light (spec §13.3). Not painted at rest: a hidden blended layer
-   still changes text antialiasing in static captures. The dawn runs in CSS so it
-   starts with the first paint, before hydration. */
-.dawn {
+/* Motion-only layers are not painted unless the script runs them (a hidden
+   blended layer still changes text antialiasing in static captures). */
+.sweep {
   display: none;
-}
-.dusk,
-.sun,
-.inn {
-  position: absolute;
-  pointer-events: none;
-}
-.dusk {
-  inset: 0 0 auto;
-  height: calc(1100 * var(--k));
-  background: linear-gradient(
-    to bottom,
-    rgb(6 10 30 / 72%),
-    rgb(6 10 30 / 58%) 55%,
-    rgb(6 10 30 / 0%)
-  );
-  opacity: 0;
-}
-.sun,
-.inn {
-  left: calc((var(--cx) - var(--rx)) * var(--k));
-  top: calc((var(--cy) - var(--ry)) * var(--k));
-  width: calc(var(--rx) * 2 * var(--k));
-  height: calc(var(--ry) * 2 * var(--k));
-  border-radius: 50%;
-  mix-blend-mode: screen;
-  opacity: 0;
-}
-/* The first sun on the open water beside the headline, spreading along the
-   surface rather than over the words. */
-.sun {
-  background: radial-gradient(
-    closest-side,
-    rgb(255 214 160 / 85%),
-    rgb(255 160 80 / 50%) 35%,
-    rgb(255 120 50 / 16%) 70%,
-    rgb(255 120 50 / 0%)
-  );
-  transform-origin: 70% 50%;
-}
-.inn {
-  background: radial-gradient(
-    closest-side,
-    rgb(255 208 150 / 62%),
-    rgb(255 160 90 / 24%) 50%,
-    rgb(255 150 80 / 0%)
-  );
-}
-@media (prefers-reduced-motion: no-preference) {
-  @media (min-width: 1024px) {
-    .dawn.desktop {
-      display: block;
-    }
-  }
-  @media (max-width: 1023.98px) {
-    .dawn.mobile {
-      display: block;
-    }
-  }
-  .dusk {
-    animation:
-      dusk-lift 2200ms cubic-bezier(0.45, 0.05, 0.25, 1) 150ms backwards,
-      done 1ms linear 2400ms forwards;
-    opacity: 0;
-  }
-  .sun {
-    animation:
-      sunrise 2800ms cubic-bezier(0.3, 0.1, 0.3, 1) 350ms backwards,
-      done 1ms linear 3200ms forwards;
-  }
-  /* The headline rises line by line from behind an invisible baseline. */
-  .title span {
-    animation: line-rise var(--dur-reveal) var(--ease-reveal) backwards;
-    animation-delay: calc(420ms + var(--i, 0) * 140ms);
-  }
-  .title span:nth-child(2) {
-    --i: 1;
-  }
-  .hero [data-hero-after] {
-    animation: soft-rise var(--dur-reveal) var(--ease-reveal) 900ms backwards;
-  }
-  .hero [data-hero-after] + [data-hero-after] {
-    animation-delay: 1000ms;
-  }
-  .hero :is(.crumb, .eyebrow) {
-    animation: soft-rise 900ms var(--ease-reveal) 250ms backwards;
-  }
-}
-@keyframes dusk-lift {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-@keyframes sunrise {
-  0% {
-    opacity: 0;
-    transform: scale(0.45, 0.3);
-  }
-  45% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.15, 1);
-  }
-}
-/* both ends hidden: a 1 ms animation ends at progress 0.99999…, where a
-   visible→hidden interpolation would still be visible */
-@keyframes done {
-  from,
-  to {
-    visibility: hidden;
-  }
-}
-@keyframes line-rise {
-  from {
-    transform: translateY(105%);
-    clip-path: inset(-30% -8% 100% -8%);
-  }
-  to {
-    transform: none;
-    clip-path: inset(-30% -8% 0 -8%);
-  }
-}
-@keyframes soft-rise {
-  from {
-    opacity: 0;
-    transform: translateY(calc(12 * var(--z)));
-  }
 }
 
 /* ------------------------------------------------------------ sections */
@@ -672,16 +547,6 @@
   font: 300 calc(22 * var(--z)) / 1 var(--narrow);
   color: var(--ivory-3);
 }
-/* One block per line so the motion layer can lift each from its baseline: the
-   line clips only while its words rise (a transform, never a repainted clip). */
-.line,
-.lineInner {
-  display: block;
-}
-.page[data-motion="on"] [data-rising] .line {
-  overflow: clip;
-  overflow-clip-margin: calc(10 * var(--z));
-}
 .h2 {
   margin-top: calc(20 * var(--z));
   font: 400 calc(48 * var(--z)) / 1.38 var(--serif);
@@ -775,27 +640,7 @@
 }
 @media (max-width: 1023.98px) {
   .helper {
-    position: relative;
-    color: var(--ivory);
-    gap: calc(9 * var(--z));
-    margin-top: calc(14 * var(--z));
-    font-size: calc(12.5 * var(--z));
-    letter-spacing: 0.03em;
-  }
-  /* A soft pool under the line (its ::before is the dot). */
-  .helper::after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    inset: calc(-14 * var(--z)) calc(-24 * var(--z));
-    border-radius: 50%;
-    background: radial-gradient(
-      closest-side,
-      rgb(8 10 18 / 50%),
-      rgb(8 10 18 / 28%) 55%,
-      rgb(8 10 18 / 0%)
-    );
-    pointer-events: none;
+    display: none;
   }
 }
 .issues {
@@ -836,22 +681,6 @@
     border-color var(--dur-state) var(--ease-state),
     box-shadow var(--dur-state) var(--ease-state),
     transform var(--dur-press) var(--ease-state);
-}
-/* "+": the ring can be added to the selection. */
-.ring::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background:
-    linear-gradient(currentColor, currentColor) center / 42% 1.5px no-repeat,
-    linear-gradient(currentColor, currentColor) center / 1.5px 42% no-repeat;
-  color: var(--ivory);
-  opacity: 0.9;
-  transition:
-    opacity var(--dur-fast) var(--ease-state),
-    color var(--dur-state) var(--ease-state),
-    transform var(--dur-state) var(--ease-reveal);
 }
 .ring::after {
   content: "";
@@ -922,31 +751,19 @@
 .issue:active .ring {
   transform: scale(0.9);
 }
-/* In the light — the terrace being read (spec §13.3), or a selected one, where
-   the light stays: the words are printed in ink on the lit water. */
-.issue:is([data-dawn], :has(.issueInput:checked))::before {
+/* Selected: the first light reaches this field; the words are printed in ink. */
+.issue:has(.issueInput:checked)::before {
   opacity: 0;
-}
-.issue[data-dawn] .ring {
-  border-color: var(--ink-page);
-  background: rgb(255 240 222 / 70%);
-}
-.issue[data-dawn] .ring::before {
-  color: var(--ink-page);
 }
 .issue:has(.issueInput:checked) .ring {
   border-color: var(--flare);
   background: var(--flare);
 }
-.issue:has(.issueInput:checked) .ring::before {
-  opacity: 0;
-  transform: rotate(90deg) scale(0.4);
-}
 .issue:has(.issueInput:checked) .ring::after {
   opacity: 1;
   transform: rotate(45deg) scale(1);
 }
-.issue:is([data-dawn], :has(.issueInput:checked)) :is(.issueTitle, .issueText) {
+.issue:has(.issueInput:checked) :is(.issueTitle, .issueText) {
   color: var(--ink-page);
   font-weight: 500;
   text-shadow: var(--halo-lit);
@@ -981,7 +798,7 @@
   pointer-events: none;
   transition: opacity var(--dur-reveal) var(--ease-reveal);
 }
-.issue:is([data-dawn], :has(.issueInput:checked)) :is(.issueTitle, .issueText)::before {
+.issue:has(.issueInput:checked) :is(.issueTitle, .issueText)::before {
   opacity: 1;
 }
 @media (max-width: 1023.98px) {
@@ -1006,20 +823,6 @@
     inset: calc(-10 * var(--z)) calc(-26 * var(--z));
     filter: blur(calc(14 * var(--z)));
   }
-  /* The phone plate lights 販売 only to the right of its words: the light under
-     them spreads from that water, softer and wider than a pool. */
-  .issue[data-issue="sales"] :is(.issueTitle, .issueText)::before {
-    inset: calc(-14 * var(--z)) calc(-40 * var(--z)) calc(-14 * var(--z))
-      calc(-30 * var(--z));
-    border-radius: calc(40 * var(--z));
-    background: linear-gradient(
-      90deg,
-      rgb(255 224 190 / 72%),
-      rgb(255 224 190 / 96%) 45%,
-      rgb(255 224 190 / 90%)
-    );
-    filter: blur(calc(18 * var(--z)));
-  }
   .issueTitle {
     font-size: calc(24 * var(--z));
     line-height: 1.25;
@@ -1033,30 +836,24 @@
 }
 
 /* ------------------------------------------------------------ 02 */
-/* A stepper: the point being read carries the orange mark, and the marks on the
-   photograph follow it (spec §13.3). */
 .points {
-  position: relative;
   display: grid;
-  gap: calc(44 * var(--z));
+  gap: calc(26 * var(--z));
   margin-top: calc(40 * var(--z));
 }
-.points::before {
-  content: "";
-  position: absolute;
-  left: calc(10 * var(--z) - 0.5px);
-  top: calc(20 * var(--z));
-  bottom: calc(40 * var(--z));
-  width: 1px;
-  background: var(--hair);
-}
 .point {
-  position: relative;
   display: grid;
   grid-template-columns: calc(20 * var(--z)) auto;
   column-gap: calc(16 * var(--z));
   row-gap: calc(6 * var(--z));
   align-items: center;
+  cursor: pointer;
+}
+.pointInput {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
 }
 .radio {
   position: relative;
@@ -1064,10 +861,7 @@
   height: calc(20 * var(--z));
   border: 1.5px solid var(--ivory);
   border-radius: 50%;
-  background: var(--ink-page);
-  transition:
-    border-color var(--dur-state) var(--ease-state),
-    box-shadow var(--dur-panel) var(--ease-panel);
+  transition: border-color var(--dur-state) var(--ease-state);
 }
 .radio::after {
   content: "";
@@ -1078,29 +872,15 @@
   transform: scale(0);
   transition: transform var(--dur-state) var(--ease-reveal);
 }
-.point[data-active] .radio {
+.pointInput:checked + .radio {
   border-color: var(--flare);
-  box-shadow: 0 0 0 calc(6 * var(--z)) rgb(255 126 21 / 18%);
 }
-.point[data-active] .radio::after {
+.pointInput:checked + .radio::after {
   transform: scale(1);
 }
-/* The mark beside the point being read grows down its text. */
-.point::after {
-  content: "";
-  position: absolute;
-  left: calc(10 * var(--z) - 1px);
-  top: calc(26 * var(--z));
-  bottom: calc(-4 * var(--z));
-  width: 2px;
-  background: var(--flare);
-  transform: scaleY(0);
-  transform-origin: top;
-  transition: transform var(--dur-panel) var(--ease-panel);
-}
-.point[data-active]::after {
-  transform: scaleY(1);
-  transition-duration: 900ms;
+.pointInput:focus-visible + .radio {
+  outline: 2px solid var(--ivory);
+  outline-offset: 4px;
 }
 .pointTitle {
   font: 400 calc(23 * var(--z)) / 1.3 var(--serif);
@@ -1112,6 +892,11 @@
   font-size: calc(14.5 * var(--z));
   letter-spacing: 0.05em;
   text-shadow: var(--halo);
+}
+@media (hover: hover) {
+  .point:hover .radio {
+    box-shadow: 0 0 0 calc(5 * var(--z)) rgb(241 239 234 / 14%);
+  }
 }
 .tag {
   --tx: var(--txd);
@@ -1132,23 +917,19 @@
   --pad: 26;
   --a: 0.55;
 }
-.tag {
-  transition:
-    opacity var(--dur-panel) var(--ease-panel),
-    visibility 0s linear var(--dur-panel);
-}
-[data-point="cause"] .tag:not([data-modes~="cause"]),
-[data-point="priority"] .tag:not([data-modes~="priority"]),
-[data-point="authority"] .tag:not([data-modes~="authority"]) {
+.tag:not([data-modes~="cause"]) {
   opacity: 0;
   visibility: hidden;
 }
-[data-point="cause"] .tag[data-modes~="cause"],
-[data-point="priority"] .tag[data-modes~="priority"],
-[data-point="authority"] .tag[data-modes~="authority"] {
-  transition:
-    opacity var(--dur-panel) var(--ease-panel) 200ms,
-    visibility 0s;
+.page:has(.pointInput[value="priority"]:checked) .tag:not([data-modes~="priority"]),
+.page:has(.pointInput[value="authority"]:checked) .tag:not([data-modes~="authority"]) {
+  opacity: 0;
+  visibility: hidden;
+}
+.page:has(.pointInput[value="priority"]:checked) .tag[data-modes~="priority"],
+.page:has(.pointInput[value="authority"]:checked) .tag[data-modes~="authority"] {
+  opacity: 1;
+  visibility: visible;
 }
 .marks {
   position: absolute;
@@ -1162,34 +943,19 @@
 .mode {
   transition: opacity var(--dur-panel) var(--ease-panel);
 }
-[data-point="cause"] .mode:not([data-mode="cause"]),
-[data-point="priority"] .mode:not([data-mode="priority"]),
-[data-point="authority"] .mode:not([data-mode="authority"]) {
+.mode:not([data-mode="cause"]) {
   opacity: 0;
 }
-/* The glow lives in the photograph, outside 02; the script mirrors the point onto
-   it (a page-level :has() here recalculated the whole page on every change). */
-.causeGlow[data-point="authority"] {
+.page:has(.pointInput[value="priority"]:checked) .mode:not([data-mode="priority"]),
+.page:has(.pointInput[value="authority"]:checked) .mode:not([data-mode="authority"]) {
+  opacity: 0;
+}
+.page:has(.pointInput[value="priority"]:checked) .mode[data-mode="priority"],
+.page:has(.pointInput[value="authority"]:checked) .mode[data-mode="authority"] {
+  opacity: 1;
+}
+.page:has(.pointInput[value="authority"]:checked) .causeGlow {
   opacity: 0.35;
-}
-/* Each point's lines are drawn when it is read; a line that leaves is reset
-   only after its fade. */
-.page [data-draw] {
-  stroke-dashoffset: 1;
-  transition: stroke-dashoffset 0s linear var(--dur-panel);
-}
-.page [data-point="cause"] [data-draw="cause"],
-.page [data-point="priority"] [data-draw="priority"],
-.page [data-point="authority"] [data-draw="authority"] {
-  stroke-dashoffset: 0;
-  transition: stroke-dashoffset 1000ms cubic-bezier(0.45, 0.05, 0.25, 1) 150ms;
-}
-/* Before the reader reaches 02 nothing is drawn yet (motion only). */
-.page[data-motion="on"] section:not([data-drawn]) [data-draw] {
-  stroke-dashoffset: 1;
-}
-.page[data-motion="on"] .causeGlow:not([data-drawn]) {
-  opacity: 0;
 }
 .mode[data-mode="priority"] .markRing {
   fill: rgb(14 17 24 / 66%);
@@ -1217,16 +983,6 @@
   }
   .radio::after {
     inset: calc(4.5 * var(--z) - 1.5px);
-  }
-  .points::before {
-    left: calc(11 * var(--z) - 0.5px);
-    top: calc(34 * var(--z));
-    bottom: calc(40 * var(--z));
-  }
-  .point::after {
-    left: calc(11 * var(--z) - 1px);
-    top: calc(40 * var(--z));
-    bottom: calc(6 * var(--z));
   }
   .pointTitle {
     font-size: calc(19 * var(--z));
@@ -1371,10 +1127,8 @@
 .cellLabel {
   display: none;
 }
-/* Which issues of 01 each row answers — shown whether or not anything is chosen;
-   the chosen ones are filled (spec §13.3). */
 .why {
-  display: flex;
+  display: none;
   align-items: center;
   gap: calc(6 * var(--z));
   flex-wrap: wrap;
@@ -1632,8 +1386,6 @@
   .agree {
     --pad: 30;
     --a: 0.5;
-    /* 03's cards now name their issues, so 04 sits lower on the photograph. */
-    color: var(--ivory);
     margin-top: calc(26 * var(--z));
     font-size: calc(13 * var(--z));
     line-height: 1.85;
@@ -2011,49 +1763,14 @@
 .page:has(.issueInput[value="system"]:checked) :is(.chip[data-issue="system"]) {
   display: inline-flex;
 }
-.why .chip {
-  display: inline-flex;
-  gap: calc(6 * var(--z));
-  border-color: rgb(241 239 234 / 45%);
-  transition:
-    border-color var(--dur-state) var(--ease-state),
-    box-shadow var(--dur-state) var(--ease-state);
-}
-.why .chip::before {
-  content: "";
-  width: calc(6 * var(--z));
-  height: calc(6 * var(--z));
-  margin-left: calc(-12 * var(--z));
-  border-radius: 50%;
-  background: var(--flare);
-  transform: scale(0);
-  transition:
-    transform var(--dur-state) var(--ease-reveal),
-    margin var(--dur-state) var(--ease-state);
-}
-/* A chosen issue keeps the light: orange rim and dot, ivory words (small ink on
-   orange measured below 4.5:1 once antialiased). */
-.page:has(.issueInput[value="quality"]:checked) .why .chip[data-issue="quality"],
-.page:has(.issueInput[value="people"]:checked) .why .chip[data-issue="people"],
+.page:has(.issueInput[value="quality"]:checked) .row[data-issues~="quality"] .why,
+.page:has(.issueInput[value="people"]:checked) .row[data-issues~="people"] .why,
 .page:has(.issueInput[value="productivity"]:checked)
-  .why
-  .chip[data-issue="productivity"],
-.page:has(.issueInput[value="sales"]:checked) .why .chip[data-issue="sales"],
-.page:has(.issueInput[value="system"]:checked) .why .chip[data-issue="system"] {
-  border-color: var(--flare);
-  box-shadow: inset 0 0 0 1px var(--flare);
-}
-.page:has(.issueInput[value="quality"]:checked)
-  .why
-  .chip[data-issue="quality"]::before,
-.page:has(.issueInput[value="people"]:checked) .why .chip[data-issue="people"]::before,
-.page:has(.issueInput[value="productivity"]:checked)
-  .why
-  .chip[data-issue="productivity"]::before,
-.page:has(.issueInput[value="sales"]:checked) .why .chip[data-issue="sales"]::before,
-.page:has(.issueInput[value="system"]:checked) .why .chip[data-issue="system"]::before {
-  margin-left: 0;
-  transform: scale(1);
+  .row[data-issues~="productivity"]
+  .why,
+.page:has(.issueInput[value="sales"]:checked) .row[data-issues~="sales"] .why,
+.page:has(.issueInput[value="system"]:checked) .row[data-issues~="system"] .why {
+  display: flex;
 }
 .page:has(.issueInput[value="quality"]:checked) .row[data-issues~="quality"]::before,
 .page:has(.issueInput[value="people"]:checked) .row[data-issues~="people"]::before,
@@ -2079,10 +1796,12 @@
 .page:has(.issueInput[value="people"]:checked) .lit[data-issue="people"],
 .page:has(.issueInput[value="productivity"]:checked) .lit[data-issue="productivity"],
 .page:has(.issueInput[value="sales"]:checked) .lit[data-issue="sales"],
-.page:has(.issueInput[value="system"]:checked) .lit[data-issue="system"],
-.lit[data-dawn] {
+.page:has(.issueInput[value="system"]:checked) .lit[data-issue="system"] {
+  --reach: 118%;
   opacity: 1;
-  transition: opacity 900ms cubic-bezier(0.3, 0.1, 0.3, 1);
+  transition:
+    opacity 600ms var(--ease-reveal),
+    --reach var(--dur-reveal) var(--ease-reveal);
 }
 
 /* ------------------------------------------------------------ chapter gauge */
@@ -2468,30 +2187,39 @@
 }
 
 /* ------------------------------------------------------------ motion (script only) */
-/* 01: the light running down the spill from one terrace to the next. */
-.drop {
-  display: none;
-}
-.page[data-motion="on"] .drop {
+.page[data-motion="on"] .sweep {
+  display: block;
   position: absolute;
   left: 0;
-  top: 0;
-  display: block;
-  width: calc(90 * var(--z));
-  height: calc(90 * var(--z));
-  margin: calc(-45 * var(--z)) 0 0 calc(-45 * var(--z));
-  border-radius: 50%;
-  /* Plain alpha over the dark levee (a blended layer repainted every frame). */
-  background: radial-gradient(
-    closest-side,
-    #fff6ea 0 8%,
-    rgb(255 220 170 / 62%) 15%,
-    rgb(255 170 90 / 22%) 40%,
-    rgb(255 150 70 / 0%)
+  top: calc(250 * var(--k));
+  width: 100%;
+  height: calc(360 * var(--k));
+  mix-blend-mode: screen;
+  background: linear-gradient(
+    102deg,
+    transparent 38%,
+    rgb(255 214 170 / 18%) 47%,
+    rgb(255 236 214 / 40%) 52%,
+    rgb(255 214 170 / 18%) 57%,
+    transparent 66%
   );
+  mask-image: linear-gradient(to bottom, transparent, #000 25%, #000 75%, transparent);
   opacity: 0;
-  pointer-events: none;
-  will-change: transform, opacity;
+}
+@media (max-width: 1023.98px) {
+  .page[data-motion="on"] .sweep {
+    top: calc(120 * var(--k));
+    height: calc(420 * var(--k));
+    background: linear-gradient(
+      112deg,
+      transparent 30%,
+      rgb(255 214 170 / 18%) 44%,
+      rgb(255 236 214 / 36%) 50%,
+      rgb(255 214 170 / 18%) 56%,
+      transparent 70%
+    );
+    mask-image: radial-gradient(closest-side, #000 55%, transparent);
+  }
 }
 .page[data-motion="on"] .gateHead,
 .page[data-motion="on"] .gateGlow,
@@ -2501,12 +2229,10 @@
 .gateGlow {
   mix-blend-mode: screen;
 }
-.page[data-motion="on"] .issueInput:checked ~ .ring .ripple,
-.page[data-motion="on"] .issue[data-dawn] .ripple {
+.page[data-motion="on"] .issueInput:checked ~ .ring .ripple {
   animation: ripple 1500ms var(--ease-reveal) 1;
 }
-.page[data-motion="on"] .issueInput:checked ~ .ring .ripple + .ripple,
-.page[data-motion="on"] .issue[data-dawn] .ripple + .ripple {
+.page[data-motion="on"] .issueInput:checked ~ .ring .ripple + .ripple {
   animation-delay: 220ms;
 }
 @keyframes ripple {
@@ -2546,94 +2272,6 @@
 @keyframes lightRun {
   to {
     transform: translateX(100%);
-  }
-}
-/* 03: each row's figure is drawn as the row comes up, with the light crossing it. */
-.page[data-motion="on"] :is(.glyph, .glyphInline) svg > * {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  transition: stroke-dashoffset 900ms cubic-bezier(0.45, 0.05, 0.25, 1);
-}
-.page[data-motion="on"] :is(.glyph, .glyphInline) svg > :nth-child(2) {
-  transition-delay: 120ms;
-}
-.page[data-motion="on"] :is(.glyph, .glyphInline) svg > :nth-child(3) {
-  transition-delay: 240ms;
-}
-.page[data-motion="on"] :is(.glyph, .glyphInline) svg > :nth-child(n + 4) {
-  transition-delay: 360ms;
-}
-.page[data-motion="on"] .row[data-seen] :is(.glyph, .glyphInline) svg > * {
-  stroke-dashoffset: 0;
-}
-/* 05: a reached spill's name steps in beside its ring. */
-.page[data-motion="on"] .gate[data-state="done"] .gateName {
-  animation: gate-in 700ms var(--ease-reveal) both;
-}
-@keyframes gate-in {
-  from {
-    opacity: 0.35;
-    transform: translateX(calc(-6 * var(--z)));
-  }
-}
-/* 06: the light runs along the rule and checks each item it reaches. */
-.page[data-motion="on"] .tick > * {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  transition: stroke-dashoffset 600ms cubic-bezier(0.45, 0.05, 0.25, 1);
-}
-.page[data-motion="on"] .tick > path {
-  transition-delay: 260ms;
-}
-.page[data-motion="on"] .check[data-ticked] .tick > * {
-  stroke-dashoffset: 0;
-}
-.page[data-motion="on"] .check[data-ticked] .tick {
-  stroke: var(--flare);
-  transition: stroke var(--dur-state) var(--ease-state) 700ms;
-}
-.page[data-motion="on"] .checks::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: -1px;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, rgb(255 126 21 / 0%), var(--flare) 60%, #ffd9b0);
-  box-shadow: 0 0 12px rgb(255 150 70 / 55%);
-  transform: scaleX(var(--run, 0));
-  transform-origin: left;
-  pointer-events: none;
-}
-@media (max-width: 1023.98px) {
-  .page[data-motion="on"] .checks::after {
-    display: none;
-  }
-}
-/* 07: the steps after sending light one after another; the inn's windows warm. */
-.flowStep::before {
-  transition:
-    border-color var(--dur-state) var(--ease-state),
-    background-color var(--dur-state) var(--ease-state),
-    box-shadow var(--dur-panel) var(--ease-panel);
-}
-.page[data-motion="on"] .flowStep[data-reached]::before {
-  border-color: var(--flare);
-  background: rgb(255 126 21 / 28%);
-  box-shadow: 0 0 0 calc(5 * var(--z)) rgb(255 126 21 / 14%);
-}
-.page[data-motion="on"] .inn[data-lit] {
-  animation: inn-glow 2800ms cubic-bezier(0.3, 0.1, 0.3, 1) forwards;
-}
-@keyframes inn-glow {
-  0% {
-    opacity: 0;
-  }
-  40% {
-    opacity: 0.95;
-  }
-  100% {
-    opacity: 0.45;
   }
 }
 @media (prefers-reduced-motion: reduce) {

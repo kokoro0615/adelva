@@ -15,20 +15,5 @@ export function Lines({ text }: { text: string }) {
   });
 }
 
-/**
- * The same copy with every "\n" line in its own block, so the motion layer can
- * lift each line from behind its baseline (spec §13.3). Layout-specific breaks
- * stay inside their line.
- */
-export function MaskLines({ text }: { text: string }) {
-  return text.split("\n").map((line, i) => (
-    <span key={i} className={styles.line}>
-      <span className={styles.lineInner} data-line>
-        <Lines text={line} />
-      </span>
-    </span>
-  ));
-}
-
 /** The same copy as one plain string, for accessible names and tests. */
 export const plain = (text: string) => text.replace(/\n|<d>|<m>/g, "");

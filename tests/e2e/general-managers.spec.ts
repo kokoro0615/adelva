@@ -57,19 +57,9 @@ const issue = (page: Page, id: string) =>
   page.locator(`input[name="issue"][value="${id}"]`);
 const litOpacity = (page: Page, id: string) =>
   page
-    .locator(`[data-lit][data-issue="${id}"]:visible`)
+    .locator(`[data-issue="${id}"][style*="--ox"]:visible`)
     .first()
     .evaluate((n) => Number(getComputedStyle(n).opacity));
-/** Scrolls so the given point of 02 sits just above the reading line. */
-async function readPoint(page: Page, id: string) {
-  await page.locator(`[data-points] [data-step="${id}"]`).evaluate((n) => {
-    const reading = innerHeight * (innerWidth >= 1024 ? 0.55 : 0.72);
-    scrollTo({
-      top: scrollY + n.getBoundingClientRect().top - reading + 8,
-      behavior: "instant",
-    });
-  });
-}
 
 for (const [width, height] of [
   [1440, 900],
@@ -133,8 +123,9 @@ for (const [width, height] of [
         expect(await scan()).toEqual([]);
         await issue(page, "quality").check({ force: true });
         await issue(page, "system").check({ force: true });
-        await readPoint(page, "authority");
-        await expect(page.locator("#gm-02")).toHaveAttribute("data-point", "authority");
+        await page
+          .locator('input[name="point"][value="authority"]')
+          .check({ force: true });
         expect(await scan()).toEqual([]);
         await page.addStyleTag({ content: "img,picture{visibility:hidden!important}" });
         const text = (await page.locator("main").textContent())?.replace(/\s+/g, "");
@@ -150,19 +141,17 @@ test.describe("general-managers interaction", () => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await open(page);
     expect(await litOpacity(page, "people")).toBe(0);
-    const related = page.locator(
-      '[role="row"][data-issues~="people"] [data-issue="people"]',
-    );
-    // 03 names the related issues before anything is chosen (spec §13.3)
-    await expect(related).toBeVisible();
-    const fill = () => related.evaluate((n) => getComputedStyle(n).borderTopColor);
-    const unchosen = await fill();
+    await expect(
+      page.locator('[role="row"][data-issues~="people"] [data-issue="people"]'),
+    ).toBeHidden();
     // keyboard: tab to the checkbox and toggle with Space
     await issue(page, "people").focus();
     await page.keyboard.press("Space");
     await expect(issue(page, "people")).toBeChecked();
     await expect.poll(() => litOpacity(page, "people")).toBe(1);
-    await expect.poll(fill).not.toBe(unchosen);
+    await expect(
+      page.locator('[role="row"][data-issues~="people"] [data-issue="people"]'),
+    ).toBeVisible();
     await expect(page.locator(`#gm-07 [data-issue="people"]`)).toBeVisible();
     await expect(page.locator(`#gm-07 [data-issue="quality"]`)).toBeHidden();
     await page.keyboard.press("Space");
@@ -170,54 +159,23 @@ test.describe("general-managers interaction", () => {
     await expect(page.locator(`#gm-07 [data-issue="people"]`)).toBeHidden();
   });
 
-  for (const [width, height] of [
-    [1440, 900],
-    [390, 844],
-  ])
-    test(`${width}: the marks follow the point being read, without a tap`, async ({
-      page,
-    }) => {
-      await page.setViewportSize({ width, height });
-      await open(page);
-      const section = page.locator("#gm-02");
-      const tag = (text: string) => page.locator(`p[data-modes]`, { hasText: text });
-      const list = page.getByRole("list", { name: decision.groupLabel });
-      await expect(list.getByRole("listitem")).toHaveCount(3);
-      await expect(page.locator("#gm-02 input")).toHaveCount(0);
-      await expect(section).toHaveAttribute("data-point", "cause");
-      await expect(tag(decision.symptom)).toBeVisible();
-      await expect(tag(decision.management)).toBeHidden();
-      await readPoint(page, "priority");
-      await expect(section).toHaveAttribute("data-point", "priority");
-      await expect(list.locator('[data-step="priority"]')).toHaveAttribute(
-        "data-active",
-        "",
-      );
-      await readPoint(page, "authority");
-      await expect(section).toHaveAttribute("data-point", "authority");
-      await expect(tag(decision.management)).toBeVisible();
-      await expect(tag(decision.field)).toBeVisible();
-      await expect(tag(decision.symptom)).toBeHidden();
-      // reading back up returns to the first point
-      await page.evaluate(() => scrollTo({ top: 0, behavior: "instant" }));
-      await expect(section).toHaveAttribute("data-point", "cause");
-    });
-
-  test("03 shows which issues each row answers before anything is chosen", async ({
-    page,
-  }) => {
+  test("points of judgement switch the marks on the photograph", async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await open(page);
-    const chip = (row: number, id: string) =>
-      page.locator(`#gm-support-${row} [data-issue="${id}"]`);
-    for (const id of ["quality", "people", "productivity"])
-      await expect(chip(1, id)).toBeVisible();
-    for (const id of ["sales", "system"]) await expect(chip(2, id)).toBeVisible();
-    const fill = () =>
-      chip(2, "sales").evaluate((n) => getComputedStyle(n).borderTopColor);
-    const before = await fill();
-    await issue(page, "sales").check({ force: true });
-    await expect.poll(fill).not.toBe(before);
+    const tag = (text: string) => page.locator(`p[data-modes]`, { hasText: text });
+    await expect(tag(decision.symptom)).toBeVisible();
+    await expect(tag(decision.management)).toBeHidden();
+    const group = page.getByRole("radiogroup", { name: decision.groupLabel });
+    await group.getByRole("radio", { name: /現場判断と/ }).check({ force: true });
+    await expect(tag(decision.management)).toBeVisible();
+    await expect(tag(decision.field)).toBeVisible();
+    await expect(tag(decision.symptom)).toBeHidden();
+    // arrow keys move within the group
+    await group.getByRole("radio", { name: /現場判断と/ }).focus();
+    await page.keyboard.press("ArrowUp");
+    await expect(
+      group.getByRole("radio", { name: "優先順位と影響範囲" }),
+    ).toBeChecked();
   });
 
   test("the chapter index links to each chapter and marks the current one", async ({
@@ -325,12 +283,6 @@ test.describe("general-managers motion", () => {
         "data-motion",
         "on",
       );
-      // the hero headline is never hidden by the script after the first paint
-      expect(
-        await page
-          .locator("[data-hero-line]")
-          .evaluateAll((ns) => ns.map((n) => (n as HTMLElement).style.opacity)),
-      ).toEqual(["", ""]);
       await issue(page, "quality").check({ force: true });
       for (let y = 0; y < 16000; y += 500) {
         await page.mouse.wheel(0, 500);
@@ -344,44 +296,5 @@ test.describe("general-managers motion", () => {
           .evaluateAll((ns) => ns.map((n) => n.getAttribute("data-state"))),
       ).toEqual(Array(6).fill("done"));
       expect(errors).toEqual([]);
-    });
-
-  for (const [width, height] of [
-    [1440, 900],
-    [390, 844],
-  ])
-    test(`${width}: reading down 01 lights each terrace in turn, without a tap`, async ({
-      page,
-    }) => {
-      await page.setViewportSize({ width, height });
-      await open(page);
-      await expect(page.locator("[data-general-managers]")).toHaveAttribute(
-        "data-motion",
-        "on",
-      );
-      const seen: string[] = [];
-      for (const { id } of issues) {
-        await page.locator(`label[data-issue="${id}"] [data-ring]`).evaluate((n) => {
-          const line = innerHeight * (innerWidth >= 1024 ? 0.5 : 0.55);
-          const box = n.getBoundingClientRect();
-          scrollTo({
-            top: scrollY + box.top + box.height / 2 - line,
-            behavior: "instant",
-          });
-        });
-        await expect(page.locator(`label[data-issue="${id}"]`)).toHaveAttribute(
-          "data-dawn",
-          "",
-        );
-        await expect.poll(() => litOpacity(page, id)).toBe(1);
-        // only the terrace being read is lit; nothing was chosen
-        expect(await page.locator("label[data-dawn]").count()).toBe(1);
-        seen.push(id);
-      }
-      expect(seen).toEqual(issues.map((i) => i.id));
-      await expect(page.locator('input[name="issue"]:checked')).toHaveCount(0);
-      // leaving 01 lets the light go
-      await page.locator("#gm-04").scrollIntoViewIfNeeded();
-      await expect(page.locator("label[data-dawn]")).toHaveCount(0);
     });
 });
