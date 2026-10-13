@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   useCallback,
@@ -10,10 +9,12 @@ import {
   useState,
   type CSSProperties,
   type FocusEvent as ReactFocusEvent,
+  type MouseEvent as ReactMouseEvent,
   type PointerEvent as ReactPointerEvent,
   type ReactNode,
 } from "react";
 
+import { IntentLink } from "@/components/intent-link";
 import styles from "@/components/site-header.module.css";
 import {
   adelvaBrand,
@@ -30,6 +31,7 @@ import {
 } from "@/content/adelva-navigation";
 import { useHeaderOverride } from "@/lib/header-state";
 import { lockScroll, prefersMotion } from "@/lib/motion";
+import { leavesPage } from "@/lib/navigation";
 
 const DRAWER_ID = "site-menu";
 const panelId = (menu: AdelvaMenuId) => `${DRAWER_ID}-${menu}`;
@@ -107,20 +109,24 @@ function setBackgroundInert(inert: boolean): void {
   }
 }
 
+type NavigateHandler = (event: ReactMouseEvent<HTMLAnchorElement>) => void;
+
 interface NavAnchorProps {
   readonly href: string;
   readonly className: string;
   readonly children: ReactNode;
   readonly current: boolean;
-  readonly onNavigate?: () => void;
+  readonly onNavigate?: NavigateHandler;
   readonly ariaLabelledBy?: string;
 }
 
 /**
  * One destination.
  *
- * Destinations this repository actually serves are routed through `Link` so
- * they prefetch and transition. The ADELVA destinations do not exist here yet —
+ * Destinations this repository actually serves are routed through
+ * `IntentLink`, so they navigate client-side and are prefetched once the
+ * reader shows intent (never merely because the closed drawer sits just off
+ * screen). The ADELVA destinations that do not exist here yet —
  * they are unbuilt in the ADELVA source project too — so they are emitted as
  * plain anchors carrying `data-route-status="pending"`. That keeps the
  * information architecture canonical without asking Next.js to prefetch a route
@@ -146,9 +152,9 @@ function NavAnchor({
 
   if (status === "available") {
     return (
-      <Link href={href} {...shared}>
+      <IntentLink href={href} {...shared}>
         {children}
-      </Link>
+      </IntentLink>
     );
   }
 
@@ -173,10 +179,10 @@ function BrandLink({
   onNavigate,
 }: {
   current: boolean;
-  onNavigate?: () => void;
+  onNavigate?: NavigateHandler;
 }) {
   return (
-    <Link
+    <IntentLink
       className={styles.brand}
       href={adelvaBrand.homeHref}
       aria-label={adelvaBrand.name}
@@ -187,7 +193,7 @@ function BrandLink({
       <span className={styles.brandWord} aria-hidden="true" data-brand-word="">
         {adelvaBrand.name}
       </span>
-    </Link>
+    </IntentLink>
   );
 }
 
@@ -211,6 +217,7 @@ export function SiteHeader() {
   const override = useHeaderOverride();
 
   const [compact, setCompact] = useState(false);
+  const [overFooter, setOverFooter] = useState(false);
   const [openMenu, setOpenMenu] = useState<AdelvaMenuId | null>(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [expanded, setExpanded] = useState<ReadonlySet<string>>(() => new Set());
@@ -279,33 +286,117 @@ export function SiteHeader() {
     setDrawerOpen(false);
   }, [closeMenu]);
 
-  /*
-   * Compact field. A boolean flip per threshold crossing, never a per-frame
-   * style write, so scrolling stays off the layout path. Any scroll also
-   * dismisses an open mega panel: a surface anchored to a fixed bar must never
-   * float over content the reader has already moved past.
-   */
-  useEffect(() => {
-    let ticking = false;
+  /** Releases the drawer's scroll lock; null while no lock is held. */
+  const releaseLock = useRef<(() => void) | null>(null);
 
-    const onScroll = () => {
-      if (ticking) {
+  /*
+   * Following a link out of the menu.
+   *
+   * The scroll lock is handed back synchronously, before the router acts: a
+   * hash target on this page can then be scrolled to, and a lock released
+   * later — by the effect cleanup after the next page has committed — can
+   * never restore this page's reading position onto the next page.
+   *
+   * A link to another page leaves the menu open. Every page renders its own
+   * header, so the next page arrives with its menu closed and replaces this one
+   * in a single frame; closing first would uncover the page being left for a
+   * fraction of a second and then cut. The link holds its activated state
+   * meanwhile, so a slow network still shows that the tap registered. Anything
+   * else (a hash on this page, a modified click) closes the menu as before.
+   */
+  const navigate = useCallback(
+    (event: ReactMouseEvent<HTMLAnchorElement>) => {
+      releaseLock.current?.();
+      const anchor = event.currentTarget;
+      if (leavesPage(event, anchor)) {
+        anchor.dataset.activating = "true";
         return;
       }
-      ticking = true;
-      window.requestAnimationFrame(() => {
-        ticking = false;
-        setCompact(window.scrollY > COMPACT_AT);
-        if (openMenuRef.current !== null) {
-          closeMenu(false);
-        }
-      });
-    };
+      closeAll();
+    },
+    [closeAll],
+  );
 
-    onScroll();
+  /* A page restored from the back/forward cache comes back exactly as it was
+   * left — with the menu that was followed still open. */
+  useEffect(() => {
+    const onPageShow = (event: PageTransitionEvent) => {
+      if (!event.persisted) {
+        return;
+      }
+      for (const element of document.querySelectorAll<HTMLElement>(
+        "[data-activating]",
+      )) {
+        delete element.dataset.activating;
+      }
+      closeAll();
+    };
+    window.addEventListener("pageshow", onPageShow);
+    return () => window.removeEventListener("pageshow", onPageShow);
+  }, [closeAll]);
+
+  /*
+   * Compact field, without reading the scroll position.
+   *
+   * The bar used to read `window.scrollY` in its own animation frame. Pages
+   * write their scroll-linked styles in earlier frame callbacks, so that read
+   * forced a synchronous layout on every scrolled frame of every page. A
+   * sentinel covering the first COMPACT_AT pixels of the document answers the
+   * same question from the browser's own intersection pass, which runs after
+   * layout: the flag flips once per threshold crossing and the header does no
+   * work at all while the reader scrolls.
+   */
+  useEffect(() => {
+    if (typeof IntersectionObserver === "undefined") {
+      return;
+    }
+    const sentinel = document.createElement("div");
+    sentinel.setAttribute("aria-hidden", "true");
+    sentinel.dataset.headerSentinel = "";
+    sentinel.style.cssText = `position:absolute;top:0;left:0;width:1px;height:${COMPACT_AT}px;pointer-events:none;visibility:hidden`;
+    document.body.prepend(sentinel);
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry) {
+        setCompact(!entry.isIntersecting);
+      }
+    });
+    observer.observe(sentinel);
+    return () => {
+      observer.disconnect();
+      sentinel.remove();
+    };
+  }, []);
+
+  /*
+   * Over the footer the bar stands on the footer's near-black, whatever the
+   * page above it is made of: a paper bar (/about) would otherwise hang as a
+   * pale strip over the dark call and wordmark. The footer passing under the
+   * bar's band is again answered by an observer, not by reading positions.
+   */
+  useEffect(() => {
+    const footer = document.querySelector("[data-site-footer]");
+    if (!footer || typeof IntersectionObserver === "undefined") {
+      return;
+    }
+    const observer = new IntersectionObserver(
+      ([entry]) => setOverFooter(Boolean(entry?.isIntersecting)),
+      { rootMargin: "0px 0px -92% 0px" },
+    );
+    observer.observe(footer);
+    return () => observer.disconnect();
+  }, [pathname]);
+
+  /* Any scroll dismisses an open mega panel: a surface anchored to a fixed bar
+   * must never float over content the reader has already moved past. The
+   * listener exists only while a panel is open and reads nothing. */
+  useEffect(() => {
+    if (openMenu === null) {
+      return;
+    }
+    const onScroll = () => closeMenu(false);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, [closeMenu]);
+  }, [closeMenu, openMenu]);
 
   /* Whichever surface stops applying at the current width closes itself. */
   useEffect(() => {
@@ -370,10 +461,12 @@ export function SiteHeader() {
     }
 
     const release = lockScroll();
+    releaseLock.current = release;
     setBackgroundInert(true);
 
     return () => {
       release();
+      releaseLock.current = null;
       setBackgroundInert(false);
     };
   }, [drawerOpen]);
@@ -615,7 +708,7 @@ export function SiteHeader() {
 
   const isCurrent = (href: string) => pathname === href.split("#")[0];
   const homeIsCurrent = pathname === adelvaBrand.homeHref;
-  const indexLinkProps = { isCurrent, onNavigate: closeAll };
+  const indexLinkProps = { isCurrent, onNavigate: navigate };
 
   return (
     <>
@@ -624,18 +717,21 @@ export function SiteHeader() {
         className={styles.header}
         lang="ja"
         data-fidelity-landmark="header-nav"
+        /* Every dark photo page takes the smoked surface once its content
+           scrolls under the bar on a phone (the glass rules apply below 64rem
+           only). /about stands on paper; HOME sets its surface per scene. */
         data-surface={
           override.surface !== null
             ? override.surface === "film"
               ? undefined
               : override.surface
-            : pathname === "/about"
-              ? "paper"
-              : pathname.startsWith("/contact") ||
-                  pathname === "/approach" ||
-                  pathname.startsWith("/services/")
-                ? "glass"
-                : undefined
+            : overFooter
+              ? "glass"
+              : pathname === "/about"
+                ? "paper"
+                : pathname === adelvaBrand.homeHref
+                  ? undefined
+                  : "glass"
         }
         /* HOME keeps the brand out of the bar until its giant ADELVA flies in,
            and fades the bar in with its load intro (both only while motion is
@@ -778,7 +874,7 @@ export function SiteHeader() {
             menu="challenges"
             open={openMenu === "challenges"}
             registerPanel={panelRefs}
-            onNavigate={closeAll}
+            onNavigate={navigate}
             isCurrent={isCurrent}
           >
             <div className={`${styles.body} ${styles.bodySplit}`}>
@@ -790,7 +886,7 @@ export function SiteHeader() {
                         className={styles.card}
                         href={audience.href}
                         current={isCurrent(audience.href)}
-                        onNavigate={closeAll}
+                        onNavigate={navigate}
                       >
                         <span className={styles.cardTitle}>{audience.label}</span>
                         <span className={styles.detail}>{audience.description}</span>
@@ -811,7 +907,7 @@ export function SiteHeader() {
                         className={styles.row}
                         href={challenge.href}
                         current={isCurrent(challenge.href)}
-                        onNavigate={closeAll}
+                        onNavigate={navigate}
                       >
                         <span className={styles.rowLabel}>{challenge.label}</span>
                         <Arrow />
@@ -828,7 +924,7 @@ export function SiteHeader() {
             menu="services"
             open={openMenu === "services"}
             registerPanel={panelRefs}
-            onNavigate={closeAll}
+            onNavigate={navigate}
             isCurrent={isCurrent}
           >
             <div className={styles.body}>
@@ -840,7 +936,7 @@ export function SiteHeader() {
                         className={styles.domainHead}
                         href={domain.href}
                         current={isCurrent(domain.href)}
-                        onNavigate={closeAll}
+                        onNavigate={navigate}
                       >
                         <span className={styles.domainNumber}>
                           {domain.number}
@@ -856,7 +952,7 @@ export function SiteHeader() {
                               className={styles.theme}
                               href={theme.href}
                               current={isCurrent(theme.href)}
-                              onNavigate={closeAll}
+                              onNavigate={navigate}
                             >
                               {theme.title}
                             </NavAnchor>
@@ -893,7 +989,7 @@ export function SiteHeader() {
         inert={!drawerOpen}
       >
         <div className={styles.drawerTop}>
-          <BrandLink current={homeIsCurrent} onNavigate={closeAll} />
+          <BrandLink current={homeIsCurrent} onNavigate={navigate} />
           <button
             ref={closeRef}
             type="button"
@@ -920,7 +1016,7 @@ export function SiteHeader() {
                 href={audience.href}
                 label={audience.label}
                 current={isCurrent(audience.href)}
-                onNavigate={closeAll}
+                onNavigate={navigate}
               />
             ))}
             <p className={styles.drawerGroupLabel}>{groupLabels.challenges}</p>
@@ -930,7 +1026,7 @@ export function SiteHeader() {
                 href={challenge.href}
                 label={challenge.label}
                 current={isCurrent(challenge.href)}
-                onNavigate={closeAll}
+                onNavigate={navigate}
               />
             ))}
           </Disclosure>
@@ -952,7 +1048,7 @@ export function SiteHeader() {
                   current={isCurrent(domain.href)}
                   expanded={expanded.has(domain.id)}
                   onToggle={() => toggleSection(domain.id)}
-                  onNavigate={closeAll}
+                  onNavigate={navigate}
                 >
                   {domain.themes.map((theme) => (
                     <DrawerLink
@@ -960,7 +1056,7 @@ export function SiteHeader() {
                       href={theme.href}
                       label={theme.title}
                       current={isCurrent(theme.href)}
-                      onNavigate={closeAll}
+                      onNavigate={navigate}
                     />
                   ))}
                 </Disclosure>
@@ -976,7 +1072,7 @@ export function SiteHeader() {
                 className={styles.drawerDirect}
                 href={item.href}
                 current={isCurrent(item.href)}
-                onNavigate={closeAll}
+                onNavigate={navigate}
               >
                 {item.label}
                 <Arrow />
@@ -990,7 +1086,7 @@ export function SiteHeader() {
             href={contactCta.href}
             data-route-status={routeStatusOf(contactCta.href)}
             aria-current={isCurrent(contactCta.href) ? "page" : undefined}
-            onClick={closeAll}
+            onClick={navigate}
           >
             {contactCta.label}
             <Arrow />
@@ -1038,7 +1134,7 @@ function MegaPanel({
   menu: AdelvaMenuId;
   open: boolean;
   registerPanel: { current: Map<AdelvaMenuId, HTMLDivElement> };
-  onNavigate: () => void;
+  onNavigate: NavigateHandler;
   isCurrent: (href: string) => boolean;
   children: ReactNode;
 }) {
@@ -1095,7 +1191,7 @@ function IndexLink({
 }: {
   intro: AdelvaMenuIntro;
   isCurrent: (href: string) => boolean;
-  onNavigate: () => void;
+  onNavigate: NavigateHandler;
 }) {
   if (!intro.indexLink) {
     return null;
@@ -1119,7 +1215,7 @@ function DrawerLink({
   href: string;
   label: string;
   current: boolean;
-  onNavigate: () => void;
+  onNavigate: NavigateHandler;
 }) {
   return (
     <NavAnchor
@@ -1159,7 +1255,7 @@ function Disclosure({
   current?: boolean;
   expanded: boolean;
   onToggle: () => void;
-  onNavigate?: () => void;
+  onNavigate?: NavigateHandler;
   children: ReactNode;
 }) {
   return (

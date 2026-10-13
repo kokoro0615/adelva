@@ -1,14 +1,11 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { preload } from "react-dom";
 
 import "@/app/globals.css";
 
-import { HomeFooter } from "@/components/home/home-footer";
 import { JsonLd } from "@/components/json-ld";
-import { RouteShell } from "@/components/route-shell";
 import { RouteTransition } from "@/components/route-transition";
-import { ScrollProvider } from "@/components/scroll-provider";
-import { SiteHeader } from "@/components/site-header";
 import { site } from "@/content/site";
 import { siteGraph } from "@/lib/seo";
 
@@ -37,43 +34,25 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { readonly children: ReactNode }) {
+  // The header's ADELVA word (and the footer's call) is set in Oswald on every
+  // page. Discovered only once the stylesheet has been parsed and the bar laid
+  // out, it arrived after first paint and the wordmark visibly changed width
+  // beside the logo; 70 KB, so it can come with the document.
+  preload("/fonts/Oswald-VariableFont_wght.woff2", {
+    as: "font",
+    type: "font/woff2",
+    crossOrigin: "anonymous",
+  });
   return (
     // globals.css smooth-scrolls in-page anchors; this lets Next.js 16 switch it
     // off during route transitions so a new page opens at its top instantly.
     <html lang="ja" data-scroll-behavior="smooth">
       <body>
         <JsonLd data={siteGraph()} />
-        <RouteShell
-          legacy={
-            <>
-              <a className="skip-link" data-skip-link href="#main-content">
-                本文へ移動
-              </a>
-
-              {/* HOME uses the measured nine-rule grid (five on mobile). */}
-              <div className="grid-rules" aria-hidden="true">
-                <span />
-                <span />
-                <span />
-                <span />
-                <span />
-                <span />
-                <span />
-                <span />
-                <span />
-              </div>
-
-              <ScrollProvider />
-              <RouteTransition />
-
-              <SiteHeader />
-              <main id="main-content">{children}</main>
-              <HomeFooter />
-            </>
-          }
-        >
-          {children}
-        </RouteShell>
+        {/* Every route owns its shell (header, main, footer): see the page
+            components and src/app/not-found.tsx. */}
+        <RouteTransition />
+        {children}
       </body>
     </html>
   );
