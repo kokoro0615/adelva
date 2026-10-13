@@ -196,8 +196,9 @@ test.describe("phone header", () => {
       await page.evaluate(() => window.scrollTo({ top: 600, behavior: "instant" }));
       await expect(page.locator("header[data-compact='true']")).toHaveCount(1);
       await expect.poll(alpha).toBeGreaterThan(0.5);
-      expect(await bar.evaluate((n) => getComputedStyle(n).backdropFilter)).toContain(
-        "blur",
+      // Phones get a pre-composited smoked fill: no backdrop-filter over moving content.
+      expect(await bar.evaluate((n) => getComputedStyle(n).backdropFilter)).toBe(
+        "none",
       );
     }
   });
