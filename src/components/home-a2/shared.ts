@@ -160,6 +160,23 @@ export function createSignature(root: HTMLElement) {
   const nib = q(root, "[data-nib]");
   const paths = qa<SVGPathElement>(svg, "path");
   const lengths = paths.map((p) => p.getTotalLength());
+  // the pen's path sampled once (every 2 units): SVG geometry calls inside the frame force a layout
+  const samples = paths.map((p, i) => {
+    const n = Math.max(2, Math.ceil(lengths[i]! / 2));
+    return Array.from({ length: n + 1 }, (_, k) => {
+      const pt = p.getPointAtLength((lengths[i]! * k) / n);
+      return [pt.x, pt.y] as const;
+    });
+  });
+  const pointAt = (i: number, len: number) => {
+    const pts = samples[i]!;
+    const f = clamp(len / lengths[i]!) * (pts.length - 1);
+    const k = Math.min(pts.length - 2, Math.floor(f));
+    const u = f - k;
+    const [x0, y0] = pts[k]!;
+    const [x1, y1] = pts[k + 1]!;
+    return { x: lerp(x0, x1, u), y: lerp(y0, y1, u) };
+  };
   const offsets = paths.map((p) => {
     const m = /translate\(([-\d.]+) ([-\d.]+)\)/.exec(
       p.getAttribute("transform") ?? "",
@@ -201,7 +218,7 @@ export function createSignature(root: HTMLElement) {
       });
       const at = pen as { i: number; len: number } | null;
       if (at && !(hideNibAtEnd && f >= 0.995)) {
-        const pt = paths[at.i]!.getPointAtLength(at.len);
+        const pt = pointAt(at.i, at.len);
         const [ox, oy] = offsets[at.i]!;
         if (!box) measure();
         const { x, y, k } = box!;
