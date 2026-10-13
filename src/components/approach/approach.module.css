@@ -626,6 +626,15 @@ a.finder:focus-visible {
 .page [data-dive="on"] .diveWindow {
   visibility: visible;
 }
+/* The dive's layers exist before the first scroll, so the dive's first
+   frames do not create and rasterise them. */
+.page [data-dive="on"] .heroZoom,
+.page [data-dive="on"] .stageDive .frame,
+.page [data-dive="on"] .stageDive .lens,
+.page [data-dive="on"] .diveNight,
+.page [data-dive="on"] [data-dive-lift] {
+  will-change: transform, opacity;
+}
 /* Parked away from the dive: the same place sticky would hold the stage. */
 .page [data-dive="on"][data-dive-park="before"] .diveStage {
   position: relative;
