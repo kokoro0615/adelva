@@ -636,9 +636,10 @@ export function startMobile(root: HTMLElement): Controller {
       set(slot, "opacity", (1 - smooth(exitA, exitA + 0.04, p)).toFixed(3));
       const fill = clamp((cx - C[0]!) / (C[4]! - C[0]!));
       set(rail, "--f", (p < LAND[1] ? 0 : fill).toFixed(4));
+      // the rail's parts take its opacity (--to) one by one, as the prototype did
       set(
         rail,
-        "opacity",
+        "--to",
         (
           smooth(LAND[0] + 0.02, LAND[1], p) *
           (1 - smooth(exitA, exitA + 0.04, p))

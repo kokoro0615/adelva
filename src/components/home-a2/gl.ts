@@ -170,10 +170,36 @@ async function upload(
   return out;
 }
 
+/** The canvas's CSS size, kept by a ResizeObserver so drawing never reads layout. */
+const cssSize = new WeakMap<HTMLCanvasElement, { w: number; h: number }>();
+const sizer =
+  typeof ResizeObserver === "undefined"
+    ? null
+    : new ResizeObserver((entries) => {
+        for (const e of entries) {
+          const box = e.contentBoxSize?.[0];
+          cssSize.set(e.target as HTMLCanvasElement, {
+            w: box ? box.inlineSize : e.contentRect.width,
+            h: box ? box.blockSize : e.contentRect.height,
+          });
+        }
+      });
+
+function sizeOf(canvas: HTMLCanvasElement) {
+  let size = cssSize.get(canvas);
+  if (!size) {
+    size = { w: canvas.clientWidth, h: canvas.clientHeight };
+    cssSize.set(canvas, size);
+    sizer?.observe(canvas);
+  }
+  return size;
+}
+
 function fit(canvas: HTMLCanvasElement, gl: WebGL2RenderingContext, dprCap: number) {
   const dpr = Math.min(window.devicePixelRatio || 1, dprCap);
-  const w = Math.max(1, Math.round(canvas.clientWidth * dpr));
-  const h = Math.max(1, Math.round(canvas.clientHeight * dpr));
+  const size = sizeOf(canvas);
+  const w = Math.max(1, Math.round(size.w * dpr));
+  const h = Math.max(1, Math.round(size.h * dpr));
   if (canvas.width !== w || canvas.height !== h) {
     canvas.width = w;
     canvas.height = h;

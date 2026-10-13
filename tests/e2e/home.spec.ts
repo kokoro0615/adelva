@@ -229,3 +229,54 @@ for (const viewport of viewports) {
     });
   });
 }
+
+/* 2026-10-13 polish: the moving page scrolled end to end the way a reader does
+   (no capture hook), so the damped engine, the sleeping loop, lazy renderers
+   and their release/restore run for real. */
+test.describe("phone 390×844, motion allowed", () => {
+  test.use({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true });
+
+  test("scrolls the whole page and back without errors; phones get their own film", async ({
+    page,
+  }) => {
+    test.slow();
+    const errors: string[] = [];
+    page.on("pageerror", (e) => errors.push(e.message));
+    page.on("console", (m) => {
+      if (m.type() === "error") errors.push(m.text());
+    });
+    await page.emulateMedia({ reducedMotion: "no-preference" });
+    await open(page);
+    await page.waitForFunction(() => window.__home?.regime === "mobile");
+
+    // the phone film is chosen first; the desktop files stay the fallbacks
+    const sources = await page
+      .locator("video[data-film-video] source")
+      .evaluateAll((els) =>
+        els.map((el) => [el.getAttribute("src"), el.getAttribute("media")]),
+      );
+    expect(sources[0]![0]).toBe("/media/video/hero-antarctica-portrait-m.mp4");
+    expect(sources[0]![1]).toContain("max-width: 1023.98px");
+    await expect(page.locator("video[data-film-video]")).toHaveAttribute(
+      "preload",
+      "metadata",
+    );
+
+    const height = await page.evaluate(
+      () => document.documentElement.scrollHeight - window.innerHeight,
+    );
+    const visit = async (from: number, to: number, step: number) => {
+      for (let y = from; step > 0 ? y <= to : y >= to; y += step) {
+        await page.evaluate((top) => window.scrollTo({ top, behavior: "instant" }), y);
+        await page.waitForTimeout(40);
+      }
+    };
+    await visit(0, height, 900);
+    await page.waitForTimeout(600);
+    // the crossing is drawn at the end of the page; the path is drawn again on the way back
+    await visit(height, 0, -1800);
+    await page.waitForTimeout(600);
+    expect(await page.locator("[data-home-root]").getAttribute("data-gl")).toBeNull();
+    expect(errors).toEqual([]);
+  });
+});

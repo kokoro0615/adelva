@@ -127,6 +127,9 @@ export function createEngine(
   let vh = stageHeight();
   let vw = document.documentElement.clientWidth;
   let y = window.scrollY;
+  // the scroll position as the last scroll event saw it: read there, where layout is clean, and
+  // never inside the frame (a read after another script's write would force a layout)
+  let target = y;
   let last = { y: Number.NaN, vw: 0, vh: 0 };
   let lastTime = performance.now();
   let forced = true;
@@ -135,6 +138,7 @@ export function createEngine(
     vh = stageHeight();
     vw = document.documentElement.clientWidth;
     const sy = window.scrollY;
+    target = sy;
     for (const s of scenes) {
       const r = s.el.getBoundingClientRect();
       s.top = r.top + sy;
@@ -161,8 +165,9 @@ export function createEngine(
     const now = performance.now();
     const dt = Math.min(0.1, Math.max(0, (now - lastTime) / 1000));
     lastTime = now;
-    // the one layout-dependent read of the frame, before any write
-    const target = yArg ?? window.scrollY;
+    if (yArg !== undefined) target = yArg;
+    // desktop (no damping): Lenis moves the page inside this same ticker, so read it now
+    else if (damp <= 0) target = window.scrollY;
     if (yArg !== undefined || damp <= 0 || Math.abs(target - y) > vh * 1.5) y = target;
     else {
       y += (target - y) * (1 - Math.exp(-dt / damp));
@@ -201,7 +206,10 @@ export function createEngine(
     lastTime = performance.now();
     gsap.ticker.add(loop);
   };
-  const onScroll = () => wake();
+  const onScroll = () => {
+    target = window.scrollY;
+    wake();
+  };
 
   return {
     register(el, update, surface) {
@@ -227,7 +235,7 @@ export function createEngine(
     },
     start() {
       measure();
-      y = window.scrollY;
+      y = target;
       if (!running) {
         running = true;
         window.addEventListener("scroll", onScroll, { passive: true });
