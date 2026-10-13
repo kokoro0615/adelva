@@ -36,6 +36,10 @@
 }
 
 .header {
+  /* The bar's layout height never changes; compacting is a transform (below),
+     so the labels never shift in layout (CLS) as the reader starts to scroll.
+     --nav-bar-height is the visible height, --nav-bar-full the layout one. */
+  --nav-bar-full: 4.25rem;
   --nav-bar-height: 4.25rem;
   /* How far the reading veil feathers past the bar before it is gone. */
   --nav-veil-feather: 64px;
@@ -73,6 +77,9 @@
   inset-inline: 0;
   top: 0;
   z-index: 40;
+  /* The layout box keeps the full bar height; only the bar and the shelf take
+     input, so the band a compact bar uncovers stays the page's. */
+  pointer-events: none;
 }
 
 .header[data-menu-open="true"] {
@@ -184,10 +191,14 @@
   display: flex;
   align-items: center;
   gap: clamp(0.75rem, 1.6vw, 1.75rem);
-  height: var(--nav-bar-height);
+  height: var(--nav-bar-full);
   padding-inline: var(--nav-inline);
   background-color: transparent;
   isolation: isolate;
+  pointer-events: auto;
+  /* Compact: the bar slides up by the height it loses and its contents come
+     down by half of it, so they stay centred in the visible band. */
+  transform: translate3d(0, calc(var(--nav-bar-height) - var(--nav-bar-full)), 0);
   color: var(--paper);
   /* A tight halo that travels with the glyph. The veil already carries the
      measured ratio; this is for the case the ratio cannot see — a thin bright
@@ -196,11 +207,16 @@
   /* Surfaces change while the reader scrolls (HOME switches film, paper and
      glass per scene): every fill cross-fades rather than switching. */
   transition:
-    height var(--dur-state) var(--ease-state),
+    transform var(--dur-state) var(--ease-state),
     color var(--nav-open) var(--ease-panel),
     text-shadow var(--nav-open) var(--ease-panel),
     background-color var(--dur-state) var(--ease-state),
     box-shadow var(--dur-state) var(--ease-state);
+}
+
+.bar > * {
+  transform: translate3d(0, calc((var(--nav-bar-full) - var(--nav-bar-height)) / 2), 0);
+  transition: transform var(--dur-state) var(--ease-state);
 }
 
 /*
@@ -427,7 +443,39 @@
 
 .ctaCompact {
   display: inline-flex;
+  flex-shrink: 0;
   margin-inline-start: auto;
+}
+
+/*
+ * The narrowest phones (320–359px). Brand, call and menu control needed 268px
+ * and a 320px bar offered 252: the call — overflow hidden, so free to shrink —
+ * was squeezed until its label filled the outline edge to edge. A tighter
+ * gutter, gap, call padding and word tracking give it back its 12px padding
+ * and keep the menu control inside the bar.
+ */
+@media (max-width: 22.4375rem) {
+  .header,
+  .drawer {
+    --nav-inline: 1rem;
+  }
+
+  .bar {
+    gap: 0.5rem;
+  }
+
+  .ctaCompact {
+    padding-inline: 0.75rem;
+  }
+
+  .burger {
+    margin-inline-start: 0;
+  }
+
+  .brandWord {
+    letter-spacing: 0.14em;
+    text-indent: 0.14em;
+  }
 }
 
 .arrow {
@@ -520,10 +568,11 @@
   position: absolute;
   z-index: 2;
   inset-inline: 0;
-  top: 100%;
+  top: var(--nav-bar-height);
   height: 0;
   overflow: hidden;
   color: var(--nav-ink);
+  pointer-events: auto;
   transition: height var(--nav-close) var(--ease-panel);
 }
 
@@ -1371,6 +1420,7 @@
   }
 
   .header {
+    --nav-bar-full: 4rem;
     --nav-bar-height: 4rem;
   }
 
@@ -1382,6 +1432,7 @@
 @media (min-width: 64rem) {
   .header {
     --nav-inline: clamp(1.5rem, 3vw, 3rem);
+    --nav-bar-full: 5.5rem;
     --nav-bar-height: 5.5rem;
     --nav-brand-mark: 44px;
     --nav-veil-feather: 76px;
@@ -1462,6 +1513,7 @@
   background-color: transparent;
   color: inherit;
   transition:
+    transform var(--dur-state) var(--ease-state),
     border-color var(--dur-release) var(--ease-state),
     color var(--dur-release) var(--ease-state),
     text-shadow var(--dur-release) var(--ease-state);
@@ -1691,7 +1743,7 @@
   color: var(--nav-ink);
   text-shadow: none;
   transition:
-    height var(--dur-state) var(--ease-state),
+    transform var(--dur-state) var(--ease-state),
     color var(--nav-open) var(--ease-panel),
     background-color var(--dur-state) var(--ease-state),
     box-shadow var(--dur-state) var(--ease-state);
@@ -1797,14 +1849,6 @@
 }
 
 @media (max-width: 63.999rem) {
-  .header[data-surface="glass"] .bar {
-    transition:
-      height var(--dur-state) var(--ease-state),
-      color var(--nav-open) var(--ease-panel),
-      text-shadow var(--nav-open) var(--ease-panel),
-      background-color var(--dur-state) var(--ease-state),
-      box-shadow var(--dur-state) var(--ease-state);
-  }
   .header[data-surface="glass"][data-compact="true"]:not([data-menu-open="true"]) .bar {
     background-color: var(--nav-smoke);
     box-shadow: 0 1px 0 0 oklch(1 0 0 / 10%);
