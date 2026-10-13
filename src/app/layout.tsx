@@ -3,12 +3,8 @@ import type { ReactNode } from "react";
 
 import "@/app/globals.css";
 
-import { HomeFooter } from "@/components/home/home-footer";
 import { JsonLd } from "@/components/json-ld";
-import { RouteShell } from "@/components/route-shell";
 import { RouteTransition } from "@/components/route-transition";
-import { ScrollProvider } from "@/components/scroll-provider";
-import { SiteHeader } from "@/components/site-header";
 import { site } from "@/content/site";
 import { siteGraph } from "@/lib/seo";
 
@@ -43,37 +39,10 @@ export default function RootLayout({ children }: { readonly children: ReactNode 
     <html lang="ja" data-scroll-behavior="smooth">
       <body>
         <JsonLd data={siteGraph()} />
-        <RouteShell
-          legacy={
-            <>
-              <a className="skip-link" data-skip-link href="#main-content">
-                本文へ移動
-              </a>
-
-              {/* HOME uses the measured nine-rule grid (five on mobile). */}
-              <div className="grid-rules" aria-hidden="true">
-                <span />
-                <span />
-                <span />
-                <span />
-                <span />
-                <span />
-                <span />
-                <span />
-                <span />
-              </div>
-
-              <ScrollProvider />
-              <RouteTransition />
-
-              <SiteHeader />
-              <main id="main-content">{children}</main>
-              <HomeFooter />
-            </>
-          }
-        >
-          {children}
-        </RouteShell>
+        {/* Every route owns its shell (header, main, footer): see the page
+            components and src/app/not-found.tsx. */}
+        <RouteTransition />
+        {children}
       </body>
     </html>
   );
