@@ -133,24 +133,32 @@
 
 .descentFrame {
   position: relative;
-  min-height: calc(4648 * var(--t));
+  /* The mock's section top at 390 and wider; below 390 the photographs (page
+     unit) shrink faster than the type, so the descent ends where 06's copy does
+     instead of leaving a dead stretch before 責任分界. */
+  min-height: calc(4648 * min(var(--t), var(--m)));
 }
+/* The hero section holds the text, scale and finder link; its photograph is
+   drawn by stage 01's dive stage, which lies under it at the same place. */
 .hero {
   position: relative;
-  z-index: 0;
+  z-index: 2;
   height: calc(750 * var(--m));
-  isolation: isolate;
 }
 .heroMedia {
   position: absolute;
-  inset: 0;
-  overflow: hidden;
-  z-index: -1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: var(--hero-h);
 }
 .heroZoom {
   position: absolute;
   inset: 0;
   transform-origin: 0 0;
+}
+.heroPush {
+  transform-origin: var(--push-origin-m);
 }
 .heroPhoto,
 .heroPhoto img {
@@ -175,11 +183,9 @@
     ),
     linear-gradient(180deg, rgb(12 16 24 / 0%) 86%, rgb(12 16 24 / 55%) 100%);
 }
-.heroNight {
+.heroLines {
   position: absolute;
   inset: 0;
-  background: var(--night);
-  opacity: 0;
   pointer-events: none;
 }
 .heroBody {
@@ -216,16 +222,18 @@
 .title {
   margin-top: calc(4.6 * var(--t));
   font-family: var(--serif);
-  font-size: calc(48 * var(--t));
-  line-height: calc(54 * var(--t));
+  /* Below 390px the type unit outgrows the page unit; display lines keep the
+     390 proportion so they never run into the scale on the right. */
+  font-size: min(calc(48 * var(--t)), calc(48 * var(--m)));
+  line-height: min(calc(54 * var(--t)), calc(54 * var(--m)));
   letter-spacing: 0.01em;
   text-shadow: 0 2px 24px rgb(8 12 18 / 30%);
 }
 .lead {
   margin-top: calc(13.4 * var(--t));
   font-family: var(--serif);
-  font-size: calc(17.5 * var(--t));
-  line-height: calc(26.5 * var(--t));
+  font-size: min(calc(17.5 * var(--t)), calc(17.5 * var(--m)));
+  line-height: min(calc(26.5 * var(--t)), calc(26.5 * var(--m)));
   letter-spacing: 0.01em;
 }
 .body {
@@ -466,9 +474,11 @@ a.finder:focus-visible {
 
 /* ================================================================ descent */
 
+/* Pulled up under the hero: stage 01's item begins at the top of the page. */
 .descent {
   position: relative;
   z-index: 1;
+  margin-top: calc(-750 * var(--m));
 }
 .stages {
   display: block;
@@ -483,8 +493,168 @@ a.finder:focus-visible {
 .frame {
   position: relative;
   aspect-ratio: var(--m-width) / var(--m-height);
-  isolation: isolate;
   background: #141a22;
+  transform-origin: 50% 50%;
+}
+/* Everything drawn in a frame; the motion layer counter-scales it inside the
+   frame's window (spec §14). */
+.lens {
+  position: absolute;
+  inset: 0;
+  isolation: isolate;
+  transform-origin: 50% 50%;
+}
+
+/* ------------------------------------------------- stage 01: the dive stage */
+
+/*
+ * Stage 01's item spans the hero and the first photograph (the descent is
+ * pulled up under the hero). Its track holds a stage with the hero photograph
+ * and frame 01. Without motion both sit where the adopted mock has them; with
+ * the dive on, the stage turns sticky for exactly `--dive` px of scroll, then
+ * scrolls on with frame 01 resting where the static page has it.
+ *
+ *   --hs        stage height: the large viewport or the hero, whichever is taller
+ *   --dive-top  sticky offset (≤ 0): a tall hero sticks once its foot is in view
+ *   --arrive    where frame 01 lands below the top of the small viewport
+ *   --dive      scroll length of the dive
+ *
+ * Every term is in lvh/svh, so iOS toolbar changes never re-lay it out (R7).
+ */
+.page .stageDive {
+  --hero-h: calc(var(--m-hero) * var(--m));
+  --f1y: calc(var(--m-top) * var(--m));
+  --f1h: calc(var(--m-height) * var(--m));
+  --arrive-max: 96px;
+  --hs: max(100lvh, var(--hero-h));
+  --dive-top: calc(100lvh - var(--hs));
+  --arrive: clamp(0px, (100svh - var(--f1h)) / 2, var(--arrive-max));
+  --dive: calc(var(--f1y) - var(--arrive) + var(--dive-top));
+  margin: 0;
+  width: auto;
+  height: calc(var(--f1y) + var(--f1h));
+  /* A link to #stage-01 shows the photograph, not the top of the item. */
+  scroll-margin-top: calc(72px - var(--f1y));
+}
+.diveTrack {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.diveProbe,
+.svhProbe {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  visibility: hidden;
+  pointer-events: none;
+}
+.diveProbe {
+  top: calc(-1 * var(--dive-top));
+  height: max(1px, var(--dive));
+}
+.svhProbe {
+  height: 100svh;
+}
+.diveStage {
+  position: relative;
+  height: 100%;
+}
+.diveNight {
+  position: absolute;
+  inset: 0;
+  background: var(--night);
+  opacity: 0;
+  pointer-events: none;
+}
+.stageDive .frame,
+.diveWindow {
+  position: absolute;
+  left: calc(var(--m-left) * var(--m));
+  top: var(--f1y);
+  width: calc(var(--m-width) * var(--m));
+  aspect-ratio: var(--m-width) / var(--m-height);
+}
+.diveWindow {
+  --edge: 1.5px;
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.diveEdge {
+  position: absolute;
+  background: var(--flare);
+  transform-origin: 0 0;
+}
+.diveEdge[data-edge="top"],
+.diveEdge[data-edge="bottom"] {
+  left: 0;
+  width: 100%;
+  height: var(--edge);
+}
+.diveEdge[data-edge="top"] {
+  top: 0;
+}
+.diveEdge[data-edge="bottom"] {
+  bottom: 0;
+}
+.diveEdge[data-edge="left"],
+.diveEdge[data-edge="right"] {
+  top: 0;
+  width: var(--edge);
+  height: 100%;
+}
+.diveEdge[data-edge="left"] {
+  left: 0;
+}
+.diveEdge[data-edge="right"] {
+  right: 0;
+}
+.page [data-dive="on"] .diveTrack {
+  height: calc(var(--dive) + var(--hs));
+}
+.page [data-dive="on"] .diveStage {
+  position: sticky;
+  top: var(--dive-top);
+  height: var(--hs);
+  overflow: clip;
+}
+.page [data-dive="on"] .diveWindow {
+  visibility: visible;
+}
+/* The dive's layers exist before the first scroll, so the dive's first
+   frames do not create and rasterise them. */
+.page [data-dive="on"] .heroZoom,
+.page [data-dive="on"] .stageDive .frame,
+.page [data-dive="on"] .stageDive .lens,
+.page [data-dive="on"] .diveNight,
+.page [data-dive="on"] [data-dive-lift] {
+  will-change: transform, opacity;
+}
+/* Parked away from the dive: the same place sticky would hold the stage. */
+.page [data-dive="on"][data-dive-park="before"] .diveStage {
+  position: relative;
+  top: 0;
+}
+.page [data-dive="on"][data-dive-park="after"] .diveStage {
+  position: relative;
+  top: var(--dive);
+}
+/* Frame 01 waits in the stage where it lands, so the end of the dive is the
+   plain layout (no transform held while the page scrolls on). */
+.page [data-dive="on"] .stageDive .frame,
+.page [data-dive="on"] .diveWindow {
+  top: calc(var(--f1y) - var(--dive));
+}
+.page [data-dive="on"] .stageDive {
+  scroll-margin-top: calc(var(--dive-top) - var(--dive));
+}
+.page [data-motion="on"] .frame {
+  overflow: clip;
 }
 .stagePhoto,
 .stagePhoto img {
@@ -583,29 +753,46 @@ a.finder:focus-visible {
   box-shadow: 0 0 0 calc(3 * var(--m)) rgb(255 126 21 / 22%);
 }
 
-/* The magnification lines: one overlay per viewport family. */
-.linesDesktop,
-.linesMobile {
+/*
+ * The magnification lines: one set per viewport family, in that family's page
+ * units. A line is a box from its start point, `--len` long, rotated by
+ * `--angle`; its stroke is the content box, padded so a rotated layer keeps
+ * soft edges. The motion layer moves either end with transforms only.
+ */
+.lines {
   position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  pointer-events: none;
+  inset: 0;
   z-index: 2;
-  overflow: visible;
+  pointer-events: none;
+}
+.linesMobile,
+.linesDesktop {
+  position: absolute;
+  inset: 0;
 }
 .linesMobile {
-  height: calc(4648 * var(--m));
+  --unit: var(--m);
+  --stroke: 1.2px;
 }
 .linesDesktop {
+  --unit: var(--u, 1px);
+  --stroke: 1.4px;
   display: none;
-  width: calc(1440 * var(--u, 1px));
-  height: calc(5540 * var(--u, 1px));
+}
+.linePair {
+  position: absolute;
+  inset: 0;
 }
 .magLine {
-  stroke: var(--flare);
-  stroke-width: 1.2px;
-  stroke-opacity: 0.95;
+  position: absolute;
+  left: calc(var(--x1) * var(--unit));
+  top: calc(var(--y1) * var(--unit) - 2px);
+  width: calc(var(--len) * var(--unit));
+  height: 4px;
+  padding-block: calc((4px - var(--stroke)) / 2);
+  background: rgb(255 126 21 / 95%) content-box;
+  transform-origin: 0 50%;
+  transform: rotate(calc(var(--angle) * 1deg));
 }
 
 /* ------------------------------------------------------------ 06 引継ぎ */
@@ -725,8 +912,11 @@ a.finder:focus-visible {
   margin-right: calc(-20.5 * var(--m));
   margin-top: calc(4.25 * var(--t));
   font-family: var(--serif);
-  font-size: calc(32.5 * var(--t));
+  font-size: min(calc(32.5 * var(--t)), calc(32.5 * var(--m)));
   line-height: calc(45 * var(--t));
+  /* Breaks only between phrases (文節), never inside a word. */
+  word-break: keep-all;
+  overflow-wrap: anywhere;
   letter-spacing: 0.01em;
 }
 .axis {
@@ -948,8 +1138,9 @@ a.finder:focus-visible {
     background: rgb(241 239 234 / 4%);
   }
 }
+/* Closer to the three domains it combines than to the next section. */
 .example {
-  margin-top: calc(93.85 * var(--t));
+  margin-top: calc(48 * var(--t));
 }
 .exampleLabel {
   font-size: calc(12 * var(--t));
@@ -1033,8 +1224,10 @@ a.finder:focus-visible {
   margin-right: calc(-19 * var(--m));
   padding-left: calc(5.5 * var(--m));
   font-family: var(--serif);
-  font-size: calc(40 * var(--t));
+  font-size: min(calc(40 * var(--t)), calc(40 * var(--m)));
   line-height: calc(55.5 * var(--t));
+  word-break: keep-all;
+  overflow-wrap: anywhere;
   letter-spacing: 0.01em;
 }
 .checks {
@@ -1070,20 +1263,17 @@ a.finder:focus-visible {
     linear-gradient(#fff, #fff) 100% 100% / 1.5px var(--arm);
   background-repeat: no-repeat;
 }
+/* One size for all four, set so the longest (検証・引継ぎ方法) holds its
+   column on one line at every phone width: the rows stay aligned and no
+   title breaks inside a word (polish 2026-10-13; on phones this replaces
+   spec §8's smaller fourth title). */
 .checkName {
   margin-top: calc(16 * var(--t));
   font-family: var(--serif);
-  font-size: calc(23.5 * var(--t));
+  font-size: min(calc(23.5 * var(--t)), calc(20.2 * var(--m)));
   line-height: calc(28 * var(--t));
   letter-spacing: 0.02em;
-}
-/* The mock squeezes this title's glyphs into its cell; the page keeps their
-   proportions and sets it smaller instead (spec §8). */
-.check:nth-child(4) .checkName {
-  font-size: calc(20 * var(--t));
-  padding-top: calc(2.5 * var(--t));
-  margin-bottom: calc(-2.5 * var(--t));
-  letter-spacing: 0;
+  white-space: nowrap;
 }
 .checkLines {
   margin-top: calc(9.2 * var(--t));
@@ -1111,7 +1301,7 @@ a.finder:focus-visible {
   min-height: calc(89 * var(--t));
   padding-left: calc(26 * var(--m));
   font-family: var(--serif);
-  font-size: calc(23.5 * var(--t));
+  font-size: min(calc(23.5 * var(--t)), calc(23.5 * var(--m)));
   line-height: 1.3;
   letter-spacing: 0.02em;
   transition: background-color var(--dur-release, 200ms) var(--ease-state, ease);
@@ -1174,17 +1364,39 @@ a.finder:focus-visible {
   background: var(--ivory);
   border-color: var(--ivory);
 }
-.diveFrame {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 0;
-  height: 0;
-  z-index: 15;
-  border: 1.5px solid var(--flare);
-  pointer-events: none;
-  opacity: 0;
-  visibility: hidden;
+/* Shown from the landing until 06 has been read; it cross-fades (R3). */
+.descentRail {
+  transition:
+    opacity var(--dur-state, 300ms) var(--ease-state, ease),
+    visibility 0s linear var(--dur-state, 300ms);
+}
+.descentRail[data-shown] {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity var(--dur-state, 300ms) var(--ease-state, ease),
+    visibility 0s;
+}
+.descentRailFill {
+  transition:
+    transform var(--dur-panel, 400ms) var(--ease-state, ease),
+    background-color var(--dur-state, 300ms) var(--ease-state, ease);
+}
+.page [data-timeline="scroll"] .descentRailFill {
+  transition: background-color var(--dur-state, 300ms) var(--ease-state, ease);
+}
+/* Phones: the photographs reach 20px from the edge, so the rail becomes a
+   quiet hairline cue in the margin: no dots competing with the frames. */
+@media (max-width: 599.98px) {
+  .descentRail {
+    right: 7px;
+    top: 30svh;
+    bottom: 30svh;
+    background: rgb(255 255 255 / 18%);
+  }
+  .descentRailDot {
+    display: none;
+  }
 }
 
 /* ============================================================ tablet type */
@@ -1409,9 +1621,6 @@ a.finder:focus-visible {
   }
   .linesDesktop {
     display: block;
-  }
-  .magLine {
-    stroke-width: 1.4px;
   }
 
   .handoverRule {
@@ -1769,6 +1978,7 @@ a.finder:focus-visible {
     line-height: calc(52 * var(--u));
     padding-top: calc(5 * var(--u));
     margin-bottom: calc(-5 * var(--u));
+    letter-spacing: 0;
   }
   .checkLines {
     margin-top: calc(19.7 * var(--u));
@@ -1807,8 +2017,27 @@ a.finder:focus-visible {
   .descentRail {
     right: calc(11.5px - 0.5px);
   }
-  .diveFrame {
-    border-width: 2px;
+
+  .descent {
+    margin-top: calc(-929 * var(--u));
+  }
+  .page .stageDive {
+    --hero-h: calc(var(--d-hero) * var(--u));
+    --f1y: calc(var(--d-top) * var(--u));
+    --f1h: calc(var(--d-height) * var(--u));
+    --arrive-max: 100svh;
+  }
+  .stageDive .frame,
+  .diveWindow {
+    left: calc(var(--d-left) * var(--u));
+    width: calc(var(--d-width) * var(--u));
+    aspect-ratio: var(--d-width) / var(--d-height);
+  }
+  .diveWindow {
+    --edge: 2px;
+  }
+  .heroPush {
+    transform-origin: var(--push-origin-d);
   }
 }
 
@@ -1827,5 +2056,196 @@ a.finder:focus-visible {
   .audienceLink,
   .descentRailDot {
     transition: none;
+  }
+}
+
+/* ======================================================== motion states */
+
+/*
+ * The hero's one-time settle runs in CSS from the first paint (R8): the
+ * finder draws, its corners set, the photograph eases toward it, the scale's
+ * orange segment reaches 01 and the first magnification lines appear.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  .finder[data-finder="0"] .finderRect {
+    animation: ap-draw var(--dur-reveal, 1200ms) var(--ease-reveal, ease) 150ms both;
+  }
+  .finder[data-finder="0"] .corner {
+    animation: ap-corner var(--dur-state, 300ms) var(--ease-reveal, ease) 750ms both;
+  }
+  .finder[data-finder="0"] .corner[data-corner="tr"] {
+    animation-delay: 800ms;
+  }
+  .finder[data-finder="0"] .corner[data-corner="bl"] {
+    animation-delay: 850ms;
+  }
+  .finder[data-finder="0"] .corner[data-corner="br"] {
+    animation-delay: 900ms;
+  }
+  .heroPush {
+    animation: ap-push var(--dur-ambient, 2000ms) cubic-bezier(0.25, 0.46, 0.45, 0.94)
+      both;
+  }
+  .railProgress {
+    animation: ap-rail calc(var(--dur-panel, 400ms) * 2) var(--ease-state, ease) 350ms
+      both;
+  }
+  .heroLines {
+    animation: ap-fade var(--dur-panel, 400ms) var(--ease-reveal, ease) 1050ms both;
+  }
+}
+@keyframes ap-draw {
+  from {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes ap-corner {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+}
+@keyframes ap-push {
+  to {
+    transform: scale(1.04);
+  }
+}
+@keyframes ap-rail {
+  from {
+    transform: scaleY(0);
+  }
+}
+@keyframes ap-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+/*
+ * One-time reveals. The motion layer marks content wholly below the fold as
+ * pending and clears the mark at the reading line; the transitions below
+ * carry it in. Nothing visible at setup is ever hidden (R8).
+ */
+.page [data-motion="on"] [data-reveal] {
+  transition:
+    opacity var(--dur-state, 300ms) var(--ease-state, ease),
+    transform var(--dur-state, 300ms) var(--ease-state, ease);
+}
+.page [data-motion="on"] [data-reveal]:nth-child(2) {
+  transition-delay: 60ms;
+}
+.page [data-motion="on"] [data-reveal]:nth-child(3) {
+  transition-delay: 120ms;
+}
+.page [data-motion="on"] [data-reveal]:nth-child(4) {
+  transition-delay: 180ms;
+}
+.page [data-motion="on"] [data-reveal-pending] [data-reveal] {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: none;
+}
+
+/* 06: the ivory finder draws, the rule runs orange then ivory. */
+.page [data-motion="on"] .stageFinal .finderRect {
+  transition: stroke-dashoffset var(--dur-reveal, 1200ms) var(--ease-reveal, ease);
+  stroke-dasharray: 1;
+}
+.page [data-motion="on"] .stageFinal .corner {
+  transition: opacity var(--dur-state, 300ms) var(--ease-reveal, ease) 700ms;
+}
+.page [data-motion="on"] .handoverRule [data-rule-adelva] {
+  transition: transform 600ms var(--ease-wipe, ease) 200ms;
+}
+.page [data-motion="on"] .handoverRule [data-rule-client] {
+  transition: transform 600ms var(--ease-panel, ease) 800ms;
+}
+.page [data-motion="on"] [data-handover-pending] .finderRect {
+  stroke-dashoffset: 1;
+  transition: none;
+}
+.page [data-motion="on"] [data-handover-pending] .corner {
+  opacity: 0;
+  transition: none;
+}
+.page [data-motion="on"] [data-handover-pending] .handoverRule i {
+  transform: scaleX(0);
+  transition: none;
+}
+
+/* Role bars run from 俯瞰 along the axis; ADELVA's runs last and longest. */
+.page [data-motion="on"] .bar {
+  transition: transform var(--dur-panel, 400ms) var(--ease-reveal, ease)
+    calc(var(--bar-order, 0) * 80ms);
+}
+.role[data-role="manager"] {
+  --bar-order: 0;
+}
+.role[data-role="owner"] {
+  --bar-order: 1;
+}
+.role[data-role="partners"] {
+  --bar-order: 2;
+}
+.role[data-role="partners"] .bar + .bar {
+  --bar-order: 3;
+}
+.page [data-motion="on"] .role[data-role="adelva"] .bar {
+  transition: transform 600ms var(--ease-wipe, ease) 480ms;
+}
+.page [data-motion="on"] [data-bars-pending] .bar {
+  transform: translateY(-50%) scaleX(0);
+  transition: none;
+}
+
+/* The example line runs edge to edge; each tag's corners set as it passes. */
+.page [data-motion="on"] .exampleLine {
+  transition: transform 900ms var(--ease-wipe, ease);
+}
+.page [data-motion="on"] .bracket {
+  transition:
+    transform var(--dur-fast, 160ms) var(--ease-state, ease),
+    opacity var(--dur-fast, 160ms) var(--ease-state, ease);
+  transition-delay: calc(900ms * (var(--x) + var(--w) / 2) / 390);
+}
+.page [data-motion="on"] [data-example-pending] .exampleLine {
+  transform: translateY(-50%) scaleX(0);
+  transition: none;
+}
+.page [data-motion="on"] [data-example-pending] .bracket {
+  opacity: 0;
+  transform: scale(0.6);
+  transition: none;
+}
+
+/* Check marks set one after another. */
+.page [data-motion="on"] .checkMark {
+  transition:
+    opacity var(--dur-state, 300ms) var(--ease-reveal, ease),
+    transform var(--dur-state, 300ms) var(--ease-reveal, ease);
+}
+.page [data-motion="on"] .check:nth-child(2) .checkMark {
+  transition-delay: 80ms;
+}
+.page [data-motion="on"] .check:nth-child(3) .checkMark {
+  transition-delay: 160ms;
+}
+.page [data-motion="on"] .check:nth-child(4) .checkMark {
+  transition-delay: 240ms;
+}
+.page [data-motion="on"] [data-checks-pending] .checkMark {
+  opacity: 0;
+  transform: scale(0.72);
+  transition: none;
+}
+
+@media (min-width: 1024px) {
+  .page [data-motion="on"] .bracket {
+    transition-delay: calc(900ms * (var(--x) + var(--w) / 2) / 1440);
   }
 }
