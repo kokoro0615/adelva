@@ -1328,7 +1328,8 @@
     transform: translateX(6px);
   }
 }
-.page[data-rail-hidden="true"] :is(.rail, .mobileRail) {
+.page[data-rail-hidden="true"] :is(.rail, .mobileRail),
+.page[data-rail-clash="true"] :is(.rail:not(:focus-within), .mobileRail) {
   opacity: 0;
   pointer-events: none;
 }

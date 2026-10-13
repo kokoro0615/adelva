@@ -379,6 +379,10 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
           let relatedTop = Infinity;
           let railThreshold = 700;
           let railAllowed = true;
+          // Page y ranges of copy that reaches into the fixed rail's band at
+          // the right edge: the rail steps aside while such copy passes it.
+          let railClashes: [number, number][] = [];
+          let railHalf = 150;
           let cover = new Float32Array(1);
           let rippleFrom = 0,
             rippleTo = 0,
@@ -733,6 +737,19 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
               "@data-rail-hidden",
               String(scrollTop + viewHeight * 0.6 >= relatedTop),
             );
+            const railMid = scrollTop + viewHeight / 2;
+            write(
+              el,
+              "@data-rail-clash",
+              String(
+                railAllowed &&
+                  (desktop || scrollTop > railThreshold) &&
+                  railClashes.some(
+                    ([top, bottom]) =>
+                      bottom > railMid - railHalf && top < railMid + railHalf,
+                  ),
+              ),
+            );
             for (const c of cues)
               if (!c.fired && scrollTop + viewHeight * c.at >= c.y) {
                 c.fired = true;
@@ -785,6 +802,23 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
             stageHeight = r.height;
             railThreshold = 700 * (r.width / 390);
             railAllowed = desktop || innerWidth >= 600;
+            // The desktop rail draws within ~80px of the right edge (44px
+            // wide, 24px in, its line swaying 15px); the tablet rail ~20px.
+            const band = innerWidth - (desktop ? 84 : 20);
+            railHalf = desktop ? 150 : viewHeight * 0.2 + 12;
+            railClashes = railAllowed
+              ? Array.from(
+                  stage.querySelectorAll<HTMLElement>(
+                    `.${styles.position}, .${styles.placedChip}`,
+                  ),
+                )
+                  .map((node) => node.getBoundingClientRect())
+                  .filter((box) => box.width > 0 && box.right > band)
+                  .map((box): [number, number] => [
+                    box.top + scrollTop,
+                    box.bottom + scrollTop,
+                  ])
+              : [];
             stageTop = r.top + scrollTop;
             viewHeight = innerHeight;
             // Over the lake the river is a row of fine dots on still water:
@@ -1213,6 +1247,7 @@ export function RevenueBrandMotion({ children }: { children: ReactNode }) {
             delete el.dataset.motion;
             delete el.dataset.railFixed;
             delete el.dataset.railHidden;
+            delete el.dataset.railClash;
             setCurrent(true);
             stepElements.forEach((item) => {
               item.dataset.state = "reached";
