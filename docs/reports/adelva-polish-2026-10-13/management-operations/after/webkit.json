@@ -1,0 +1,9 @@
+{
+ "route": "/services/management-operations",
+ "frames": 976,
+ "p50": 83,
+ "p90": 616,
+ "p99": 934,
+ "over50": 761,
+ "errors": []
+}
