@@ -1,0 +1,318 @@
+[
+ {
+  "route": "/",
+  "warnings": [],
+  "rsc": [],
+  "media": [
+   "font /fonts/Oswald-VariableFont_wght.woff2 70KB",
+   "image /media/target/hero-poster.webp 205KB",
+   "image /brand/adelva-mark-mask.png 24KB",
+   "font /fonts/adelva-wordmark.woff2 1KB",
+   "font /fonts/adelva-noto-sans-jp.woff2 285KB",
+   "font /fonts/adelva-noto-serif-jp.woff2 388KB",
+   "image /media/adelva/home/path-depth.webp 46KB",
+   "image /media/adelva/home/path-m-2.webp 1114KB",
+   "image /media/adelva/home/path-m-1.webp 1210KB",
+   "image /media/adelva/home/path-m-0.webp 1242KB",
+   "image /media/adelva/home/lake-glow-m.webp 221KB",
+   "image /media/adelva/home/lake-sky-m.webp 304KB",
+   "image /media/adelva/home/lake-sun-m.webp 298KB",
+   "image /media/adelva/home/lake-1-m.webp 514KB",
+   "image /media/adelva/home/lake-2-m.webp 731KB",
+   "image /media/adelva/home/lake-3-depth.webp 18KB",
+   "image /media/adelva/home/lake-3-m.webp 835KB",
+   "image /media/adelva/home/lake-3-sun-m.webp 778KB"
+  ],
+  "mediaKB": 8286,
+  "css": [
+   "/_next/static/chunks/2hh8577hibsnn.css",
+   "/_next/static/chunks/17p9hpwh4g2fb.css",
+   "/_next/static/chunks/2yke4zoh-22ce.css"
+  ],
+  "totalKB": 8549,
+  "requests": 35
+ },
+ {
+  "route": "/challenges",
+  "warnings": [],
+  "rsc": [],
+  "media": [
+   "font /fonts/Oswald-VariableFont_wght.woff2 70KB",
+   "image /media/adelva/challenges/mountain-1672.webp 116KB",
+   "image /brand/adelva-mark-mask.png 24KB",
+   "image /media/adelva/challenges/coast-1672.webp 372KB",
+   "image /media/adelva/challenges/desert-1672.webp 187KB",
+   "image /media/adelva/challenge-bands/management-profit-1536.webp 181KB",
+   "image /media/adelva/challenges/forest-1672.webp 295KB",
+   "image /media/adelva/photo-tiles/management-profit-team-800.webp 65KB",
+   "image /media/adelva/challenges/snow-1672.webp 268KB",
+   "font /fonts/adelva-wordmark.woff2 1KB",
+   "image /media/adelva/photo-tiles/management-profit-analysis-400.webp 38KB",
+   "image /media/adelva/photo-tiles/management-profit-model-800.webp 106KB",
+   "font /fonts/CardinalClassicMidWeb-Regular.woff2 77KB",
+   "font /fonts/adelva-noto-sans-jp.woff2 285KB",
+   "font /fonts/InterTight-VariableFont_wght.woff2 234KB"
+  ],
+  "mediaKB": 2319,
+  "css": [
+   "/_next/static/chunks/1b5pvxy4tom9i.css",
+   "/_next/static/chunks/17p9hpwh4g2fb.css",
+   "/_next/static/chunks/2hh8577hibsnn.css"
+  ],
+  "totalKB": 2559,
+  "requests": 31
+ },
+ {
+  "route": "/challenges/owner",
+  "warnings": [],
+  "rsc": [],
+  "media": [
+   "image /media/adelva/owner/m-dawn-853.avif 36KB",
+   "image /media/adelva/owner/m-plate-0-853.avif 64KB",
+   "font /fonts/Oswald-VariableFont_wght.woff2 70KB",
+   "image /media/adelva/owner/d-plate-0-1024.avif 48KB",
+   "image /media/adelva/owner/d-dawn-1024.avif 33KB",
+   "image /media/adelva/owner/d-plate-1-1024.avif 25KB",
+   "image /media/adelva/owner/m-plate-1-853.avif 46KB",
+   "image /brand/adelva-mark-mask.png 24KB",
+   "font /fonts/adelva-wordmark.woff2 1KB",
+   "image /media/adelva/owner/m-plate-2-853.avif 54KB",
+   "font /fonts/adelva-noto-sans-jp.woff2 285KB",
+   "font /fonts/adelva-noto-serif-jp.woff2 388KB"
+  ],
+  "mediaKB": 1074,
+  "css": [
+   "/_next/static/chunks/348de6ksbsu69.css",
+   "/_next/static/chunks/17p9hpwh4g2fb.css",
+   "/_next/static/chunks/2hh8577hibsnn.css"
+  ],
+  "totalKB": 1320,
+  "requests": 28
+ },
+ {
+  "route": "/challenges/general-managers",
+  "warnings": [
+   "GSAP target [object NodeList] not found. https://gsap.com",
+   "GSAP target  not found. https://gsap.com",
+   "GSAP target [object NodeList] not found. https://gsap.com",
+   "GSAP target  not found. https://gsap.com",
+   "GSAP target [object NodeList] not found. https://gsap.com",
+   "GSAP target  not found. https://gsap.com"
+  ],
+  "rsc": [],
+  "media": [
+   "image /media/adelva/general-managers/m-plate-0-853.avif 175KB",
+   "image /media/adelva/general-managers/d-plate-0-1024.avif 95KB",
+   "font /fonts/Oswald-VariableFont_wght.woff2 70KB",
+   "image /media/adelva/general-managers/d-plate-1-1024.avif 93KB",
+   "image /media/adelva/general-managers/m-plate-1-853.avif 178KB",
+   "image /brand/adelva-mark-mask.png 24KB",
+   "font /fonts/adelva-wordmark.woff2 1KB",
+   "image /media/adelva/general-managers/m-lit-quality.avif 48KB",
+   "image /media/adelva/general-managers/m-plate-2-853.avif 172KB",
+   "image /media/adelva/general-managers/m-lit-sales.avif 33KB",
+   "image /media/adelva/general-managers/m-lit-people.avif 62KB",
+   "image /media/adelva/general-managers/m-lit-productivity.avif 48KB",
+   "image /media/adelva/general-managers/m-lit-system.avif 52KB",
+   "font /fonts/adelva-noto-sans-jp.woff2 285KB",
+   "font /fonts/adelva-noto-serif-jp.woff2 388KB"
+  ],
+  "mediaKB": 1726,
+  "css": [
+   "/_next/static/chunks/17p9hpwh4g2fb.css",
+   "/_next/static/chunks/2hh8577hibsnn.css",
+   "/_next/static/chunks/2efaf3e3chb4d.css"
+  ],
+  "totalKB": 1985,
+  "requests": 31
+ },
+ {
+  "route": "/services/management-operations",
+  "warnings": [],
+  "rsc": [],
+  "media": [
+   "font /fonts/Oswald-VariableFont_wght.woff2 70KB",
+   "image /media/adelva/management-operations/base-0.webp 242KB",
+   "image /media/adelva/management-operations/dim-0.webp 210KB",
+   "image /media/adelva/management-operations/sky.webp 19KB",
+   "image /brand/adelva-mark-mask.png 24KB",
+   "font /fonts/adelva-wordmark.woff2 1KB",
+   "font /fonts/InterTight-VariableFont_wght.woff2 234KB",
+   "font /fonts/adelva-noto-sans-jp.woff2 285KB",
+   "font /fonts/adelva-noto-serif-jp.woff2 388KB",
+   "image /media/adelva/management-operations/blur-0.webp 70KB",
+   "image /media/adelva/management-operations/grove2x-0.webp 439KB",
+   "image /media/adelva/management-operations/lit2x-0.webp 569KB",
+   "image /media/adelva/management-operations/lit2x-1.webp 388KB",
+   "image /media/adelva/management-operations/grove2x-1.webp 307KB",
+   "image /media/adelva/management-operations/lit-0.webp 288KB",
+   "image /media/adelva/management-operations/base-2048.webp 338KB",
+   "image /media/adelva/management-operations/dim-2048.webp 49KB",
+   "image /media/adelva/management-operations/blur-2048.webp 17KB",
+   "image /media/adelva/management-operations/lit-2048.webp 60KB",
+   "image /media/adelva/management-operations/warm-knuckle-3.webp 68KB",
+   "image /media/adelva/management-operations/warm-knuckle-4.webp 47KB",
+   "image /media/adelva/management-operations/warm-knuckle-1.webp 82KB",
+   "image /media/adelva/management-operations/warm-knuckle-2.webp 83KB",
+   "image /media/adelva/management-operations/warm-old-0.webp 326KB",
+   "image /media/adelva/management-operations/warm-old-2048.webp 35KB",
+   "image /media/adelva/management-operations/base-4096.webp 483KB",
+   "image /media/adelva/management-operations/base-8192.webp 2KB",
+   "image /media/adelva/management-operations/warm-young.webp 187KB",
+   "image /media/adelva/management-operations/base-6144.webp 503KB"
+  ],
+  "mediaKB": 5815,
+  "css": [
+   "/_next/static/chunks/2hh8577hibsnn.css",
+   "/_next/static/chunks/34qnwayu-lvwz.css",
+   "/_next/static/chunks/17p9hpwh4g2fb.css"
+  ],
+  "totalKB": 6070,
+  "requests": 45
+ },
+ {
+  "route": "/services/revenue-brand",
+  "warnings": [
+   "The resource http://127.0.0.1:4810/_next/static/chunks/2yke4zoh-22ce.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value ",
+   "The resource http://127.0.0.1:4810/media/target/hero-poster.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it i"
+  ],
+  "rsc": [
+   "/?_rsc",
+   "/?_rsc",
+   "/?_rsc"
+  ],
+  "media": [
+   "image /media/adelva/revenue-brand/d-plate-1-1024.avif 107KB",
+   "image /media/adelva/revenue-brand/m-plate-0-853.avif 117KB",
+   "font /fonts/Oswald-VariableFont_wght.woff2 70KB",
+   "image /media/adelva/revenue-brand/m-plate-1-853.avif 136KB",
+   "image /brand/adelva-mark-mask.png 24KB",
+   "image /media/adelva/revenue-brand/m-plate-2-853.avif 141KB",
+   "image /media/adelva/revenue-brand/m-plate-3-853.avif 94KB",
+   "image /media/adelva/revenue-brand/f1-1536.webp 20KB",
+   "image /media/adelva/revenue-brand/f2-1536.webp 18KB",
+   "font /fonts/adelva-wordmark.woff2 1KB",
+   "font /fonts/adelva-noto-sans-jp.woff2 285KB",
+   "font /fonts/adelva-noto-serif-jp.woff2 388KB",
+   "image /media/target/hero-poster.webp 205KB"
+  ],
+  "mediaKB": 1607,
+  "css": [
+   "/_next/static/chunks/3dts4uc45lrvq.css",
+   "/_next/static/chunks/17p9hpwh4g2fb.css",
+   "/_next/static/chunks/2hh8577hibsnn.css",
+   "/_next/static/chunks/2yke4zoh-22ce.css"
+  ],
+  "totalKB": 2005,
+  "requests": 37
+ },
+ {
+  "route": "/services/dx-it-procurement",
+  "warnings": [],
+  "rsc": [],
+  "media": [
+   "image /media/adelva/dx-it-procurement/m-body-0.webp 65KB",
+   "font /fonts/Oswald-VariableFont_wght.woff2 70KB",
+   "font /fonts/adelva-noto-sans-jp.woff2 285KB",
+   "font /fonts/adelva-noto-serif-jp.woff2 388KB",
+   "image /brand/adelva-mark-mask.png 24KB",
+   "font /fonts/adelva-wordmark.woff2 1KB",
+   "image /media/adelva/dx-it-procurement/m-body-2.webp 85KB",
+   "image /media/adelva/dx-it-procurement/m-body-1.webp 97KB",
+   "image /media/adelva/dx-it-procurement/m-body-3.webp 85KB",
+   "image /media/adelva/dx-it-procurement/m-core-off-1.webp 32KB",
+   "image /media/adelva/dx-it-procurement/m-core-off-0.webp 37KB"
+  ],
+  "mediaKB": 1170,
+  "css": [
+   "/_next/static/chunks/2hh8577hibsnn.css",
+   "/_next/static/chunks/17p9hpwh4g2fb.css",
+   "/_next/static/chunks/1a5ydyfjiarwy.css"
+  ],
+  "totalKB": 1431,
+  "requests": 27
+ },
+ {
+  "route": "/approach",
+  "warnings": [],
+  "rsc": [],
+  "media": [
+   "font /fonts/Oswald-VariableFont_wght.woff2 70KB",
+   "image /media/adelva/approach/m-hero.webp 186KB",
+   "image /brand/adelva-mark-mask.png 24KB",
+   "font /fonts/adelva-wordmark.woff2 1KB",
+   "font /fonts/adelva-noto-sans-jp.woff2 285KB",
+   "font /fonts/adelva-noto-serif-jp.woff2 388KB",
+   "image /media/adelva/approach/m-02-720.webp 199KB",
+   "image /media/adelva/approach/m-01-720.webp 167KB",
+   "image /media/adelva/approach/m-03-720.webp 144KB"
+  ],
+  "mediaKB": 1464,
+  "css": [
+   "/_next/static/chunks/2hh8577hibsnn.css",
+   "/_next/static/chunks/17p9hpwh4g2fb.css",
+   "/_next/static/chunks/2_b3uk9vfc9-j.css"
+  ],
+  "totalKB": 1721,
+  "requests": 25
+ },
+ {
+  "route": "/about",
+  "warnings": [
+   "The resource http://127.0.0.1:4810/_next/static/chunks/2yke4zoh-22ce.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value ",
+   "The resource http://127.0.0.1:4810/media/target/hero-poster.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it i"
+  ],
+  "rsc": [
+   "/?_rsc",
+   "/?_rsc",
+   "/?_rsc"
+  ],
+  "media": [
+   "image /media/adelva/about-a2/m-plate-0-853.avif 15KB",
+   "font /fonts/Oswald-VariableFont_wght.woff2 70KB",
+   "image /media/adelva/about-a2/m-plate-1-853.avif 70KB",
+   "image /brand/adelva-mark-mask.png 24KB",
+   "font /fonts/adelva-wordmark.woff2 1KB",
+   "image /media/adelva/about-a2/m-plate-2-853.avif 51KB",
+   "image /media/adelva/about-a2/m-plate-3-853.avif 125KB",
+   "image /media/adelva/about-a2/m-plate-4-853.avif 57KB",
+   "font /fonts/adelva-noto-sans-jp.woff2 285KB",
+   "font /fonts/adelva-noto-serif-jp.woff2 388KB",
+   "fetch /media/adelva/about-a2/m-front-before.webp 598KB",
+   "fetch /media/adelva/about-a2/m-front-after.webp 587KB",
+   "image /media/target/hero-poster.webp 205KB"
+  ],
+  "mediaKB": 2476,
+  "css": [
+   "/_next/static/chunks/2hh8577hibsnn.css",
+   "/_next/static/chunks/17p9hpwh4g2fb.css",
+   "/_next/static/chunks/2yke4zoh-22ce.css"
+  ],
+  "totalKB": 2786,
+  "requests": 35
+ },
+ {
+  "route": "/contact",
+  "warnings": [],
+  "rsc": [],
+  "media": [
+   "font /fonts/Oswald-VariableFont_wght.woff2 70KB",
+   "image /media/adelva/contact/m-plate-0-853.avif 37KB",
+   "image /brand/adelva-mark-mask.png 24KB",
+   "font /fonts/adelva-wordmark.woff2 1KB",
+   "image /media/adelva/contact/m-plate-1-853.avif 62KB",
+   "image /media/adelva/contact/m-plate-3-853.avif 80KB",
+   "image /media/adelva/contact/m-plate-2-853.avif 58KB",
+   "font /fonts/adelva-noto-sans-jp.woff2 285KB",
+   "font /fonts/adelva-noto-serif-jp.woff2 388KB"
+  ],
+  "mediaKB": 1006,
+  "css": [
+   "/_next/static/chunks/2ey-am961fz3d.css",
+   "/_next/static/chunks/2hh8577hibsnn.css",
+   "/_next/static/chunks/17p9hpwh4g2fb.css"
+  ],
+  "totalKB": 1251,
+  "requests": 25
+ }
+]

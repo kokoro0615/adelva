@@ -1,0 +1,468 @@
+[
+ {
+  "route": "/",
+  "warnings": [],
+  "rsc": [
+   "/approach?_rsc",
+   "/about?_rsc",
+   "/?_rsc",
+   "/approach?_rsc",
+   "/approach?_rsc",
+   "/about?_rsc",
+   "/?_rsc"
+  ],
+  "media": [
+   "image /media/target/hero-poster.webp 205KB",
+   "image /brand/adelva-logo.png 130KB",
+   "font /fonts/Oswald-VariableFont_wght.woff2 70KB",
+   "font /fonts/InterTight-VariableFont_wght.woff2 234KB",
+   "font /fonts/adelva-noto-sans-jp.woff2 285KB",
+   "font /fonts/adelva-noto-serif-jp.woff2 388KB",
+   "image /media/adelva/approach/d-hero.webp 148KB",
+   "image /media/adelva/about-a2/d-plate-0-1536.avif 30KB",
+   "image /media/adelva/home/path-depth.webp 46KB",
+   "image /media/adelva/home/path-1.webp 2797KB",
+   "image /media/adelva/home/path-0.webp 3269KB",
+   "image /media/adelva/home/lake-glow.webp 423KB",
+   "image /media/adelva/home/lake-sun.webp 562KB",
+   "image /media/adelva/home/lake-sky.webp 524KB",
+   "image /media/adelva/home/lake-1.webp 883KB",
+   "image /media/adelva/home/lake-3-depth.webp 18KB",
+   "image /media/adelva/home/lake-2.webp 1217KB",
+   "image /media/adelva/home/lake-3.webp 1382KB",
+   "image /media/adelva/home/lake-3-sun.webp 1360KB"
+  ],
+  "mediaKB": 13972,
+  "css": [
+   "/_next/static/chunks/2yke4zoh-22ce.css",
+   "/_next/static/chunks/2_g1grp0y7nm_.css",
+   "/_next/static/chunks/38-n21zx0a7su.css",
+   "/_next/static/chunks/44vp1whkqqzo6.css",
+   "/_next/static/chunks/2_b3uk9vfc9-j.css"
+  ],
+  "totalKB": 14314,
+  "requests": 48
+ },
+ {
+  "route": "/challenges",
+  "warnings": [
+   "The resource http://127.0.0.1:4811/_next/static/chunks/2_g1grp0y7nm_.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value ",
+   "The resource http://127.0.0.1:4811/media/adelva/about-a2/d-plate-0-1536.avif was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` va",
+   "The resource http://127.0.0.1:4811/media/adelva/approach/d-hero.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and ",
+   "The resource http://127.0.0.1:4811/media/target/hero-poster.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it i",
+   "The resource http://127.0.0.1:4811/_next/static/chunks/2_b3uk9vfc9-j.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value ",
+   "The resource http://127.0.0.1:4811/_next/static/chunks/2yke4zoh-22ce.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value "
+  ],
+  "rsc": [
+   "/?_rsc",
+   "/approach?_rsc",
+   "/about?_rsc",
+   "/?_rsc",
+   "/?_rsc",
+   "/approach?_rsc",
+   "/about?_rsc"
+  ],
+  "media": [
+   "image /media/adelva/challenges/mountain-1672.webp 116KB",
+   "image /brand/adelva-logo.png 130KB",
+   "font /fonts/Oswald-VariableFont_wght.woff2 70KB",
+   "image /media/adelva/challenges/desert-1672.webp 187KB",
+   "image /media/adelva/challenges/coast-1672.webp 372KB",
+   "image /media/adelva/challenges/forest-1672.webp 295KB",
+   "image /media/adelva/challenges/snow-1672.webp 268KB",
+   "font /fonts/InterTight-VariableFont_wght.woff2 234KB",
+   "font /fonts/CardinalClassicMidWeb-Regular.woff2 77KB",
+   "font /fonts/adelva-noto-sans-jp.woff2 285KB",
+   "image /media/target/hero-poster.webp 205KB",
+   "image /media/adelva/approach/d-hero.webp 148KB",
+   "image /media/adelva/about-a2/d-plate-0-1536.avif 30KB"
+  ],
+  "mediaKB": 2417,
+  "css": [
+   "/_next/static/chunks/2_g1grp0y7nm_.css",
+   "/_next/static/chunks/38-n21zx0a7su.css",
+   "/_next/static/chunks/1b5pvxy4tom9i.css",
+   "/_next/static/chunks/44vp1whkqqzo6.css",
+   "/_next/static/chunks/2yke4zoh-22ce.css",
+   "/_next/static/chunks/2_b3uk9vfc9-j.css"
+  ],
+  "totalKB": 2760,
+  "requests": 43
+ },
+ {
+  "route": "/challenges/owner",
+  "warnings": [
+   "The resource http://127.0.0.1:4811/_next/static/chunks/2_g1grp0y7nm_.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value ",
+   "The resource http://127.0.0.1:4811/media/adelva/about-a2/d-plate-0-1536.avif was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` va",
+   "The resource http://127.0.0.1:4811/media/adelva/approach/d-hero.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and ",
+   "The resource http://127.0.0.1:4811/media/target/hero-poster.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it i",
+   "The resource http://127.0.0.1:4811/_next/static/chunks/2_b3uk9vfc9-j.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value ",
+   "The resource http://127.0.0.1:4811/_next/static/chunks/2yke4zoh-22ce.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value "
+  ],
+  "rsc": [
+   "/?_rsc",
+   "/about?_rsc",
+   "/approach?_rsc",
+   "/?_rsc",
+   "/?_rsc",
+   "/about?_rsc",
+   "/approach?_rsc"
+  ],
+  "media": [
+   "image /media/adelva/owner/d-plate-0-1536.avif 86KB",
+   "image /media/adelva/owner/d-dawn-1536.avif 61KB",
+   "image /media/adelva/owner/m-plate-0-853.avif 64KB",
+   "image /media/adelva/owner/d-plate-1-1536.avif 44KB",
+   "image /media/adelva/owner/m-plate-1-853.avif 46KB",
+   "image /media/adelva/owner/m-dawn-853.avif 36KB",
+   "image /brand/adelva-logo.png 130KB",
+   "font /fonts/Oswald-VariableFont_wght.woff2 70KB",
+   "image /media/adelva/owner/d-plate-2-1536.avif 48KB",
+   "font /fonts/adelva-noto-sans-jp.woff2 285KB",
+   "font /fonts/InterTight-VariableFont_wght.woff2 234KB",
+   "font /fonts/adelva-noto-serif-jp.woff2 388KB",
+   "image /media/target/hero-poster.webp 205KB",
+   "image /media/adelva/about-a2/d-plate-0-1536.avif 30KB",
+   "image /media/adelva/approach/d-hero.webp 148KB"
+  ],
+  "mediaKB": 1876,
+  "css": [
+   "/_next/static/chunks/2_g1grp0y7nm_.css",
+   "/_next/static/chunks/348de6ksbsu69.css",
+   "/_next/static/chunks/44vp1whkqqzo6.css",
+   "/_next/static/chunks/38-n21zx0a7su.css",
+   "/_next/static/chunks/2yke4zoh-22ce.css",
+   "/_next/static/chunks/2_b3uk9vfc9-j.css"
+  ],
+  "totalKB": 2226,
+  "requests": 45
+ },
+ {
+  "route": "/challenges/general-managers",
+  "warnings": [
+   "GSAP target [object NodeList] not found. https://gsap.com",
+   "GSAP target  not found. https://gsap.com",
+   "GSAP target [object NodeList] not found. https://gsap.com",
+   "GSAP target  not found. https://gsap.com",
+   "GSAP target [object NodeList] not found. https://gsap.com",
+   "GSAP target  not found. https://gsap.com",
+   "The resource http://127.0.0.1:4811/_next/static/chunks/2_g1grp0y7nm_.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value ",
+   "The resource http://127.0.0.1:4811/media/adelva/about-a2/d-plate-0-1536.avif was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` va",
+   "The resource http://127.0.0.1:4811/media/adelva/approach/d-hero.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and ",
+   "The resource http://127.0.0.1:4811/media/target/hero-poster.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it i",
+   "The resource http://127.0.0.1:4811/_next/static/chunks/2_b3uk9vfc9-j.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value ",
+   "The resource http://127.0.0.1:4811/_next/static/chunks/2yke4zoh-22ce.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value "
+  ],
+  "rsc": [
+   "/?_rsc",
+   "/approach?_rsc",
+   "/about?_rsc",
+   "/?_rsc",
+   "/?_rsc",
+   "/approach?_rsc",
+   "/about?_rsc"
+  ],
+  "media": [
+   "image /media/adelva/general-managers/d-plate-0-1536.avif 176KB",
+   "image /media/adelva/general-managers/m-plate-0-853.avif 175KB",
+   "image /media/adelva/general-managers/d-plate-1-1536.avif 168KB",
+   "image /media/adelva/general-managers/m-plate-1-853.avif 178KB",
+   "image /brand/adelva-logo.png 130KB",
+   "image /media/adelva/general-managers/d-plate-2-1536.avif 178KB",
+   "image /media/adelva/general-managers/d-lit-quality.avif 39KB",
+   "image /media/adelva/general-managers/d-lit-people.avif 50KB",
+   "image /media/adelva/general-managers/d-lit-system.avif 26KB",
+   "image /media/adelva/general-managers/d-lit-productivity.avif 35KB",
+   "image /media/adelva/general-managers/d-lit-sales.avif 52KB",
+   "font /fonts/Oswald-VariableFont_wght.woff2 70KB",
+   "font /fonts/InterTight-VariableFont_wght.woff2 234KB",
+   "font /fonts/adelva-noto-sans-jp.woff2 285KB",
+   "font /fonts/adelva-noto-serif-jp.woff2 388KB",
+   "image /media/target/hero-poster.webp 205KB",
+   "image /media/adelva/approach/d-hero.webp 148KB",
+   "image /media/adelva/about-a2/d-plate-0-1536.avif 30KB"
+  ],
+  "mediaKB": 2568,
+  "css": [
+   "/_next/static/chunks/44vp1whkqqzo6.css",
+   "/_next/static/chunks/2_g1grp0y7nm_.css",
+   "/_next/static/chunks/38-n21zx0a7su.css",
+   "/_next/static/chunks/2efaf3e3chb4d.css",
+   "/_next/static/chunks/2yke4zoh-22ce.css",
+   "/_next/static/chunks/2_b3uk9vfc9-j.css"
+  ],
+  "totalKB": 2932,
+  "requests": 48
+ },
+ {
+  "route": "/services/management-operations",
+  "warnings": [
+   "The resource http://127.0.0.1:4811/_next/static/chunks/2_g1grp0y7nm_.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value ",
+   "The resource http://127.0.0.1:4811/media/adelva/about-a2/d-plate-0-1536.avif was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` va",
+   "The resource http://127.0.0.1:4811/media/adelva/approach/d-hero.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and ",
+   "The resource http://127.0.0.1:4811/media/target/hero-poster.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it i",
+   "The resource http://127.0.0.1:4811/_next/static/chunks/2_b3uk9vfc9-j.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value ",
+   "The resource http://127.0.0.1:4811/_next/static/chunks/2yke4zoh-22ce.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value "
+  ],
+  "rsc": [
+   "/?_rsc",
+   "/approach?_rsc",
+   "/about?_rsc",
+   "/?_rsc",
+   "/?_rsc",
+   "/approach?_rsc",
+   "/about?_rsc"
+  ],
+  "media": [
+   "image /media/adelva/management-operations/base-0.webp 242KB",
+   "image /media/adelva/management-operations/dim-0.webp 210KB",
+   "image /media/adelva/management-operations/base-2048.webp 338KB",
+   "image /media/adelva/management-operations/base-4096.webp 483KB",
+   "image /media/adelva/management-operations/base-6144.webp 503KB",
+   "image /media/adelva/management-operations/base-8192.webp 2KB",
+   "image /media/adelva/management-operations/dim-2048.webp 49KB",
+   "image /media/adelva/management-operations/blur-0.webp 70KB",
+   "image /media/adelva/management-operations/blur-2048.webp 17KB",
+   "image /media/adelva/management-operations/lit-0.webp 288KB",
+   "image /media/adelva/management-operations/lit-2048.webp 60KB",
+   "image /media/adelva/management-operations/fog.webp 39KB",
+   "image /media/adelva/management-operations/text-pool.webp 50KB",
+   "image /brand/adelva-logo.png 130KB",
+   "font /fonts/Oswald-VariableFont_wght.woff2 70KB",
+   "font /fonts/adelva-noto-sans-jp.woff2 285KB",
+   "font /fonts/InterTight-VariableFont_wght.woff2 234KB",
+   "font /fonts/adelva-noto-serif-jp.woff2 388KB",
+   "image /media/target/hero-poster.webp 205KB",
+   "image /media/adelva/about-a2/d-plate-0-1536.avif 30KB",
+   "image /media/adelva/approach/d-hero.webp 148KB"
+  ],
+  "mediaKB": 3842,
+  "css": [
+   "/_next/static/chunks/2_g1grp0y7nm_.css",
+   "/_next/static/chunks/38-n21zx0a7su.css",
+   "/_next/static/chunks/44vp1whkqqzo6.css",
+   "/_next/static/chunks/34qnwayu-lvwz.css",
+   "/_next/static/chunks/2yke4zoh-22ce.css",
+   "/_next/static/chunks/2_b3uk9vfc9-j.css"
+  ],
+  "totalKB": 4208,
+  "requests": 53
+ },
+ {
+  "route": "/services/revenue-brand",
+  "warnings": [
+   "The resource http://127.0.0.1:4811/_next/static/chunks/2_g1grp0y7nm_.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value ",
+   "The resource http://127.0.0.1:4811/media/adelva/about-a2/d-plate-0-1536.avif was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` va",
+   "The resource http://127.0.0.1:4811/media/adelva/approach/d-hero.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and ",
+   "The resource http://127.0.0.1:4811/media/target/hero-poster.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it i",
+   "The resource http://127.0.0.1:4811/_next/static/chunks/2_b3uk9vfc9-j.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value ",
+   "The resource http://127.0.0.1:4811/_next/static/chunks/2yke4zoh-22ce.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value "
+  ],
+  "rsc": [
+   "/about?_rsc",
+   "/approach?_rsc",
+   "/?_rsc",
+   "/about?_rsc",
+   "/approach?_rsc",
+   "/about?_rsc",
+   "/?_rsc"
+  ],
+  "media": [
+   "image /media/adelva/revenue-brand/d-plate-0-1536.avif 186KB",
+   "image /media/adelva/revenue-brand/d-plate-1-1536.avif 181KB",
+   "image /media/adelva/revenue-brand/m-plate-1-853.avif 136KB",
+   "image /brand/adelva-logo.png 130KB",
+   "image /media/adelva/revenue-brand/d-plate-2-1536.avif 127KB",
+   "image /media/adelva/revenue-brand/f1-1536.webp 20KB",
+   "font /fonts/Oswald-VariableFont_wght.woff2 70KB",
+   "font /fonts/adelva-noto-serif-jp.woff2 388KB",
+   "font /fonts/adelva-noto-sans-jp.woff2 285KB",
+   "font /fonts/InterTight-VariableFont_wght.woff2 234KB",
+   "image /media/adelva/about-a2/d-plate-0-1536.avif 30KB",
+   "image /media/adelva/approach/d-hero.webp 148KB",
+   "image /media/target/hero-poster.webp 205KB"
+  ],
+  "mediaKB": 2141,
+  "css": [
+   "/_next/static/chunks/2_g1grp0y7nm_.css",
+   "/_next/static/chunks/38-n21zx0a7su.css",
+   "/_next/static/chunks/3dts4uc45lrvq.css",
+   "/_next/static/chunks/44vp1whkqqzo6.css",
+   "/_next/static/chunks/2_b3uk9vfc9-j.css",
+   "/_next/static/chunks/2yke4zoh-22ce.css"
+  ],
+  "totalKB": 2597,
+  "requests": 45
+ },
+ {
+  "route": "/services/dx-it-procurement",
+  "warnings": [
+   "The resource http://127.0.0.1:4811/_next/static/chunks/2_g1grp0y7nm_.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value ",
+   "The resource http://127.0.0.1:4811/media/adelva/about-a2/d-plate-0-1536.avif was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` va",
+   "The resource http://127.0.0.1:4811/media/adelva/approach/d-hero.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and ",
+   "The resource http://127.0.0.1:4811/media/target/hero-poster.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it i",
+   "The resource http://127.0.0.1:4811/_next/static/chunks/2_b3uk9vfc9-j.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value ",
+   "The resource http://127.0.0.1:4811/_next/static/chunks/2yke4zoh-22ce.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value "
+  ],
+  "rsc": [
+   "/?_rsc",
+   "/approach?_rsc",
+   "/about?_rsc",
+   "/?_rsc",
+   "/?_rsc",
+   "/approach?_rsc",
+   "/about?_rsc"
+  ],
+  "media": [
+   "font /fonts/adelva-noto-sans-jp.woff2 285KB",
+   "font /fonts/Oswald-VariableFont_wght.woff2 70KB",
+   "image /media/adelva/dx-it-procurement/d-map.webp 416KB",
+   "font /fonts/adelva-noto-serif-jp.woff2 388KB",
+   "image /brand/adelva-logo.png 130KB",
+   "font /fonts/InterTight-VariableFont_wght.woff2 234KB",
+   "image /media/adelva/dx-it-procurement/d-map-off.webp 107KB",
+   "image /media/adelva/dx-it-procurement/d-diff.webp 155KB",
+   "image /media/target/hero-poster.webp 205KB",
+   "image /media/adelva/about-a2/d-plate-0-1536.avif 30KB",
+   "image /media/adelva/approach/d-hero.webp 148KB"
+  ],
+  "mediaKB": 2168,
+  "css": [
+   "/_next/static/chunks/2_g1grp0y7nm_.css",
+   "/_next/static/chunks/38-n21zx0a7su.css",
+   "/_next/static/chunks/1a5ydyfjiarwy.css",
+   "/_next/static/chunks/44vp1whkqqzo6.css",
+   "/_next/static/chunks/2yke4zoh-22ce.css",
+   "/_next/static/chunks/2_b3uk9vfc9-j.css"
+  ],
+  "totalKB": 2533,
+  "requests": 42
+ },
+ {
+  "route": "/approach",
+  "warnings": [
+   "The resource http://127.0.0.1:4811/_next/static/chunks/2_g1grp0y7nm_.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value ",
+   "The resource http://127.0.0.1:4811/media/adelva/about-a2/d-plate-0-1536.avif was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` va",
+   "The resource http://127.0.0.1:4811/media/target/hero-poster.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it i",
+   "The resource http://127.0.0.1:4811/_next/static/chunks/2yke4zoh-22ce.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value "
+  ],
+  "rsc": [
+   "/about?_rsc",
+   "/?_rsc",
+   "/approach?_rsc",
+   "/about?_rsc",
+   "/?_rsc",
+   "/about?_rsc",
+   "/approach?_rsc"
+  ],
+  "media": [
+   "image /media/adelva/approach/d-hero.webp 148KB",
+   "image /brand/adelva-logo.png 130KB",
+   "font /fonts/Oswald-VariableFont_wght.woff2 70KB",
+   "font /fonts/adelva-noto-sans-jp.woff2 285KB",
+   "image /media/adelva/approach/d-01.webp 180KB",
+   "image /media/adelva/approach/d-02.webp 336KB",
+   "font /fonts/InterTight-VariableFont_wght.woff2 234KB",
+   "font /fonts/adelva-noto-serif-jp.woff2 388KB",
+   "image /media/adelva/about-a2/d-plate-0-1536.avif 30KB",
+   "image /media/target/hero-poster.webp 205KB"
+  ],
+  "mediaKB": 2007,
+  "css": [
+   "/_next/static/chunks/2_b3uk9vfc9-j.css",
+   "/_next/static/chunks/2_g1grp0y7nm_.css",
+   "/_next/static/chunks/38-n21zx0a7su.css",
+   "/_next/static/chunks/44vp1whkqqzo6.css",
+   "/_next/static/chunks/2yke4zoh-22ce.css"
+  ],
+  "totalKB": 2352,
+  "requests": 39
+ },
+ {
+  "route": "/about",
+  "warnings": [
+   "The resource http://127.0.0.1:4811/_next/static/chunks/2_g1grp0y7nm_.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value ",
+   "The resource http://127.0.0.1:4811/media/adelva/approach/d-hero.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and ",
+   "The resource http://127.0.0.1:4811/media/target/hero-poster.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it i",
+   "The resource http://127.0.0.1:4811/_next/static/chunks/2_b3uk9vfc9-j.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value ",
+   "The resource http://127.0.0.1:4811/_next/static/chunks/2yke4zoh-22ce.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value "
+  ],
+  "rsc": [
+   "/?_rsc",
+   "/approach?_rsc",
+   "/about?_rsc",
+   "/?_rsc",
+   "/?_rsc",
+   "/approach?_rsc",
+   "/about?_rsc"
+  ],
+  "media": [
+   "image /media/adelva/about-a2/d-plate-0-1536.avif 30KB",
+   "image /media/adelva/about-a2/d-plate-1-1536.avif 111KB",
+   "image /brand/adelva-logo.png 130KB",
+   "image /media/adelva/about-a2/d-plate-2-1536.avif 156KB",
+   "font /fonts/Oswald-VariableFont_wght.woff2 70KB",
+   "font /fonts/InterTight-VariableFont_wght.woff2 234KB",
+   "font /fonts/adelva-noto-sans-jp.woff2 285KB",
+   "font /fonts/adelva-noto-serif-jp.woff2 388KB",
+   "fetch /media/adelva/about-a2/d-front-before.webp 424KB",
+   "fetch /media/adelva/about-a2/d-front-after.webp 477KB",
+   "image /media/target/hero-poster.webp 205KB",
+   "image /media/adelva/approach/d-hero.webp 148KB"
+  ],
+  "mediaKB": 2659,
+  "css": [
+   "/_next/static/chunks/38-n21zx0a7su.css",
+   "/_next/static/chunks/2_g1grp0y7nm_.css",
+   "/_next/static/chunks/44vp1whkqqzo6.css",
+   "/_next/static/chunks/2yke4zoh-22ce.css",
+   "/_next/static/chunks/2_b3uk9vfc9-j.css"
+  ],
+  "totalKB": 3022,
+  "requests": 41
+ },
+ {
+  "route": "/contact",
+  "warnings": [
+   "The resource http://127.0.0.1:4811/_next/static/chunks/2_g1grp0y7nm_.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value ",
+   "The resource http://127.0.0.1:4811/media/adelva/about-a2/d-plate-0-1536.avif was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` va",
+   "The resource http://127.0.0.1:4811/media/adelva/approach/d-hero.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and ",
+   "The resource http://127.0.0.1:4811/media/target/hero-poster.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it i",
+   "The resource http://127.0.0.1:4811/_next/static/chunks/2_b3uk9vfc9-j.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value ",
+   "The resource http://127.0.0.1:4811/_next/static/chunks/2yke4zoh-22ce.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value "
+  ],
+  "rsc": [
+   "/?_rsc",
+   "/approach?_rsc",
+   "/about?_rsc",
+   "/?_rsc",
+   "/?_rsc",
+   "/approach?_rsc",
+   "/about?_rsc"
+  ],
+  "media": [
+   "image /media/adelva/contact/d-plate-0-1536.avif 42KB",
+   "image /brand/adelva-logo.png 130KB",
+   "image /media/adelva/contact/d-plate-1-1536.avif 42KB",
+   "image /media/adelva/contact/d-plate-2-1536.avif 82KB",
+   "font /fonts/Oswald-VariableFont_wght.woff2 70KB",
+   "font /fonts/InterTight-VariableFont_wght.woff2 234KB",
+   "font /fonts/adelva-noto-sans-jp.woff2 285KB",
+   "font /fonts/adelva-noto-serif-jp.woff2 388KB",
+   "image /media/target/hero-poster.webp 205KB",
+   "image /media/adelva/about-a2/d-plate-0-1536.avif 30KB",
+   "image /media/adelva/approach/d-hero.webp 148KB"
+  ],
+  "mediaKB": 1658,
+  "css": [
+   "/_next/static/chunks/38-n21zx0a7su.css",
+   "/_next/static/chunks/2_g1grp0y7nm_.css",
+   "/_next/static/chunks/2ey-am961fz3d.css",
+   "/_next/static/chunks/44vp1whkqqzo6.css",
+   "/_next/static/chunks/2yke4zoh-22ce.css",
+   "/_next/static/chunks/2_b3uk9vfc9-j.css"
+  ],
+  "totalKB": 2008,
+  "requests": 41
+ }
+]
