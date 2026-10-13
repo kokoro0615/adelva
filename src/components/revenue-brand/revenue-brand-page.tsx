@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element -- pre-encoded, art-directed decorative plates share SVG coordinates. */
 import Link from "next/link";
 import type { CSSProperties, ReactNode } from "react";
 import { HomeFooter } from "@/components/home/home-footer";
@@ -27,8 +26,17 @@ function pos(xd: number, yd: number, xm: number, ym: number, fd = 15, fm = 12): 
     "--font-m": fm,
   };
 }
-function chipPos(a: readonly number[], b: readonly number[]): Vars {
-  return pos(a[0], a[1], b[0], b[1]);
+/* Half a chip's width at 12px type (CSS px): full-width glyphs ~12.5px with
+   the chip's tracking, Latin ~7.6px, plus padding and border. Phones keep
+   every chip inside the screen with it (a 320px screen is narrower than the
+   390px plate the chips were placed on). */
+function chipHalf(label: string) {
+  let width = 0;
+  for (const ch of label) width += ch.charCodeAt(0) > 0x2e80 ? 12.5 : 7.6;
+  return Math.ceil(width / 2 + 13);
+}
+function chipPos(a: readonly number[], b: readonly number[], label: string): Vars {
+  return { ...pos(a[0], a[1], b[0], b[1]), "--half": chipHalf(label) };
 }
 function Tight({ children }: { children: string }) {
   return children.split("・").map((s, i) => (
@@ -45,21 +53,41 @@ function cardBreaks(text: string): number[] {
   }
   return [];
 }
+/* Break opportunities after phrase ends only (、 を して, plus any extra
+   phrase ends given); used with CSS `word-break: keep-all`, so narrow
+   screens wrap by phrase, never inside a word or before a lone ます。 */
+const phraseEnds = ["、", "を", "して"];
+function phrases(text: string, key: number, ends: readonly string[] = phraseEnds) {
+  const parts: ReactNode[] = [];
+  let start = 0;
+  for (let i = 1; i < text.length; i++)
+    if (ends.some((end) => text.slice(start, i).endsWith(end))) {
+      parts.push(text.slice(start, i), <wbr key={`${key}-${i}`} />);
+      start = i;
+    }
+  parts.push(text.slice(start));
+  return parts;
+}
 function BrokenText({
   text,
   desktop = [],
   mobile = [],
+  phrased = false,
+  ends,
 }: {
   text: string;
   desktop?: readonly number[];
   mobile?: readonly number[];
+  phrased?: boolean;
+  ends?: readonly string[];
 }) {
   const parts: ReactNode[] = [];
   let start = 0;
   for (const end of [...new Set([...desktop, ...mobile, text.length])].sort(
     (a, b) => a - b,
   )) {
-    parts.push(text.slice(start, end));
+    const segment = text.slice(start, end);
+    parts.push(...(phrased ? phrases(segment, start, ends) : [segment]));
     if (end < text.length)
       parts.push(
         <br
@@ -133,27 +161,39 @@ function Plates() {
           </div>
         );
       })}
-      {Array.from({ length: 6 }, (_, i) => (
-        <img
-          key={i}
-          className={styles.fog}
-          data-fog={i % 2}
-          src={`${media}f${(i % 2) + 1}-1536.webp`}
-          srcSet={`${media}f${(i % 2) + 1}-768.webp 768w, ${media}f${(i % 2) + 1}-1536.webp 1536w`}
-          sizes="100vw"
-          width="1536"
-          height="1024"
-          loading="lazy"
-          decoding="async"
-          alt=""
-          style={pos(
-            0,
-            [1300, 2300, 3500, 4600, 5600, 6900][i],
-            0,
-            [700, 1400, 2200, 3300, 4300, 5200][i],
-          )}
-        />
-      ))}
+      {Array.from({ length: 6 }, (_, i) => {
+        // Mist on transparency (screen-equivalent, no blend mode). Soft and
+        // featureless: half resolution on phones looks the same and halves
+        // its decoded memory (R4, R5).
+        const fog = `${media}f${(i % 2) + 1}a`;
+        return (
+          <picture key={i} className={styles.fogPicture}>
+            <source
+              type="image/avif"
+              srcSet={`${fog}-768.avif 768w, ${fog}-1536.avif 1536w`}
+              sizes="(max-width: 1023px) 50vw, 100vw"
+            />
+            <img
+              className={styles.fog}
+              data-fog={i % 2}
+              src={`${fog}-1536.webp`}
+              srcSet={`${fog}-768.webp 768w, ${fog}-1536.webp 1536w`}
+              sizes="(max-width: 1023px) 50vw, 100vw"
+              width="1536"
+              height="1024"
+              loading="lazy"
+              decoding="async"
+              alt=""
+              style={pos(
+                0,
+                [1300, 2300, 3500, 4600, 5600, 6900][i],
+                0,
+                [700, 1400, 2200, 3300, 4300, 5200][i],
+              )}
+            />
+          </picture>
+        );
+      })}
       <div className={styles.dawn} data-dawn />
       <div className={styles.windows} data-windows />
       <div className={styles.endFade} />
@@ -294,6 +334,7 @@ export function RevenueBrandPage() {
                   style={chipPos(
                     d.css.chips.sources[id as keyof typeof d.css.chips.sources],
                     m.css.chips.sources[id as keyof typeof m.css.chips.sources],
+                    label,
                   )}
                 >
                   {label}
@@ -372,12 +413,17 @@ export function RevenueBrandPage() {
                       style: chipPos(
                         d.css.chips.ch1[item.id as keyof typeof d.css.chips.ch1],
                         m.css.chips.ch1[item.id as keyof typeof m.css.chips.ch1],
+                        item.label,
                       ),
                     }))}
                   />
                   <p
                     className={`${styles.chip} ${styles.placedChip} ${styles.revenue}`}
-                    style={chipPos(d.css.chips.ch1.revenue, m.css.chips.ch1.revenue)}
+                    style={chipPos(
+                      d.css.chips.ch1.revenue,
+                      m.css.chips.ch1.revenue,
+                      copy.detail.revenue,
+                    )}
                     data-revenue-chip
                   >
                     {copy.detail.revenue}
@@ -424,7 +470,19 @@ export function RevenueBrandPage() {
                           12,
                         )}
                       >
-                        {index === 0 ? copy.detail.acquisition : copy.detail.sales}
+                        {/* Below 1024 the 12px lines would run across the
+                            river (A4 drew them at ~8px); two phrase lines keep
+                            each block on its own bank. */}
+                        <BrokenText
+                          text={
+                            index === 0 ? copy.detail.acquisition : copy.detail.sales
+                          }
+                          mobile={[
+                            index === 0
+                              ? copy.detail.acquisition.indexOf("宿泊")
+                              : copy.detail.sales.indexOf("地域"),
+                          ]}
+                        />
                       </p>
                     </article>
                   ))}
@@ -432,32 +490,25 @@ export function RevenueBrandPage() {
               )}
               {i === 1 && (
                 <>
-                  <svg width="0" height="0" aria-hidden="true">
-                    <defs>
-                      <filter id="rb-ripple">
-                        <feTurbulence
-                          type="fractalNoise"
-                          baseFrequency="0.012 0.06"
-                          numOctaves="2"
-                          seed="7"
-                        />
-                        <feDisplacementMap
-                          in="SourceGraphic"
-                          scale="0"
-                          xChannelSelector="R"
-                          yChannelSelector="G"
-                          data-ripple
-                        />
-                      </filter>
-                    </defs>
-                  </svg>
+                  {/* The reflection ripples as three interleaved bands that
+                      slide sideways (transform only; no SVG filter). At rest
+                      the bands line up into one still mirror image. */}
                   <p
                     className={`${styles.position} ${styles.reflection} ${styles.center}`}
                     style={pos(720, 2531, 195, 2036, 82, 26)}
                     aria-hidden="true"
                     data-reflection
                   >
-                    <Tight>{chapter.title}</Tight>
+                    {[0, 1, 2].map((band) => (
+                      <span
+                        key={band}
+                        className={styles.rippleBand}
+                        style={{ "--band-index": band } as Vars}
+                        data-ripple-band={band}
+                      >
+                        <Tight>{chapter.title}</Tight>
+                      </span>
+                    ))}
                   </p>
                   {[2, 3].map((index) => (
                     <article key={index}>
@@ -553,6 +604,7 @@ export function RevenueBrandPage() {
                         style={chipPos(
                           d.css.chips.loop[id as keyof typeof d.css.chips.loop],
                           m.css.chips.loop[id as keyof typeof m.css.chips.loop],
+                          label,
                         )}
                       >
                         {label}
@@ -565,6 +617,7 @@ export function RevenueBrandPage() {
                     style={chipPos(
                       d.css.chips.loop["web-booking"],
                       m.css.chips.loop["web-booking"],
+                      copy.loop.exit.label,
                     )}
                   >
                     {copy.loop.exit.label}
@@ -620,7 +673,7 @@ export function RevenueBrandPage() {
               className={`${styles.position} ${styles.boundaryNote}`}
               style={pos(339, 5119, 47, 4164, 15, 12)}
             >
-              {copy.differences.note}
+              {phrases(copy.differences.note, 0)}
             </p>
           </section>
           <section
@@ -655,6 +708,8 @@ export function RevenueBrandPage() {
                 text={copy.processCopy.body}
                 desktop={[copy.processCopy.body.indexOf("支援終了")]}
                 mobile={[]}
+                phrased
+                ends={[...phraseEnds, "後も", "自身が", "改善できる"]}
               />
             </p>
             <div
@@ -789,6 +844,7 @@ export function RevenueBrandPage() {
                           text={item.description ?? ""}
                           desktop={cardBreaks(item.description ?? "")}
                           mobile={cardBreaks(item.description ?? "")}
+                          phrased
                         />
                       </p>
                       <Arrow />

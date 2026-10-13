@@ -213,6 +213,38 @@ html {
   scroll-padding-top: calc(var(--header-height) + 1.5rem);
 }
 
+/*
+ * In-page targets land just under the compact bar, not 5rem + 1.5rem below the
+ * top on every width: on a phone the bar is 54px, and the desktop figure left
+ * a 50px dead band above every anchored heading.
+ */
+@media (max-width: 47.999rem) {
+  :root {
+    --header-height: 3.375rem;
+  }
+
+  html {
+    scroll-padding-top: calc(var(--header-height) + 1rem);
+  }
+}
+
+@media (min-width: 48rem) and (max-width: 63.999rem) {
+  :root {
+    --header-height: 3.5rem;
+  }
+}
+
+/*
+ * The canvas beyond the end of the document. Pages that do not colour the root
+ * leave it to the body's paper, and iOS bounced that pale band out from under
+ * the near-black footer on every flick to the end. The footer marks the root
+ * while its last row is on screen (src/components/home/footer-arrival.tsx).
+ * `:root` outranks the pages' own `html:has(.page)` colours, which are dark.
+ */
+:root[data-footer-end] {
+  background-color: #050908;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
@@ -347,7 +379,9 @@ button {
   position: fixed;
   inset-block-start: 0;
   inset-inline-start: 0;
-  z-index: 90;
+  /* Above the open menu: on a phone most page changes start in the drawer,
+     which stays up until the next page replaces it. */
+  z-index: 10040;
   width: 100%;
   height: 2px;
   background-color: var(--flare);
@@ -366,30 +400,6 @@ html[data-navigating="true"] .route-progress {
   html[data-navigating="true"] .route-progress {
     animation: route-progress 2.4s var(--ease-state) both;
   }
-}
-
-/*
- * Arrival. A plane painted in the same frame as the incoming route, lifting
- * away to uncover it — the page-scale expression of the same "the sheet lifts"
- * gesture the menu performs sideways. It never blocks input.
- */
-.route-curtain {
-  position: fixed;
-  inset: 0;
-  z-index: 80;
-  background-color: var(--ink-deep);
-  pointer-events: none;
-  will-change: transform;
-  animation: curtain-lift var(--dur-curtain) var(--ease-wipe) both;
-}
-
-.route-curtain::after {
-  content: "";
-  position: absolute;
-  inset-inline: 0;
-  bottom: 0;
-  height: 2px;
-  background-color: var(--flare);
 }
 
 ::selection {
@@ -787,16 +797,6 @@ html[data-navigating="true"] .route-progress {
 
 /* The camera settling: the frame comes to rest rather than snapping into it. */
 
-@keyframes curtain-lift {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-
-  to {
-    transform: translate3d(0, -100%, 0);
-  }
-}
-
 @keyframes route-progress {
   0% {
     transform: scaleX(0.02);
@@ -882,11 +882,6 @@ html[data-navigating="true"] .route-progress {
    * `src/components/site-header.module.css`, where its scoped class selectors
    * outrank the universal selector above.
    */
-
-  /* The arrival plane is skipped entirely rather than flashed. */
-  .route-curtain {
-    display: none;
-  }
 
   /* Pending is reported by presence, not by travel. */
   html[data-navigating="true"] .route-progress {

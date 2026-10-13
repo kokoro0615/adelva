@@ -1,19 +1,34 @@
 import {
-  aboutLinks,
   audiences,
   contactCta,
   groupLabels,
+  primaryNavigation,
   routeStatusOf,
   serviceDomains,
+  type AdelvaNavLink,
 } from "@/content/adelva-navigation";
+import { site } from "@/content/site";
 
 import styles from "./home-footer.module.css";
+import { FooterArrival } from "./footer-arrival";
 import { FooterTopLink } from "./footer-top-link";
+
+/*
+ * The company group used to be titled ADELVAについて and hold one link, also
+ * named ADELVAについて: a heading repeating its only entry. It now carries the
+ * navigation's own label for that area (`groupLabels.about`, 会社情報 — the
+ * description information-architecture.md §6.1 gives the ADELVAについて menu)
+ * and both direct destinations of the primary navigation, so 支援の進め方 is
+ * reachable from the footer too (IA §6.6 lists it in this group).
+ */
+const companyLinks: readonly AdelvaNavLink[] = primaryNavigation.flatMap((item) =>
+  item.kind === "link" ? [{ label: item.label, href: item.href }] : [],
+);
 
 const groups = [
   { title: groupLabels.audiences, links: audiences },
   { title: groupLabels.domains, links: serviceDomains },
-  { title: "ADELVAについて", links: aboutLinks },
+  { title: groupLabels.about, links: companyLinks },
 ];
 
 function Arrow() {
@@ -58,14 +73,20 @@ export function HomeFooter() {
             className={styles.contactLink}
             aria-label={contactCta.label}
           >
-            <h2 lang="en" className={styles.heading}>
-              <span>Start with a</span> <span>conversation</span>
+            <h2 lang="en" className={styles.heading} data-arrive="">
+              <span className={styles.headingLine}>
+                <span>Start with a</span>
+              </span>{" "}
+              <span className={styles.headingLine}>
+                <span>conversation</span>
+              </span>
             </h2>
             <span className={styles.contactLabel}>{contactCta.label}</span>
             <span className={styles.contactCircle}>
               <Arrow />
             </span>
           </a>
+          <FooterArrival className={styles.arrival} />
         </div>
 
         <nav className={styles.directory} aria-label="フッターナビゲーション">
@@ -92,8 +113,8 @@ export function HomeFooter() {
             </span>
           ))}
         </div>
-        <div className={styles.bottom}>
-          <span lang="en">ADELVA</span>
+        <div className={styles.bottom} data-footer-end="">
+          <small className={styles.legal}>© {site.legalName}</small>
           <FooterTopLink>
             <Arrow />
           </FooterTopLink>

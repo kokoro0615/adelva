@@ -1,0 +1,69 @@
+{
+  "route": "/services/revenue-brand",
+  "cpu": 4,
+  "viewport": "390x844",
+  "loadMs": 489,
+  "docH": 7795,
+  "drags": 17,
+  "reachedEnd": 6951,
+  "frames": 929,
+  "p50": 17,
+  "p90": 33,
+  "p99": 83,
+  "max": 200,
+  "over33": 45,
+  "over50": 27,
+  "over100": 8,
+  "loafCount": 26,
+  "loafTotal": 2357,
+  "loafRenderTotal": 204,
+  "loafScriptTotal": 33,
+  "cls": 0.0002,
+  "shifts": [
+    {
+      "t": 4298.600000000559,
+      "v": 0.0002468422421225593,
+      "src": [
+        "site-header-module__wBaYfG__ctaCompact",
+        "site-header-module__wBaYfG__brand",
+        "site-header-module__wBaYfG__burger"
+      ]
+    }
+  ],
+  "jumps": [],
+  "backJumps": 0,
+  "topScripts": [
+    [
+      "1r_46y6m9o4_n.js:t:FrameRequestCallback",
+      {
+        "n": 2,
+        "dur": 21,
+        "fl": 10
+      }
+    ],
+    [
+      "0wy4463-jsri9.js:e0:DOMWindow.onscroll",
+      {
+        "n": 1,
+        "dur": 6,
+        "fl": 6
+      }
+    ],
+    [
+      ":?:FrameRequestCallback",
+      {
+        "n": 1,
+        "dur": 6,
+        "fl": 6
+      }
+    ]
+  ],
+  "console": [
+    "warning: The resource http://127.0.0.1:4890/media/target/hero-poster.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate",
+    "warning: The resource http://127.0.0.1:4890/media/adelva/about-a2/m-plate-0-853.avif was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an ",
+    "warning: The resource http://127.0.0.1:4890/_next/static/chunks/2_b3uk9vfc9-j.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an app",
+    "warning: The resource http://127.0.0.1:4890/_next/static/chunks/2_g1grp0y7nm_.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an app",
+    "warning: The resource http://127.0.0.1:4890/media/adelva/approach/m-hero.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropr",
+    "warning: The resource http://127.0.0.1:4890/_next/static/chunks/2yke4zoh-22ce.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an app"
+  ]
+}

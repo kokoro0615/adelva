@@ -1,30 +1,31 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef } from "react";
 
-import { prefersMotion } from "@/lib/motion";
+import { leavesPage } from "@/lib/navigation";
 
 /**
- * Route change choreography and activation feedback.
+ * Activation and pending feedback for page changes, on every route.
  *
- * Three separate jobs, deliberately kept out of every link so navigation
- * correctness is never routed through a component wrapper:
+ * Two jobs, deliberately kept out of every link so navigation correctness is
+ * never routed through a component wrapper:
  *
- *  1. Activation — a document-level listener marks the control the reader just
- *     activated, so a click or an Enter key is acknowledged immediately instead
- *     of leaving the page looking inert. The audited target has no pressed or
- *     pending state at all.
- *  2. Pending — a determinate-looking progress rule reports that a navigation
- *     is in flight. It never blocks input.
- *  3. Arrival — a full-viewport plane is painted in the same frame as the new
- *     route and lifts away, so the swap reads as one continuous movement rather
- *     than a cut. Browser back/forward produce the same arrival because they
- *     also change `pathname`; a cold load does not, because the hero entrance
- *     already owns that moment.
+ *  1. Activation — a document-level listener marks the link the reader just
+ *     followed, so a tap is acknowledged at once instead of leaving the page
+ *     looking inert while the next one loads.
+ *  2. Pending — the site's orange line runs along the top edge while a
+ *     navigation is in flight: a client-side route change until the new
+ *     pathname commits, a full document load until the browser replaces the
+ *     page. It never covers, dims or blocks anything.
  *
- * Nothing here intercepts or delays the navigation itself: `next/link` still
- * performs it, so deep links, modified clicks and history all behave normally.
+ * The full-viewport arrival curtain this component used to paint belonged to
+ * the retired White Desert routes; the ADELVA pages each own their entrance,
+ * and a plane lifting over them would hide it.
+ *
+ * Nothing here intercepts or delays the navigation itself: `next/link` and the
+ * browser still perform it, so deep links, modified clicks and history all
+ * behave normally.
  */
 
 const useIsomorphicLayoutEffect =
@@ -33,45 +34,10 @@ const useIsomorphicLayoutEffect =
 /** Longest a pending indicator may stay up if a navigation never resolves. */
 const PENDING_TIMEOUT_MS = 6000;
 
-function isPlainInternalActivation(
-  event: MouseEvent,
-  anchor: HTMLAnchorElement,
-): boolean {
-  if (
-    event.button !== 0 ||
-    event.metaKey ||
-    event.ctrlKey ||
-    event.shiftKey ||
-    event.altKey
-  ) {
-    return false;
-  }
-  if (anchor.hasAttribute("download") || (anchor.target && anchor.target !== "_self")) {
-    return false;
-  }
-
-  let url: URL;
-  try {
-    url = new URL(anchor.href, window.location.href);
-  } catch {
-    return false;
-  }
-
-  if (url.origin !== window.location.origin) {
-    return false;
-  }
-  // A same-document hash is an in-page move, not a route change.
-  return (
-    url.pathname !== window.location.pathname || url.search !== window.location.search
-  );
-}
-
 export function RouteTransition() {
   const pathname = usePathname();
-  const previousPath = useRef<string | null>(null);
   const activated = useRef<HTMLElement | null>(null);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const [arrivalKey, setArrivalKey] = useState<string | null>(null);
 
   const clearPending = useCallback(() => {
     if (timer.current) {
@@ -89,10 +55,7 @@ export function RouteTransition() {
   useEffect(() => {
     const onClick = (event: MouseEvent) => {
       const anchor = (event.target as Element | null)?.closest?.("a[href]");
-      if (
-        !(anchor instanceof HTMLAnchorElement) ||
-        !isPlainInternalActivation(event, anchor)
-      ) {
+      if (!(anchor instanceof HTMLAnchorElement) || !leavesPage(event, anchor)) {
         return;
       }
 
@@ -103,39 +66,26 @@ export function RouteTransition() {
       timer.current = setTimeout(clearPending, PENDING_TIMEOUT_MS);
     };
 
+    // A page restored from the back/forward cache must not come back mid-load.
+    const onPageShow = (event: PageTransitionEvent) => {
+      if (event.persisted) {
+        clearPending();
+      }
+    };
+
     document.addEventListener("click", onClick);
+    window.addEventListener("pageshow", onPageShow);
     return () => {
       document.removeEventListener("click", onClick);
+      window.removeEventListener("pageshow", onPageShow);
       clearPending();
     };
   }, [clearPending]);
 
-  // Paint the arrival plane in the same commit as the new route so there is no
-  // frame in which the reader sees the new page un-composed.
+  // The new route has committed: the line has arrived.
   useIsomorphicLayoutEffect(() => {
-    const previous = previousPath.current;
-    previousPath.current = pathname;
-
-    if (previous === null || previous === pathname) {
-      return;
-    }
     clearPending();
-    if (prefersMotion()) {
-      setArrivalKey(`${pathname}:${Date.now()}`);
-    }
   }, [clearPending, pathname]);
 
-  return (
-    <>
-      <div className="route-progress" aria-hidden="true" />
-      {arrivalKey ? (
-        <div
-          key={arrivalKey}
-          className="route-curtain"
-          aria-hidden="true"
-          onAnimationEnd={() => setArrivalKey(null)}
-        />
-      ) : null}
-    </>
-  );
+  return <div className="route-progress" aria-hidden="true" />;
 }

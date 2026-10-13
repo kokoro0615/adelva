@@ -1,0 +1,1052 @@
+[
+ {
+  "route": "/",
+  "state": "top",
+  "label": "ADELVA",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 5.83
+ },
+ {
+  "route": "/",
+  "state": "top",
+  "label": "お問い合わせ",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 5.63
+ },
+ {
+  "route": "/",
+  "state": "top",
+  "label": "burger",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 5.99
+ },
+ {
+  "route": "/",
+  "state": "top",
+  "label": "burger",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 5.83
+ },
+ {
+  "route": "/",
+  "state": "top",
+  "label": "burger",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 5.83
+ },
+ {
+  "route": "/",
+  "state": "scrolled",
+  "label": "ADELVA",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 16.41
+ },
+ {
+  "route": "/",
+  "state": "scrolled",
+  "label": "お問い合わせ",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 16.41
+ },
+ {
+  "route": "/",
+  "state": "scrolled",
+  "label": "burger",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 17.33
+ },
+ {
+  "route": "/",
+  "state": "scrolled",
+  "label": "burger",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 17.33
+ },
+ {
+  "route": "/",
+  "state": "scrolled",
+  "label": "burger",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 17.33
+ },
+ {
+  "route": "/",
+  "state": "footer",
+  "label": "ADELVA",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 10.03
+ },
+ {
+  "route": "/",
+  "state": "footer",
+  "label": "お問い合わせ",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 8.69
+ },
+ {
+  "route": "/",
+  "state": "footer",
+  "label": "burger",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 9.76
+ },
+ {
+  "route": "/",
+  "state": "footer",
+  "label": "burger",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 9.4
+ },
+ {
+  "route": "/",
+  "state": "footer",
+  "label": "burger",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 9.31
+ },
+ {
+  "route": "/challenges",
+  "state": "top",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 7.51
+ },
+ {
+  "route": "/challenges",
+  "state": "top",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 6.51
+ },
+ {
+  "route": "/challenges",
+  "state": "top",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 6.69
+ },
+ {
+  "route": "/challenges",
+  "state": "top",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 6.51
+ },
+ {
+  "route": "/challenges",
+  "state": "top",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 6.16
+ },
+ {
+  "route": "/challenges",
+  "state": "scrolled",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 4.95
+ },
+ {
+  "route": "/challenges",
+  "state": "scrolled",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 4.18
+ },
+ {
+  "route": "/challenges",
+  "state": "scrolled",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 5.02
+ },
+ {
+  "route": "/challenges",
+  "state": "scrolled",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 4.96
+ },
+ {
+  "route": "/challenges",
+  "state": "scrolled",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 4.95
+ },
+ {
+  "route": "/challenges",
+  "state": "footer",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 8.9
+ },
+ {
+  "route": "/challenges",
+  "state": "footer",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 6.39
+ },
+ {
+  "route": "/challenges",
+  "state": "footer",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 7.64
+ },
+ {
+  "route": "/challenges",
+  "state": "footer",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 8.1
+ },
+ {
+  "route": "/challenges",
+  "state": "footer",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 7.63
+ },
+ {
+  "route": "/challenges/owner",
+  "state": "top",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 20.36
+ },
+ {
+  "route": "/challenges/owner",
+  "state": "top",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 18.43
+ },
+ {
+  "route": "/challenges/owner",
+  "state": "top",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 20.18
+ },
+ {
+  "route": "/challenges/owner",
+  "state": "top",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 20.16
+ },
+ {
+  "route": "/challenges/owner",
+  "state": "top",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 20.05
+ },
+ {
+  "route": "/challenges/owner",
+  "state": "scrolled",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 19.33
+ },
+ {
+  "route": "/challenges/owner",
+  "state": "scrolled",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 15.12
+ },
+ {
+  "route": "/challenges/owner",
+  "state": "scrolled",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 17.26
+ },
+ {
+  "route": "/challenges/owner",
+  "state": "scrolled",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 17.84
+ },
+ {
+  "route": "/challenges/owner",
+  "state": "scrolled",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 15.79
+ },
+ {
+  "route": "/challenges/owner",
+  "state": "footer",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 8.9
+ },
+ {
+  "route": "/challenges/owner",
+  "state": "footer",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 6.38
+ },
+ {
+  "route": "/challenges/owner",
+  "state": "footer",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 7.64
+ },
+ {
+  "route": "/challenges/owner",
+  "state": "footer",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 8.1
+ },
+ {
+  "route": "/challenges/owner",
+  "state": "footer",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 7.63
+ },
+ {
+  "route": "/challenges/general-managers",
+  "state": "top",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 19.5
+ },
+ {
+  "route": "/challenges/general-managers",
+  "state": "top",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 15.48
+ },
+ {
+  "route": "/challenges/general-managers",
+  "state": "top",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 15.06
+ },
+ {
+  "route": "/challenges/general-managers",
+  "state": "top",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 13.61
+ },
+ {
+  "route": "/challenges/general-managers",
+  "state": "top",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 10.61
+ },
+ {
+  "route": "/challenges/general-managers",
+  "state": "scrolled",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 15.69
+ },
+ {
+  "route": "/challenges/general-managers",
+  "state": "scrolled",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 13.54
+ },
+ {
+  "route": "/challenges/general-managers",
+  "state": "scrolled",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 13.16
+ },
+ {
+  "route": "/challenges/general-managers",
+  "state": "scrolled",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 12.82
+ },
+ {
+  "route": "/challenges/general-managers",
+  "state": "scrolled",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 13.25
+ },
+ {
+  "route": "/challenges/general-managers",
+  "state": "footer",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 8.9
+ },
+ {
+  "route": "/challenges/general-managers",
+  "state": "footer",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 6.38
+ },
+ {
+  "route": "/challenges/general-managers",
+  "state": "footer",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 7.64
+ },
+ {
+  "route": "/challenges/general-managers",
+  "state": "footer",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 8.1
+ },
+ {
+  "route": "/challenges/general-managers",
+  "state": "footer",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 7.63
+ },
+ {
+  "route": "/services/management-operations",
+  "state": "top",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 20.95
+ },
+ {
+  "route": "/services/management-operations",
+  "state": "top",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 20.94
+ },
+ {
+  "route": "/services/management-operations",
+  "state": "top",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 20.94
+ },
+ {
+  "route": "/services/management-operations",
+  "state": "top",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 20.93
+ },
+ {
+  "route": "/services/management-operations",
+  "state": "top",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 20.93
+ },
+ {
+  "route": "/services/management-operations",
+  "state": "scrolled",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 17.66
+ },
+ {
+  "route": "/services/management-operations",
+  "state": "scrolled",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 17.13
+ },
+ {
+  "route": "/services/management-operations",
+  "state": "scrolled",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 16.68
+ },
+ {
+  "route": "/services/management-operations",
+  "state": "scrolled",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 16.73
+ },
+ {
+  "route": "/services/management-operations",
+  "state": "scrolled",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 16.82
+ },
+ {
+  "route": "/services/management-operations",
+  "state": "footer",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 9.9
+ },
+ {
+  "route": "/services/management-operations",
+  "state": "footer",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 8.1
+ },
+ {
+  "route": "/services/management-operations",
+  "state": "footer",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 9.62
+ },
+ {
+  "route": "/services/management-operations",
+  "state": "footer",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 9.08
+ },
+ {
+  "route": "/services/management-operations",
+  "state": "footer",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 8.86
+ },
+ {
+  "route": "/services/revenue-brand",
+  "state": "top",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 15.62
+ },
+ {
+  "route": "/services/revenue-brand",
+  "state": "top",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 14.69
+ },
+ {
+  "route": "/services/revenue-brand",
+  "state": "top",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 17.15
+ },
+ {
+  "route": "/services/revenue-brand",
+  "state": "top",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 17.13
+ },
+ {
+  "route": "/services/revenue-brand",
+  "state": "top",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 17.53
+ },
+ {
+  "route": "/services/revenue-brand",
+  "state": "scrolled",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 13.43
+ },
+ {
+  "route": "/services/revenue-brand",
+  "state": "scrolled",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 14.6
+ },
+ {
+  "route": "/services/revenue-brand",
+  "state": "scrolled",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 17.36
+ },
+ {
+  "route": "/services/revenue-brand",
+  "state": "scrolled",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 17.55
+ },
+ {
+  "route": "/services/revenue-brand",
+  "state": "scrolled",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 17.74
+ },
+ {
+  "route": "/services/revenue-brand",
+  "state": "footer",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 9.9
+ },
+ {
+  "route": "/services/revenue-brand",
+  "state": "footer",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 8.1
+ },
+ {
+  "route": "/services/revenue-brand",
+  "state": "footer",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 9.62
+ },
+ {
+  "route": "/services/revenue-brand",
+  "state": "footer",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 9.08
+ },
+ {
+  "route": "/services/revenue-brand",
+  "state": "footer",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 8.86
+ },
+ {
+  "route": "/services/dx-it-procurement",
+  "state": "top",
+  "label": "ADELVA",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 16.49
+ },
+ {
+  "route": "/services/dx-it-procurement",
+  "state": "top",
+  "label": "お問い合わせ",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 12.05
+ },
+ {
+  "route": "/services/dx-it-procurement",
+  "state": "top",
+  "label": "burger",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 4.98
+ },
+ {
+  "route": "/services/dx-it-procurement",
+  "state": "top",
+  "label": "burger",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 4.93
+ },
+ {
+  "route": "/services/dx-it-procurement",
+  "state": "top",
+  "label": "burger",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 4.95
+ },
+ {
+  "route": "/services/dx-it-procurement",
+  "state": "scrolled",
+  "label": "ADELVA",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 13.01
+ },
+ {
+  "route": "/services/dx-it-procurement",
+  "state": "scrolled",
+  "label": "お問い合わせ",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 14.18
+ },
+ {
+  "route": "/services/dx-it-procurement",
+  "state": "scrolled",
+  "label": "burger",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 10.78
+ },
+ {
+  "route": "/services/dx-it-procurement",
+  "state": "scrolled",
+  "label": "burger",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 11.55
+ },
+ {
+  "route": "/services/dx-it-procurement",
+  "state": "scrolled",
+  "label": "burger",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 12.14
+ },
+ {
+  "route": "/services/dx-it-procurement",
+  "state": "footer",
+  "label": "ADELVA",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 8.61
+ },
+ {
+  "route": "/services/dx-it-procurement",
+  "state": "footer",
+  "label": "お問い合わせ",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 7.05
+ },
+ {
+  "route": "/services/dx-it-procurement",
+  "state": "footer",
+  "label": "burger",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 8.38
+ },
+ {
+  "route": "/services/dx-it-procurement",
+  "state": "footer",
+  "label": "burger",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 7.9
+ },
+ {
+  "route": "/services/dx-it-procurement",
+  "state": "footer",
+  "label": "burger",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 7.71
+ },
+ {
+  "route": "/approach",
+  "state": "top",
+  "label": "ADELVA",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 12.68
+ },
+ {
+  "route": "/approach",
+  "state": "top",
+  "label": "お問い合わせ",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 9.47
+ },
+ {
+  "route": "/approach",
+  "state": "top",
+  "label": "burger",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 11.57
+ },
+ {
+  "route": "/approach",
+  "state": "top",
+  "label": "burger",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 10.47
+ },
+ {
+  "route": "/approach",
+  "state": "top",
+  "label": "burger",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 9.54
+ },
+ {
+  "route": "/approach",
+  "state": "scrolled",
+  "label": "ADELVA",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 13.62
+ },
+ {
+  "route": "/approach",
+  "state": "scrolled",
+  "label": "お問い合わせ",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 13.25
+ },
+ {
+  "route": "/approach",
+  "state": "scrolled",
+  "label": "burger",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 11.93
+ },
+ {
+  "route": "/approach",
+  "state": "scrolled",
+  "label": "burger",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 11.44
+ },
+ {
+  "route": "/approach",
+  "state": "scrolled",
+  "label": "burger",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 11.12
+ },
+ {
+  "route": "/approach",
+  "state": "footer",
+  "label": "ADELVA",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 8.61
+ },
+ {
+  "route": "/approach",
+  "state": "footer",
+  "label": "お問い合わせ",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 7.05
+ },
+ {
+  "route": "/approach",
+  "state": "footer",
+  "label": "burger",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 8.38
+ },
+ {
+  "route": "/approach",
+  "state": "footer",
+  "label": "burger",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 7.9
+ },
+ {
+  "route": "/approach",
+  "state": "footer",
+  "label": "burger",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 7.71
+ },
+ {
+  "route": "/about",
+  "state": "top",
+  "label": "ADELVA",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 16.93
+ },
+ {
+  "route": "/about",
+  "state": "top",
+  "label": "お問い合わせ",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 17.08
+ },
+ {
+  "route": "/about",
+  "state": "top",
+  "label": "burger",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 17.16
+ },
+ {
+  "route": "/about",
+  "state": "top",
+  "label": "burger",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 17
+ },
+ {
+  "route": "/about",
+  "state": "top",
+  "label": "burger",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 17.32
+ },
+ {
+  "route": "/about",
+  "state": "scrolled",
+  "label": "ADELVA",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 16.58
+ },
+ {
+  "route": "/about",
+  "state": "scrolled",
+  "label": "お問い合わせ",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 17.04
+ },
+ {
+  "route": "/about",
+  "state": "scrolled",
+  "label": "burger",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 17.19
+ },
+ {
+  "route": "/about",
+  "state": "scrolled",
+  "label": "burger",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 17.19
+ },
+ {
+  "route": "/about",
+  "state": "scrolled",
+  "label": "burger",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 17.19
+ },
+ {
+  "route": "/about",
+  "state": "footer",
+  "label": "ADELVA",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 15.01
+ },
+ {
+  "route": "/about",
+  "state": "footer",
+  "label": "お問い合わせ",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 15.2
+ },
+ {
+  "route": "/about",
+  "state": "footer",
+  "label": "burger",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 15.37
+ },
+ {
+  "route": "/about",
+  "state": "footer",
+  "label": "burger",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 15.54
+ },
+ {
+  "route": "/about",
+  "state": "footer",
+  "label": "burger",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 15.6
+ },
+ {
+  "route": "/contact",
+  "state": "top",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 15.03
+ },
+ {
+  "route": "/contact",
+  "state": "top",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 11.95
+ },
+ {
+  "route": "/contact",
+  "state": "top",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 12.75
+ },
+ {
+  "route": "/contact",
+  "state": "top",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 12.68
+ },
+ {
+  "route": "/contact",
+  "state": "top",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 12.08
+ },
+ {
+  "route": "/contact",
+  "state": "scrolled",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 13.08
+ },
+ {
+  "route": "/contact",
+  "state": "scrolled",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 13.44
+ },
+ {
+  "route": "/contact",
+  "state": "scrolled",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 14.69
+ },
+ {
+  "route": "/contact",
+  "state": "scrolled",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 14.83
+ },
+ {
+  "route": "/contact",
+  "state": "scrolled",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 14.69
+ },
+ {
+  "route": "/contact",
+  "state": "footer",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 9.9
+ },
+ {
+  "route": "/contact",
+  "state": "footer",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 8.1
+ },
+ {
+  "route": "/contact",
+  "state": "footer",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 9.62
+ },
+ {
+  "route": "/contact",
+  "state": "footer",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 9.08
+ },
+ {
+  "route": "/contact",
+  "state": "footer",
+  "label": "burger",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 8.86
+ }
+]

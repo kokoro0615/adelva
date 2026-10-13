@@ -1,0 +1,169 @@
+{
+ "route": "/",
+ "cpu": 4,
+ "viewport": "390x844",
+ "loadMs": 1500,
+ "docH": 31736,
+ "drags": 71,
+ "reachedEnd": 30892,
+ "frames": 2932,
+ "p50": 33,
+ "p90": 1350,
+ "p99": 3300,
+ "max": 27882,
+ "over33": 1359,
+ "over50": 1344,
+ "over100": 1164,
+ "loafCount": 1345,
+ "loafTotal": 1152735,
+ "loafRenderTotal": 5030,
+ "loafScriptTotal": 4913,
+ "cls": 0.8366,
+ "shifts": [
+  {
+   "t": 16843.900000000373,
+   "v": 0.022512875230768368,
+   "src": [
+    "::after",
+    "home-module__4huV7q__card"
+   ]
+  },
+  {
+   "t": 16878.300000000745,
+   "v": 0.004787066777475798,
+   "src": [
+    "::after"
+   ]
+  },
+  {
+   "t": 16909.60000000056,
+   "v": 0.0014234855461467623,
+   "src": [
+    "::after"
+   ]
+  },
+  {
+   "t": 17721.300000000745,
+   "v": 0.0034099076840142855,
+   "src": [
+    "::after"
+   ]
+  },
+  {
+   "t": 17748.900000000373,
+   "v": 0.015275858007658731,
+   "src": [
+    "::after",
+    "home-module__4huV7q__card"
+   ]
+  },
+  {
+   "t": 17787.900000000373,
+   "v": 0.02093253745423508,
+   "src": [
+    "::after"
+   ]
+  },
+  {
+   "t": 17820.200000000186,
+   "v": 0.04165091495283989,
+   "src": [
+    "::after",
+    "home-module__4huV7q__card"
+   ]
+  },
+  {
+   "t": 17851.5,
+   "v": 0.026666305269941754,
+   "src": [
+    "::after",
+    "home-module__4huV7q__card"
+   ]
+  }
+ ],
+ "jumps": [],
+ "backJumps": 0,
+ "topScripts": [
+  [
+   "421s2sfc5ixf3.js:?:IMG[src=\"/media/adelva/home/lake-3-sun-m.webp\"].on",
+   {
+    "n": 1,
+    "dur": 3563,
+    "fl": 0
+   }
+  ],
+  [
+   "1r_46y6m9o4_n.js:t:FrameRequestCallback",
+   {
+    "n": 108,
+    "dur": 1190,
+    "fl": 850
+   }
+  ],
+  [
+   "421s2sfc5ixf3.js:i:IdleRequestCallback",
+   {
+    "n": 1,
+    "dur": 61,
+    "fl": 0
+   }
+  ],
+  [
+   "2bjva2x7stm4u.js:?:FrameRequestCallback",
+   {
+    "n": 2,
+    "dur": 41,
+    "fl": 41
+   }
+  ],
+  [
+   ":?:FrameRequestCallback",
+   {
+    "n": 6,
+    "dur": 39,
+    "fl": 37
+   }
+  ],
+  [
+   "14ipzm1hy3ipv.js:fD:#document.ontouchmove",
+   {
+    "n": 1,
+    "dur": 8,
+    "fl": 0
+   }
+  ],
+  [
+   "14ipzm1hy3ipv.js:fI:#document.onpointercancel",
+   {
+    "n": 1,
+    "dur": 6,
+    "fl": 0
+   }
+  ],
+  [
+   "1yjlmb_3lmb7c.js:ty:TimerHandler:setInterval",
+   {
+    "n": 1,
+    "dur": 5,
+    "fl": 0
+   }
+  ]
+ ],
+ "console": [
+  "warning: The resource http://127.0.0.1:4821/_next/static/chunks/2_g1grp0y7nm_.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an app",
+  "warning: The resource http://127.0.0.1:4821/media/adelva/about-a2/m-plate-0-853.avif was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an ",
+  "warning: The resource http://127.0.0.1:4821/_next/static/chunks/2_b3uk9vfc9-j.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an app",
+  "warning: The resource http://127.0.0.1:4821/media/adelva/approach/m-hero.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropr",
+  "warning: The resource http://127.0.0.1:4821/_next/static/chunks/2_g1grp0y7nm_.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an app",
+  "warning: The resource http://127.0.0.1:4821/media/adelva/about-a2/m-plate-0-853.avif was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an ",
+  "warning: The resource http://127.0.0.1:4821/_next/static/chunks/2_b3uk9vfc9-j.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an app",
+  "warning: The resource http://127.0.0.1:4821/media/adelva/approach/m-hero.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropr",
+  "warning: The resource http://127.0.0.1:4821/_next/static/chunks/2_g1grp0y7nm_.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an app",
+  "warning: The resource http://127.0.0.1:4821/media/adelva/about-a2/m-plate-0-853.avif was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an ",
+  "warning: The resource http://127.0.0.1:4821/_next/static/chunks/2_b3uk9vfc9-j.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an app",
+  "warning: The resource http://127.0.0.1:4821/media/adelva/approach/m-hero.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropr",
+  "warning: The resource http://127.0.0.1:4821/_next/static/chunks/2_g1grp0y7nm_.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an app",
+  "warning: The resource http://127.0.0.1:4821/media/adelva/about-a2/m-plate-0-853.avif was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an ",
+  "warning: The resource http://127.0.0.1:4821/_next/static/chunks/2_b3uk9vfc9-j.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an app"
+ ]
+}

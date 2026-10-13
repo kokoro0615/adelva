@@ -8,9 +8,25 @@
  *   enter  0..1 as the section's top travels from the viewport bottom to top
  *   leave  0..1 as the section's bottom travels from the viewport bottom to top
  *   t      seconds since the engine started (a virtual clock when verifying)
+ *   moved  whether the (damped) scroll position or the viewport changed since
+ *          the previous frame; a scene with nothing to redraw returns early
  * Document offsets are measured on start and resize, never per frame.
+ *
+ * Production additions (2026-10-13 polish, spec R2/R3):
+ * - The scenes follow a damped scroll position: a frame-rate independent
+ *   exponential follow of `window.scrollY` (time constant `damp`), so the
+ *   irregular scroll sampling of phones never shows as steps. Desktop keeps
+ *   `damp = 0` (Lenis already eases the wheel there).
+ * - The loop sleeps once the position has settled and no scene asked for
+ *   another frame (a scene's `update` returns `true` while something it draws
+ *   still moves on its own clock); scrolling, resizing or `invalidate()`
+ *   wakes it.
+ * - The header's surface is derived from the cached scene offsets, so no
+ *   layout is read inside the loop.
  */
 import gsap from "gsap";
+
+import { setHeaderOverride, type HeaderSurface } from "@/lib/header-state";
 
 export const clamp = (v: number, a = 0, b = 1) => (v < a ? a : v > b ? b : v);
 export const ease = (t: number) =>
@@ -25,10 +41,17 @@ export const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 export const easeOut = (t: number) => 1 - Math.pow(1 - clamp(t), 3);
 export const easeIn = (t: number) => Math.pow(clamp(t), 2.2);
 
-/** A masked line rises from below (t 0..1). */
+/** A masked line rises from below (t 0..1); written only when it changes. */
+const risen = new WeakMap<HTMLElement, number>();
 export const rise = (el: HTMLElement, t: number, dist = 110) => {
-  el.style.transform = `translateY(${(1 - easeOut(t)) * dist}%)`;
+  const v = Math.round((1 - easeOut(t)) * dist * 100) / 100;
+  if (risen.get(el) === v) return;
+  risen.set(el, v);
+  el.style.transform = `translateY(${v}%)`;
 };
+/** Forget the cached rise of these lines (their inline transform was cleared). */
+export const forgetRise = (els: readonly HTMLElement[]) =>
+  els.forEach((el) => risen.delete(el));
 
 export interface SceneFrame {
   readonly p: number;
@@ -39,21 +62,37 @@ export interface SceneFrame {
   readonly vw: number;
   readonly t: number;
   readonly visible: boolean;
+  /** The damped scroll position or the viewport changed since the last frame. */
+  readonly moved: boolean;
 }
+
+/** Return `true` to be called again next frame even if nothing scrolls. */
+type SceneUpdate = (frame: SceneFrame) => boolean | void;
 
 interface Scene {
   readonly el: HTMLElement;
-  readonly update: (frame: SceneFrame) => void;
+  readonly update: SceneUpdate;
+  readonly surface?: (p: number) => HeaderSurface;
   top: number;
   h: number;
 }
 
 export interface Engine {
-  register(el: HTMLElement, update: (frame: SceneFrame) => void): void;
-  tick(fn: (t: number, y: number, vh: number) => void): void;
+  register(
+    el: HTMLElement,
+    update: SceneUpdate,
+    surface?: (p: number) => HeaderSurface,
+  ): void;
+  tick(fn: (t: number, y: number, vh: number, moved: boolean) => void): void;
   measure(): void;
+  /** Document offset (top, height) of a registered scene, as last measured. */
+  offset(el: HTMLElement): { readonly top: number; readonly h: number };
+  /** The scroll position the scenes are drawn at (damped). */
+  readonly y: number;
   /** Draw one frame now (optionally at a given scroll position and clock). */
   frame(y?: number, t?: number): void;
+  /** Something outside the scroll changed (a renderer became ready): redraw. */
+  invalidate(): void;
   start(): void;
   stop(): void;
 }
@@ -67,62 +106,147 @@ export const CAPTURE =
   typeof window !== "undefined" &&
   new URLSearchParams(window.location.search).has("capture");
 
-export function createEngine(stageHeight: () => number): Engine {
+export function createEngine(
+  stageHeight: () => number,
+  {
+    damp = 0,
+    surfaceProbe = 30,
+  }: {
+    /** Time constant (s) of the scroll follow; 0 follows the scroll exactly. */
+    damp?: number;
+    /** Header surface: the scene under this many px from the top decides it. */
+    surfaceProbe?: number;
+  } = {},
+): Engine {
   const scenes: Scene[] = [];
-  const tickers: ((t: number, y: number, vh: number) => void)[] = [];
+  const tickers: ((t: number, y: number, vh: number, moved: boolean) => void)[] = [];
   const t0 = performance.now();
   let running = false;
+  let awake = false;
   let virtual: number | null = null;
   let vh = stageHeight();
   let vw = document.documentElement.clientWidth;
+  let y = window.scrollY;
+  // the scroll position as the last scroll event saw it: read there, where layout is clean, and
+  // never inside the frame (a read after another script's write would force a layout)
+  let target = y;
+  let last = { y: Number.NaN, vw: 0, vh: 0 };
+  let lastTime = performance.now();
+  let forced = true;
 
   const measure = () => {
     vh = stageHeight();
     vw = document.documentElement.clientWidth;
+    const sy = window.scrollY;
+    target = sy;
     for (const s of scenes) {
       const r = s.el.getBoundingClientRect();
-      s.top = r.top + window.scrollY;
+      s.top = r.top + sy;
       s.h = s.el.offsetHeight;
     }
+    forced = true;
   };
 
-  const frame = (yArg?: number, tArg?: number) => {
+  const surfaceAt = (yy: number): HeaderSurface => {
+    const probe = yy + surfaceProbe;
+    for (const s of scenes) {
+      if (!s.surface) continue;
+      if (s.top <= probe && s.top + s.h > probe) {
+        return s.surface(clamp((yy - s.top) / Math.max(1, s.h - vh)));
+      }
+    }
+    // the footer (and anything between scenes) takes the smoked glass
+    return "glass";
+  };
+
+  /** One frame. Returns whether the loop should keep running. */
+  const frame = (yArg?: number, tArg?: number): boolean => {
     if (tArg !== undefined) virtual = tArg;
-    const y = yArg ?? window.scrollY;
-    const t = virtual ?? (performance.now() - t0) / 1000;
+    const now = performance.now();
+    const dt = Math.min(0.1, Math.max(0, (now - lastTime) / 1000));
+    lastTime = now;
+    if (yArg !== undefined) target = yArg;
+    // desktop (no damping): Lenis moves the page inside this same ticker, so read it now
+    else if (damp <= 0) target = window.scrollY;
+    if (yArg !== undefined || damp <= 0 || Math.abs(target - y) > vh * 1.5) y = target;
+    else {
+      y += (target - y) * (1 - Math.exp(-dt / damp));
+      if (Math.abs(target - y) < 0.3) y = target;
+    }
+    const t = virtual ?? (now - t0) / 1000;
+    const moved = forced || y !== last.y || vw !== last.vw || vh !== last.vh;
+    forced = false;
+    last = { y, vw, vh };
+    let again = y !== target;
     for (const s of scenes) {
       const p = clamp((y - s.top) / Math.max(1, s.h - vh));
       const enter = clamp((y + vh - s.top) / vh);
       const leave = clamp((y + vh - (s.top + s.h)) / vh);
       // prepared a quarter screen before it arrives; nothing is drawn once it has gone
       const visible = y + vh > s.top - vh * 0.25 && y < s.top + s.h;
-      s.update({ p, enter, leave, vh, vw, t, visible });
+      if (s.update({ p, enter, leave, vh, vw, t, visible, moved }) === true)
+        again = true;
     }
-    for (const fn of tickers) fn(t, y, vh);
+    for (const fn of tickers) fn(t, y, vh, moved);
+    if (moved) setHeaderOverride({ surface: surfaceAt(y) });
+    return again;
   };
 
-  const loop = () => frame();
+  const loop = () => {
+    if (!frame()) sleep();
+  };
+  const sleep = () => {
+    if (!awake) return;
+    awake = false;
+    gsap.ticker.remove(loop);
+  };
+  const wake = () => {
+    if (!running || awake || CAPTURE) return;
+    awake = true;
+    lastTime = performance.now();
+    gsap.ticker.add(loop);
+  };
+  const onScroll = () => {
+    target = window.scrollY;
+    wake();
+  };
 
   return {
-    register(el, update) {
-      scenes.push({ el, update, top: 0, h: 1 });
+    register(el, update, surface) {
+      scenes.push({ el, update, surface, top: 0, h: 1 });
     },
     tick(fn) {
       tickers.push(fn);
     },
     measure,
-    frame,
+    offset(el) {
+      const s = scenes.find((x) => x.el === el);
+      return { top: s?.top ?? 0, h: s?.h ?? 1 };
+    },
+    get y() {
+      return y;
+    },
+    frame(yArg, tArg) {
+      frame(yArg, tArg);
+    },
+    invalidate() {
+      forced = true;
+      wake();
+    },
     start() {
       measure();
-      if (!running && !CAPTURE) {
+      y = target;
+      if (!running) {
         running = true;
-        gsap.ticker.add(loop);
+        window.addEventListener("scroll", onScroll, { passive: true });
       }
       frame();
+      wake();
     },
     stop() {
       running = false;
-      gsap.ticker.remove(loop);
+      window.removeEventListener("scroll", onScroll);
+      sleep();
     },
   };
 }

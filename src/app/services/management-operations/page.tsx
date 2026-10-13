@@ -10,14 +10,17 @@ export const metadata: Metadata = pageMetadata("/services/management-operations"
 const dir = "/media/adelva/management-operations/";
 
 export default function ManagementOperationsRoute() {
-  /* Both regimes paint the first plate tile and its pre-dawn variant first
-     (desktop as <img> tiles, narrow viewports into a canvas); narrow viewports
-     also need the sky above the plate for the hero. */
-  preload(`${dir}base-0.webp`, { as: "image", fetchPriority: "high" });
-  preload(`${dir}dim-0.webp`, { as: "image", fetchPriority: "high" });
-  preload(`${dir}sky.webp`, {
+  /* Desktop paints the first plate tile and its pre-dawn variant first (as
+     <img> tiles). Narrow viewports draw the photograph from small tiles that
+     the camera fetches itself (WebGL, see camera-gl.ts): nothing to preload. */
+  preload(`${dir}base-0.webp`, {
     as: "image",
-    media: "(max-width: 1023.98px)",
+    media: "(min-width: 1024px)",
+    fetchPriority: "high",
+  });
+  preload(`${dir}dim-0.webp`, {
+    as: "image",
+    media: "(min-width: 1024px)",
     fetchPriority: "high",
   });
   return (

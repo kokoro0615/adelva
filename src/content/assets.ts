@@ -127,6 +127,15 @@ export const assets = {
     alt: "",
     focal: "50% 50%",
   },
+  // the first decoded frame of the phone portrait encode (720 × 1280), so the film starts without a jump
+  "hero-poster-portrait": {
+    id: "hero-poster-portrait",
+    src: "/media/target/hero-poster-portrait.webp",
+    width: 720,
+    height: 1280,
+    alt: "",
+    focal: "50% 50%",
+  },
 } as const satisfies Record<string, AssetRecord>;
 
 export type AssetId = keyof typeof assets;
@@ -155,7 +164,11 @@ export interface VideoAssetRecord {
 }
 
 const H264_HIGH_41 = 'video/mp4; codecs="avc1.640029"';
+const H264_HIGH_40 = 'video/mp4; codecs="avc1.640028"';
 const PORTRAIT = "(orientation: portrait)";
+/** Phones and tablets below the desktop layout (the HOME phone composition). */
+export const PHONE_MEDIA = "(max-width: 1023.98px)";
+export const PHONE_PORTRAIT_MEDIA = `${PORTRAIT} and ${PHONE_MEDIA}`;
 
 /**
  * Motion sources. Local files only — a remote origin here would breach the
@@ -169,14 +182,28 @@ export const videoAssets = {
     height: 1080,
     durationSeconds: 32,
     // Portrait screens get a 9:16 edit framed per shot instead of a centre
-    // crop of the 16:9 file. Only the reviewed H.264 CRF18 encodes are served:
-    // the AV1 CRF28 encodes lost ~10% fine detail and jumped texture at every
-    // 2 s keyframe, which read as breakage in production.
+    // crop of the 16:9 file. Only reviewed H.264 encodes are served: the AV1
+    // CRF28 encodes lost ~10% fine detail and jumped texture at every 2 s
+    // keyframe, which read as breakage in production.
+    // Phones (< 1024 px) get their own 720p encodes of the same edits
+    // (H.264 High@4.0, 2.4 Mbps two-pass, keyframes ≤ 2 s without the
+    // keyframe quality pulse; 9.5 MB instead of 40/47 MB). The real detail of
+    // the portrait edit is a ~244 × 432 crop, so nothing visible is lost.
     sources: [
+      {
+        src: "/media/video/hero-antarctica-portrait-m.mp4",
+        type: H264_HIGH_40,
+        media: PHONE_PORTRAIT_MEDIA,
+      },
       {
         src: "/media/video/hero-antarctica-portrait.mp4",
         type: H264_HIGH_41,
         media: PORTRAIT,
+      },
+      {
+        src: "/media/video/hero-antarctica-m.mp4",
+        type: H264_HIGH_40,
+        media: PHONE_MEDIA,
       },
       { src: "/media/video/hero-antarctica.mp4", type: H264_HIGH_41 },
     ],

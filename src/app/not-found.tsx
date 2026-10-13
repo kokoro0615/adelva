@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { HomeFooter } from "@/components/home/home-footer";
+import { ScrollProvider } from "@/components/scroll-provider";
+import { SiteHeader } from "@/components/site-header";
+import { skipLabel } from "@/content/adelva-home";
+
 import styles from "./not-found.module.css";
 
 export const metadata: Metadata = {
@@ -15,7 +20,29 @@ const links = [
   { href: "/contact", label: "お問い合わせ" },
 ] as const;
 
+/**
+ * The one route without a composition of its own. Every page renders its own
+ * header, main landmark and footer; this one carries the same shell the root
+ * layout used to wrap around it for every request (and serialise into every
+ * page's payload, unused).
+ */
 export default function NotFound() {
+  return (
+    <>
+      <a className="skip-link" data-skip-link href="#main-content">
+        {skipLabel}
+      </a>
+      <ScrollProvider />
+      <SiteHeader />
+      <main id="main-content">
+        <NotFoundSection />
+      </main>
+      <HomeFooter />
+    </>
+  );
+}
+
+function NotFoundSection() {
   return (
     <section className={styles.section} aria-labelledby="page-title">
       <div className={styles.inner}>

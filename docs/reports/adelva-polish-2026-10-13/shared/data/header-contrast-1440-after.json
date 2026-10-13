@@ -1,0 +1,1262 @@
+[
+ {
+  "route": "/",
+  "state": "top",
+  "label": "ADELVA",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 5.92
+ },
+ {
+  "route": "/",
+  "state": "top",
+  "label": "課題から探す",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 5.75
+ },
+ {
+  "route": "/",
+  "state": "top",
+  "label": "支援内容",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 5.79
+ },
+ {
+  "route": "/",
+  "state": "top",
+  "label": "支援の進め方",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 5.77
+ },
+ {
+  "route": "/",
+  "state": "top",
+  "label": "ADELVAについて",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 5.84
+ },
+ {
+  "route": "/",
+  "state": "top",
+  "label": "お問い合わせ",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 6.5
+ },
+ {
+  "route": "/",
+  "state": "scrolled",
+  "label": "ADELVA",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 17.33
+ },
+ {
+  "route": "/",
+  "state": "scrolled",
+  "label": "課題から探す",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 15.67
+ },
+ {
+  "route": "/",
+  "state": "scrolled",
+  "label": "支援内容",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 16.11
+ },
+ {
+  "route": "/",
+  "state": "scrolled",
+  "label": "支援の進め方",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 17.02
+ },
+ {
+  "route": "/",
+  "state": "scrolled",
+  "label": "ADELVAについて",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 17.33
+ },
+ {
+  "route": "/",
+  "state": "scrolled",
+  "label": "お問い合わせ",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 17.33
+ },
+ {
+  "route": "/",
+  "state": "footer",
+  "label": "ADELVA",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 11.57
+ },
+ {
+  "route": "/",
+  "state": "footer",
+  "label": "課題から探す",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 9.77
+ },
+ {
+  "route": "/",
+  "state": "footer",
+  "label": "支援内容",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 9.42
+ },
+ {
+  "route": "/",
+  "state": "footer",
+  "label": "支援の進め方",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 8.95
+ },
+ {
+  "route": "/",
+  "state": "footer",
+  "label": "ADELVAについて",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 8.39
+ },
+ {
+  "route": "/",
+  "state": "footer",
+  "label": "お問い合わせ",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 9.38
+ },
+ {
+  "route": "/challenges",
+  "state": "top",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 9.19
+ },
+ {
+  "route": "/challenges",
+  "state": "top",
+  "label": "課題から探す",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 7.79
+ },
+ {
+  "route": "/challenges",
+  "state": "top",
+  "label": "支援内容",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 7.37
+ },
+ {
+  "route": "/challenges",
+  "state": "top",
+  "label": "支援の進め方",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 7.06
+ },
+ {
+  "route": "/challenges",
+  "state": "top",
+  "label": "ADELVAについて",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 6.25
+ },
+ {
+  "route": "/challenges",
+  "state": "top",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 6.62
+ },
+ {
+  "route": "/challenges",
+  "state": "scrolled",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 21
+ },
+ {
+  "route": "/challenges",
+  "state": "scrolled",
+  "label": "課題から探す",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 21
+ },
+ {
+  "route": "/challenges",
+  "state": "scrolled",
+  "label": "支援内容",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 21
+ },
+ {
+  "route": "/challenges",
+  "state": "scrolled",
+  "label": "支援の進め方",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 21
+ },
+ {
+  "route": "/challenges",
+  "state": "scrolled",
+  "label": "ADELVAについて",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 21
+ },
+ {
+  "route": "/challenges",
+  "state": "scrolled",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 21
+ },
+ {
+  "route": "/challenges",
+  "state": "footer",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 11.57
+ },
+ {
+  "route": "/challenges",
+  "state": "footer",
+  "label": "課題から探す",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 9.1
+ },
+ {
+  "route": "/challenges",
+  "state": "footer",
+  "label": "支援内容",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 8.67
+ },
+ {
+  "route": "/challenges",
+  "state": "footer",
+  "label": "支援の進め方",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 7.98
+ },
+ {
+  "route": "/challenges",
+  "state": "footer",
+  "label": "ADELVAについて",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 6.7
+ },
+ {
+  "route": "/challenges",
+  "state": "footer",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 8.39
+ },
+ {
+  "route": "/challenges/owner",
+  "state": "top",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 19.41
+ },
+ {
+  "route": "/challenges/owner",
+  "state": "top",
+  "label": "課題から探す",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 19.68
+ },
+ {
+  "route": "/challenges/owner",
+  "state": "top",
+  "label": "支援内容",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 20.13
+ },
+ {
+  "route": "/challenges/owner",
+  "state": "top",
+  "label": "支援の進め方",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 19.42
+ },
+ {
+  "route": "/challenges/owner",
+  "state": "top",
+  "label": "ADELVAについて",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 18.06
+ },
+ {
+  "route": "/challenges/owner",
+  "state": "top",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 20.05
+ },
+ {
+  "route": "/challenges/owner",
+  "state": "scrolled",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 19.78
+ },
+ {
+  "route": "/challenges/owner",
+  "state": "scrolled",
+  "label": "課題から探す",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 9.54
+ },
+ {
+  "route": "/challenges/owner",
+  "state": "scrolled",
+  "label": "支援内容",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 12.77
+ },
+ {
+  "route": "/challenges/owner",
+  "state": "scrolled",
+  "label": "支援の進め方",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 14.93
+ },
+ {
+  "route": "/challenges/owner",
+  "state": "scrolled",
+  "label": "ADELVAについて",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 17.85
+ },
+ {
+  "route": "/challenges/owner",
+  "state": "scrolled",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 19.28
+ },
+ {
+  "route": "/challenges/owner",
+  "state": "footer",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 11.57
+ },
+ {
+  "route": "/challenges/owner",
+  "state": "footer",
+  "label": "課題から探す",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 9.06
+ },
+ {
+  "route": "/challenges/owner",
+  "state": "footer",
+  "label": "支援内容",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 8.65
+ },
+ {
+  "route": "/challenges/owner",
+  "state": "footer",
+  "label": "支援の進め方",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 7.86
+ },
+ {
+  "route": "/challenges/owner",
+  "state": "footer",
+  "label": "ADELVAについて",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 6.71
+ },
+ {
+  "route": "/challenges/owner",
+  "state": "footer",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 8.43
+ },
+ {
+  "route": "/challenges/general-managers",
+  "state": "top",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 19.86
+ },
+ {
+  "route": "/challenges/general-managers",
+  "state": "top",
+  "label": "課題から探す",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 19.33
+ },
+ {
+  "route": "/challenges/general-managers",
+  "state": "top",
+  "label": "支援内容",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 18.39
+ },
+ {
+  "route": "/challenges/general-managers",
+  "state": "top",
+  "label": "支援の進め方",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 18.55
+ },
+ {
+  "route": "/challenges/general-managers",
+  "state": "top",
+  "label": "ADELVAについて",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 14.53
+ },
+ {
+  "route": "/challenges/general-managers",
+  "state": "top",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 18.28
+ },
+ {
+  "route": "/challenges/general-managers",
+  "state": "scrolled",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 17.51
+ },
+ {
+  "route": "/challenges/general-managers",
+  "state": "scrolled",
+  "label": "課題から探す",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 7.77
+ },
+ {
+  "route": "/challenges/general-managers",
+  "state": "scrolled",
+  "label": "支援内容",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 10.64
+ },
+ {
+  "route": "/challenges/general-managers",
+  "state": "scrolled",
+  "label": "支援の進め方",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 11.73
+ },
+ {
+  "route": "/challenges/general-managers",
+  "state": "scrolled",
+  "label": "ADELVAについて",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 11.65
+ },
+ {
+  "route": "/challenges/general-managers",
+  "state": "scrolled",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 13.27
+ },
+ {
+  "route": "/challenges/general-managers",
+  "state": "footer",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 11.57
+ },
+ {
+  "route": "/challenges/general-managers",
+  "state": "footer",
+  "label": "課題から探す",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 9.06
+ },
+ {
+  "route": "/challenges/general-managers",
+  "state": "footer",
+  "label": "支援内容",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 8.65
+ },
+ {
+  "route": "/challenges/general-managers",
+  "state": "footer",
+  "label": "支援の進め方",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 7.86
+ },
+ {
+  "route": "/challenges/general-managers",
+  "state": "footer",
+  "label": "ADELVAについて",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 6.71
+ },
+ {
+  "route": "/challenges/general-managers",
+  "state": "footer",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 8.43
+ },
+ {
+  "route": "/services/management-operations",
+  "state": "top",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 18.63
+ },
+ {
+  "route": "/services/management-operations",
+  "state": "top",
+  "label": "課題から探す",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 19.43
+ },
+ {
+  "route": "/services/management-operations",
+  "state": "top",
+  "label": "支援内容",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 19.43
+ },
+ {
+  "route": "/services/management-operations",
+  "state": "top",
+  "label": "支援の進め方",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 19.4
+ },
+ {
+  "route": "/services/management-operations",
+  "state": "top",
+  "label": "ADELVAについて",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 19.4
+ },
+ {
+  "route": "/services/management-operations",
+  "state": "top",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 19.28
+ },
+ {
+  "route": "/services/management-operations",
+  "state": "scrolled",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 18.65
+ },
+ {
+  "route": "/services/management-operations",
+  "state": "scrolled",
+  "label": "課題から探す",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 9.48
+ },
+ {
+  "route": "/services/management-operations",
+  "state": "scrolled",
+  "label": "支援内容",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 14.1
+ },
+ {
+  "route": "/services/management-operations",
+  "state": "scrolled",
+  "label": "支援の進め方",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 13.84
+ },
+ {
+  "route": "/services/management-operations",
+  "state": "scrolled",
+  "label": "ADELVAについて",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 17.97
+ },
+ {
+  "route": "/services/management-operations",
+  "state": "scrolled",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 17.79
+ },
+ {
+  "route": "/services/management-operations",
+  "state": "footer",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 11.57
+ },
+ {
+  "route": "/services/management-operations",
+  "state": "footer",
+  "label": "課題から探す",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 9.07
+ },
+ {
+  "route": "/services/management-operations",
+  "state": "footer",
+  "label": "支援内容",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 8.66
+ },
+ {
+  "route": "/services/management-operations",
+  "state": "footer",
+  "label": "支援の進め方",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 7.88
+ },
+ {
+  "route": "/services/management-operations",
+  "state": "footer",
+  "label": "ADELVAについて",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 6.7
+ },
+ {
+  "route": "/services/management-operations",
+  "state": "footer",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 8.4
+ },
+ {
+  "route": "/services/revenue-brand",
+  "state": "top",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 17.55
+ },
+ {
+  "route": "/services/revenue-brand",
+  "state": "top",
+  "label": "課題から探す",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 15.64
+ },
+ {
+  "route": "/services/revenue-brand",
+  "state": "top",
+  "label": "支援内容",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 16.28
+ },
+ {
+  "route": "/services/revenue-brand",
+  "state": "top",
+  "label": "支援の進め方",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 13.46
+ },
+ {
+  "route": "/services/revenue-brand",
+  "state": "top",
+  "label": "ADELVAについて",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 14.48
+ },
+ {
+  "route": "/services/revenue-brand",
+  "state": "top",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 14.72
+ },
+ {
+  "route": "/services/revenue-brand",
+  "state": "scrolled",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 18.32
+ },
+ {
+  "route": "/services/revenue-brand",
+  "state": "scrolled",
+  "label": "課題から探す",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 16.41
+ },
+ {
+  "route": "/services/revenue-brand",
+  "state": "scrolled",
+  "label": "支援内容",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 18.46
+ },
+ {
+  "route": "/services/revenue-brand",
+  "state": "scrolled",
+  "label": "支援の進め方",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 9.53
+ },
+ {
+  "route": "/services/revenue-brand",
+  "state": "scrolled",
+  "label": "ADELVAについて",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 14.34
+ },
+ {
+  "route": "/services/revenue-brand",
+  "state": "scrolled",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 18.65
+ },
+ {
+  "route": "/services/revenue-brand",
+  "state": "footer",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 11.57
+ },
+ {
+  "route": "/services/revenue-brand",
+  "state": "footer",
+  "label": "課題から探す",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 9.07
+ },
+ {
+  "route": "/services/revenue-brand",
+  "state": "footer",
+  "label": "支援内容",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 8.66
+ },
+ {
+  "route": "/services/revenue-brand",
+  "state": "footer",
+  "label": "支援の進め方",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 7.88
+ },
+ {
+  "route": "/services/revenue-brand",
+  "state": "footer",
+  "label": "ADELVAについて",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 6.7
+ },
+ {
+  "route": "/services/revenue-brand",
+  "state": "footer",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 8.4
+ },
+ {
+  "route": "/services/dx-it-procurement",
+  "state": "top",
+  "label": "ADELVA",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 17.38
+ },
+ {
+  "route": "/services/dx-it-procurement",
+  "state": "top",
+  "label": "課題から探す",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 16.64
+ },
+ {
+  "route": "/services/dx-it-procurement",
+  "state": "top",
+  "label": "支援内容",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 16.14
+ },
+ {
+  "route": "/services/dx-it-procurement",
+  "state": "top",
+  "label": "支援の進め方",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 11.84
+ },
+ {
+  "route": "/services/dx-it-procurement",
+  "state": "top",
+  "label": "ADELVAについて",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 9.16
+ },
+ {
+  "route": "/services/dx-it-procurement",
+  "state": "top",
+  "label": "お問い合わせ",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 15.16
+ },
+ {
+  "route": "/services/dx-it-procurement",
+  "state": "scrolled",
+  "label": "ADELVA",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 17.64
+ },
+ {
+  "route": "/services/dx-it-procurement",
+  "state": "scrolled",
+  "label": "課題から探す",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 17.01
+ },
+ {
+  "route": "/services/dx-it-procurement",
+  "state": "scrolled",
+  "label": "支援内容",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 16.57
+ },
+ {
+  "route": "/services/dx-it-procurement",
+  "state": "scrolled",
+  "label": "支援の進め方",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 15.74
+ },
+ {
+  "route": "/services/dx-it-procurement",
+  "state": "scrolled",
+  "label": "ADELVAについて",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 13.21
+ },
+ {
+  "route": "/services/dx-it-procurement",
+  "state": "scrolled",
+  "label": "お問い合わせ",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 12.55
+ },
+ {
+  "route": "/services/dx-it-procurement",
+  "state": "footer",
+  "label": "ADELVA",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 10.07
+ },
+ {
+  "route": "/services/dx-it-procurement",
+  "state": "footer",
+  "label": "課題から探す",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 7.89
+ },
+ {
+  "route": "/services/dx-it-procurement",
+  "state": "footer",
+  "label": "支援内容",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 7.54
+ },
+ {
+  "route": "/services/dx-it-procurement",
+  "state": "footer",
+  "label": "支援の進め方",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 6.85
+ },
+ {
+  "route": "/services/dx-it-procurement",
+  "state": "footer",
+  "label": "ADELVAについて",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 5.83
+ },
+ {
+  "route": "/services/dx-it-procurement",
+  "state": "footer",
+  "label": "お問い合わせ",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 7.31
+ },
+ {
+  "route": "/approach",
+  "state": "top",
+  "label": "ADELVA",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 15.56
+ },
+ {
+  "route": "/approach",
+  "state": "top",
+  "label": "課題から探す",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 10.53
+ },
+ {
+  "route": "/approach",
+  "state": "top",
+  "label": "支援内容",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 9.84
+ },
+ {
+  "route": "/approach",
+  "state": "top",
+  "label": "支援の進め方",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 9.34
+ },
+ {
+  "route": "/approach",
+  "state": "top",
+  "label": "ADELVAについて",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 8.85
+ },
+ {
+  "route": "/approach",
+  "state": "top",
+  "label": "お問い合わせ",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 7.74
+ },
+ {
+  "route": "/approach",
+  "state": "scrolled",
+  "label": "ADELVA",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 4.4
+ },
+ {
+  "route": "/approach",
+  "state": "scrolled",
+  "label": "課題から探す",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 9.8
+ },
+ {
+  "route": "/approach",
+  "state": "scrolled",
+  "label": "支援内容",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 12.22
+ },
+ {
+  "route": "/approach",
+  "state": "scrolled",
+  "label": "支援の進め方",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 7.93
+ },
+ {
+  "route": "/approach",
+  "state": "scrolled",
+  "label": "ADELVAについて",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 9.93
+ },
+ {
+  "route": "/approach",
+  "state": "scrolled",
+  "label": "お問い合わせ",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 12.5
+ },
+ {
+  "route": "/approach",
+  "state": "footer",
+  "label": "ADELVA",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 10.07
+ },
+ {
+  "route": "/approach",
+  "state": "footer",
+  "label": "課題から探す",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 7.89
+ },
+ {
+  "route": "/approach",
+  "state": "footer",
+  "label": "支援内容",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 7.54
+ },
+ {
+  "route": "/approach",
+  "state": "footer",
+  "label": "支援の進め方",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 6.85
+ },
+ {
+  "route": "/approach",
+  "state": "footer",
+  "label": "ADELVAについて",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 5.83
+ },
+ {
+  "route": "/approach",
+  "state": "footer",
+  "label": "お問い合わせ",
+  "ink": "rgb(241, 239, 234)",
+  "ratio": 7.31
+ },
+ {
+  "route": "/about",
+  "state": "top",
+  "label": "ADELVA",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 17.08
+ },
+ {
+  "route": "/about",
+  "state": "top",
+  "label": "課題から探す",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 17.1
+ },
+ {
+  "route": "/about",
+  "state": "top",
+  "label": "支援内容",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 17.24
+ },
+ {
+  "route": "/about",
+  "state": "top",
+  "label": "支援の進め方",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 17.14
+ },
+ {
+  "route": "/about",
+  "state": "top",
+  "label": "ADELVAについて",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 16.93
+ },
+ {
+  "route": "/about",
+  "state": "top",
+  "label": "お問い合わせ",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 17.24
+ },
+ {
+  "route": "/about",
+  "state": "scrolled",
+  "label": "ADELVA",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 16.54
+ },
+ {
+  "route": "/about",
+  "state": "scrolled",
+  "label": "課題から探す",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 17.04
+ },
+ {
+  "route": "/about",
+  "state": "scrolled",
+  "label": "支援内容",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 15.98
+ },
+ {
+  "route": "/about",
+  "state": "scrolled",
+  "label": "支援の進め方",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 14.97
+ },
+ {
+  "route": "/about",
+  "state": "scrolled",
+  "label": "ADELVAについて",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 15.26
+ },
+ {
+  "route": "/about",
+  "state": "scrolled",
+  "label": "お問い合わせ",
+  "ink": "lab(9.45698 -0.509754 -5.47932)",
+  "ratio": 16.27
+ },
+ {
+  "route": "/about",
+  "state": "footer",
+  "label": "ADELVA",
+  "ink": "rgb(238, 234, 225)",
+  "ratio": 9.64
+ },
+ {
+  "route": "/about",
+  "state": "footer",
+  "label": "課題から探す",
+  "ink": "rgb(238, 234, 225)",
+  "ratio": 7.55
+ },
+ {
+  "route": "/about",
+  "state": "footer",
+  "label": "支援内容",
+  "ink": "rgb(238, 234, 225)",
+  "ratio": 7.2
+ },
+ {
+  "route": "/about",
+  "state": "footer",
+  "label": "支援の進め方",
+  "ink": "rgb(238, 234, 225)",
+  "ratio": 6.54
+ },
+ {
+  "route": "/about",
+  "state": "footer",
+  "label": "ADELVAについて",
+  "ink": "rgb(238, 234, 225)",
+  "ratio": 5.59
+ },
+ {
+  "route": "/about",
+  "state": "footer",
+  "label": "お問い合わせ",
+  "ink": "rgb(238, 234, 225)",
+  "ratio": 7.02
+ },
+ {
+  "route": "/contact",
+  "state": "top",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 16.39
+ },
+ {
+  "route": "/contact",
+  "state": "top",
+  "label": "課題から探す",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 14.62
+ },
+ {
+  "route": "/contact",
+  "state": "top",
+  "label": "支援内容",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 13.59
+ },
+ {
+  "route": "/contact",
+  "state": "top",
+  "label": "支援の進め方",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 12.73
+ },
+ {
+  "route": "/contact",
+  "state": "top",
+  "label": "ADELVAについて",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 11.39
+ },
+ {
+  "route": "/contact",
+  "state": "top",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 9.65
+ },
+ {
+  "route": "/contact",
+  "state": "scrolled",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 16.97
+ },
+ {
+  "route": "/contact",
+  "state": "scrolled",
+  "label": "課題から探す",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 12.49
+ },
+ {
+  "route": "/contact",
+  "state": "scrolled",
+  "label": "支援内容",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 16.72
+ },
+ {
+  "route": "/contact",
+  "state": "scrolled",
+  "label": "支援の進め方",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 16.95
+ },
+ {
+  "route": "/contact",
+  "state": "scrolled",
+  "label": "ADELVAについて",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 17.13
+ },
+ {
+  "route": "/contact",
+  "state": "scrolled",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 16.56
+ },
+ {
+  "route": "/contact",
+  "state": "footer",
+  "label": "ADELVA",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 11.57
+ },
+ {
+  "route": "/contact",
+  "state": "footer",
+  "label": "課題から探す",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 9.05
+ },
+ {
+  "route": "/contact",
+  "state": "footer",
+  "label": "支援内容",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 8.58
+ },
+ {
+  "route": "/contact",
+  "state": "footer",
+  "label": "支援の進め方",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 7.54
+ },
+ {
+  "route": "/contact",
+  "state": "footer",
+  "label": "ADELVAについて",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 6.78
+ },
+ {
+  "route": "/contact",
+  "state": "footer",
+  "label": "お問い合わせ",
+  "ink": "rgb(255, 255, 255)",
+  "ratio": 8.52
+ }
+]

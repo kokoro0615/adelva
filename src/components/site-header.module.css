@@ -36,6 +36,10 @@
 }
 
 .header {
+  /* The bar's layout height never changes; compacting is a transform (below),
+     so the labels never shift in layout (CLS) as the reader starts to scroll.
+     --nav-bar-height is the visible height, --nav-bar-full the layout one. */
+  --nav-bar-full: 4.25rem;
   --nav-bar-height: 4.25rem;
   /* How far the reading veil feathers past the bar before it is gone. */
   --nav-veil-feather: 64px;
@@ -73,6 +77,9 @@
   inset-inline: 0;
   top: 0;
   z-index: 40;
+  /* The layout box keeps the full bar height; only the bar and the shelf take
+     input, so the band a compact bar uncovers stays the page's. */
+  pointer-events: none;
 }
 
 .header[data-menu-open="true"] {
@@ -94,17 +101,18 @@
  * The reading veil — proportional, not painted.
  *
  * A flat black plate has to be dark enough for the worst backdrop the heroes
- * can present, a blown-out sky; measured, that is 53% black. The same 53% over
- * a night scene is the opaque strip this pass exists to remove, which is
- * exactly what the previous 62% plate looked like.
+ * can present, a blown-out sky; measured, that is 53% black. Feathering it out
+ * below the label band keeps it a graduated filter on the lens rather than a
+ * rectangle over the picture: 56% at the labels lands white text at 4.96:1
+ * against pure white, and it fades to nothing 64–76px lower.
  *
- * Pulling the backdrop's own brightness down instead scales itself: it takes
- * more than half off a white sky and almost nothing off an already-dark frame,
- * and because it is a multiplication the photograph keeps all of its internal
- * contrast and texture. It reads as a graduated filter on the lens rather than
- * as a rectangle over the picture. 0.44 is the darkest step needed: it lands
- * white text at 4.96:1 against pure white, and the mask feathers the filter out
- * below the label band instead of ending it on an edge.
+ * This was a `backdrop-filter: brightness(0.44)` under a feathering mask. The
+ * pixels are identical — darkening by 0.44 and laying 56% black over the same
+ * backdrop are the same multiplication, and the mask's ramp is this gradient's
+ * alpha ramp — but a backdrop filter makes the bar a backdrop root that the
+ * compositor re-reads and re-filters on every frame the page moves under it,
+ * which is every scrolled frame on every page, and on iOS every frame a film
+ * or canvas plays. A gradient is drawn once and composited for free.
  */
 .veil {
   position: absolute;
@@ -113,63 +121,20 @@
   top: 0;
   height: calc(var(--nav-bar-height) + var(--nav-veil-feather));
   pointer-events: none;
-  -webkit-backdrop-filter: brightness(0.44);
-  backdrop-filter: brightness(0.44);
-  -webkit-mask-image: linear-gradient(
+  background: linear-gradient(
     to bottom,
-    #000 0,
-    #000 calc(var(--nav-bar-height) - 18px),
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    to bottom,
-    #000 0,
-    #000 calc(var(--nav-bar-height) - 18px),
-    transparent 100%
+    rgb(0 0 0 / 56%) 0,
+    rgb(0 0 0 / 56%) calc(var(--nav-bar-height) - 18px),
+    rgb(0 0 0 / 0%) 100%
   );
   transition:
     height var(--dur-state) var(--ease-state),
-    opacity var(--nav-veil-fade) var(--ease-panel),
-    -webkit-backdrop-filter 0s linear 0s,
-    backdrop-filter 0s linear 0s;
+    opacity var(--nav-veil-fade) var(--ease-panel);
 }
 
-/* No backdrop filter: the measured flat equivalent, feathered the same way. */
-@supports not (
-  (backdrop-filter: brightness(1)) or (-webkit-backdrop-filter: brightness(1))
-) {
-  .veil {
-    background: linear-gradient(
-      to bottom,
-      oklch(0 0 0 / 56%) 0,
-      oklch(0 0 0 / 56%) calc(var(--nav-bar-height) - 18px),
-      oklch(0 0 0 / 0%) 100%
-    );
-  }
-}
-
-/*
- * Nothing to protect once the sheet is down — it is its own reading surface —
- * and the filter has to go, not merely the pixels.
- *
- * A backdrop-filtered element beneath another one nests the two backdrop roots:
- * the sheet's blur then re-filters the veil's output on every frame the hero
- * moves. Measured here on a software rasteriser, that nesting halves the
- * descent to 33ms per frame and keeps dropping frames for as long as the menu
- * stays open — at every blur radius from 6px to 32px, so it is the nesting and
- * not the blur. Removing the sheet's filter alone restores 16.7ms; so does
- * removing the veil's. The veil's is the one that is redundant here, and it is
- * switched off at exactly the moment its own opacity reaches zero, where
- * nothing can see it go.
- */
+/* Nothing to protect once the sheet is down — it is its own reading surface. */
 .header[data-menu-open="true"] .veil {
   opacity: 0;
-  -webkit-backdrop-filter: none;
-  backdrop-filter: none;
-  transition:
-    opacity var(--nav-veil-fade) var(--ease-panel),
-    -webkit-backdrop-filter 0s linear var(--nav-veil-fade),
-    backdrop-filter 0s linear var(--nav-veil-fade);
 }
 
 /*
@@ -226,20 +191,32 @@
   display: flex;
   align-items: center;
   gap: clamp(0.75rem, 1.6vw, 1.75rem);
-  height: var(--nav-bar-height);
+  height: var(--nav-bar-full);
   padding-inline: var(--nav-inline);
   background-color: transparent;
   isolation: isolate;
+  pointer-events: auto;
+  /* Compact: the bar slides up by the height it loses and its contents come
+     down by half of it, so they stay centred in the visible band. */
+  transform: translate3d(0, calc(var(--nav-bar-height) - var(--nav-bar-full)), 0);
   color: var(--paper);
   /* A tight halo that travels with the glyph. The veil already carries the
      measured ratio; this is for the case the ratio cannot see — a thin bright
      edge in the photograph running behind a thin stroke. */
   text-shadow: 0 1px 2px oklch(0 0 0 / 38%);
+  /* Surfaces change while the reader scrolls (HOME switches film, paper and
+     glass per scene): every fill cross-fades rather than switching. */
   transition:
-    height var(--dur-state) var(--ease-state),
+    transform var(--dur-state) var(--ease-state),
     color var(--nav-open) var(--ease-panel),
     text-shadow var(--nav-open) var(--ease-panel),
+    background-color var(--dur-state) var(--ease-state),
     box-shadow var(--dur-state) var(--ease-state);
+}
+
+.bar > * {
+  transform: translate3d(0, calc((var(--nav-bar-full) - var(--nav-bar-height)) / 2), 0);
+  transition: transform var(--dur-state) var(--ease-state);
 }
 
 /*
@@ -291,14 +268,18 @@
   height: var(--nav-brand-mark);
   flex: 0 0 auto;
   background-color: currentColor;
-  /* Scale the existing 29x44 optical window and its mask together, preserving
-     the complete symbol at every responsive mark height. */
-  -webkit-mask: url("/brand/adelva-logo.png") calc(var(--nav-brand-mark) * -0.65909)
-    calc(var(--nav-brand-mark) * -0.46591) / calc(var(--nav-brand-mark) * 1.97727)
-    calc(var(--nav-brand-mark) * 1.97727) no-repeat;
-  mask: url("/brand/adelva-logo.png") calc(var(--nav-brand-mark) * -0.65909)
-    calc(var(--nav-brand-mark) * -0.46591) / calc(var(--nav-brand-mark) * 1.97727)
-    calc(var(--nav-brand-mark) * 1.97727) no-repeat;
+  /* The symbol's 29x44 optical window, scaled with the mark. The mask is the
+     master's own pixels around the symbol (344x520 from x340 y240 of
+     `/brand/adelva-logo.png`, palette PNG, 24 KB instead of 133 KB), placed so
+     every master pixel lands exactly where the full-size mask put it: the
+     rendering is pixel-identical, only the download changed. */
+  -webkit-mask: url("/brand/adelva-mark-mask.png")
+    calc(var(--nav-brand-mark) * -0.002575) calc(var(--nav-brand-mark) * -0.002487) /
+    calc(var(--nav-brand-mark) * 0.664239) calc(var(--nav-brand-mark) * 1.004082)
+    no-repeat;
+  mask: url("/brand/adelva-mark-mask.png") calc(var(--nav-brand-mark) * -0.002575)
+    calc(var(--nav-brand-mark) * -0.002487) / calc(var(--nav-brand-mark) * 0.664239)
+    calc(var(--nav-brand-mark) * 1.004082) no-repeat;
 }
 
 .brandWord {
@@ -462,7 +443,39 @@
 
 .ctaCompact {
   display: inline-flex;
+  flex-shrink: 0;
   margin-inline-start: auto;
+}
+
+/*
+ * The narrowest phones (320–359px). Brand, call and menu control needed 268px
+ * and a 320px bar offered 252: the call — overflow hidden, so free to shrink —
+ * was squeezed until its label filled the outline edge to edge. A tighter
+ * gutter, gap, call padding and word tracking give it back its 12px padding
+ * and keep the menu control inside the bar.
+ */
+@media (max-width: 22.4375rem) {
+  .header,
+  .drawer {
+    --nav-inline: 1rem;
+  }
+
+  .bar {
+    gap: 0.5rem;
+  }
+
+  .ctaCompact {
+    padding-inline: 0.75rem;
+  }
+
+  .burger {
+    margin-inline-start: 0;
+  }
+
+  .brandWord {
+    letter-spacing: 0.14em;
+    text-indent: 0.14em;
+  }
 }
 
 .arrow {
@@ -555,10 +568,11 @@
   position: absolute;
   z-index: 2;
   inset-inline: 0;
-  top: 100%;
+  top: var(--nav-bar-height);
   height: 0;
   overflow: hidden;
   color: var(--nav-ink);
+  pointer-events: auto;
   transition: height var(--nav-close) var(--ease-panel);
 }
 
@@ -1406,6 +1420,7 @@
   }
 
   .header {
+    --nav-bar-full: 4rem;
     --nav-bar-height: 4rem;
   }
 
@@ -1417,6 +1432,7 @@
 @media (min-width: 64rem) {
   .header {
     --nav-inline: clamp(1.5rem, 3vw, 3rem);
+    --nav-bar-full: 5.5rem;
     --nav-bar-height: 5.5rem;
     --nav-brand-mark: 44px;
     --nav-veil-feather: 76px;
@@ -1467,6 +1483,10 @@
   --charcoal: oklch(0.31 0.012 260);
   --flare-ink: oklch(0.34 0.07 48);
   --hairline: oklch(0.25 0.015 260 / 20%);
+  /* The opaque sheet the glass becomes where blur is not affordable: the
+     light surface's own paper, so the drawer and the mega sheet read as the
+     same material on every device. */
+  --nav-paper: rgb(246 245 241);
 }
 
 .drawer {
@@ -1493,6 +1513,7 @@
   background-color: transparent;
   color: inherit;
   transition:
+    transform var(--dur-state) var(--ease-state),
     border-color var(--dur-release) var(--ease-state),
     color var(--dur-release) var(--ease-state),
     text-shadow var(--dur-release) var(--ease-state);
@@ -1594,10 +1615,6 @@
   .veil {
     height: var(--nav-bar-height);
     background: oklch(0.18 0.012 260);
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
-    -webkit-mask-image: none;
-    mask-image: none;
   }
 
   .bar {
@@ -1633,8 +1650,6 @@
 
   .veil {
     background: none;
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
   }
 
   .bar {
@@ -1707,13 +1722,12 @@
 }
 .header[data-surface="light"] .veil {
   opacity: 0;
-  backdrop-filter: none;
 }
 .header[data-surface="light"] {
   --nav-chip: oklch(0.22 0.015 260 / 6%);
   --nav-chip-strong: oklch(0.22 0.015 260 / 9%);
 }
-.header[data-surface="light"] :is(.cta, .compactCta) {
+.header[data-surface="light"] :is(.cta, .ctaCompact) {
   border-color: var(--nav-hairline);
 }
 /* /about stands on drawing paper: ink labels with no backing at rest, and the
@@ -1724,14 +1738,12 @@
 }
 .header[data-surface="paper"] .veil {
   opacity: 0;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
 }
 .header[data-surface="paper"] .bar {
   color: var(--nav-ink);
   text-shadow: none;
   transition:
-    height var(--dur-state) var(--ease-state),
+    transform var(--dur-state) var(--ease-state),
     color var(--nav-open) var(--ease-panel),
     background-color var(--dur-state) var(--ease-state),
     box-shadow var(--dur-state) var(--ease-state);
@@ -1748,7 +1760,7 @@
   backdrop-filter: none;
   box-shadow: none;
 }
-.header[data-surface="paper"] :is(.cta, .compactCta) {
+.header[data-surface="paper"] :is(.cta, .ctaCompact) {
   border-color: rgb(14 17 24 / 62%);
 }
 @media (min-width: 48rem) {
@@ -1814,36 +1826,39 @@
   color: inherit;
 }
 
-/* Dark photo pages (/approach, /services/*, /contact) on phones and tablets:
-   once the page scrolls under the bar it turns to smoked glass. With only the
-   feathered veil, headings, cards and the orange CTA slid visibly underneath
-   the logo and the menu button on every screen; the glass gives the bar its
-   own edge, and on /contact the sticky progress below it reads as one strip.
-   The veil steps aside so two backdrop filters never nest. */
+/*
+ * Smoked glass, pre-composited.
+ *
+ * Dark photo pages (/approach, /services/*, /contact) on phones and tablets:
+ * once the page scrolls under the bar it takes a smoked surface. With only the
+ * feathered veil, headings, cards and the orange CTA slid visibly underneath
+ * the logo and the menu button on every screen; the surface gives the bar its
+ * own edge, and on /contact the sticky progress below it reads as one strip.
+ *
+ * It used to be real glass (62% ink, `blur(14px) saturate(1.15)`). Over a
+ * moving photograph, canvas or film iOS re-blurs that backdrop on every frame,
+ * which is the single most expensive thing a scrolled phone page can ask of
+ * it. Blur existed only to erase the detail the 38% transmission let through;
+ * the same calm comes from transmitting less. The smoked fill passes 16% of
+ * the page — its light and colour, none of its edges — and costs nothing per
+ * frame. White labels over a pure white backdrop measure 12.4:1. It
+ * cross-fades in and out (R3) rather than switching.
+ */
+.header {
+  --nav-smoke: rgb(14 17 24 / 84%);
+}
+
 @media (max-width: 63.999rem) {
-  .header[data-surface="glass"] .bar {
-    transition:
-      height var(--dur-state) var(--ease-state),
-      color var(--nav-open) var(--ease-panel),
-      text-shadow var(--nav-open) var(--ease-panel),
-      background-color var(--dur-state) var(--ease-state),
-      box-shadow var(--dur-state) var(--ease-state);
-  }
   .header[data-surface="glass"][data-compact="true"]:not([data-menu-open="true"]) .bar {
-    background-color: rgb(12 15 21 / 62%);
-    -webkit-backdrop-filter: blur(14px) saturate(1.15);
-    backdrop-filter: blur(14px) saturate(1.15);
+    background-color: var(--nav-smoke);
     box-shadow: 0 1px 0 0 oklch(1 0 0 / 10%);
   }
   .header[data-surface="glass"][data-compact="true"]:not([data-menu-open="true"])
     .veil {
     opacity: 0;
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
     transition:
-      opacity var(--dur-state) var(--ease-state),
-      -webkit-backdrop-filter 0s linear var(--dur-state),
-      backdrop-filter 0s linear var(--dur-state);
+      height var(--dur-state) var(--ease-state),
+      opacity var(--dur-state) var(--ease-state);
   }
 }
 
@@ -1880,9 +1895,39 @@
 }
 .header[data-brand][data-surface="glass"]:not([data-menu-open="true"]) .veil {
   opacity: 0;
-  -webkit-backdrop-filter: none;
-  backdrop-filter: none;
 }
+
+/*
+ * Touch devices and narrow screens: no backdrop filter anywhere in the chrome.
+ *
+ * Everything under this header moves on a phone — films, canvases, WebGL,
+ * scrubbed photographs — and iOS re-filters a backdrop every frame its content
+ * changes, on the main compositor path, for as long as the surface is shown.
+ * Each glass surface therefore becomes the measured fill it was standing in
+ * for: HOME's smoked bar takes the smoked fill above, the paper bar a
+ * near-opaque paper, the drawer and the mega sheet solid paper. The labels keep
+ * their measured contrast on all of them (smoked 12.4:1 for white over white,
+ * ink 12:1 or better on paper).
+ */
+@media (max-width: 63.999rem), (pointer: coarse) {
+  .header[data-brand][data-surface="glass"]:not([data-menu-open="true"]) .bar {
+    background-color: var(--nav-smoke);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  .header[data-surface="paper"][data-compact="true"] .bar {
+    background-color: rgb(238 234 225 / 96%);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  .pane,
+  .drawer {
+    background-color: var(--nav-paper);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
 @keyframes header-intro {
   from {
     opacity: 0;
