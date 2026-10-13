@@ -135,22 +135,27 @@
   position: relative;
   min-height: calc(4648 * var(--t));
 }
+/* The hero section holds the text, scale and finder link; its photograph is
+   drawn by stage 01's dive stage, which lies under it at the same place. */
 .hero {
   position: relative;
-  z-index: 0;
+  z-index: 2;
   height: calc(750 * var(--m));
-  isolation: isolate;
 }
 .heroMedia {
   position: absolute;
-  inset: 0;
-  overflow: hidden;
-  z-index: -1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: var(--hero-h);
 }
 .heroZoom {
   position: absolute;
   inset: 0;
   transform-origin: 0 0;
+}
+.heroPush {
+  transform-origin: var(--push-origin-m);
 }
 .heroPhoto,
 .heroPhoto img {
@@ -175,11 +180,9 @@
     ),
     linear-gradient(180deg, rgb(12 16 24 / 0%) 86%, rgb(12 16 24 / 55%) 100%);
 }
-.heroNight {
+.heroLines {
   position: absolute;
   inset: 0;
-  background: var(--night);
-  opacity: 0;
   pointer-events: none;
 }
 .heroBody {
@@ -466,9 +469,11 @@ a.finder:focus-visible {
 
 /* ================================================================ descent */
 
+/* Pulled up under the hero: stage 01's item begins at the top of the page. */
 .descent {
   position: relative;
   z-index: 1;
+  margin-top: calc(-750 * var(--m));
 }
 .stages {
   display: block;
@@ -483,8 +488,144 @@ a.finder:focus-visible {
 .frame {
   position: relative;
   aspect-ratio: var(--m-width) / var(--m-height);
-  isolation: isolate;
   background: #141a22;
+  transform-origin: 50% 50%;
+}
+/* Everything drawn in a frame; the motion layer counter-scales it inside the
+   frame's window (spec §14). */
+.lens {
+  position: absolute;
+  inset: 0;
+  isolation: isolate;
+  transform-origin: 50% 50%;
+}
+
+/* ------------------------------------------------- stage 01: the dive stage */
+
+/*
+ * Stage 01's item spans the hero and the first photograph (the descent is
+ * pulled up under the hero). Its track holds a stage with the hero photograph
+ * and frame 01. Without motion both sit where the adopted mock has them; with
+ * the dive on, the stage turns sticky for exactly `--dive` px of scroll, then
+ * scrolls on with frame 01 resting where the static page has it.
+ *
+ *   --hs        stage height: the large viewport or the hero, whichever is taller
+ *   --dive-top  sticky offset (≤ 0): a tall hero sticks once its foot is in view
+ *   --arrive    where frame 01 lands below the top of the small viewport
+ *   --dive      scroll length of the dive
+ *
+ * Every term is in lvh/svh, so iOS toolbar changes never re-lay it out (R7).
+ */
+.page .stageDive {
+  --hero-h: calc(var(--m-hero) * var(--m));
+  --f1y: calc(var(--m-top) * var(--m));
+  --f1h: calc(var(--m-height) * var(--m));
+  --arrive-max: 96px;
+  --hs: max(100lvh, var(--hero-h));
+  --dive-top: calc(100lvh - var(--hs));
+  --arrive: clamp(0px, (100svh - var(--f1h)) / 2, var(--arrive-max));
+  --dive: calc(var(--f1y) - var(--arrive) + var(--dive-top));
+  margin: 0;
+  width: auto;
+  height: calc(var(--f1y) + var(--f1h));
+  /* A link to #stage-01 shows the photograph, not the top of the item. */
+  scroll-margin-top: calc(72px - var(--f1y));
+}
+.diveTrack {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.diveProbe,
+.svhProbe {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  visibility: hidden;
+  pointer-events: none;
+}
+.diveProbe {
+  top: calc(-1 * var(--dive-top));
+  height: max(1px, var(--dive));
+}
+.svhProbe {
+  height: 100svh;
+}
+.diveStage {
+  position: relative;
+  height: 100%;
+}
+.diveNight {
+  position: absolute;
+  inset: 0;
+  background: var(--night);
+  opacity: 0;
+  pointer-events: none;
+}
+.stageDive .frame,
+.diveWindow {
+  position: absolute;
+  left: calc(var(--m-left) * var(--m));
+  top: var(--f1y);
+  width: calc(var(--m-width) * var(--m));
+  aspect-ratio: var(--m-width) / var(--m-height);
+}
+.diveWindow {
+  --edge: 1.5px;
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.diveEdge {
+  position: absolute;
+  background: var(--flare);
+  transform-origin: 0 0;
+}
+.diveEdge[data-edge="top"],
+.diveEdge[data-edge="bottom"] {
+  left: 0;
+  width: 100%;
+  height: var(--edge);
+}
+.diveEdge[data-edge="top"] {
+  top: 0;
+}
+.diveEdge[data-edge="bottom"] {
+  bottom: 0;
+}
+.diveEdge[data-edge="left"],
+.diveEdge[data-edge="right"] {
+  top: 0;
+  width: var(--edge);
+  height: 100%;
+}
+.diveEdge[data-edge="left"] {
+  left: 0;
+}
+.diveEdge[data-edge="right"] {
+  right: 0;
+}
+[data-dive="on"] .diveTrack {
+  height: calc(var(--dive) + var(--hs));
+}
+[data-dive="on"] .diveStage {
+  position: sticky;
+  top: var(--dive-top);
+  height: var(--hs);
+  overflow: clip;
+}
+[data-dive="on"] .diveWindow {
+  visibility: visible;
+}
+.page [data-dive="on"] .stageDive {
+  scroll-margin-top: calc(var(--dive-top) - var(--dive));
+}
+[data-motion="on"] .frame {
+  overflow: clip;
 }
 .stagePhoto,
 .stagePhoto img {
@@ -583,29 +724,46 @@ a.finder:focus-visible {
   box-shadow: 0 0 0 calc(3 * var(--m)) rgb(255 126 21 / 22%);
 }
 
-/* The magnification lines: one overlay per viewport family. */
-.linesDesktop,
-.linesMobile {
+/*
+ * The magnification lines: one set per viewport family, in that family's page
+ * units. A line is a box from its start point, `--len` long, rotated by
+ * `--angle`; its stroke is the content box, padded so a rotated layer keeps
+ * soft edges. The motion layer moves either end with transforms only.
+ */
+.lines {
   position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  pointer-events: none;
+  inset: 0;
   z-index: 2;
-  overflow: visible;
+  pointer-events: none;
+}
+.linesMobile,
+.linesDesktop {
+  position: absolute;
+  inset: 0;
 }
 .linesMobile {
-  height: calc(4648 * var(--m));
+  --unit: var(--m);
+  --stroke: 1.2px;
 }
 .linesDesktop {
+  --unit: var(--u, 1px);
+  --stroke: 1.4px;
   display: none;
-  width: calc(1440 * var(--u, 1px));
-  height: calc(5540 * var(--u, 1px));
+}
+.linePair {
+  position: absolute;
+  inset: 0;
 }
 .magLine {
-  stroke: var(--flare);
-  stroke-width: 1.2px;
-  stroke-opacity: 0.95;
+  position: absolute;
+  left: calc(var(--x1) * var(--unit));
+  top: calc(var(--y1) * var(--unit) - 2px);
+  width: calc(var(--len) * var(--unit));
+  height: 4px;
+  padding-block: calc((4px - var(--stroke)) / 2);
+  background: rgb(255 126 21 / 95%) content-box;
+  transform-origin: 0 50%;
+  transform: rotate(calc(var(--angle) * 1deg));
 }
 
 /* ------------------------------------------------------------ 06 引継ぎ */
@@ -1174,18 +1332,6 @@ a.finder:focus-visible {
   background: var(--ivory);
   border-color: var(--ivory);
 }
-.diveFrame {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 0;
-  height: 0;
-  z-index: 15;
-  border: 1.5px solid var(--flare);
-  pointer-events: none;
-  opacity: 0;
-  visibility: hidden;
-}
 
 /* ============================================================ tablet type */
 
@@ -1409,9 +1555,6 @@ a.finder:focus-visible {
   }
   .linesDesktop {
     display: block;
-  }
-  .magLine {
-    stroke-width: 1.4px;
   }
 
   .handoverRule {
@@ -1807,8 +1950,27 @@ a.finder:focus-visible {
   .descentRail {
     right: calc(11.5px - 0.5px);
   }
-  .diveFrame {
-    border-width: 2px;
+
+  .descent {
+    margin-top: calc(-929 * var(--u));
+  }
+  .page .stageDive {
+    --hero-h: calc(var(--d-hero) * var(--u));
+    --f1y: calc(var(--d-top) * var(--u));
+    --f1h: calc(var(--d-height) * var(--u));
+    --arrive-max: 100svh;
+  }
+  .stageDive .frame,
+  .diveWindow {
+    left: calc(var(--d-left) * var(--u));
+    width: calc(var(--d-width) * var(--u));
+    aspect-ratio: var(--d-width) / var(--d-height);
+  }
+  .diveWindow {
+    --edge: 2px;
+  }
+  .heroPush {
+    transform-origin: var(--push-origin-d);
   }
 }
 

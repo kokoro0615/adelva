@@ -1,15 +1,36 @@
 "use client";
 
-import { useRef, type ReactNode } from "react";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { CustomEase } from "gsap/CustomEase";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useRef, type ReactNode } from "react";
 
-import { desktopGeometry, mobileGeometry } from "@/content/adelva-approach-page";
-import { DURATION, EASE_REVEAL, EASE_STATE } from "@/lib/motion";
+import { DURATION } from "@/lib/motion";
 
-gsap.registerPlugin(useGSAP, ScrollTrigger, CustomEase);
+/*
+ * Motion for /approach (spec §14, polish 2026-10-13).
+ *
+ * The server renders the finished, static descent: every photograph open,
+ * every magnification line drawn, every bar at length. That is also the
+ * reduced-motion and JavaScript-less page. The hero's one-time settle runs in
+ * CSS from the first paint. Under `prefers-reduced-motion: no-preference`
+ * this layer adds, and on cleanup removes:
+ *
+ *   1. the dive: stage 01's item carries a sticky stage (CSS) holding the hero
+ *      photograph and frame 01. While it sticks, the camera zooms into the
+ *      finder, the finder becomes a window and frame 01 opens out of it,
+ *      landing exactly where the static page has it when the stage releases;
+ *   2. focus between stages: each next photograph opens from a finder-shaped
+ *      window while its magnification lines follow the window's corners and
+ *      the previous finder settles;
+ *   3. one-time reveals (stage copy, the 06 hand-over, role bars, the example
+ *      line, check marks), the fixed descent rail and the integrated
+ *      photograph's parallax.
+ *
+ * Everything that follows the scroll position is a Web Animation on a scroll
+ * or view timeline, animating `transform` and `opacity` only, so the
+ * compositor runs it in step with the finger and the main thread does no work
+ * per frame (R1–R4). Where scroll timelines are missing, the dive follows a
+ * damped scroll progress inside its sticky stage and each focus plays once,
+ * time-based, as its photograph reaches the reading line.
+ */
 
 interface Box {
   x: number;
@@ -22,838 +43,766 @@ const clamp01 = (value: number) => Math.min(1, Math.max(0, value));
 const span = (value: number, from: number, to: number) =>
   clamp01((value - from) / (to - from));
 const smooth = (t: number) => t * t * (3 - 2 * t);
+const easeOutCubic = (t: number) => 1 - (1 - t) ** 3;
+const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
+const px = (value: number) => `${value.toFixed(2)}px`;
+const num = (value: number) => value.toFixed(5);
 
-/** Page-space rectangle of an element, ignoring any transform it carries now. */
-function pageBox(element: Element): Box {
-  const rect = element.getBoundingClientRect();
-  return {
-    x: rect.left + window.scrollX,
-    y: rect.top + window.scrollY,
-    w: rect.width,
-    h: rect.height,
-  };
+/** Keyframes sampled from a function of progress; linear between samples. */
+function sample(count: number, at: (p: number) => Keyframe): Keyframe[] {
+  return Array.from({ length: count }, (_, index) => {
+    const p = index / (count - 1);
+    return { ...at(p), offset: p };
+  });
 }
+
+/** Opacity keyframes through the given (progress, value) stops. */
+function stops(points: ReadonlyArray<readonly [number, number]>): Keyframe[] {
+  return points.map(([offset, opacity]) => ({ offset, opacity }));
+}
+
+/** Layout box relative to an ancestor, ignoring transforms. */
+function offsetBox(element: HTMLElement, ancestor: HTMLElement): Box {
+  let x = 0;
+  let y = 0;
+  let node: HTMLElement | null = element;
+  while (node && node !== ancestor) {
+    x += node.offsetLeft;
+    y += node.offsetTop;
+    node = node.offsetParent as HTMLElement | null;
+  }
+  return { x, y, w: element.offsetWidth, h: element.offsetHeight };
+}
+
+const center = (box: Box) => [box.x + box.w / 2, box.y + box.h / 2] as const;
 
 /**
  * Runs one motion setup. A failure leaves the server-rendered finished state
  * in place instead of unmounting the page: nothing here is needed to read it.
  */
-function guarded<Args extends unknown[]>(
-  setup: (...args: Args) => void | (() => void),
-): (...args: Args) => void | (() => void) {
-  return (...args) => {
+function guarded(setup: (root: HTMLElement) => () => void) {
+  return (root: HTMLElement): (() => void) | null => {
     try {
-      return setup(...args);
+      return setup(root);
     } catch (error) {
       console.error("[approach] motion skipped", error);
+      delete root.dataset.motion;
+      delete root.dataset.dive;
+      return null;
     }
   };
 }
 
-/**
- * Motion for /approach.
- *
- * The server renders the finished, static descent — every photograph open,
- * every magnification line drawn, every bar at length — which is also the
- * reduced-motion and JavaScript-less page. Under `prefers-reduced-motion:
- * no-preference` this component adds, and on cleanup removes:
- *
- *   1. the hero settle: finder corners draw, the photograph eases 1→1.04,
- *      the rail's orange segment extends to 01;
- *   2. the dive: the hero pins while the page scrolls; the camera zooms into
- *      the finder, stage 01 opens out of it and lands where it rests;
- *   3. focus between stages: each next photograph opens from a finder-shaped
- *      window while its magnification lines track the window's corners;
- *   4. stage copy, the 06 hand-over, the fixed descent rail, the role bars,
- *      the integrated-support parallax and example line, the check marks.
- */
-export function ApproachMotion({ children }: { children: ReactNode }) {
-  const root = useRef<HTMLDivElement>(null);
+/** Line geometry: a box rotated about its start, see `.magLine`. */
+interface LineBase {
+  node: HTMLElement;
+  ox: number;
+  oy: number;
+  length: number;
+}
 
-  useGSAP(
-    () => {
-      const element = root.current;
-      if (!element) return;
-      const reveal = CustomEase.create("ap-reveal", EASE_REVEAL.join(","));
-      const state = CustomEase.create("ap-state", EASE_STATE.join(","));
-      const mm = gsap.matchMedia();
+function lineTransform(base: LineBase, from: readonly number[], to: readonly number[]) {
+  const dx = to[0]! - from[0]!;
+  const dy = to[1]! - from[1]!;
+  const angle = (Math.atan2(dy, dx) * 180) / Math.PI;
+  const scale = Math.hypot(dx, dy) / (base.length || 1);
+  return `translate(${px(from[0]! - base.ox)}, ${px(from[1]! - base.oy)}) rotate(${angle.toFixed(4)}deg) scaleX(${num(scale)})`;
+}
 
-      mm.add(
-        {
-          desktop: "(min-width: 1024px)",
-          motion: "(prefers-reduced-motion: no-preference)",
-        },
-        guarded((context: gsap.Context) => {
-          const { desktop, motion } = context.conditions!;
-          if (!motion) return;
-          element.dataset.motion = "on";
-          const cleanups: Array<() => void> = [];
-          const geometry = desktop ? desktopGeometry : mobileGeometry;
+function setup(root: HTMLElement): () => void {
+  const scrollDriven =
+    typeof window.ViewTimeline === "function" &&
+    typeof window.ScrollTimeline === "function";
+  root.dataset.motion = "on";
+  root.dataset.timeline = scrollDriven ? "scroll" : "fallback";
 
-          const q = <T extends Element = HTMLElement>(selector: string) =>
-            element.querySelector<T>(selector);
-          const qa = <T extends Element = HTMLElement>(selector: string) =>
-            Array.from(element.querySelectorAll<T>(selector));
+  const q = <T extends Element = HTMLElement>(selector: string) =>
+    root.querySelector<T>(selector);
+  const qa = <T extends Element = HTMLElement>(selector: string) =>
+    Array.from(root.querySelectorAll<T>(selector));
 
-          const canvas = q("[data-canvas]")!;
-          const hero = q("[data-hero]")!;
-          const heroZoom = q("[data-hero-zoom]")!;
-          const heroPush = q("[data-hero-push]")!;
-          const heroNight = q("[data-hero-night]")!;
-          const heroBody = q("[data-hero-body]")!;
-          const heroRail = q("[data-rail]")!;
-          const heroFinderLink = q("[data-hero-finder-link]")!;
-          const heroFinder = q(`[data-hero-push] [data-finder="0"]`)!;
-          const stagesEls = qa("[data-stage]");
-          const frames = stagesEls.map((stage) =>
-            stage.querySelector<HTMLElement>("[data-frame]")!,
-          );
-          const finders = qa("[data-finder]").filter((node) => node !== heroFinder);
-          const diveFrame = q("[data-dive-frame]")!;
-          const svg = q<SVGSVGElement>(
-            `[data-lines="${desktop ? "desktop" : "mobile"}"]`,
-          )!;
-          const pairs = Array.from(
-            svg.querySelectorAll<SVGGElement>("[data-line-pair]"),
-          );
-          const lineOf = (pair: number, side: "left" | "right") =>
-            pairs[pair]!.querySelector<SVGLineElement>(`[data-side="${side}"]`)!;
+  const descentFrame = q("[data-descent-frame]")!;
+  const items = qa("[data-stage]");
+  const frames = items.map((item) => item.querySelector<HTMLElement>("[data-frame]")!);
+  const lenses = frames.map((frame) => frame.querySelector<HTMLElement>("[data-lens]")!);
+  const track = q("[data-dive-track]")!;
+  const probe = q("[data-dive-probe]")!;
+  const svhProbe = q("[data-svh-probe]")!;
+  const stage = q("[data-dive-stage]")!;
+  const zoom = q("[data-hero-zoom]")!;
+  const heroFinder = q('[data-hero-push] [data-finder="0"]')!;
+  const night = q("[data-dive-night]")!;
+  const diveWindow = q("[data-dive-window]")!;
+  const edges = Object.fromEntries(
+    qa("[data-dive-window] [data-edge]").map((edge) => [edge.dataset.edge!, edge]),
+  ) as Record<"top" | "right" | "bottom" | "left", HTMLElement>;
+  const lifted = qa("[data-dive-lift]");
+  const hero = q("[data-hero]")!;
+  const desktopQuery = window.matchMedia("(min-width: 1024px)");
 
-          /* ---------------------------------------------------- geometry */
+  const cleanups: Array<() => void> = [];
+  let animations: Animation[] = [];
+  /** Per-build listeners and observers, released before every rebuild. */
+  let buildCleanups: Array<() => void> = [];
 
-          /** Design unit in CSS px, and the canvas origin in page space. */
-          let unit = 1;
-          let origin = { x: 0, y: 0 };
-          const toDesign = (x: number, y: number) =>
-            [(x - origin.x) / unit, (y - origin.y) / unit] as const;
+  const play = (
+    element: Element,
+    keyframes: Keyframe[],
+    options: KeyframeAnimationOptions,
+  ) => {
+    const animation = element.animate(keyframes, options);
+    animations.push(animation);
+    return animation;
+  };
 
-          interface PairBase {
-            from: [readonly [number, number], readonly [number, number]];
-            to: [readonly [number, number], readonly [number, number]];
-          }
-          let bases: PairBase[] = [];
-          let framesPage: Box[] = [];
-          let findersPage: Box[] = [];
-          let heroFinderPage: Box = { x: 0, y: 0, w: 0, h: 0 };
-          /** The hero's natural page top: where the dive pins it. */
-          let pinStart = 0;
+  /* ------------------------------------------------- one-time reveals */
 
-          /** Every pair of lines leaves a finder's lower corners for a frame's upper corners. */
-          const measure = () => {
-            const box = canvas.getBoundingClientRect();
-            unit = box.width / geometry.width;
-            origin = { x: box.left + window.scrollX, y: box.top + window.scrollY };
-            framesPage = frames.map(pageBox);
-            // The hero may be pinned (fixed) while this runs, so its finder is
-            // measured against the hero and placed at the hero's natural top.
-            const heroRect = hero.getBoundingClientRect();
-            const linkRect = heroFinderLink.getBoundingClientRect();
-            heroFinderPage = {
-              x: linkRect.left + window.scrollX,
-              y: linkRect.top - heroRect.top + pinStart,
-              w: linkRect.width,
-              h: linkRect.height,
-            };
-            // Finder i (1-based in the stages) frames photograph i; finder 0 is the hero's.
-            findersPage = [heroFinderPage, ...finders.map(pageBox)];
-            bases = framesPage.map((frame, index) => {
-              const finder = findersPage[index]!;
-              return {
-                from: [
-                  toDesign(finder.x, finder.y + finder.h),
-                  toDesign(finder.x + finder.w, finder.y + finder.h),
-                ],
-                to: [toDesign(frame.x, frame.y), toDesign(frame.x + frame.w, frame.y)],
-              };
-            });
-          };
+  /**
+   * Hides `host`'s content until `target` crosses the line `margin` from the
+   * viewport's foot. Only content wholly below the fold at setup is hidden,
+   * so nothing visible is ever hidden and shown again (R8).
+   */
+  const reveals = new Set<IntersectionObserver>();
+  const revealOnce = (
+    target: Element,
+    host: HTMLElement,
+    attribute: string,
+    margin: string,
+  ) => {
+    if (target.getBoundingClientRect().top < window.innerHeight) return;
+    host.setAttribute(attribute, "");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+        host.removeAttribute(attribute);
+        observer.disconnect();
+        reveals.delete(observer);
+      },
+      { rootMargin: `0px 0px ${margin} 0px` },
+    );
+    observer.observe(target);
+    reveals.add(observer);
+    cleanups.push(() => {
+      host.removeAttribute(attribute);
+      observer.disconnect();
+    });
+  };
 
-          /** Per-pair live state, combined into one write per frame. */
-          const pairState = geometry.photos.map(() => ({
-            opacity: 1,
-            finderScale: 1,
-            window: null as null | {
-              top: number;
-              right: number;
-              bottom: number;
-              left: number;
-            },
-          }));
+  const stageTexts = items.map(
+    (item) => item.querySelector<HTMLElement>("[data-stage-text]")!,
+  );
+  stageTexts.forEach((text, index) => {
+    if (index === 0) return; // stage 01's copy follows the landing (see build)
+    const final = index === stageTexts.length - 1;
+    revealOnce(final ? text : frames[index]!, text, "data-reveal-pending", final ? "-12%" : "-45%");
+  });
 
-          const drawPair = (index: number) => {
-            const base = bases[index];
-            if (!base || !(unit > 0)) return;
-            const live = pairState[index]!;
-            const [fl, fr] = base.from;
-            const cx = (fl[0] + fr[0]) / 2;
-            const finder = findersPage[index]!;
-            const fh = finder.h / unit;
-            const cy = fl[1] - fh / 2;
-            const s = live.finderScale;
-            const scaled = (point: readonly [number, number]) =>
-              [cx + (point[0] - cx) * s, cy + (point[1] - cy) * s] as const;
-            const from = [scaled(fl), scaled(fr)] as const;
-            const [tl, tr] = base.to;
-            const inset = live.window ?? { top: 0, right: 0, bottom: 0, left: 0 };
-            const to = [
-              [tl[0] + inset.left / unit, tl[1] + inset.top / unit],
-              [tr[0] - inset.right / unit, tr[1] + inset.top / unit],
-            ] as const;
-            (["left", "right"] as const).forEach((side, sideIndex) => {
-              const line = lineOf(index, side);
-              line.setAttribute("x1", from[sideIndex]![0].toFixed(2));
-              line.setAttribute("y1", from[sideIndex]![1].toFixed(2));
-              line.setAttribute("x2", to[sideIndex]![0].toFixed(2));
-              line.setAttribute("y2", to[sideIndex]![1].toFixed(2));
-            });
-            pairs[index]!.style.opacity = String(live.opacity);
-          };
-          const drawAll = () => pairState.forEach((_, index) => drawPair(index));
+  const final = items[items.length - 1]!;
+  revealOnce(final, final, "data-handover-pending", "-45%");
+  const roles = q('[data-section="responsibilities"]')!;
+  revealOnce(roles, roles, "data-bars-pending", "-38%");
+  const example = q("[data-example]");
+  if (example) revealOnce(example, example, "data-example-pending", "-18%");
+  const verification = q('[data-section="verification"]')!;
+  revealOnce(verification, verification, "data-checks-pending", "-30%");
 
-          const magnification = (index: number) => {
-            const [fx, fy, fw, fh] = geometry.finders[index]!;
-            const [px, py, pw] = geometry.photos[index]!;
-            return {
-              left: [
-                [fx, fy + fh],
-                [px, py],
-              ],
-              right: [
-                [fx + fw, fy + fh],
-                [px + pw, py],
-              ],
-            } as const;
-          };
-          cleanups.push(() => {
-            pairs.forEach((pair, index) => {
-              pair.style.removeProperty("opacity");
-              const line = magnification(index);
-              (["left", "right"] as const).forEach((side, sideIndex) => {
-                const node = lineOf(index, side);
-                const points = sideIndex === 0 ? line.left : line.right;
-                node.setAttribute("x1", String(points[0][0]));
-                node.setAttribute("y1", String(points[0][1]));
-                node.setAttribute("x2", String(points[1][0]));
-                node.setAttribute("y2", String(points[1][1]));
-              });
-            });
-          });
-          /* ------------------------------------------------ 1. hero settle */
+  /* ------------------------------------------------- the descent rail */
 
-          const finderRect =
-            heroFinder.querySelector<SVGRectElement>("[data-finder-rect]");
-          const corners = Array.from(
-            heroFinder.querySelectorAll<HTMLElement>("[data-corner]"),
-          );
-          const settle = gsap.timeline({ defaults: { ease: reveal } });
-          if (finderRect) {
-            settle.fromTo(
-              finderRect,
-              { strokeDasharray: 1, strokeDashoffset: 1 },
-              { strokeDashoffset: 0, duration: DURATION.reveal },
-              0.15,
-            );
-          }
-          settle
-            .fromTo(
-              corners,
-              { opacity: 0, scale: 0.4 },
-              { opacity: 1, scale: 1, duration: DURATION.state, stagger: 0.05 },
-              0.75,
-            )
-            .fromTo(
-              heroPush,
-              { scale: 1 },
-              {
-                scale: 1.04,
-                duration: 2,
-                ease: "power1.out",
-                transformOrigin: () => {
-                  const box = heroFinderLink.getBoundingClientRect();
-                  const zoom = heroPush.getBoundingClientRect();
-                  return `${box.left + box.width / 2 - zoom.left}px ${box.top + box.height / 2 - zoom.top}px`;
-                },
-              },
-              0,
-            )
-            .fromTo(
-              q("[data-rail-progress]"),
-              { scaleY: 0 },
-              { scaleY: 1, duration: DURATION.panel * 2, ease: state },
-              0.35,
-            )
-            .fromTo(
-              pairs[0]!.querySelectorAll("line"),
-              { opacity: 0 },
-              { opacity: 1, duration: DURATION.panel },
-              1.05,
-            );
-          cleanups.push(() => {
-            settle.kill();
-            gsap.set([heroPush, ...corners, ...pairs[0]!.querySelectorAll("line")], {
-              clearProps: "all",
-            });
-            finderRect?.style.removeProperty("stroke-dasharray");
-            finderRect?.style.removeProperty("stroke-dashoffset");
-          });
+  const railFixed = q("[data-descent-rail]")!;
+  const railFill = q("[data-descent-rail-fill]")!;
+  const railDots = qa("[data-rail-dot]");
+  const heroStops = qa("[data-rail] a");
+  const passed = items.map(() => false);
+  let current = -1;
+  const setCurrent = () => {
+    const next = Math.max(0, passed.lastIndexOf(true));
+    if (next === current) return;
+    current = next;
+    railDots.forEach((dot, index) => {
+      dot.dataset.state =
+        index < current ? "passed" : index === current ? "current" : "upcoming";
+    });
+    heroStops.forEach((stop, index) => {
+      if (index === current) stop.setAttribute("data-current", "");
+      else stop.removeAttribute("data-current");
+    });
+    if (current === items.length - 1) railFixed.dataset.client = "";
+    else delete railFixed.dataset.client;
+    if (!scrollDriven)
+      railFill.style.transform = `scaleY(${num(current / (items.length - 1))})`;
+  };
+  /* A stage is reached once its top is above the middle of the viewport. */
+  const stageObserver = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        const index = items.indexOf(entry.target as HTMLElement);
+        const middle = entry.rootBounds
+          ? entry.rootBounds.bottom
+          : window.innerHeight / 2;
+        passed[index] = entry.boundingClientRect.top < middle;
+      }
+      setCurrent();
+    },
+    { rootMargin: "0px 0px -50% 0px" },
+  );
+  items.forEach((item) => stageObserver.observe(item));
+  cleanups.push(() => {
+    stageObserver.disconnect();
+    railDots.forEach((dot) => delete dot.dataset.state);
+    delete railFixed.dataset.client;
+    railFill.style.removeProperty("transform");
+    heroStops.forEach((stop, index) =>
+      index === 0
+        ? stop.setAttribute("data-current", "")
+        : stop.removeAttribute("data-current"),
+    );
+  });
 
-          /* ---------------------------------------------------- 2. the dive */
+  /* The rail shows from the landing until 06 has been read. */
+  let landed = false;
+  let finalPassed = false;
+  const showRail = () => {
+    if (landed && !finalPassed) railFixed.dataset.shown = "";
+    else delete railFixed.dataset.shown;
+  };
+  const finalObserver = new IntersectionObserver(
+    ([entry]) => {
+      if (!entry) return;
+      finalPassed =
+        !entry.isIntersecting &&
+        entry.boundingClientRect.bottom < (entry.rootBounds?.top ?? 0);
+      showRail();
+    },
+    { rootMargin: "-35% 0px 0px 0px" },
+  );
+  finalObserver.observe(final);
+  cleanups.push(() => {
+    finalObserver.disconnect();
+    delete railFixed.dataset.shown;
+  });
 
-          const stage1 = stagesEls[0]!;
-          const arrival = () =>
-            desktop
-              ? Math.max(84, (window.innerHeight - framesPage[0]!.h) / 2)
-              : Math.min(96, Math.max(64, (window.innerHeight - framesPage[0]!.h) / 2));
-          const diveDistance = () =>
-            Math.max(
-              1,
-              framesPage[0]!.y -
-                hero.getBoundingClientRect().top -
-                window.scrollY -
-                arrival(),
-            );
+  /* ------------------------------------------------- keyboard */
 
-          const lifted = [heroBody, heroRail, heroFinderLink];
-          const dive = { p: 0 };
-          /** Assigned once the dive tween exists; its trigger may render first. */
-          let diveTrigger: ScrollTrigger | null = null;
-          const applyDive = () => {
-            if (!framesPage[0] || !(unit > 0) || !heroFinderPage.w) return;
-            const p = dive.p;
-            /* The veil follows the raw scroll position, so the hero is fully
-               dark the moment the pin releases even while the zoom settles. */
-            const raw = diveTrigger?.progress ?? p;
-            const scroll = window.scrollY;
-            const F0 = {
-              x: heroFinderPage.x - window.scrollX,
-              y: heroFinderPage.y - pinStart,
-              w: heroFinderPage.w,
-              h: heroFinderPage.h,
-            };
-            const frame = framesPage[0]!;
-            const N = {
-              x: frame.x - window.scrollX,
-              y: frame.y - scroll,
-              w: frame.w,
-              h: frame.h,
-            };
-            const e = smooth(p);
-            const w = F0.w * Math.pow(N.w / F0.w, e);
-            const h = F0.h * Math.pow(N.h / F0.h, e);
-            const g = (w - F0.w) / (N.w - F0.w || 1);
-            const cx = F0.x + F0.w / 2 + (N.x + N.w / 2 - (F0.x + F0.w / 2)) * g;
-            const cy = F0.y + F0.h / 2 + (N.y + N.h / 2 - (F0.y + F0.h / 2)) * g;
-            const W = { x: cx - w / 2, y: cy - h / 2, w, h };
+  /* The hero's links stay in the tab order while the dive lifts them away; a
+     keyboard user returning to them brings the page back to the top. */
+  const onHeroFocus = () => {
+    if (window.scrollY > 1) window.scrollTo({ top: 0, behavior: "instant" });
+  };
+  hero.addEventListener("focusin", onHeroFocus);
+  cleanups.push(() => hero.removeEventListener("focusin", onHeroFocus));
 
-            // Stage 01 fills the window, uniformly scaled and clipped to it.
-            if (p >= 0.999) {
-              stage1.style.removeProperty("transform");
-              stage1.style.removeProperty("clip-path");
-              stage1.style.removeProperty("opacity");
-            } else {
-              const k = Math.max(W.w / N.w, W.h / N.h);
-              const tx = W.x + W.w / 2 - (N.x + N.w / 2);
-              const ty = W.y + W.h / 2 - (N.y + N.h / 2);
-              const insetX = Math.max(0, (N.w - W.w / k) / 2);
-              const insetY = Math.max(0, (N.h - W.h / k) / 2);
-              stage1.style.transform = `translate3d(${tx.toFixed(2)}px, ${ty.toFixed(2)}px, 0) scale(${k.toFixed(4)})`;
-              stage1.style.clipPath = `inset(${insetY.toFixed(2)}px ${insetX.toFixed(2)}px)`;
-              stage1.style.opacity = String(span(p, 0, 0.08));
-            }
+  /* ------------------------------------------------- build */
 
-            // The camera: the hero photograph zooms so its finder becomes the window.
-            const z = W.w / F0.w;
-            const heroBox = hero.getBoundingClientRect();
-            const c0x = F0.x + F0.w / 2 - heroBox.left;
-            const c0y = F0.y + F0.h / 2 - heroBox.top;
-            const tx = cx - heroBox.left - z * c0x;
-            const ty = cy - heroBox.top - z * c0y;
-            heroZoom.style.transform =
-              p <= 0.0005
-                ? ""
-                : `translate3d(${tx.toFixed(2)}px, ${ty.toFixed(2)}px, 0) scale(${z.toFixed(4)})`;
-            heroNight.style.opacity = String(smooth(span(Math.max(p, raw), 0.28, 1)));
-            heroFinder.style.opacity = String(1 - span(p, 0, 0.06));
+  let lastWidth = -1;
+  let lastDive = -1;
 
-            const lift = span(p, 0, 0.36);
-            for (const node of lifted) {
-              node.style.opacity = String(1 - lift);
-              node.style.transform = lift
-                ? `translate3d(0, ${(-48 * lift).toFixed(2)}px, 0)`
-                : "";
-              node.style.pointerEvents = lift >= 1 ? "none" : "";
-            }
-            /* Once the pin releases, ScrollTrigger leaves the hero offset behind
-               the stages; it is fully dark by then, so it steps out entirely. */
-            hero.style.opacity = raw >= 0.999 ? "0" : "";
+  const build = () => {
+    animations.forEach((animation) => animation.cancel());
+    animations = [];
+    buildCleanups.forEach((cleanup) => cleanup());
+    buildCleanups = [];
 
-            pairState[0]!.opacity = 1 - span(p, 0, 0.1);
-            pairState[1]!.opacity = span(p, 0.92, 1);
-            drawPair(0);
-            drawPair(1);
+    const desktop = desktopQuery.matches;
+    const variant = desktop ? "desktop" : "mobile";
 
-            const frameVisible = p > 0.004 && p < 0.995;
-            diveFrame.style.visibility = frameVisible ? "visible" : "hidden";
-            diveFrame.style.opacity = String(
-              span(p, 0.004, 0.05) * (1 - span(p, 0.82, 0.99)),
-            );
-            diveFrame.style.transform = `translate3d(${W.x.toFixed(2)}px, ${W.y.toFixed(2)}px, 0)`;
-            diveFrame.style.width = `${W.w.toFixed(2)}px`;
-            diveFrame.style.height = `${W.h.toFixed(2)}px`;
-          };
+    /* --- the dive: on only when frame 01 fits the small viewport --- */
+    root.dataset.dive = "on";
+    const dive = probe.offsetHeight;
+    const svh = svhProbe.offsetHeight;
+    const L = offsetBox(frames[0]!, stage);
+    const diveOn = dive >= 160 && L.h <= svh + 0.5;
+    if (!diveOn) delete root.dataset.dive;
+    lastWidth = descentFrame.offsetWidth;
+    lastDive = dive;
 
-          /* ------------------------------------ 3. focus between stages */
+    const frameRoot = descentFrame.getBoundingClientRect();
+    const local = (element: Element): Box => {
+      const box = element.getBoundingClientRect();
+      return {
+        x: box.left - frameRoot.left,
+        y: box.top - frameRoot.top,
+        w: box.width,
+        h: box.height,
+      };
+    };
+    /* Frame boxes in descent coordinates, where the static page has them. */
+    const item0 = local(items[0]!);
+    const frameBoxes = frames.map((frame, index) =>
+      index === 0 ? { ...L, x: item0.x + L.x, y: item0.y + L.y } : local(items[index]!),
+    );
+    /* Finder i frames photograph i: 0 is the hero's, i ≥ 1 sits in frame i−1. */
+    const finders = frames.map((_, index) => {
+      if (index === 0) return null;
+      const node = frames[index - 1]!.querySelector<HTMLElement>(
+        `[data-finder="${index}"]`,
+      )!;
+      const box = offsetBox(node, frames[index - 1]!);
+      const host = frameBoxes[index - 1]!;
+      return { node, box: { ...box, x: host.x + box.x, y: host.y + box.y } };
+    });
+    const pairGroup = (pair: number) =>
+      q(
+        `[data-lines-overlay] [data-lines="${variant}"] [data-line-pair="${pair}"]`,
+      );
+    const lineBases = (pair: number) => {
+      const group = pairGroup(pair);
+      if (!group) return null;
+      return (["left", "right"] as const).map((side) => {
+        const node = group.querySelector<HTMLElement>(`[data-side="${side}"]`)!;
+        return {
+          node,
+          ox: node.offsetLeft,
+          oy: node.offsetTop + node.offsetHeight / 2,
+          length: node.offsetWidth,
+        } satisfies LineBase;
+      });
+    };
 
-          interface Focus {
-            q: number;
-          }
-          const focus: Focus[] = frames.map(() => ({ q: 1 }));
-          const photosOf = frames.map((frame) =>
-            frame.querySelector<HTMLElement>("picture")!,
-          );
-          const applyFocus = (index: number) => {
-            const frame = framesPage[index];
-            if (!frame || !findersPage[index]?.h) return;
-            const value = focus[index]!.q;
-            const e = smooth(value);
-            const finder = findersPage[index]!;
-            const aspect = finder.w / finder.h;
-            let w0 = frame.w * 0.32;
-            let h0 = w0 / aspect;
-            if (h0 > frame.h * 0.9) {
-              h0 = frame.h * 0.9;
-              w0 = h0 * aspect;
-            }
-            const w = w0 + (frame.w - w0) * e;
-            const h = h0 + (frame.h - h0) * e;
-            const inset = {
-              top: (frame.h - h) / 2,
-              bottom: (frame.h - h) / 2,
-              left: (frame.w - w) / 2,
-              right: (frame.w - w) / 2,
-            };
-            const node = frames[index]!;
-            if (value >= 0.999) {
-              node.style.removeProperty("clip-path");
-              photosOf[index]!.style.removeProperty("transform");
-              pairState[index]!.window = null;
-            } else {
-              node.style.clipPath = `inset(${inset.top.toFixed(2)}px ${inset.right.toFixed(2)}px ${inset.bottom.toFixed(2)}px ${inset.left.toFixed(2)}px)`;
-              photosOf[index]!.style.transform =
-                `scale(${(1 + 0.25 * (1 - e)).toFixed(4)})`;
-              pairState[index]!.window = inset;
-            }
-            // The finder that framed this photograph settles as it opens.
-            const previousFinder = finders[index - 1];
-            const s = 1 + 0.08 * (1 - e);
-            pairState[index]!.finderScale = s;
-            if (previousFinder)
-              previousFinder.style.transform =
-                s > 1.0005 ? `scale(${s.toFixed(4)})` : "";
-            drawPair(index);
-          };
+    /* --- 1. the dive --- */
 
-          /* ------------------------------------------------ refresh wiring */
+    let diveTimeline: AnimationTimeline | null = null;
+    let diveRange: Partial<KeyframeAnimationOptions> = {};
+    if (diveOn) {
+      const F0 = offsetBox(heroFinder, zoom);
+      const N: Box = { ...L, y: L.y - dive };
+      const [f0x, f0y] = center(F0);
+      const [nx, ny] = center(N);
+      const [lx, ly] = center(L);
+      const windowAt = (p: number): Box => {
+        const e = smooth(p);
+        const w = F0.w * (N.w / F0.w) ** e;
+        const h = F0.h * (N.h / F0.h) ** e;
+        const g = (w - F0.w) / (N.w - F0.w || 1);
+        const cx = lerp(f0x, nx, g);
+        const cy = lerp(f0y, ny, g);
+        return { x: cx - w / 2, y: cy - h / 2, w, h };
+      };
 
-          const resetTransforms = () => {
-            stage1.style.removeProperty("transform");
-            stage1.style.removeProperty("clip-path");
-            frames.forEach((frame) => frame.style.removeProperty("clip-path"));
-            finders.forEach((finder) => finder.style.removeProperty("transform"));
-            lifted.forEach((node) => node.style.removeProperty("transform"));
-          };
-          const onRefreshInit = () => resetTransforms();
-          ScrollTrigger.addEventListener("refreshInit", onRefreshInit);
-          cleanups.push(() =>
-            ScrollTrigger.removeEventListener("refreshInit", onRefreshInit),
-          );
+      if (scrollDriven) {
+        diveTimeline = new ViewTimeline({ subject: probe, axis: "block" });
+        diveRange = { rangeStart: "exit-crossing 0%", rangeEnd: "exit-crossing 100%" };
+      }
+      const options: KeyframeAnimationOptions = scrollDriven
+        ? { timeline: diveTimeline, ...diveRange, fill: "both", easing: "linear" }
+        : { duration: 1000, fill: "both", easing: "linear" };
+      const diveAnimations: Animation[] = [];
+      const add = (element: Element, keyframes: Keyframe[]) => {
+        const animation = play(element, keyframes, options);
+        if (!scrollDriven) animation.pause();
+        diveAnimations.push(animation);
+      };
 
-          /* Address-bar resizes on touch devices must not re-measure the pinned
-             dive. This is also GSAP's own touch default, so it is never switched
-             back off on cleanup: doing that left every page visited after this
-             one re-measuring its pins whenever the iOS toolbar collapsed. */
-          ScrollTrigger.config({ ignoreMobileResize: true });
-
-          measure();
-
-          const diveTween = gsap.to(dive, {
-            p: 1,
-            ease: "none",
-            onUpdate: applyDive,
-            scrollTrigger: {
-              trigger: hero,
-              start: "top top",
-              end: () => `+=${diveDistance()}`,
-              pin: hero,
-              pinSpacing: false,
-              scrub: desktop ? 0.4 : 0.5,
-              invalidateOnRefresh: true,
-            },
-          });
-          diveTrigger = diveTween.scrollTrigger ?? null;
-          cleanups.push(() => diveTween.kill());
-          /* The hero's links stay in the tab order while it is lifted away; a
-             keyboard user returning to them brings the page back to the top,
-             where they are visible again. */
-          const onHeroFocus = () => {
-            if (window.scrollY > 1) window.scrollTo({ top: 0, behavior: "instant" });
-          };
-          hero.addEventListener("focusin", onHeroFocus);
-          cleanups.push(() => hero.removeEventListener("focusin", onHeroFocus));
-
-          frames.forEach((frame, index) => {
-            if (index === 0) return;
-            const tween = gsap.fromTo(
-              focus[index]!,
-              { q: 0 },
-              {
-                q: 1,
-                ease: "none",
-                onUpdate: () => applyFocus(index),
-                scrollTrigger: {
-                  trigger: frame,
-                  start: "top bottom",
-                  end: "top 42%",
-                  scrub: 0.4,
-                },
-              },
-            );
-            cleanups.push(() => tween.kill());
-          });
-
-          const onRefresh = () => {
-            resetTransforms();
-            pinStart = diveTrigger?.start ?? 0;
-            measure();
-            drawAll();
-            applyDive();
-            frames.forEach((_, index) => index > 0 && applyFocus(index));
-          };
-          ScrollTrigger.addEventListener("refresh", onRefresh);
-          cleanups.push(() => ScrollTrigger.removeEventListener("refresh", onRefresh));
-
-          cleanups.push(() => {
-            resetTransforms();
-            heroZoom.style.removeProperty("transform");
-            heroNight.style.removeProperty("opacity");
-            heroFinder.style.removeProperty("opacity");
-            for (const node of lifted) {
-              node.style.removeProperty("opacity");
-              node.style.removeProperty("transform");
-              node.style.removeProperty("pointer-events");
-            }
-            hero.style.removeProperty("opacity");
-            stage1.style.removeProperty("opacity");
-            photosOf.forEach((photo) => photo.style.removeProperty("transform"));
-            finders.forEach((finder) => finder.style.removeProperty("transform"));
-            diveFrame.removeAttribute("style");
-          });
-
-          /* ------------------------------------------------ 4. stage copy */
-
-          stagesEls.forEach((stage, index) => {
-            const text = stage.querySelectorAll<HTMLElement>(
-              "[data-stage-text] [data-reveal]",
-            );
-            gsap.set(text, { opacity: 0, y: 8 });
-            const play = () =>
-              gsap.to(text, {
-                opacity: 1,
-                y: 0,
-                duration: DURATION.state,
-                ease: state,
-                stagger: 0.06,
-                overwrite: true,
-              });
-            if (index === 0) {
-              // Stage 01 arrives through the dive; its copy follows the landing.
-              ScrollTrigger.create({
-                trigger: stage,
-                start: () =>
-                  `top ${Math.round(arrival() + stage.offsetHeight * 0.35)}px`,
-                once: true,
-                onEnter: play,
-              });
-            } else {
-              ScrollTrigger.create({
-                trigger:
-                  index === stagesEls.length - 1
-                    ? stage.querySelector("[data-stage-text]")!
-                    : stage,
-                start: index === stagesEls.length - 1 ? "top 88%" : "top 46%",
-                once: true,
-                onEnter: play,
-              });
-            }
-          });
-          cleanups.push(() => {
-            gsap.set(element.querySelectorAll("[data-stage-text] [data-reveal]"), {
-              clearProps: "opacity,transform",
-            });
-          });
-
-          /* ------------------------------------------ 5. the 06 hand-over */
-
-          const final = stagesEls[stagesEls.length - 1]!;
-          const clientFinder = final.querySelector<HTMLElement>("[data-finder]");
-          const clientRect =
-            clientFinder?.querySelector<SVGRectElement>("[data-finder-rect]");
-          const clientCorners = clientFinder
-            ? Array.from(clientFinder.querySelectorAll("[data-corner]"))
-            : [];
-          const rules = [
-            final.querySelector("[data-rule-adelva]"),
-            final.querySelector("[data-rule-client]"),
-          ].filter((node): node is Element => node !== null);
-          const [ruleAdelva, ruleClient] = rules;
-          gsap.set(rules, { scaleX: 0 });
-          if (clientRect)
-            gsap.set(clientRect, { strokeDasharray: 1, strokeDashoffset: 1 });
-          gsap.set(clientCorners, { opacity: 0 });
-          const handover = gsap.timeline({
-            paused: true,
-            defaults: { ease: reveal },
-          });
-          if (clientRect)
-            handover.to(
-              clientRect,
-              { strokeDashoffset: 0, duration: DURATION.reveal },
-              0,
-            );
-          handover.to(
-            clientCorners,
-            { opacity: 1, duration: DURATION.state, stagger: 0.05 },
-            0.7,
-          );
-          if (ruleAdelva)
-            handover.to(
-              ruleAdelva,
-              { scaleX: 1, duration: 0.6, ease: "power2.inOut" },
-              0.2,
-            );
-          if (ruleClient)
-            handover.to(
-              ruleClient,
-              { scaleX: 1, duration: 0.6, ease: "power2.out" },
-              0.8,
-            );
-          ScrollTrigger.create({
-            trigger: final,
-            start: "top 55%",
-            once: true,
-            onEnter: () => handover.play(),
-          });
-          cleanups.push(() => {
-            handover.kill();
-            gsap.set([...rules, ...clientCorners], { clearProps: "all" });
-            if (clientRect) gsap.set(clientRect, { clearProps: "all" });
-          });
-
-          /* ---------------------------------------- 6. fixed descent rail */
-
-          const railFixed = q("[data-descent-rail]")!;
-          const railFill = q("[data-descent-rail-fill]")!;
-          const railDots = qa("[data-rail-dot]");
-          const heroStops = qa("[data-rail] a");
-          let railShown = false;
-          const showRail = (show: boolean) => {
-            if (show === railShown) return;
-            railShown = show;
-            gsap.to(railFixed, {
-              autoAlpha: show ? 1 : 0,
-              duration: DURATION.state,
-              ease: state,
-              overwrite: true,
-            });
-          };
-          const railTrigger = ScrollTrigger.create({
-            trigger: stagesEls[0]!,
-            // Appears as the dive lands, not while the camera is still descending.
-            start: () => `top ${Math.round(arrival() + 60)}px`,
-            endTrigger: final,
-            end: "bottom 35%",
-            onToggle: (self) => showRail(self.isActive),
-            onUpdate: () => {
-              const middle = window.innerHeight * 0.5;
-              let current = 0;
-              stagesEls.forEach((stage, index) => {
-                if (stage.getBoundingClientRect().top < middle) current = index;
-              });
-              railDots.forEach((dot, index) => {
-                dot.dataset.state =
-                  index < current
-                    ? "passed"
-                    : index === current
-                      ? "current"
-                      : "upcoming";
-              });
-              heroStops.forEach((stop, index) => {
-                if (index === current) stop.setAttribute("data-current", "");
-                else stop.removeAttribute("data-current");
-              });
-              gsap.to(railFill, {
-                scaleY: current / (railDots.length - 1),
-                duration: DURATION.panel,
-                ease: state,
-                overwrite: true,
-              });
-              if (current === railDots.length - 1) railFixed.dataset.client = "";
-              else delete railFixed.dataset.client;
-            },
-          });
-          cleanups.push(() => {
-            railTrigger.kill();
-            gsap.set(railFixed, { clearProps: "all" });
-            gsap.set(railFill, { clearProps: "all" });
-            railDots.forEach((dot) => delete dot.dataset.state);
-            delete railFixed.dataset.client;
-            heroStops.forEach((stop, index) =>
-              index === 0
-                ? stop.setAttribute("data-current", "")
-                : stop.removeAttribute("data-current"),
-            );
-          });
-
-          /* ----------------------------------------------- 7. role bars */
-
-          const bars = ["manager", "owner", "partners", "adelva"].flatMap((id) =>
-            qa(`[data-role="${id}"] [data-bar]`),
-          );
-          const adelvaBar = q(`[data-role="adelva"] [data-bar]`);
-          gsap.set(bars, { scaleX: 0 });
-          const barsTimeline = gsap.timeline({ paused: true });
-          bars.forEach((bar, index) => {
-            barsTimeline.to(
-              bar,
-              {
-                scaleX: 1,
-                duration: bar === adelvaBar ? 0.6 : DURATION.panel,
-                ease: bar === adelvaBar ? "power2.inOut" : reveal,
-              },
-              index * 0.08 + (bar === adelvaBar ? 0.16 : 0),
-            );
-          });
-          ScrollTrigger.create({
-            trigger: q('[data-section="responsibilities"]')!,
-            start: "top 62%",
-            once: true,
-            onEnter: () => barsTimeline.play(),
-          });
-          cleanups.push(() => {
-            barsTimeline.kill();
-            gsap.set(bars, { clearProps: "transform" });
-          });
-
-          /* ---------------------------------- 8. integrated support */
-
-          const integratedMedia = q("[data-integrated-media]");
-          const integratedPicture = integratedMedia?.querySelector("picture");
-          if (integratedMedia && integratedPicture) {
-            gsap.fromTo(
-              integratedPicture,
-              { yPercent: -5, scale: 1.1 },
-              {
-                yPercent: 5,
-                scale: 1.1,
-                ease: "none",
-                scrollTrigger: {
-                  trigger: integratedMedia,
-                  start: "top bottom",
-                  end: "bottom top",
-                  scrub: true,
-                },
-              },
-            );
-            cleanups.push(() =>
-              gsap.set(integratedPicture, { clearProps: "transform" }),
-            );
-          }
-          const exampleLine = q("[data-example-line]");
-          const exampleItems = qa("[data-example-item]");
-          const exampleBrackets = exampleItems
-            .map((item) => item.querySelector("i"))
-            .filter((node): node is HTMLElement => node !== null);
-          if (exampleLine) {
-            gsap.set(exampleLine, { scaleX: 0 });
-            gsap.set(exampleBrackets, { scale: 0.6, opacity: 0 });
-            const lineBox = () => exampleLine.getBoundingClientRect();
-            const example = gsap.timeline({ paused: true });
-            example.to(
-              exampleLine,
-              { scaleX: 1, duration: 0.9, ease: "power1.inOut" },
-              0,
-            );
-            exampleItems.forEach((item, index) => {
-              const at = () => {
-                const line = lineBox();
-                const box = item.getBoundingClientRect();
-                return (
-                  (0.9 * (box.left + box.width / 2 - line.left)) / (line.width || 1)
-                );
-              };
-              const bracket = exampleBrackets[index];
-              if (!bracket) return;
-              example.to(
-                bracket,
-                { scale: 1, opacity: 1, duration: 0.16, ease: state },
-                at(),
-              );
-            });
-            ScrollTrigger.create({
-              trigger: q("[data-example]")!,
-              start: "top 82%",
-              once: true,
-              onEnter: () => example.play(),
-            });
-            cleanups.push(() => {
-              example.kill();
-              gsap.set([exampleLine, ...exampleBrackets], { clearProps: "all" });
-            });
-          }
-
-          /* -------------------------------------------- 9. check marks */
-
-          const marks = qa("[data-check-mark]");
-          gsap.set(marks, { opacity: 0, scale: 0.72 });
-          const marksTimeline = gsap.to(marks, {
-            paused: true,
-            opacity: 1,
-            scale: 1,
-            duration: DURATION.state,
-            ease: reveal,
-            stagger: 0.08,
-          });
-          ScrollTrigger.create({
-            trigger: q('[data-section="verification"]')!,
-            start: "top 70%",
-            once: true,
-            onEnter: () => marksTimeline.play(),
-          });
-          cleanups.push(() => {
-            marksTimeline.kill();
-            gsap.set(marks, { clearProps: "all" });
-          });
-
-          /* ------------------------------------------- initial frame */
-
-          onRefresh();
-          const fontsReady = document.fonts?.ready;
-          let active = true;
-          void fontsReady?.then(() => active && ScrollTrigger.refresh());
-          cleanups.push(() => {
-            active = false;
-          });
-
-          return () => {
-            delete element.dataset.motion;
-            cleanups.reverse().forEach((cleanup) => cleanup());
+      // The camera: the hero photograph zooms so its finder becomes the window.
+      add(
+        zoom,
+        sample(41, (p) => {
+          const W = windowAt(p);
+          const z = W.w / F0.w;
+          const [wx, wy] = center(W);
+          return {
+            transform: `translate(${px(wx - z * f0x)}, ${px(wy - z * f0y)}) scale(${num(z)})`,
           };
         }),
       );
-      return () => mm.revert();
-    },
-    { scope: root },
-  );
+      // Frame 01 fills the window: uniformly scaled, clipped to it, landing
+      // with no scale where the static page has it.
+      add(
+        frames[0]!,
+        sample(41, (p) => {
+          const W = windowAt(p);
+          const [wx, wy] = center(W);
+          return {
+            transform: `translate(${px(wx - lx)}, ${px(wy - ly)}) scale(${num(W.w / L.w)}, ${num(W.h / L.h)})`,
+            opacity: span(p, 0, 0.08),
+          };
+        }),
+      );
+      add(
+        lenses[0]!,
+        sample(41, (p) => {
+          const W = windowAt(p);
+          const sx = W.w / L.w;
+          const sy = W.h / L.h;
+          const k = Math.max(sx, sy);
+          return { transform: `scale(${num(k / sx)}, ${num(k / sy)})` };
+        }),
+      );
+      // The window's four edges keep their stroke while the window grows.
+      const edgeAt = (
+        side: "top" | "right" | "bottom" | "left",
+      ): ((p: number) => Keyframe) => {
+        return (p) => {
+          const W = windowAt(p);
+          const sx = num(W.w / L.w);
+          const sy = num(W.h / L.h);
+          switch (side) {
+            case "top":
+              return { transform: `translate(${px(W.x - L.x)}, ${px(W.y - L.y)}) scaleX(${sx})` };
+            case "bottom":
+              return {
+                transform: `translate(${px(W.x - L.x)}, ${px(W.y + W.h - L.y - L.h)}) scaleX(${sx})`,
+              };
+            case "left":
+              return { transform: `translate(${px(W.x - L.x)}, ${px(W.y - L.y)}) scaleY(${sy})` };
+            case "right":
+              return {
+                transform: `translate(${px(W.x + W.w - L.x - L.w)}, ${px(W.y - L.y)}) scaleY(${sy})`,
+              };
+          }
+        };
+      };
+      (["top", "right", "bottom", "left"] as const).forEach((side) =>
+        add(edges[side], sample(41, edgeAt(side))),
+      );
+      add(
+        diveWindow,
+        stops([
+          [0, 0],
+          [0.004, 0],
+          [0.05, 1],
+          [0.82, 1],
+          [0.99, 0],
+          [1, 0],
+        ]),
+      );
+      // The finder hands over to the window; its lines go with it.
+      const finderOut = stops([
+        [0, 1],
+        [0.06, 0],
+        [1, 0],
+      ]);
+      add(heroFinder, finderOut);
+      const pair0 = q(
+        `[data-hero-media] [data-lines="${variant}"] [data-line-pair="0"]`,
+      );
+      if (pair0) add(pair0, finderOut);
+      // The hero copy scrolls away with the page and fades as it goes.
+      for (const node of lifted)
+        add(
+          node,
+          stops([
+            [0, 1],
+            [0.02, 1],
+            [0.36, 0],
+            [1, 0],
+          ]),
+        );
+      // Night: the camera dims behind the window, and is wholly dark as the
+      // stage releases, so the stage scrolls on as plain page ground.
+      add(
+        night,
+        sample(29, (p) => ({
+          opacity:
+            0.46 * smooth(span(p, 0.04, 0.5)) + 0.54 * smooth(span(p, 0.72, 0.98)),
+        })),
+      );
+      // Lines from frame 01's finder exist only where frame 01 rests.
+      const pair1 = pairGroup(1);
+      if (pair1)
+        add(
+          pair1,
+          stops([
+            [0, 0],
+            [0.9999, 0],
+            [1, 1],
+          ]),
+        );
+
+      if (!scrollDriven) {
+        /* Damped follow of the scroll progress (R3): frame-rate independent,
+           settles in ~200 ms, idle once settled. */
+        const sStart = probe.getBoundingClientRect().top + window.scrollY;
+        let shown = 0;
+        let frame = 0;
+        let last = 0;
+        const target = () => clamp01((window.scrollY - sStart) / dive);
+        const write = (p: number) =>
+          diveAnimations.forEach((animation) => (animation.currentTime = p * 1000));
+        const step = (time: number) => {
+          const goal = target();
+          const dt = last ? Math.min(64, time - last) : 16;
+          last = time;
+          shown += (goal - shown) * (1 - Math.exp(-dt / 65));
+          if (Math.abs(goal - shown) < 0.0005) shown = goal;
+          write(shown);
+          frame = shown === goal ? 0 : requestAnimationFrame(step);
+          if (!frame) last = 0;
+        };
+        const onScroll = () => {
+          if (!frame) frame = requestAnimationFrame(step);
+        };
+        shown = target();
+        write(shown);
+        window.addEventListener("scroll", onScroll, { passive: true });
+        buildCleanups.push(() => {
+          window.removeEventListener("scroll", onScroll);
+          cancelAnimationFrame(frame);
+        });
+      }
+
+      /* Stage 01's copy follows the landing; the rail appears with it. */
+      const text = stageTexts[0]!;
+      const isLanded = () => probe.getBoundingClientRect().bottom <= 0.5;
+      if (!isLanded()) text.setAttribute("data-reveal-pending", "");
+      const landing = new IntersectionObserver(([entry]) => {
+        if (!entry) return;
+        landed = !entry.isIntersecting && entry.boundingClientRect.bottom <= 0.5;
+        if (landed) text.removeAttribute("data-reveal-pending");
+        showRail();
+      });
+      landing.observe(probe);
+      buildCleanups.push(() => {
+        landing.disconnect();
+        text.removeAttribute("data-reveal-pending");
+      });
+
+      /* A keyboard user reaching frame 01's links mid-dive lands it first. */
+      const onFrameFocus = () => {
+        const end = probe.getBoundingClientRect().bottom + window.scrollY;
+        if (window.scrollY < end - 1) window.scrollTo({ top: end, behavior: "instant" });
+      };
+      items[0]!.addEventListener("focusin", onFrameFocus);
+      buildCleanups.push(() => items[0]!.removeEventListener("focusin", onFrameFocus));
+    } else {
+      /* No dive: frame 01 is simply there; its copy and the rail follow it. */
+      const text = stageTexts[0]!;
+      const reached = new IntersectionObserver(
+        ([entry]) => {
+          if (!entry) return;
+          landed = entry.isIntersecting || entry.boundingClientRect.top < 0;
+          if (landed) text.removeAttribute("data-reveal-pending");
+          showRail();
+        },
+        { rootMargin: "0px 0px -45% 0px" },
+      );
+      if (frames[0]!.getBoundingClientRect().top >= window.innerHeight)
+        text.setAttribute("data-reveal-pending", "");
+      reached.observe(frames[0]!);
+      buildCleanups.push(() => {
+        reached.disconnect();
+        text.removeAttribute("data-reveal-pending");
+      });
+    }
+
+    /* --- 2. focus between stages --- */
+
+    frames.forEach((frame, index) => {
+      if (index === 0) return;
+      const finder = finders[index]!;
+      const box = frameBoxes[index]!;
+      const bases = lineBases(index);
+      const aspect = finder.box.w / finder.box.h;
+      let w0 = box.w * 0.34;
+      let h0 = w0 / aspect;
+      if (h0 > box.h * 0.62) {
+        h0 = box.h * 0.62;
+        w0 = h0 * aspect;
+      }
+      const top0 = box.h * 0.08;
+      /** The window inside the frame, top-anchored so it shows as soon as the
+          photograph enters, opening fast and settling slowly. */
+      const windowAt = (p: number): Box => {
+        const e = easeOutCubic(p);
+        const w = lerp(w0, box.w, e);
+        const h = lerp(h0, box.h, e);
+        return { x: (box.w - w) / 2, y: lerp(top0, 0, e), w, h };
+      };
+      const [fcx, fcy] = center(finder.box);
+      const corners = {
+        left: [finder.box.x, finder.box.y + finder.box.h],
+        right: [finder.box.x + finder.box.w, finder.box.y + finder.box.h],
+      } as const;
+
+      const focusOptions: KeyframeAnimationOptions = scrollDriven
+        ? {
+            timeline: new ViewTimeline({ subject: items[index]!, axis: "block" }),
+            rangeStart: "entry 0px",
+            rangeEnd: `entry ${Math.round(box.h * 0.78)}px`,
+            fill: "both",
+            easing: "linear",
+          }
+        : { duration: DURATION.reveal * 750, fill: "both", easing: "linear" };
+      const focusAnimations: Animation[] = [];
+      const add = (element: Element, keyframes: Keyframe[]) => {
+        const animation = play(element, keyframes, focusOptions);
+        if (!scrollDriven) animation.pause();
+        focusAnimations.push(animation);
+      };
+
+      add(
+        frame,
+        sample(25, (p) => {
+          const W = windowAt(p);
+          return {
+            transform: `translate(${px(W.x + W.w / 2 - box.w / 2)}, ${px(W.y + W.h / 2 - box.h / 2)}) scale(${num(W.w / box.w)}, ${num(W.h / box.h)})`,
+          };
+        }),
+      );
+      add(
+        lenses[index]!,
+        sample(25, (p) => {
+          const W = windowAt(p);
+          const sx = W.w / box.w;
+          const sy = W.h / box.h;
+          const dx = W.x + W.w / 2 - box.w / 2;
+          const dy = W.y + W.h / 2 - box.h / 2;
+          const z = 1.25 - 0.25 * easeOutCubic(p);
+          return {
+            transform: `translate(${px(-dx / sx)}, ${px(-dy / sy)}) scale(${num(z / sx)}, ${num(z / sy)})`,
+          };
+        }),
+      );
+      // The finder that framed this photograph settles as it opens.
+      const settle = (p: number) => 1 + 0.08 * (1 - easeOutCubic(p));
+      add(
+        finder.node,
+        sample(13, (p) => ({ transform: `scale(${num(settle(p))})` })),
+      );
+      if (bases)
+        bases.forEach((base, sideIndex) => {
+          const side = sideIndex === 0 ? "left" : "right";
+          add(
+            base.node,
+            sample(25, (p) => {
+              const s = settle(p);
+              const W = windowAt(p);
+              const corner = corners[side];
+              const from = [fcx + (corner[0] - fcx) * s, fcy + (corner[1] - fcy) * s];
+              const to = [box.x + W.x + (side === "left" ? 0 : W.w), box.y + W.y];
+              return { transform: lineTransform(base, from, to) };
+            }),
+          );
+        });
+
+      if (!scrollDriven) {
+        /* Time-based once, as the photograph's top reaches the reading line. */
+        const begin = () => focusAnimations.forEach((animation) => animation.play());
+        if (items[index]!.getBoundingClientRect().top < window.innerHeight * 0.9) {
+          focusAnimations.forEach((animation) => animation.finish());
+          return;
+        }
+        const observer = new IntersectionObserver(
+          (entries) => {
+            if (!entries.some((entry) => entry.isIntersecting)) return;
+            begin();
+            observer.disconnect();
+          },
+          { rootMargin: "0px 0px -10% 0px" },
+        );
+        observer.observe(items[index]!);
+        buildCleanups.push(() => observer.disconnect());
+      }
+    });
+
+    /* --- 3. the rail's fill follows the descent --- */
+
+    if (scrollDriven) {
+      const svhHalf = svh / 2;
+      const scrollTops = items.map((item, index) => {
+        if (index === 0) {
+          return diveOn
+            ? probe.getBoundingClientRect().bottom + window.scrollY
+            : frames[0]!.getBoundingClientRect().top + window.scrollY - svhHalf;
+        }
+        return item.getBoundingClientRect().top + window.scrollY - svhHalf;
+      });
+      const first = scrollTops[0]!;
+      const lastTop = scrollTops[scrollTops.length - 1]!;
+      if (lastTop > first + 1)
+        play(
+          railFill,
+          scrollTops.map((top, index) => ({
+            offset: (top - first) / (lastTop - first),
+            transform: `scaleY(${num(index / (scrollTops.length - 1))})`,
+          })),
+          {
+            timeline: new ScrollTimeline({
+              source: document.documentElement,
+              axis: "block",
+            }),
+            rangeStart: `${Math.round(first)}px`,
+            rangeEnd: `${Math.round(lastTop)}px`,
+            fill: "both",
+            easing: "linear",
+          },
+        );
+    }
+
+    /* --- 4. integrated support: the aerial drifts behind its heading --- */
+
+    const integratedMedia = q("[data-integrated-media]");
+    const integratedPicture = integratedMedia?.querySelector("picture");
+    if (scrollDriven && integratedMedia && integratedPicture)
+      play(
+        integratedPicture,
+        [
+          { transform: "translateY(-5%) scale(1.1)" },
+          { transform: "translateY(5%) scale(1.1)" },
+        ],
+        {
+          timeline: new ViewTimeline({ subject: integratedMedia, axis: "block" }),
+          rangeStart: "cover 0%",
+          rangeEnd: "cover 100%",
+          fill: "both",
+          easing: "linear",
+        },
+      );
+  };
+
+  build();
+
+  /* Rebuild only when the laid-out geometry changes: the page width, or the
+     dive's length (svh/lvh-based, so iOS toolbar changes never trigger it). */
+  let pending = 0;
+  const resize = new ResizeObserver(() => {
+    if (pending) return;
+    pending = requestAnimationFrame(() => {
+      pending = 0;
+      if (descentFrame.offsetWidth !== lastWidth || probe.offsetHeight !== lastDive)
+        build();
+    });
+  });
+  resize.observe(descentFrame);
+  resize.observe(probe);
+  resize.observe(track);
+  cleanups.push(() => {
+    resize.disconnect();
+    cancelAnimationFrame(pending);
+  });
+
+  return () => {
+    animations.forEach((animation) => animation.cancel());
+    animations = [];
+    buildCleanups.forEach((cleanup) => cleanup());
+    buildCleanups = [];
+    cleanups.reverse().forEach((cleanup) => cleanup());
+    reveals.forEach((observer) => observer.disconnect());
+    delete root.dataset.motion;
+    delete root.dataset.dive;
+    delete root.dataset.timeline;
+  };
+}
+
+export function ApproachMotion({ children }: { children: ReactNode }) {
+  const root = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const element = root.current;
+    if (!element) return;
+    const query = window.matchMedia("(prefers-reduced-motion: no-preference)");
+    let teardown: (() => void) | null = null;
+    const start = () => {
+      teardown?.();
+      teardown = null;
+      if (query.matches) teardown = guarded(setup)(element);
+    };
+    start();
+    query.addEventListener("change", start);
+    return () => {
+      query.removeEventListener("change", start);
+      teardown?.();
+    };
+  }, []);
 
   return (
     <div ref={root} data-approach-motion>

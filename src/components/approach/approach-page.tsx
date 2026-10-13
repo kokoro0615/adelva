@@ -221,11 +221,14 @@ function Finder({
   target,
   box,
   tone = "adelva",
+  number,
 }: {
   index: number;
   target: Stage | null;
   box: { dBox: Rect; mBox: Rect };
   tone?: "adelva" | "client";
+  /** A decorative number for a finder that is not itself the link. */
+  number?: string;
 }) {
   const vars = boxVars("f", {
     d: desktopGeometry.finders[index]!,
@@ -243,6 +246,15 @@ function Finder({
       {target && (
         <span className={styles.finderNumber} aria-hidden="true">
           {target.number}
+        </span>
+      )}
+      {number && (
+        <span
+          className={styles.finderNumber}
+          aria-hidden="true"
+          data-hero-finder-number
+        >
+          {number}
         </span>
       )}
     </>
@@ -271,11 +283,26 @@ function Finder({
   );
 }
 
+/** Pairs drawn over the descent; pair 0 rides the hero camera instead. */
+const linePairs = [1, 2, 3, 4, 5] as const;
+
 const heroBox = {
   dBox: [0, 0, desktopGeometry.width, desktopGeometry.heroHeight] as Rect,
   mBox: [0, 0, mobileGeometry.width, mobileGeometry.heroHeight] as Rect,
 };
 
+/** Where the one-time settle scales the hero photograph from: its finder's centre. */
+function finderOrigin(geometry: DescentGeometry) {
+  const [x, y, w, h] = geometry.finders[0]!;
+  return `${pct(x + w / 2, geometry.width)} ${pct(y + h / 2, geometry.heroHeight)}`;
+}
+
+/**
+ * The hero's text, scale and finder link. Its photograph lives in stage 01's
+ * dive stage (see `DiveStage`), which sits under this section at the same
+ * place: the camera that dives into the finder has to share a sticky stage
+ * with the photograph it lands on.
+ */
 function Hero() {
   const first = stages.items[0]!;
   return (
@@ -285,28 +312,7 @@ function Hero() {
       data-section="hero"
       data-hero
     >
-      <div className={styles.heroMedia} aria-hidden="true" data-hero-media>
-        {/* Zoom carries the dive; push carries the one-time settle on load. */}
-        <div className={styles.heroZoom} data-hero-zoom>
-          <div className={styles.heroZoom} data-hero-push>
-            <Photo
-              desktop={plates.desktop.hero}
-              mobile={plates.mobile.hero}
-              alt=""
-              className={styles.heroPhoto}
-              priority
-              sizes={{
-                desktop: "(min-width: 1920px) 1920px, 100vw",
-                mobile: "100vw",
-              }}
-            />
-            <Finder index={0} target={null} box={heroBox} />
-          </div>
-        </div>
-        <div className={styles.heroScrim} />
-        <div className={styles.heroNight} data-hero-night />
-      </div>
-      <div className={styles.heroBody} data-hero-body>
+      <div className={styles.heroBody} data-hero-body data-dive-lift>
         <nav className={styles.breadcrumb} aria-label="パンくず">
           <ol>
             {breadcrumb.items.map((item) => (
@@ -339,7 +345,9 @@ function Hero() {
           <Arrow />
         </Link>
       </div>
-      {/* The hero finder links to stage 01 like every other finder. */}
+      {/* The hero finder links to stage 01 like every other finder. The frame
+          and its number are drawn inside the photograph; this link is the
+          same rectangle, so focus is never scaled with the camera. */}
       <a
         href={`#${first.id}`}
         className={`${styles.finder} ${styles.heroFinderLink}`}
@@ -352,19 +360,13 @@ function Hero() {
         }
         aria-label={`${first.number} ${first.name}へ`}
         data-hero-finder-link
-      >
-        <span
-          className={styles.finderNumber}
-          aria-hidden="true"
-          data-hero-finder-number
-        >
-          {first.number}
-        </span>
-      </a>
+        data-dive-lift
+      />
       <nav
         className={styles.rail}
         aria-label={`${rail.label}（${rail.top}から${rail.bottom}へ）`}
         data-rail
+        data-dive-lift
       >
         <span className={styles.railEnd} aria-hidden="true">
           {rail.top}
@@ -394,6 +396,53 @@ function Hero() {
         </span>
       </nav>
     </section>
+  );
+}
+
+/**
+ * The hero photograph as the dive's camera. `zoom` carries the scroll-linked
+ * dive; `push` carries the one-time settle on load (CSS). The first pair of
+ * magnification lines rides the camera so it never detaches from the finder.
+ */
+function HeroMedia() {
+  return (
+    <div className={styles.heroMedia} data-hero-media>
+      <div className={styles.heroZoom} data-hero-zoom>
+        <div
+          className={`${styles.heroZoom} ${styles.heroPush}`}
+          style={
+            {
+              "--push-origin-m": finderOrigin(mobileGeometry),
+              "--push-origin-d": finderOrigin(desktopGeometry),
+            } as Vars
+          }
+          data-hero-push
+        >
+          <Photo
+            desktop={plates.desktop.hero}
+            mobile={plates.mobile.hero}
+            alt=""
+            className={styles.heroPhoto}
+            priority
+            sizes={{
+              desktop: "(min-width: 1920px) 1920px, 100vw",
+              mobile: "100vw",
+            }}
+          />
+          <Finder
+            index={0}
+            target={null}
+            box={heroBox}
+            number={stages.items[0]!.number}
+          />
+        </div>
+        <div className={styles.heroScrim} aria-hidden="true" />
+        <span className={styles.heroLines} aria-hidden="true">
+          <MagLines geometry={mobileGeometry} variant="mobile" pairs={[0]} />
+          <MagLines geometry={desktopGeometry} variant="desktop" pairs={[0]} />
+        </span>
+      </div>
+    </div>
   );
 }
 
@@ -439,13 +488,17 @@ function photoVars(index: number): Vars {
       : sumBottom(mobileGeometry.photos[index - 1]!);
   return {
     "--d-left": d[0],
+    "--d-top": d[1],
     "--d-width": d[2],
     "--d-height": d[3],
     "--d-gap": +(d[1] - dPrev).toFixed(2),
+    "--d-hero": desktopGeometry.heroHeight,
     "--m-left": m[0],
+    "--m-top": m[1],
     "--m-width": m[2],
     "--m-height": m[3],
     "--m-gap": +(m[1] - mPrev).toFixed(2),
+    "--m-hero": mobileGeometry.heroHeight,
   };
 }
 
@@ -480,42 +533,93 @@ function Dots() {
   );
 }
 
-/** Magnification lines for one viewport family, in its page coordinates. */
-function LinesOverlay({
+/**
+ * Magnification lines for one viewport family: from a finder's lower corners
+ * to the enlarged photograph's upper corners, in the family's page units.
+ * Each line is a box rotated about its start, so the motion layer can move
+ * either end with a transform alone (no SVG geometry is rewritten per frame).
+ */
+function MagLines({
   geometry,
   variant,
+  pairs,
 }: {
   geometry: DescentGeometry;
   variant: "desktop" | "mobile";
+  pairs: readonly number[];
 }) {
-  const lines = magnificationLines(geometry);
-  const height = geometry.descentBottom;
+  const lines = magnificationLines(geometry).filter((line) => pairs.includes(line.photo));
   return (
-    <svg
+    <span
       className={variant === "desktop" ? styles.linesDesktop : styles.linesMobile}
-      viewBox={`0 0 ${geometry.width} ${height}`}
-      preserveAspectRatio="none"
-      aria-hidden="true"
-      focusable="false"
       data-lines={variant}
     >
       {lines.map((line) => (
-        <g key={line.photo} data-line-pair={line.photo}>
-          {(["left", "right"] as const).map((side) => (
-            <line
-              key={side}
-              className={styles.magLine}
-              x1={line[side][0][0]}
-              y1={line[side][0][1]}
-              x2={line[side][1][0]}
-              y2={line[side][1][1]}
-              vectorEffect="non-scaling-stroke"
-              data-side={side}
-            />
-          ))}
-        </g>
+        <span key={line.photo} className={styles.linePair} data-line-pair={line.photo}>
+          {(["left", "right"] as const).map((side) => {
+            const [[x1, y1], [x2, y2]] = line[side];
+            return (
+              <i
+                key={side}
+                className={styles.magLine}
+                style={
+                  {
+                    "--x1": x1,
+                    "--y1": y1,
+                    "--len": +Math.hypot(x2 - x1, y2 - y1).toFixed(3),
+                    "--angle": +((Math.atan2(y2 - y1, x2 - x1) * 180) / Math.PI).toFixed(4),
+                  } as Vars
+                }
+                data-line
+                data-side={side}
+              />
+            );
+          })}
+        </span>
       ))}
-    </svg>
+    </span>
+  );
+}
+
+/** The four edges of the dive's window, drawn over stage 01's photograph. */
+function DiveWindow() {
+  return (
+    <span className={styles.diveWindow} aria-hidden="true" data-dive-window>
+      {(["top", "right", "bottom", "left"] as const).map((edge) => (
+        <i key={edge} className={styles.diveEdge} data-edge={edge} />
+      ))}
+    </span>
+  );
+}
+
+/** A stage photograph with its overlays; `lens` is what the motion layer scales. */
+function Frame({ index, final }: { index: number; final: boolean }) {
+  const stage = stages.items[index]!;
+  const next = stages.items[index + 1] ?? null;
+  return (
+    <div className={styles.frame} data-frame>
+      <div className={styles.lens} data-lens>
+        <Photo
+          desktop={plates.desktop.stages[index]!}
+          mobile={plates.mobile.stages[index]!}
+          alt={stage.alt}
+          className={styles.stagePhoto}
+          sizes={{
+            desktop: "(min-width: 1920px) 1780px, 93vw",
+            mobile: "90vw",
+          }}
+        />
+        {!final && <div className={styles.stageScrim} aria-hidden="true" />}
+        {index === 1 && <Dots />}
+        {!final && <StageText stage={stage} />}
+        <Finder
+          index={index + 1}
+          target={next}
+          box={stageBox(index)}
+          tone={final ? "client" : "adelva"}
+        />
+      </div>
+    </div>
   );
 }
 
@@ -534,7 +638,33 @@ function Descent() {
       <ol className={styles.stages} aria-labelledby="ap-stages-title">
         {stages.items.map((stage, index) => {
           const final = index === last;
-          const next = stages.items[index + 1] ?? null;
+          if (index === 0)
+            /* Stage 01 carries the dive: a track the length of the dive with a
+               sticky stage holding the hero photograph (the camera) and this
+               stage's frame, which lands where it rests (spec §14). Without
+               motion the track is exactly the hero plus this stage. */
+            return (
+              <li
+                key={stage.id}
+                id={stage.id}
+                tabIndex={-1}
+                className={`${styles.stage} ${styles.stageDive}`}
+                aria-labelledby={`${stage.id}-title`}
+                style={photoVars(index)}
+                data-stage={index + 1}
+              >
+                <div className={styles.diveTrack} data-dive-track>
+                  <span className={styles.diveProbe} aria-hidden="true" data-dive-probe />
+                  <span className={styles.svhProbe} aria-hidden="true" data-svh-probe />
+                  <div className={styles.diveStage} data-dive-stage>
+                    <HeroMedia />
+                    <div className={styles.diveNight} aria-hidden="true" data-dive-night />
+                    <Frame index={index} final={false} />
+                    <DiveWindow />
+                  </div>
+                </div>
+              </li>
+            );
           return (
             <li
               key={stage.id}
@@ -545,27 +675,7 @@ function Descent() {
               style={photoVars(index)}
               data-stage={index + 1}
             >
-              <div className={styles.frame} data-frame>
-                <Photo
-                  desktop={plates.desktop.stages[index]!}
-                  mobile={plates.mobile.stages[index]!}
-                  alt={stage.alt}
-                  className={styles.stagePhoto}
-                  sizes={{
-                    desktop: "(min-width: 1920px) 1780px, 93vw",
-                    mobile: "90vw",
-                  }}
-                />
-                {!final && <div className={styles.stageScrim} aria-hidden="true" />}
-                {index === 1 && <Dots />}
-                {!final && <StageText stage={stage} />}
-                <Finder
-                  index={index + 1}
-                  target={next}
-                  box={stageBox(index)}
-                  tone={final ? "client" : "adelva"}
-                />
-              </div>
+              <Frame index={index} final={final} />
               {final && (
                 <>
                   <span
@@ -766,8 +876,10 @@ export function ApproachPage(): ReactNode {
             <div className={styles.descentFrame} data-descent-frame>
               <Hero />
               <Descent />
-              <LinesOverlay geometry={desktopGeometry} variant="desktop" />
-              <LinesOverlay geometry={mobileGeometry} variant="mobile" />
+              <span className={styles.lines} aria-hidden="true" data-lines-overlay>
+                <MagLines geometry={mobileGeometry} variant="mobile" pairs={linePairs} />
+                <MagLines geometry={desktopGeometry} variant="desktop" pairs={linePairs} />
+              </span>
             </div>
             <div className={styles.ridge} aria-hidden="true">
               <img
@@ -795,7 +907,6 @@ export function ApproachPage(): ReactNode {
               />
             ))}
           </div>
-          <div className={styles.diveFrame} aria-hidden="true" data-dive-frame />
         </main>
       </ApproachMotion>
       <HomeFooter />
