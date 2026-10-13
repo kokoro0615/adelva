@@ -98,6 +98,21 @@ the current landscape H.264 `hero-antarctica` encode. It is a decorative loading
 fallback with the same source, permission statement and user-directed production
 approval as the video, and prevents an earlier poster from flashing before playback.
 
+2026-10-13 phone encodes (polish, Opus 5.5): `hero-antarctica-portrait-m.mp4`
+(720×1280) and `hero-antarctica-m.mp4` (1280×720) are single re-encodes of the
+reviewed lab finals `aman-film-v3-lab/renders/final/portrait-h264-l41.mp4` and
+`landscape-h264-l41.mp4` (byte-identical to `hero-antarctica-portrait.mp4` /
+`hero-antarctica.mp4`): Lanczos downscale, x264 two-pass 2.4 Mbps (max 3 Mbps),
+High@4.0, keyframes ≤ 2 s with `mbtree=0`, `ipratio=1.1` (keyframe quality pulse
+halved: mean SSIM jump at keyframes 0.0043 vs 0.0079 with the defaults), `aq-mode=3`
+against banding, faststart, no audio; 9.5 MB each instead of 40/47 MB. Reviewed by
+eye on sky/mist/sunrise crops at 4× contrast (no banding beyond the source) and by
+SSIM against the source at 1080×1920 (mean 0.978). Served only below 1024 px
+(`<source media>`); the files desktop selects are unchanged.
+`public/media/target/hero-poster-portrait.webp` (720×1280) is the first decoded
+frame of `hero-antarctica-portrait-m.mp4`, painted by phones held upright so playback
+starts without a jump. Same source, permission statement and approval as the video.
+
 ## Identity and global-shell imagery
 
 | Class         | Local paths                                                 | Source / owner                       | Production role                      | Loading | Alt intent                                   | Status   |

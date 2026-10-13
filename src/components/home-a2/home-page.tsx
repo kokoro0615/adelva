@@ -26,7 +26,7 @@ import {
   type Lines,
 } from "@/content/adelva-home";
 import { homeGeometry as G } from "@/content/adelva-home-geometry";
-import { getAsset, getVideoAsset } from "@/content/assets";
+import { getAsset, getVideoAsset, PHONE_PORTRAIT_MEDIA } from "@/content/assets";
 import { routeStatusOf } from "@/content/adelva-navigation";
 
 import { HomeMotion } from "./home-motion";
@@ -156,6 +156,7 @@ function Link({
 
 export function HomePage() {
   const poster = getAsset("hero-poster");
+  const posterPortrait = getAsset("hero-poster-portrait");
   const film = getVideoAsset("hero-antarctica");
   const statementCut = purpose.statementLines.mobile; // 経営判断を、｜現場で動く｜仕組みと成果へ。
   const leadBreak = (i: number) => {
@@ -235,24 +236,35 @@ export function HomePage() {
 
             <div className={styles.film} data-film="" aria-hidden="true">
               <div className={styles.filmWhole} data-film-whole="">
-                {/* LCP and the still/no-script frame; the film replaces it once it plays */}
-                <img
-                  className={styles.poster}
-                  src={poster.src}
-                  width={poster.width}
-                  height={poster.height}
-                  alt=""
-                  fetchPriority="high"
-                  decoding="async"
-                />
+                {/* LCP and the still/no-script frame; the film replaces it once it plays. Phones held
+                    upright paint the first frame of their portrait film, so playback starts without a
+                    jump. The video carries no poster of its own (one attribute cannot follow the
+                    viewport): until its first frame it is transparent over this picture. */}
+                <picture>
+                  <source
+                    media={PHONE_PORTRAIT_MEDIA}
+                    srcSet={posterPortrait.src}
+                    width={posterPortrait.width}
+                    height={posterPortrait.height}
+                  />
+                  <img
+                    className={styles.poster}
+                    src={poster.src}
+                    width={poster.width}
+                    height={poster.height}
+                    alt=""
+                    fetchPriority="high"
+                    decoding="async"
+                  />
+                </picture>
+                {/* metadata only until the motion starts it: a phone never buffers a film it does not show */}
                 <video
                   className={styles.video}
                   data-film-video=""
                   muted
                   loop
                   playsInline
-                  preload="auto"
-                  poster={poster.src}
+                  preload="metadata"
                   tabIndex={-1}
                 >
                   {(film.sources ?? [{ src: film.src, type: "video/mp4" }]).map(
