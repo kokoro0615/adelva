@@ -1,0 +1,2265 @@
+diff --git a/docs/specs/adelva-general-managers-spec.md b/docs/specs/adelva-general-managers-spec.md
+index c6dbe5c..f21cb56 100644
+--- a/docs/specs/adelva-general-managers-spec.md
++++ b/docs/specs/adelva-general-managers-spec.md
+@@ -137,6 +137,8 @@ div.page[data-general-managers] lang=ja
+ 
+ ### 8.2 状態の持ち方
+ 
++> 2026-10-01: 02 のラジオは廃止し、読む位置に連動する `ol` にした（§13.4）。
++
+ - 課題の選択は `input[type=checkbox]` が唯一の状態。田が灯る・札の文字色・03 の関係する行・07 のチップは CSS の `:has(:checked)` で表示する（JS なしでも動く）。
+ - 02 の論点は `input[type=radio]`。印の切り替えも `:has(:checked)`。
+ - JS は、選択トレイ（件数・表示・読み上げ）、水位計の現在地、モバイルの章シート、スクロール演出だけを持つ。
+@@ -159,6 +161,8 @@ div.page[data-general-managers] lang=ja
+ 
+ ## 9. モーション（CSS は状態変化、GSAP は計測を伴う演出のみ。reduce ではすべて完成状態・即時）
+ 
++> 2026-10-01: 読み込み・01・02・03〜07 の動きは §13 で改訂した（タップではなく読む位置で変わる）。この表は改訂前の記録。
++
+ | 部位           | きっかけ                | 動き                                                                                                                                                                                                              | 値                                                                                                                                                                         |
+ | -------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+ | 朝の光         | 読み込み（一度）        | 最初の水鏡を斜めの光の帯が左から右へ（`mix-blend-mode: screen`、縁はマスクでぼかす）                                                                                                                              | `translateX` 1600ms `power1.inOut`、遅延 200ms（`--ease-reveal` では最初の 300ms で通り過ぎて見えなかったため変更。不透明度は 450ms で上がり、1000ms から 600ms で消える） |
+@@ -233,3 +237,62 @@ div.page[data-general-managers] lang=ja
+ - 07 の課題チップは表示だけで、フォームへは引き継がない（プリフィルは要判断）。
+ - 灯った版のうち3枚（人材・生産性・販売）は §10.2 の加工による。モックでは描かれていない状態なので、目視で確認して記録する。
+ - 写真・宿はすべて架空。
++
++## 13. 改訂 2026-10-01 — 「一筋の朝の光」（モーションと操作の再設計）
++
++依頼（2026-10-01）: 「アニメーションモーションが見栄えが悪い。タップしないと色が変わらない等、わざわざタップしないと思います。徹底的に研究し原因追求と改善。UIUXアニメーションデザインレイアウト圧巻に」。写真・文言・章構成・リンクは A2 のまま。変えるのは、状態が変わるきっかけ（タップ → 読む位置）と動きの質。
++
++### 13.1 原因（改修前の本番ビルドを 1440×900 で録画・計測。`docs/reports/adelva-general-managers-2026-10-01/`）
++
++| #   | 現象                                                                                                             | 原因                                                                                                                     |
++| --- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
++| 1   | 01 の5枚の田が、スクロールしても青いまま。モックの見せ場（杏色に灯る水鏡）が、タップしない閲覧者には一度も出ない | 灯る条件が `input:checked` だけ。初期状態は未選択（§8.3）                                                                |
++| 2   | 札が操作できると分からない                                                                                       | 22px の細い輪と文字だけで、押す前の手がかりがない。案内文はデスクトップのみ・13.5px。タッチ端末では hover の下線も出ない |
++| 3   | 02 の「優先順位と影響範囲」「現場判断と、オーナー・本部判断」の印を見る人がいない                                | 印の切り替えがラジオの操作だけ                                                                                           |
++| 4   | 03 の「{課題}に関係」と橙の縦線が出ない                                                                          | 01 で選んだ時だけ表示。01→03 のつながりが、選ばない人には見えない                                                        |
++| 5   | 読み込み直後、見出しが一度表示され、消えて、もう一度現れる                                                       | サーバーの HTML は完成状態で描画され、水和後に GSAP の `from` が `opacity:0` にしてから動かしていた                      |
++| 6   | 光の帯が灰色のもやに見える                                                                                       | 淡い帯（18〜40%）を `screen` で全幅に通し、見出しの上を横切っていた。水面ではなく文字の上に出る                          |
++| 7   | ページの大半で、写真が平らに流れるだけ                                                                           | スクロールに連動する動きは 05 の線だけ。他は一度きりの `y:14px`＋不透明度（よくある出方）                                |
++
++### 13.2 方針
++
++朝の光が一筋、読む位置に合わせて斜面を下りる。どの場面も、読むだけで色と光が変わる。タップ（選択）は「その田に光を残す」追加の操作として残し、03・07 への引き継ぎを担う。
++
++### 13.3 動きの仕様（CSS は状態、GSAP は計測を伴うものだけ。reduce では 13.5）
++
++| 部位               | きっかけ                                                 | 動き                                                                                                                                                                                                              | 値                                                                       |
++| ------------------ | -------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
++| 夜明け（ヒーロー） | 読み込み（CSS、水和前から）                              | 写真は青い時刻から始まり（濃紺の層 0.5 → 0）、最初の水鏡の奥（滝の落ち口）から暖かい光が水面に広がって引く。見出しは行ごとに、下の見えない線から持ち上がる（`clip-path` と `translateY`）。リードとボタンは後から | 暗さ 2200ms、光 2600ms（0→0.8→0）、行 1200ms `--ease-reveal`、行間 140ms |
++| 01 光が田に入る    | 読む位置（画面の 50%、モバイル 55%）に最も近い田（±28%） | 上の田から光の滴が畦を越えて輪へ渡り、着くと同時にその田の灯った版がフェードで現れ、文字が墨に、輪が墨の「＋」に変わり、波紋が一度。離れると光が引く。上へ戻るときは滴なしで灯る                                  | 滴 600ms（70% で点灯開始）、入り 900ms、引き 700ms。選んだ田は光が残る   |
++| 01 札              | 常時                                                     | 輪の中に「＋」（選べる印）。選ぶとチェック。案内文はモバイルでも表示                                                                                                                                              | —                                                                        |
++| 02 論点            | 読む位置（画面の 58%）を越えた最後の論点                 | 論点ごとに写真の印が切り替わり、その線が描かれる。今の論点は輪が橙・左に橙の目盛り。ラジオは廃止し `ol`（印は装飾）                                                                                               | 印 400ms、線の描画 900ms                                                 |
++| 03 表              | 常時／行が入る                                           | 関係する課題のチップは常に表示（選んだ課題は橙で塗る）。行が画面に入ると、光が一度横切り、左の図が描かれる                                                                                                        | 光 1200ms、行間 120ms                                                    |
++| 見出し             | 章が入る                                                 | 章番号が左から、h2 は行ごとにマスクから持ち上がる                                                                                                                                                                 | 1100ms、行間 90ms                                                        |
++| 04 役割            | 各役割が画面の 80% に入る                                | 左の線が上から伸び、文字が現れる（一段ずつ）                                                                                                                                                                      | 900ms                                                                    |
++| 05 落ち口          | スクロール（既存）                                       | 光の点を大きく（光の輪 70 → 110）、到達した工程は名前が 6px 右から入る                                                                                                                                            | 既存の scrub                                                             |
++| 06 確認            | スクロール（scrub）                                      | 上の罫線を橙の光が左から右へ進み、届いた項目のチェックが描かれる                                                                                                                                                  | 開始 `top 80%`、終了 `top 35%`                                           |
++| 07 到着            | 07 が入る（一度）                                        | 流れの線が伸び、節点が順に橙に。斜面の下の宿の窓がひととき明るむ                                                                                                                                                  | 節点 160ms 刻み、窓 2400ms                                               |
++
++### 13.4 状態とアクセシビリティ
++
++- 01 の光は `label[data-dawn]` と `.lit[data-dawn]`（JS が付ける）。文字色・溜まりは「選んだ」と同じ組み合わせ（§11.1 で AA を確認済み）。選択は従来どおり `checkbox`。
++- 02 は `ol[aria-label=判断の論点]`。現在の論点は `section[data-point]`（既定は `cause`）。印は `aria-hidden`、3つの論点の文言はすべて本文として読める。
++- reduce: 01 の光、02 の線の描画、03〜07 の出現は行わない。02 の印の切り替えは読む位置に合わせて即時。ヒーローの夜明けは表示しない。
++- JS なし: 01 は選択で灯る（CSS）。02 は「現象と原因」の印。03 のチップは常に表示。
++
++### 13.5 実装時の決定（計測に基づく）
++
++| 項目                                                                           | 決定                                                                                                                    | 根拠                                                                                                      |
++| ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
++| 田の光の出方                                                                   | 円形マスク（`@property --reach`）をやめ、灯った版の不透明度だけを合成レイヤーで変える。輪からの広がりは滴と波紋が担う   | 読むたびに灯るため、マスクを毎フレーム描き直すとスクロール中の負荷が旧版の約2倍になった                   |
++| 光の滴                                                                         | `mix-blend-mode` を使わない通常の半透明                                                                                 | 合成モードの移動レイヤーが 01 区間の追加負荷の最大要因（CPU 時間 −160ms）                                 |
++| 位置の計測                                                                     | 輪・章・論点の文書上の位置はリサイズ（`ResizeObserver`）とフォント読み込み時だけ測り、スクロール中は `scrollY` と比べる | スクロール毎フレームの `getBoundingClientRect` が動きの書き込みと交互になり、強制レイアウトを起こしていた |
++| 02 の印とページ全体の `:has()`                                                 | 写真側の `causeGlow` に `data-point`・`data-drawn` を複写し、`.page:has(section[…])` を使わない                         | 論点が変わるたびにページ全体の再計算が 11ms（描画開始は 8.2ms）。複写後 0.8ms／0.1ms                      |
++| 見出しの行                                                                     | 行の箱を動く間だけ `overflow: clip` にして、中身を `transform` で持ち上げる（`clip-path` を動かさない）                 | `clip-path` の変化は毎フレームの再描画になる                                                              |
++| 03 の選んだチップ                                                              | 橙の縁と点、文字は象牙色（橙地に墨にしない）                                                                            | 12.5px の墨を橙地に置くと、描画後の文字の芯が 3.7〜4.2:1                                                  |
++| モバイルの「販売」                                                             | 灯る水面が文字の右だけにあるため、文字の下の光を右から広がる柔らかい帯にする（墨の文字は維持）                          | 象牙色に戻すと説明文が灯った水面に掛かり 2.78:1                                                           |
++| 案内文（モバイルにも表示）・04 の合意文（モバイル）・1024 幅の「送信後の流れ」 | 象牙色 100%（案内文には淡い陰）                                                                                         | 3.98／4.36／4.47:1 → すべて 4.5 以上                                                                      |
++
++### 13.6 検証
++
++§11 のゲートに加え、`scripts/adelva/measure-general-managers-contrast.mjs` を 01 の光（各田）・02 の各論点の状態で測る。録画（改修前・後、1440 と 390）から、スクロールだけで状態が変わる場面の数と、読み込み時の見出しの消失（ちらつき）を記録する。
+diff --git a/scripts/adelva/capture-general-managers-keyframes.mjs b/scripts/adelva/capture-general-managers-keyframes.mjs
+index 2ccc1b0..6dd15e6 100644
+--- a/scripts/adelva/capture-general-managers-keyframes.mjs
++++ b/scripts/adelva/capture-general-managers-keyframes.mjs
+@@ -1,12 +1,15 @@
+-/** Motion keyframes of /challenges/general-managers with motion enabled (spec §9),
+- * captured from a running server into one sheet.
+- *   PLAYWRIGHT_TEST_BASE_URL=http://127.0.0.1:4482 node scripts/adelva/capture-general-managers-keyframes.mjs
++/** Motion keyframes of /challenges/general-managers with motion enabled (spec §13,
++ * "one line of first light"), captured from a running server into one sheet.
++ * Nothing is tapped: every state below is reached by scrolling alone.
++ *   PLAYWRIGHT_TEST_BASE_URL=http://127.0.0.1:4482 node scripts/adelva/capture-general-managers-keyframes.mjs [out.png]
+  */
+ import { chromium } from "@playwright/test";
+ import sharp from "sharp";
+ 
+ const base = process.env.PLAYWRIGHT_TEST_BASE_URL ?? "http://127.0.0.1:4482";
+-const out = "docs/reports/adelva-general-managers-2026-09-30/motion-keyframes.png";
++const out =
++  process.argv[2] ??
++  "docs/reports/adelva-general-managers-2026-10-01/motion-keyframes.png";
+ const browser = await chromium.launch();
+ const frames = [];
+ const top = (p, sel) =>
+@@ -14,6 +17,27 @@ const top = (p, sel) =>
+     (s) => document.querySelector(s).getBoundingClientRect().top + scrollY,
+     sel,
+   );
++/** Scrolls in small steps so every scroll trigger on the way fires in order. */
++const glide = async (p, y) => {
++  const from = await p.evaluate(() => scrollY);
++  const steps = Math.max(1, Math.round(Math.abs(y - from) / 60));
++  for (let i = 1; i <= steps; i++) {
++    await p.evaluate((t) => scrollTo(0, t), from + ((y - from) * i) / steps);
++    await p.waitForTimeout(16);
++  }
++};
++/** Puts an element's centre (or top) on a line at `ratio` of the viewport. */
++const onLine = (p, sel, ratio, edge = "centre") =>
++  p.evaluate(
++    ([s, r, e]) => {
++      const box = [...document.querySelectorAll(s)]
++        .find((n) => n.getBoundingClientRect().width > 0)
++        .getBoundingClientRect();
++      const at = e === "top" ? box.top : box.top + box.height / 2;
++      return scrollY + at - innerHeight * r;
++    },
++    [sel, ratio, edge],
++  );
+ const gates = (p) =>
+   p.evaluate(() => {
+     const r = [...document.querySelectorAll('[data-marks="gates"]')]
+@@ -28,57 +52,64 @@ const d = await browser.newPage({
+ });
+ await d.goto(`${base}/challenges/general-managers`, { waitUntil: "networkidle" });
+ await d.reload({ waitUntil: "domcontentloaded" });
+-await d.waitForFunction(
+-  () => document.querySelector("[data-general-managers]")?.dataset.motion === "on",
+-);
+-await d.waitForTimeout(900);
++await d.waitForTimeout(1250);
+ frames.push([
+-  "1440 読み込み：朝の光が水鏡を横切り、見出しが行ごとに現れる",
++  "1440 読み込み：夜明けの青から、水面に朝日。見出しが行ごとに立ち上がる",
+   await d.screenshot(),
+ ]);
+-await d.evaluate((y) => scrollTo(0, y), (await top(d, "#gm-01")) - 60);
+-await d.waitForTimeout(1200);
+-await d.locator('input[value="sales"]').check({ force: true });
+-await d.waitForTimeout(420);
++await d.waitForTimeout(2500);
++await glide(d, await onLine(d, 'label[data-issue="people"] [data-ring]', 0.5));
++await d.waitForTimeout(1400);
++frames.push(["1440 01：読む位置の田にだけ朝の光（タップ不要）", await d.screenshot()]);
++await glide(d, await onLine(d, 'label[data-issue="productivity"] [data-ring]', 0.5));
++await d.waitForTimeout(330);
++frames.push(["1440 01：光の滴が畦を越えて下の田へ渡る", await d.screenshot()]);
++await d.waitForTimeout(1500);
++await glide(d, await onLine(d, '[data-step="priority"]', 0.5, "top"));
++await d.waitForTimeout(1300);
+ frames.push([
+-  "1440 01：選んだ田に、輪から朝の光が広がる（波紋）",
++  "1440 02：読んでいる論点に合わせて印が描かれる（優先順位）",
++  await d.screenshot(),
++]);
++await glide(d, await onLine(d, '[data-step="authority"]', 0.5, "top"));
++await d.waitForTimeout(1300);
++frames.push(["1440 02：判断の境界", await d.screenshot()]);
++await glide(d, (await top(d, "#gm-support-1")) - 900 * 0.55);
++await d.waitForTimeout(450);
++frames.push([
++  "1440 03：行に光が走り、図が描かれる。関係する課題は常に表示",
+   await d.screenshot(),
+ ]);
+-await d.waitForTimeout(1400);
+-await d.evaluate((y) => scrollTo(0, y), (await top(d, "#gm-02")) - 80);
+-await d.waitForTimeout(1500);
+-frames.push(["1440 02：点線が現象から上流の取水口へ", await d.screenshot()]);
+-await d.locator('input[value="authority"]').check({ force: true });
+-await d.waitForTimeout(700);
+-frames.push(["1440 02：論点を切り替えると、判断の境界の印に", await d.screenshot()]);
+ const g = await gates(d);
+-await d.evaluate((y) => scrollTo(0, y), g.top - 900 * 0.75 + g.h * 0.55);
++await glide(d, g.top - 900 * 0.75 + g.h * 0.55);
+ await d.waitForTimeout(1300);
+ frames.push(["1440 05：スクロールに合わせ、光が落ち口を下る", await d.screenshot()]);
++await glide(d, (await top(d, "[data-check]")) - 900 * 0.62);
++await d.waitForTimeout(1000);
++frames.push(["1440 06：罫線を光が進み、届いた項目に印", await d.screenshot()]);
+ await d.close();
+ 
+ const m = await browser.newPage({
+   viewport: { width: 390, height: 844 },
+   reducedMotion: "no-preference",
++  hasTouch: true,
++  isMobile: true,
+ });
+ await m.goto(`${base}/challenges/general-managers`, { waitUntil: "networkidle" });
++await m.waitForTimeout(3500);
++await glide(m, await onLine(m, 'label[data-issue="people"] [data-ring]', 0.55));
+ await m.waitForTimeout(1500);
+-await m.evaluate((y) => scrollTo(0, y), (await top(m, "#gm-01")) + 420);
+-await m.waitForTimeout(900);
+-await m.locator('input[value="quality"]').check({ force: true });
+-await m.locator('input[value="people"]').check({ force: true });
+-await m.waitForTimeout(1500);
+-frames.push([
+-  "390 01：一枚の田＝一行。選ぶと灯り、画面下に選択トレイ",
+-  await m.screenshot(),
+-]);
++frames.push(["390 01：読む行の田が灯る", await m.screenshot()]);
++await glide(m, await onLine(m, '[data-step="priority"]', 0.66, "top"));
++await m.waitForTimeout(1300);
++frames.push(["390 02：論点と印が連動", await m.screenshot()]);
+ const mg = await gates(m);
+-await m.evaluate((y) => scrollTo(0, y), mg.top - 844 * 0.75 + mg.h * 0.5);
++await glide(m, mg.top - 844 * 0.75 + mg.h * 0.5);
+ await m.waitForTimeout(1300);
+-frames.push(["390 05：線が届いた落ち口だけが灯る", await m.screenshot()]);
+-await m.getByRole("button", { name: /章の一覧を開く/ }).click();
+-await m.waitForTimeout(600);
+-frames.push(["390 水位計：押すと章の一覧のシート", await m.screenshot()]);
++frames.push(["390 05：届いた落ち口が灯る", await m.screenshot()]);
++await glide(m, (await top(m, "#gm-07")) - 844 * 0.25);
++await m.waitForTimeout(1600);
++frames.push(["390 07：送信後の流れが順に灯る", await m.screenshot()]);
+ await m.close();
+ await browser.close();
+ 
+@@ -105,15 +136,21 @@ for (const [i, [cap, buf]] of desk.entries()) {
+   });
+   comps.push({ input: caption(cap, W), left: x, top: y + H + 2 });
+ }
+-const rowY = G + 3 * (H + CAP + G);
++const rowY = G + Math.ceil(desk.length / 2) * (H + CAP + G);
++const mobileGap =
++  (G * 3 + W * 2 - G * 2 - MW * mob.length) / Math.max(1, mob.length - 1);
+ for (const [i, [cap, buf]] of mob.entries()) {
+-  const x = G + i * (MW + 300);
++  const x = G + i * (MW + mobileGap);
+   comps.push({
+     input: await sharp(buf).resize(MW, MH).png().toBuffer(),
+-    left: x,
++    left: Math.round(x),
+     top: rowY,
+   });
+-  comps.push({ input: caption(cap, MW + 280), left: x, top: rowY + MH + 2 });
++  comps.push({
++    input: caption(cap, MW + 150),
++    left: Math.round(x),
++    top: rowY + MH + 2,
++  });
+ }
+ await sharp({
+   create: {
+diff --git a/scripts/adelva/compare-general-managers.mjs b/scripts/adelva/compare-general-managers.mjs
+index 0c8ef7d..b47fc63 100644
+--- a/scripts/adelva/compare-general-managers.mjs
++++ b/scripts/adelva/compare-general-managers.mjs
+@@ -43,13 +43,7 @@ const anchors = {
+       "label[data-issue] > span[class*=ring]",
+       i,
+     ]),
+-    ...[0, 1, 2].map((i) => [
+-      `point ${i + 1}`,
+-      ".point",
+-      i,
+-      "[role=radiogroup] label",
+-      i,
+-    ]),
++    ...[0, 1, 2].map((i) => [`point ${i + 1}`, ".point", i, "[data-points] > li", i]),
+     ["cause tag", ".cause-tag", 0, "p[data-modes='cause priority']", 0],
+     ["symptom tag", ".symptom-tag", 0, "p[data-modes='cause']", 0],
+     ...[0, 1, 2].map((i) => [`support row ${i + 1}`, ".row", i, "[role=row][id]", i]),
+@@ -92,13 +86,7 @@ const anchors = {
+       "label[data-issue]",
+       i,
+     ]),
+-    ...[0, 1, 2].map((i) => [
+-      `point ${i + 1}`,
+-      ".point",
+-      i,
+-      "[role=radiogroup] label",
+-      i,
+-    ]),
++    ...[0, 1, 2].map((i) => [`point ${i + 1}`, ".point", i, "[data-points] > li", i]),
+     ["cause tag", ".cause-tag", 0, "p[data-modes='cause priority']", 0],
+     ["symptom tag", ".symptom-tag", 0, "p[data-modes='cause']", 0],
+     ...[0, 1, 2].map((i) => [`support card ${i + 1}`, ".card", i, "[role=row][id]", i]),
+diff --git a/scripts/adelva/measure-general-managers-contrast.mjs b/scripts/adelva/measure-general-managers-contrast.mjs
+index e2d5c84..e43e898 100644
+--- a/scripts/adelva/measure-general-managers-contrast.mjs
++++ b/scripts/adelva/measure-general-managers-contrast.mjs
+@@ -2,8 +2,9 @@
+  * Every visible text run is compared with its own text-free background (text made
+  * transparent; pools, grades and halos kept). Light text is judged against the
+  * p95 background luminance, dark (ink) text against the p5, so the worst side of
+- * the photograph behind each run decides. States: nothing selected, the mock's
+- * reference state, and every terrace lit with each point of judgement.
++ * the photograph behind each run decides. States: nothing selected, every terrace
++ * in the reading light (spec §13), the mock's reference state, and every terrace
++ * lit with each point of judgement.
+  *   PLAYWRIGHT_TEST_BASE_URL=http://127.0.0.1:4481 node scripts/adelva/measure-general-managers-contrast.mjs [out.json]
+  */
+ import { mkdir, writeFile } from "node:fs/promises";
+@@ -87,7 +88,7 @@ async function measure(p, label, viewport) {
+     .toBuffer({ resolveWithObject: true });
+   const style = await p.addStyleTag({
+     content:
+-      "main [data-contrast-id]{color:transparent!important;-webkit-text-fill-color:transparent!important;fill:transparent!important;text-decoration-color:transparent!important}",
++      "main [data-contrast-id]{color:transparent!important;-webkit-text-fill-color:transparent!important;fill:transparent!important;text-decoration-color:transparent!important;transition:none!important}",
+   });
+   const shot = await p.screenshot({ fullPage: true });
+   await style.evaluate((n) => n.remove());
+@@ -167,6 +168,19 @@ for (const [width, height] of [
+   await p.goto(`${base}/challenges/general-managers`, { waitUntil: "networkidle" });
+   await settle(p);
+   results.push(...(await measure(p, "rest", width)));
++  // 01 as the reader passes: the light on each terrace without a selection
++  await p.evaluate(() =>
++    document
++      .querySelectorAll("label[data-issue], [data-lit]")
++      .forEach((n) => n.setAttribute("data-dawn", "")),
++  );
++  await settle(p);
++  results.push(...(await measure(p, "reading-light", width)));
++  await p.evaluate(() =>
++    document
++      .querySelectorAll("[data-dawn]")
++      .forEach((n) => n.removeAttribute("data-dawn")),
++  );
+   const check = (id) =>
+     p.locator(`input[name="issue"][value="${id}"]`).check({ force: true });
+   await check("quality");
+@@ -188,7 +202,23 @@ for (const [width, height] of [
+       .forEach((g) => g.removeAttribute("data-state")),
+   );
+   for (const point of ["priority", "authority"]) {
+-    await p.locator(`input[name="point"][value="${point}"]`).check({ force: true });
++    // 02 follows the reading position; hold the point while the full-page
++    // capture resizes the viewport
++    await p.evaluate((point) => {
++      const section = document.querySelector("section[data-point]");
++      const hold = () => {
++        if (section.dataset.point !== point) section.dataset.point = point;
++        document
++          .querySelectorAll("[data-points] > li")
++          .forEach((li) =>
++            li.toggleAttribute("data-active", li.dataset.step === point),
++          );
++      };
++      window.__gmHold?.disconnect();
++      window.__gmHold = new MutationObserver(hold);
++      window.__gmHold.observe(section, { attributes: true });
++      hold();
++    }, point);
+     await settle(p);
+     results.push(...(await measure(p, `all-lit+${point}`, width)));
+   }
+diff --git a/src/components/general-managers/general-managers-page.tsx b/src/components/general-managers/general-managers-page.tsx
+index c9ed818..2070977 100644
+--- a/src/components/general-managers/general-managers-page.tsx
++++ b/src/components/general-managers/general-managers-page.tsx
+@@ -21,7 +21,7 @@ import {
+ import { GmExperience } from "./gm-experience";
+ import { GmGauge } from "./gm-gauge";
+ import { GmTray } from "./gm-tray";
+-import { Lines } from "./lines";
++import { Lines, MaskLines } from "./lines";
+ import { DecisionMarks, GateMarks } from "./terrace-marks";
+ import { TerracesPhoto } from "./terraces-photo";
+ import styles from "./general-managers.module.css";
+@@ -44,10 +44,13 @@ function Arrow() {
+ function Section({
+   index,
+   className = "",
++  point,
+   children,
+ }: {
+   index: number;
+   className?: string;
++  /** 02 only: the point of judgement the marks show (the motion layer follows the reader). */
++  point?: string;
+   children: ReactNode;
+ }) {
+   const chapter = index > 0 ? chapters[index - 1] : null;
+@@ -57,6 +60,7 @@ function Section({
+       className={`${styles.section} ${className}`}
+       aria-labelledby={chapter ? `${chapter.id}-title` : "gm-title"}
+       data-chapter={index}
++      data-point={point}
+       style={
+         {
+           "--hd": span(d.tops, d.height, index),
+@@ -100,7 +104,7 @@ function H2({
+       data-pool={pool ? "m" : undefined}
+       data-reveal
+     >
+-      <Lines text={text} />
++      <MaskLines text={text} />
+     </h2>
+   );
+ }
+@@ -169,10 +173,12 @@ function Challenges() {
+       <div className={styles.col}>
+         <Chapter index={1} />
+         <H2 index={1} text={challengesCopy.title} />
+-        <p className={`${styles.body} ${styles.pooled}`} data-pool="m">
++        <p className={`${styles.body} ${styles.pooled}`} data-pool="m" data-reveal-soft>
+           <Lines text={challengesCopy.body} />
+         </p>
+-        <p className={`${styles.helper} ${styles.desktop}`}>{challengesCopy.helper}</p>
++        <p className={styles.helper} data-reveal-soft>
++          {challengesCopy.helper}
++        </p>
+       </div>
+       <fieldset className={styles.issues} data-issues>
+         <legend className={styles.visuallyHidden}>{challengesCopy.legend}</legend>
+@@ -195,7 +201,7 @@ function Challenges() {
+               name="issue"
+               value={issue.id}
+             />
+-            <span className={styles.ring} aria-hidden="true">
++            <span className={styles.ring} aria-hidden="true" data-ring>
+               <i className={styles.ripple} />
+               <i className={styles.ripple} />
+             </span>
+@@ -212,29 +218,24 @@ function Challenges() {
+ 
+ function Decision() {
+   return (
+-    <Section index={2}>
++    <Section index={2} point="cause">
+       <div className={styles.col}>
+         <div className={styles.decisionIntro}>
+           <Chapter index={2} />
+           <H2 index={2} text={decision.title} />
+-          <p className={styles.body}>
++          <p className={styles.body} data-reveal-soft>
+             <Lines text={decision.body} />
+           </p>
+         </div>
+-        <div
+-          className={styles.points}
+-          role="radiogroup"
+-          aria-label={decision.groupLabel}
+-        >
++        {/* The marks follow the point being read (spec §13.3); the list is plain text. */}
++        <ol className={styles.points} aria-label={decision.groupLabel} data-points>
+           {decision.points.map((point, i) => (
+-            <label key={point.id} className={styles.point}>
+-              <input
+-                className={styles.pointInput}
+-                type="radio"
+-                name="point"
+-                value={point.id}
+-                defaultChecked={i === 0}
+-              />
++            <li
++              key={point.id}
++              className={styles.point}
++              data-step={point.id}
++              data-active={i === 0 ? "" : undefined}
++            >
+               <span className={styles.radio} aria-hidden="true" />
+               <span className={styles.pointTitle}>
+                 <Lines text={point.title} />
+@@ -242,9 +243,9 @@ function Decision() {
+               <span className={styles.pointText}>
+                 <Lines text={point.text} />
+               </span>
+-            </label>
++            </li>
+           ))}
+-        </div>
++        </ol>
+       </div>
+       <DecisionMarks />
+     </Section>
+@@ -254,24 +255,24 @@ function Decision() {
+ const glyphs = {
+   one: (
+     <svg viewBox="0 0 56 20">
+-      <circle cx="10" cy="10" r="7" />
++      <circle cx="10" cy="10" r="7" pathLength={1} />
+     </svg>
+   ),
+   three: (
+     <svg viewBox="0 0 56 20">
+-      <circle cx="8" cy="10" r="6" />
+-      <circle cx="28" cy="10" r="6" />
+-      <circle cx="48" cy="10" r="6" />
+-      <path d="M14 10h8M34 10h8" />
++      <circle cx="8" cy="10" r="6" pathLength={1} />
++      <circle cx="28" cy="10" r="6" pathLength={1} />
++      <circle cx="48" cy="10" r="6" pathLength={1} />
++      <path d="M14 10h8M34 10h8" pathLength={1} />
+     </svg>
+   ),
+   rise: (
+     <svg viewBox="0 -4 56 34">
+-      <circle cx="8" cy="22" r="6" />
+-      <circle cx="28" cy="22" r="6" />
+-      <circle cx="48" cy="22" r="6" />
+-      <path d="M14 22h8M34 22h8M28 16V9.5" />
+-      <circle cx="28" cy="5" r="4.5" />
++      <circle cx="8" cy="22" r="6" pathLength={1} />
++      <circle cx="28" cy="22" r="6" pathLength={1} />
++      <circle cx="48" cy="22" r="6" pathLength={1} />
++      <path d="M14 22h8M34 22h8M28 16V9.5" pathLength={1} />
++      <circle cx="28" cy="5" r="4.5" pathLength={1} />
+     </svg>
+   ),
+ };
+@@ -360,7 +361,7 @@ function Roles() {
+       <div className={styles.col}>
+         <Chapter index={4} />
+         <H2 index={4} text={roles.title} />
+-        <p className={styles.body}>
++        <p className={styles.body} data-reveal-soft>
+           <Lines text={roles.body} />
+         </p>
+         <dl className={styles.roles} aria-label={roles.listLabel}>
+@@ -405,7 +406,7 @@ function Execution() {
+         <div className={styles.execIntro}>
+           <Chapter index={5} />
+           <H2 index={5} text={execution.title} className={styles.execTitle} />
+-          <p className={styles.body}>
++          <p className={styles.body} data-reveal-soft>
+             <Lines text={execution.body} />
+           </p>
+         </div>
+diff --git a/src/components/general-managers/general-managers.module.css b/src/components/general-managers/general-managers.module.css
+index 6709994..52d1b3c 100644
+--- a/src/components/general-managers/general-managers.module.css
++++ b/src/components/general-managers/general-managers.module.css
+@@ -16,11 +16,6 @@
+   font-weight: 100 900;
+   font-display: swap;
+ }
+-@property --reach {
+-  syntax: "<percentage>";
+-  inherits: false;
+-  initial-value: 0%;
+-}
+ 
+ /* Anything the compositor has not painted yet during a fast scroll shows the
+    root's colour; keep it the page's ink rather than the site's paper. */
+@@ -179,6 +174,9 @@
+     background: rgb(8 10 18 / 36%);
+     filter: blur(calc(36 * var(--z)));
+   }
++  .flow .flowLabel {
++    color: var(--ivory);
++  }
+   /* The index keeps only its staff; hover or focus opens it. */
+   .gauge:not(:hover, :focus-within) {
+     background: none;
+@@ -242,23 +240,17 @@
+   width: 100%;
+   height: 100%;
+ }
++/* Lit water, faded on its own compositor layer: the light arrives with the drop
++   and the ring's ripples, so no per-frame mask is repainted while scrolling. */
+ .lit {
+-  --ox: 50%;
+-  --oy: 50%;
+   position: absolute;
+   left: calc(var(--x) * var(--k));
+   top: calc(var(--y) * var(--k));
+   width: calc(var(--w) * var(--k));
+   height: calc(var(--h) * var(--k));
+   opacity: 0;
+-  mask-image: radial-gradient(
+-    circle farthest-corner at var(--ox) var(--oy),
+-    #000 calc(var(--reach) - 18%),
+-    transparent var(--reach)
+-  );
+-  transition:
+-    opacity var(--dur-panel) var(--ease-panel),
+-    --reach 0s linear var(--dur-panel);
++  transition: opacity 700ms var(--ease-panel);
++  will-change: opacity;
+ }
+ .lit img {
+   display: block;
+@@ -358,11 +350,144 @@
+     height: calc(120 * var(--k));
+   }
+ }
+-/* Motion-only layers are not painted unless the script runs them (a hidden
+-   blended layer still changes text antialiasing in static captures). */
+-.sweep {
++/* Motion-only light (spec §13.3). Not painted at rest: a hidden blended layer
++   still changes text antialiasing in static captures. The dawn runs in CSS so it
++   starts with the first paint, before hydration. */
++.dawn {
+   display: none;
+ }
++.dusk,
++.sun,
++.inn {
++  position: absolute;
++  pointer-events: none;
++}
++.dusk {
++  inset: 0 0 auto;
++  height: calc(1100 * var(--k));
++  background: linear-gradient(
++    to bottom,
++    rgb(6 10 30 / 72%),
++    rgb(6 10 30 / 58%) 55%,
++    rgb(6 10 30 / 0%)
++  );
++  opacity: 0;
++}
++.sun,
++.inn {
++  left: calc((var(--cx) - var(--rx)) * var(--k));
++  top: calc((var(--cy) - var(--ry)) * var(--k));
++  width: calc(var(--rx) * 2 * var(--k));
++  height: calc(var(--ry) * 2 * var(--k));
++  border-radius: 50%;
++  mix-blend-mode: screen;
++  opacity: 0;
++}
++/* The first sun on the open water beside the headline, spreading along the
++   surface rather than over the words. */
++.sun {
++  background: radial-gradient(
++    closest-side,
++    rgb(255 214 160 / 85%),
++    rgb(255 160 80 / 50%) 35%,
++    rgb(255 120 50 / 16%) 70%,
++    rgb(255 120 50 / 0%)
++  );
++  transform-origin: 70% 50%;
++}
++.inn {
++  background: radial-gradient(
++    closest-side,
++    rgb(255 208 150 / 62%),
++    rgb(255 160 90 / 24%) 50%,
++    rgb(255 150 80 / 0%)
++  );
++}
++@media (prefers-reduced-motion: no-preference) {
++  @media (min-width: 1024px) {
++    .dawn.desktop {
++      display: block;
++    }
++  }
++  @media (max-width: 1023.98px) {
++    .dawn.mobile {
++      display: block;
++    }
++  }
++  .dusk {
++    animation:
++      dusk-lift 2200ms cubic-bezier(0.45, 0.05, 0.25, 1) 150ms backwards,
++      done 1ms linear 2400ms forwards;
++    opacity: 0;
++  }
++  .sun {
++    animation:
++      sunrise 2800ms cubic-bezier(0.3, 0.1, 0.3, 1) 350ms backwards,
++      done 1ms linear 3200ms forwards;
++  }
++  /* The headline rises line by line from behind an invisible baseline. */
++  .title span {
++    animation: line-rise var(--dur-reveal) var(--ease-reveal) backwards;
++    animation-delay: calc(420ms + var(--i, 0) * 140ms);
++  }
++  .title span:nth-child(2) {
++    --i: 1;
++  }
++  .hero [data-hero-after] {
++    animation: soft-rise var(--dur-reveal) var(--ease-reveal) 900ms backwards;
++  }
++  .hero [data-hero-after] + [data-hero-after] {
++    animation-delay: 1000ms;
++  }
++  .hero :is(.crumb, .eyebrow) {
++    animation: soft-rise 900ms var(--ease-reveal) 250ms backwards;
++  }
++}
++@keyframes dusk-lift {
++  from {
++    opacity: 1;
++  }
++  to {
++    opacity: 0;
++  }
++}
++@keyframes sunrise {
++  0% {
++    opacity: 0;
++    transform: scale(0.45, 0.3);
++  }
++  45% {
++    opacity: 1;
++  }
++  100% {
++    opacity: 0;
++    transform: scale(1.15, 1);
++  }
++}
++/* both ends hidden: a 1 ms animation ends at progress 0.99999…, where a
++   visible→hidden interpolation would still be visible */
++@keyframes done {
++  from,
++  to {
++    visibility: hidden;
++  }
++}
++@keyframes line-rise {
++  from {
++    transform: translateY(105%);
++    clip-path: inset(-30% -8% 100% -8%);
++  }
++  to {
++    transform: none;
++    clip-path: inset(-30% -8% 0 -8%);
++  }
++}
++@keyframes soft-rise {
++  from {
++    opacity: 0;
++    transform: translateY(calc(12 * var(--z)));
++  }
++}
+ 
+ /* ------------------------------------------------------------ sections */
+ .section {
+@@ -547,6 +672,16 @@
+   font: 300 calc(22 * var(--z)) / 1 var(--narrow);
+   color: var(--ivory-3);
+ }
++/* One block per line so the motion layer can lift each from its baseline: the
++   line clips only while its words rise (a transform, never a repainted clip). */
++.line,
++.lineInner {
++  display: block;
++}
++.page[data-motion="on"] [data-rising] .line {
++  overflow: clip;
++  overflow-clip-margin: calc(10 * var(--z));
++}
+ .h2 {
+   margin-top: calc(20 * var(--z));
+   font: 400 calc(48 * var(--z)) / 1.38 var(--serif);
+@@ -640,7 +775,27 @@
+ }
+ @media (max-width: 1023.98px) {
+   .helper {
+-    display: none;
++    position: relative;
++    color: var(--ivory);
++    gap: calc(9 * var(--z));
++    margin-top: calc(14 * var(--z));
++    font-size: calc(12.5 * var(--z));
++    letter-spacing: 0.03em;
++  }
++  /* A soft pool under the line (its ::before is the dot). */
++  .helper::after {
++    content: "";
++    position: absolute;
++    z-index: -1;
++    inset: calc(-14 * var(--z)) calc(-24 * var(--z));
++    border-radius: 50%;
++    background: radial-gradient(
++      closest-side,
++      rgb(8 10 18 / 50%),
++      rgb(8 10 18 / 28%) 55%,
++      rgb(8 10 18 / 0%)
++    );
++    pointer-events: none;
+   }
+ }
+ .issues {
+@@ -682,6 +837,22 @@
+     box-shadow var(--dur-state) var(--ease-state),
+     transform var(--dur-press) var(--ease-state);
+ }
++/* "+": the ring can be added to the selection. */
++.ring::before {
++  content: "";
++  position: absolute;
++  inset: 0;
++  border-radius: 50%;
++  background:
++    linear-gradient(currentColor, currentColor) center / 42% 1.5px no-repeat,
++    linear-gradient(currentColor, currentColor) center / 1.5px 42% no-repeat;
++  color: var(--ivory);
++  opacity: 0.9;
++  transition:
++    opacity var(--dur-fast) var(--ease-state),
++    color var(--dur-state) var(--ease-state),
++    transform var(--dur-state) var(--ease-reveal);
++}
+ .ring::after {
+   content: "";
+   position: absolute;
+@@ -751,19 +922,31 @@
+ .issue:active .ring {
+   transform: scale(0.9);
+ }
+-/* Selected: the first light reaches this field; the words are printed in ink. */
+-.issue:has(.issueInput:checked)::before {
++/* In the light — the terrace being read (spec §13.3), or a selected one, where
++   the light stays: the words are printed in ink on the lit water. */
++.issue:is([data-dawn], :has(.issueInput:checked))::before {
+   opacity: 0;
+ }
++.issue[data-dawn] .ring {
++  border-color: var(--ink-page);
++  background: rgb(255 240 222 / 70%);
++}
++.issue[data-dawn] .ring::before {
++  color: var(--ink-page);
++}
+ .issue:has(.issueInput:checked) .ring {
+   border-color: var(--flare);
+   background: var(--flare);
+ }
++.issue:has(.issueInput:checked) .ring::before {
++  opacity: 0;
++  transform: rotate(90deg) scale(0.4);
++}
+ .issue:has(.issueInput:checked) .ring::after {
+   opacity: 1;
+   transform: rotate(45deg) scale(1);
+ }
+-.issue:has(.issueInput:checked) :is(.issueTitle, .issueText) {
++.issue:is([data-dawn], :has(.issueInput:checked)) :is(.issueTitle, .issueText) {
+   color: var(--ink-page);
+   font-weight: 500;
+   text-shadow: var(--halo-lit);
+@@ -798,7 +981,7 @@
+   pointer-events: none;
+   transition: opacity var(--dur-reveal) var(--ease-reveal);
+ }
+-.issue:has(.issueInput:checked) :is(.issueTitle, .issueText)::before {
++.issue:is([data-dawn], :has(.issueInput:checked)) :is(.issueTitle, .issueText)::before {
+   opacity: 1;
+ }
+ @media (max-width: 1023.98px) {
+@@ -823,6 +1006,20 @@
+     inset: calc(-10 * var(--z)) calc(-26 * var(--z));
+     filter: blur(calc(14 * var(--z)));
+   }
++  /* The phone plate lights 販売 only to the right of its words: the light under
++     them spreads from that water, softer and wider than a pool. */
++  .issue[data-issue="sales"] :is(.issueTitle, .issueText)::before {
++    inset: calc(-14 * var(--z)) calc(-40 * var(--z)) calc(-14 * var(--z))
++      calc(-30 * var(--z));
++    border-radius: calc(40 * var(--z));
++    background: linear-gradient(
++      90deg,
++      rgb(255 224 190 / 72%),
++      rgb(255 224 190 / 96%) 45%,
++      rgb(255 224 190 / 90%)
++    );
++    filter: blur(calc(18 * var(--z)));
++  }
+   .issueTitle {
+     font-size: calc(24 * var(--z));
+     line-height: 1.25;
+@@ -836,24 +1033,30 @@
+ }
+ 
+ /* ------------------------------------------------------------ 02 */
++/* A stepper: the point being read carries the orange mark, and the marks on the
++   photograph follow it (spec §13.3). */
+ .points {
++  position: relative;
+   display: grid;
+-  gap: calc(26 * var(--z));
++  gap: calc(44 * var(--z));
+   margin-top: calc(40 * var(--z));
+ }
++.points::before {
++  content: "";
++  position: absolute;
++  left: calc(10 * var(--z) - 0.5px);
++  top: calc(20 * var(--z));
++  bottom: calc(40 * var(--z));
++  width: 1px;
++  background: var(--hair);
++}
+ .point {
++  position: relative;
+   display: grid;
+   grid-template-columns: calc(20 * var(--z)) auto;
+   column-gap: calc(16 * var(--z));
+   row-gap: calc(6 * var(--z));
+   align-items: center;
+-  cursor: pointer;
+-}
+-.pointInput {
+-  position: absolute;
+-  width: 1px;
+-  height: 1px;
+-  opacity: 0;
+ }
+ .radio {
+   position: relative;
+@@ -861,7 +1064,10 @@
+   height: calc(20 * var(--z));
+   border: 1.5px solid var(--ivory);
+   border-radius: 50%;
+-  transition: border-color var(--dur-state) var(--ease-state);
++  background: var(--ink-page);
++  transition:
++    border-color var(--dur-state) var(--ease-state),
++    box-shadow var(--dur-panel) var(--ease-panel);
+ }
+ .radio::after {
+   content: "";
+@@ -872,15 +1078,29 @@
+   transform: scale(0);
+   transition: transform var(--dur-state) var(--ease-reveal);
+ }
+-.pointInput:checked + .radio {
++.point[data-active] .radio {
+   border-color: var(--flare);
++  box-shadow: 0 0 0 calc(6 * var(--z)) rgb(255 126 21 / 18%);
+ }
+-.pointInput:checked + .radio::after {
++.point[data-active] .radio::after {
+   transform: scale(1);
+ }
+-.pointInput:focus-visible + .radio {
+-  outline: 2px solid var(--ivory);
+-  outline-offset: 4px;
++/* The mark beside the point being read grows down its text. */
++.point::after {
++  content: "";
++  position: absolute;
++  left: calc(10 * var(--z) - 1px);
++  top: calc(26 * var(--z));
++  bottom: calc(-4 * var(--z));
++  width: 2px;
++  background: var(--flare);
++  transform: scaleY(0);
++  transform-origin: top;
++  transition: transform var(--dur-panel) var(--ease-panel);
++}
++.point[data-active]::after {
++  transform: scaleY(1);
++  transition-duration: 900ms;
+ }
+ .pointTitle {
+   font: 400 calc(23 * var(--z)) / 1.3 var(--serif);
+@@ -893,11 +1113,6 @@
+   letter-spacing: 0.05em;
+   text-shadow: var(--halo);
+ }
+-@media (hover: hover) {
+-  .point:hover .radio {
+-    box-shadow: 0 0 0 calc(5 * var(--z)) rgb(241 239 234 / 14%);
+-  }
+-}
+ .tag {
+   --tx: var(--txd);
+   --ty: var(--tyd);
+@@ -917,19 +1132,23 @@
+   --pad: 26;
+   --a: 0.55;
+ }
+-.tag:not([data-modes~="cause"]) {
+-  opacity: 0;
+-  visibility: hidden;
++.tag {
++  transition:
++    opacity var(--dur-panel) var(--ease-panel),
++    visibility 0s linear var(--dur-panel);
+ }
+-.page:has(.pointInput[value="priority"]:checked) .tag:not([data-modes~="priority"]),
+-.page:has(.pointInput[value="authority"]:checked) .tag:not([data-modes~="authority"]) {
++[data-point="cause"] .tag:not([data-modes~="cause"]),
++[data-point="priority"] .tag:not([data-modes~="priority"]),
++[data-point="authority"] .tag:not([data-modes~="authority"]) {
+   opacity: 0;
+   visibility: hidden;
+ }
+-.page:has(.pointInput[value="priority"]:checked) .tag[data-modes~="priority"],
+-.page:has(.pointInput[value="authority"]:checked) .tag[data-modes~="authority"] {
+-  opacity: 1;
+-  visibility: visible;
++[data-point="cause"] .tag[data-modes~="cause"],
++[data-point="priority"] .tag[data-modes~="priority"],
++[data-point="authority"] .tag[data-modes~="authority"] {
++  transition:
++    opacity var(--dur-panel) var(--ease-panel) 200ms,
++    visibility 0s;
+ }
+ .marks {
+   position: absolute;
+@@ -943,19 +1162,34 @@
+ .mode {
+   transition: opacity var(--dur-panel) var(--ease-panel);
+ }
+-.mode:not([data-mode="cause"]) {
++[data-point="cause"] .mode:not([data-mode="cause"]),
++[data-point="priority"] .mode:not([data-mode="priority"]),
++[data-point="authority"] .mode:not([data-mode="authority"]) {
+   opacity: 0;
+ }
+-.page:has(.pointInput[value="priority"]:checked) .mode:not([data-mode="priority"]),
+-.page:has(.pointInput[value="authority"]:checked) .mode:not([data-mode="authority"]) {
+-  opacity: 0;
++/* The glow lives in the photograph, outside 02; the script mirrors the point onto
++   it (a page-level :has() here recalculated the whole page on every change). */
++.causeGlow[data-point="authority"] {
++  opacity: 0.35;
+ }
+-.page:has(.pointInput[value="priority"]:checked) .mode[data-mode="priority"],
+-.page:has(.pointInput[value="authority"]:checked) .mode[data-mode="authority"] {
+-  opacity: 1;
++/* Each point's lines are drawn when it is read; a line that leaves is reset
++   only after its fade. */
++.page [data-draw] {
++  stroke-dashoffset: 1;
++  transition: stroke-dashoffset 0s linear var(--dur-panel);
+ }
+-.page:has(.pointInput[value="authority"]:checked) .causeGlow {
+-  opacity: 0.35;
++.page [data-point="cause"] [data-draw="cause"],
++.page [data-point="priority"] [data-draw="priority"],
++.page [data-point="authority"] [data-draw="authority"] {
++  stroke-dashoffset: 0;
++  transition: stroke-dashoffset 1000ms cubic-bezier(0.45, 0.05, 0.25, 1) 150ms;
++}
++/* Before the reader reaches 02 nothing is drawn yet (motion only). */
++.page[data-motion="on"] section:not([data-drawn]) [data-draw] {
++  stroke-dashoffset: 1;
++}
++.page[data-motion="on"] .causeGlow:not([data-drawn]) {
++  opacity: 0;
+ }
+ .mode[data-mode="priority"] .markRing {
+   fill: rgb(14 17 24 / 66%);
+@@ -984,6 +1218,16 @@
+   .radio::after {
+     inset: calc(4.5 * var(--z) - 1.5px);
+   }
++  .points::before {
++    left: calc(11 * var(--z) - 0.5px);
++    top: calc(34 * var(--z));
++    bottom: calc(40 * var(--z));
++  }
++  .point::after {
++    left: calc(11 * var(--z) - 1px);
++    top: calc(40 * var(--z));
++    bottom: calc(6 * var(--z));
++  }
+   .pointTitle {
+     font-size: calc(19 * var(--z));
+     line-height: 1.4;
+@@ -1127,8 +1371,10 @@
+ .cellLabel {
+   display: none;
+ }
++/* Which issues of 01 each row answers — shown whether or not anything is chosen;
++   the chosen ones are filled (spec §13.3). */
+ .why {
+-  display: none;
++  display: flex;
+   align-items: center;
+   gap: calc(6 * var(--z));
+   flex-wrap: wrap;
+@@ -1386,6 +1632,8 @@
+   .agree {
+     --pad: 30;
+     --a: 0.5;
++    /* 03's cards now name their issues, so 04 sits lower on the photograph. */
++    color: var(--ivory);
+     margin-top: calc(26 * var(--z));
+     font-size: calc(13 * var(--z));
+     line-height: 1.85;
+@@ -1763,14 +2011,49 @@
+ .page:has(.issueInput[value="system"]:checked) :is(.chip[data-issue="system"]) {
+   display: inline-flex;
+ }
+-.page:has(.issueInput[value="quality"]:checked) .row[data-issues~="quality"] .why,
+-.page:has(.issueInput[value="people"]:checked) .row[data-issues~="people"] .why,
++.why .chip {
++  display: inline-flex;
++  gap: calc(6 * var(--z));
++  border-color: rgb(241 239 234 / 45%);
++  transition:
++    border-color var(--dur-state) var(--ease-state),
++    box-shadow var(--dur-state) var(--ease-state);
++}
++.why .chip::before {
++  content: "";
++  width: calc(6 * var(--z));
++  height: calc(6 * var(--z));
++  margin-left: calc(-12 * var(--z));
++  border-radius: 50%;
++  background: var(--flare);
++  transform: scale(0);
++  transition:
++    transform var(--dur-state) var(--ease-reveal),
++    margin var(--dur-state) var(--ease-state);
++}
++/* A chosen issue keeps the light: orange rim and dot, ivory words (small ink on
++   orange measured below 4.5:1 once antialiased). */
++.page:has(.issueInput[value="quality"]:checked) .why .chip[data-issue="quality"],
++.page:has(.issueInput[value="people"]:checked) .why .chip[data-issue="people"],
+ .page:has(.issueInput[value="productivity"]:checked)
+-  .row[data-issues~="productivity"]
+-  .why,
+-.page:has(.issueInput[value="sales"]:checked) .row[data-issues~="sales"] .why,
+-.page:has(.issueInput[value="system"]:checked) .row[data-issues~="system"] .why {
+-  display: flex;
++  .why
++  .chip[data-issue="productivity"],
++.page:has(.issueInput[value="sales"]:checked) .why .chip[data-issue="sales"],
++.page:has(.issueInput[value="system"]:checked) .why .chip[data-issue="system"] {
++  border-color: var(--flare);
++  box-shadow: inset 0 0 0 1px var(--flare);
++}
++.page:has(.issueInput[value="quality"]:checked)
++  .why
++  .chip[data-issue="quality"]::before,
++.page:has(.issueInput[value="people"]:checked) .why .chip[data-issue="people"]::before,
++.page:has(.issueInput[value="productivity"]:checked)
++  .why
++  .chip[data-issue="productivity"]::before,
++.page:has(.issueInput[value="sales"]:checked) .why .chip[data-issue="sales"]::before,
++.page:has(.issueInput[value="system"]:checked) .why .chip[data-issue="system"]::before {
++  margin-left: 0;
++  transform: scale(1);
+ }
+ .page:has(.issueInput[value="quality"]:checked) .row[data-issues~="quality"]::before,
+ .page:has(.issueInput[value="people"]:checked) .row[data-issues~="people"]::before,
+@@ -1796,12 +2079,10 @@
+ .page:has(.issueInput[value="people"]:checked) .lit[data-issue="people"],
+ .page:has(.issueInput[value="productivity"]:checked) .lit[data-issue="productivity"],
+ .page:has(.issueInput[value="sales"]:checked) .lit[data-issue="sales"],
+-.page:has(.issueInput[value="system"]:checked) .lit[data-issue="system"] {
+-  --reach: 118%;
++.page:has(.issueInput[value="system"]:checked) .lit[data-issue="system"],
++.lit[data-dawn] {
+   opacity: 1;
+-  transition:
+-    opacity 600ms var(--ease-reveal),
+-    --reach var(--dur-reveal) var(--ease-reveal);
++  transition: opacity 900ms cubic-bezier(0.3, 0.1, 0.3, 1);
+ }
+ 
+ /* ------------------------------------------------------------ chapter gauge */
+@@ -2187,39 +2468,30 @@
+ }
+ 
+ /* ------------------------------------------------------------ motion (script only) */
+-.page[data-motion="on"] .sweep {
+-  display: block;
++/* 01: the light running down the spill from one terrace to the next. */
++.drop {
++  display: none;
++}
++.page[data-motion="on"] .drop {
+   position: absolute;
+   left: 0;
+-  top: calc(250 * var(--k));
+-  width: 100%;
+-  height: calc(360 * var(--k));
+-  mix-blend-mode: screen;
+-  background: linear-gradient(
+-    102deg,
+-    transparent 38%,
+-    rgb(255 214 170 / 18%) 47%,
+-    rgb(255 236 214 / 40%) 52%,
+-    rgb(255 214 170 / 18%) 57%,
+-    transparent 66%
++  top: 0;
++  display: block;
++  width: calc(90 * var(--z));
++  height: calc(90 * var(--z));
++  margin: calc(-45 * var(--z)) 0 0 calc(-45 * var(--z));
++  border-radius: 50%;
++  /* Plain alpha over the dark levee (a blended layer repainted every frame). */
++  background: radial-gradient(
++    closest-side,
++    #fff6ea 0 8%,
++    rgb(255 220 170 / 62%) 15%,
++    rgb(255 170 90 / 22%) 40%,
++    rgb(255 150 70 / 0%)
+   );
+-  mask-image: linear-gradient(to bottom, transparent, #000 25%, #000 75%, transparent);
+   opacity: 0;
+-}
+-@media (max-width: 1023.98px) {
+-  .page[data-motion="on"] .sweep {
+-    top: calc(120 * var(--k));
+-    height: calc(420 * var(--k));
+-    background: linear-gradient(
+-      112deg,
+-      transparent 30%,
+-      rgb(255 214 170 / 18%) 44%,
+-      rgb(255 236 214 / 36%) 50%,
+-      rgb(255 214 170 / 18%) 56%,
+-      transparent 70%
+-    );
+-    mask-image: radial-gradient(closest-side, #000 55%, transparent);
+-  }
++  pointer-events: none;
++  will-change: transform, opacity;
+ }
+ .page[data-motion="on"] .gateHead,
+ .page[data-motion="on"] .gateGlow,
+@@ -2229,10 +2501,12 @@
+ .gateGlow {
+   mix-blend-mode: screen;
+ }
+-.page[data-motion="on"] .issueInput:checked ~ .ring .ripple {
++.page[data-motion="on"] .issueInput:checked ~ .ring .ripple,
++.page[data-motion="on"] .issue[data-dawn] .ripple {
+   animation: ripple 1500ms var(--ease-reveal) 1;
+ }
+-.page[data-motion="on"] .issueInput:checked ~ .ring .ripple + .ripple {
++.page[data-motion="on"] .issueInput:checked ~ .ring .ripple + .ripple,
++.page[data-motion="on"] .issue[data-dawn] .ripple + .ripple {
+   animation-delay: 220ms;
+ }
+ @keyframes ripple {
+@@ -2274,6 +2548,94 @@
+     transform: translateX(100%);
+   }
+ }
++/* 03: each row's figure is drawn as the row comes up, with the light crossing it. */
++.page[data-motion="on"] :is(.glyph, .glyphInline) svg > * {
++  stroke-dasharray: 1;
++  stroke-dashoffset: 1;
++  transition: stroke-dashoffset 900ms cubic-bezier(0.45, 0.05, 0.25, 1);
++}
++.page[data-motion="on"] :is(.glyph, .glyphInline) svg > :nth-child(2) {
++  transition-delay: 120ms;
++}
++.page[data-motion="on"] :is(.glyph, .glyphInline) svg > :nth-child(3) {
++  transition-delay: 240ms;
++}
++.page[data-motion="on"] :is(.glyph, .glyphInline) svg > :nth-child(n + 4) {
++  transition-delay: 360ms;
++}
++.page[data-motion="on"] .row[data-seen] :is(.glyph, .glyphInline) svg > * {
++  stroke-dashoffset: 0;
++}
++/* 05: a reached spill's name steps in beside its ring. */
++.page[data-motion="on"] .gate[data-state="done"] .gateName {
++  animation: gate-in 700ms var(--ease-reveal) both;
++}
++@keyframes gate-in {
++  from {
++    opacity: 0.35;
++    transform: translateX(calc(-6 * var(--z)));
++  }
++}
++/* 06: the light runs along the rule and checks each item it reaches. */
++.page[data-motion="on"] .tick > * {
++  stroke-dasharray: 1;
++  stroke-dashoffset: 1;
++  transition: stroke-dashoffset 600ms cubic-bezier(0.45, 0.05, 0.25, 1);
++}
++.page[data-motion="on"] .tick > path {
++  transition-delay: 260ms;
++}
++.page[data-motion="on"] .check[data-ticked] .tick > * {
++  stroke-dashoffset: 0;
++}
++.page[data-motion="on"] .check[data-ticked] .tick {
++  stroke: var(--flare);
++  transition: stroke var(--dur-state) var(--ease-state) 700ms;
++}
++.page[data-motion="on"] .checks::after {
++  content: "";
++  position: absolute;
++  left: 0;
++  top: -1px;
++  width: 100%;
++  height: 2px;
++  background: linear-gradient(90deg, rgb(255 126 21 / 0%), var(--flare) 60%, #ffd9b0);
++  box-shadow: 0 0 12px rgb(255 150 70 / 55%);
++  transform: scaleX(var(--run, 0));
++  transform-origin: left;
++  pointer-events: none;
++}
++@media (max-width: 1023.98px) {
++  .page[data-motion="on"] .checks::after {
++    display: none;
++  }
++}
++/* 07: the steps after sending light one after another; the inn's windows warm. */
++.flowStep::before {
++  transition:
++    border-color var(--dur-state) var(--ease-state),
++    background-color var(--dur-state) var(--ease-state),
++    box-shadow var(--dur-panel) var(--ease-panel);
++}
++.page[data-motion="on"] .flowStep[data-reached]::before {
++  border-color: var(--flare);
++  background: rgb(255 126 21 / 28%);
++  box-shadow: 0 0 0 calc(5 * var(--z)) rgb(255 126 21 / 14%);
++}
++.page[data-motion="on"] .inn[data-lit] {
++  animation: inn-glow 2800ms cubic-bezier(0.3, 0.1, 0.3, 1) forwards;
++}
++@keyframes inn-glow {
++  0% {
++    opacity: 0;
++  }
++  40% {
++    opacity: 0.95;
++  }
++  100% {
++    opacity: 0.45;
++  }
++}
+ @media (prefers-reduced-motion: reduce) {
+   .lit,
+   .page:has(.issueInput:checked) .lit {
+diff --git a/src/components/general-managers/gm-experience.tsx b/src/components/general-managers/gm-experience.tsx
+index 1a4a42b..a3d08af 100644
+--- a/src/components/general-managers/gm-experience.tsx
++++ b/src/components/general-managers/gm-experience.tsx
+@@ -71,31 +71,65 @@ export function GmExperience({ children }: { children: ReactNode }) {
+     const node = root.current;
+     if (!node) return;
+     const sections = [...node.querySelectorAll<HTMLElement>("section[data-chapter]")];
++    const decision = node.querySelector<HTMLElement>("section[data-point]");
++    const points = [...node.querySelectorAll<HTMLElement>("[data-points] > li")];
++    const glows = [...node.querySelectorAll<HTMLElement>("[data-cause-glow]")];
++    // Document offsets, measured only when the layout changes: reading them on
++    // every scroll frame forced a layout after each motion write.
++    let tops: number[] = [];
++    let pointTops: number[] = [];
++    let stale = true;
+     let frame = 0;
+     const measure = () => {
+       frame = 0;
+-      const line = innerHeight * 0.4;
++      const y = scrollY;
++      if (stale) {
++        stale = false;
++        tops = sections.map((s) => s.getBoundingClientRect().top + y);
++        pointTops = points.map((p) => p.getBoundingClientRect().top + y);
++      }
++      const line = y + innerHeight * 0.4;
+       let current = 0;
+-      for (const section of sections) {
++      sections.forEach((section, i) => {
+         const index = Number(section.dataset.chapter);
+-        if (index > 0 && section.getBoundingClientRect().top <= line) current = index;
+-      }
++        if (index > 0 && tops[i] <= line) current = index;
++      });
+       setChapter(current);
+-      const first = sections[1]?.getBoundingClientRect().top ?? 0;
+-      const roles = sections[4]?.getBoundingClientRect().top ?? 0;
++      // 02: the marks follow the last point the reader has reached (spec §13.3).
++      // Phones read the points below the marks, so their line sits lower.
++      const reading = y + innerHeight * (innerWidth >= 1024 ? 0.55 : 0.72);
++      let point = points[0];
++      points.forEach((p, i) => {
++        if (pointTops[i] <= reading) point = p;
++      });
++      if (decision && point && decision.dataset.point !== point.dataset.step) {
++        decision.dataset.point = point.dataset.step;
++        for (const p of points) p.toggleAttribute("data-active", p === point);
++        for (const glow of glows) glow.dataset.point = point.dataset.step;
++      }
++      const first = (tops[1] ?? y) - y;
++      const roles = (tops[4] ?? y) - y;
+       setCompact(first < innerHeight * 0.6);
+       setTrayZone(first < innerHeight && roles > innerHeight * 0.85);
+     };
+     const schedule = () => {
+       if (!frame) frame = requestAnimationFrame(measure);
+     };
++    const relayout = () => {
++      stale = true;
++      schedule();
++    };
++    const resized = new ResizeObserver(relayout);
++    resized.observe(node);
+     measure();
++    void document.fonts?.ready.then(relayout);
+     addEventListener("scroll", schedule, { passive: true });
+-    addEventListener("resize", schedule);
++    addEventListener("resize", relayout);
+     return () => {
+       cancelAnimationFrame(frame);
++      resized.disconnect();
+       removeEventListener("scroll", schedule);
+-      removeEventListener("resize", schedule);
++      removeEventListener("resize", relayout);
+     };
+   }, []);
+ 
+diff --git a/src/components/general-managers/gm-motion.ts b/src/components/general-managers/gm-motion.ts
+index 88a4ecd..508bdb1 100644
+--- a/src/components/general-managers/gm-motion.ts
++++ b/src/components/general-managers/gm-motion.ts
+@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
+ import { useState, type RefObject } from "react";
+ 
+ import { geometry } from "@/content/adelva-general-managers";
+-import { DURATION, EASE_REVEAL, gsapEase } from "@/lib/motion";
++import { EASE_REVEAL, gsapEase } from "@/lib/motion";
+ 
+ gsap.registerPlugin(useGSAP, ScrollTrigger);
+ 
+@@ -62,9 +62,11 @@ function sampleGates(points: readonly Point[]) {
+ }
+ 
+ /**
+- * Scroll choreography for /challenges/general-managers (spec §9). Registered only
+- * when the visitor has no reduced-motion preference; the server HTML is the
+- * finished state, so without this hook nothing is hidden.
++ * Scroll choreography for /challenges/general-managers (spec §9, revised §13):
++ * one line of first light that follows the reader down the slope. Registered
++ * only when the visitor has no reduced-motion preference; the server HTML is
++ * the finished state, so without this hook nothing is hidden. The hero's dawn
++ * runs in CSS from the first paint.
+  */
+ export function useGmMotion(root: RefObject<HTMLDivElement | null>) {
+   const [on, setOn] = useState(false);
+@@ -91,90 +93,207 @@ export function useGmMotion(root: RefObject<HTMLDivElement | null>) {
+           const regime = desktop ? "d" : "m";
+           const section = (n: number) =>
+             node.querySelector<HTMLElement>(`section[data-chapter="${n}"]`);
++          /** Attributes this layer writes, removed again on revert. */
++          const marked = new Map<Element, Set<string>>();
++          const mark = (el: Element, name: string, value = "") => {
++            el.setAttribute(name, value);
++            marked.set(el, (marked.get(el) ?? new Set()).add(name));
++          };
+ 
+-          // Load: the first light crosses the mirror, then the headline rises line by line.
+-          const sweep = q("[data-sweep]");
+-          // A steady pass (an entrance ease would cross the mirror in the first 300 ms).
+-          gsap
+-            .timeline({ delay: 0.2 })
+-            .set(sweep, { xPercent: -70, opacity: 0 })
+-            .to(
+-              sweep,
+-              { xPercent: 70, duration: DURATION.hero + 0.2, ease: "power1.inOut" },
+-              0,
+-            )
+-            .to(sweep, { opacity: 1, duration: 0.45, ease: "power1.out" }, 0)
+-            .to(
+-              sweep,
+-              { opacity: 0, duration: 0.6, ease: "power1.in" },
+-              DURATION.hero - 0.4,
+-            );
+-          gsap.from(q("[data-hero-line]"), {
+-            y: desktop ? 10 : 8,
+-            opacity: 0,
+-            duration: DURATION.reveal,
+-            ease: reveal,
+-            stagger: 0.12,
+-            delay: 0.1,
+-          });
+-          gsap.from(q("[data-hero-after]"), {
+-            y: 8,
+-            opacity: 0,
+-            duration: DURATION.reveal,
+-            ease: reveal,
+-            stagger: 0.08,
+-            delay: 0.46,
+-          });
+-
+-          // Chapter headings arrive as their scene comes up.
++          // Chapters: the number slides in, each heading line lifts from its baseline.
+           for (let n = 1; n <= 7; n++) {
+             const s = section(n);
+             if (!s) continue;
+-            gsap.from(s.querySelectorAll("[data-reveal]"), {
+-              y: 14,
++            const heading = s.querySelector("h2");
++            if (heading) mark(heading, "data-rising");
++            const tl = gsap.timeline({
++              scrollTrigger: { trigger: s, start: "top 80%", once: true },
++              onComplete: () => heading?.removeAttribute("data-rising"),
++            });
++            tl.from(s.querySelectorAll("p[data-reveal]"), {
++              x: -16,
+               opacity: 0,
+-              duration: 1,
++              duration: 0.9,
+               ease: reveal,
+-              stagger: 0.08,
+-              scrollTrigger: { trigger: s, start: "top 82%", once: true },
+-            });
++            })
++              .fromTo(
++                s.querySelectorAll("h2 [data-line]"),
++                { yPercent: 110 },
++                {
++                  yPercent: 0,
++                  duration: 1.1,
++                  ease: reveal,
++                  stagger: 0.09,
++                  clearProps: "transform",
++                },
++                0.08,
++              )
++              .from(
++                s.querySelectorAll("[data-reveal-soft]"),
++                { y: 12, opacity: 0, duration: 1, ease: reveal, stagger: 0.08 },
++                0.35,
++              );
+           }
+ 
+-          // 02: the dotted line climbs from the symptom to the clogged inlet.
+-          const decision = section(2);
+-          gsap.fromTo(
+-            q('[data-draw="cause"]'),
+-            { attr: { "stroke-dashoffset": 1 } },
+-            {
+-              attr: { "stroke-dashoffset": 0 },
+-              duration: 0.9,
+-              ease: "power2.inOut",
+-              scrollTrigger: { trigger: decision, start: "top 45%", once: true },
++          // 01: the first light enters the terrace at the reading line and leaves
++          // it again as the reader moves on; a chosen terrace keeps it (CSS).
++          const labels = q<HTMLLabelElement>("label[data-issue]");
++          const ids = labels.map((l) => l.dataset.issue ?? "");
++          const stage = node.querySelector<HTMLElement>("[data-stage]");
++          const drop = node.querySelector<HTMLElement>("[data-drop]");
++          let lit: string | null = null;
++          let flight: gsap.core.Tween | null = null;
++          /** Where the drop is while it runs, so a new pass continues from there. */
++          let dropAt: readonly [number, number] | null = null;
++          const setDawn = (id: string | null, onOff: boolean) => {
++            if (!id) return;
++            for (const el of node.querySelectorAll(
++              `[data-issue="${id}"]:is(label, [data-lit])`,
++            ))
++              if (onOff) mark(el, "data-dawn");
++              else el.removeAttribute("data-dawn");
++          };
++          /** Ring centres in stage coordinates, measured on refresh only so the
++           *  scroll handler never forces a layout. */
++          let rings: (readonly [number, number] | null)[] = [];
++          let stageTop = 0;
++          const measureRings = () => {
++            const box = stage?.getBoundingClientRect();
++            if (!box) return;
++            stageTop = box.top + scrollY;
++            rings = labels.map((label) => {
++              const ring = label.querySelector("[data-ring]")?.getBoundingClientRect();
++              return ring
++                ? [
++                    ring.left + ring.width / 2 - box.left,
++                    ring.top + ring.height / 2 - box.top,
++                  ]
++                : null;
++            });
++          };
++          const ringAt = (id: string) => rings[ids.indexOf(id)] ?? null;
++          /** Going down the slope, the light leaves one terrace and runs down the
++           *  spill to the next, which lights when it arrives. */
++          const pass = (from: string | null, to: string | null) => {
++            const running = flight ? dropAt : null;
++            flight?.kill();
++            flight = null;
++            setDawn(from, false);
++            const a = running ?? (from && ringAt(from));
++            const b = to && ringAt(to);
++            if (!drop || !a || !b || !to || ids.indexOf(to) < ids.indexOf(from!)) {
++              gsap.set(drop, { opacity: 0 });
++              setDawn(to, true);
++              return;
++            }
++            // over the levee: out along the upper terrace, then down to the ring
++            const c = [(a[0] + b[0]) / 2, a[1] + (b[1] - a[1]) * 0.15] as const;
++            const at = { t: 0 };
++            let arrived = false;
++            flight = gsap.to(at, {
++              t: 1,
++              duration: 0.6,
++              ease: "power1.inOut",
++              onUpdate: () => {
++                const t = at.t;
++                const u = 1 - t;
++                const x = u * u * a[0] + 2 * u * t * c[0] + t * t * b[0];
++                const y = u * u * a[1] + 2 * u * t * c[1] + t * t * b[1];
++                dropAt = [x, y];
++                gsap.set(drop, {
++                  x,
++                  y,
++                  opacity: Math.min(1, t * 6, (1 - t) * 4 + 0.35),
++                  scale: 0.7 + 0.5 * Math.sin(Math.PI * t),
++                });
++                // the terrace starts to light as the drop reaches its ring
++                if (!arrived && t > 0.7) {
++                  arrived = true;
++                  if (lit === to) setDawn(to, true);
++                }
++              },
++              onComplete: () => {
++                gsap.to(drop, {
++                  opacity: 0,
++                  scale: 1.6,
++                  duration: 0.5,
++                  ease: "power2.out",
++                });
++                flight = null;
++              },
++            });
++          };
++          const follow = () => {
++            if (!rings.length) measureRings();
++            const line = scrollY + innerHeight * (desktop ? 0.5 : 0.55) - stageTop;
++            let best: string | null = null;
++            let distance = Infinity;
++            rings.forEach((ring, i) => {
++              if (!ring) return;
++              const d = Math.abs(ring[1] - line);
++              if (d < distance) {
++                distance = d;
++                best = ids[i];
++              }
++            });
++            const next = distance <= innerHeight * 0.28 ? best : null;
++            if (next === lit) return;
++            const from = lit;
++            lit = next;
++            pass(from, next);
++          };
++          ScrollTrigger.create({
++            trigger: section(1),
++            start: "top bottom",
++            end: "bottom top",
++            onUpdate: follow,
++            onToggle: follow,
++            onRefresh: () => {
++              measureRings();
++              follow();
+             },
+-          );
+-          gsap.from(q("[data-cause-glow]"), {
+-            opacity: 0,
+-            duration: DURATION.reveal,
+-            ease: reveal,
+-            delay: 0.6,
+-            scrollTrigger: { trigger: decision, start: "top 45%", once: true },
+           });
+ 
++          // 02: nothing is drawn until the reader reaches the judgement.
++          const decision = section(2);
++          if (decision)
++            ScrollTrigger.create({
++              trigger: decision,
++              start: "top 55%",
++              once: true,
++              onEnter: () => {
++                mark(decision, "data-drawn");
++                for (const glow of q("[data-cause-glow]")) mark(glow, "data-drawn");
++              },
++            });
++
++          // 03: each row's figure is drawn and the light crosses it once.
++          for (const row of q<HTMLElement>('[role="row"][id]'))
++            ScrollTrigger.create({
++              trigger: row,
++              start: "top 85%",
++              once: true,
++              onEnter: () => {
++                mark(row, "data-seen");
++                row.dataset.light = "run";
++                gsap.delayedCall(1.4, () => delete row.dataset.light);
++              },
++            });
++
+           // 04: the roles step down the terraces one level at a time.
+-          const roles = q("[data-role]");
+-          gsap.fromTo(
+-            roles,
+-            { "--rule": 0, opacity: 0, y: 12 },
+-            {
+-              "--rule": 1,
+-              opacity: 1,
+-              y: 0,
+-              duration: 0.9,
+-              ease: reveal,
+-              stagger: 0.14,
+-              scrollTrigger: { trigger: roles[0], start: "top 80%", once: true },
+-            },
+-          );
++          for (const role of q<HTMLElement>("[data-role]"))
++            gsap.fromTo(
++              role,
++              { "--rule": 0, opacity: 0, y: 14 },
++              {
++                "--rule": 1,
++                opacity: 1,
++                y: 0,
++                duration: 0.9,
++                ease: reveal,
++                scrollTrigger: { trigger: role, start: "top 82%", once: true },
++              },
++            );
+ 
+           // 05: the orange line runs down the spills with the scroll.
+           const svg = node.querySelector<SVGSVGElement>(
+@@ -216,9 +335,9 @@ export function useGmMotion(root: RefObject<HTMLDivElement | null>) {
+                   burst,
+                   { attr: { r }, opacity: 0.9 },
+                   {
+-                    attr: { r: r * 2.8 },
++                    attr: { r: r * 3.2 },
+                     opacity: 0,
+-                    duration: 1,
++                    duration: 1.1,
+                     ease: "power2.out",
+                     overwrite: true,
+                   },
+@@ -234,7 +353,7 @@ export function useGmMotion(root: RefObject<HTMLDivElement | null>) {
+               head?.setAttribute("opacity", String(alive));
+               glow?.setAttribute("cx", x.toFixed(1));
+               glow?.setAttribute("cy", y.toFixed(1));
+-              glow?.setAttribute("opacity", String(alive * 0.9));
++              glow?.setAttribute("opacity", String(alive));
+               for (let i = 0; i < marks.length; i++)
+                 light(
+                   i,
+@@ -253,33 +372,66 @@ export function useGmMotion(root: RefObject<HTMLDivElement | null>) {
+             });
+           }
+ 
+-          // 06: the check rings draw in.
+-          const ticks = q("[data-check] svg > *");
+-          gsap.fromTo(
+-            ticks,
+-            { attr: { "stroke-dasharray": "1 1", "stroke-dashoffset": 1 } },
+-            {
+-              attr: { "stroke-dashoffset": 0 },
+-              duration: 0.6,
+-              ease: "power2.out",
+-              stagger: 0.06,
+-              scrollTrigger: { trigger: section(6), start: "top 60%", once: true },
+-            },
+-          );
++          // 06: the light runs along the rule (desktop) and checks what it reaches.
++          const checks = q<HTMLElement>("[data-check]");
++          const rule = checks[0]?.parentElement;
++          if (desktop && rule) {
++            const ticked = checks.map(() => false);
++            const tick = (p: number) => {
++              rule.style.setProperty("--run", p.toFixed(4));
++              checks.forEach((c, i) => {
++                const on = p >= i / checks.length + 0.04;
++                if (on === ticked[i]) return;
++                ticked[i] = on;
++                if (on) mark(c, "data-ticked");
++                else c.removeAttribute("data-ticked");
++              });
++            };
++            tick(0);
++            ScrollTrigger.create({
++              trigger: rule,
++              start: "top 82%",
++              end: "top 40%",
++              scrub: 0.5,
++              onUpdate: (self) => tick(self.progress),
++            });
++          } else
++            for (const c of checks)
++              ScrollTrigger.create({
++                trigger: c,
++                start: "top 86%",
++                once: true,
++                onEnter: () => mark(c, "data-ticked"),
++              });
+ 
+-          // 07: the line of the steps after sending.
+-          gsap.fromTo(
+-            q("[data-flow]"),
+-            { "--flow": 0 },
+-            {
+-              "--flow": 1,
+-              duration: DURATION.reveal,
+-              ease: reveal,
+-              scrollTrigger: { trigger: section(7), start: "top 60%", once: true },
+-            },
+-          );
++          // 07: the steps after sending light in turn; the inn's windows warm.
++          const contact = section(7);
++          const flow = q<HTMLElement>("[data-flow]");
++          const steps = contact
++            ? [...contact.querySelectorAll("[data-flow] > li")]
++            : [];
++          gsap.set(flow, { "--flow": 0 });
++          if (contact)
++            ScrollTrigger.create({
++              trigger: contact,
++              start: "top 62%",
++              once: true,
++              onEnter: () => {
++                gsap.to(flow, { "--flow": 1, duration: 1.2, ease: reveal });
++                steps.forEach((step, i) =>
++                  gsap.delayedCall(0.15 + i * 0.22, () => mark(step, "data-reached")),
++                );
++                for (const inn of node.querySelectorAll("[data-inn]"))
++                  mark(inn, "data-lit");
++              },
++            });
+ 
+-          return () => setOn(false);
++          return () => {
++            setOn(false);
++            for (const [el, names] of marked)
++              for (const name of names) el.removeAttribute(name);
++            rule?.style.removeProperty("--run");
++          };
+         },
+       );
+       return () => mm.revert();
+diff --git a/src/components/general-managers/lines.tsx b/src/components/general-managers/lines.tsx
+index 39c45cd..8730ff5 100644
+--- a/src/components/general-managers/lines.tsx
++++ b/src/components/general-managers/lines.tsx
+@@ -15,5 +15,20 @@ export function Lines({ text }: { text: string }) {
+   });
+ }
+ 
++/**
++ * The same copy with every "\n" line in its own block, so the motion layer can
++ * lift each line from behind its baseline (spec §13.3). Layout-specific breaks
++ * stay inside their line.
++ */
++export function MaskLines({ text }: { text: string }) {
++  return text.split("\n").map((line, i) => (
++    <span key={i} className={styles.line}>
++      <span className={styles.lineInner} data-line>
++        <Lines text={line} />
++      </span>
++    </span>
++  ));
++}
++
+ /** The same copy as one plain string, for accessible names and tests. */
+ export const plain = (text: string) => text.replace(/\n|<d>|<m>/g, "");
+diff --git a/src/components/general-managers/terrace-marks.tsx b/src/components/general-managers/terrace-marks.tsx
+index 01889cc..e50ad36 100644
+--- a/src/components/general-managers/terrace-marks.tsx
++++ b/src/components/general-managers/terrace-marks.tsx
+@@ -110,23 +110,44 @@ function DecisionSvg({ regime }: { regime: "d" | "m" }) {
+   const down: Point = desk ? [1160, 2414] : [226, 2120];
+   const chevron = ([x, y]: Point, dir: 1 | -1) =>
+     `M${x - 7},${y + 4 * dir} l7,${-7 * dir} l7,${7 * dir}`;
+-  const id = `gm-${regime}-cause-draw`;
++  const id = (mode: string) => `gm-${regime}-${mode}-draw`;
+   const box: Box = desk ? [600, 2150, 840, 800] : [0, 1960, 390, 360];
++  const ellipse = desk
++    ? { cx: 985, cy: 2627, rx: 318, ry: 64 }
++    : { cx: 215, cy: 2168, rx: 172, ry: 66 };
++  /** A wide white stroke along each line, drawn by CSS when its point is read. */
++  const drawn = (mode: string, d: string) => (
++    <path
++      d={d}
++      fill="none"
++      stroke="#fff"
++      strokeWidth={14}
++      pathLength={1}
++      strokeDasharray="1 1"
++      data-draw={mode}
++    />
++  );
+   return (
+     <Svg box={box} regime={regime} name="decision">
+       <defs>
+-        <mask id={id} maskUnits="userSpaceOnUse" {...region(box)}>
+-          <path
+-            d={causePath}
++        <mask id={id("cause")} maskUnits="userSpaceOnUse" {...region(box)}>
++          {drawn("cause", causePath)}
++        </mask>
++        <mask id={id("priority")} maskUnits="userSpaceOnUse" {...region(box)}>
++          {drawn("priority", flow)}
++          <ellipse
++            {...ellipse}
+             fill="none"
+             stroke="#fff"
+-            strokeWidth={12}
++            strokeWidth={14}
+             pathLength={1}
+             strokeDasharray="1 1"
+-            strokeDashoffset={0}
+-            data-draw="cause"
++            data-draw="priority"
+           />
+         </mask>
++        <mask id={id("authority")} maskUnits="userSpaceOnUse" {...region(box)}>
++          {drawn("authority", boundary)}
++        </mask>
+       </defs>
+       <g className={styles.mode} data-mode="cause">
+         <path
+@@ -134,40 +155,26 @@ function DecisionSvg({ regime }: { regime: "d" | "m" }) {
+           d={causePath}
+           strokeWidth={2}
+           strokeDasharray={desk ? "2 7" : "2 6"}
+-          mask={`url(#${id})`}
++          mask={`url(#${id("cause")})`}
+           vectorEffect="non-scaling-stroke"
+         />
+         <Ring at={[cx, cy]} r={r} width={2.2} />
+         <Ring at={[sx, sy]} r={r} width={1.8} />
+       </g>
+       <g className={styles.mode} data-mode="priority">
+-        {desk ? (
+-          <ellipse
+-            className={styles.markHair}
+-            cx={985}
+-            cy={2627}
+-            rx={318}
+-            ry={64}
+-            strokeWidth={1.4}
+-            strokeDasharray="4 6"
+-            vectorEffect="non-scaling-stroke"
+-          />
+-        ) : (
+-          <ellipse
+-            className={styles.markHair}
+-            cx={215}
+-            cy={2168}
+-            rx={172}
+-            ry={66}
+-            strokeWidth={1.4}
+-            strokeDasharray="4 6"
+-            vectorEffect="non-scaling-stroke"
+-          />
+-        )}
++        <ellipse
++          className={styles.markHair}
++          {...ellipse}
++          strokeWidth={1.4}
++          strokeDasharray="4 6"
++          mask={`url(#${id("priority")})`}
++          vectorEffect="non-scaling-stroke"
++        />
+         <path
+           className={styles.markLine}
+           d={flow}
+           strokeWidth={1.6}
++          mask={`url(#${id("priority")})`}
+           vectorEffect="non-scaling-stroke"
+         />
+         <Ring at={[cx, cy]} r={r} width={2.2} no="01" />
+@@ -180,6 +187,7 @@ function DecisionSvg({ regime }: { regime: "d" | "m" }) {
+           d={boundary}
+           strokeWidth={1.6}
+           strokeDasharray="7 7"
++          mask={`url(#${id("authority")})`}
+           vectorEffect="non-scaling-stroke"
+         />
+         <path
+@@ -278,8 +286,9 @@ function GateSvg({ regime }: { regime: "d" | "m" }) {
+     <Svg box={box} regime={regime} name="gates">
+       <defs>
+         <radialGradient id={glow}>
+-          <stop offset="0" stopColor="#ffd7a8" stopOpacity="0.55" />
+-          <stop offset="0.45" stopColor="#ff9a4a" stopOpacity="0.22" />
++          <stop offset="0" stopColor="#ffe2bd" stopOpacity="0.8" />
++          <stop offset="0.3" stopColor="#ffb068" stopOpacity="0.38" />
++          <stop offset="0.6" stopColor="#ff9a4a" stopOpacity="0.12" />
+           <stop offset="1" stopColor="#ff7e15" stopOpacity="0" />
+         </radialGradient>
+         <mask id={draw} maskUnits="userSpaceOnUse" {...region(box)}>
+@@ -297,7 +306,7 @@ function GateSvg({ regime }: { regime: "d" | "m" }) {
+       </defs>
+       <circle
+         className={styles.gateGlow}
+-        r={desk ? 70 : 46}
++        r={desk ? 110 : 72}
+         cx={gates[0][0]}
+         cy={gates[0][1]}
+         fill={`url(#${glow})`}
+diff --git a/src/components/general-managers/terraces-photo.tsx b/src/components/general-managers/terraces-photo.tsx
+index 044fc72..8afc934 100644
+--- a/src/components/general-managers/terraces-photo.tsx
++++ b/src/components/general-managers/terraces-photo.tsx
+@@ -56,35 +56,31 @@ function Tiles() {
+ }
+ 
+ /**
+- * The five selectable terraces in their lit state. Each is revealed by a circle
+- * growing from its ring when the matching checkbox is checked (pure CSS).
++ * The five selectable terraces in their lit state. Each fades in while the reader
++ * is at it (spec §13) or while its checkbox is checked (pure CSS).
+  */
+ function LitFields() {
+   return regimes.map(({ key, g, className }) => (
+     <div key={key} className={`${styles.layer} ${className}`}>
+-      {issues.map((issue, i) => {
++      {issues.map((issue) => {
+         const box = g.lit[issue.id];
+         const k = g.width / g.plate.width;
+         const x = box.left * k;
+         const y = box.top * k;
+         const w = box.width * k;
+         const h = box.height * k;
+-        // the ring the light spreads from, in the overlay's own box
+-        const [rx, ry] =
+-          key === "d" ? geometry.desktop.rings[i] : [36, geometry.mobile.rows[i] + 30];
+         return (
+           <div
+             key={issue.id}
+             className={styles.lit}
+             data-issue={issue.id}
++            data-lit
+             style={
+               {
+                 "--x": x.toFixed(2),
+                 "--y": y.toFixed(2),
+                 "--w": w.toFixed(2),
+                 "--h": h.toFixed(2),
+-                "--ox": `${(((rx - x) / w) * 100).toFixed(1)}%`,
+-                "--oy": `${(((ry - y) / h) * 100).toFixed(1)}%`,
+               } as Vars
+             }
+           >
+@@ -122,6 +118,31 @@ const desktopPools = [
+   [640, 6380, 780, 250, 0.36],
+ ] as const;
+ 
++/**
++ * Light that exists only for motion (spec §13.3): the first sun on the upper
++ * mirror at load, and the inn's windows when the reader arrives at 07.
++ * [x, y, rx, ry] in mock px.
++ */
++const light = {
++  d: { sun: [1150, 440, 420, 120], inn: [1000, 7190, 330, 170] },
++  m: { sun: [322, 338, 120, 46], inn: [262, 7156, 150, 90] },
++} as const;
++
++function Light() {
++  return regimes.map(({ key, className }) => {
++    const { sun, inn } = light[key];
++    const at = ([cx, cy, rx, ry]: readonly number[]) =>
++      ({ "--cx": cx, "--cy": cy, "--rx": rx, "--ry": ry }) as Vars;
++    return (
++      <div key={key} className={`${styles.layer} ${styles.dawn} ${className}`}>
++        <i className={styles.dusk} />
++        <i className={styles.sun} style={at(sun)} />
++        <i className={styles.inn} style={at(inn)} data-inn />
++      </div>
++    );
++  });
++}
++
+ export function TerracesPhoto() {
+   return (
+     <div className={styles.photo} aria-hidden="true" data-photo>
+@@ -147,7 +168,8 @@ export function TerracesPhoto() {
+         </div>
+       ))}
+       <div className={styles.headShade} />
+-      <div className={styles.sweep} data-sweep />
++      <Light />
++      <i className={styles.drop} data-drop />
+       <div className={styles.footFade} />
+     </div>
+   );
+diff --git a/tests/e2e/general-managers.spec.ts b/tests/e2e/general-managers.spec.ts
+index ccb4702..b3f9576 100644
+--- a/tests/e2e/general-managers.spec.ts
++++ b/tests/e2e/general-managers.spec.ts
+@@ -57,9 +57,19 @@ const issue = (page: Page, id: string) =>
+   page.locator(`input[name="issue"][value="${id}"]`);
+ const litOpacity = (page: Page, id: string) =>
+   page
+-    .locator(`[data-issue="${id}"][style*="--ox"]:visible`)
++    .locator(`[data-lit][data-issue="${id}"]:visible`)
+     .first()
+     .evaluate((n) => Number(getComputedStyle(n).opacity));
++/** Scrolls so the given point of 02 sits just above the reading line. */
++async function readPoint(page: Page, id: string) {
++  await page.locator(`[data-points] [data-step="${id}"]`).evaluate((n) => {
++    const reading = innerHeight * (innerWidth >= 1024 ? 0.55 : 0.72);
++    scrollTo({
++      top: scrollY + n.getBoundingClientRect().top - reading + 8,
++      behavior: "instant",
++    });
++  });
++}
+ 
+ for (const [width, height] of [
+   [1440, 900],
+@@ -123,9 +133,8 @@ for (const [width, height] of [
+         expect(await scan()).toEqual([]);
+         await issue(page, "quality").check({ force: true });
+         await issue(page, "system").check({ force: true });
+-        await page
+-          .locator('input[name="point"][value="authority"]')
+-          .check({ force: true });
++        await readPoint(page, "authority");
++        await expect(page.locator("#gm-02")).toHaveAttribute("data-point", "authority");
+         expect(await scan()).toEqual([]);
+         await page.addStyleTag({ content: "img,picture{visibility:hidden!important}" });
+         const text = (await page.locator("main").textContent())?.replace(/\s+/g, "");
+@@ -141,17 +150,19 @@ test.describe("general-managers interaction", () => {
+     await page.setViewportSize({ width: 1440, height: 900 });
+     await open(page);
+     expect(await litOpacity(page, "people")).toBe(0);
+-    await expect(
+-      page.locator('[role="row"][data-issues~="people"] [data-issue="people"]'),
+-    ).toBeHidden();
++    const related = page.locator(
++      '[role="row"][data-issues~="people"] [data-issue="people"]',
++    );
++    // 03 names the related issues before anything is chosen (spec §13.3)
++    await expect(related).toBeVisible();
++    const fill = () => related.evaluate((n) => getComputedStyle(n).borderTopColor);
++    const unchosen = await fill();
+     // keyboard: tab to the checkbox and toggle with Space
+     await issue(page, "people").focus();
+     await page.keyboard.press("Space");
+     await expect(issue(page, "people")).toBeChecked();
+     await expect.poll(() => litOpacity(page, "people")).toBe(1);
+-    await expect(
+-      page.locator('[role="row"][data-issues~="people"] [data-issue="people"]'),
+-    ).toBeVisible();
++    await expect.poll(fill).not.toBe(unchosen);
+     await expect(page.locator(`#gm-07 [data-issue="people"]`)).toBeVisible();
+     await expect(page.locator(`#gm-07 [data-issue="quality"]`)).toBeHidden();
+     await page.keyboard.press("Space");
+@@ -159,23 +170,54 @@ test.describe("general-managers interaction", () => {
+     await expect(page.locator(`#gm-07 [data-issue="people"]`)).toBeHidden();
+   });
+ 
+-  test("points of judgement switch the marks on the photograph", async ({ page }) => {
++  for (const [width, height] of [
++    [1440, 900],
++    [390, 844],
++  ])
++    test(`${width}: the marks follow the point being read, without a tap`, async ({
++      page,
++    }) => {
++      await page.setViewportSize({ width, height });
++      await open(page);
++      const section = page.locator("#gm-02");
++      const tag = (text: string) => page.locator(`p[data-modes]`, { hasText: text });
++      const list = page.getByRole("list", { name: decision.groupLabel });
++      await expect(list.getByRole("listitem")).toHaveCount(3);
++      await expect(page.locator("#gm-02 input")).toHaveCount(0);
++      await expect(section).toHaveAttribute("data-point", "cause");
++      await expect(tag(decision.symptom)).toBeVisible();
++      await expect(tag(decision.management)).toBeHidden();
++      await readPoint(page, "priority");
++      await expect(section).toHaveAttribute("data-point", "priority");
++      await expect(list.locator('[data-step="priority"]')).toHaveAttribute(
++        "data-active",
++        "",
++      );
++      await readPoint(page, "authority");
++      await expect(section).toHaveAttribute("data-point", "authority");
++      await expect(tag(decision.management)).toBeVisible();
++      await expect(tag(decision.field)).toBeVisible();
++      await expect(tag(decision.symptom)).toBeHidden();
++      // reading back up returns to the first point
++      await page.evaluate(() => scrollTo({ top: 0, behavior: "instant" }));
++      await expect(section).toHaveAttribute("data-point", "cause");
++    });
++
++  test("03 shows which issues each row answers before anything is chosen", async ({
++    page,
++  }) => {
+     await page.setViewportSize({ width: 1440, height: 900 });
+     await open(page);
+-    const tag = (text: string) => page.locator(`p[data-modes]`, { hasText: text });
+-    await expect(tag(decision.symptom)).toBeVisible();
+-    await expect(tag(decision.management)).toBeHidden();
+-    const group = page.getByRole("radiogroup", { name: decision.groupLabel });
+-    await group.getByRole("radio", { name: /現場判断と/ }).check({ force: true });
+-    await expect(tag(decision.management)).toBeVisible();
+-    await expect(tag(decision.field)).toBeVisible();
+-    await expect(tag(decision.symptom)).toBeHidden();
+-    // arrow keys move within the group
+-    await group.getByRole("radio", { name: /現場判断と/ }).focus();
+-    await page.keyboard.press("ArrowUp");
+-    await expect(
+-      group.getByRole("radio", { name: "優先順位と影響範囲" }),
+-    ).toBeChecked();
++    const chip = (row: number, id: string) =>
++      page.locator(`#gm-support-${row} [data-issue="${id}"]`);
++    for (const id of ["quality", "people", "productivity"])
++      await expect(chip(1, id)).toBeVisible();
++    for (const id of ["sales", "system"]) await expect(chip(2, id)).toBeVisible();
++    const fill = () =>
++      chip(2, "sales").evaluate((n) => getComputedStyle(n).borderTopColor);
++    const before = await fill();
++    await issue(page, "sales").check({ force: true });
++    await expect.poll(fill).not.toBe(before);
+   });
+ 
+   test("the chapter index links to each chapter and marks the current one", async ({
+@@ -283,6 +325,12 @@ test.describe("general-managers motion", () => {
+         "data-motion",
+         "on",
+       );
++      // the hero headline is never hidden by the script after the first paint
++      expect(
++        await page
++          .locator("[data-hero-line]")
++          .evaluateAll((ns) => ns.map((n) => (n as HTMLElement).style.opacity)),
++      ).toEqual(["", ""]);
+       await issue(page, "quality").check({ force: true });
+       for (let y = 0; y < 16000; y += 500) {
+         await page.mouse.wheel(0, 500);
+@@ -297,4 +345,43 @@ test.describe("general-managers motion", () => {
+       ).toEqual(Array(6).fill("done"));
+       expect(errors).toEqual([]);
+     });
++
++  for (const [width, height] of [
++    [1440, 900],
++    [390, 844],
++  ])
++    test(`${width}: reading down 01 lights each terrace in turn, without a tap`, async ({
++      page,
++    }) => {
++      await page.setViewportSize({ width, height });
++      await open(page);
++      await expect(page.locator("[data-general-managers]")).toHaveAttribute(
++        "data-motion",
++        "on",
++      );
++      const seen: string[] = [];
++      for (const { id } of issues) {
++        await page.locator(`label[data-issue="${id}"] [data-ring]`).evaluate((n) => {
++          const line = innerHeight * (innerWidth >= 1024 ? 0.5 : 0.55);
++          const box = n.getBoundingClientRect();
++          scrollTo({
++            top: scrollY + box.top + box.height / 2 - line,
++            behavior: "instant",
++          });
++        });
++        await expect(page.locator(`label[data-issue="${id}"]`)).toHaveAttribute(
++          "data-dawn",
++          "",
++        );
++        await expect.poll(() => litOpacity(page, id)).toBe(1);
++        // only the terrace being read is lit; nothing was chosen
++        expect(await page.locator("label[data-dawn]").count()).toBe(1);
++        seen.push(id);
++      }
++      expect(seen).toEqual(issues.map((i) => i.id));
++      await expect(page.locator('input[name="issue"]:checked')).toHaveCount(0);
++      // leaving 01 lets the light go
++      await page.locator("#gm-04").scrollIntoViewIfNeeded();
++      await expect(page.locator("label[data-dawn]")).toHaveCount(0);
++    });
+ });
